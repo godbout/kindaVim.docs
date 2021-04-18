@@ -10,12 +10,15 @@ import SwiftUI
 
 @main
 class AppDelegate: NSObject, NSApplicationDelegate {
-
-    var window: NSWindow!
-    var statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
+    
+    let statusItem: NSStatusItem = {
+        let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
+        statusItem.button?.title = "kV"
+        
+        return statusItem
+    }()
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        statusItem.button?.title = "kV"
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
