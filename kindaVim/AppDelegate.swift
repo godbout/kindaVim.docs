@@ -15,8 +15,16 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
         statusItem.button?.title = "kV"
         
+        let menu = NSMenu()
+        menu.addItem(withTitle: "Quit", action: #selector(quit), keyEquivalent: "")
+        statusItem.menu = menu
+        
         return statusItem
     }()
+    
+    @objc func quit() {
+        NSApplication.shared.terminate(self)
+    }
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
     }
