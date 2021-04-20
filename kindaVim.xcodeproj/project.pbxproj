@@ -14,6 +14,7 @@
 		9128F2BA262AA90D00625B42 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9128F2B8262AA90D00625B42 /* Main.storyboard */; };
 		9128F2C6262AA90D00625B42 /* kindaVimTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9128F2C5262AA90D00625B42 /* kindaVimTests.swift */; };
 		9128F2D1262AA90D00625B42 /* kindaVimUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9128F2D0262AA90D00625B42 /* kindaVimUITests.swift */; };
+		917458F1262EB934007D3855 /* StatusBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917458F0262EB934007D3855 /* StatusBarController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 		9128F2CC262AA90D00625B42 /* kindaVimUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = kindaVimUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9128F2D0262AA90D00625B42 /* kindaVimUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kindaVimUITests.swift; sourceTree = "<group>"; };
 		9128F2D2262AA90D00625B42 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		917458F0262EB934007D3855 /* StatusBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBarController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				9128F2AF262AA90C00625B42 /* AppDelegate.swift */,
+				917458F0262EB934007D3855 /* StatusBarController.swift */,
 				9128F2B1262AA90D00625B42 /* ContentView.swift */,
 				9128F2B3262AA90D00625B42 /* Assets.xcassets */,
 				9128F2B8262AA90D00625B42 /* Main.storyboard */,
@@ -266,6 +269,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9128F2B2262AA90D00625B42 /* ContentView.swift in Sources */,
+				917458F1262EB934007D3855 /* StatusBarController.swift in Sources */,
 				9128F2B0262AA90C00625B42 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
