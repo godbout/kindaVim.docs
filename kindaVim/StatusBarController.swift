@@ -20,6 +20,8 @@ class StatusBarController {
         let preferencesMenuItem = menu.addItem(withTitle: "Preferences...", action: #selector(preferences), keyEquivalent: ",")
         preferencesMenuItem.target = self
         
+        menu.addItem(NSMenuItem.separator())
+        
         let quitMenuItem = menu.addItem(withTitle: "Quit", action: #selector(quit), keyEquivalent: "q")
         quitMenuItem.target = self
 
