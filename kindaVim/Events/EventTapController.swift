@@ -10,7 +10,19 @@ import Foundation
 struct EventTapController {
     
     var eventTapCallback: CGEventTapCallBack = { proxy, _, event, _ in
-        return GlobalEventsController.handle(proxy: proxy, event: event)
+        guard let originalKeyCombination = KeyCombinationConverter.toKeyCombination(from: event) else { return Unmanaged.passUnretained(event) }
+        
+        guard let transformedKeyCombinations = GlobalEventsController.handle(originalKeyCombination) else { return Unmanaged.passUnretained(event) }
+        
+        for transformedKeyCombination in transformedKeyCombinations {
+            let transformedCGEvent = KeyCombinationConverter.toCGEvent(from: transformedKeyCombination)
+            
+            transformedCGEvent?.tapPostEvent(proxy)
+            
+            print("'\(originalKeyCombination.key)' transformed to '\(transformedKeyCombination.key)'")
+        }
+
+        return nil
     }
     
     init() {

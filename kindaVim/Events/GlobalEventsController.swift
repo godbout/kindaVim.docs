@@ -9,20 +9,24 @@ import Foundation
 
 struct GlobalEventsController {
     
-    static func handle(proxy: CGEventTapProxy, event: CGEvent) -> Unmanaged<CGEvent>? {
-        if let originalKeyCombination = KeyCombinationConverter.toKeyCombination(from: event) {
-            let transformedKeyCombination = VimEngineController.shared.transform(from: originalKeyCombination)
+    static func handle(_ originalKeyCombination: KeyCombination) -> [KeyCombination]? {
+        if globalVimEngineHotkeyIsPressed(originalKeyCombination) {
+            VimEngineController.shared.enterCommandMode()
             
-            if let transformedCGEvent = KeyCombinationConverter.toCGEvent(from: transformedKeyCombination) {
-                transformedCGEvent.tapPostEvent(proxy)
-                
-                print("'\(originalKeyCombination.key)' transformed to '\(transformedKeyCombination.key)'")
-                
-                return nil
-            }
+            print("enter command mode")
+            
+            return []
         }
         
-        return Unmanaged.passUnretained(event)
+        if VimEngineController.shared.currentMode == .command {
+            return VimEngineController.shared.transform(from: originalKeyCombination)
+        }
+        
+        return [originalKeyCombination]
+    }
+    
+    static func globalVimEngineHotkeyIsPressed(_ keyCombination: KeyCombination) -> Bool {
+        return keyCombination.key == .escape && keyCombination.command == true
     }
     
 }
