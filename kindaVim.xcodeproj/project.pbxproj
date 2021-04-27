@@ -7,14 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		911BB7492632899E006882D8 /* VimEngineController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911BB7482632899E006882D8 /* VimEngineController.swift */; };
+		911BB75626328D7D006882D8 /* EventTapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911BB75526328D7D006882D8 /* EventTapController.swift */; };
+		9128B0ED26380ACC007DC80B /* GlobalEventsControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9128B0EC26380ACC007DC80B /* GlobalEventsControllerTests.swift */; };
 		9128F2B0262AA90C00625B42 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9128F2AF262AA90C00625B42 /* AppDelegate.swift */; };
 		9128F2B2262AA90D00625B42 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9128F2B1262AA90D00625B42 /* ContentView.swift */; };
 		9128F2B4262AA90D00625B42 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9128F2B3262AA90D00625B42 /* Assets.xcassets */; };
 		9128F2B7262AA90D00625B42 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9128F2B6262AA90D00625B42 /* Preview Assets.xcassets */; };
 		9128F2BA262AA90D00625B42 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9128F2B8262AA90D00625B42 /* Main.storyboard */; };
-		9128F2C6262AA90D00625B42 /* kindaVimTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9128F2C5262AA90D00625B42 /* kindaVimTests.swift */; };
-		9128F2D1262AA90D00625B42 /* kindaVimUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9128F2D0262AA90D00625B42 /* kindaVimUITests.swift */; };
 		917458F1262EB934007D3855 /* StatusBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917458F0262EB934007D3855 /* StatusBarController.swift */; };
+		918024B926386E95004FD719 /* AppComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918024B826386E95004FD719 /* AppComponent.swift */; };
+		9197C0852636695A006C696A /* KeyCombinationConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9197C0842636695A006C696A /* KeyCombinationConverter.swift */; };
+		9197C08A26366A3B006C696A /* KeyCombinationToCGEventTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9197C08926366A3B006C696A /* KeyCombinationToCGEventTests.swift */; };
+		9197C09C26369D73006C696A /* CGEventToKeyCombinationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9197C09B26369D73006C696A /* CGEventToKeyCombinationTests.swift */; };
+		919DEB5C2632C3750052D514 /* VimEngineControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919DEB5B2632C3750052D514 /* VimEngineControllerTest.swift */; };
+		919DEB632632C85B0052D514 /* KeyCombination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919DEB622632C85B0052D514 /* KeyCombination.swift */; };
+		91BC934226352A1E00B62B18 /* GlobalEventsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BC934126352A1E00B62B18 /* GlobalEventsController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -25,16 +33,12 @@
 			remoteGlobalIDString = 9128F2AB262AA90C00625B42;
 			remoteInfo = kindaVim;
 		};
-		9128F2CD262AA90D00625B42 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 9128F2A4262AA90C00625B42 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 9128F2AB262AA90C00625B42;
-			remoteInfo = kindaVim;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		911BB7482632899E006882D8 /* VimEngineController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VimEngineController.swift; sourceTree = "<group>"; };
+		911BB75526328D7D006882D8 /* EventTapController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTapController.swift; sourceTree = "<group>"; };
+		9128B0EC26380ACC007DC80B /* GlobalEventsControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalEventsControllerTests.swift; sourceTree = "<group>"; };
 		9128F2AC262AA90C00625B42 /* kindaVim.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kindaVim.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9128F2AF262AA90C00625B42 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9128F2B1262AA90D00625B42 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -44,12 +48,15 @@
 		9128F2BB262AA90D00625B42 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9128F2BC262AA90D00625B42 /* kindaVim.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = kindaVim.entitlements; sourceTree = "<group>"; };
 		9128F2C1262AA90D00625B42 /* kindaVimTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = kindaVimTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		9128F2C5262AA90D00625B42 /* kindaVimTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kindaVimTests.swift; sourceTree = "<group>"; };
 		9128F2C7262AA90D00625B42 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9128F2CC262AA90D00625B42 /* kindaVimUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = kindaVimUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		9128F2D0262AA90D00625B42 /* kindaVimUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kindaVimUITests.swift; sourceTree = "<group>"; };
-		9128F2D2262AA90D00625B42 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		917458F0262EB934007D3855 /* StatusBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBarController.swift; sourceTree = "<group>"; };
+		918024B826386E95004FD719 /* AppComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppComponent.swift; sourceTree = "<group>"; };
+		9197C0842636695A006C696A /* KeyCombinationConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyCombinationConverter.swift; sourceTree = "<group>"; };
+		9197C08926366A3B006C696A /* KeyCombinationToCGEventTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyCombinationToCGEventTests.swift; sourceTree = "<group>"; };
+		9197C09B26369D73006C696A /* CGEventToKeyCombinationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGEventToKeyCombinationTests.swift; sourceTree = "<group>"; };
+		919DEB5B2632C3750052D514 /* VimEngineControllerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VimEngineControllerTest.swift; sourceTree = "<group>"; };
+		919DEB622632C85B0052D514 /* KeyCombination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyCombination.swift; sourceTree = "<group>"; };
+		91BC934126352A1E00B62B18 /* GlobalEventsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalEventsController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,22 +74,58 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9128F2C9262AA90D00625B42 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9115315D263860F80048F8F8 /* Unit */ = {
+			isa = PBXGroup;
+			children = (
+				9197C09426369D31006C696A /* KeyCombinationConverterTests */,
+				9128B0EB26380AB0007DC80B /* EventsTests */,
+				9128B0F2263820C5007DC80B /* VimEngine */,
+			);
+			path = Unit;
+			sourceTree = "<group>";
+		};
+		911BB75A26329513006882D8 /* StatusBar */ = {
+			isa = PBXGroup;
+			children = (
+				917458F0262EB934007D3855 /* StatusBarController.swift */,
+			);
+			path = StatusBar;
+			sourceTree = "<group>";
+		};
+		911BB75B26329526006882D8 /* Events */ = {
+			isa = PBXGroup;
+			children = (
+				91BC934126352A1E00B62B18 /* GlobalEventsController.swift */,
+				911BB75526328D7D006882D8 /* EventTapController.swift */,
+				9197C0842636695A006C696A /* KeyCombinationConverter.swift */,
+			);
+			path = Events;
+			sourceTree = "<group>";
+		};
+		9128B0EB26380AB0007DC80B /* EventsTests */ = {
+			isa = PBXGroup;
+			children = (
+				9128B0EC26380ACC007DC80B /* GlobalEventsControllerTests.swift */,
+			);
+			path = EventsTests;
+			sourceTree = "<group>";
+		};
+		9128B0F2263820C5007DC80B /* VimEngine */ = {
+			isa = PBXGroup;
+			children = (
+				919DEB5B2632C3750052D514 /* VimEngineControllerTest.swift */,
+			);
+			path = VimEngine;
+			sourceTree = "<group>";
+		};
 		9128F2A3262AA90C00625B42 = {
 			isa = PBXGroup;
 			children = (
 				9128F2AE262AA90C00625B42 /* kindaVim */,
 				9128F2C4262AA90D00625B42 /* kindaVimTests */,
-				9128F2CF262AA90D00625B42 /* kindaVimUITests */,
 				9128F2AD262AA90C00625B42 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -92,7 +135,6 @@
 			children = (
 				9128F2AC262AA90C00625B42 /* kindaVim.app */,
 				9128F2C1262AA90D00625B42 /* kindaVimTests.xctest */,
-				9128F2CC262AA90D00625B42 /* kindaVimUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -100,8 +142,11 @@
 		9128F2AE262AA90C00625B42 /* kindaVim */ = {
 			isa = PBXGroup;
 			children = (
+				911BB75A26329513006882D8 /* StatusBar */,
+				911BB75B26329526006882D8 /* Events */,
+				919DEB612632C8320052D514 /* VimEngine */,
 				9128F2AF262AA90C00625B42 /* AppDelegate.swift */,
-				917458F0262EB934007D3855 /* StatusBarController.swift */,
+				918024B826386E95004FD719 /* AppComponent.swift */,
 				9128F2B1262AA90D00625B42 /* ContentView.swift */,
 				9128F2B3262AA90D00625B42 /* Assets.xcassets */,
 				9128F2B8262AA90D00625B42 /* Main.storyboard */,
@@ -123,19 +168,28 @@
 		9128F2C4262AA90D00625B42 /* kindaVimTests */ = {
 			isa = PBXGroup;
 			children = (
-				9128F2C5262AA90D00625B42 /* kindaVimTests.swift */,
+				9115315D263860F80048F8F8 /* Unit */,
 				9128F2C7262AA90D00625B42 /* Info.plist */,
 			);
 			path = kindaVimTests;
 			sourceTree = "<group>";
 		};
-		9128F2CF262AA90D00625B42 /* kindaVimUITests */ = {
+		9197C09426369D31006C696A /* KeyCombinationConverterTests */ = {
 			isa = PBXGroup;
 			children = (
-				9128F2D0262AA90D00625B42 /* kindaVimUITests.swift */,
-				9128F2D2262AA90D00625B42 /* Info.plist */,
+				9197C08926366A3B006C696A /* KeyCombinationToCGEventTests.swift */,
+				9197C09B26369D73006C696A /* CGEventToKeyCombinationTests.swift */,
 			);
-			path = kindaVimUITests;
+			path = KeyCombinationConverterTests;
+			sourceTree = "<group>";
+		};
+		919DEB612632C8320052D514 /* VimEngine */ = {
+			isa = PBXGroup;
+			children = (
+				911BB7482632899E006882D8 /* VimEngineController.swift */,
+				919DEB622632C85B0052D514 /* KeyCombination.swift */,
+			);
+			path = VimEngine;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -176,24 +230,6 @@
 			productReference = 9128F2C1262AA90D00625B42 /* kindaVimTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		9128F2CB262AA90D00625B42 /* kindaVimUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 9128F2DB262AA90D00625B42 /* Build configuration list for PBXNativeTarget "kindaVimUITests" */;
-			buildPhases = (
-				9128F2C8262AA90D00625B42 /* Sources */,
-				9128F2C9262AA90D00625B42 /* Frameworks */,
-				9128F2CA262AA90D00625B42 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				9128F2CE262AA90D00625B42 /* PBXTargetDependency */,
-			);
-			name = kindaVimUITests;
-			productName = kindaVimUITests;
-			productReference = 9128F2CC262AA90D00625B42 /* kindaVimUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -207,10 +243,6 @@
 						CreatedOnToolsVersion = 12.4;
 					};
 					9128F2C0262AA90D00625B42 = {
-						CreatedOnToolsVersion = 12.4;
-						TestTargetID = 9128F2AB262AA90C00625B42;
-					};
-					9128F2CB262AA90D00625B42 = {
 						CreatedOnToolsVersion = 12.4;
 						TestTargetID = 9128F2AB262AA90C00625B42;
 					};
@@ -231,7 +263,6 @@
 			targets = (
 				9128F2AB262AA90C00625B42 /* kindaVim */,
 				9128F2C0262AA90D00625B42 /* kindaVimTests */,
-				9128F2CB262AA90D00625B42 /* kindaVimUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -254,13 +285,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9128F2CA262AA90D00625B42 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -269,8 +293,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				9128F2B2262AA90D00625B42 /* ContentView.swift in Sources */,
+				91BC934226352A1E00B62B18 /* GlobalEventsController.swift in Sources */,
 				917458F1262EB934007D3855 /* StatusBarController.swift in Sources */,
+				9197C0852636695A006C696A /* KeyCombinationConverter.swift in Sources */,
+				911BB7492632899E006882D8 /* VimEngineController.swift in Sources */,
+				918024B926386E95004FD719 /* AppComponent.swift in Sources */,
 				9128F2B0262AA90C00625B42 /* AppDelegate.swift in Sources */,
+				911BB75626328D7D006882D8 /* EventTapController.swift in Sources */,
+				919DEB632632C85B0052D514 /* KeyCombination.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,15 +308,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9128F2C6262AA90D00625B42 /* kindaVimTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		9128F2C8262AA90D00625B42 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				9128F2D1262AA90D00625B42 /* kindaVimUITests.swift in Sources */,
+				919DEB5C2632C3750052D514 /* VimEngineControllerTest.swift in Sources */,
+				9197C08A26366A3B006C696A /* KeyCombinationToCGEventTests.swift in Sources */,
+				9197C09C26369D73006C696A /* CGEventToKeyCombinationTests.swift in Sources */,
+				9128B0ED26380ACC007DC80B /* GlobalEventsControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,11 +322,6 @@
 			isa = PBXTargetDependency;
 			target = 9128F2AB262AA90C00625B42 /* kindaVim */;
 			targetProxy = 9128F2C2262AA90D00625B42 /* PBXContainerItemProxy */;
-		};
-		9128F2CE262AA90D00625B42 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 9128F2AB262AA90C00625B42 /* kindaVim */;
-			targetProxy = 9128F2CD262AA90D00625B42 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -438,6 +458,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = kindaVim/kindaVim.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"kindaVim/Preview Content\"";
@@ -462,6 +483,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = kindaVim/kindaVim.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"kindaVim/Preview Content\"";
@@ -524,46 +546,6 @@
 			};
 			name = Release;
 		};
-		9128F2DC262AA90D00625B42 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = ZX49WKA8QN;
-				INFOPLIST_FILE = kindaVimUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@loader_path/../Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = mo.com.sleeplessmind.kindaVimUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TEST_TARGET_NAME = kindaVim;
-			};
-			name = Debug;
-		};
-		9128F2DD262AA90D00625B42 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = ZX49WKA8QN;
-				INFOPLIST_FILE = kindaVimUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@loader_path/../Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = mo.com.sleeplessmind.kindaVimUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TEST_TARGET_NAME = kindaVim;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -590,15 +572,6 @@
 			buildConfigurations = (
 				9128F2D9262AA90D00625B42 /* Debug */,
 				9128F2DA262AA90D00625B42 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		9128F2DB262AA90D00625B42 /* Build configuration list for PBXNativeTarget "kindaVimUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				9128F2DC262AA90D00625B42 /* Debug */,
-				9128F2DD262AA90D00625B42 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
