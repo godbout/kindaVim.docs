@@ -1,0 +1,23 @@
+name: tests
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  swift:
+    name: on Catalina
+    runs-on: macos-10.15
+
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 2
+    - name: build
+      run: xcodebuild -scheme kindaVim build
+    - name: run tests
+      run: xcodebuild -scheme kindaVim test
