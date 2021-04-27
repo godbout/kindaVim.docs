@@ -11,10 +11,10 @@ import SwiftUI
 @main
 class AppDelegate: NSObject, NSApplicationDelegate {
     
-    var statusBarController: StatusBarController!
+    lazy var appComponent = AppComponent()
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        statusBarController = StatusBarController()
+        appComponent.setUp()
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
