@@ -42,7 +42,7 @@ struct KeyCombinationConverter {
     }
     
     static func toKeyCombination(from cgEvent: CGEvent) -> KeyCombination? {
-        guard let keyCode = KeyCode(rawValue: cgEvent.getIntegerValueField(.keyboardEventKeycode)) else { return nil}
+        guard let keyCode = KeyCode(rawValue: cgEvent.getIntegerValueField(.keyboardEventKeycode)) else { return nil }
         
         let keyCombination = KeyCombination(
             key: keyCode,
