@@ -35,10 +35,10 @@ class GlobalEventsControllerTests: XCTestCase {
         VimEngineController.shared.enterCommandMode()
         
         let originalKeyCombination = KeyCombination(key: .j)
-        let handledKeyCombinations = GlobalEventsController.handle(originalKeyCombination)
+        let transformedKeyCombinations = GlobalEventsController.handle(originalKeyCombination)
             
-        XCTAssertNotEqual([originalKeyCombination], handledKeyCombinations)
-        XCTAssertEqual(handledKeyCombinations?.first?.key, .down)
+        XCTAssertNotEqual([originalKeyCombination], transformedKeyCombinations)
+        XCTAssertEqual(transformedKeyCombinations?.first?.key, .down)
     }
 
 }

@@ -12,14 +12,14 @@ struct EventTapController {
     var eventTapCallback: CGEventTapCallBack = { proxy, _, event, _ in
         guard let originalKeyCombination = KeyCombinationConverter.toKeyCombination(from: event) else { return Unmanaged.passUnretained(event) }
         
-        guard let transformedKeyCombinations = GlobalEventsController.handle(originalKeyCombination) else { return Unmanaged.passUnretained(event) }
+        guard let handledKeyCombinations = GlobalEventsController.handle(originalKeyCombination) else { return Unmanaged.passUnretained(event) }
         
-        for transformedKeyCombination in transformedKeyCombinations {
-            let transformedCGEvent = KeyCombinationConverter.toCGEvent(from: transformedKeyCombination)
+        for handledKeyCombination in handledKeyCombinations {
+            let handledCGEvent = KeyCombinationConverter.toCGEvent(from: handledKeyCombination)
             
-            transformedCGEvent?.tapPostEvent(proxy)
+            handledCGEvent?.tapPostEvent(proxy)
             
-            print("'\(originalKeyCombination.key)' transformed to '\(transformedKeyCombination.key)'")
+            print("'\(originalKeyCombination.key)' handled to '\(handledKeyCombination.key)'")
         }
 
         return nil
