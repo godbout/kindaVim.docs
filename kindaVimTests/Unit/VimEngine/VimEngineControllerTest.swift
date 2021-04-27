@@ -12,7 +12,7 @@ class VimEngineControllerTest: XCTestCase {}
 
 extension VimEngineControllerTest {
     
-    func test_that_k_moves_up() throws {
+    func test_that_k_is_getting_transformed_to_up() throws {
         let k = KeyCombination(key: .k, command: false, fn: true, shift: true)
 
         let transformedKeys = VimEngineController.shared.transform(from: k)
@@ -21,7 +21,7 @@ extension VimEngineControllerTest {
         XCTAssertEqual(transformedKeys.first?.key, .up)
     }
     
-    func test_that_j_moves_down() {
+    func test_that_j_is_getting_transformed_to_down() {
         let j = KeyCombination(key: .j)
         
         let transformedKeys = VimEngineController.shared.transform(from: j)
