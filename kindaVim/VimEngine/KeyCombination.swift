@@ -1,5 +1,19 @@
 import Foundation
 
+enum KeyCode: Int64, RawRepresentable {
+    case i = 34
+    case j = 38
+    case k = 40
+    case up = 126
+    case down = 125
+    case escape = 53
+}
+
+enum KeyCombinationAction {
+    case press
+    case release
+}
+
 struct KeyCombination {
     let key: KeyCode
     var command: Bool = false
@@ -20,14 +34,15 @@ struct KeyCombination {
     }
 }
 
-enum KeyCode: Int64, RawRepresentable {
-    case j = 38
-    case k = 40
-    case up = 126
-    case down = 125
+extension KeyCombination: Equatable {
+    public static func == (lhs: KeyCombination, rhs: KeyCombination) -> Bool {
+        lhs.key == rhs.key
+            && lhs.command == rhs.command
+            && lhs.option == rhs.option
+            && lhs.control == rhs.control
+            && lhs.fn == rhs.fn
+            && lhs.shift == rhs.shift
+            && lhs.action == rhs.action
+    }
 }
 
-enum KeyCombinationAction {
-    case press
-    case release
-}

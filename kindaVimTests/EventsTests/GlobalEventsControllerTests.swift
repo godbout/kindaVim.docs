@@ -5,28 +5,40 @@
 //  Created by Guillaume Leclerc on 27/04/2021.
 //
 
+@testable import kindaVim
 import XCTest
 
 class GlobalEventsControllerTests: XCTestCase {
+    
+    func test_that_the_global_hotkey_press_sets_Vim_in_command_mode() {
+        let startingVimMode = VimEngineController.shared.currentMode
+        
+        let globalHotkeyCombination = KeyCombination(key: .escape, command: true)
+        _ = GlobalEventsController.handle(globalHotkeyCombination)
+        
+        let currentVimMode = VimEngineController.shared.currentMode
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        XCTAssertEqual(startingVimMode, .insert)
+        XCTAssertEqual(currentVimMode, .command)
     }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    
+    func test_that_in_insert_mode_the_events_are_just_passed_back_to_macOS() {
+        VimEngineController.shared.enterInsertMode()
+        
+        let originalKeyCombination = KeyCombination(key: .j)
+        let handledKeyCombinations = GlobalEventsController.handle(originalKeyCombination)
+            
+        XCTAssertEqual([originalKeyCombination], handledKeyCombinations)
     }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    
+    func test_that_in_command_mode_the_events_are_transformed() {
+        VimEngineController.shared.enterCommandMode()
+        
+        let originalKeyCombination = KeyCombination(key: .j)
+        let handledKeyCombinations = GlobalEventsController.handle(originalKeyCombination)
+            
+        XCTAssertNotEqual([originalKeyCombination], handledKeyCombinations)
+        XCTAssertEqual(handledKeyCombinations?.first?.key, .down)
     }
 
 }
