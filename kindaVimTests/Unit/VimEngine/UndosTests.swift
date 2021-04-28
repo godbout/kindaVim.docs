@@ -15,7 +15,7 @@ class UndosTests: XCTestCase {
 
         let transformedKeys = VimEngineController.shared.transform(from: u)
 
-        XCTAssertEqual(transformedKeys.count, 2)
+        guard transformedKeys.count == 2 else { return XCTFail() }
         XCTAssertEqual(transformedKeys[0].key, .z)
         XCTAssertEqual(transformedKeys[0].command, true)
         XCTAssertEqual(transformedKeys[0].action, .press)
@@ -29,7 +29,7 @@ class UndosTests: XCTestCase {
 
         let transformedKeys = VimEngineController.shared.transform(from: controlR)
 
-        XCTAssertEqual(transformedKeys.count, 2)
+        guard transformedKeys.count == 2 else { return XCTFail() }
         XCTAssertEqual(transformedKeys[0].key, .z)
         XCTAssertEqual(transformedKeys[0].command, true)
         XCTAssertEqual(transformedKeys[0].shift, true)

@@ -15,9 +15,9 @@ class MotionsTests: XCTestCase {
 
         let transformedKeys = VimEngineController.shared.transform(from: k)
 
-        XCTAssertEqual(transformedKeys.count, 2)
-        XCTAssertEqual(transformedKeys.first?.key, .up)
-        XCTAssertEqual(transformedKeys.first?.action, .press)
+        guard transformedKeys.count == 2 else { return XCTFail() }
+        XCTAssertEqual(transformedKeys[0].key, .up)
+        XCTAssertEqual(transformedKeys[0].action, .press)
         XCTAssertEqual(transformedKeys[1].key, .up)
         XCTAssertEqual(transformedKeys[1].action, .release)
     }
@@ -26,10 +26,10 @@ class MotionsTests: XCTestCase {
         let j = KeyCombination(key: .j)
         
         let transformedKeys = VimEngineController.shared.transform(from: j)
-        
-        XCTAssertEqual(transformedKeys.count, 2)
-        XCTAssertEqual(transformedKeys.first?.key, .down)
-        XCTAssertEqual(transformedKeys.first?.action, .press)
+
+        guard transformedKeys.count == 2 else { return XCTFail() }
+        XCTAssertEqual(transformedKeys[0].key, .down)
+        XCTAssertEqual(transformedKeys[0].action, .press)
         XCTAssertEqual(transformedKeys[1].key, .down)
         XCTAssertEqual(transformedKeys[1].action, .release)
     }
@@ -39,9 +39,9 @@ class MotionsTests: XCTestCase {
         
         let transformedKeys = VimEngineController.shared.transform(from: h)
         
-        XCTAssertEqual(transformedKeys.count, 2)
-        XCTAssertEqual(transformedKeys.first?.key, .left)
-        XCTAssertEqual(transformedKeys.first?.action, .press)
+        guard transformedKeys.count == 2 else { return XCTFail() }
+        XCTAssertEqual(transformedKeys[0].key, .left)
+        XCTAssertEqual(transformedKeys[0].action, .press)
         XCTAssertEqual(transformedKeys[1].key, .left)
         XCTAssertEqual(transformedKeys[1].action, .release)
     }
@@ -50,10 +50,10 @@ class MotionsTests: XCTestCase {
         let l = KeyCombination(key: .l)
         
         let transformedKeys = VimEngineController.shared.transform(from: l)
-        
-        XCTAssertEqual(transformedKeys.count, 2)
-        XCTAssertEqual(transformedKeys.first?.key, .right)
-        XCTAssertEqual(transformedKeys.first?.action, .press)
+
+        guard transformedKeys.count == 2 else { return XCTFail() }
+        XCTAssertEqual(transformedKeys[0].key, .right)
+        XCTAssertEqual(transformedKeys[0].action, .press)
         XCTAssertEqual(transformedKeys[1].key, .right)
         XCTAssertEqual(transformedKeys[1].action, .release)
     }
