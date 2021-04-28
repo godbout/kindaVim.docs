@@ -41,6 +41,11 @@ class VimEngineController {
                 KeyCombination(key: .up, action: .press),
                 KeyCombination(key: .up, action: .release)
             ]
+        case .h:
+            return [
+                KeyCombination(key: .left, action: .press),
+                KeyCombination(key: .left, action: .release)
+            ]
         default:
             return [original]
         }

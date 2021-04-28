@@ -1,11 +1,16 @@
 import Foundation
 
 enum KeyCode: Int64, RawRepresentable {
-    case i = 34
+    // motions
     case j = 38
     case k = 40
+    case h = 4
+    
+    case i = 34
+    
     case up = 126
     case down = 125
+    case left = 123
     case escape = 53
 }
 
