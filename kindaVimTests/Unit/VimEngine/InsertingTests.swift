@@ -18,6 +18,15 @@ class InsertingTests: XCTestCase {
         XCTAssertEqual(transformedKeys.count, 0)
     }
 
+    func test_that_i_switches_vim_to_insert_mode() {
+        VimEngineController.shared.enterCommandMode()
+
+        let i = KeyCombination(key: .i)
+        _ = VimEngineController.shared.transform(from: i)
+
+        XCTAssertEqual(VimEngineController.shared.currentMode, .insert)
+    }
+
     func test_that_o_gets_transformed_to_up_command_left_and_enter() {
         let o = KeyCombination(key: .o)
 
@@ -34,6 +43,15 @@ class InsertingTests: XCTestCase {
         XCTAssertEqual(transformedKeys[2].action, .press)
         XCTAssertEqual(transformedKeys[3].key, .enter)
         XCTAssertEqual(transformedKeys[3].action, .release)
+    }
+
+    func test_that_o_switches_vim_to_insert_mode() {
+        VimEngineController.shared.enterCommandMode()
+
+        let o = KeyCombination(key: .o)
+        _ = VimEngineController.shared.transform(from: o)
+
+        XCTAssertEqual(VimEngineController.shared.currentMode, .insert)
     }
     
     func test_that_O_gets_transformed_to_up_command_left_and_enter() {
@@ -56,6 +74,15 @@ class InsertingTests: XCTestCase {
         XCTAssertEqual(transformedKeys[4].action, .press)
         XCTAssertEqual(transformedKeys[5].key, .enter)
         XCTAssertEqual(transformedKeys[5].action, .release)
+    }
+
+    func test_that_O_switches_vim_to_insert_mode() {
+        VimEngineController.shared.enterCommandMode()
+
+        let O = KeyCombination(key: .o, shift: true)
+        _ = VimEngineController.shared.transform(from: O)
+
+        XCTAssertEqual(VimEngineController.shared.currentMode, .insert)
     }
 
 }
