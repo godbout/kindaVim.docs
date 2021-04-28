@@ -58,5 +58,4 @@ class InsertingTests: XCTestCase {
         XCTAssertEqual(transformedKeys[5].action, .release)
     }
 
-
 }

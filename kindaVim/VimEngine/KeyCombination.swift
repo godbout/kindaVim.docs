@@ -11,7 +11,8 @@ enum KeyCode: Int64, RawRepresentable {
     case i = 34
     case o = 31
     
-    
+    // undo
+    case u = 32
     
     case up = 126
     case down = 125
@@ -20,6 +21,8 @@ enum KeyCode: Int64, RawRepresentable {
     
     case escape = 53
     case enter = 36
+    
+    case z = 6
 }
 
 enum KeyCombinationAction {

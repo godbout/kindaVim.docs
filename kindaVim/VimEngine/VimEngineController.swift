@@ -25,6 +25,11 @@ class VimEngineController {
     
     func transform(from original: KeyCombination) -> [KeyCombination] {
         switch original.key {
+        case .u:
+            return [
+                KeyCombination(key: .z, command: true, action: .press),
+                KeyCombination(key: .z, command: true, action: .release),
+            ]            
         case .o where original.shift == false:
             VimEngineController.shared.enterInsertMode()
             
