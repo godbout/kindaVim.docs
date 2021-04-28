@@ -85,4 +85,27 @@ class InsertingTests: XCTestCase {
         XCTAssertEqual(VimEngineController.shared.currentMode, .insert)
     }
 
+    func test_that_I_gets_transformed_to_command_left() {
+        let I = KeyCombination(key: .i, shift: true)
+
+        let transformedKeys = VimEngineController.shared.transform(from: I)
+
+        guard transformedKeys.count == 2 else { return XCTFail() }
+        XCTAssertEqual(transformedKeys[0].key, .left)
+        XCTAssertEqual(transformedKeys[0].command, true)
+        XCTAssertEqual(transformedKeys[0].action, .press)
+        XCTAssertEqual(transformedKeys[1].key, .left)
+        XCTAssertEqual(transformedKeys[1].command, true)
+        XCTAssertEqual(transformedKeys[1].action, .release)
+    }
+
+    func test_that_I_switches_vim_to_insert_mode() {
+        VimEngineController.shared.enterCommandMode()
+
+        let I = KeyCombination(key: .i, shift: true)
+        _ = VimEngineController.shared.transform(from: I)
+
+        XCTAssertEqual(VimEngineController.shared.currentMode, .insert)
+    }
+
 }
