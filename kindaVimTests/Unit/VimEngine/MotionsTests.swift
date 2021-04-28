@@ -45,5 +45,16 @@ class MotionsTests: XCTestCase {
         XCTAssertEqual(transformedKeys[1].key, .left)
         XCTAssertEqual(transformedKeys[1].action, .release)
     }
-
+    
+    func test_that_l_is_getting_transformed_to_right() {
+        let l = KeyCombination(key: .l)
+        
+        let transformedKeys = VimEngineController.shared.transform(from: l)
+        
+        XCTAssertEqual(transformedKeys.count, 2)
+        XCTAssertEqual(transformedKeys.first?.key, .right)
+        XCTAssertEqual(transformedKeys.first?.action, .press)
+        XCTAssertEqual(transformedKeys[1].key, .right)
+        XCTAssertEqual(transformedKeys[1].action, .release)
+    }
 }
