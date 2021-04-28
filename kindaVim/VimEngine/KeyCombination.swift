@@ -13,6 +13,7 @@ enum KeyCode: Int64, RawRepresentable {
     
     // undo
     case u = 32
+    case r = 15
     
     case up = 126
     case down = 125

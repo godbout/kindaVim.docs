@@ -23,5 +23,21 @@ class UndosTests: XCTestCase {
         XCTAssertEqual(transformedKeys[1].command, true)
         XCTAssertEqual(transformedKeys[1].action, .release)
     }
+    
+    func test_that_ctrl_r_gets_transformed_to_command_shift_z() {
+        let controlR = KeyCombination(key: .r, control: true)
 
+        let transformedKeys = VimEngineController.shared.transform(from: controlR)
+
+        XCTAssertEqual(transformedKeys.count, 2)
+        XCTAssertEqual(transformedKeys[0].key, .z)
+        XCTAssertEqual(transformedKeys[0].command, true)
+        XCTAssertEqual(transformedKeys[0].shift, true)
+        XCTAssertEqual(transformedKeys[0].action, .press)
+        XCTAssertEqual(transformedKeys[1].key, .z)
+        XCTAssertEqual(transformedKeys[1].command, true)
+        XCTAssertEqual(transformedKeys[1].shift, true)
+        XCTAssertEqual(transformedKeys[1].action, .release)
+    }
+    
 }

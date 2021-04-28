@@ -25,6 +25,11 @@ class VimEngineController {
     
     func transform(from original: KeyCombination) -> [KeyCombination] {
         switch original.key {
+        case .r:
+            return [
+                KeyCombination(key: .z, command: true, shift: true, action: .press),
+                KeyCombination(key: .z, command: true, shift: true, action: .release),
+            ]
         case .u:
             return [
                 KeyCombination(key: .z, command: true, action: .press),
