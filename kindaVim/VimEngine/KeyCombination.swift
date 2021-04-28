@@ -7,7 +7,11 @@ enum KeyCode: Int64, RawRepresentable {
     case h = 4
     case l = 37
     
+    // insert
     case i = 34
+    case o = 31
+    
+    
     
     case up = 126
     case down = 125
@@ -15,6 +19,7 @@ enum KeyCode: Int64, RawRepresentable {
     case right = 124
     
     case escape = 53
+    case enter = 36
 }
 
 enum KeyCombinationAction {

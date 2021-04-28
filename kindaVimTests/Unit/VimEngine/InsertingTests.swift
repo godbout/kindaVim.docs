@@ -23,21 +23,17 @@ class InsertingTests: XCTestCase {
 
         let transformedKeys = VimEngineController.shared.transform(from: o)
 
-        XCTAssertEqual(transformedKeys.count, 6)
-        XCTAssertEqual(transformedKeys.first?.key, .up)
-        XCTAssertEqual(transformedKeys.first?.action, .press)
-        XCTAssertEqual(transformedKeys[1].key, .up)
+        XCTAssertEqual(transformedKeys.count, 4)
+        XCTAssertEqual(transformedKeys[0].key, .right)
+        XCTAssertEqual(transformedKeys[0].command, true)
+        XCTAssertEqual(transformedKeys[0].action, .press)
+        XCTAssertEqual(transformedKeys[1].key, .right)
+        XCTAssertEqual(transformedKeys[1].command, true)
         XCTAssertEqual(transformedKeys[1].action, .release)
-        XCTAssertEqual(transformedKeys[2].key, .right)
-        XCTAssertEqual(transformedKeys[2].command, true)
+        XCTAssertEqual(transformedKeys[2].key, .enter)
         XCTAssertEqual(transformedKeys[2].action, .press)
-        XCTAssertEqual(transformedKeys[3].key, .right)
-        XCTAssertEqual(transformedKeys[3].command, true)
+        XCTAssertEqual(transformedKeys[3].key, .enter)
         XCTAssertEqual(transformedKeys[3].action, .release)
-        XCTAssertEqual(transformedKeys[4].key, .enter)
-        XCTAssertEqual(transformedKeys[4].action, .press)
-        XCTAssertEqual(transformedKeys[5].key, .enter)
-        XCTAssertEqual(transformedKeys[5].action, .release)
     }
 
 }
