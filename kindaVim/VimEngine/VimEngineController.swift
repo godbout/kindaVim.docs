@@ -66,7 +66,20 @@ class VimEngineController {
                 KeyCombination(key: .left, command: true, action: .press),
                 KeyCombination(key: .left, command: true, action: .release)
             ]
-
+        case .a where original.shift == false:
+            VimEngineController.shared.enterInsertMode()
+            
+            return [
+                KeyCombination(key: .right, action: .press),
+                KeyCombination(key: .right, action: .release)
+            ]
+        case .a where original.shift == true:
+            VimEngineController.shared.enterInsertMode()
+            
+            return [
+                KeyCombination(key: .right, command: true, action: .press),
+                KeyCombination(key: .right, command: true, action: .release)
+            ]
         case .j:
             return [
                 KeyCombination(key: .down, action: .press),

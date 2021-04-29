@@ -107,5 +107,49 @@ class InsertingTests: XCTestCase {
 
         XCTAssertEqual(VimEngineController.shared.currentMode, .insert)
     }
+    
+    func test_that_a_gets_transformed_to_right() {
+        let a = KeyCombination(key: .a)
 
+        let transformedKeys = VimEngineController.shared.transform(from: a)
+
+        guard transformedKeys.count == 2 else { return XCTFail() }
+        XCTAssertEqual(transformedKeys[0].key, .right)
+        XCTAssertEqual(transformedKeys[0].action, .press)
+        XCTAssertEqual(transformedKeys[1].key, .right)
+        XCTAssertEqual(transformedKeys[1].action, .release)
+    }
+    
+    func test_that_a_switches_vim_to_insert_mode() {
+        VimEngineController.shared.enterCommandMode()
+
+        let a = KeyCombination(key: .a)
+        _ = VimEngineController.shared.transform(from: a)
+
+        XCTAssertEqual(VimEngineController.shared.currentMode, .insert)
+    }
+    
+    func test_that_A_gets_transformed_to_command_right() {
+        let A = KeyCombination(key: .a, shift: true)
+
+        let transformedKeys = VimEngineController.shared.transform(from: A)
+
+        guard transformedKeys.count == 2 else { return XCTFail() }
+        XCTAssertEqual(transformedKeys[0].key, .right)
+        XCTAssertEqual(transformedKeys[0].command, true)
+        XCTAssertEqual(transformedKeys[0].action, .press)
+        XCTAssertEqual(transformedKeys[1].key, .right)
+        XCTAssertEqual(transformedKeys[1].command, true)
+        XCTAssertEqual(transformedKeys[1].action, .release)
+    }
+    
+    func test_that_A_switches_vim_to_insert_mode() {
+        VimEngineController.shared.enterCommandMode()
+
+        let A = KeyCombination(key: .a, shift: true)
+        _ = VimEngineController.shared.transform(from: A)
+
+        XCTAssertEqual(VimEngineController.shared.currentMode, .insert)
+    }
+    
 }
