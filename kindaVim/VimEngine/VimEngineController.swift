@@ -18,7 +18,9 @@ class VimEngineController {
     var currentMode: VimEngineMode = .insert
     
     private init() {
-        _ = EventTapController.init()
+        #if !TESTING
+            _ = EventTapController.init()
+        #endif
         
         print("engine started")
     }
