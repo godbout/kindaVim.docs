@@ -6,11 +6,15 @@ enum KeyCode: Int64, RawRepresentable {
     case k = 40
     case h = 4
     case l = 37
+    case b = 11
     
     // insert
     case i = 34
     case o = 31
     case a = 0
+    
+    // delete
+    case x = 7
     
     // undo
     case u = 32
@@ -23,6 +27,7 @@ enum KeyCode: Int64, RawRepresentable {
     
     case escape = 53
     case enter = 36
+    case delete = 51
     
     case z = 6
 }

@@ -27,6 +27,25 @@ class VimEngineController {
     
     func transform(from original: KeyCombination) -> [KeyCombination] {
         switch original.key {
+        case .x where original.shift == false:
+            // using right and delete because maskSecondaryFn does not seem
+            // to work when posting CGEvents. will fill a Radar bug with Apple
+            return [
+                KeyCombination(key: .right, action: .press),
+                KeyCombination(key: .right, action: .release),
+                KeyCombination(key: .delete, action: .press),
+                KeyCombination(key: .delete, action: .release)
+            ]
+        case .x where original.shift == true:
+            return [
+                KeyCombination(key: .delete, action: .press),
+                KeyCombination(key: .delete, action: .release)
+            ]
+        case .b where original.shift == false:
+            return [
+                KeyCombination(key: .left, option: true, action: .press),
+                KeyCombination(key: .left, option: true, action: .release)
+            ]
         case .r:
             return [
                 KeyCombination(key: .z, command: true, shift: true, action: .press),
