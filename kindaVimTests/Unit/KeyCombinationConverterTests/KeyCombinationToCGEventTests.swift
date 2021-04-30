@@ -39,7 +39,7 @@ class KeyCombinationToCGEventTests: XCTestCase {
         XCTAssertEqual(kCGEvent.flags.contains(.maskCommand), true)
         XCTAssertEqual(kCGEvent.flags.contains(.maskAlternate), false)
         XCTAssertEqual(kCGEvent.flags.contains(.maskControl), false)
-        XCTAssertEqual(kCGEvent.flags.contains(.maskAlphaShift), false)
+        XCTAssertEqual(kCGEvent.flags.contains(.maskSecondaryFn), false)
         XCTAssertEqual(kCGEvent.flags.contains(.maskShift), true)
         XCTAssertEqual(kCGEvent.type, .keyDown)
     }
@@ -53,7 +53,7 @@ class KeyCombinationToCGEventTests: XCTestCase {
         XCTAssertEqual(kCGEvent.flags.contains(.maskCommand), false)
         XCTAssertEqual(kCGEvent.flags.contains(.maskAlternate), true)
         XCTAssertEqual(kCGEvent.flags.contains(.maskControl), true)
-        XCTAssertEqual(kCGEvent.flags.contains(.maskAlphaShift), false)
+        XCTAssertEqual(kCGEvent.flags.contains(.maskSecondaryFn), false)
         XCTAssertEqual(kCGEvent.flags.contains(.maskShift), true)
         XCTAssertEqual(kCGEvent.type, .keyUp)
     }

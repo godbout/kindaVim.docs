@@ -31,7 +31,7 @@ struct KeyCombinationConverter {
         }
         
         if keyCombination.fn == true {
-            cgEvent.flags.insert(.maskAlphaShift)
+            cgEvent.flags.insert(.maskSecondaryFn)
         }
         
         if keyCombination.shift == true {
@@ -49,7 +49,7 @@ struct KeyCombinationConverter {
             command: cgEvent.flags.contains(.maskCommand),
             option: cgEvent.flags.contains(.maskAlternate),
             control: cgEvent.flags.contains(.maskControl),
-            fn: cgEvent.flags.contains(.maskAlphaShift),
+            fn: cgEvent.flags.contains(.maskSecondaryFn),
             shift: cgEvent.flags.contains(.maskShift),
             action: cgEvent.type == CGEventType.keyDown ? .press : .release
         )

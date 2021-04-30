@@ -42,7 +42,7 @@ class CGEventToKeyCombinationTests: XCTestCase {
     
     func test_that_it_can_convert_a_CGEvent_with_modifiers_press_to_a_KeyCombination() throws {
         if let kCGEvent = CGEvent(keyboardEventSource: nil, virtualKey: 40, keyDown: true) {
-            kCGEvent.flags.insert([.maskAlternate, .maskAlphaShift])
+            kCGEvent.flags.insert([.maskAlternate, .maskSecondaryFn])
             
             let kKeyCombination = try XCTUnwrap(KeyCombinationConverter.toKeyCombination(from: kCGEvent))
             
