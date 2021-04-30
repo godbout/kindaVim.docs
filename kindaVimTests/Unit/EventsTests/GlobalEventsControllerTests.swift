@@ -11,14 +11,13 @@ import XCTest
 class GlobalEventsControllerTests: XCTestCase {
     
     func test_that_the_global_hotkey_press_sets_Vim_in_command_mode() {
-        let startingVimMode = VimEngineController.shared.currentMode
+        VimEngineController.shared.enterInsertMode()
         
         let globalHotkeyCombination = KeyCombination(key: .escape, command: true)
         _ = GlobalEventsController.handle(globalHotkeyCombination)
         
         let currentVimMode = VimEngineController.shared.currentMode
 
-        XCTAssertEqual(startingVimMode, .insert)
         XCTAssertEqual(currentVimMode, .command)
     }
     
