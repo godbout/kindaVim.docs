@@ -11,7 +11,7 @@ import XCTest
 class KSInsertingTests: XCTestCase {
     
     func test_that_I_gets_transformed_to_command_left() {
-        let transformedKeys = VimEngineController.shared.keyboardStrategy.I()
+        let transformedKeys = KeyboardStrategy.I()
 
         guard transformedKeys.count == 2 else { return XCTFail() }
         XCTAssertEqual(transformedKeys[0].key, .left)
@@ -23,7 +23,7 @@ class KSInsertingTests: XCTestCase {
     }
     
     func test_that_a_gets_transformed_to_right() {
-        let transformedKeys = VimEngineController.shared.keyboardStrategy.a()
+        let transformedKeys = KeyboardStrategy.a()
 
         guard transformedKeys.count == 2 else { return XCTFail() }
         XCTAssertEqual(transformedKeys[0].key, .right)
@@ -33,7 +33,7 @@ class KSInsertingTests: XCTestCase {
     }
     
     func test_that_A_gets_transformed_to_command_right() {
-        let transformedKeys = VimEngineController.shared.keyboardStrategy.A()
+        let transformedKeys = KeyboardStrategy.A()
 
         guard transformedKeys.count == 2 else { return XCTFail() }
         XCTAssertEqual(transformedKeys[0].key, .right)
@@ -45,7 +45,7 @@ class KSInsertingTests: XCTestCase {
     }
 
     func test_that_o_gets_transformed_to_command_right_and_enter() {
-        let transformedKeys = VimEngineController.shared.keyboardStrategy.o()
+        let transformedKeys = KeyboardStrategy.o()
 
         guard transformedKeys.count == 4 else { return XCTFail() }
         XCTAssertEqual(transformedKeys[0].key, .right)
@@ -61,7 +61,7 @@ class KSInsertingTests: XCTestCase {
     }
     
     func test_that_O_gets_transformed_to_up_command_left_and_enter() {
-        let transformedKeys = VimEngineController.shared.keyboardStrategy.O()
+        let transformedKeys = KeyboardStrategy.O()
         
         guard transformedKeys.count == 6 else { return XCTFail() }
         XCTAssertEqual(transformedKeys[0].key, .up)

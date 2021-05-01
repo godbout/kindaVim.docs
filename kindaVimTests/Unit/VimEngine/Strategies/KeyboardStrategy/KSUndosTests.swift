@@ -11,7 +11,7 @@ import XCTest
 class KSUndosTests: XCTestCase {
     
     func test_that_u_gets_transformed_to_command_z() {
-        let transformedKeys = VimEngineController.shared.keyboardStrategy.u()
+        let transformedKeys = KeyboardStrategy.u()
         
         guard transformedKeys.count == 2 else { return XCTFail() }
         XCTAssertEqual(transformedKeys[0].key, .z)
@@ -23,7 +23,7 @@ class KSUndosTests: XCTestCase {
     }
     
     func test_that_ctrl_r_gets_transformed_to_command_shift_z() {
-        let transformedKeys = VimEngineController.shared.keyboardStrategy.controlR()
+        let transformedKeys = KeyboardStrategy.controlR()
 
         guard transformedKeys.count == 2 else { return XCTFail() }
         XCTAssertEqual(transformedKeys[0].key, .z)

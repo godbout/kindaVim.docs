@@ -11,7 +11,7 @@ import XCTest
 class KSDeletingTests: XCTestCase {
     
     func test_that_x_is_getting_transformed_to_right_delete() {
-        let transformedKeys = VimEngineController.shared.keyboardStrategy.x()
+        let transformedKeys = KeyboardStrategy.x()
 
         guard transformedKeys.count == 4 else { return XCTFail() }
         XCTAssertEqual(transformedKeys[0].key, .right)
@@ -25,7 +25,7 @@ class KSDeletingTests: XCTestCase {
     }
 
     func test_that_X_is_getting_transformed_to_delete() {
-        let transformedKeys = VimEngineController.shared.keyboardStrategy.X()
+        let transformedKeys = KeyboardStrategy.X()
 
         guard transformedKeys.count == 2 else { return XCTFail() }
         XCTAssertEqual(transformedKeys[0].key, .delete)

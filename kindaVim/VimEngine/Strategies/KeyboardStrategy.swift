@@ -9,56 +9,56 @@ import Foundation
 
 struct KeyboardStrategy {
     
-    func h() -> [KeyCombination] {
+    static func h() -> [KeyCombination] {
         return [
             KeyCombination(key: .left, action: .press),
             KeyCombination(key: .left, action: .release)
         ]
     }
     
-    func j() -> [KeyCombination] {
+    static func j() -> [KeyCombination] {
         return [
             KeyCombination(key: .down, action: .press),
             KeyCombination(key: .down, action: .release)
         ]
     }
     
-    func k() -> [KeyCombination] {
+    static func k() -> [KeyCombination] {
         return [
             KeyCombination(key: .up, action: .press),
             KeyCombination(key: .up, action: .release)
         ]
     }
     
-    func l() -> [KeyCombination] {
+    static func l() -> [KeyCombination] {
         return [
             KeyCombination(key: .right, action: .press),
             KeyCombination(key: .right, action: .release)
         ]
     }
     
-    func I() -> [KeyCombination] {
+    static func I() -> [KeyCombination] {
         return [
             KeyCombination(key: .left, command: true, action: .press),
             KeyCombination(key: .left, command: true, action: .release)
         ]
     }
     
-    func a() -> [KeyCombination] {
+    static func a() -> [KeyCombination] {
         return [
             KeyCombination(key: .right, action: .press),
             KeyCombination(key: .right, action: .release)
         ]
     }
     
-    func A() -> [KeyCombination] {
+    static func A() -> [KeyCombination] {
         return [
             KeyCombination(key: .right, command: true, action: .press),
             KeyCombination(key: .right, command: true, action: .release)
         ]
     }
     
-    func o() -> [KeyCombination] {
+    static func o() -> [KeyCombination] {
         return [
             KeyCombination(key: .right, command: true, action: .press),
             KeyCombination(key: .right, command: true, action: .release),
@@ -69,7 +69,7 @@ struct KeyboardStrategy {
     
     // TODO: combination might be wrong. doesn't work well
     // if caret is on top of buffer
-    func O() -> [KeyCombination] {
+    static func O() -> [KeyCombination] {
         return [
             KeyCombination(key: .up, action: .press),
             KeyCombination(key: .up, action: .release),
@@ -80,21 +80,21 @@ struct KeyboardStrategy {
         ]
     }
     
-    func u() -> [KeyCombination] {
+    static func u() -> [KeyCombination] {
         return [
             KeyCombination(key: .z, command: true, action: .press),
             KeyCombination(key: .z, command: true, action: .release),
         ]
     }
     
-    func controlR() -> [KeyCombination] {
+    static func controlR() -> [KeyCombination] {
         return [
             KeyCombination(key: .z, command: true, shift: true, action: .press),
             KeyCombination(key: .z, command: true, shift: true, action: .release),
         ]
     }
     
-    func x() -> [KeyCombination] {
+    static func x() -> [KeyCombination] {
         // using right and delete because maskSecondaryFn does not seem
         // to work when posting CGEvents. will fill a Radar bug with Apple
         return [
@@ -105,28 +105,28 @@ struct KeyboardStrategy {
         ]
     }
     
-    func X() -> [KeyCombination] {
+    static func X() -> [KeyCombination] {
         return [
             KeyCombination(key: .delete, action: .press),
             KeyCombination(key: .delete, action: .release)
         ]
     }
     
-    func b() -> [KeyCombination] {
+    static func b() -> [KeyCombination] {
         return [
             KeyCombination(key: .left, option: true, action: .press),
             KeyCombination(key: .left, option: true, action: .release)
         ]
     }
     
-    func G() -> [KeyCombination] {
+    static func G() -> [KeyCombination] {
         return [
             KeyCombination(key: .down, command: true, action: .press),
             KeyCombination(key: .down, command: true, action: .release)
         ]
     }
     
-    func C() -> [KeyCombination] {
+    static func C() -> [KeyCombination] {
         return [
             KeyCombination(key: .right, command: true, shift: true, action: .press),
             KeyCombination(key: .right, command: true, shift: true, action: .release),

@@ -55,6 +55,4 @@ extension DeleteInsertingTests {
         XCTAssertEqual(VimEngineController.shared.currentMode, .insert)
     }
     
-    
-    
 }

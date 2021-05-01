@@ -25,7 +25,7 @@ extension UndosTests {
         
         XCTAssertEqual(
             transformedKeys,
-            VimEngineController.shared.keyboardStrategy.u()
+            KeyboardStrategy.u()
         )
     }
     
@@ -36,7 +36,7 @@ extension UndosTests {
 
         XCTAssertEqual(
             transformedKeys,
-            VimEngineController.shared.keyboardStrategy.controlR()
+            KeyboardStrategy.controlR()
         )
     }
     

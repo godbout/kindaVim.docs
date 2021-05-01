@@ -9,20 +9,20 @@ import Foundation
 
 struct GlobalEventsController {
     
-    static func handle(_ originalKeyCombination: KeyCombination) -> [KeyCombination]? {
+    static func handle(_ originalKeyCombination: KeyCombination) -> Bool {
         if globalVimEngineHotkeyIsPressed(originalKeyCombination) {
             VimEngineController.shared.enterCommandMode()
             
             print("enter command mode")
             
-            return []
+            return true
         }
         
         if VimEngineController.shared.currentMode != .insert {
             return VimEngineController.shared.transform(from: originalKeyCombination)
         }
         
-        return [originalKeyCombination]
+        return false
     }
     
     static func globalVimEngineHotkeyIsPressed(_ keyCombination: KeyCombination) -> Bool {

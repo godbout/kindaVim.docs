@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		91013742263DD2430037AB6E /* AccessibilityStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91013741263DD2430037AB6E /* AccessibilityStrategy.swift */; };
 		91071EE7263D20AB006BE787 /* OperatorsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91071EE6263D20AB006BE787 /* OperatorsTests.swift */; };
 		911BB7492632899E006882D8 /* VimEngineController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911BB7482632899E006882D8 /* VimEngineController.swift */; };
 		911BB75626328D7D006882D8 /* EventTapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911BB75526328D7D006882D8 /* EventTapController.swift */; };
@@ -46,6 +47,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		91013741263DD2430037AB6E /* AccessibilityStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilityStrategy.swift; sourceTree = "<group>"; };
 		91071EE6263D20AB006BE787 /* OperatorsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperatorsTests.swift; sourceTree = "<group>"; };
 		911BB7482632899E006882D8 /* VimEngineController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VimEngineController.swift; sourceTree = "<group>"; };
 		911BB75526328D7D006882D8 /* EventTapController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTapController.swift; sourceTree = "<group>"; };
@@ -203,6 +205,7 @@
 			isa = PBXGroup;
 			children = (
 				91482E3F263DBE8300F10ADC /* KeyboardStrategy.swift */,
+				91013741263DD2430037AB6E /* AccessibilityStrategy.swift */,
 			);
 			path = Strategies;
 			sourceTree = "<group>";
@@ -354,6 +357,7 @@
 				918024B926386E95004FD719 /* AppComponent.swift in Sources */,
 				9128F2B0262AA90C00625B42 /* AppDelegate.swift in Sources */,
 				911BB75626328D7D006882D8 /* EventTapController.swift in Sources */,
+				91013742263DD2430037AB6E /* AccessibilityStrategy.swift in Sources */,
 				919DEB632632C85B0052D514 /* KeyCombination.swift in Sources */,
 				91482E40263DBE8300F10ADC /* KeyboardStrategy.swift in Sources */,
 			);

@@ -30,7 +30,7 @@ extension MotionsTests {
         
         XCTAssertEqual(
             transformedKeys,
-            VimEngineController.shared.keyboardStrategy.k()
+            KeyboardStrategy.k()
         )
     }
     
@@ -41,7 +41,7 @@ extension MotionsTests {
 
         XCTAssertEqual(
             transformedKeys,
-            VimEngineController.shared.keyboardStrategy.j()
+            KeyboardStrategy.j()
         )
     }
     
@@ -52,7 +52,7 @@ extension MotionsTests {
         
         XCTAssertEqual(
             transformedKeys,
-            VimEngineController.shared.keyboardStrategy.h()
+            KeyboardStrategy.h()
         )
     }
     
@@ -63,7 +63,7 @@ extension MotionsTests {
 
         XCTAssertEqual(
             transformedKeys,
-            VimEngineController.shared.keyboardStrategy.l()
+            KeyboardStrategy.l()
         )
     }
     
@@ -74,7 +74,7 @@ extension MotionsTests {
 
         XCTAssertEqual(
             transformedKeys,
-            VimEngineController.shared.keyboardStrategy.b()
+            KeyboardStrategy.b()
         )
     }
     
@@ -100,7 +100,7 @@ extension MotionsTests {
 
         XCTAssertEqual(
             transformedKeys,
-            VimEngineController.shared.keyboardStrategy.G()
+            KeyboardStrategy.G()
         )
     }
     

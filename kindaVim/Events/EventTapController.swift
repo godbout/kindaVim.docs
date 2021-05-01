@@ -10,19 +10,15 @@ import Foundation
 struct EventTapController {
     
     var eventTapCallback: CGEventTapCallBack = { proxy, _, event, _ in
+        VimEngineController.shared.proxy = proxy
+        
         guard let originalKeyCombination = KeyCombinationConverter.toKeyCombination(from: event) else { return Unmanaged.passUnretained(event) }
         
-        guard let handledKeyCombinations = GlobalEventsController.handle(originalKeyCombination) else { return Unmanaged.passUnretained(event) }
-        
-        for handledKeyCombination in handledKeyCombinations {
-            let handledCGEvent = KeyCombinationConverter.toCGEvent(from: handledKeyCombination)
-            
-            handledCGEvent?.tapPostEvent(proxy)
-            
-            print("'\(originalKeyCombination.key)' handled to '\(handledKeyCombination.key)'")
+        if GlobalEventsController.handle(originalKeyCombination) {
+            return nil
         }
-
-        return nil
+        
+        return Unmanaged.passUnretained(event)
     }
     
     init() {

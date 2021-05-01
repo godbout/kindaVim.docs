@@ -11,7 +11,7 @@ import XCTest
 class KSMotionsTests: XCTestCase {
     
     func test_that_h_is_getting_transformed_to_left() {
-        let transformedKeys = VimEngineController.shared.keyboardStrategy.h()
+        let transformedKeys = KeyboardStrategy.h()
         
         guard transformedKeys.count == 2 else { return XCTFail() }
         XCTAssertEqual(transformedKeys[0].key, .left)
@@ -21,7 +21,7 @@ class KSMotionsTests: XCTestCase {
     }
     
     func test_that_j_is_getting_transformed_to_down() {
-        let transformedKeys = VimEngineController.shared.keyboardStrategy.j()
+        let transformedKeys = KeyboardStrategy.j()
 
         guard transformedKeys.count == 2 else { return XCTFail() }
         XCTAssertEqual(transformedKeys[0].key, .down)
@@ -31,7 +31,7 @@ class KSMotionsTests: XCTestCase {
     }
     
     func test_that_k_is_getting_transformed_to_up() {
-        let transformedKeys = VimEngineController.shared.keyboardStrategy.k()
+        let transformedKeys = KeyboardStrategy.k()
 
         guard transformedKeys.count == 2 else { return XCTFail() }
         XCTAssertEqual(transformedKeys[0].key, .up)
@@ -41,7 +41,7 @@ class KSMotionsTests: XCTestCase {
     }
 
     func test_that_l_is_getting_transformed_to_right() {
-        let transformedKeys = VimEngineController.shared.keyboardStrategy.l()
+        let transformedKeys = KeyboardStrategy.l()
 
         guard transformedKeys.count == 2 else { return XCTFail() }
         XCTAssertEqual(transformedKeys[0].key, .right)
@@ -51,7 +51,7 @@ class KSMotionsTests: XCTestCase {
     }
     
     func test_that_b_is_getting_transformed_to_alt_left() {
-        let transformedKeys = VimEngineController.shared.keyboardStrategy.b()
+        let transformedKeys = KeyboardStrategy.b()
 
         guard transformedKeys.count == 2 else { return XCTFail() }
         XCTAssertEqual(transformedKeys[0].key, .left)
@@ -63,7 +63,7 @@ class KSMotionsTests: XCTestCase {
     }
     
     func test_that_G_is_getting_transformed_to_command_down() {
-        let transformedKeys = VimEngineController.shared.keyboardStrategy.G()
+        let transformedKeys = KeyboardStrategy.G()
 
         guard transformedKeys.count == 2 else { return XCTFail() }
         XCTAssertEqual(transformedKeys[0].key, .down)

@@ -39,7 +39,7 @@ extension InsertingTests {
 
         XCTAssertEqual(
             transformedKeys,
-            VimEngineController.shared.keyboardStrategy.o()
+            KeyboardStrategy.o()
         )
     }
 
@@ -57,7 +57,7 @@ extension InsertingTests {
         
         XCTAssertEqual(
             transformedKeys,
-            VimEngineController.shared.keyboardStrategy.O()
+            KeyboardStrategy.O()
         )
     }
 
@@ -75,7 +75,7 @@ extension InsertingTests {
         
         XCTAssertEqual(
             transformedKeys,
-            VimEngineController.shared.keyboardStrategy.I()
+            KeyboardStrategy.I()
         )
     }
 
@@ -93,7 +93,7 @@ extension InsertingTests {
         
         XCTAssertEqual(
             transformedKeys,
-            VimEngineController.shared.keyboardStrategy.a()
+            KeyboardStrategy.a()
         )        
     }
     
@@ -111,7 +111,7 @@ extension InsertingTests {
 
         XCTAssertEqual(
             transformedKeys,
-            VimEngineController.shared.keyboardStrategy.A()
+            KeyboardStrategy.A()
         )
     }
     

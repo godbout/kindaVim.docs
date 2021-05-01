@@ -18,8 +18,7 @@ class VimEngineController {
     static var shared = VimEngineController.init()
     var currentMode: VimEngineMode = .insert
     var operatorPendingBuffer = ""
-    
-    var keyboardStrategy = KeyboardStrategy()
+    var proxy: CGEventTapProxy!
     
     private init() {
         #if !TESTING
@@ -29,67 +28,71 @@ class VimEngineController {
         print("engine started")
     }
     
-    func transform(from original: KeyCombination) -> [KeyCombination] {
+    func transform(from original: KeyCombination) -> Bool {
         if VimEngineController.shared.currentMode != .operatorPending {
             switch original.key {
             case .c where original.shift == false:
                 VimEngineController.shared.enterOperatorPendingMode(with: "c")
                 
-                return []
+                return true
             case .c where original.shift == true:
                 VimEngineController.shared.enterInsertMode()
                 
-                return keyboardStrategy.C()
+                return tap(KeyboardStrategy.C())
             case .g where original.shift == false:
                 VimEngineController.shared.enterOperatorPendingMode(with: "g")
                 
-                return []
+                return true
             case .g where original.shift == true:
-                return keyboardStrategy.G()
+                return tap(KeyboardStrategy.G())
             case .x where original.shift == false:
-                return keyboardStrategy.x()
+                return tap(KeyboardStrategy.x())
             case .x where original.shift == true:
-                return keyboardStrategy.X()                
+                return tap(KeyboardStrategy.X())
             case .b where original.shift == false:
-                return keyboardStrategy.b()
+                return tap(KeyboardStrategy.b())
             case .r where original.control == true:
-                return keyboardStrategy.controlR()                
+                return tap(KeyboardStrategy.controlR())
             case .u:
-                return keyboardStrategy.u()
+                return tap(KeyboardStrategy.u())
             case .o where original.shift == false:
                 VimEngineController.shared.enterInsertMode()
                 
-                return keyboardStrategy.o()
+                return tap(KeyboardStrategy.o())
             case .o where original.shift == true:
                 VimEngineController.shared.enterInsertMode()
                 
-                return keyboardStrategy.O()
+                return tap(KeyboardStrategy.O())
             case .i where original.shift == false:
                 VimEngineController.shared.enterInsertMode()
 
-                return []
+                return true
             case .i where original.shift == true:
                 VimEngineController.shared.enterInsertMode()
                 
-                return keyboardStrategy.I()
+                return tap(KeyboardStrategy.I())
             case .a where original.shift == false:
                 VimEngineController.shared.enterInsertMode()
                 
-                return keyboardStrategy.a()
+                return tap(KeyboardStrategy.a())
             case .a where original.shift == true:
                 VimEngineController.shared.enterInsertMode()
                 
-                return keyboardStrategy.A()
-            case .j:
-                return keyboardStrategy.j()
-            case .k:
-                return keyboardStrategy.k()                
+                return tap(KeyboardStrategy.A())
             case .h:
-                return keyboardStrategy.h()
+                if let element = AccessibilityStrategy.h(on: focusedElement()) {
+                    return write(element: element)
+                }
+                
+                return tap(KeyboardStrategy.h())
+            case .j:
+                return tap(KeyboardStrategy.j())
+            case .k:
+                return tap(KeyboardStrategy.k())
             case .l:
-                return keyboardStrategy.l()
+                return tap(KeyboardStrategy.l())
             default:
-                return [original]
+                return tap([original])
             }
         } else {
             switch original.key {
@@ -101,8 +104,28 @@ class VimEngineController {
                 ()
             }
             
-            return operatorCommand()
+            return tap(operatorCommand())
         }
+    }
+    
+    private func focusedElement() -> AXUIElement {
+        
+    }
+    
+    private func write(element: AXUIElement?) -> Bool {
+        print("write new AXUIElement")
+        
+        return false
+    }
+    
+    private func tap(_ keyCombinations: [KeyCombination]) -> Bool {
+        for keyCombination in keyCombinations {
+            let cgEvent = KeyCombinationConverter.toCGEvent(from: keyCombination)
+                    
+            cgEvent?.tapPostEvent(proxy)
+        }
+        
+        return true
     }
     
     private func operatorCommand() -> [KeyCombination] {

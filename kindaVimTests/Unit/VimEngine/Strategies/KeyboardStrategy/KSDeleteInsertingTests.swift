@@ -11,7 +11,7 @@ import XCTest
 class KSDeleteInsertingTests: XCTestCase {
 
     func test_that_C_is_getting_transformed_to_command_shift_right_delete() {
-        let transformedKeys = VimEngineController.shared.keyboardStrategy.C()
+        let transformedKeys = KeyboardStrategy.C()
 
         guard transformedKeys.count == 4 else { return XCTFail() }
         XCTAssertEqual(transformedKeys[0].key, .right)
