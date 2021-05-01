@@ -10,6 +10,14 @@ import XCTest
 
 class UndosTests: XCTestCase {
     
+    override func setUp() {
+        VimEngineController.shared.enterCommandMode()
+    }
+    
+}
+
+extension UndosTests {
+    
     func test_that_u_gets_transformed_to_command_z() {
         let u = KeyCombination(key: .u)
 
