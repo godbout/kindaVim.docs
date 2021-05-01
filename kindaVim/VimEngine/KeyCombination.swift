@@ -20,6 +20,9 @@ enum KeyCode: Int64, RawRepresentable {
     case u = 32
     case r = 15
     
+    // ?
+    case g = 5
+    
     case up = 126
     case down = 125
     case left = 123

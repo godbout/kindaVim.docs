@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		91071EE7263D20AB006BE787 /* OperatorsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91071EE6263D20AB006BE787 /* OperatorsTests.swift */; };
 		911BB7492632899E006882D8 /* VimEngineController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911BB7482632899E006882D8 /* VimEngineController.swift */; };
 		911BB75626328D7D006882D8 /* EventTapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911BB75526328D7D006882D8 /* EventTapController.swift */; };
 		9128B0ED26380ACC007DC80B /* GlobalEventsControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9128B0EC26380ACC007DC80B /* GlobalEventsControllerTests.swift */; };
@@ -38,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		91071EE6263D20AB006BE787 /* OperatorsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperatorsTests.swift; sourceTree = "<group>"; };
 		911BB7482632899E006882D8 /* VimEngineController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VimEngineController.swift; sourceTree = "<group>"; };
 		911BB75526328D7D006882D8 /* EventTapController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTapController.swift; sourceTree = "<group>"; };
 		9128B0EC26380ACC007DC80B /* GlobalEventsControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalEventsControllerTests.swift; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 				91A7CB2526392B5600C54572 /* MotionsTests.swift */,
 				91A7CB27263932C700C54572 /* InsertingTests.swift */,
 				91A7CB2926394EFE00C54572 /* UndosTests.swift */,
+				91071EE6263D20AB006BE787 /* OperatorsTests.swift */,
 			);
 			path = VimEngine;
 			sourceTree = "<group>";
@@ -319,6 +322,7 @@
 				9197C09C26369D73006C696A /* CGEventToKeyCombinationTests.swift in Sources */,
 				91A7CB2A26394EFE00C54572 /* UndosTests.swift in Sources */,
 				91A7CB2626392B5600C54572 /* MotionsTests.swift in Sources */,
+				91071EE7263D20AB006BE787 /* OperatorsTests.swift in Sources */,
 				9128B0ED26380ACC007DC80B /* GlobalEventsControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

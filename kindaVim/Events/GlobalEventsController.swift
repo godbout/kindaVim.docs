@@ -18,7 +18,7 @@ struct GlobalEventsController {
             return []
         }
         
-        if VimEngineController.shared.currentMode == .command {
+        if VimEngineController.shared.currentMode != .insert {
             return VimEngineController.shared.transform(from: originalKeyCombination)
         }
         
