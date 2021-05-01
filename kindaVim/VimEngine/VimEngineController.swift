@@ -30,6 +30,10 @@ class VimEngineController {
     func transform(from original: KeyCombination) -> [KeyCombination] {
         if VimEngineController.shared.currentMode != .operatorPending {
             switch original.key {
+            case .c where original.shift == false:
+                VimEngineController.shared.enterOperatorPendingMode(with: "c")
+                
+                return []
             case .g where original.shift == false:
                 VimEngineController.shared.enterOperatorPendingMode(with: "g")
                 
@@ -133,6 +137,8 @@ class VimEngineController {
             }
         } else {
             switch original.key {
+            case .c:
+                operatorPendingBuffer.append("c")
             case .g:
                 operatorPendingBuffer.append("g")
             default:
@@ -145,6 +151,17 @@ class VimEngineController {
     
     private func operatorCommand() -> [KeyCombination] {
         switch operatorPendingBuffer {
+        case "cc":
+            VimEngineController.shared.enterInsertMode()
+            
+            return [
+                KeyCombination(key: .right, command: true, action: .press),
+                KeyCombination(key: .right, command: true, action: .release),
+                KeyCombination(key: .left, command: true, shift: true, action: .press),
+                KeyCombination(key: .left, command: true, shift: true, action: .release),
+                KeyCombination(key: .delete, action: .press),
+                KeyCombination(key: .delete, action: .release)                
+            ]
         case "gg":
             VimEngineController.shared.enterCommandMode()
             

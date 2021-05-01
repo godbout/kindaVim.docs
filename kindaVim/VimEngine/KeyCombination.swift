@@ -12,6 +12,7 @@ enum KeyCode: Int64, RawRepresentable {
     case i = 34
     case o = 31
     case a = 0
+    case c = 8
     
     // delete
     case x = 7
