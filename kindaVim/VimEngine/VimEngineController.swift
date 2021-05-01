@@ -47,6 +47,11 @@ class VimEngineController {
                 VimEngineController.shared.enterOperatorPendingMode(with: "g")
                 
                 return []
+            case .g where original.shift == true:
+                return [
+                    KeyCombination(key: .down, command: true, action: .press),
+                    KeyCombination(key: .down, command: true, action: .release)
+                ]
             case .x where original.shift == false:
                 // using right and delete because maskSecondaryFn does not seem
                 // to work when posting CGEvents. will fill a Radar bug with Apple

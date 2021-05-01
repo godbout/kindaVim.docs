@@ -95,5 +95,19 @@ extension MotionsTests {
         XCTAssertEqual(transformedKeys[1].action, .release)
     }
     
+    func test_that_G_is_getting_transformed_to_command_down() {
+        let G = KeyCombination(key: .g, shift: true)
+
+        let transformedKeys = VimEngineController.shared.transform(from: G)
+
+        guard transformedKeys.count == 2 else { return XCTFail() }
+        XCTAssertEqual(transformedKeys[0].key, .down)
+        XCTAssertEqual(transformedKeys[0].command, true)
+        XCTAssertEqual(transformedKeys[0].action, .press)
+        XCTAssertEqual(transformedKeys[1].key, .down)
+        XCTAssertEqual(transformedKeys[1].command, true)
+        XCTAssertEqual(transformedKeys[1].action, .release)
+    }
+    
 }
 
