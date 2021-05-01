@@ -9,6 +9,13 @@
 import XCTest
 
 class InsertingTests: XCTestCase {
+    
+    override func setUp() {
+        VimEngineController.shared.enterCommandMode()
+    }
+}
+
+extension InsertingTests {
 
     func test_that_i_does_not_get_transformed() {
         let i = KeyCombination(key: .i)
