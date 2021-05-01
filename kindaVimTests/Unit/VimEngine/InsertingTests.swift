@@ -18,7 +18,7 @@ class InsertingTests: XCTestCase {
         XCTAssertEqual(transformedKeys.count, 0)
     }
 
-    func test_that_i_switches_vim_to_insert_mode() {
+    func test_that_i_switches_Vim_to_insert_mode() {
         VimEngineController.shared.enterCommandMode()
 
         let i = KeyCombination(key: .i)
@@ -45,7 +45,7 @@ class InsertingTests: XCTestCase {
         XCTAssertEqual(transformedKeys[3].action, .release)
     }
 
-    func test_that_o_switches_vim_to_insert_mode() {
+    func test_that_o_switches_Vim_to_insert_mode() {
         VimEngineController.shared.enterCommandMode()
 
         let o = KeyCombination(key: .o)
@@ -76,7 +76,7 @@ class InsertingTests: XCTestCase {
         XCTAssertEqual(transformedKeys[5].action, .release)
     }
 
-    func test_that_O_switches_vim_to_insert_mode() {
+    func test_that_O_switches_Vim_to_insert_mode() {
         VimEngineController.shared.enterCommandMode()
 
         let O = KeyCombination(key: .o, shift: true)
@@ -99,7 +99,7 @@ class InsertingTests: XCTestCase {
         XCTAssertEqual(transformedKeys[1].action, .release)
     }
 
-    func test_that_I_switches_vim_to_insert_mode() {
+    func test_that_I_switches_Vim_to_insert_mode() {
         VimEngineController.shared.enterCommandMode()
 
         let I = KeyCombination(key: .i, shift: true)
@@ -120,7 +120,7 @@ class InsertingTests: XCTestCase {
         XCTAssertEqual(transformedKeys[1].action, .release)
     }
     
-    func test_that_a_switches_vim_to_insert_mode() {
+    func test_that_a_switches_Vim_to_insert_mode() {
         VimEngineController.shared.enterCommandMode()
 
         let a = KeyCombination(key: .a)
@@ -143,7 +143,7 @@ class InsertingTests: XCTestCase {
         XCTAssertEqual(transformedKeys[1].action, .release)
     }
     
-    func test_that_A_switches_vim_to_insert_mode() {
+    func test_that_A_switches_Vim_to_insert_mode() {
         VimEngineController.shared.enterCommandMode()
 
         let A = KeyCombination(key: .a, shift: true)

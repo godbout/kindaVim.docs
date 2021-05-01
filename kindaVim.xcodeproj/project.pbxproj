@@ -16,6 +16,7 @@
 		9128F2B4262AA90D00625B42 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9128F2B3262AA90D00625B42 /* Assets.xcassets */; };
 		9128F2B7262AA90D00625B42 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9128F2B6262AA90D00625B42 /* Preview Assets.xcassets */; };
 		9128F2BA262AA90D00625B42 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9128F2B8262AA90D00625B42 /* Main.storyboard */; };
+		913383E4263D2A7D0086C06F /* DeleteInsertingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913383E3263D2A7D0086C06F /* DeleteInsertingTests.swift */; };
 		917458F1262EB934007D3855 /* StatusBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917458F0262EB934007D3855 /* StatusBarController.swift */; };
 		918024B926386E95004FD719 /* AppComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918024B826386E95004FD719 /* AppComponent.swift */; };
 		9197C0852636695A006C696A /* KeyCombinationConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9197C0842636695A006C696A /* KeyCombinationConverter.swift */; };
@@ -53,6 +54,7 @@
 		9128F2BC262AA90D00625B42 /* kindaVim.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = kindaVim.entitlements; sourceTree = "<group>"; };
 		9128F2C1262AA90D00625B42 /* kindaVimTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = kindaVimTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9128F2C7262AA90D00625B42 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		913383E3263D2A7D0086C06F /* DeleteInsertingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteInsertingTests.swift; sourceTree = "<group>"; };
 		917458F0262EB934007D3855 /* StatusBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBarController.swift; sourceTree = "<group>"; };
 		918024B826386E95004FD719 /* AppComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppComponent.swift; sourceTree = "<group>"; };
 		9197C0842636695A006C696A /* KeyCombinationConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyCombinationConverter.swift; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 				91A7CB27263932C700C54572 /* InsertingTests.swift */,
 				91A7CB2926394EFE00C54572 /* UndosTests.swift */,
 				91071EE6263D20AB006BE787 /* OperatorsTests.swift */,
+				913383E3263D2A7D0086C06F /* DeleteInsertingTests.swift */,
 			);
 			path = VimEngine;
 			sourceTree = "<group>";
@@ -323,6 +326,7 @@
 				91A7CB2A26394EFE00C54572 /* UndosTests.swift in Sources */,
 				91A7CB2626392B5600C54572 /* MotionsTests.swift in Sources */,
 				91071EE7263D20AB006BE787 /* OperatorsTests.swift in Sources */,
+				913383E4263D2A7D0086C06F /* DeleteInsertingTests.swift in Sources */,
 				9128B0ED26380ACC007DC80B /* GlobalEventsControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

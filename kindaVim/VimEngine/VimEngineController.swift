@@ -34,6 +34,15 @@ class VimEngineController {
                 VimEngineController.shared.enterOperatorPendingMode(with: "c")
                 
                 return []
+            case .c where original.shift == true:
+                VimEngineController.shared.enterInsertMode()
+                
+                return [
+                    KeyCombination(key: .right, command: true, shift: true, action: .press),
+                    KeyCombination(key: .right, command: true, shift: true, action: .release),
+                    KeyCombination(key: .delete, action: .press),
+                    KeyCombination(key: .delete, action: .release)
+                ]
             case .g where original.shift == false:
                 VimEngineController.shared.enterOperatorPendingMode(with: "g")
                 
