@@ -16,18 +16,22 @@ class MotionsTests: XCTestCase {
     
 }
 
+// TODO: this will not be useful later
+// as it will depend on which strategy is used
+// so it will not always send back [KeyCombination]
+// but for now the tests are more cleverly updated
+
 extension MotionsTests {
 
     func test_that_k_is_getting_transformed_to_up() {
         let k = KeyCombination(key: .k, command: false, fn: true, shift: true)
 
         let transformedKeys = VimEngineController.shared.transform(from: k)
-
-        guard transformedKeys.count == 2 else { return XCTFail() }
-        XCTAssertEqual(transformedKeys[0].key, .up)
-        XCTAssertEqual(transformedKeys[0].action, .press)
-        XCTAssertEqual(transformedKeys[1].key, .up)
-        XCTAssertEqual(transformedKeys[1].action, .release)
+        
+        XCTAssertEqual(
+            transformedKeys,
+            VimEngineController.shared.keyboardStrategy.k()
+        )
     }
     
     func test_that_j_is_getting_transformed_to_down() {
@@ -35,11 +39,10 @@ extension MotionsTests {
         
         let transformedKeys = VimEngineController.shared.transform(from: j)
 
-        guard transformedKeys.count == 2 else { return XCTFail() }
-        XCTAssertEqual(transformedKeys[0].key, .down)
-        XCTAssertEqual(transformedKeys[0].action, .press)
-        XCTAssertEqual(transformedKeys[1].key, .down)
-        XCTAssertEqual(transformedKeys[1].action, .release)
+        XCTAssertEqual(
+            transformedKeys,
+            VimEngineController.shared.keyboardStrategy.j()
+        )
     }
     
     func test_that_h_is_getting_transformed_to_left() {
@@ -47,11 +50,10 @@ extension MotionsTests {
         
         let transformedKeys = VimEngineController.shared.transform(from: h)
         
-        guard transformedKeys.count == 2 else { return XCTFail() }
-        XCTAssertEqual(transformedKeys[0].key, .left)
-        XCTAssertEqual(transformedKeys[0].action, .press)
-        XCTAssertEqual(transformedKeys[1].key, .left)
-        XCTAssertEqual(transformedKeys[1].action, .release)
+        XCTAssertEqual(
+            transformedKeys,
+            VimEngineController.shared.keyboardStrategy.h()
+        )
     }
     
     func test_that_l_is_getting_transformed_to_right() {
@@ -59,11 +61,10 @@ extension MotionsTests {
         
         let transformedKeys = VimEngineController.shared.transform(from: l)
 
-        guard transformedKeys.count == 2 else { return XCTFail() }
-        XCTAssertEqual(transformedKeys[0].key, .right)
-        XCTAssertEqual(transformedKeys[0].action, .press)
-        XCTAssertEqual(transformedKeys[1].key, .right)
-        XCTAssertEqual(transformedKeys[1].action, .release)
+        XCTAssertEqual(
+            transformedKeys,
+            VimEngineController.shared.keyboardStrategy.l()
+        )
     }
     
     func test_that_b_is_getting_transformed_to_alt_left() {
@@ -71,13 +72,10 @@ extension MotionsTests {
         
         let transformedKeys = VimEngineController.shared.transform(from: b)
 
-        guard transformedKeys.count == 2 else { return XCTFail() }
-        XCTAssertEqual(transformedKeys[0].key, .left)
-        XCTAssertEqual(transformedKeys[0].option, true)
-        XCTAssertEqual(transformedKeys[0].action, .press)
-        XCTAssertEqual(transformedKeys[1].key, .left)
-        XCTAssertEqual(transformedKeys[1].option, true)
-        XCTAssertEqual(transformedKeys[1].action, .release)
+        XCTAssertEqual(
+            transformedKeys,
+            VimEngineController.shared.keyboardStrategy.b()
+        )
     }
     
     func test_that_gg_is_getting_transformed_to_command_up() {
@@ -100,13 +98,10 @@ extension MotionsTests {
 
         let transformedKeys = VimEngineController.shared.transform(from: G)
 
-        guard transformedKeys.count == 2 else { return XCTFail() }
-        XCTAssertEqual(transformedKeys[0].key, .down)
-        XCTAssertEqual(transformedKeys[0].command, true)
-        XCTAssertEqual(transformedKeys[0].action, .press)
-        XCTAssertEqual(transformedKeys[1].key, .down)
-        XCTAssertEqual(transformedKeys[1].command, true)
-        XCTAssertEqual(transformedKeys[1].action, .release)
+        XCTAssertEqual(
+            transformedKeys,
+            VimEngineController.shared.keyboardStrategy.G()
+        )
     }
     
 }

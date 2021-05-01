@@ -17,6 +17,12 @@
 		9128F2B7262AA90D00625B42 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9128F2B6262AA90D00625B42 /* Preview Assets.xcassets */; };
 		9128F2BA262AA90D00625B42 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9128F2B8262AA90D00625B42 /* Main.storyboard */; };
 		913383E4263D2A7D0086C06F /* DeleteInsertingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913383E3263D2A7D0086C06F /* DeleteInsertingTests.swift */; };
+		91482E40263DBE8300F10ADC /* KeyboardStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91482E3F263DBE8300F10ADC /* KeyboardStrategy.swift */; };
+		91482E46263DBF7300F10ADC /* KSMotionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91482E45263DBF7300F10ADC /* KSMotionsTests.swift */; };
+		91482E49263DC1F700F10ADC /* KSDeleteInsertingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91482E48263DC1F700F10ADC /* KSDeleteInsertingTests.swift */; };
+		91482E4B263DC57100F10ADC /* KSDeletingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91482E4A263DC57100F10ADC /* KSDeletingTests.swift */; };
+		91482E4D263DC6B100F10ADC /* KSUndosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91482E4C263DC6B100F10ADC /* KSUndosTests.swift */; };
+		91482E4F263DC76500F10ADC /* KSInsertingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91482E4E263DC76500F10ADC /* KSInsertingTests.swift */; };
 		917458F1262EB934007D3855 /* StatusBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917458F0262EB934007D3855 /* StatusBarController.swift */; };
 		918024B926386E95004FD719 /* AppComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918024B826386E95004FD719 /* AppComponent.swift */; };
 		9197C0852636695A006C696A /* KeyCombinationConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9197C0842636695A006C696A /* KeyCombinationConverter.swift */; };
@@ -55,6 +61,12 @@
 		9128F2C1262AA90D00625B42 /* kindaVimTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = kindaVimTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9128F2C7262AA90D00625B42 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		913383E3263D2A7D0086C06F /* DeleteInsertingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteInsertingTests.swift; sourceTree = "<group>"; };
+		91482E3F263DBE8300F10ADC /* KeyboardStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardStrategy.swift; sourceTree = "<group>"; };
+		91482E45263DBF7300F10ADC /* KSMotionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSMotionsTests.swift; sourceTree = "<group>"; };
+		91482E48263DC1F700F10ADC /* KSDeleteInsertingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSDeleteInsertingTests.swift; sourceTree = "<group>"; };
+		91482E4A263DC57100F10ADC /* KSDeletingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSDeletingTests.swift; sourceTree = "<group>"; };
+		91482E4C263DC6B100F10ADC /* KSUndosTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSUndosTests.swift; sourceTree = "<group>"; };
+		91482E4E263DC76500F10ADC /* KSInsertingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSInsertingTests.swift; sourceTree = "<group>"; };
 		917458F0262EB934007D3855 /* StatusBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBarController.swift; sourceTree = "<group>"; };
 		918024B826386E95004FD719 /* AppComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppComponent.swift; sourceTree = "<group>"; };
 		9197C0842636695A006C696A /* KeyCombinationConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyCombinationConverter.swift; sourceTree = "<group>"; };
@@ -124,6 +136,7 @@
 		9128B0F2263820C5007DC80B /* VimEngine */ = {
 			isa = PBXGroup;
 			children = (
+				91482E41263DBF3100F10ADC /* Strategies */,
 				91A7CB2526392B5600C54572 /* MotionsTests.swift */,
 				91A7CB27263932C700C54572 /* InsertingTests.swift */,
 				91A7CB2926394EFE00C54572 /* UndosTests.swift */,
@@ -186,6 +199,34 @@
 			path = kindaVimTests;
 			sourceTree = "<group>";
 		};
+		91482E3E263DBE7700F10ADC /* Strategies */ = {
+			isa = PBXGroup;
+			children = (
+				91482E3F263DBE8300F10ADC /* KeyboardStrategy.swift */,
+			);
+			path = Strategies;
+			sourceTree = "<group>";
+		};
+		91482E41263DBF3100F10ADC /* Strategies */ = {
+			isa = PBXGroup;
+			children = (
+				91482E47263DC10600F10ADC /* KeyboardStrategy */,
+			);
+			path = Strategies;
+			sourceTree = "<group>";
+		};
+		91482E47263DC10600F10ADC /* KeyboardStrategy */ = {
+			isa = PBXGroup;
+			children = (
+				91482E45263DBF7300F10ADC /* KSMotionsTests.swift */,
+				91482E48263DC1F700F10ADC /* KSDeleteInsertingTests.swift */,
+				91482E4A263DC57100F10ADC /* KSDeletingTests.swift */,
+				91482E4C263DC6B100F10ADC /* KSUndosTests.swift */,
+				91482E4E263DC76500F10ADC /* KSInsertingTests.swift */,
+			);
+			path = KeyboardStrategy;
+			sourceTree = "<group>";
+		};
 		9197C09426369D31006C696A /* KeyCombinationConverterTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -198,6 +239,7 @@
 		919DEB612632C8320052D514 /* VimEngine */ = {
 			isa = PBXGroup;
 			children = (
+				91482E3E263DBE7700F10ADC /* Strategies */,
 				911BB7482632899E006882D8 /* VimEngineController.swift */,
 				919DEB622632C85B0052D514 /* KeyCombination.swift */,
 			);
@@ -313,6 +355,7 @@
 				9128F2B0262AA90C00625B42 /* AppDelegate.swift in Sources */,
 				911BB75626328D7D006882D8 /* EventTapController.swift in Sources */,
 				919DEB632632C85B0052D514 /* KeyCombination.swift in Sources */,
+				91482E40263DBE8300F10ADC /* KeyboardStrategy.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -320,13 +363,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				91482E4B263DC57100F10ADC /* KSDeletingTests.swift in Sources */,
 				91A7CB28263932C700C54572 /* InsertingTests.swift in Sources */,
 				9197C08A26366A3B006C696A /* KeyCombinationToCGEventTests.swift in Sources */,
+				91482E4D263DC6B100F10ADC /* KSUndosTests.swift in Sources */,
 				9197C09C26369D73006C696A /* CGEventToKeyCombinationTests.swift in Sources */,
 				91A7CB2A26394EFE00C54572 /* UndosTests.swift in Sources */,
 				91A7CB2626392B5600C54572 /* MotionsTests.swift in Sources */,
 				91071EE7263D20AB006BE787 /* OperatorsTests.swift in Sources */,
+				91482E46263DBF7300F10ADC /* KSMotionsTests.swift in Sources */,
 				913383E4263D2A7D0086C06F /* DeleteInsertingTests.swift in Sources */,
+				91482E4F263DC76500F10ADC /* KSInsertingTests.swift in Sources */,
+				91482E49263DC1F700F10ADC /* KSDeleteInsertingTests.swift in Sources */,
 				9128B0ED26380ACC007DC80B /* GlobalEventsControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
