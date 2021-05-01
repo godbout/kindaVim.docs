@@ -9,6 +9,14 @@
 import XCTest
 
 class MotionsTests: XCTestCase {
+    
+    override func setUp() {
+        VimEngineController.shared.enterCommandMode()
+    }
+    
+}
+
+extension MotionsTests {
 
     func test_that_k_is_getting_transformed_to_up() {
         let k = KeyCombination(key: .k, command: false, fn: true, shift: true)
@@ -71,5 +79,6 @@ class MotionsTests: XCTestCase {
         XCTAssertEqual(transformedKeys[1].option, true)
         XCTAssertEqual(transformedKeys[1].action, .release)
     }
+    
 }
 
