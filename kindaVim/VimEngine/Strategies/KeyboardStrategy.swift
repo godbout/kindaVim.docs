@@ -210,4 +210,15 @@ struct KeyboardStrategy {
         ]
     }
     
+    static func w() -> [KeyCombination] {
+        return [
+            KeyCombination(key: .right, option: true, action: .press),
+            KeyCombination(key: .right, option: true, action: .release),
+            KeyCombination(key: .right, option: true, action: .press),
+            KeyCombination(key: .right, option: true, action: .release),
+            KeyCombination(key: .left, option: true, action: .press),
+            KeyCombination(key: .left, option: true, action: .release)
+        ]
+    }
+    
 }

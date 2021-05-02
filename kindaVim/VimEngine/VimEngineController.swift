@@ -31,6 +31,8 @@ class VimEngineController {
     func transform(from original: KeyCombination) -> Bool {
         if VimEngineController.shared.currentMode != .operatorPending {
             switch original.key {
+            case .w where original.shift == false:
+                return post(KeyboardStrategy.w())
             case .k_ where original.shift == true:
                 return post(KeyboardStrategy.k_())
             case .n4 where original.shift == true:
