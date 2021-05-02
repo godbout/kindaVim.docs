@@ -154,7 +154,7 @@ class KSMotionsTests: XCTestCase {
         XCTAssertEqual(transformedKeys[4].option, true)
         XCTAssertEqual(transformedKeys[4].action, .press)
         XCTAssertEqual(transformedKeys[5].key, .left)
-        XCTAssertEqual(transformedKeys[5].option, .left)
+        XCTAssertEqual(transformedKeys[5].option, true)
         XCTAssertEqual(transformedKeys[5].action, .release)
     }
 
