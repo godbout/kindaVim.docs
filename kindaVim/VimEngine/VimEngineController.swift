@@ -94,7 +94,7 @@ class VimEngineController {
             case .l:
                 return post(KeyboardStrategy.l())
             default:
-                return post([original])
+                return false
             }
         } else {
             switch original.key {
