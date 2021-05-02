@@ -8,6 +8,8 @@ enum KeyCode: Int64, RawRepresentable {
     case l = 37
     case b = 11
     case n0 = 29
+    case n4 = 21
+    case e = 14
     
     // insert
     case i = 34

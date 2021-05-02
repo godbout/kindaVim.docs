@@ -158,4 +158,11 @@ struct KeyboardStrategy {
         ]
     }
     
+    static func n4() -> [KeyCombination] {
+        return [
+            KeyCombination(key: .e, control: true, action: .press),
+            KeyCombination(key: .e, control: true, action: .release)
+        ]
+    }
+    
 }

@@ -97,5 +97,17 @@ class KSMotionsTests: XCTestCase {
         XCTAssertEqual(transformedKeys[1].control, true)
         XCTAssertEqual(transformedKeys[1].action, .release)
     }
+    
+    func test_that_$_is_getting_transformed_to_control_a() {
+        let transformedKeys = KeyboardStrategy.n4()
+
+        guard transformedKeys.count == 2 else { return XCTFail() }
+        XCTAssertEqual(transformedKeys[0].key, .e)
+        XCTAssertEqual(transformedKeys[0].control, true)
+        XCTAssertEqual(transformedKeys[0].action, .press)
+        XCTAssertEqual(transformedKeys[1].key, .e)
+        XCTAssertEqual(transformedKeys[1].control, true)
+        XCTAssertEqual(transformedKeys[1].action, .release)
+    }
 
 }
