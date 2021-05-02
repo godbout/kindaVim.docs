@@ -51,5 +51,27 @@ class KSDeleteInsertingTests: XCTestCase {
         XCTAssertEqual(transformedKeys[5].key, .delete)
         XCTAssertEqual(transformedKeys[5].action, .release)
     }
+    
+    func test_that_ciw_is_getting_transformed_to_option_right_option_left_delete() {
+        let transformedKeys = KeyboardStrategy.ciw()
+
+        guard transformedKeys.count == 6 else { return XCTFail() }
+        XCTAssertEqual(transformedKeys[0].key, .right)
+        XCTAssertEqual(transformedKeys[0].option, true)
+        XCTAssertEqual(transformedKeys[0].action, .press)
+        XCTAssertEqual(transformedKeys[1].key, .right)
+        XCTAssertEqual(transformedKeys[1].option, true)
+        XCTAssertEqual(transformedKeys[1].action, .release)
+        XCTAssertEqual(transformedKeys[2].key, .left)
+        XCTAssertEqual(transformedKeys[2].option, true)
+        XCTAssertEqual(transformedKeys[2].action, .press)
+        XCTAssertEqual(transformedKeys[3].key, .left)
+        XCTAssertEqual(transformedKeys[3].option, true)
+        XCTAssertEqual(transformedKeys[3].action, .release)
+        XCTAssertEqual(transformedKeys[4].key, .delete)
+        XCTAssertEqual(transformedKeys[4].action, .press)
+        XCTAssertEqual(transformedKeys[5].key, .delete)
+        XCTAssertEqual(transformedKeys[5].action, .release)
+    }
 
 }

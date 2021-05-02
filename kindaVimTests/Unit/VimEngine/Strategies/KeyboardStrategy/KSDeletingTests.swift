@@ -34,7 +34,7 @@ class KSDeletingTests: XCTestCase {
         XCTAssertEqual(transformedKeys[1].action, .release)
     }
     
-    func test_that_dd_is_getting_transformed_to_delete() {
+    func test_that_dd_is_getting_transformed_to_a_big_file_of_key_combinations() {
         let transformedKeys = KeyboardStrategy.dd()
 
         guard transformedKeys.count == 18 else { return XCTFail() }
