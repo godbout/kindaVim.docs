@@ -10,6 +10,7 @@ enum KeyCode: Int64, RawRepresentable {
     case n0 = 29
     case n4 = 21
     case e = 14
+    case k_ = 27
     
     // insert
     case i = 34

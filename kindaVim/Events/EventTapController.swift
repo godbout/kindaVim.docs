@@ -10,6 +10,7 @@ import Foundation
 struct EventTapController {
     
     var eventTapCallback: CGEventTapCallBack = { proxy, _, event, _ in
+        print(event.getIntegerValueField(.keyboardEventKeycode))
         VimEngineController.shared.proxy = proxy
         
         guard let originalKeyCombination = KeyCombinationConverter.toKeyCombination(from: event) else { return Unmanaged.passUnretained(event) }
