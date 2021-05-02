@@ -223,7 +223,7 @@ class VimEngineController {
         currentMode = .command
         resetOperatorPendingBuffer()
 
-        barbaricallyTintDisplay()
+        Display.tint()
     }
 
 
@@ -231,7 +231,7 @@ class VimEngineController {
         currentMode = .insert
         resetOperatorPendingBuffer()
 
-        barbaricallyResetDisplayTint()
+        Display.reset()
     }
     
     private func resetOperatorPendingBuffer() {
