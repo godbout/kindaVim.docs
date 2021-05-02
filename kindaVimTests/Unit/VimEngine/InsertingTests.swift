@@ -17,12 +17,12 @@ class InsertingTests: XCTestCase {
 
 extension InsertingTests {
 
-    func test_that_i_does_not_get_transformed() {
+    func test_that_i_is_handled() {
         let i = KeyCombination(key: .i)
 
-        let transformedKeys = VimEngineController.shared.transform(from: i)
-
-        XCTAssertEqual(transformedKeys.count, 0)
+        let handled = VimEngineController.shared.transform(from: i)
+        
+        XCTAssertTrue(handled)
     }
 
     func test_that_i_switches_Vim_to_insert_mode() {
@@ -32,15 +32,12 @@ extension InsertingTests {
         XCTAssertEqual(VimEngineController.shared.currentMode, .insert)
     }
 
-    func test_that_o_gets_transformed_to_command_right_and_enter() {
+    func test_that_o_is_handled() {
         let o = KeyCombination(key: .o)
 
-        let transformedKeys = VimEngineController.shared.transform(from: o)
-
-        XCTAssertEqual(
-            transformedKeys,
-            KeyboardStrategy.o()
-        )
+        let handled = VimEngineController.shared.transform(from: o)
+        
+        XCTAssertTrue(handled)
     }
 
     func test_that_o_switches_Vim_to_insert_mode() {
@@ -50,15 +47,12 @@ extension InsertingTests {
         XCTAssertEqual(VimEngineController.shared.currentMode, .insert)
     }
     
-    func test_that_O_gets_transformed_to_up_command_left_and_enter() {
+    func test_that_O_is_handled() {
         let O = KeyCombination(key: .o, shift: true)
 
-        let transformedKeys = VimEngineController.shared.transform(from: O)
+        let handled = VimEngineController.shared.transform(from: O)
         
-        XCTAssertEqual(
-            transformedKeys,
-            KeyboardStrategy.O()
-        )
+        XCTAssertTrue(handled)
     }
 
     func test_that_O_switches_Vim_to_insert_mode() {
@@ -68,15 +62,12 @@ extension InsertingTests {
         XCTAssertEqual(VimEngineController.shared.currentMode, .insert)
     }
 
-    func test_that_I_gets_transformed_to_command_left() {
+    func test_that_I_is_handled() {
         let I = KeyCombination(key: .i, shift: true)
 
-        let transformedKeys = VimEngineController.shared.transform(from: I)
+        let handled = VimEngineController.shared.transform(from: I)
         
-        XCTAssertEqual(
-            transformedKeys,
-            KeyboardStrategy.I()
-        )
+        XCTAssertTrue(handled)
     }
 
     func test_that_I_switches_Vim_to_insert_mode() {
@@ -86,15 +77,12 @@ extension InsertingTests {
         XCTAssertEqual(VimEngineController.shared.currentMode, .insert)
     }
     
-    func test_that_a_gets_transformed_to_right() {
+    func test_that_a_is_handled() {
         let a = KeyCombination(key: .a)
 
-        let transformedKeys = VimEngineController.shared.transform(from: a)
+        let handled = VimEngineController.shared.transform(from: a)
         
-        XCTAssertEqual(
-            transformedKeys,
-            KeyboardStrategy.a()
-        )        
+        XCTAssertTrue(handled)
     }
     
     func test_that_a_switches_Vim_to_insert_mode() {
@@ -104,15 +92,12 @@ extension InsertingTests {
         XCTAssertEqual(VimEngineController.shared.currentMode, .insert)
     }
     
-    func test_that_A_gets_transformed_to_command_right() {
+    func test_that_A_is_handled() {
         let A = KeyCombination(key: .a, shift: true)
 
-        let transformedKeys = VimEngineController.shared.transform(from: A)
+        let handled = VimEngineController.shared.transform(from: A)
 
-        XCTAssertEqual(
-            transformedKeys,
-            KeyboardStrategy.A()
-        )
+        XCTAssertTrue(handled)
     }
     
     func test_that_A_switches_Vim_to_insert_mode() {

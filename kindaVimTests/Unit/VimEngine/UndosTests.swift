@@ -18,26 +18,20 @@ class UndosTests: XCTestCase {
 
 extension UndosTests {
     
-    func test_that_u_gets_transformed_to_command_z() {
+    func test_that_u_is_handled() {
         let u = KeyCombination(key: .u)
 
-        let transformedKeys = VimEngineController.shared.transform(from: u)
+        let handled = VimEngineController.shared.transform(from: u)
         
-        XCTAssertEqual(
-            transformedKeys,
-            KeyboardStrategy.u()
-        )
+        XCTAssertTrue(handled)
     }
     
-    func test_that_ctrl_r_gets_transformed_to_command_shift_z() {
+    func test_that_ctrl_r_is_handled() {
         let controlR = KeyCombination(key: .r, control: true)
 
-        let transformedKeys = VimEngineController.shared.transform(from: controlR)
-
-        XCTAssertEqual(
-            transformedKeys,
-            KeyboardStrategy.controlR()
-        )
+        let handled = VimEngineController.shared.transform(from: controlR)
+        
+        XCTAssertTrue(handled)
     }
     
 }

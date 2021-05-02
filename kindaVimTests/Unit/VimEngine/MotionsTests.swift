@@ -16,92 +16,63 @@ class MotionsTests: XCTestCase {
     
 }
 
-// TODO: this will not be useful later
-// as it will depend on which strategy is used
-// so it will not always send back [KeyCombination]
-// but for now the tests are more cleverly updated
-
 extension MotionsTests {
 
-    func test_that_k_is_getting_transformed_to_up() {
+    func test_that_k_is_handled() {
         let k = KeyCombination(key: .k, command: false, fn: true, shift: true)
 
-        let transformedKeys = VimEngineController.shared.transform(from: k)
+        let handled = VimEngineController.shared.transform(from: k)
         
-        XCTAssertEqual(
-            transformedKeys,
-            KeyboardStrategy.k()
-        )
+        XCTAssertTrue(handled)
     }
     
-    func test_that_j_is_getting_transformed_to_down() {
+    func test_that_j_is_handled() {
         let j = KeyCombination(key: .j)
         
-        let transformedKeys = VimEngineController.shared.transform(from: j)
+        let handled = VimEngineController.shared.transform(from: j)
 
-        XCTAssertEqual(
-            transformedKeys,
-            KeyboardStrategy.j()
-        )
+        XCTAssertTrue(handled)
     }
     
-    func test_that_h_is_getting_transformed_to_left() {
+    func test_that_h_is_handled() {
         let h = KeyCombination(key: .h)
         
-        let transformedKeys = VimEngineController.shared.transform(from: h)
+        let handled = VimEngineController.shared.transform(from: h)
         
-        XCTAssertEqual(
-            transformedKeys,
-            KeyboardStrategy.h()
-        )
+        XCTAssertTrue(handled)
     }
     
-    func test_that_l_is_getting_transformed_to_right() {
+    func test_that_l_is_handled() {
         let l = KeyCombination(key: .l)
         
-        let transformedKeys = VimEngineController.shared.transform(from: l)
+        let handled = VimEngineController.shared.transform(from: l)
 
-        XCTAssertEqual(
-            transformedKeys,
-            KeyboardStrategy.l()
-        )
+        XCTAssertTrue(handled)
     }
     
-    func test_that_b_is_getting_transformed_to_alt_left() {
+    func test_that_b_is_handled() {
         let b = KeyCombination(key: .b)
         
-        let transformedKeys = VimEngineController.shared.transform(from: b)
+        let handled = VimEngineController.shared.transform(from: b)
 
-        XCTAssertEqual(
-            transformedKeys,
-            KeyboardStrategy.b()
-        )
+        XCTAssertTrue(handled)
     }
     
-    func test_that_gg_is_getting_transformed_to_command_up() {
+    func test_that_gg_is_handled() {
         let g = KeyCombination(key: .g)
 
         _ = VimEngineController.shared.transform(from: g)
-        let transformedKeys = VimEngineController.shared.transform(from: g)
+        let handled = VimEngineController.shared.transform(from: g)
 
-        guard transformedKeys.count == 2 else { return XCTFail() }
-        XCTAssertEqual(transformedKeys[0].key, .up)
-        XCTAssertEqual(transformedKeys[0].command, true)
-        XCTAssertEqual(transformedKeys[0].action, .press)
-        XCTAssertEqual(transformedKeys[1].key, .up)
-        XCTAssertEqual(transformedKeys[1].command, true)
-        XCTAssertEqual(transformedKeys[1].action, .release)
+        XCTAssertTrue(handled)
     }
     
-    func test_that_G_is_getting_transformed_to_command_down() {
+    func test_that_G_is_handled() {
         let G = KeyCombination(key: .g, shift: true)
 
-        let transformedKeys = VimEngineController.shared.transform(from: G)
-
-        XCTAssertEqual(
-            transformedKeys,
-            KeyboardStrategy.G()
-        )
+        let handled = VimEngineController.shared.transform(from: G)
+        
+        XCTAssertTrue(handled)
     }
     
 }

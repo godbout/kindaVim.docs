@@ -62,6 +62,18 @@ class KSMotionsTests: XCTestCase {
         XCTAssertEqual(transformedKeys[1].action, .release)
     }
     
+    func test_that_gg_is_getting_transformed_to_command_up() {
+        let transformedKeys = KeyboardStrategy.gg()
+
+        guard transformedKeys.count == 2 else { return XCTFail() }
+        XCTAssertEqual(transformedKeys[0].key, .up)
+        XCTAssertEqual(transformedKeys[0].command, true)
+        XCTAssertEqual(transformedKeys[0].action, .press)
+        XCTAssertEqual(transformedKeys[1].key, .up)
+        XCTAssertEqual(transformedKeys[1].command, true)
+        XCTAssertEqual(transformedKeys[1].action, .release)
+    }
+    
     func test_that_G_is_getting_transformed_to_command_down() {
         let transformedKeys = KeyboardStrategy.G()
 

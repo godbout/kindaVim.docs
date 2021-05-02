@@ -25,19 +25,18 @@ class GlobalEventsControllerTests: XCTestCase {
         VimEngineController.shared.enterInsertMode()
         
         let originalKeyCombination = KeyCombination(key: .j)
-        let handledKeyCombinations = GlobalEventsController.handle(originalKeyCombination)
-            
-        XCTAssertEqual([originalKeyCombination], handledKeyCombinations)
+        let handled = GlobalEventsController.handle(originalKeyCombination)
+        
+        XCTAssertFalse(handled)
     }
     
     func test_that_in_command_mode_the_events_are_transformed() {
         VimEngineController.shared.enterCommandMode()
         
         let originalKeyCombination = KeyCombination(key: .j)
-        let transformedKeyCombinations = GlobalEventsController.handle(originalKeyCombination)
-            
-        XCTAssertNotEqual([originalKeyCombination], transformedKeyCombinations)
-        XCTAssertEqual(transformedKeyCombinations?.first?.key, .down)
+        let handled = GlobalEventsController.handle(originalKeyCombination)
+        
+        XCTAssertTrue(handled)
     }
 
 }

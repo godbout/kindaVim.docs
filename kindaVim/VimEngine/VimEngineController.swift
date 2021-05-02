@@ -108,8 +108,8 @@ class VimEngineController {
         }
     }
     
-    private func focusedElement() -> AXUIElement {
-        
+    private func focusedElement() -> AXUIElement? {
+        return nil
     }
     
     private func write(element: AXUIElement?) -> Bool {
@@ -133,21 +133,11 @@ class VimEngineController {
         case "cc":
             VimEngineController.shared.enterInsertMode()
             
-            return [
-                KeyCombination(key: .right, command: true, action: .press),
-                KeyCombination(key: .right, command: true, action: .release),
-                KeyCombination(key: .left, command: true, shift: true, action: .press),
-                KeyCombination(key: .left, command: true, shift: true, action: .release),
-                KeyCombination(key: .delete, action: .press),
-                KeyCombination(key: .delete, action: .release)                
-            ]
+            return KeyboardStrategy.cc()
         case "gg":
             VimEngineController.shared.enterCommandMode()
             
-            return [
-                KeyCombination(key: .up, command: true, action: .press),
-                KeyCombination(key: .up, command: true, action: .release)
-            ]
+            return KeyboardStrategy.gg()
         default:
             VimEngineController.shared.enterCommandMode()
             

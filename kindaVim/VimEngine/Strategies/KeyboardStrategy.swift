@@ -119,10 +119,28 @@ struct KeyboardStrategy {
         ]
     }
     
+    static func gg() -> [KeyCombination] {
+        return [
+            KeyCombination(key: .up, command: true, action: .press),
+            KeyCombination(key: .up, command: true, action: .release)
+        ]
+    }
+    
     static func G() -> [KeyCombination] {
         return [
             KeyCombination(key: .down, command: true, action: .press),
             KeyCombination(key: .down, command: true, action: .release)
+        ]
+    }
+    
+    static func cc() -> [KeyCombination] {
+        return [
+            KeyCombination(key: .right, command: true, action: .press),
+            KeyCombination(key: .right, command: true, action: .release),
+            KeyCombination(key: .left, command: true, shift: true, action: .press),
+            KeyCombination(key: .left, command: true, shift: true, action: .release),
+            KeyCombination(key: .delete, action: .press),
+            KeyCombination(key: .delete, action: .release)
         ]
     }
     
