@@ -9,6 +9,8 @@ import Foundation
 
 struct KeyboardStrategy {
     
+    static var proxy: CGEventTapProxy!
+    
     static func h() -> [KeyCombination] {
         return [
             KeyCombination(key: .left, action: .both)
@@ -174,6 +176,18 @@ struct KeyboardStrategy {
             KeyCombination(key: .right, option: true, action: .both),
             KeyCombination(key: .left, option: true, action: .both)
         ]
+    }
+    
+    static func post(_ keyCombinations: [KeyCombination]) -> Bool {
+        print("move using Keyboard Strategy")
+        
+        for keyCombination in keyCombinations {
+            let cgEvent = KeyCombinationConverter.toCGEvent(from: keyCombination)
+                    
+            cgEvent?.tapPostEvent(proxy)
+        }
+        
+        return true
     }
     
 }

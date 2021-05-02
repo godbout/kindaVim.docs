@@ -18,7 +18,6 @@ class VimEngineController {
     static var shared = VimEngineController()
     var currentMode: VimEngineMode = .insert
     var operatorPendingBuffer = ""
-    var proxy: CGEventTapProxy!
     
     private init() {
         #if !TESTING
@@ -29,7 +28,7 @@ class VimEngineController {
     }
     
     func transform(from original: KeyCombination) -> Bool {
-        if VimEngineController.shared.currentMode != .operatorPending {
+        if currentMode != .operatorPending {
             switch original.key {
             case .w where original.shift == false:
                 return post(KeyboardStrategy.w())
@@ -40,19 +39,19 @@ class VimEngineController {
             case .n0 where original.shift == false:
                 return post(KeyboardStrategy.n0())
             case .d where original.shift == false:
-                VimEngineController.shared.enterOperatorPendingMode(with: "d")
+                enterOperatorPendingMode(with: "d")
                 
                 return true
             case .c where original.shift == false:
-                VimEngineController.shared.enterOperatorPendingMode(with: "c")
+                enterOperatorPendingMode(with: "c")
                 
                 return true
             case .c where original.shift == true:
-                VimEngineController.shared.enterInsertMode()
+                enterInsertMode()
                 
                 return post(KeyboardStrategy.C())
             case .g where original.shift == false:
-                VimEngineController.shared.enterOperatorPendingMode(with: "g")
+                enterOperatorPendingMode(with: "g")
                 
                 return true
             case .g where original.shift == true:
@@ -68,27 +67,27 @@ class VimEngineController {
             case .u:
                 return post(KeyboardStrategy.u())
             case .o where original.shift == false:
-                VimEngineController.shared.enterInsertMode()
+                enterInsertMode()
                 
                 return post(KeyboardStrategy.o())
             case .o where original.shift == true:
-                VimEngineController.shared.enterInsertMode()
+                enterInsertMode()
                 
                 return post(KeyboardStrategy.O())
             case .i where original.shift == false:
-                VimEngineController.shared.enterInsertMode()
+                enterInsertMode()
 
                 return true
             case .i where original.shift == true:
-                VimEngineController.shared.enterInsertMode()
+                enterInsertMode()
                 
                 return post(KeyboardStrategy.I())
             case .a where original.shift == false:
-                VimEngineController.shared.enterInsertMode()
+                enterInsertMode()
                 
                 return post(KeyboardStrategy.a())
             case .a where original.shift == true:
-                VimEngineController.shared.enterInsertMode()
+                enterInsertMode()
                 
                 return post(KeyboardStrategy.A())
             case .h:
@@ -102,6 +101,10 @@ class VimEngineController {
             case .k:
                 return post(KeyboardStrategy.k())
             case .l:
+                if let element = AccessibilityStrategy.l(on: focusedElement()) {
+                    return write(element: element)
+                }
+
                 return post(KeyboardStrategy.l())
             default:
                 return false
@@ -128,81 +131,18 @@ class VimEngineController {
         }
     }
     
-    private func focusedElement() -> AccessibilityElement? {
-        var accessibilityElement: AccessibilityElement?
-        let axSystemWideElement = AXUIElementCreateSystemWide()
-        
-        var axFocusedElement: AnyObject?
-        var error = AXUIElementCopyAttributeValue(axSystemWideElement, kAXFocusedUIElementAttribute as CFString, &axFocusedElement)
-        
-        if error == .success {
-            var value: AnyObject?
-            error = AXUIElementCopyAttributeValue(axFocusedElement as! AXUIElement, kAXSelectedTextRangeAttribute as CFString, &value)
-    
-            if error == .success {
-                var range = CFRange()
-            
-                if (AXValueGetValue(value as! AXValue, AXValueType.cfRange, &range)) {
-                    accessibilityElement = AccessibilityElement(
-                        cursorLocation: range.location,
-                        selectionLength: range.length
-                    )
-                }
-            }
-            
-        }
-            
-        return accessibilityElement
-    }
-    
-    private func write(element: AccessibilityElement) -> Bool {
-        print("move using Accessibility Stragety")
-        
-        let axSystemWideElement = AXUIElementCreateSystemWide()
-        
-        var axFocusedElement: AnyObject?
-        let error = AXUIElementCopyAttributeValue(axSystemWideElement, kAXFocusedUIElementAttribute as CFString, &axFocusedElement)
-        
-        guard error == .success else { return false }
-    
-        var range = CFRange(
-            location: element.cursorLocation,
-            length: element.selectionLength
-        )
-                                
-        let newValue = AXValueCreate(AXValueType.cfRange, &range)
-    
-        AXUIElementSetAttributeValue(axFocusedElement as! AXUIElement, kAXSelectedTextRangeAttribute as CFString, newValue!)
-        
-        return true
-    }
-    
-    private func post(_ keyCombinations: [KeyCombination]) -> Bool {
-        print("move using Keyboard Strategy")
-        
-        for keyCombination in keyCombinations {
-            let cgEvents = KeyCombinationConverter.toCGEvents(from: keyCombination)
-            
-            for cgEvent in cgEvents {
-                cgEvent.tapPostEvent(proxy)
-            }
-        }
-        
-        return true
-    }
-    
     private func operatorCommand() -> [KeyCombination]? {
         switch operatorPendingBuffer {
         case "cc":
-            VimEngineController.shared.enterInsertMode()
+            enterInsertMode()
             
             return KeyboardStrategy.cc()
         case "gg":
-            VimEngineController.shared.enterCommandMode()
+            enterCommandMode()
             
             return KeyboardStrategy.gg()
         case "dd":
-            VimEngineController.shared.enterCommandMode()
+            enterCommandMode()
             
             return KeyboardStrategy.dd()
         case "ci":
@@ -243,19 +183,16 @@ class VimEngineController {
         operatorPendingBuffer.append(`operator`)
     }
 
-    func barbaricallyTintDisplay() {
-        let mainDisplayID = CGMainDisplayID()
-
-        var redTable: [CGGammaValue] = [0.05, 0.7]
-        var greenTable: [CGGammaValue] = [0.05, 0.7]
-        var blueTable: [CGGammaValue] = [0.05, 0.7]
-
-        CGSetDisplayTransferByTable(mainDisplayID, 2, &redTable, &greenTable, &blueTable)
+    private func post(_ keyCombinations: [KeyCombination]) -> Bool {
+        return KeyboardStrategy.post(keyCombinations)
     }
 
-    func barbaricallyResetDisplayTint() {
-        // barbaric for now yes
-        CGDisplayRestoreColorSyncSettings()
+    private func focusedElement() -> AccessibilityElement? {
+        return AccessibilityStrategy.focusedElement()
+    }
+
+    private func write(element: AccessibilityElement) -> Bool {
+        return AccessibilityStrategy.write(element: element)
     }
     
 }
