@@ -160,11 +160,16 @@ class VimEngineController {
             VimEngineController.shared.enterCommandMode()
             
             return KeyboardStrategy.dd()
+        case "ci":
+            return []
         case "ciw":
-            VimEngineController.shared.enterInsertMode()
+            enterInsertMode()
             
             return KeyboardStrategy.ciw()
         default:
+            resetOperatorPendingBuffer()
+            enterCommandMode()
+            
             return nil
         }        
     }
