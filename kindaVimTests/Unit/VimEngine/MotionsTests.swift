@@ -75,5 +75,13 @@ extension MotionsTests {
         XCTAssertTrue(handled)
     }
     
+    func test_that_0_is_handled() {
+        let n0 = KeyCombination(key: .n0)
+        
+        let handled = VimEngineController.shared.transform(from: n0)
+        
+        XCTAssertTrue(handled)
+    }
+    
 }
 
