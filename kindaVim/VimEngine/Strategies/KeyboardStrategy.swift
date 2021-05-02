@@ -174,7 +174,29 @@ struct KeyboardStrategy {
             KeyCombination(key: .left, option: true, action: .press),
             KeyCombination(key: .left, option: true, action: .release)
         ]
-        
+    }
+    
+    static func dd() -> [KeyCombination] {
+        return [
+            KeyCombination(key: .right, command: true, action: .press),
+            KeyCombination(key: .right, command: true, action: .release),
+            KeyCombination(key: .a, control: true, shift: true, action: .press),
+            KeyCombination(key: .a, control: true, shift: true, action: .release),
+            KeyCombination(key: .delete, action: .press),
+            KeyCombination(key: .delete, action: .release),
+            KeyCombination(key: .down, action: .press),
+            KeyCombination(key: .down, action: .release),
+            KeyCombination(key: .a, control: true, action: .press),
+            KeyCombination(key: .a, control: true, action: .release),
+            KeyCombination(key: .delete, action: .press),
+            KeyCombination(key: .delete, action: .release),
+            KeyCombination(key: .a, control: true, action: .press),
+            KeyCombination(key: .a, control: true, action: .release),
+            KeyCombination(key: .right, option: true, action: .press),
+            KeyCombination(key: .right, option: true, action: .release),
+            KeyCombination(key: .left, option: true, action: .press),
+            KeyCombination(key: .left, option: true, action: .release)
+        ]
     }
     
 }

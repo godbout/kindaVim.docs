@@ -36,4 +36,13 @@ extension OperatorsTests {
         XCTAssertEqual(VimEngineController.shared.currentMode, .operatorPending)
     }
     
+    func test_that_after_the_first_d_operator_pending_mode_is_on() {
+        XCTAssertNotEqual(VimEngineController.shared.currentMode, .operatorPending)
+        
+        let d = KeyCombination(key: .d)
+        _ = VimEngineController.shared.transform(from: d)
+        
+        XCTAssertEqual(VimEngineController.shared.currentMode, .operatorPending)
+    }
+    
 }

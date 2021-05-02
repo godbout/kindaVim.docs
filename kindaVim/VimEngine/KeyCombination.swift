@@ -20,6 +20,7 @@ enum KeyCode: Int64, RawRepresentable {
     
     // delete
     case x = 7
+    case d = 2
     
     // undo
     case u = 32

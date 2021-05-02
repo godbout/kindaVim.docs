@@ -37,6 +37,10 @@ class VimEngineController {
                 return post(KeyboardStrategy.n4())
             case .n0 where original.shift == false:
                 return post(KeyboardStrategy.n0())
+            case .d where original.shift == false:
+                VimEngineController.shared.enterOperatorPendingMode(with: "d")
+                
+                return true
             case .c where original.shift == false:
                 VimEngineController.shared.enterOperatorPendingMode(with: "c")
                 
@@ -106,6 +110,8 @@ class VimEngineController {
                 operatorPendingBuffer.append("c")
             case .g:
                 operatorPendingBuffer.append("g")
+            case .d:
+                operatorPendingBuffer.append("d")
             default:
                 ()
             }
@@ -144,6 +150,10 @@ class VimEngineController {
             VimEngineController.shared.enterCommandMode()
             
             return KeyboardStrategy.gg()
+        case "dd":
+            VimEngineController.shared.enterCommandMode()
+            
+            return KeyboardStrategy.dd()
         default:
             VimEngineController.shared.enterCommandMode()
             

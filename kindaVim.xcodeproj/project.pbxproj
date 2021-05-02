@@ -18,6 +18,7 @@
 		9128F2B7262AA90D00625B42 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9128F2B6262AA90D00625B42 /* Preview Assets.xcassets */; };
 		9128F2BA262AA90D00625B42 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9128F2B8262AA90D00625B42 /* Main.storyboard */; };
 		913383E4263D2A7D0086C06F /* DeleteInsertingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913383E3263D2A7D0086C06F /* DeleteInsertingTests.swift */; };
+		913AB0A4263EBCDB008E7284 /* DeletingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913AB0A3263EBCDB008E7284 /* DeletingTests.swift */; };
 		91482E40263DBE8300F10ADC /* KeyboardStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91482E3F263DBE8300F10ADC /* KeyboardStrategy.swift */; };
 		91482E46263DBF7300F10ADC /* KSMotionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91482E45263DBF7300F10ADC /* KSMotionsTests.swift */; };
 		91482E49263DC1F700F10ADC /* KSDeleteInsertingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91482E48263DC1F700F10ADC /* KSDeleteInsertingTests.swift */; };
@@ -63,6 +64,7 @@
 		9128F2C1262AA90D00625B42 /* kindaVimTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = kindaVimTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9128F2C7262AA90D00625B42 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		913383E3263D2A7D0086C06F /* DeleteInsertingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteInsertingTests.swift; sourceTree = "<group>"; };
+		913AB0A3263EBCDB008E7284 /* DeletingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeletingTests.swift; sourceTree = "<group>"; };
 		91482E3F263DBE8300F10ADC /* KeyboardStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardStrategy.swift; sourceTree = "<group>"; };
 		91482E45263DBF7300F10ADC /* KSMotionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSMotionsTests.swift; sourceTree = "<group>"; };
 		91482E48263DC1F700F10ADC /* KSDeleteInsertingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSDeleteInsertingTests.swift; sourceTree = "<group>"; };
@@ -144,6 +146,7 @@
 				91A7CB2926394EFE00C54572 /* UndosTests.swift */,
 				91071EE6263D20AB006BE787 /* OperatorsTests.swift */,
 				913383E3263D2A7D0086C06F /* DeleteInsertingTests.swift */,
+				913AB0A3263EBCDB008E7284 /* DeletingTests.swift */,
 			);
 			path = VimEngine;
 			sourceTree = "<group>";
@@ -378,6 +381,7 @@
 				91482E46263DBF7300F10ADC /* KSMotionsTests.swift in Sources */,
 				913383E4263D2A7D0086C06F /* DeleteInsertingTests.swift in Sources */,
 				91482E4F263DC76500F10ADC /* KSInsertingTests.swift in Sources */,
+				913AB0A4263EBCDB008E7284 /* DeletingTests.swift in Sources */,
 				91482E49263DC1F700F10ADC /* KSDeleteInsertingTests.swift in Sources */,
 				9128B0ED26380ACC007DC80B /* GlobalEventsControllerTests.swift in Sources */,
 			);
