@@ -199,4 +199,15 @@ struct KeyboardStrategy {
         ]
     }
     
+    static func ciw() -> [KeyCombination] {
+        return [
+            KeyCombination(key: .right, option: true, action: .press),
+            KeyCombination(key: .right, option: true, action: .release),
+            KeyCombination(key: .left, option: true, shift: true, action: .press),
+            KeyCombination(key: .left, option: true, shift: true, action: .release),
+            KeyCombination(key: .delete, action: .press),
+            KeyCombination(key: .delete, action: .release),            
+        ]
+    }
+    
 }

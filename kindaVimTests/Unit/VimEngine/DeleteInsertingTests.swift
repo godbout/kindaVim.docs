@@ -37,4 +37,26 @@ extension DeleteInsertingTests {
         XCTAssertEqual(VimEngineController.shared.currentMode, .insert)
     }
     
+    func test_that_ciw_is_handled() {
+        let c = KeyCombination(key: .c)
+        let i = KeyCombination(key: .i)
+        let w = KeyCombination(key: .w)
+
+        _ = VimEngineController.shared.transform(from: c)
+        _ = VimEngineController.shared.transform(from: i)
+        let handled = VimEngineController.shared.transform(from: w)
+
+        XCTAssertTrue(handled)
+    }
+    
+    func test_that_ciw_switches_Vim_to_insert_mode() {
+        VimEngineController.shared.enterCommandMode()
+
+        _ = VimEngineController.shared.transform(from: KeyCombination(key: .c))
+        _ = VimEngineController.shared.transform(from: KeyCombination(key: .i))
+        _ = VimEngineController.shared.transform(from: KeyCombination(key: .w))
+
+        XCTAssertEqual(VimEngineController.shared.currentMode, .insert)
+    }
+    
 }

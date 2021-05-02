@@ -112,11 +112,17 @@ class VimEngineController {
                 operatorPendingBuffer.append("g")
             case .d:
                 operatorPendingBuffer.append("d")
+            case .i:
+                operatorPendingBuffer.append("i")
+            case .w:
+                operatorPendingBuffer.append("w")
             default:
                 ()
             }
             
-            return post(operatorCommand())
+            guard let operatorCommand = operatorCommand() else { return true }
+                    
+            return post(operatorCommand)
         }
     }
     
@@ -140,7 +146,7 @@ class VimEngineController {
         return true
     }
     
-    private func operatorCommand() -> [KeyCombination] {
+    private func operatorCommand() -> [KeyCombination]? {
         switch operatorPendingBuffer {
         case "cc":
             VimEngineController.shared.enterInsertMode()
@@ -154,10 +160,12 @@ class VimEngineController {
             VimEngineController.shared.enterCommandMode()
             
             return KeyboardStrategy.dd()
-        default:
-            VimEngineController.shared.enterCommandMode()
+        case "ciw":
+            VimEngineController.shared.enterInsertMode()
             
-            return []
+            return KeyboardStrategy.ciw()
+        default:
+            return nil
         }        
     }
     
