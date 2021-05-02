@@ -38,31 +38,31 @@ class VimEngineController {
             case .c where original.shift == true:
                 VimEngineController.shared.enterInsertMode()
                 
-                return tap(KeyboardStrategy.C())
+                return post(KeyboardStrategy.C())
             case .g where original.shift == false:
                 VimEngineController.shared.enterOperatorPendingMode(with: "g")
                 
                 return true
             case .g where original.shift == true:
-                return tap(KeyboardStrategy.G())
+                return post(KeyboardStrategy.G())
             case .x where original.shift == false:
-                return tap(KeyboardStrategy.x())
+                return post(KeyboardStrategy.x())
             case .x where original.shift == true:
-                return tap(KeyboardStrategy.X())
+                return post(KeyboardStrategy.X())
             case .b where original.shift == false:
-                return tap(KeyboardStrategy.b())
+                return post(KeyboardStrategy.b())
             case .r where original.control == true:
-                return tap(KeyboardStrategy.controlR())
+                return post(KeyboardStrategy.controlR())
             case .u:
-                return tap(KeyboardStrategy.u())
+                return post(KeyboardStrategy.u())
             case .o where original.shift == false:
                 VimEngineController.shared.enterInsertMode()
                 
-                return tap(KeyboardStrategy.o())
+                return post(KeyboardStrategy.o())
             case .o where original.shift == true:
                 VimEngineController.shared.enterInsertMode()
                 
-                return tap(KeyboardStrategy.O())
+                return post(KeyboardStrategy.O())
             case .i where original.shift == false:
                 VimEngineController.shared.enterInsertMode()
 
@@ -70,29 +70,29 @@ class VimEngineController {
             case .i where original.shift == true:
                 VimEngineController.shared.enterInsertMode()
                 
-                return tap(KeyboardStrategy.I())
+                return post(KeyboardStrategy.I())
             case .a where original.shift == false:
                 VimEngineController.shared.enterInsertMode()
                 
-                return tap(KeyboardStrategy.a())
+                return post(KeyboardStrategy.a())
             case .a where original.shift == true:
                 VimEngineController.shared.enterInsertMode()
                 
-                return tap(KeyboardStrategy.A())
+                return post(KeyboardStrategy.A())
             case .h:
                 if let element = AccessibilityStrategy.h(on: focusedElement()) {
                     return write(element: element)
                 }
                 
-                return tap(KeyboardStrategy.h())
+                return post(KeyboardStrategy.h())
             case .j:
-                return tap(KeyboardStrategy.j())
+                return post(KeyboardStrategy.j())
             case .k:
-                return tap(KeyboardStrategy.k())
+                return post(KeyboardStrategy.k())
             case .l:
-                return tap(KeyboardStrategy.l())
+                return post(KeyboardStrategy.l())
             default:
-                return tap([original])
+                return post([original])
             }
         } else {
             switch original.key {
@@ -104,7 +104,7 @@ class VimEngineController {
                 ()
             }
             
-            return tap(operatorCommand())
+            return post(operatorCommand())
         }
     }
     
@@ -118,7 +118,7 @@ class VimEngineController {
         return false
     }
     
-    private func tap(_ keyCombinations: [KeyCombination]) -> Bool {
+    private func post(_ keyCombinations: [KeyCombination]) -> Bool {
         for keyCombination in keyCombinations {
             let cgEvent = KeyCombinationConverter.toCGEvent(from: keyCombination)
                     
