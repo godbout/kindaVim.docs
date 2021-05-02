@@ -67,16 +67,14 @@ struct KeyboardStrategy {
         ]
     }
     
-    // TODO: combination might be wrong. doesn't work well
-    // if caret is on top of buffer
     static func O() -> [KeyCombination] {
         return [
-            KeyCombination(key: .up, action: .press),
-            KeyCombination(key: .up, action: .release),
-            KeyCombination(key: .right, command: true, action: .press),
-            KeyCombination(key: .right, command: true, action: .release),
+            KeyCombination(key: .left, command: true, action: .press),
+            KeyCombination(key: .left, command: true, action: .release),
             KeyCombination(key: .enter, action: .press),
-            KeyCombination(key: .enter, action: .release)
+            KeyCombination(key: .enter, action: .release),
+            KeyCombination(key: .up, action: .press),
+            KeyCombination(key: .up, action: .release)
         ]
     }
     
