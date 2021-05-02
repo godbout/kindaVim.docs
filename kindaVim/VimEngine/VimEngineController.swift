@@ -15,7 +15,7 @@ enum VimEngineMode {
 
 class VimEngineController {
     
-    static var shared = VimEngineController.init()
+    static var shared = VimEngineController()
     var currentMode: VimEngineMode = .insert
     var operatorPendingBuffer = ""
     var proxy: CGEventTapProxy!
@@ -128,17 +128,58 @@ class VimEngineController {
         }
     }
     
-    private func focusedElement() -> AXUIElement? {
-        return nil
+    private func focusedElement() -> AccessibilityElement? {
+        var accessibilityElement: AccessibilityElement?
+        let axSystemWideElement = AXUIElementCreateSystemWide()
+        
+        var axFocusedElement: AnyObject?
+        var error = AXUIElementCopyAttributeValue(axSystemWideElement, kAXFocusedUIElementAttribute as CFString, &axFocusedElement)
+        
+        if error == .success {
+            var value: AnyObject?
+            error = AXUIElementCopyAttributeValue(axFocusedElement as! AXUIElement, kAXSelectedTextRangeAttribute as CFString, &value)
+    
+            if error == .success {
+                var range = CFRange()
+            
+                if (AXValueGetValue(value as! AXValue, AXValueType.cfRange, &range)) {
+                    accessibilityElement = AccessibilityElement(
+                        cursorLocation: range.location,
+                        selectionLength: range.length
+                    )
+                }
+            }
+            
+        }
+            
+        return accessibilityElement
     }
     
-    private func write(element: AXUIElement?) -> Bool {
-        print("write new AXUIElement")
+    private func write(element: AccessibilityElement) -> Bool {
+        print("move using Accessibility Stragety")
         
-        return false
+        let axSystemWideElement = AXUIElementCreateSystemWide()
+        
+        var axFocusedElement: AnyObject?
+        let error = AXUIElementCopyAttributeValue(axSystemWideElement, kAXFocusedUIElementAttribute as CFString, &axFocusedElement)
+        
+        guard error == .success else { return false }
+    
+        var range = CFRange(
+            location: element.cursorLocation,
+            length: element.selectionLength
+        )
+                                
+        let newValue = AXValueCreate(AXValueType.cfRange, &range)
+    
+        AXUIElementSetAttributeValue(axFocusedElement as! AXUIElement, kAXSelectedTextRangeAttribute as CFString, newValue!)
+        
+        return true
     }
     
     private func post(_ keyCombinations: [KeyCombination]) -> Bool {
+        print("move using Keyboard Strategy")
+        
         for keyCombination in keyCombinations {
             let cgEvents = KeyCombinationConverter.toCGEvents(from: keyCombination)
             

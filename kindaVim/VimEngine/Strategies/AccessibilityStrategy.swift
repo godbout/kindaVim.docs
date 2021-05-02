@@ -7,10 +7,22 @@
 
 import Foundation
 
+struct AccessibilityElement {
+    
+    var text = ""
+    var cursorLocation = 0
+    var selectionLength = 0
+    
+}
+
 struct AccessibilityStrategy {
     
-    static func h(on element: AXUIElement?) -> AXUIElement? {
-        return nil
+    static func h(on element: AccessibilityElement?) -> AccessibilityElement? {
+        guard var element = element else { return nil }
+        
+        element.cursorLocation -= 1
+        
+        return element
     }
     
 }
