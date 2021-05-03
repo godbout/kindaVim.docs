@@ -37,7 +37,7 @@
 		91A7CB28263932C700C54572 /* InsertingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A7CB27263932C700C54572 /* InsertingTests.swift */; };
 		91A7CB2A26394EFE00C54572 /* UndosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A7CB2926394EFE00C54572 /* UndosTests.swift */; };
 		91BC934226352A1E00B62B18 /* GlobalEventsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BC934126352A1E00B62B18 /* GlobalEventsController.swift */; };
-		91BFF31B26403F95003B7A2A /* VimKeyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BFF31A26403F95003B7A2A /* VimKeyTests.swift */; };
+		91BFF31B26403F95003B7A2A /* KeyCombinationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BFF31A26403F95003B7A2A /* KeyCombinationTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,7 +86,7 @@
 		91A7CB27263932C700C54572 /* InsertingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsertingTests.swift; sourceTree = "<group>"; };
 		91A7CB2926394EFE00C54572 /* UndosTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UndosTests.swift; sourceTree = "<group>"; };
 		91BC934126352A1E00B62B18 /* GlobalEventsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalEventsController.swift; sourceTree = "<group>"; };
-		91BFF31A26403F95003B7A2A /* VimKeyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VimKeyTests.swift; sourceTree = "<group>"; };
+		91BFF31A26403F95003B7A2A /* KeyCombinationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyCombinationTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,7 +110,7 @@
 		9115315D263860F80048F8F8 /* Unit */ = {
 			isa = PBXGroup;
 			children = (
-				9197C09426369D31006C696A /* KeyCombinationConverterTests */,
+				912687242640634D002E3FB0 /* KeyCombinationTests */,
 				9128B0EB26380AB0007DC80B /* EventsTests */,
 				9128B0F2263820C5007DC80B /* VimEngine */,
 			);
@@ -138,9 +138,27 @@
 			children = (
 				91BC934126352A1E00B62B18 /* GlobalEventsController.swift */,
 				911BB75526328D7D006882D8 /* EventTapController.swift */,
-				9197C0842636695A006C696A /* KeyCombinationConverter.swift */,
 			);
 			path = Events;
+			sourceTree = "<group>";
+		};
+		9126872326406335002E3FB0 /* KeyCombination */ = {
+			isa = PBXGroup;
+			children = (
+				919DEB622632C85B0052D514 /* KeyCombination.swift */,
+				9197C0842636695A006C696A /* KeyCombinationConverter.swift */,
+			);
+			path = KeyCombination;
+			sourceTree = "<group>";
+		};
+		912687242640634D002E3FB0 /* KeyCombinationTests */ = {
+			isa = PBXGroup;
+			children = (
+				91BFF31A26403F95003B7A2A /* KeyCombinationTests.swift */,
+				9197C08926366A3B006C696A /* KeyCombinationToCGEventsTests.swift */,
+				9197C09B26369D73006C696A /* CGEventToKeyCombinationTests.swift */,
+			);
+			path = KeyCombinationTests;
 			sourceTree = "<group>";
 		};
 		9128B0EB26380AB0007DC80B /* EventsTests */ = {
@@ -161,7 +179,6 @@
 				91071EE6263D20AB006BE787 /* OperatorsTests.swift */,
 				913383E3263D2A7D0086C06F /* DeleteInsertingTests.swift */,
 				913AB0A3263EBCDB008E7284 /* DeletingTests.swift */,
-				91BFF31A26403F95003B7A2A /* VimKeyTests.swift */,
 			);
 			path = VimEngine;
 			sourceTree = "<group>";
@@ -190,6 +207,7 @@
 				911BB75A26329513006882D8 /* StatusBar */,
 				9118C4E5263F0CDA0040C297 /* Display */,
 				911BB75B26329526006882D8 /* Events */,
+				9126872326406335002E3FB0 /* KeyCombination */,
 				919DEB612632C8320052D514 /* VimEngine */,
 				9128F2AF262AA90C00625B42 /* AppDelegate.swift */,
 				918024B826386E95004FD719 /* AppComponent.swift */,
@@ -258,21 +276,11 @@
 			path = AccessibilityStrategy;
 			sourceTree = "<group>";
 		};
-		9197C09426369D31006C696A /* KeyCombinationConverterTests */ = {
-			isa = PBXGroup;
-			children = (
-				9197C08926366A3B006C696A /* KeyCombinationToCGEventsTests.swift */,
-				9197C09B26369D73006C696A /* CGEventToKeyCombinationTests.swift */,
-			);
-			path = KeyCombinationConverterTests;
-			sourceTree = "<group>";
-		};
 		919DEB612632C8320052D514 /* VimEngine */ = {
 			isa = PBXGroup;
 			children = (
 				91482E3E263DBE7700F10ADC /* Strategies */,
 				911BB7482632899E006882D8 /* VimEngineController.swift */,
-				919DEB622632C85B0052D514 /* KeyCombination.swift */,
 			);
 			path = VimEngine;
 			sourceTree = "<group>";
@@ -400,7 +408,7 @@
 				91482E4B263DC57100F10ADC /* KSDeletingTests.swift in Sources */,
 				91A7CB28263932C700C54572 /* InsertingTests.swift in Sources */,
 				9197C08A26366A3B006C696A /* KeyCombinationToCGEventsTests.swift in Sources */,
-				91BFF31B26403F95003B7A2A /* VimKeyTests.swift in Sources */,
+				91BFF31B26403F95003B7A2A /* KeyCombinationTests.swift in Sources */,
 				91482E4D263DC6B100F10ADC /* KSUndosTests.swift in Sources */,
 				9197C09C26369D73006C696A /* CGEventToKeyCombinationTests.swift in Sources */,
 				91A7CB2A26394EFE00C54572 /* UndosTests.swift in Sources */,

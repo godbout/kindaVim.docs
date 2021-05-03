@@ -8,7 +8,7 @@
 @testable import kindaVim
 import XCTest
 
-class VimKeyTests: XCTestCase {
+class KeyCombinationTests: XCTestCase {
 
     func test_that_$_has_a_VimKey_equivalent_of_dollarSign() {
         let keyCombination = KeyCombination(key: .four, shift: true)
