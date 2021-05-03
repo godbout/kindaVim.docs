@@ -9,16 +9,16 @@ import Foundation
 
 struct GlobalEventsController {
     
-    static func handle(_ implementedKeyCombination: KeyCombination?) -> Bool {
+    static func handle(_ keyCombination: KeyCombination?) -> Bool {
         if VimEngineController.shared.currentMode != .insert {
-            guard implementedKeyCombination != nil else { return true }
+            guard let implementedKeyCombination = keyCombination else { return true }
 
-            return VimEngineController.shared.transform(from: implementedKeyCombination!)
+            return VimEngineController.shared.transform(from: implementedKeyCombination)
         }
 
-        guard implementedKeyCombination != nil else { return false }
+        guard let implementedKeyCombination = keyCombination else { return false }
 
-        if globalVimEngineHotkeyIsPressed(implementedKeyCombination!) {
+        if globalVimEngineHotkeyIsPressed(implementedKeyCombination) {
             VimEngineController.shared.enterCommandMode()
             
             print("enter command mode")
@@ -29,7 +29,7 @@ struct GlobalEventsController {
         return false
     }
     
-    static func globalVimEngineHotkeyIsPressed(_ keyCombination: KeyCombination) -> Bool {
+    private static func globalVimEngineHotkeyIsPressed(_ keyCombination: KeyCombination) -> Bool {
         return keyCombination.key == .escape && keyCombination.command == true
     }
     

@@ -10,7 +10,7 @@ import XCTest
 
 class GlobalEventsControllerTests: XCTestCase {
     
-    func test_that_the_global_hotkey_press_sets_Vim_in_command_mode() {
+    func test_that_when_in_insert_mode_the_global_hotkey_press_sets_Vim_in_command_mode() {
         VimEngineController.shared.enterInsertMode()
         
         let globalHotkeyCombination = KeyCombination(key: .escape, command: true)
@@ -20,36 +20,67 @@ class GlobalEventsControllerTests: XCTestCase {
 
         XCTAssertEqual(currentVimMode, .command)
     }
-    
-    func test_that_in_insert_mode_the_events_are_just_passed_back_to_macOS() {
+
+    func test_that_when_in_insert_mode_the_global_hotkey_press_is_captured_and_not_sent_back_to_macOS() {
         VimEngineController.shared.enterInsertMode()
-        
-        let originalKeyCombination = KeyCombination(key: .j)
-        let handled = GlobalEventsController.handle(originalKeyCombination)
+
+        let globalHotkeyCombination = KeyCombination(key: .escape, command: true)
+        let captured = GlobalEventsController.handle(globalHotkeyCombination)
+
+        XCTAssertTrue(captured)
+    }
+
+    func test_that_when_in_command_mode_the_global_hotkey_press_is_captured_and_not_sent_back_to_macOS() {
+        VimEngineController.shared.enterCommandMode()
+
+        let globalHotkeyCombination = KeyCombination(key: .escape, command: true)
+        let captured = GlobalEventsController.handle(globalHotkeyCombination)
+
+        XCTAssertTrue(captured)
+    }
+    
+    func test_that_in_insert_mode_the_events_that_we_implemented_are_just_passed_back_to_macOS() {
+        VimEngineController.shared.enterInsertMode()
+
+        guard let jEvent = CGEvent(keyboardEventSource: nil, virtualKey: 38, keyDown: true) else { return XCTFail() }
+
+        let implementedKeyCombination = KeyCombinationConverter.toKeyCombination(from: jEvent)
+        let handled = GlobalEventsController.handle(implementedKeyCombination)
         
         XCTAssertFalse(handled)
     }
+
+    func test_that_in_insert_mode_the_events_that_we_did_not_implement_are_just_passed_back_to_macOS() {
+        VimEngineController.shared.enterInsertMode()
+
+        guard let pEvent = CGEvent(keyboardEventSource: nil, virtualKey: 35, keyDown: true) else { return XCTFail() }
+
+        let nomImplementedKeyCombination = KeyCombinationConverter.toKeyCombination(from: pEvent)
+        let handled = GlobalEventsController.handle(nomImplementedKeyCombination)
+
+        XCTAssertFalse(handled)
+    }
     
-    func test_that_in_command_mode_the_events_are_transformed() {
+    func test_that_in_command_mode_the_events_that_we_implemented_are_captured() {
         VimEngineController.shared.enterCommandMode()
         
-        let originalKeyCombination = KeyCombination(key: .j)
-        let handled = GlobalEventsController.handle(originalKeyCombination)
+        guard let jEvent = CGEvent(keyboardEventSource: nil, virtualKey: 38, keyDown: true) else { return XCTFail() }
+
+        let implementedKeyCombination = KeyCombinationConverter.toKeyCombination(from: jEvent)
+        let handled = GlobalEventsController.handle(implementedKeyCombination)
         
         XCTAssertTrue(handled)
     }
 
-    func test_that_events_that_do_not_have_a_VimKey_equivalent_are_transformed() {
+    func test_that_in_command_mode_the_events_that_we_did_not_implement_are_captured() {
         VimEngineController.shared.enterCommandMode()
 
-        let keyWithoutVimEquivalent = KeyCombination(key: .z, shift: true)
+        guard let pEvent = CGEvent(keyboardEventSource: nil, virtualKey: 35, keyDown: true) else { return XCTFail() }
 
-        XCTAssertTrue(GlobalEventsController.handle(keyWithoutVimEquivalent))
-    }
+        let nomImplementedKeyCombination = KeyCombinationConverter.toKeyCombination(from: pEvent)
+        let handled = GlobalEventsController.handle(nomImplementedKeyCombination)
 
-    func test_that_events_that_do_not_have_a_VimKey_equivalent_do_nothing() {
-        // TODO
-        // not sure how to do that yet. Strategy returned is nil?
+        XCTAssertTrue(handled)
     }
 
 }
