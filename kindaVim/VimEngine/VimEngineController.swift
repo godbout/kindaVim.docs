@@ -29,73 +29,55 @@ class VimEngineController {
     
     func transform(from keyCombination: KeyCombination) -> Bool {
         if currentMode != .operatorPending {
-            switch keyCombination.key {
-            case .w where keyCombination.shift == false:
-                return post(KeyboardStrategy.w())
-            case .k_ where keyCombination.shift == true:
-                return post(KeyboardStrategy.k_())
-            case .n4 where keyCombination.shift == true:
-                return post(KeyboardStrategy.n4())
-            case .n0 where keyCombination.shift == false:
-                return post(KeyboardStrategy.n0())
-            case .d where keyCombination.shift == false:
-                enterOperatorPendingMode(with: "d")
-                
-                return true
-            case .c where keyCombination.shift == false:
-                enterOperatorPendingMode(with: "c")
-                
-                return true
-            case .c where keyCombination.shift == true:
-                enterInsertMode()
-                
-                return post(KeyboardStrategy.C())
-            case .g where keyCombination.shift == false:
-                enterOperatorPendingMode(with: "g")
-                
-                return true
-            case .g where keyCombination.shift == true:
-                return post(KeyboardStrategy.G())
-            case .x where keyCombination.shift == false:
-                return post(KeyboardStrategy.x())
-            case .x where keyCombination.shift == true:
-                return post(KeyboardStrategy.X())
-            case .b where keyCombination.shift == false:
-                return post(KeyboardStrategy.b())
-            case .r where keyCombination.control == true:
-                return post(KeyboardStrategy.controlR())
-            case .u:
-                return post(KeyboardStrategy.u())
-            case .o where keyCombination.shift == false:
-                enterInsertMode()
-                
-                return post(KeyboardStrategy.o())
-            case .o where keyCombination.shift == true:
-                enterInsertMode()
-                
-                return post(KeyboardStrategy.O())
-            case .i where keyCombination.shift == false:
+            switch keyCombination.vimKey {
+            case .dollarSign:
+                return post(KeyboardStrategy.dollarSign())
+            case .underscore:
+                return post(KeyboardStrategy.underscore())
+            case .zero:
+                return post(KeyboardStrategy.zero())
+            case .a:
                 enterInsertMode()
 
-                return true
-            case .i where keyCombination.shift == true:
-                enterInsertMode()
-                
-                return post(KeyboardStrategy.I())
-            case .a where keyCombination.shift == false:
-                enterInsertMode()
-                
                 return post(KeyboardStrategy.a())
-            case .a where keyCombination.shift == true:
+            case .A:
                 enterInsertMode()
-                
+
                 return post(KeyboardStrategy.A())
+            case .b:
+                return post(KeyboardStrategy.b())
+            case .c:
+                enterOperatorPendingMode(with: "c")
+
+                return true
+            case .C:
+                enterInsertMode()
+
+                return post(KeyboardStrategy.C())
+            case .d:
+                enterOperatorPendingMode(with: "d")
+
+                return true
+            case .g:
+                enterOperatorPendingMode(with: "g")
+
+                return true
+            case .G:
+                return post(KeyboardStrategy.G())
             case .h:
                 if let element = AccessibilityStrategy.h(on: focusedElement()) {
                     return write(element: element)
                 }
-                
+
                 return post(KeyboardStrategy.h())
+            case .i:
+                enterInsertMode()
+
+                return true
+            case .I:
+                enterInsertMode()
+
+                return post(KeyboardStrategy.I())
             case .j:
                 return post(KeyboardStrategy.j())
             case .k:
@@ -106,6 +88,24 @@ class VimEngineController {
                 }
 
                 return post(KeyboardStrategy.l())
+            case .o:
+                enterInsertMode()
+
+                return post(KeyboardStrategy.o())
+            case .O:
+                enterInsertMode()
+
+                return post(KeyboardStrategy.O())
+            case .controlR:
+                return post(KeyboardStrategy.controlR())
+            case .u:
+                return post(KeyboardStrategy.u())
+            case .w:
+                return post(KeyboardStrategy.w())
+            case .x:
+                return post(KeyboardStrategy.x())
+            case .X:
+                return post(KeyboardStrategy.X())
             default:
                 return true
             }

@@ -128,19 +128,19 @@ struct KeyboardStrategy {
         ]
     }
     
-    static func n0() -> [KeyCombination] {
+    static func zero() -> [KeyCombination] {
         return [
             KeyCombination(key: .a, control: true, action: .both)
         ]
     }
     
-    static func n4() -> [KeyCombination] {
+    static func dollarSign() -> [KeyCombination] {
         return [
             KeyCombination(key: .e, control: true, action: .both)
         ]
     }
     
-    static func k_() -> [KeyCombination] {
+    static func underscore() -> [KeyCombination] {
         return [
             KeyCombination(key: .a, control: true, action: .both),
             KeyCombination(key: .right, option: true, action: .both),

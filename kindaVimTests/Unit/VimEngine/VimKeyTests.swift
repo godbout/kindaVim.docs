@@ -10,6 +10,24 @@ import XCTest
 
 class VimKeyTests: XCTestCase {
 
+    func test_that_$_has_a_VimKey_equivalent_of_dollarSign() {
+        let keyCombination = KeyCombination(key: .four, shift: true)
+
+        XCTAssertEqual(keyCombination.vimKey, VimKey.dollarSign)
+    }
+
+    func test_that___has_a_VimKey_equivalent_of_underscore() {
+        let keyCombination = KeyCombination(key: .minus, shift: true)
+
+        XCTAssertEqual(keyCombination.vimKey, VimKey.underscore)
+    }
+
+    func test_that_0_has_a_VimKey_equivalent_of_zero() {
+        let keyCombination = KeyCombination(key: .zero)
+
+        XCTAssertEqual(keyCombination.vimKey, VimKey.zero)
+    }
+
     func test_that_a_has_a_VimKey_equivalent_of_a() {
         let keyCombination = KeyCombination(key: .a)
 
@@ -38,6 +56,12 @@ class VimKeyTests: XCTestCase {
         let keyCombination = KeyCombination(key: .c, shift: true)
 
         XCTAssertEqual(keyCombination.vimKey, VimKey.C)
+    }
+
+    func test_that_d_has_a_VimKey_equivalent_of_d() {
+        let keyCombination = KeyCombination(key: .d)
+
+        XCTAssertEqual(keyCombination.vimKey, VimKey.d)
     }
 
     func test_that_g_has_a_VimKey_equivalent_of_g() {

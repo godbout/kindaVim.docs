@@ -37,6 +37,7 @@
 		91A7CB28263932C700C54572 /* InsertingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A7CB27263932C700C54572 /* InsertingTests.swift */; };
 		91A7CB2A26394EFE00C54572 /* UndosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A7CB2926394EFE00C54572 /* UndosTests.swift */; };
 		91BC934226352A1E00B62B18 /* GlobalEventsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BC934126352A1E00B62B18 /* GlobalEventsController.swift */; };
+		91BFF31B26403F95003B7A2A /* VimKeyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BFF31A26403F95003B7A2A /* VimKeyTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +86,7 @@
 		91A7CB27263932C700C54572 /* InsertingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsertingTests.swift; sourceTree = "<group>"; };
 		91A7CB2926394EFE00C54572 /* UndosTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UndosTests.swift; sourceTree = "<group>"; };
 		91BC934126352A1E00B62B18 /* GlobalEventsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalEventsController.swift; sourceTree = "<group>"; };
+		91BFF31A26403F95003B7A2A /* VimKeyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VimKeyTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +161,7 @@
 				91071EE6263D20AB006BE787 /* OperatorsTests.swift */,
 				913383E3263D2A7D0086C06F /* DeleteInsertingTests.swift */,
 				913AB0A3263EBCDB008E7284 /* DeletingTests.swift */,
+				91BFF31A26403F95003B7A2A /* VimKeyTests.swift */,
 			);
 			path = VimEngine;
 			sourceTree = "<group>";
@@ -397,6 +400,7 @@
 				91482E4B263DC57100F10ADC /* KSDeletingTests.swift in Sources */,
 				91A7CB28263932C700C54572 /* InsertingTests.swift in Sources */,
 				9197C08A26366A3B006C696A /* KeyCombinationToCGEventsTests.swift in Sources */,
+				91BFF31B26403F95003B7A2A /* VimKeyTests.swift in Sources */,
 				91482E4D263DC6B100F10ADC /* KSUndosTests.swift in Sources */,
 				9197C09C26369D73006C696A /* CGEventToKeyCombinationTests.swift in Sources */,
 				91A7CB2A26394EFE00C54572 /* UndosTests.swift in Sources */,

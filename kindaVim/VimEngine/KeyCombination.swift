@@ -7,10 +7,10 @@ enum KeyCode: Int64, RawRepresentable {
     case h = 4
     case l = 37
     case b = 11
-    case n0 = 29
-    case n4 = 21
+    case zero = 29
+    case four = 21
     case e = 14
-    case k_ = 27
+    case minus = 27
     case w = 13
     
     // insert
@@ -49,9 +49,14 @@ enum KeyCombinationAction {
 }
 
 enum VimKey {
+    case dollarSign
+    case underscore
+    case zero
+    
     case a, A
     case b
     case c, C
+    case d
 
     case g, G
     case h
@@ -95,6 +100,12 @@ struct KeyCombination {
 
     private static func vimKeyFrom(key: KeyCode, control: Bool, option: Bool, shift: Bool, command: Bool) -> VimKey? {
         switch key {
+        case .four where shift == true:
+            return .dollarSign
+        case .minus where shift == true:
+            return .underscore
+        case .zero where shift == false:
+            return .zero
         case .a where shift == false:
             return .a
         case .a where shift == true:
@@ -105,6 +116,8 @@ struct KeyCombination {
             return .c
         case .c where shift == true:
             return .C
+        case .d where shift == false:
+            return .d
         case .g where shift == false:
             return .g
         case .g where shift == true:

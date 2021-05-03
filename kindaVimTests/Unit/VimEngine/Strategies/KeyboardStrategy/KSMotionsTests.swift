@@ -70,7 +70,7 @@ class KSMotionsTests: XCTestCase {
     }
     
     func test_that_0_is_getting_transformed_to_control_a() {
-        let transformedKeys = KeyboardStrategy.n0()
+        let transformedKeys = KeyboardStrategy.zero()
 
         guard transformedKeys.count == 1 else { return XCTFail() }
         XCTAssertEqual(transformedKeys[0].key, .a)
@@ -79,7 +79,7 @@ class KSMotionsTests: XCTestCase {
     }
     
     func test_that_$_is_getting_transformed_to_control_a() {
-        let transformedKeys = KeyboardStrategy.n4()
+        let transformedKeys = KeyboardStrategy.dollarSign()
 
         guard transformedKeys.count == 1 else { return XCTFail() }
         XCTAssertEqual(transformedKeys[0].key, .e)
@@ -88,7 +88,7 @@ class KSMotionsTests: XCTestCase {
     }
     
     func test_that___is_getting_transformed_to_control_a_option_right_option_left() {
-        let transformedKeys = KeyboardStrategy.k_()
+        let transformedKeys = KeyboardStrategy.underscore()
 
         guard transformedKeys.count == 3 else { return XCTFail() }
         XCTAssertEqual(transformedKeys[0].key, .a)

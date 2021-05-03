@@ -76,25 +76,25 @@ extension MotionsTests {
     }
     
     func test_that_0_is_handled() {
-        let n0 = KeyCombination(key: .n0)
+        let zero = KeyCombination(key: .zero)
         
-        let handled = VimEngineController.shared.transform(from: n0)
+        let handled = VimEngineController.shared.transform(from: zero)
         
         XCTAssertTrue(handled)
     }
     
     func test_that_$_is_handled() {
-        let n4 = KeyCombination(key: .n4, shift: true)
+        let dollarSign = KeyCombination(key: .four, shift: true)
         
-        let handled = VimEngineController.shared.transform(from: n4)
+        let handled = VimEngineController.shared.transform(from: dollarSign)
         
         XCTAssertTrue(handled)
     }
     
     func test_that___is_handled() {
-        let k_ = KeyCombination(key: .k_, shift: true)
+        let underscore = KeyCombination(key: .minus, shift: true)
         
-        let handled = VimEngineController.shared.transform(from: k_)
+        let handled = VimEngineController.shared.transform(from: underscore)
         
         XCTAssertTrue(handled)
     }
