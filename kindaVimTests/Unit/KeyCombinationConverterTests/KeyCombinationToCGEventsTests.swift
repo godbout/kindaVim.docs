@@ -8,10 +8,34 @@
 @testable import kindaVim
 import XCTest
 
-class KeyCombinationToCGEventTests: XCTestCase {
+class KeyCombinationToCGEventsTests: XCTestCase {
     
-    func test_that_it_can_convert_a_simple_KeyCombination_press_to_CGEvent() throws {
-        let jKeyCombination = KeyCombination(key: .j)
+    func test_that_it_can_convert_a_simple_KeyCombination_press_to_one_CGEvent() {
+        let jKeyCombination = KeyCombination(key: .j, action: .press)
+        
+        let jCGEvents = KeyCombinationConverter.toCGEvents(from: jKeyCombination)
+        
+        XCTAssertEqual(jCGEvents.count, 1)
+        
+        XCTAssertEqual(jCGEvents.first?.getIntegerValueField(.keyboardEventKeycode), 38)
+        XCTAssertEqual(jCGEvents.first?.flags.isEmpty, true)
+        XCTAssertEqual(jCGEvents.first?.type, .keyDown)
+    }
+    
+    func test_that_it_can_convert_a_simple_KeyCombination_release_to_one_CGEvent() {
+        let jKeyCombination = KeyCombination(key: .j, action: .release)
+        
+        let jCGEvents = KeyCombinationConverter.toCGEvents(from: jKeyCombination)
+        
+        XCTAssertEqual(jCGEvents.count, 1)
+        
+        XCTAssertEqual(jCGEvents.first?.getIntegerValueField(.keyboardEventKeycode), 38)
+        XCTAssertEqual(jCGEvents.first?.flags.isEmpty, true)
+        XCTAssertEqual(jCGEvents.first?.type, .keyUp)
+    }
+    
+    func test_that_it_can_convert_a_simple_KeyCombination_with_both_actions_to_CGEvents() {
+        let jKeyCombination = KeyCombination(key: .j, action: .both)
         
         let jCGEvents = KeyCombinationConverter.toCGEvents(from: jKeyCombination)
         
@@ -26,55 +50,60 @@ class KeyCombinationToCGEventTests: XCTestCase {
         XCTAssertEqual(jCGEvents.last?.type, .keyUp)
     }
     
-    func test_that_it_can_convert_a_simple_KeyCombination_release_to_a_CGEvent() throws {
-        let jKeyCombination = KeyCombination(key: .j, action: .release)
+    func test_that_it_can_convert_a_KeyCombination_with_modifiers_press_to_one_CGEvent() {
+        let kKeyCombination = KeyCombination(key: .k, command: true, shift: true, action: .press)
 
-        let jCGEvents = KeyCombinationConverter.toCGEvents(from: jKeyCombination))
+        let kCGEvents = KeyCombinationConverter.toCGEvents(from: kKeyCombination)
         
-        XCTAssertEqual(jCGEvents.count, 2)
+        XCTAssertEqual(kCGEvents.count, 1)
         
-        XCTAssertEqual(jCGEvents.first?.getIntegerValueField(.keyboardEventKeycode), 38)
-        XCTAssertEqual(jCGEvents.first?.flags.isEmpty, true)
-        XCTAssertEqual(jCGEvents.first?.type, .keyDown)
-        
-        XCTAssertEqual(jCGEvents.last?.getIntegerValueField(.keyboardEventKeycode), 38)
-        XCTAssertEqual(jCGEvents.last?.flags.isEmpty, true)
-        XCTAssertEqual(jCGEvents.last?.type, .keyUp)
-        
-        
-
-        
-        XCTAssertEqual(jCGEvent.getIntegerValueField(.keyboardEventKeycode), 38)
-        XCTAssertTrue(jCGEvent.flags.isEmpty)
-        XCTAssertEqual(jCGEvent.type, .keyUp)
+        XCTAssertEqual(kCGEvents.first?.getIntegerValueField(.keyboardEventKeycode), 40)
+        XCTAssertEqual(kCGEvents.first?.flags.contains(.maskCommand), true)
+        XCTAssertEqual(kCGEvents.first?.flags.contains(.maskAlternate), false)
+        XCTAssertEqual(kCGEvents.first?.flags.contains(.maskControl), false)
+        XCTAssertEqual(kCGEvents.first?.flags.contains(.maskSecondaryFn), false)
+        XCTAssertEqual(kCGEvents.first?.flags.contains(.maskShift), true)
+        XCTAssertEqual(kCGEvents.first?.type, .keyDown)
     }
+    
+    func test_that_it_can_convert_a_KeyCombination_with_modifiers_release_to_one_CGEvent() {
+        let kKeyCombination = KeyCombination(key: .k, option: true, action: .release)
 
-    func test_that_it_can_convert_a_KeyCombination_with_modifiers_press_to_a_CGEvent() throws {
-        let kKeyCombination = KeyCombination(key: .k, command: true, shift: true)
-
-        let kCGEvent = try XCTUnwrap(KeyCombinationConverter.toCGEvent(from: kKeyCombination))
-
-        XCTAssertEqual(kCGEvent.getIntegerValueField(.keyboardEventKeycode), 40)
-        XCTAssertEqual(kCGEvent.flags.contains(.maskCommand), true)
-        XCTAssertEqual(kCGEvent.flags.contains(.maskAlternate), false)
-        XCTAssertEqual(kCGEvent.flags.contains(.maskControl), false)
-        XCTAssertEqual(kCGEvent.flags.contains(.maskSecondaryFn), false)
-        XCTAssertEqual(kCGEvent.flags.contains(.maskShift), true)
-        XCTAssertEqual(kCGEvent.type, .keyDown)
+        let kCGEvents = KeyCombinationConverter.toCGEvents(from: kKeyCombination)
+        
+        XCTAssertEqual(kCGEvents.count, 1)
+        
+        XCTAssertEqual(kCGEvents.first?.getIntegerValueField(.keyboardEventKeycode), 40)
+        XCTAssertEqual(kCGEvents.first?.flags.contains(.maskCommand), false)
+        XCTAssertEqual(kCGEvents.first?.flags.contains(.maskAlternate), true)
+        XCTAssertEqual(kCGEvents.first?.flags.contains(.maskControl), false)
+        XCTAssertEqual(kCGEvents.first?.flags.contains(.maskSecondaryFn), false)
+        XCTAssertEqual(kCGEvents.first?.flags.contains(.maskShift), false)
+        XCTAssertEqual(kCGEvents.first?.type, .keyUp)
     }
+    
+    func test_that_it_can_convert_a_KeyCombination_with_modifiers_with_both_actions_to_CGEvents() {
+        let kKeyCombination = KeyCombination(key: .k, control: true, fn: true, action: .both)
 
-    func test_that_it_can_convert_a_KeyCombination_with_modifiers_release_to_a_CGEvent() throws {
-        let kKeyCombination = KeyCombination(key: .k, option: true, control: true, shift: true, action: .release)
-
-        let kCGEvent = try XCTUnwrap(KeyCombinationConverter.toCGEvent(from: kKeyCombination))
-
-        XCTAssertEqual(kCGEvent.getIntegerValueField(.keyboardEventKeycode), 40)
-        XCTAssertEqual(kCGEvent.flags.contains(.maskCommand), false)
-        XCTAssertEqual(kCGEvent.flags.contains(.maskAlternate), true)
-        XCTAssertEqual(kCGEvent.flags.contains(.maskControl), true)
-        XCTAssertEqual(kCGEvent.flags.contains(.maskSecondaryFn), false)
-        XCTAssertEqual(kCGEvent.flags.contains(.maskShift), true)
-        XCTAssertEqual(kCGEvent.type, .keyUp)
+        let kCGEvents = KeyCombinationConverter.toCGEvents(from: kKeyCombination)
+        
+        XCTAssertEqual(kCGEvents.count, 2)
+        
+        XCTAssertEqual(kCGEvents.first?.getIntegerValueField(.keyboardEventKeycode), 40)
+        XCTAssertEqual(kCGEvents.first?.flags.contains(.maskCommand), false)
+        XCTAssertEqual(kCGEvents.first?.flags.contains(.maskAlternate), false)
+        XCTAssertEqual(kCGEvents.first?.flags.contains(.maskControl), true)
+        XCTAssertEqual(kCGEvents.first?.flags.contains(.maskSecondaryFn), true)
+        XCTAssertEqual(kCGEvents.first?.flags.contains(.maskShift), false)
+        XCTAssertEqual(kCGEvents.first?.type, .keyDown)
+        
+        XCTAssertEqual(kCGEvents.last?.getIntegerValueField(.keyboardEventKeycode), 40)
+        XCTAssertEqual(kCGEvents.last?.flags.contains(.maskCommand), false)
+        XCTAssertEqual(kCGEvents.last?.flags.contains(.maskAlternate), false)
+        XCTAssertEqual(kCGEvents.last?.flags.contains(.maskControl), true)
+        XCTAssertEqual(kCGEvents.last?.flags.contains(.maskSecondaryFn), true)
+        XCTAssertEqual(kCGEvents.last?.flags.contains(.maskShift), false)
+        XCTAssertEqual(kCGEvents.last?.type, .keyUp)
     }
 
 }

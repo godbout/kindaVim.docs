@@ -13,26 +13,19 @@ class KSUndosTests: XCTestCase {
     func test_that_u_gets_transformed_to_command_z() {
         let transformedKeys = KeyboardStrategy.u()
         
-        guard transformedKeys.count == 2 else { return XCTFail() }
+        guard transformedKeys.count == 1 else { return XCTFail() }
         XCTAssertEqual(transformedKeys[0].key, .z)
         XCTAssertEqual(transformedKeys[0].command, true)
-        XCTAssertEqual(transformedKeys[0].action, .press)
-        XCTAssertEqual(transformedKeys[1].key, .z)
-        XCTAssertEqual(transformedKeys[1].command, true)
-        XCTAssertEqual(transformedKeys[1].action, .release)
+        XCTAssertEqual(transformedKeys[0].action, .both)
     }
     
     func test_that_ctrl_r_gets_transformed_to_command_shift_z() {
         let transformedKeys = KeyboardStrategy.controlR()
 
-        guard transformedKeys.count == 2 else { return XCTFail() }
+        guard transformedKeys.count == 1 else { return XCTFail() }
         XCTAssertEqual(transformedKeys[0].key, .z)
         XCTAssertEqual(transformedKeys[0].command, true)
         XCTAssertEqual(transformedKeys[0].shift, true)
-        XCTAssertEqual(transformedKeys[0].action, .press)
-        XCTAssertEqual(transformedKeys[1].key, .z)
-        XCTAssertEqual(transformedKeys[1].command, true)
-        XCTAssertEqual(transformedKeys[1].shift, true)
-        XCTAssertEqual(transformedKeys[1].action, .release)
+        XCTAssertEqual(transformedKeys[0].action, .both)
     }
 }

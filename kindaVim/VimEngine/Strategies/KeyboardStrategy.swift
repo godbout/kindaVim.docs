@@ -11,84 +11,70 @@ struct KeyboardStrategy {
     
     static func h() -> [KeyCombination] {
         return [
-            KeyCombination(key: .left, action: .press),
-            KeyCombination(key: .left, action: .release)
+            KeyCombination(key: .left, action: .both)
         ]
     }
     
     static func j() -> [KeyCombination] {
         return [
-            KeyCombination(key: .down, action: .press),
-            KeyCombination(key: .down, action: .release)
+            KeyCombination(key: .down, action: .both)
         ]
     }
     
     static func k() -> [KeyCombination] {
         return [
-            KeyCombination(key: .up, action: .press),
-            KeyCombination(key: .up, action: .release)
+            KeyCombination(key: .up, action: .both)
         ]
     }
     
     static func l() -> [KeyCombination] {
         return [
-            KeyCombination(key: .right, action: .press),
-            KeyCombination(key: .right, action: .release)
+            KeyCombination(key: .right, action: .both)
         ]
     }
     
     static func I() -> [KeyCombination] {
         return [
-            KeyCombination(key: .left, command: true, action: .press),
-            KeyCombination(key: .left, command: true, action: .release)
+            KeyCombination(key: .left, command: true, action: .both)
         ]
     }
     
     static func a() -> [KeyCombination] {
         return [
-            KeyCombination(key: .right, action: .press),
-            KeyCombination(key: .right, action: .release)
+            KeyCombination(key: .right, action: .both)
         ]
     }
     
     static func A() -> [KeyCombination] {
         return [
-            KeyCombination(key: .right, command: true, action: .press),
-            KeyCombination(key: .right, command: true, action: .release)
+            KeyCombination(key: .right, command: true, action: .both)
         ]
     }
     
     static func o() -> [KeyCombination] {
         return [
-            KeyCombination(key: .right, command: true, action: .press),
-            KeyCombination(key: .right, command: true, action: .release),
-            KeyCombination(key: .enter, action: .press),
-            KeyCombination(key: .enter, action: .release)
+            KeyCombination(key: .right, command: true, action: .both),
+            KeyCombination(key: .enter, action: .both)
         ]
     }
     
     static func O() -> [KeyCombination] {
         return [
-            KeyCombination(key: .left, command: true, action: .press),
-            KeyCombination(key: .left, command: true, action: .release),
-            KeyCombination(key: .enter, action: .press),
-            KeyCombination(key: .enter, action: .release),
-            KeyCombination(key: .up, action: .press),
-            KeyCombination(key: .up, action: .release)
+            KeyCombination(key: .left, command: true, action: .both),
+            KeyCombination(key: .enter, action: .both),
+            KeyCombination(key: .up, action: .both)
         ]
     }
     
     static func u() -> [KeyCombination] {
         return [
-            KeyCombination(key: .z, command: true, action: .press),
-            KeyCombination(key: .z, command: true, action: .release),
+            KeyCombination(key: .z, command: true, action: .both)
         ]
     }
     
     static func controlR() -> [KeyCombination] {
         return [
-            KeyCombination(key: .z, command: true, shift: true, action: .press),
-            KeyCombination(key: .z, command: true, shift: true, action: .release),
+            KeyCombination(key: .z, command: true, shift: true, action: .both)
         ]
     }
     
@@ -96,128 +82,97 @@ struct KeyboardStrategy {
         // using right and delete because maskSecondaryFn does not seem
         // to work when posting CGEvents. will fill a Radar bug with Apple
         return [
-            KeyCombination(key: .right, action: .press),
-            KeyCombination(key: .right, action: .release),
-            KeyCombination(key: .delete, action: .press),
-            KeyCombination(key: .delete, action: .release)
+            KeyCombination(key: .right, action: .both),
+            KeyCombination(key: .delete, action: .both)
         ]
     }
     
     static func X() -> [KeyCombination] {
         return [
-            KeyCombination(key: .delete, action: .press),
-            KeyCombination(key: .delete, action: .release)
+            KeyCombination(key: .delete, action: .both)
         ]
     }
     
     static func b() -> [KeyCombination] {
         return [
-            KeyCombination(key: .left, option: true, action: .press),
-            KeyCombination(key: .left, option: true, action: .release)
+            KeyCombination(key: .left, option: true, action: .both)
         ]
     }
     
     static func gg() -> [KeyCombination] {
         return [
-            KeyCombination(key: .up, command: true, action: .press),
-            KeyCombination(key: .up, command: true, action: .release)
+            KeyCombination(key: .up, command: true, action: .both)
         ]
     }
     
     static func G() -> [KeyCombination] {
         return [
-            KeyCombination(key: .down, command: true, action: .press),
-            KeyCombination(key: .down, command: true, action: .release)
+            KeyCombination(key: .down, command: true, action: .both)
         ]
     }
     
     static func cc() -> [KeyCombination] {
         return [
-            KeyCombination(key: .right, command: true, action: .press),
-            KeyCombination(key: .right, command: true, action: .release),
-            KeyCombination(key: .left, command: true, shift: true, action: .press),
-            KeyCombination(key: .left, command: true, shift: true, action: .release),
-            KeyCombination(key: .delete, action: .press),
-            KeyCombination(key: .delete, action: .release)
+            KeyCombination(key: .right, command: true, action: .both),
+            KeyCombination(key: .left, command: true, shift: true, action: .both),
+            KeyCombination(key: .delete, action: .both)
         ]
     }
-    
+
     static func C() -> [KeyCombination] {
         return [
-            KeyCombination(key: .right, command: true, shift: true, action: .press),
-            KeyCombination(key: .right, command: true, shift: true, action: .release),
-            KeyCombination(key: .delete, action: .press),
-            KeyCombination(key: .delete, action: .release)
+            KeyCombination(key: .right, command: true, shift: true, action: .both),
+            KeyCombination(key: .delete, action: .both)
         ]
     }
     
     static func n0() -> [KeyCombination] {
         return [
-            KeyCombination(key: .a, control: true, action: .press),
-            KeyCombination(key: .a, control: true, action: .release)
+            KeyCombination(key: .a, control: true, action: .both)
         ]
     }
     
     static func n4() -> [KeyCombination] {
         return [
-            KeyCombination(key: .e, control: true, action: .press),
-            KeyCombination(key: .e, control: true, action: .release)
+            KeyCombination(key: .e, control: true, action: .both)
         ]
     }
     
     static func k_() -> [KeyCombination] {
         return [
-            KeyCombination(key: .a, control: true, action: .press),
-            KeyCombination(key: .a, control: true, action: .release),
-            KeyCombination(key: .right, option: true, action: .press),
-            KeyCombination(key: .right, option: true, action: .release),
-            KeyCombination(key: .left, option: true, action: .press),
-            KeyCombination(key: .left, option: true, action: .release)
+            KeyCombination(key: .a, control: true, action: .both),
+            KeyCombination(key: .right, option: true, action: .both),
+            KeyCombination(key: .left, option: true, action: .both)
         ]
     }
     
     static func dd() -> [KeyCombination] {
         return [
-            KeyCombination(key: .right, command: true, action: .press),
-            KeyCombination(key: .right, command: true, action: .release),
-            KeyCombination(key: .a, control: true, shift: true, action: .press),
-            KeyCombination(key: .a, control: true, shift: true, action: .release),
-            KeyCombination(key: .delete, action: .press),
-            KeyCombination(key: .delete, action: .release),
-            KeyCombination(key: .down, action: .press),
-            KeyCombination(key: .down, action: .release),
-            KeyCombination(key: .a, control: true, action: .press),
-            KeyCombination(key: .a, control: true, action: .release),
-            KeyCombination(key: .delete, action: .press),
-            KeyCombination(key: .delete, action: .release),
-            KeyCombination(key: .a, control: true, action: .press),
-            KeyCombination(key: .a, control: true, action: .release),
-            KeyCombination(key: .right, option: true, action: .press),
-            KeyCombination(key: .right, option: true, action: .release),
-            KeyCombination(key: .left, option: true, action: .press),
-            KeyCombination(key: .left, option: true, action: .release)
+            KeyCombination(key: .right, command: true, action: .both),
+            KeyCombination(key: .a, control: true, shift: true, action: .both),
+            KeyCombination(key: .delete, action: .both),
+            KeyCombination(key: .down, action: .both),
+            KeyCombination(key: .a, control: true, action: .both),
+            KeyCombination(key: .delete, action: .both),
+            KeyCombination(key: .a, control: true, action: .both),
+            KeyCombination(key: .right, option: true, action: .both),
+            KeyCombination(key: .left, option: true, action: .both)
         ]
     }
     
     static func ciw() -> [KeyCombination] {
         return [
-            KeyCombination(key: .right, option: true, action: .press),
-            KeyCombination(key: .right, option: true, action: .release),
-            KeyCombination(key: .left, option: true, shift: true, action: .press),
-            KeyCombination(key: .left, option: true, shift: true, action: .release),
-            KeyCombination(key: .delete, action: .press),
-            KeyCombination(key: .delete, action: .release),            
+            KeyCombination(key: .right, option: true, action: .both),
+            KeyCombination(key: .left, option: true, shift: true, action: .both),
+            KeyCombination(key: .delete, action: .both)
         ]
     }
     
     static func w() -> [KeyCombination] {
         return [
-            KeyCombination(key: .right, option: true, action: .press),
-            KeyCombination(key: .right, option: true, action: .release),
-            KeyCombination(key: .right, option: true, action: .press),
-            KeyCombination(key: .right, option: true, action: .release),
-            KeyCombination(key: .left, option: true, action: .press),
-            KeyCombination(key: .left, option: true, action: .release)
+            KeyCombination(key: .right, option: true, action: .both),
+            KeyCombination(key: .right, option: true, action: .both),
+            KeyCombination(key: .left, option: true, action: .both)
         ]
     }
     
