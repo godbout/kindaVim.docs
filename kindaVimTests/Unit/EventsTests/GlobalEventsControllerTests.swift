@@ -39,4 +39,17 @@ class GlobalEventsControllerTests: XCTestCase {
         XCTAssertTrue(handled)
     }
 
+    func test_that_events_that_do_not_have_a_VimKey_equivalent_are_transformed() {
+        VimEngineController.shared.enterCommandMode()
+
+        let keyWithoutVimEquivalent = KeyCombination(key: .z, shift: true)
+
+        XCTAssertTrue(GlobalEventsController.handle(keyWithoutVimEquivalent))
+    }
+
+    func test_that_events_that_do_not_have_a_VimKey_equivalent_do_nothing() {
+        // TODO
+        // not sure how to do that yet. Strategy returned is nil?
+    }
+
 }

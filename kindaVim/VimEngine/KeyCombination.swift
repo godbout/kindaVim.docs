@@ -48,7 +48,31 @@ enum KeyCombinationAction {
     case both
 }
 
+enum VimKey {
+    case a, A
+    case b
+    case c, C
+
+    case g, G
+    case h
+    case i, I
+    case j
+    case k
+    case l
+
+    case o, O
+
+    case controlR
+
+    case u
+
+    case w
+
+    case x, X
+}
+
 struct KeyCombination {
+    let vimKey: VimKey?
     let key: KeyCode
     var command: Bool = false
     var option: Bool = false
@@ -65,6 +89,55 @@ struct KeyCombination {
         self.fn = fn
         self.shift = shift
         self.action = action
+
+        self.vimKey = Self.vimKeyFrom(key: key, control: control, option: option, shift: shift, command: command)
+    }
+
+    private static func vimKeyFrom(key: KeyCode, control: Bool, option: Bool, shift: Bool, command: Bool) -> VimKey? {
+        switch key {
+        case .a where shift == false:
+            return .a
+        case .a where shift == true:
+            return .A
+        case .b where shift == false:
+            return .b
+        case .c where shift == false:
+            return .c
+        case .c where shift == true:
+            return .C
+        case .g where shift == false:
+            return .g
+        case .g where shift == true:
+            return .G
+        case .h where shift == false:
+            return .h
+        case .i where shift == false:
+            return .i
+        case .i where shift == true:
+            return .I
+        case .j where shift == false:
+            return .j
+        case .k where shift == false:
+            return .k
+        case .l where shift == false:
+            return .l
+        case .o where shift == false:
+            return .o
+        case .o where shift == true:
+            return .O
+        case .r where control == true:
+            return .controlR
+        case .u where shift == false:
+            return .u
+        case .w where shift == false:
+            return .w
+        case .x where shift == false:
+            return .x
+        case .x where shift == true:
+            return .X
+        default:
+            return nil
+        }
     }
 }
 
