@@ -27,66 +27,66 @@ class VimEngineController {
         print("engine started")
     }
     
-    func transform(from original: KeyCombination) -> Bool {
+    func transform(from keyCombination: KeyCombination) -> Bool {
         if currentMode != .operatorPending {
-            switch original.key {
-            case .w where original.shift == false:
+            switch keyCombination.key {
+            case .w where keyCombination.shift == false:
                 return post(KeyboardStrategy.w())
-            case .k_ where original.shift == true:
+            case .k_ where keyCombination.shift == true:
                 return post(KeyboardStrategy.k_())
-            case .n4 where original.shift == true:
+            case .n4 where keyCombination.shift == true:
                 return post(KeyboardStrategy.n4())
-            case .n0 where original.shift == false:
+            case .n0 where keyCombination.shift == false:
                 return post(KeyboardStrategy.n0())
-            case .d where original.shift == false:
+            case .d where keyCombination.shift == false:
                 enterOperatorPendingMode(with: "d")
                 
                 return true
-            case .c where original.shift == false:
+            case .c where keyCombination.shift == false:
                 enterOperatorPendingMode(with: "c")
                 
                 return true
-            case .c where original.shift == true:
+            case .c where keyCombination.shift == true:
                 enterInsertMode()
                 
                 return post(KeyboardStrategy.C())
-            case .g where original.shift == false:
+            case .g where keyCombination.shift == false:
                 enterOperatorPendingMode(with: "g")
                 
                 return true
-            case .g where original.shift == true:
+            case .g where keyCombination.shift == true:
                 return post(KeyboardStrategy.G())
-            case .x where original.shift == false:
+            case .x where keyCombination.shift == false:
                 return post(KeyboardStrategy.x())
-            case .x where original.shift == true:
+            case .x where keyCombination.shift == true:
                 return post(KeyboardStrategy.X())
-            case .b where original.shift == false:
+            case .b where keyCombination.shift == false:
                 return post(KeyboardStrategy.b())
-            case .r where original.control == true:
+            case .r where keyCombination.control == true:
                 return post(KeyboardStrategy.controlR())
             case .u:
                 return post(KeyboardStrategy.u())
-            case .o where original.shift == false:
+            case .o where keyCombination.shift == false:
                 enterInsertMode()
                 
                 return post(KeyboardStrategy.o())
-            case .o where original.shift == true:
+            case .o where keyCombination.shift == true:
                 enterInsertMode()
                 
                 return post(KeyboardStrategy.O())
-            case .i where original.shift == false:
+            case .i where keyCombination.shift == false:
                 enterInsertMode()
 
                 return true
-            case .i where original.shift == true:
+            case .i where keyCombination.shift == true:
                 enterInsertMode()
                 
                 return post(KeyboardStrategy.I())
-            case .a where original.shift == false:
+            case .a where keyCombination.shift == false:
                 enterInsertMode()
                 
                 return post(KeyboardStrategy.a())
-            case .a where original.shift == true:
+            case .a where keyCombination.shift == true:
                 enterInsertMode()
                 
                 return post(KeyboardStrategy.A())
@@ -110,7 +110,7 @@ class VimEngineController {
                 return true
             }
         } else {
-            switch original.key {
+            switch keyCombination.key {
             case .c:
                 operatorPendingBuffer.append("c")
             case .g:
