@@ -45,6 +45,7 @@ enum KeyCode: Int64, RawRepresentable {
 enum KeyCombinationAction {
     case press
     case release
+    case both
 }
 
 struct KeyCombination {
@@ -54,9 +55,9 @@ struct KeyCombination {
     var control: Bool = false
     var fn: Bool = false
     var shift: Bool = false
-    var action: KeyCombinationAction = .press
+    var action: KeyCombinationAction = .both
     
-    init(key: KeyCode, command: Bool = false, option: Bool = false, control: Bool = false, fn: Bool = false, shift: Bool = false, action: KeyCombinationAction = .press) {
+    init(key: KeyCode, command: Bool = false, option: Bool = false, control: Bool = false, fn: Bool = false, shift: Bool = false, action: KeyCombinationAction = .both) {
         self.key = key
         self.command = command
         self.option = option

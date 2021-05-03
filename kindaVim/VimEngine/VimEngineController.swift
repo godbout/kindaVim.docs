@@ -140,9 +140,11 @@ class VimEngineController {
     
     private func post(_ keyCombinations: [KeyCombination]) -> Bool {
         for keyCombination in keyCombinations {
-            let cgEvent = KeyCombinationConverter.toCGEvent(from: keyCombination)
-                    
-            cgEvent?.tapPostEvent(proxy)
+            let cgEvents = KeyCombinationConverter.toCGEvents(from: keyCombination)
+            
+            for cgEvent in cgEvents {
+                cgEvent.tapPostEvent(proxy)
+            }
         }
         
         return true

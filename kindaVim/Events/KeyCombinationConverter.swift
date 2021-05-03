@@ -9,11 +9,37 @@ import Foundation
 
 struct KeyCombinationConverter {
     
-    static func toCGEvent(from keyCombination: KeyCombination) -> CGEvent? {
+    static func toCGEvents(from keyCombination: KeyCombination) -> [CGEvent] {
+        var events = [CGEvent]()
+        
+        if keyCombination.action == .press || keyCombination.action == .both {
+            if let pressedEvent = Self.toPressedCGEvent(from: keyCombination) {
+                events.append(pressedEvent)
+            }
+        }
+        
+        if keyCombination.action == .release || keyCombination.action == .both {
+            if let releasedEvent = Self.toReleasedCGEvent(from: keyCombination) {
+                events.append(releasedEvent)
+            }
+        }
+        
+        return events
+    }
+    
+    private static func toPressedCGEvent(from keyCombination: KeyCombination) -> CGEvent? {
+        return Self.toCGEvent(from: keyCombination, pressed: true)
+    }
+    
+    private static func toReleasedCGEvent(from keyCombination: KeyCombination) -> CGEvent? {
+        return Self.toCGEvent(from: keyCombination, pressed: false)
+    }
+    
+    private static func toCGEvent(from keyCombination: KeyCombination, pressed: Bool) -> CGEvent? {
         guard let cgEvent =  CGEvent(
                 keyboardEventSource: nil,
                 virtualKey: CGKeyCode(keyCombination.key.rawValue),
-                keyDown: keyCombination.action == .press
+                keyDown: pressed
         ) else { return nil }
         
         cgEvent.flags = []
