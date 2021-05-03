@@ -10,13 +10,13 @@ import Foundation
 struct EventTapController {
     
     var eventTapCallback: CGEventTapCallBack = { proxy, _, event, _ in
-        print(event.getIntegerValueField(.keyboardEventKeycode))
-        
         KeyboardStrategy.proxy = proxy
-        
-        guard let originalKeyCombination = KeyCombinationConverter.toKeyCombination(from: event) else { return Unmanaged.passUnretained(event) }
-        
-        if GlobalEventsController.handle(originalKeyCombination) {
+
+        print(event.getIntegerValueField(.keyboardEventKeycode))
+
+        let implementedKeyCombination = KeyCombinationConverter.toKeyCombination(from: event)
+
+        if GlobalEventsController.handle(implementedKeyCombination) {
             return nil
         }
         
