@@ -107,7 +107,7 @@ class VimEngineController {
 
                 return post(KeyboardStrategy.l())
             default:
-                return false
+                return true
             }
         } else {
             switch original.key {
@@ -122,7 +122,11 @@ class VimEngineController {
             case .w:
                 operatorPendingBuffer.append("w")
             default:
-                ()
+                // TODO: handle this better
+                // this is to avoid repeating the
+                // resetOperatorPendingBuffer() and enterCommandMode()
+                // of the default case of operatorCommand
+                operatorPendingBuffer.append("69 LOL")
             }
             
             guard let operatorCommand = operatorCommand() else { return true }
@@ -132,6 +136,8 @@ class VimEngineController {
     }
     
     private func operatorCommand() -> [KeyCombination]? {
+        print(operatorPendingBuffer)
+        
         switch operatorPendingBuffer {
         case "cc":
             enterInsertMode()
