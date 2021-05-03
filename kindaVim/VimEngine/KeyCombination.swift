@@ -1,45 +1,40 @@
 import Foundation
 
 enum KeyCode: Int64, RawRepresentable {
-    // motions
+    case a = 0
+    case b = 11
+    case c = 8
+    case d = 2
+    case e = 14
+
+    case g = 5
+    case h = 4
+    case i = 34
     case j = 38
     case k = 40
-    case h = 4
     case l = 37
-    case b = 11
-    case zero = 29
-    case four = 21
-    case e = 14
-    case minus = 27
-    case w = 13
-    
-    // insert
-    case i = 34
+
     case o = 31
-    case a = 0
-    case c = 8
-    
-    // delete
-    case x = 7
-    case d = 2
-    
-    // undo
-    case u = 32
+
     case r = 15
-    
-    // ?
-    case g = 5
-    
-    case up = 126
-    case down = 125
-    case left = 123
-    case right = 124
-    
-    case escape = 53
-    case enter = 36
-    case delete = 51
-    
+    case u = 32
+
+    case w = 13
+
+    case x = 7
+
     case z = 6
+
+    case delete = 51
+    case down = 125
+    case enter = 36
+    case escape = 53
+    case four = 21
+    case left = 123
+    case minus = 27
+    case right = 124
+    case up = 126
+    case zero = 29
 }
 
 enum KeyCombinationAction {
@@ -49,10 +44,6 @@ enum KeyCombinationAction {
 }
 
 enum VimKey {
-    case dollarSign
-    case underscore
-    case zero
-    
     case a, A
     case b
     case c, C
@@ -74,6 +65,10 @@ enum VimKey {
     case w
 
     case x, X
+
+    case dollarSign
+    case underscore
+    case zero
 }
 
 struct KeyCombination {
@@ -100,12 +95,6 @@ struct KeyCombination {
 
     private static func vimKeyFrom(key: KeyCode, control: Bool, option: Bool, shift: Bool, command: Bool) -> VimKey? {
         switch key {
-        case .four where shift == true:
-            return .dollarSign
-        case .minus where shift == true:
-            return .underscore
-        case .zero where shift == false:
-            return .zero
         case .a where shift == false:
             return .a
         case .a where shift == true:
@@ -148,6 +137,13 @@ struct KeyCombination {
             return .x
         case .x where shift == true:
             return .X
+        case .four where shift == true:
+            return .dollarSign
+        case .minus where shift == true:
+            return .underscore
+        case .zero where shift == false:
+            return .zero
+
         default:
             return nil
         }
