@@ -95,55 +95,54 @@ struct KeyCombination {
 
     private static func vimKeyFrom(key: KeyCode, control: Bool, option: Bool, shift: Bool, command: Bool) -> VimKey? {
         switch key {
-        case .a where shift == false:
+        case .a where control == false && option == false && shift == false && command == false:
             return .a
-        case .a where shift == true:
+        case .a where control == false && option == false && shift == true && command == false:
             return .A
-        case .b where shift == false:
+        case .b where control == false && option == false && shift == false && command == false:
             return .b
-        case .c where shift == false:
+        case .c where control == false && option == false && shift == false && command == false:
             return .c
-        case .c where shift == true:
+        case .c where control == false && option == false && shift == true && command == false:
             return .C
-        case .d where shift == false:
+        case .d where control == false && option == false && shift == false && command == false:
             return .d
-        case .g where shift == false:
+        case .g where control == false && option == false && shift == false && command == false:
             return .g
-        case .g where shift == true:
+        case .g where control == false && option == false && shift == true && command == false:
             return .G
-        case .h where shift == false:
+        case .h where control == false && option == false && shift == false && command == false:
             return .h
-        case .i where shift == false:
+        case .i where control == false && option == false && shift == false && command == false:
             return .i
-        case .i where shift == true:
+        case .i where control == false && option == false && shift == true && command == false:
             return .I
-        case .j where shift == false:
+        case .j where control == false && option == false && shift == false && command == false:
             return .j
-        case .k where shift == false:
+        case .k where control == false && option == false && shift == false && command == false:
             return .k
-        case .l where shift == false:
+        case .l where control == false && option == false && shift == false && command == false:
             return .l
-        case .o where shift == false:
+        case .o where control == false && option == false && shift == false && command == false:
             return .o
-        case .o where shift == true:
+        case .o where control == false && option == false && shift == true && command == false:
             return .O
-        case .r where control == true:
+        case .r where control == true && option == false && shift == false && command == false:
             return .controlR
-        case .u where shift == false:
+        case .u where control == false && option == false && shift == false && command == false:
             return .u
-        case .w where shift == false:
+        case .w where control == false && option == false && shift == false && command == false:
             return .w
-        case .x where shift == false:
+        case .x where control == false && option == false && shift == false && command == false:
             return .x
-        case .x where shift == true:
+        case .x where control == false && option == false && shift == true && command == false:
             return .X
-        case .four where shift == true:
+        case .four where control == false && option == false && shift == true && command == false:
             return .dollarSign
-        case .minus where shift == true:
+        case .minus where control == false && option == false && shift == true && command == false:
             return .underscore
-        case .zero where shift == false:
+        case .zero where control == false && option == false && shift == false && command == false:
             return .zero
-
         default:
             return nil
         }

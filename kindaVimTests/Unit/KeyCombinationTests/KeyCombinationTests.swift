@@ -153,5 +153,29 @@ class KeyCombinationTests: XCTestCase {
 
         XCTAssertEqual(keyCombination.vimKey, VimKey.X)
     }
+    
+    // this is not testing all combinations. just a few ones to show whether
+    // i have been made aware of this located in KeyCombination.vimKeyFrom()
+    func test_that_key_combinations_that_do_not_exist_have_no_VimKey_equivalent() {
+        let optionA = KeyCombination(key: .a, option: true)
+        XCTAssertNil(optionA.vimKey)
+        
+        let commandB = KeyCombination(key: .b, command: true)
+        XCTAssertNil(commandB.vimKey)
+        
+        let controlShiftC = KeyCombination(key: .c, control: true, shift: true)
+        XCTAssertNil(controlShiftC.vimKey)
+    }
+    
+    func test_that_key_combinations_that_exist_but_are_not_implemented_have_no_VimKey_equivalent() {
+        let controlA = KeyCombination(key: .a, control: true)
+        XCTAssertNil(controlA.vimKey)
+        
+        let shiftB = KeyCombination(key: .b, shift: true)
+        XCTAssertNil(shiftB.vimKey)
+        
+        let controlJ = KeyCombination(key: .j, control: true)
+        XCTAssertNil(controlJ.vimKey)
+    }
 
 }
