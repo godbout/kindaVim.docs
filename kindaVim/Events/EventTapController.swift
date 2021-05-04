@@ -12,11 +12,19 @@ struct EventTapController {
     var eventTapCallback: CGEventTapCallBack = { proxy, _, event, _ in
         KeyboardStrategy.proxy = proxy
 
-        print(event.getIntegerValueField(.keyboardEventKeycode))
+        print(
+            """
+            ***
+            KEY PRESSED IS:
+            \(event.getIntegerValueField(.keyboardEventKeycode))
+            \(String(describing: KeyCode(rawValue: event.getIntegerValueField(.keyboardEventKeycode))))
+            ***
+            """
+        )
 
-        let implementedKeyCombination = KeyCombinationAdaptor.toKeyCombination(from: event)
+        let keyCombinationPressed = KeyCombinationAdaptor.toKeyCombination(from: event)
 
-        if GlobalEventsController.handle(implementedKeyCombination) {
+        if GlobalEventsController.stole(keyCombination: keyCombinationPressed) == true {
             return nil
         }
         

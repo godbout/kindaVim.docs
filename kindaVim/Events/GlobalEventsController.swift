@@ -9,7 +9,7 @@ import Foundation
 
 struct GlobalEventsController {
     
-    static func handle(_ keyCombination: KeyCombination?) -> Bool {
+    static func stole(keyCombination: KeyCombination?) -> Bool {
         if VimEngineController.shared.currentMode != .insert {
             guard let implementedKeyCombination = keyCombination else { return true }
 

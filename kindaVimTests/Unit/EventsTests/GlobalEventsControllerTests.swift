@@ -14,7 +14,7 @@ class GlobalEventsControllerTests: XCTestCase {
         VimEngineController.shared.enterInsertMode()
         
         let globalHotkeyCombination = KeyCombination(key: .escape, command: true)
-        _ = GlobalEventsController.handle(globalHotkeyCombination)
+        _ = GlobalEventsController.stole(keyCombination: globalHotkeyCombination)
         
         let currentVimMode = VimEngineController.shared.currentMode
 
@@ -25,7 +25,7 @@ class GlobalEventsControllerTests: XCTestCase {
         VimEngineController.shared.enterInsertMode()
 
         let globalHotkeyCombination = KeyCombination(key: .escape, command: true)
-        let captured = GlobalEventsController.handle(globalHotkeyCombination)
+        let captured = GlobalEventsController.stole(keyCombination: globalHotkeyCombination)
 
         XCTAssertTrue(captured)
     }
@@ -34,7 +34,7 @@ class GlobalEventsControllerTests: XCTestCase {
         VimEngineController.shared.enterCommandMode()
 
         let globalHotkeyCombination = KeyCombination(key: .escape, command: true)
-        let captured = GlobalEventsController.handle(globalHotkeyCombination)
+        let captured = GlobalEventsController.stole(keyCombination: globalHotkeyCombination)
 
         XCTAssertTrue(captured)
     }
@@ -45,7 +45,7 @@ class GlobalEventsControllerTests: XCTestCase {
         guard let jEvent = CGEvent(keyboardEventSource: nil, virtualKey: 38, keyDown: true) else { return XCTFail() }
 
         let implementedKeyCombination = KeyCombinationAdaptor.toKeyCombination(from: jEvent)
-        let handled = GlobalEventsController.handle(implementedKeyCombination)
+        let handled = GlobalEventsController.stole(keyCombination: implementedKeyCombination)
         
         XCTAssertFalse(handled)
     }
@@ -56,7 +56,7 @@ class GlobalEventsControllerTests: XCTestCase {
         guard let pEvent = CGEvent(keyboardEventSource: nil, virtualKey: 35, keyDown: true) else { return XCTFail() }
 
         let nomImplementedKeyCombination = KeyCombinationAdaptor.toKeyCombination(from: pEvent)
-        let handled = GlobalEventsController.handle(nomImplementedKeyCombination)
+        let handled = GlobalEventsController.stole(keyCombination: nomImplementedKeyCombination)
 
         XCTAssertFalse(handled)
     }
@@ -67,7 +67,7 @@ class GlobalEventsControllerTests: XCTestCase {
         guard let jEvent = CGEvent(keyboardEventSource: nil, virtualKey: 38, keyDown: true) else { return XCTFail() }
 
         let implementedKeyCombination = KeyCombinationAdaptor.toKeyCombination(from: jEvent)
-        let handled = GlobalEventsController.handle(implementedKeyCombination)
+        let handled = GlobalEventsController.stole(keyCombination: implementedKeyCombination)
         
         XCTAssertTrue(handled)
     }
@@ -78,7 +78,7 @@ class GlobalEventsControllerTests: XCTestCase {
         guard let pEvent = CGEvent(keyboardEventSource: nil, virtualKey: 35, keyDown: true) else { return XCTFail() }
 
         let nomImplementedKeyCombination = KeyCombinationAdaptor.toKeyCombination(from: pEvent)
-        let handled = GlobalEventsController.handle(nomImplementedKeyCombination)
+        let handled = GlobalEventsController.stole(keyCombination: nomImplementedKeyCombination)
 
         XCTAssertTrue(handled)
     }
