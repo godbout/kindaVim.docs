@@ -22,7 +22,6 @@ extension KeyCombinationAdaptorTests {
             XCTAssertEqual(jKeyCombination.command, false)
             XCTAssertEqual(jKeyCombination.option, false)
             XCTAssertEqual(jKeyCombination.control, false)
-            XCTAssertEqual(jKeyCombination.fn, false)
             XCTAssertEqual(jKeyCombination.shift, false)
             XCTAssertEqual(jKeyCombination.action, .press)
         }
@@ -36,7 +35,6 @@ extension KeyCombinationAdaptorTests {
             XCTAssertEqual(jKeyCombination.command, false)
             XCTAssertEqual(jKeyCombination.option, false)
             XCTAssertEqual(jKeyCombination.control, false)
-            XCTAssertEqual(jKeyCombination.fn, false)
             XCTAssertEqual(jKeyCombination.shift, false)
             XCTAssertEqual(jKeyCombination.action, .release)
         }
@@ -44,15 +42,14 @@ extension KeyCombinationAdaptorTests {
 
     func test_that_it_can_convert_a_CGEvent_with_modifiers_press_to_a_KeyCombination() throws {
         if let kCGEvent = CGEvent(keyboardEventSource: nil, virtualKey: 40, keyDown: true) {
-            kCGEvent.flags.insert([.maskAlternate, .maskSecondaryFn])
+            kCGEvent.flags.insert([.maskAlternate, .maskCommand])
 
             let kKeyCombination = try XCTUnwrap(KeyCombinationAdaptor.toKeyCombination(from: kCGEvent))
 
             XCTAssertEqual(kKeyCombination.key, KeyCode.k)
-            XCTAssertEqual(kKeyCombination.command, false)
+            XCTAssertEqual(kKeyCombination.command, true)
             XCTAssertEqual(kKeyCombination.option, true)
             XCTAssertEqual(kKeyCombination.control, false)
-            XCTAssertEqual(kKeyCombination.fn, true)
             XCTAssertEqual(kKeyCombination.shift, false)
             XCTAssertEqual(kKeyCombination.action, .press)
         }
@@ -68,7 +65,6 @@ extension KeyCombinationAdaptorTests {
             XCTAssertEqual(kKeyCombination.command, false)
             XCTAssertEqual(kKeyCombination.option, false)
             XCTAssertEqual(kKeyCombination.control, true)
-            XCTAssertEqual(kKeyCombination.fn, false)
             XCTAssertEqual(kKeyCombination.shift, true)
             XCTAssertEqual(kKeyCombination.action, .release)
         }
@@ -129,7 +125,6 @@ extension KeyCombinationAdaptorTests {
         XCTAssertEqual(kCGEvents.first?.flags.contains(.maskCommand), true)
         XCTAssertEqual(kCGEvents.first?.flags.contains(.maskAlternate), false)
         XCTAssertEqual(kCGEvents.first?.flags.contains(.maskControl), false)
-        XCTAssertEqual(kCGEvents.first?.flags.contains(.maskSecondaryFn), false)
         XCTAssertEqual(kCGEvents.first?.flags.contains(.maskShift), true)
         XCTAssertEqual(kCGEvents.first?.type, .keyDown)
     }
@@ -151,7 +146,7 @@ extension KeyCombinationAdaptorTests {
     }
     
     func test_that_it_can_convert_a_KeyCombination_with_modifiers_with_both_actions_to_CGEvents() {
-        let kKeyCombination = KeyCombination(key: .k, control: true, fn: true, action: .both)
+        let kKeyCombination = KeyCombination(key: .k, control: true, action: .both)
 
         let kCGEvents = KeyCombinationAdaptor.toCGEvents(from: kKeyCombination)
         
@@ -161,7 +156,6 @@ extension KeyCombinationAdaptorTests {
         XCTAssertEqual(kCGEvents.first?.flags.contains(.maskCommand), false)
         XCTAssertEqual(kCGEvents.first?.flags.contains(.maskAlternate), false)
         XCTAssertEqual(kCGEvents.first?.flags.contains(.maskControl), true)
-        XCTAssertEqual(kCGEvents.first?.flags.contains(.maskSecondaryFn), true)
         XCTAssertEqual(kCGEvents.first?.flags.contains(.maskShift), false)
         XCTAssertEqual(kCGEvents.first?.type, .keyDown)
         
@@ -169,7 +163,6 @@ extension KeyCombinationAdaptorTests {
         XCTAssertEqual(kCGEvents.last?.flags.contains(.maskCommand), false)
         XCTAssertEqual(kCGEvents.last?.flags.contains(.maskAlternate), false)
         XCTAssertEqual(kCGEvents.last?.flags.contains(.maskControl), true)
-        XCTAssertEqual(kCGEvents.last?.flags.contains(.maskSecondaryFn), true)
         XCTAssertEqual(kCGEvents.last?.flags.contains(.maskShift), false)
         XCTAssertEqual(kCGEvents.last?.type, .keyUp)
     }

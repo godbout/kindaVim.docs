@@ -56,10 +56,6 @@ struct KeyCombinationAdaptor {
             cgEvent.flags.insert(.maskControl)
         }
         
-        if keyCombination.fn == true {
-            cgEvent.flags.insert(.maskSecondaryFn)
-        }
-        
         if keyCombination.shift == true {
             cgEvent.flags.insert(.maskShift)
         }
@@ -76,7 +72,6 @@ struct KeyCombinationAdaptor {
             option: cgEvent.flags.contains(.maskAlternate),
             shift: cgEvent.flags.contains(.maskShift),
             command: cgEvent.flags.contains(.maskCommand),
-            fn: cgEvent.flags.contains(.maskSecondaryFn),
             action: cgEvent.type == CGEventType.keyDown ? .press : .release
         )
         
