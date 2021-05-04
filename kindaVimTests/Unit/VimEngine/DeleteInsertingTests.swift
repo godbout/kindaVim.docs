@@ -17,6 +17,14 @@ class DeleteInsertingTests: XCTestCase {
 }
 
 extension DeleteInsertingTests {
+
+    func test_that_C_is_handled() {
+        let C = KeyCombination(key: .c, shift: true)
+
+        let handled = VimEngineController.shared.transform(from: C)
+
+        XCTAssertTrue(handled)
+    }
     
     func test_that_cc_is_handled() {
         let c = KeyCombination(key: .c)
