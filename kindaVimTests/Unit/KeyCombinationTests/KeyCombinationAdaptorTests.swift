@@ -156,7 +156,6 @@ extension KeyCombinationAdaptorTests {
         XCTAssertEqual(kCGEvents.first?.flags.contains(.maskCommand), false)
         XCTAssertEqual(kCGEvents.first?.flags.contains(.maskAlternate), false)
         XCTAssertEqual(kCGEvents.first?.flags.contains(.maskControl), true)
-        XCTAssertEqual(kCGEvents.first?.flags.contains(.maskShift), false)
         XCTAssertEqual(kCGEvents.first?.type, .keyDown)
         
         XCTAssertEqual(kCGEvents.last?.getIntegerValueField(.keyboardEventKeycode), 40)

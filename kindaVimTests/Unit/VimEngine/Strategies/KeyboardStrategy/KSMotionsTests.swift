@@ -81,10 +81,13 @@ class KSMotionsTests: XCTestCase {
     func test_that_$_is_getting_transformed_to_control_a() {
         let transformedKeys = KeyboardStrategy.dollarSign()
 
-        guard transformedKeys.count == 1 else { return XCTFail() }
-        XCTAssertEqual(transformedKeys[0].key, .e)
-        XCTAssertEqual(transformedKeys[0].control, true)
+        guard transformedKeys.count == 2 else { return XCTFail() }
+        XCTAssertEqual(transformedKeys[0].key, .right)
+        XCTAssertEqual(transformedKeys[0].command, true)
         XCTAssertEqual(transformedKeys[0].action, .both)
+        XCTAssertEqual(transformedKeys[1].key, .right)
+        XCTAssertEqual(transformedKeys[1].command, true)
+        XCTAssertEqual(transformedKeys[1].action, .both)
     }
     
     func test_that___is_getting_transformed_to_control_a_option_right_option_left() {

@@ -55,7 +55,13 @@ struct KeyboardStrategy {
     static func dd() -> [KeyCombination] {
         return [
             KeyCombination(key: .right, command: true, action: .both),
-            KeyCombination(key: .a, control: true, shift: true, action: .both),
+            // Emacs moves don't work in Xcode, so can't use
+            // control + a
+            // hence
+            // double command left
+            // dumb but hey
+            KeyCombination(key: .left, shift: true, command: true, action: .both),
+            KeyCombination(key: .left, shift: true, command: true, action: .both),
             KeyCombination(key: .delete, action: .both),
             KeyCombination(key: .down, action: .both),
             KeyCombination(key: .a, control: true, action: .both),
@@ -160,7 +166,13 @@ struct KeyboardStrategy {
 
     static func dollarSign() -> [KeyCombination] {
         return [
-            KeyCombination(key: .e, control: true, action: .both)
+            // Emacs moves don't work in Xcode, so can't use
+            // control + e
+            // hence
+            // double command right
+            // dumb but hey
+            KeyCombination(key: .right, command: true, action: .both),
+            KeyCombination(key: .right, command: true, action: .both)
         ]
     }
 
