@@ -19,7 +19,9 @@ class VimEngineController {
     
     private(set) var currentMode: VimEngineMode = .insert
     private(set) var operatorPendingBuffer = ""
-    
+
+    var keyboardStrategy: KeyboardStrategyProtocol = KeyboardStrategy()
+
     private init() {
         #if !TESTING
             _ = EventTapController.init()
@@ -32,78 +34,78 @@ class VimEngineController {
         if currentMode != .operatorPending {
             switch keyCombination.vimKey {
             case .dollarSign:
-                post(KeyboardStrategy.dollarSign())
+                post(keyboardStrategy.dollarSign())
             case .underscore:
-                post(KeyboardStrategy.underscore())
+                post(keyboardStrategy.underscore())
             case .zero:
-                post(KeyboardStrategy.zero())
+                post(keyboardStrategy.zero())
             case .a:
                 enterInsertMode()
 
-                post(KeyboardStrategy.a())
+                post(keyboardStrategy.a())
             case .A:
                 enterInsertMode()
 
-                post(KeyboardStrategy.A())
+                post(keyboardStrategy.A())
             case .b:
-                post(KeyboardStrategy.b())
+                post(keyboardStrategy.b())
             case .c:
                 enterOperatorPendingMode(with: "c")
             case .C:
                 enterInsertMode()
 
-                post(KeyboardStrategy.C())
+                post(keyboardStrategy.C())
             case .d:
                 enterOperatorPendingMode(with: "d")
             case .g:
                 enterOperatorPendingMode(with: "g")
             case .G:
-                post(KeyboardStrategy.G())
+                post(keyboardStrategy.G())
             case .h:
                 if let element = AccessibilityStrategy.h(on: focusedElement()) {
                     // ugly, need to refactor
                     if write(element: element) == false {
-                        post(KeyboardStrategy.h())
+                        post(keyboardStrategy.h())
                     }
                 }
 
-                post(KeyboardStrategy.h())
+                post(keyboardStrategy.h())
             case .i:
                 enterInsertMode()
             case .I:
                 enterInsertMode()
 
-                post(KeyboardStrategy.I())
+                post(keyboardStrategy.I())
             case .j:
-                post(KeyboardStrategy.j())
+                post(keyboardStrategy.j())
             case .k:
-                post(KeyboardStrategy.k())
+                post(keyboardStrategy.k())
             case .l:
                 if let element = AccessibilityStrategy.l(on: focusedElement()) {
                     if write(element: element) == false {
-                        post(KeyboardStrategy.l())
+                        post(keyboardStrategy.l())
                     }
                 }
 
-                post(KeyboardStrategy.l())
+                post(keyboardStrategy.l())
             case .o:
                 enterInsertMode()
 
-                post(KeyboardStrategy.o())
+                post(keyboardStrategy.o())
             case .O:
                 enterInsertMode()
 
-                post(KeyboardStrategy.O())
+                post(keyboardStrategy.O())
             case .controlR:
-                post(KeyboardStrategy.controlR())
+                post(keyboardStrategy.controlR())
             case .u:
-                post(KeyboardStrategy.u())
+                post(keyboardStrategy.u())
             case .w:
-                post(KeyboardStrategy.w())
+                post(keyboardStrategy.w())
             case .x:
-                post(KeyboardStrategy.x())
+                post(keyboardStrategy.x())
             case .X:
-                post(KeyboardStrategy.X())
+                post(keyboardStrategy.X())
             default:
                 ()
             }
@@ -140,21 +142,21 @@ class VimEngineController {
         case "cc":
             enterInsertMode()
             
-            return KeyboardStrategy.cc()
+            return keyboardStrategy.cc()
         case "gg":
             enterCommandMode()
             
-            return KeyboardStrategy.gg()
+            return keyboardStrategy.gg()
         case "dd":
             enterCommandMode()
             
-            return KeyboardStrategy.dd()
+            return keyboardStrategy.dd()
         case "ci":
             return []
         case "ciw":
             enterInsertMode()
             
-            return KeyboardStrategy.ciw()
+            return keyboardStrategy.ciw()
         default:
             resetOperatorPendingBuffer()
             enterCommandMode()

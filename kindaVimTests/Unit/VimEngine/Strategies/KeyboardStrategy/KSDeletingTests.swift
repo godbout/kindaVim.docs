@@ -9,9 +9,11 @@
 import XCTest
 
 class KSDeletingTests: XCTestCase {
+
+    let keyboardStrategy = KeyboardStrategy()
     
     func test_that_x_is_getting_transformed_to_right_delete() {
-        let transformedKeys = KeyboardStrategy.x()
+        let transformedKeys = keyboardStrategy.x()
 
         guard transformedKeys.count == 2 else { return XCTFail() }
         XCTAssertEqual(transformedKeys[0].key, .right)
@@ -21,7 +23,7 @@ class KSDeletingTests: XCTestCase {
     }
 
     func test_that_X_is_getting_transformed_to_delete() {
-        let transformedKeys = KeyboardStrategy.X()
+        let transformedKeys = keyboardStrategy.X()
 
         guard transformedKeys.count == 1 else { return XCTFail() }
         XCTAssertEqual(transformedKeys[0].key, .delete)
@@ -29,7 +31,7 @@ class KSDeletingTests: XCTestCase {
     }
     
     func test_that_dd_is_getting_transformed_to_a_big_file_of_key_combinations() {
-        let transformedKeys = KeyboardStrategy.dd()
+        let transformedKeys = keyboardStrategy.dd()
 
         guard transformedKeys.count == 10 else { return XCTFail() }
         XCTAssertEqual(transformedKeys[0].key, .right)

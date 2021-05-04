@@ -10,8 +10,10 @@ import XCTest
 
 class KSDeleteInsertingTests: XCTestCase {
 
+    let keyboardStrategy = KeyboardStrategy()
+
     func test_that_C_is_getting_transformed_to_command_shift_right_delete() {
-        let transformedKeys = KeyboardStrategy.C()
+        let transformedKeys = keyboardStrategy.C()
 
         guard transformedKeys.count == 2 else { return XCTFail() }
         XCTAssertEqual(transformedKeys[0].key, .right)
@@ -23,7 +25,7 @@ class KSDeleteInsertingTests: XCTestCase {
     }
     
     func test_that_cc_is_getting_transformed_to_command_right_command_shift_left_delete() {
-        let transformedKeys = KeyboardStrategy.cc()
+        let transformedKeys = keyboardStrategy.cc()
 
         guard transformedKeys.count == 3 else { return XCTFail() }
         XCTAssertEqual(transformedKeys[0].key, .right)
@@ -38,7 +40,7 @@ class KSDeleteInsertingTests: XCTestCase {
     }
     
     func test_that_ciw_is_getting_transformed_to_option_right_option_left_delete() {
-        let transformedKeys = KeyboardStrategy.ciw()
+        let transformedKeys = keyboardStrategy.ciw()
 
         guard transformedKeys.count == 3 else { return XCTFail() }
         XCTAssertEqual(transformedKeys[0].key, .right)

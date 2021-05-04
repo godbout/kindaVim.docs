@@ -9,9 +9,11 @@
 import XCTest
 
 class KSUndosTests: XCTestCase {
+
+    let keyboardStrategy = KeyboardStrategy()
     
     func test_that_u_gets_transformed_to_command_z() {
-        let transformedKeys = KeyboardStrategy.u()
+        let transformedKeys = keyboardStrategy.u()
         
         guard transformedKeys.count == 1 else { return XCTFail() }
         XCTAssertEqual(transformedKeys[0].key, .z)
@@ -20,7 +22,7 @@ class KSUndosTests: XCTestCase {
     }
     
     func test_that_ctrl_r_gets_transformed_to_command_shift_z() {
-        let transformedKeys = KeyboardStrategy.controlR()
+        let transformedKeys = keyboardStrategy.controlR()
 
         guard transformedKeys.count == 1 else { return XCTFail() }
         XCTAssertEqual(transformedKeys[0].key, .z)

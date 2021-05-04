@@ -9,9 +9,11 @@
 import XCTest
 
 class KSInsertingTests: XCTestCase {
+
+    let keyboardStrategy = KeyboardStrategy()
     
     func test_that_I_gets_transformed_to_command_left() {
-        let transformedKeys = KeyboardStrategy.I()
+        let transformedKeys = keyboardStrategy.I()
 
         guard transformedKeys.count == 1 else { return XCTFail() }
         XCTAssertEqual(transformedKeys[0].key, .left)
@@ -20,7 +22,7 @@ class KSInsertingTests: XCTestCase {
     }
     
     func test_that_a_gets_transformed_to_right() {
-        let transformedKeys = KeyboardStrategy.a()
+        let transformedKeys = keyboardStrategy.a()
 
         guard transformedKeys.count == 1 else { return XCTFail() }
         XCTAssertEqual(transformedKeys[0].key, .right)
@@ -28,7 +30,7 @@ class KSInsertingTests: XCTestCase {
     }
     
     func test_that_A_gets_transformed_to_command_right() {
-        let transformedKeys = KeyboardStrategy.A()
+        let transformedKeys = keyboardStrategy.A()
 
         guard transformedKeys.count == 1 else { return XCTFail() }
         XCTAssertEqual(transformedKeys[0].key, .right)
@@ -37,7 +39,7 @@ class KSInsertingTests: XCTestCase {
     }
 
     func test_that_o_gets_transformed_to_command_right_and_enter() {
-        let transformedKeys = KeyboardStrategy.o()
+        let transformedKeys = keyboardStrategy.o()
 
         guard transformedKeys.count == 2 else { return XCTFail() }
         XCTAssertEqual(transformedKeys[0].key, .right)
@@ -48,7 +50,7 @@ class KSInsertingTests: XCTestCase {
     }
     
     func test_that_O_gets_transformed_to_command_left_enter_up() {
-        let transformedKeys = KeyboardStrategy.O()
+        let transformedKeys = keyboardStrategy.O()
         
         guard transformedKeys.count == 3 else { return XCTFail() }
         XCTAssertEqual(transformedKeys[0].key, .left)

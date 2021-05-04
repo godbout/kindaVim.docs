@@ -9,9 +9,11 @@
 import XCTest
 
 class KSMotionsTests: XCTestCase {
+
+    let keyboardStrategy = KeyboardStrategy()
     
     func test_that_h_is_getting_transformed_to_left() {
-        let transformedKeys = KeyboardStrategy.h()
+        let transformedKeys = keyboardStrategy.h()
         
         guard transformedKeys.count == 1 else { return XCTFail() }
         XCTAssertEqual(transformedKeys[0].key, .left)
@@ -19,7 +21,7 @@ class KSMotionsTests: XCTestCase {
     }
     
     func test_that_j_is_getting_transformed_to_down() {
-        let transformedKeys = KeyboardStrategy.j()
+        let transformedKeys = keyboardStrategy.j()
 
         guard transformedKeys.count == 1 else { return XCTFail() }
         XCTAssertEqual(transformedKeys[0].key, .down)
@@ -27,7 +29,7 @@ class KSMotionsTests: XCTestCase {
     }
     
     func test_that_k_is_getting_transformed_to_up() {
-        let transformedKeys = KeyboardStrategy.k()
+        let transformedKeys = keyboardStrategy.k()
 
         guard transformedKeys.count == 1 else { return XCTFail() }
         XCTAssertEqual(transformedKeys[0].key, .up)
@@ -35,7 +37,7 @@ class KSMotionsTests: XCTestCase {
     }
 
     func test_that_l_is_getting_transformed_to_right() {
-        let transformedKeys = KeyboardStrategy.l()
+        let transformedKeys = keyboardStrategy.l()
 
         guard transformedKeys.count == 1 else { return XCTFail() }
         XCTAssertEqual(transformedKeys[0].key, .right)
@@ -43,7 +45,7 @@ class KSMotionsTests: XCTestCase {
     }
     
     func test_that_b_is_getting_transformed_to_alt_left() {
-        let transformedKeys = KeyboardStrategy.b()
+        let transformedKeys = keyboardStrategy.b()
 
         guard transformedKeys.count == 1 else { return XCTFail() }
         XCTAssertEqual(transformedKeys[0].key, .left)
@@ -52,7 +54,7 @@ class KSMotionsTests: XCTestCase {
     }
     
     func test_that_gg_is_getting_transformed_to_command_up() {
-        let transformedKeys = KeyboardStrategy.gg()
+        let transformedKeys = keyboardStrategy.gg()
 
         guard transformedKeys.count == 1 else { return XCTFail() }
         XCTAssertEqual(transformedKeys[0].key, .up)
@@ -61,7 +63,7 @@ class KSMotionsTests: XCTestCase {
     }
     
     func test_that_G_is_getting_transformed_to_command_down() {
-        let transformedKeys = KeyboardStrategy.G()
+        let transformedKeys = keyboardStrategy.G()
 
         guard transformedKeys.count == 1 else { return XCTFail() }
         XCTAssertEqual(transformedKeys[0].key, .down)
@@ -70,7 +72,7 @@ class KSMotionsTests: XCTestCase {
     }
     
     func test_that_0_is_getting_transformed_to_control_a() {
-        let transformedKeys = KeyboardStrategy.zero()
+        let transformedKeys = keyboardStrategy.zero()
 
         guard transformedKeys.count == 1 else { return XCTFail() }
         XCTAssertEqual(transformedKeys[0].key, .a)
@@ -79,7 +81,7 @@ class KSMotionsTests: XCTestCase {
     }
     
     func test_that_$_is_getting_transformed_to_control_a() {
-        let transformedKeys = KeyboardStrategy.dollarSign()
+        let transformedKeys = keyboardStrategy.dollarSign()
 
         guard transformedKeys.count == 2 else { return XCTFail() }
         XCTAssertEqual(transformedKeys[0].key, .right)
@@ -91,7 +93,7 @@ class KSMotionsTests: XCTestCase {
     }
     
     func test_that___is_getting_transformed_to_control_a_option_right_option_left() {
-        let transformedKeys = KeyboardStrategy.underscore()
+        let transformedKeys = keyboardStrategy.underscore()
 
         guard transformedKeys.count == 3 else { return XCTFail() }
         XCTAssertEqual(transformedKeys[0].key, .a)
@@ -106,7 +108,7 @@ class KSMotionsTests: XCTestCase {
     }
     
     func test_that_w_is_getting_transformed_to_option_right_option_right_option_left() {
-        let transformedKeys = KeyboardStrategy.w()
+        let transformedKeys = keyboardStrategy.w()
 
         guard transformedKeys.count == 3 else { return XCTFail() }
         XCTAssertEqual(transformedKeys[0].key, .right)
