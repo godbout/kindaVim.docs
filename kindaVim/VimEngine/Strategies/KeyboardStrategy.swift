@@ -190,7 +190,7 @@ struct KeyboardStrategy {
         ]
     }
 
-    static func post(_ keyCombinations: [KeyCombination]) -> Bool {
+    static func post(_ keyCombinations: [KeyCombination]) {
         print("move using Keyboard Strategy")
         
         for keyCombination in keyCombinations {
@@ -200,8 +200,6 @@ struct KeyboardStrategy {
                 cgEvent.tapPostEvent(proxy)
             }
         }
-        
-        return true
     }
     
 }

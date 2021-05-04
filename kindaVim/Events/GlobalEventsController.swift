@@ -13,7 +13,9 @@ struct GlobalEventsController {
         if VimEngineController.shared.currentMode != .insert {
             guard let implementedKeyCombination = keyCombination else { return true }
 
-            return VimEngineController.shared.transform(from: implementedKeyCombination)
+            VimEngineController.shared.handle(keyCombination: implementedKeyCombination)
+
+            return true
         }
 
         guard let implementedKeyCombination = keyCombination else { return false }

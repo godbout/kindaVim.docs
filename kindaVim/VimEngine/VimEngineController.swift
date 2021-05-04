@@ -28,87 +28,84 @@ class VimEngineController {
         print("engine started")
     }
     
-    func transform(from keyCombination: KeyCombination) -> Bool {
+    func handle(keyCombination: KeyCombination) {
         if currentMode != .operatorPending {
             switch keyCombination.vimKey {
             case .dollarSign:
-                return post(KeyboardStrategy.dollarSign())
+                post(KeyboardStrategy.dollarSign())
             case .underscore:
-                return post(KeyboardStrategy.underscore())
+                post(KeyboardStrategy.underscore())
             case .zero:
-                return post(KeyboardStrategy.zero())
+                post(KeyboardStrategy.zero())
             case .a:
                 enterInsertMode()
 
-                return post(KeyboardStrategy.a())
+                post(KeyboardStrategy.a())
             case .A:
                 enterInsertMode()
 
-                return post(KeyboardStrategy.A())
+                post(KeyboardStrategy.A())
             case .b:
-                return post(KeyboardStrategy.b())
+                post(KeyboardStrategy.b())
             case .c:
                 enterOperatorPendingMode(with: "c")
-
-                return true
             case .C:
                 enterInsertMode()
 
-                return post(KeyboardStrategy.C())
+                post(KeyboardStrategy.C())
             case .d:
                 enterOperatorPendingMode(with: "d")
-
-                return true
             case .g:
                 enterOperatorPendingMode(with: "g")
-
-                return true
             case .G:
-                return post(KeyboardStrategy.G())
+                post(KeyboardStrategy.G())
             case .h:
                 if let element = AccessibilityStrategy.h(on: focusedElement()) {
-                    return write(element: element)
+                    // ugly, need to refactor
+                    if write(element: element) == false {
+                        post(KeyboardStrategy.h())
+                    }
                 }
 
-                return post(KeyboardStrategy.h())
+                post(KeyboardStrategy.h())
             case .i:
                 enterInsertMode()
-
-                return true
             case .I:
                 enterInsertMode()
 
-                return post(KeyboardStrategy.I())
+                post(KeyboardStrategy.I())
             case .j:
-                return post(KeyboardStrategy.j())
+                post(KeyboardStrategy.j())
             case .k:
-                return post(KeyboardStrategy.k())
+                post(KeyboardStrategy.k())
             case .l:
                 if let element = AccessibilityStrategy.l(on: focusedElement()) {
-                    return write(element: element)
+                    if write(element: element) == false {
+                        post(KeyboardStrategy.l())
+                    }
                 }
 
-                return post(KeyboardStrategy.l())
+                post(KeyboardStrategy.l())
             case .o:
                 enterInsertMode()
 
-                return post(KeyboardStrategy.o())
+                post(KeyboardStrategy.o())
             case .O:
                 enterInsertMode()
 
-                return post(KeyboardStrategy.O())
+                post(KeyboardStrategy.O())
             case .controlR:
-                return post(KeyboardStrategy.controlR())
+                post(KeyboardStrategy.controlR())
             case .u:
-                return post(KeyboardStrategy.u())
+                post(KeyboardStrategy.u())
             case .w:
-                return post(KeyboardStrategy.w())
+                post(KeyboardStrategy.w())
             case .x:
-                return post(KeyboardStrategy.x())
+                post(KeyboardStrategy.x())
             case .X:
-                return post(KeyboardStrategy.X())
+                post(KeyboardStrategy.X())
             default:
-                return true
+                ()
             }
         } else {
             switch keyCombination.key {
@@ -129,10 +126,10 @@ class VimEngineController {
                 // of the default case of operatorCommand
                 operatorPendingBuffer.append("69 LOL")
             }
-            
-            guard let operatorCommand = operatorCommand() else { return true }
-                    
-            return post(operatorCommand)
+
+            if let operatorCommand = operatorCommand() {
+                post(operatorCommand)
+            }
         }
     }
     
@@ -190,8 +187,8 @@ class VimEngineController {
         operatorPendingBuffer.append(`operator`)
     }
 
-    private func post(_ keyCombinations: [KeyCombination]) -> Bool {
-        return KeyboardStrategy.post(keyCombinations)
+    private func post(_ keyCombinations: [KeyCombination]) {
+        KeyboardStrategy.post(keyCombinations)
     }
 
     private func focusedElement() -> AccessibilityElement? {
