@@ -51,7 +51,7 @@ class KeyCombinationToCGEventsTests: XCTestCase {
     }
     
     func test_that_it_can_convert_a_KeyCombination_with_modifiers_press_to_one_CGEvent() {
-        let kKeyCombination = KeyCombination(key: .k, command: true, shift: true, action: .press)
+        let kKeyCombination = KeyCombination(key: .k, shift: true, command: true, action: .press)
 
         let kCGEvents = KeyCombinationConverter.toCGEvents(from: kKeyCombination)
         

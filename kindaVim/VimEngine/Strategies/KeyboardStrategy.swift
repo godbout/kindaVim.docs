@@ -31,7 +31,7 @@ struct KeyboardStrategy {
 
     static func C() -> [KeyCombination] {
         return [
-            KeyCombination(key: .right, command: true, shift: true, action: .both),
+            KeyCombination(key: .right, shift: true, command: true, action: .both),
             KeyCombination(key: .delete, action: .both)
         ]
     }
@@ -39,7 +39,7 @@ struct KeyboardStrategy {
     static func cc() -> [KeyCombination] {
         return [
             KeyCombination(key: .right, command: true, action: .both),
-            KeyCombination(key: .left, command: true, shift: true, action: .both),
+            KeyCombination(key: .left, shift: true, command: true, action: .both),
             KeyCombination(key: .delete, action: .both)
         ]
     }
@@ -125,7 +125,7 @@ struct KeyboardStrategy {
 
     static func controlR() -> [KeyCombination] {
         return [
-            KeyCombination(key: .z, command: true, shift: true, action: .both)
+            KeyCombination(key: .z, shift: true, command: true, action: .both)
         ]
     }
     

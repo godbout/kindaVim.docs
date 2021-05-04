@@ -19,7 +19,7 @@ class MotionsTests: XCTestCase {
 extension MotionsTests {
 
     func test_that_k_is_handled() {
-        let k = KeyCombination(key: .k, command: false, fn: true, shift: true)
+        let k = KeyCombination(key: .k, shift: true, command: false, fn: true)
 
         let handled = VimEngineController.shared.transform(from: k)
         

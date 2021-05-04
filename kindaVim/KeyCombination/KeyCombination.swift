@@ -81,13 +81,13 @@ struct KeyCombination {
     var shift: Bool = false
     var action: KeyCombinationAction = .both
     
-    init(key: KeyCode, command: Bool = false, option: Bool = false, control: Bool = false, fn: Bool = false, shift: Bool = false, action: KeyCombinationAction = .both) {
+    init(key: KeyCode, control: Bool = false, option: Bool = false, shift: Bool = false, command: Bool = false, fn: Bool = false, action: KeyCombinationAction = .both) {
         self.key = key
-        self.command = command
-        self.option = option
         self.control = control
-        self.fn = fn
+        self.option = option
         self.shift = shift
+        self.command = command
+        self.fn = fn
         self.action = action
 
         self.vimKey = Self.vimKeyFrom(key: key, control: control, option: option, shift: shift, command: command)

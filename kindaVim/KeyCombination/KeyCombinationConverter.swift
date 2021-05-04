@@ -72,11 +72,11 @@ struct KeyCombinationConverter {
         
         let keyCombination = KeyCombination(
             key: keyCode,
-            command: cgEvent.flags.contains(.maskCommand),
-            option: cgEvent.flags.contains(.maskAlternate),
             control: cgEvent.flags.contains(.maskControl),
-            fn: cgEvent.flags.contains(.maskSecondaryFn),
+            option: cgEvent.flags.contains(.maskAlternate),
             shift: cgEvent.flags.contains(.maskShift),
+            command: cgEvent.flags.contains(.maskCommand),
+            fn: cgEvent.flags.contains(.maskSecondaryFn),
             action: cgEvent.type == CGEventType.keyDown ? .press : .release
         )
         
