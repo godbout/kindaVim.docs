@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct KeyCombinationConverter {
+struct KeyCombinationAdaptor {
     
     static func toCGEvents(from keyCombination: KeyCombination) -> [CGEvent] {
         var events = [CGEvent]()

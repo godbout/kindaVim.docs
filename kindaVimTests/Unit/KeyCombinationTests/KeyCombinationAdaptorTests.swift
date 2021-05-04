@@ -1,5 +1,5 @@
 //
-//  KeyCombinationConverterTests.swift
+//  KeyCombinationAdaptorTests.swift
 //  kindaVimTests
 //
 //  Created by Guillaume Leclerc on 26/04/2021.
@@ -8,12 +8,80 @@
 @testable import kindaVim
 import XCTest
 
-class KeyCombinationToCGEventsTests: XCTestCase {
+class KeyCombinationAdaptorTests: XCTestCase {}
+
+extension KeyCombinationAdaptorTests {
+
+    func test_that_it_can_convert_a_simple_CGEvent_press_to_a_KeyCombination() throws {
+        if let jCGEvent = CGEvent(keyboardEventSource: nil, virtualKey: 38, keyDown: true) {
+            jCGEvent.type = .keyDown
+
+            let jKeyCombination = try XCTUnwrap(KeyCombinationAdaptor.toKeyCombination(from: jCGEvent))
+
+            XCTAssertEqual(jKeyCombination.key, KeyCode.j)
+            XCTAssertEqual(jKeyCombination.command, false)
+            XCTAssertEqual(jKeyCombination.option, false)
+            XCTAssertEqual(jKeyCombination.control, false)
+            XCTAssertEqual(jKeyCombination.fn, false)
+            XCTAssertEqual(jKeyCombination.shift, false)
+            XCTAssertEqual(jKeyCombination.action, .press)
+        }
+    }
+
+    func test_that_it_can_convert_a_simple_CGEvent_release_to_a_KeyCombination() throws {
+        if let jCGEvent = CGEvent(keyboardEventSource: nil, virtualKey: 38, keyDown: false) {
+            let jKeyCombination = try XCTUnwrap(KeyCombinationAdaptor.toKeyCombination(from: jCGEvent))
+
+            XCTAssertEqual(jKeyCombination.key, KeyCode.j)
+            XCTAssertEqual(jKeyCombination.command, false)
+            XCTAssertEqual(jKeyCombination.option, false)
+            XCTAssertEqual(jKeyCombination.control, false)
+            XCTAssertEqual(jKeyCombination.fn, false)
+            XCTAssertEqual(jKeyCombination.shift, false)
+            XCTAssertEqual(jKeyCombination.action, .release)
+        }
+    }
+
+    func test_that_it_can_convert_a_CGEvent_with_modifiers_press_to_a_KeyCombination() throws {
+        if let kCGEvent = CGEvent(keyboardEventSource: nil, virtualKey: 40, keyDown: true) {
+            kCGEvent.flags.insert([.maskAlternate, .maskSecondaryFn])
+
+            let kKeyCombination = try XCTUnwrap(KeyCombinationAdaptor.toKeyCombination(from: kCGEvent))
+
+            XCTAssertEqual(kKeyCombination.key, KeyCode.k)
+            XCTAssertEqual(kKeyCombination.command, false)
+            XCTAssertEqual(kKeyCombination.option, true)
+            XCTAssertEqual(kKeyCombination.control, false)
+            XCTAssertEqual(kKeyCombination.fn, true)
+            XCTAssertEqual(kKeyCombination.shift, false)
+            XCTAssertEqual(kKeyCombination.action, .press)
+        }
+    }
+
+    func test_that_it_can_convert_a_CGEvent_with_modifiers_release_to_a_KeyCombination() throws {
+        if let kCGEvent = CGEvent(keyboardEventSource: nil, virtualKey: 40, keyDown: false) {
+            kCGEvent.flags.insert([.maskControl, .maskShift])
+
+            let kKeyCombination = try XCTUnwrap(KeyCombinationAdaptor.toKeyCombination(from: kCGEvent))
+
+            XCTAssertEqual(kKeyCombination.key, KeyCode.k)
+            XCTAssertEqual(kKeyCombination.command, false)
+            XCTAssertEqual(kKeyCombination.option, false)
+            XCTAssertEqual(kKeyCombination.control, true)
+            XCTAssertEqual(kKeyCombination.fn, false)
+            XCTAssertEqual(kKeyCombination.shift, true)
+            XCTAssertEqual(kKeyCombination.action, .release)
+        }
+    }
+
+}
+
+extension KeyCombinationAdaptorTests {
     
     func test_that_it_can_convert_a_simple_KeyCombination_press_to_one_CGEvent() {
         let jKeyCombination = KeyCombination(key: .j, action: .press)
         
-        let jCGEvents = KeyCombinationConverter.toCGEvents(from: jKeyCombination)
+        let jCGEvents = KeyCombinationAdaptor.toCGEvents(from: jKeyCombination)
         
         XCTAssertEqual(jCGEvents.count, 1)
         
@@ -25,7 +93,7 @@ class KeyCombinationToCGEventsTests: XCTestCase {
     func test_that_it_can_convert_a_simple_KeyCombination_release_to_one_CGEvent() {
         let jKeyCombination = KeyCombination(key: .j, action: .release)
         
-        let jCGEvents = KeyCombinationConverter.toCGEvents(from: jKeyCombination)
+        let jCGEvents = KeyCombinationAdaptor.toCGEvents(from: jKeyCombination)
         
         XCTAssertEqual(jCGEvents.count, 1)
         
@@ -37,7 +105,7 @@ class KeyCombinationToCGEventsTests: XCTestCase {
     func test_that_it_can_convert_a_simple_KeyCombination_with_both_actions_to_CGEvents() {
         let jKeyCombination = KeyCombination(key: .j, action: .both)
         
-        let jCGEvents = KeyCombinationConverter.toCGEvents(from: jKeyCombination)
+        let jCGEvents = KeyCombinationAdaptor.toCGEvents(from: jKeyCombination)
         
         XCTAssertEqual(jCGEvents.count, 2)
         
@@ -53,7 +121,7 @@ class KeyCombinationToCGEventsTests: XCTestCase {
     func test_that_it_can_convert_a_KeyCombination_with_modifiers_press_to_one_CGEvent() {
         let kKeyCombination = KeyCombination(key: .k, shift: true, command: true, action: .press)
 
-        let kCGEvents = KeyCombinationConverter.toCGEvents(from: kKeyCombination)
+        let kCGEvents = KeyCombinationAdaptor.toCGEvents(from: kKeyCombination)
         
         XCTAssertEqual(kCGEvents.count, 1)
         
@@ -69,7 +137,7 @@ class KeyCombinationToCGEventsTests: XCTestCase {
     func test_that_it_can_convert_a_KeyCombination_with_modifiers_release_to_one_CGEvent() {
         let kKeyCombination = KeyCombination(key: .k, option: true, action: .release)
 
-        let kCGEvents = KeyCombinationConverter.toCGEvents(from: kKeyCombination)
+        let kCGEvents = KeyCombinationAdaptor.toCGEvents(from: kKeyCombination)
         
         XCTAssertEqual(kCGEvents.count, 1)
         
@@ -85,7 +153,7 @@ class KeyCombinationToCGEventsTests: XCTestCase {
     func test_that_it_can_convert_a_KeyCombination_with_modifiers_with_both_actions_to_CGEvents() {
         let kKeyCombination = KeyCombination(key: .k, control: true, fn: true, action: .both)
 
-        let kCGEvents = KeyCombinationConverter.toCGEvents(from: kKeyCombination)
+        let kCGEvents = KeyCombinationAdaptor.toCGEvents(from: kKeyCombination)
         
         XCTAssertEqual(kCGEvents.count, 2)
         

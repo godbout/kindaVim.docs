@@ -182,7 +182,7 @@ struct KeyboardStrategy {
         print("move using Keyboard Strategy")
         
         for keyCombination in keyCombinations {
-            let cgEvents = KeyCombinationConverter.toCGEvents(from: keyCombination)
+            let cgEvents = KeyCombinationAdaptor.toCGEvents(from: keyCombination)
             
             for cgEvent in cgEvents {
                 cgEvent.tapPostEvent(proxy)

@@ -44,7 +44,7 @@ class GlobalEventsControllerTests: XCTestCase {
 
         guard let jEvent = CGEvent(keyboardEventSource: nil, virtualKey: 38, keyDown: true) else { return XCTFail() }
 
-        let implementedKeyCombination = KeyCombinationConverter.toKeyCombination(from: jEvent)
+        let implementedKeyCombination = KeyCombinationAdaptor.toKeyCombination(from: jEvent)
         let handled = GlobalEventsController.handle(implementedKeyCombination)
         
         XCTAssertFalse(handled)
@@ -55,7 +55,7 @@ class GlobalEventsControllerTests: XCTestCase {
 
         guard let pEvent = CGEvent(keyboardEventSource: nil, virtualKey: 35, keyDown: true) else { return XCTFail() }
 
-        let nomImplementedKeyCombination = KeyCombinationConverter.toKeyCombination(from: pEvent)
+        let nomImplementedKeyCombination = KeyCombinationAdaptor.toKeyCombination(from: pEvent)
         let handled = GlobalEventsController.handle(nomImplementedKeyCombination)
 
         XCTAssertFalse(handled)
@@ -66,7 +66,7 @@ class GlobalEventsControllerTests: XCTestCase {
         
         guard let jEvent = CGEvent(keyboardEventSource: nil, virtualKey: 38, keyDown: true) else { return XCTFail() }
 
-        let implementedKeyCombination = KeyCombinationConverter.toKeyCombination(from: jEvent)
+        let implementedKeyCombination = KeyCombinationAdaptor.toKeyCombination(from: jEvent)
         let handled = GlobalEventsController.handle(implementedKeyCombination)
         
         XCTAssertTrue(handled)
@@ -77,7 +77,7 @@ class GlobalEventsControllerTests: XCTestCase {
 
         guard let pEvent = CGEvent(keyboardEventSource: nil, virtualKey: 35, keyDown: true) else { return XCTFail() }
 
-        let nomImplementedKeyCombination = KeyCombinationConverter.toKeyCombination(from: pEvent)
+        let nomImplementedKeyCombination = KeyCombinationAdaptor.toKeyCombination(from: pEvent)
         let handled = GlobalEventsController.handle(nomImplementedKeyCombination)
 
         XCTAssertTrue(handled)

@@ -14,7 +14,7 @@ struct EventTapController {
 
         print(event.getIntegerValueField(.keyboardEventKeycode))
 
-        let implementedKeyCombination = KeyCombinationConverter.toKeyCombination(from: event)
+        let implementedKeyCombination = KeyCombinationAdaptor.toKeyCombination(from: event)
 
         if GlobalEventsController.handle(implementedKeyCombination) {
             return nil
