@@ -17,9 +17,5 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         appComponent.setUp()
     }
 
-    func applicationWillTerminate(_ aNotification: Notification) {
-        // Insert code here to tear down your application
-    }
-
 }
 
