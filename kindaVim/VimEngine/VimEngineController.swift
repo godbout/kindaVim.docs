@@ -16,8 +16,9 @@ enum VimEngineMode {
 class VimEngineController {
     
     static var shared = VimEngineController()
-    var currentMode: VimEngineMode = .insert
-    var operatorPendingBuffer = ""
+    
+    private(set) var currentMode: VimEngineMode = .insert
+    private(set) var operatorPendingBuffer = ""
     
     private init() {
         #if !TESTING
