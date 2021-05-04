@@ -148,16 +148,3 @@ struct KeyCombination {
         }
     }
 }
-
-extension KeyCombination: Equatable {
-    public static func == (lhs: KeyCombination, rhs: KeyCombination) -> Bool {
-        lhs.key == rhs.key
-            && lhs.command == rhs.command
-            && lhs.option == rhs.option
-            && lhs.control == rhs.control
-            && lhs.fn == rhs.fn
-            && lhs.shift == rhs.shift
-            && lhs.action == rhs.action
-    }
-}
-
