@@ -168,9 +168,9 @@
 			isa = PBXGroup;
 			children = (
 				91482E41263DBF3100F10ADC /* Strategies */,
+				91C486122641CFFE0003D9D7 /* VimEngineControllerTests.swift */,
 				91E610E1264182B400F4A165 /* InsertModeTests.swift */,
 				91E610E5264182C700F4A165 /* OperatorPendingModeTests.swift */,
-				91C486122641CFFE0003D9D7 /* VimEngineControllerTests.swift */,
 			);
 			path = VimEngine;
 			sourceTree = "<group>";

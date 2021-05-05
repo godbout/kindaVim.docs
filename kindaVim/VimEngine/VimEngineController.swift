@@ -154,13 +154,12 @@ class VimEngineController {
             
             return keyboardStrategy.dd()
         case "ci":
-            return []
+            return nil
         case "ciw":
             enterInsertMode()
             
             return keyboardStrategy.ciw()
         default:
-            resetOperatorPendingBuffer()
             enterCommandMode()
             
             return nil
