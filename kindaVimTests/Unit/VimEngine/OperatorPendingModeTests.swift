@@ -13,6 +13,7 @@ class OperatorPendingModeTests: XCTestCase {
     override func setUp() {
         VimEngineController.shared.enterCommandMode()
     }
+    
 }
 
 extension OperatorPendingModeTests {

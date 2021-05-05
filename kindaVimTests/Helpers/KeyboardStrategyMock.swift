@@ -9,6 +9,7 @@
 import Foundation
 
 class KeyboardStrategyMock: KeyboardStrategyProtocol {
+    
     var functionLastCalled = ""
 
     func a() -> [KeyCombination] {

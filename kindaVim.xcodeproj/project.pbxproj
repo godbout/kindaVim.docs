@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		91013742263DD2430037AB6E /* AccessibilityStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91013741263DD2430037AB6E /* AccessibilityStrategy.swift */; };
+		910B05CA2642AECC005D287C /* AccessibilityStrategyStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910B05C92642AECC005D287C /* AccessibilityStrategyStub.swift */; };
 		9118C4E7263F0CE50040C297 /* Display.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9118C4E6263F0CE50040C297 /* Display.swift */; };
 		911BB7492632899E006882D8 /* VimEngineController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911BB7482632899E006882D8 /* VimEngineController.swift */; };
 		911BB75626328D7D006882D8 /* EventTapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911BB75526328D7D006882D8 /* EventTapController.swift */; };
@@ -32,6 +33,7 @@
 		91BC934226352A1E00B62B18 /* GlobalEventsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BC934126352A1E00B62B18 /* GlobalEventsController.swift */; };
 		91BFF31B26403F95003B7A2A /* KeyCombinationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BFF31A26403F95003B7A2A /* KeyCombinationTests.swift */; };
 		91C486052641C0D30003D9D7 /* KeyboardStrategyMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C486042641C0D30003D9D7 /* KeyboardStrategyMock.swift */; };
+		91C486132641CFFE0003D9D7 /* VimEngineControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C486122641CFFE0003D9D7 /* VimEngineControllerTests.swift */; };
 		91E610E2264182B400F4A165 /* InsertModeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E610E1264182B400F4A165 /* InsertModeTests.swift */; };
 		91E610E6264182C700F4A165 /* OperatorPendingModeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E610E5264182C700F4A165 /* OperatorPendingModeTests.swift */; };
 /* End PBXBuildFile section */
@@ -48,6 +50,7 @@
 
 /* Begin PBXFileReference section */
 		91013741263DD2430037AB6E /* AccessibilityStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilityStrategy.swift; sourceTree = "<group>"; };
+		910B05C92642AECC005D287C /* AccessibilityStrategyStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilityStrategyStub.swift; sourceTree = "<group>"; };
 		9118C4E6263F0CE50040C297 /* Display.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Display.swift; sourceTree = "<group>"; };
 		911BB7482632899E006882D8 /* VimEngineController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VimEngineController.swift; sourceTree = "<group>"; };
 		911BB75526328D7D006882D8 /* EventTapController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTapController.swift; sourceTree = "<group>"; };
@@ -77,6 +80,7 @@
 		91BC934126352A1E00B62B18 /* GlobalEventsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalEventsController.swift; sourceTree = "<group>"; };
 		91BFF31A26403F95003B7A2A /* KeyCombinationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyCombinationTests.swift; sourceTree = "<group>"; };
 		91C486042641C0D30003D9D7 /* KeyboardStrategyMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardStrategyMock.swift; sourceTree = "<group>"; };
+		91C486122641CFFE0003D9D7 /* VimEngineControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VimEngineControllerTests.swift; sourceTree = "<group>"; };
 		91E610E1264182B400F4A165 /* InsertModeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsertModeTests.swift; sourceTree = "<group>"; };
 		91E610E5264182C700F4A165 /* OperatorPendingModeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperatorPendingModeTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -166,6 +170,7 @@
 				91482E41263DBF3100F10ADC /* Strategies */,
 				91E610E1264182B400F4A165 /* InsertModeTests.swift */,
 				91E610E5264182C700F4A165 /* OperatorPendingModeTests.swift */,
+				91C486122641CFFE0003D9D7 /* VimEngineControllerTests.swift */,
 			);
 			path = VimEngine;
 			sourceTree = "<group>";
@@ -277,6 +282,7 @@
 			isa = PBXGroup;
 			children = (
 				91C486042641C0D30003D9D7 /* KeyboardStrategyMock.swift */,
+				910B05C92642AECC005D287C /* AccessibilityStrategyStub.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -401,9 +407,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				91506D25263EF0C6008E20A3 /* ASMotionsTests.swift in Sources */,
+				91C486132641CFFE0003D9D7 /* VimEngineControllerTests.swift in Sources */,
 				91482E4B263DC57100F10ADC /* KSDeletingTests.swift in Sources */,
 				9197C08A26366A3B006C696A /* KeyCombinationAdaptorTests.swift in Sources */,
 				91E610E2264182B400F4A165 /* InsertModeTests.swift in Sources */,
+				910B05CA2642AECC005D287C /* AccessibilityStrategyStub.swift in Sources */,
 				91BFF31B26403F95003B7A2A /* KeyCombinationTests.swift in Sources */,
 				91E610E6264182C700F4A165 /* OperatorPendingModeTests.swift in Sources */,
 				91482E4D263DC6B100F10ADC /* KSUndosTests.swift in Sources */,
