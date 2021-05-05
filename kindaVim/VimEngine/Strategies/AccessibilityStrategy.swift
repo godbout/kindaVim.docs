@@ -7,6 +7,13 @@
 
 import Foundation
 
+protocol AccessibilityStrategyProtocol {
+    
+    func h(on element: AccessibilityElement?) -> AccessibilityElement?
+    func l(on element: AccessibilityElement?) -> AccessibilityElement?
+    
+}
+
 struct AccessibilityElement {
     
     var text = ""
@@ -15,11 +22,11 @@ struct AccessibilityElement {
     
 }
 
-struct AccessibilityStrategy {
+struct AccessibilityStrategy: AccessibilityStrategyProtocol {
     
     static var currentAxFocusedElement: AXUIElement?
     
-    static func h(on element: AccessibilityElement?) -> AccessibilityElement? {
+    func h(on element: AccessibilityElement?) -> AccessibilityElement? {
         guard var element = element else { return nil }
         
         element.cursorLocation -= 1
@@ -27,7 +34,7 @@ struct AccessibilityStrategy {
         return element
     }
     
-    static func l(on element: AccessibilityElement?) -> AccessibilityElement? {
+    func l(on element: AccessibilityElement?) -> AccessibilityElement? {
         guard var element = element else { return nil }
         
         element.cursorLocation += 1

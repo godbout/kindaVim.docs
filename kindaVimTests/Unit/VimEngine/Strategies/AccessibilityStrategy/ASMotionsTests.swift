@@ -10,6 +10,12 @@ import XCTest
 
 class ASMotionsTests: XCTestCase {
 
+    let accessibilityStrategy = AccessibilityStrategy()
+    
+}
+
+extension ASMotionsTests {
+
     func test_that_h_is_moving_cursor_position_to_the_left_by_one_increment() {
         let element = AccessibilityElement(
             text: "hello world",
@@ -17,7 +23,7 @@ class ASMotionsTests: XCTestCase {
             selectionLength: 0
         )
         
-        let returnedElement = AccessibilityStrategy.h(on: element)
+        let returnedElement = accessibilityStrategy.h(on: element)
         
         XCTAssertEqual(returnedElement?.text, element.text)
         XCTAssertEqual(returnedElement?.cursorLocation, 5)
@@ -31,7 +37,7 @@ class ASMotionsTests: XCTestCase {
             selectionLength: 0
         )
         
-        let returnedElement = AccessibilityStrategy.l(on: element)
+        let returnedElement = accessibilityStrategy.l(on: element)
         
         XCTAssertEqual(returnedElement?.text, element.text)
         XCTAssertEqual(returnedElement?.cursorLocation, 7)

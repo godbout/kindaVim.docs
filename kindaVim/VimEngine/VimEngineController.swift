@@ -21,6 +21,7 @@ class VimEngineController {
     private(set) var operatorPendingBuffer = ""
 
     var keyboardStrategy: KeyboardStrategyProtocol = KeyboardStrategy()
+    var accessibilityStrategy: AccessibilityStrategyProtocol = AccessibilityStrategy()
 
     private init() {
         #if !TESTING
@@ -62,14 +63,14 @@ class VimEngineController {
             case .G:
                 post(keyboardStrategy.G())
             case .h:
-                if let element = AccessibilityStrategy.h(on: focusedElement()) {
-                    // ugly, need to refactor
+                // ugly af; need to refactor
+                if let element = accessibilityStrategy.h(on: focusedElement()) {
                     if write(element: element) == false {
                         post(keyboardStrategy.h())
                     }
+                } else {
+                    post(keyboardStrategy.h())
                 }
-
-                post(keyboardStrategy.h())
             case .i:
                 enterInsertMode()
             case .I:
@@ -81,13 +82,14 @@ class VimEngineController {
             case .k:
                 post(keyboardStrategy.k())
             case .l:
-                if let element = AccessibilityStrategy.l(on: focusedElement()) {
+                // ugly af; need to refactor
+                if let element = accessibilityStrategy.l(on: focusedElement()) {
                     if write(element: element) == false {
                         post(keyboardStrategy.l())
                     }
+                } else {
+                    post(keyboardStrategy.l())
                 }
-
-                post(keyboardStrategy.l())
             case .o:
                 enterInsertMode()
 
