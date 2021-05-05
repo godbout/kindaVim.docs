@@ -8,7 +8,10 @@
 @testable import kindaVim
 import XCTest
 
-class KeyCombinationTests: XCTestCase {
+class KeyCombinationTests: XCTestCase {}
+
+// test VimKeys that are implemented
+extension KeyCombinationTests {
 
     func test_that_$_has_a_VimKey_equivalent_of_dollarSign() {
         let keyCombination = KeyCombination(key: .four, shift: true)
@@ -153,9 +156,14 @@ class KeyCombinationTests: XCTestCase {
 
         XCTAssertEqual(keyCombination.vimKey, VimKey.X)
     }
-    
-    // this is not testing all combinations. just a few ones to show whether
-    // i have been made aware of this located in KeyCombination.vimKeyFrom()
+
+}
+
+// test VimKeys that don't exist, or exist but are not implemented
+// this is not testing all combinations. just a few ones to show whether
+// i have been made aware of this which is  located in KeyCombination.vimKeyFrom()
+extension KeyCombinationTests {
+
     func test_that_key_combinations_that_do_not_exist_have_no_VimKey_equivalent() {
         let optionA = KeyCombination(key: .a, option: true)
         XCTAssertNil(optionA.vimKey)
