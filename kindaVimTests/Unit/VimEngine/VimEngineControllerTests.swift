@@ -20,7 +20,8 @@ class VimEngineControllerTests: XCTestCase {
 
 }
 
-// using the Keyboard Strategy
+// test calls to keyboard strategy functions
+// for VimKeys that are implemented
 extension VimEngineControllerTests {
 
     func test_that_$_calls_the_dollarSign_function_on_keyboard_strategy() {
@@ -256,6 +257,54 @@ extension VimEngineControllerTests {
         VimEngineController.shared.handle(keyCombination: keyCombination)
 
         XCTAssertEqual(keyboardStrategyMock.functionCalled, "X()")
+    }
+
+}
+
+// test calls to keyboard strategy functions
+// for VimKeys that don't exist, or exist but are not implemented
+// this is a non exhaustive list, just to remember this needs to be tested
+extension VimEngineControllerTests {
+
+    func test_that_key_combinations_that_do_not_exist_do_not_call_any_function_on_keyboard_strategy() {
+        let optionA = KeyCombination(key: .a, option: true)
+        VimEngineController.shared.handle(keyCombination: optionA)
+        XCTAssertEqual(keyboardStrategyMock.functionCalled, "")
+
+        let commandB = KeyCombination(key: .b, command: true)
+        VimEngineController.shared.handle(keyCombination: commandB)
+        XCTAssertEqual(keyboardStrategyMock.functionCalled, "")
+
+        let controlShiftC = KeyCombination(key: .c, control: true, shift: true)
+        VimEngineController.shared.handle(keyCombination: controlShiftC)
+        XCTAssertEqual(keyboardStrategyMock.functionCalled, "")
+    }
+
+    func test_that_key_combinations_that_exist_but_are_not_implemented_do_not_call_any_function_on_keyboard_strategy() {
+        let controlA = KeyCombination(key: .a, control: true)
+        VimEngineController.shared.handle(keyCombination: controlA)
+        XCTAssertEqual(keyboardStrategyMock.functionCalled, "")
+
+        let shiftB = KeyCombination(key: .b, shift: true)
+        VimEngineController.shared.handle(keyCombination: shiftB)
+        XCTAssertEqual(keyboardStrategyMock.functionCalled, "")
+
+        let controlJ = KeyCombination(key: .j, control: true)
+        VimEngineController.shared.handle(keyCombination: controlJ)
+        XCTAssertEqual(keyboardStrategyMock.functionCalled, "")
+    }
+
+}
+
+// test calls to keyboard strategy functions
+// for operators commands that don't exist
+extension VimEngineControllerTests {
+
+    func test_that_co_do_not_call_any_function_on_keyboard_strategy() {
+        VimEngineController.shared.handle(keyCombination: KeyCombination(key: .c))
+        VimEngineController.shared.handle(keyCombination: KeyCombination(key: .o))
+        
+        XCTAssertEqual(keyboardStrategyMock.functionCalled, "")
     }
 
 }
