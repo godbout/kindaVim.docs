@@ -10,148 +10,148 @@ import Foundation
 
 class KeyboardStrategyMock: KeyboardStrategyProtocol {
     
-    var functionLastCalled = ""
+    var functionCalled = ""
 
     func a() -> [KeyCombination] {
-        functionLastCalled = #function
+        functionCalled = #function
 
         return []
     }
 
     func A() -> [KeyCombination] {
-        functionLastCalled = #function
+        functionCalled = #function
 
         return []
     }
 
     func b() -> [KeyCombination] {
-        functionLastCalled = #function
+        functionCalled = #function
 
         return []
     }
 
     func C() -> [KeyCombination] {
-        functionLastCalled = #function
+        functionCalled = #function
 
         return []
     }
 
     func cc() -> [KeyCombination] {
-        functionLastCalled = #function
+        functionCalled = #function
 
         return []
     }
 
     func ciw() -> [KeyCombination] {
-        functionLastCalled = #function
+        functionCalled = #function
 
         return []
     }
 
     func dd() -> [KeyCombination] {
-        functionLastCalled = #function
+        functionCalled = #function
 
         return []
     }
 
     func G() -> [KeyCombination] {
-        functionLastCalled = #function
+        functionCalled = #function
 
         return []
     }
 
     func gg() -> [KeyCombination] {
-        functionLastCalled = #function
+        functionCalled = #function
 
         return []
     }
 
     func h() -> [KeyCombination] {
-        functionLastCalled = #function
+        functionCalled = #function
 
         return []
     }
 
     func I() -> [KeyCombination] {
-        functionLastCalled = #function
+        functionCalled = #function
 
         return []
     }
 
     func j() -> [KeyCombination] {
-        functionLastCalled = #function
+        functionCalled = #function
 
         return []
     }
 
     func k() -> [KeyCombination] {
-        functionLastCalled = #function
+        functionCalled = #function
 
         return []
     }
 
     func l() -> [KeyCombination] {
-        functionLastCalled = #function
+        functionCalled = #function
 
         return []
     }
 
     func o() -> [KeyCombination] {
-        functionLastCalled = #function
+        functionCalled = #function
         
         return []
     }
 
     func O() -> [KeyCombination] {
-        functionLastCalled = #function
+        functionCalled = #function
         
         return []
     }
 
     func controlR() -> [KeyCombination] {
-        functionLastCalled = #function
+        functionCalled = #function
         
         return []
     }
 
     func u() -> [KeyCombination] {
-        functionLastCalled = #function
+        functionCalled = #function
         
         return []
     }
 
     func w() -> [KeyCombination] {
-        functionLastCalled = #function
+        functionCalled = #function
         
         return []
     }
 
     func x() -> [KeyCombination] {
-        functionLastCalled = #function
+        functionCalled = #function
         
         return []
     }
 
     func X() -> [KeyCombination] {
-        functionLastCalled = #function
+        functionCalled = #function
         
         return []
     }
 
     func dollarSign() -> [KeyCombination] {
-        functionLastCalled = #function
+        functionCalled = #function
         
         return []
     }
 
     func underscore() -> [KeyCombination] {
-        functionLastCalled = #function
+        functionCalled = #function
         
         return []
     }
 
     func zero() -> [KeyCombination] {
-        functionLastCalled = #function
+        functionCalled = #function
         
         return []
     }

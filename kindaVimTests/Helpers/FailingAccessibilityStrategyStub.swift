@@ -8,7 +8,7 @@
 @testable import kindaVim
 import Foundation
 
-struct AccessibilityStrategyStub: AccessibilityStrategyProtocol {
+struct FailingAccessibilityStrategyStub: AccessibilityStrategyProtocol {
     
     func h(on element: AccessibilityElement?) -> AccessibilityElement? {
         return nil

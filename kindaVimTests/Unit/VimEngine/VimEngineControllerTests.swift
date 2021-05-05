@@ -14,7 +14,7 @@ class VimEngineControllerTests: XCTestCase {
 
     override func setUp() {
         VimEngineController.shared.keyboardStrategy = keyboardStrategyMock
-        VimEngineController.shared.accessibilityStrategy = AccessibilityStrategyStub()
+        VimEngineController.shared.accessibilityStrategy = FailingAccessibilityStrategyStub()
         VimEngineController.shared.enterCommandMode()
     }
 
@@ -28,16 +28,16 @@ extension VimEngineControllerTests {
 
         VimEngineController.shared.handle(keyCombination: keyCombination)
 
-        XCTAssertEqual(keyboardStrategyMock.functionLastCalled, "dollarSign()")
+        XCTAssertEqual(keyboardStrategyMock.functionCalled, "dollarSign()")
     }
 
     func test_that___calls_the_underscore_function_on_keyboard_strategy() {
-        print("CALLED: " + keyboardStrategyMock.functionLastCalled)
+        print("CALLED: " + keyboardStrategyMock.functionCalled)
         let keyCombination = KeyCombination(key: .minus, shift: true)
 
         VimEngineController.shared.handle(keyCombination: keyCombination)
 
-        XCTAssertEqual(keyboardStrategyMock.functionLastCalled, "underscore()")
+        XCTAssertEqual(keyboardStrategyMock.functionCalled, "underscore()")
     }
 
     func test_that_0_calls_the_zero_function_on_keyboard_strategy() {
@@ -45,7 +45,7 @@ extension VimEngineControllerTests {
 
         VimEngineController.shared.handle(keyCombination: keyCombination)
 
-        XCTAssertEqual(keyboardStrategyMock.functionLastCalled, "zero()")
+        XCTAssertEqual(keyboardStrategyMock.functionCalled, "zero()")
     }
 
     func test_that_a_calls_the_a_function_on_keyboard_strategy() {
@@ -53,7 +53,7 @@ extension VimEngineControllerTests {
 
         VimEngineController.shared.handle(keyCombination: keyCombination)
 
-        XCTAssertEqual(keyboardStrategyMock.functionLastCalled, "a()")
+        XCTAssertEqual(keyboardStrategyMock.functionCalled, "a()")
     }
 
     func test_that_A_calls_the_A_function_on_keyboard_strategy() {
@@ -61,7 +61,7 @@ extension VimEngineControllerTests {
 
         VimEngineController.shared.handle(keyCombination: keyCombination)
 
-        XCTAssertEqual(keyboardStrategyMock.functionLastCalled, "A()")
+        XCTAssertEqual(keyboardStrategyMock.functionCalled, "A()")
     }
 
     func test_that_b_calls_the_b_function_on_keyboard_strategy() {
@@ -69,7 +69,7 @@ extension VimEngineControllerTests {
 
         VimEngineController.shared.handle(keyCombination: keyCombination)
 
-        XCTAssertEqual(keyboardStrategyMock.functionLastCalled, "b()")
+        XCTAssertEqual(keyboardStrategyMock.functionCalled, "b()")
     }
 
     func test_that_c_does_not_call_any_function_on_keyboard_strategy() {
@@ -77,7 +77,7 @@ extension VimEngineControllerTests {
 
         VimEngineController.shared.handle(keyCombination: keyCombination)
 
-        XCTAssertEqual(keyboardStrategyMock.functionLastCalled, "")
+        XCTAssertEqual(keyboardStrategyMock.functionCalled, "")
     }
 
     func test_that_C_calls_the_C_function_on_keyboard_strategy() {
@@ -85,7 +85,7 @@ extension VimEngineControllerTests {
 
         VimEngineController.shared.handle(keyCombination: keyCombination)
 
-        XCTAssertEqual(keyboardStrategyMock.functionLastCalled, "C()")
+        XCTAssertEqual(keyboardStrategyMock.functionCalled, "C()")
     }
 
     func test_that_cc_calls_the_cc_function_on_keyboard_strategy() {
@@ -94,14 +94,14 @@ extension VimEngineControllerTests {
         VimEngineController.shared.handle(keyCombination: keyCombination)
         VimEngineController.shared.handle(keyCombination: keyCombination)
 
-        XCTAssertEqual(keyboardStrategyMock.functionLastCalled, "cc()")
+        XCTAssertEqual(keyboardStrategyMock.functionCalled, "cc()")
     }
 
     func test_that_ci_does_not_call_any_function_on_keyboard_strategy() {
         VimEngineController.shared.handle(keyCombination: KeyCombination(key: .c))
         VimEngineController.shared.handle(keyCombination: KeyCombination(key: .i))
 
-        XCTAssertEqual(keyboardStrategyMock.functionLastCalled, "")
+        XCTAssertEqual(keyboardStrategyMock.functionCalled, "")
     }
 
     func test_that_ciw_calls_the_ciw_function_on_keyboard_strategy() {
@@ -109,7 +109,7 @@ extension VimEngineControllerTests {
         VimEngineController.shared.handle(keyCombination: KeyCombination(key: .i))
         VimEngineController.shared.handle(keyCombination: KeyCombination(key: .w))
 
-        XCTAssertEqual(keyboardStrategyMock.functionLastCalled, "ciw()")
+        XCTAssertEqual(keyboardStrategyMock.functionCalled, "ciw()")
     }
 
     func test_that_d_does_not_call_any_function_on_keyboard_strategy() {
@@ -117,7 +117,7 @@ extension VimEngineControllerTests {
 
         VimEngineController.shared.handle(keyCombination: keyCombination)
 
-        XCTAssertEqual(keyboardStrategyMock.functionLastCalled, "")
+        XCTAssertEqual(keyboardStrategyMock.functionCalled, "")
     }
 
     func test_that_dd_calls_the_dd_function_on_keyboard_strategy() {
@@ -126,7 +126,7 @@ extension VimEngineControllerTests {
         VimEngineController.shared.handle(keyCombination: keyCombination)
         VimEngineController.shared.handle(keyCombination: keyCombination)
 
-        XCTAssertEqual(keyboardStrategyMock.functionLastCalled, "dd()")
+        XCTAssertEqual(keyboardStrategyMock.functionCalled, "dd()")
     }
 
     func test_that_g_does_not_call_any_function_on_keyboard_strategy() {
@@ -134,7 +134,7 @@ extension VimEngineControllerTests {
 
         VimEngineController.shared.handle(keyCombination: keyCombination)
 
-        XCTAssertEqual(keyboardStrategyMock.functionLastCalled, "")
+        XCTAssertEqual(keyboardStrategyMock.functionCalled, "")
     }
 
     func test_that_G_calls_the_G_function_on_keyboard_strategy() {
@@ -142,7 +142,7 @@ extension VimEngineControllerTests {
 
         VimEngineController.shared.handle(keyCombination: keyCombination)
 
-        XCTAssertEqual(keyboardStrategyMock.functionLastCalled, "G()")
+        XCTAssertEqual(keyboardStrategyMock.functionCalled, "G()")
     }
 
     func test_that_gg_calls_the_gg_function_on_keyboard_strategy() {
@@ -151,7 +151,7 @@ extension VimEngineControllerTests {
         VimEngineController.shared.handle(keyCombination: keyCombination)
         VimEngineController.shared.handle(keyCombination: keyCombination)
 
-        XCTAssertEqual(keyboardStrategyMock.functionLastCalled, "gg()")
+        XCTAssertEqual(keyboardStrategyMock.functionCalled, "gg()")
     }
 
     func test_that_h_calls_the_h_function_on_keyboard_strategy() {
@@ -159,7 +159,7 @@ extension VimEngineControllerTests {
 
         VimEngineController.shared.handle(keyCombination: keyCombination)
 
-        XCTAssertEqual(keyboardStrategyMock.functionLastCalled, "h()")
+        XCTAssertEqual(keyboardStrategyMock.functionCalled, "h()")
     }
 
     func test_that_i_does_not_call_any_function_on_keyboard_strategy() {
@@ -167,7 +167,7 @@ extension VimEngineControllerTests {
 
         VimEngineController.shared.handle(keyCombination: keyCombination)
 
-        XCTAssertEqual(keyboardStrategyMock.functionLastCalled, "")
+        XCTAssertEqual(keyboardStrategyMock.functionCalled, "")
     }
 
     func test_that_I_calls_the_I_function_on_keyboard_strategy() {
@@ -175,7 +175,7 @@ extension VimEngineControllerTests {
 
         VimEngineController.shared.handle(keyCombination: keyCombination)
 
-        XCTAssertEqual(keyboardStrategyMock.functionLastCalled, "I()")
+        XCTAssertEqual(keyboardStrategyMock.functionCalled, "I()")
     }
 
     func test_that_j_calls_the_j_function_on_keyboard_strategy() {
@@ -183,7 +183,7 @@ extension VimEngineControllerTests {
 
         VimEngineController.shared.handle(keyCombination: keyCombination)
 
-        XCTAssertEqual(keyboardStrategyMock.functionLastCalled, "j()")
+        XCTAssertEqual(keyboardStrategyMock.functionCalled, "j()")
     }
 
     func test_that_k_calls_the_k_function_on_keyboard_strategy() {
@@ -191,7 +191,7 @@ extension VimEngineControllerTests {
 
         VimEngineController.shared.handle(keyCombination: keyCombination)
 
-        XCTAssertEqual(keyboardStrategyMock.functionLastCalled, "k()")
+        XCTAssertEqual(keyboardStrategyMock.functionCalled, "k()")
     }
 
     func test_that_l_calls_the_l_function_on_keyboard_strategy() {
@@ -199,7 +199,7 @@ extension VimEngineControllerTests {
 
         VimEngineController.shared.handle(keyCombination: keyCombination)
 
-        XCTAssertEqual(keyboardStrategyMock.functionLastCalled, "l()")
+        XCTAssertEqual(keyboardStrategyMock.functionCalled, "l()")
     }
 
     func test_that_o_calls_the_o_function_on_keyboard_strategy() {
@@ -207,7 +207,7 @@ extension VimEngineControllerTests {
 
         VimEngineController.shared.handle(keyCombination: keyCombination)
 
-        XCTAssertEqual(keyboardStrategyMock.functionLastCalled, "o()")
+        XCTAssertEqual(keyboardStrategyMock.functionCalled, "o()")
     }
 
     func test_that_O_calls_the_O_function_on_keyboard_strategy() {
@@ -215,7 +215,7 @@ extension VimEngineControllerTests {
 
         VimEngineController.shared.handle(keyCombination: keyCombination)
 
-        XCTAssertEqual(keyboardStrategyMock.functionLastCalled, "O()")
+        XCTAssertEqual(keyboardStrategyMock.functionCalled, "O()")
     }
 
     func test_that_control_r_calls_the_controlR_function_on_keyboard_strategy() {
@@ -223,7 +223,7 @@ extension VimEngineControllerTests {
 
         VimEngineController.shared.handle(keyCombination: keyCombination)
 
-        XCTAssertEqual(keyboardStrategyMock.functionLastCalled, "controlR()")
+        XCTAssertEqual(keyboardStrategyMock.functionCalled, "controlR()")
     }
 
     func test_that_u_calls_the_u_function_on_keyboard_strategy() {
@@ -231,7 +231,7 @@ extension VimEngineControllerTests {
 
         VimEngineController.shared.handle(keyCombination: keyCombination)
 
-        XCTAssertEqual(keyboardStrategyMock.functionLastCalled, "u()")
+        XCTAssertEqual(keyboardStrategyMock.functionCalled, "u()")
     }
 
     func test_that_w_calls_the_w_function_on_keyboard_strategy() {
@@ -239,7 +239,7 @@ extension VimEngineControllerTests {
 
         VimEngineController.shared.handle(keyCombination: keyCombination)
 
-        XCTAssertEqual(keyboardStrategyMock.functionLastCalled, "w()")
+        XCTAssertEqual(keyboardStrategyMock.functionCalled, "w()")
     }
 
     func test_that_x_calls_the_x_function_on_keyboard_strategy() {
@@ -247,7 +247,7 @@ extension VimEngineControllerTests {
 
         VimEngineController.shared.handle(keyCombination: keyCombination)
 
-        XCTAssertEqual(keyboardStrategyMock.functionLastCalled, "x()")
+        XCTAssertEqual(keyboardStrategyMock.functionCalled, "x()")
     }
 
     func test_that_X_calls_the_X_function_on_keyboard_strategy() {
@@ -255,7 +255,7 @@ extension VimEngineControllerTests {
 
         VimEngineController.shared.handle(keyCombination: keyCombination)
 
-        XCTAssertEqual(keyboardStrategyMock.functionLastCalled, "X()")
+        XCTAssertEqual(keyboardStrategyMock.functionCalled, "X()")
     }
 
 }
