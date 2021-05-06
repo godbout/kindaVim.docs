@@ -6,7 +6,7 @@ class k_Tests: BaseTests {
     func test_that_k_calls_the_k_function_on_keyboard_strategy() {
         let keyCombination = KeyCombination(key: .k)
 
-        VimEngineController.shared.handle(keyCombination: keyCombination)
+        VimEngine.shared.handle(keyCombination: keyCombination)
 
         XCTAssertEqual(keyboardStrategyMock.functionCalled, "k()")
     }
@@ -14,9 +14,9 @@ class k_Tests: BaseTests {
     func test_that_k_keeps_Vim_in_command_mode() {
          let k = KeyCombination(key: .k)
          
-         VimEngineController.shared.handle(keyCombination: k)
+        VimEngine.shared.handle(keyCombination: k)
 
-         XCTAssertEqual(VimEngineController.shared.currentMode, .command)
+         XCTAssertEqual(VimEngine.shared.currentMode, .command)
      }
     
 }

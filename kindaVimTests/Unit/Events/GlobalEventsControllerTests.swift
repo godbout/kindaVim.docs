@@ -4,18 +4,18 @@ import XCTest
 class GlobalEventsControllerTests: XCTestCase {
     
     func test_that_when_in_insert_mode_the_global_hotkey_press_sets_Vim_in_command_mode() {
-        VimEngineController.shared.enterInsertMode()
+        VimEngine.shared.enterInsertMode()
         
         let globalHotkeyCombination = KeyCombination(key: .escape, command: true)
         _ = GlobalEventsController.stole(keyCombination: globalHotkeyCombination)
         
-        let currentVimMode = VimEngineController.shared.currentMode
+        let currentVimMode = VimEngine.shared.currentMode
 
         XCTAssertEqual(currentVimMode, .command)
     }
 
     func test_that_when_in_insert_mode_the_global_hotkey_press_is_captured_and_not_sent_back_to_macOS() {
-        VimEngineController.shared.enterInsertMode()
+        VimEngine.shared.enterInsertMode()
 
         let globalHotkeyCombination = KeyCombination(key: .escape, command: true)
         let captured = GlobalEventsController.stole(keyCombination: globalHotkeyCombination)
@@ -24,7 +24,7 @@ class GlobalEventsControllerTests: XCTestCase {
     }
 
     func test_that_when_in_command_mode_the_global_hotkey_press_is_captured_and_not_sent_back_to_macOS() {
-        VimEngineController.shared.enterCommandMode()
+        VimEngine.shared.enterCommandMode()
 
         let globalHotkeyCombination = KeyCombination(key: .escape, command: true)
         let captured = GlobalEventsController.stole(keyCombination: globalHotkeyCombination)
@@ -33,7 +33,7 @@ class GlobalEventsControllerTests: XCTestCase {
     }
     
     func test_that_in_insert_mode_the_events_that_we_implemented_are_just_passed_back_to_macOS() {
-        VimEngineController.shared.enterInsertMode()
+        VimEngine.shared.enterInsertMode()
 
         guard let jEvent = CGEvent(keyboardEventSource: nil, virtualKey: 38, keyDown: true) else { return XCTFail() }
 
@@ -44,7 +44,7 @@ class GlobalEventsControllerTests: XCTestCase {
     }
 
     func test_that_in_insert_mode_the_events_that_we_did_not_implement_are_just_passed_back_to_macOS() {
-        VimEngineController.shared.enterInsertMode()
+        VimEngine.shared.enterInsertMode()
 
         guard let pEvent = CGEvent(keyboardEventSource: nil, virtualKey: 35, keyDown: true) else { return XCTFail() }
 
@@ -55,7 +55,7 @@ class GlobalEventsControllerTests: XCTestCase {
     }
     
     func test_that_in_command_mode_the_events_that_we_implemented_are_captured() {
-        VimEngineController.shared.enterCommandMode()
+        VimEngine.shared.enterCommandMode()
         
         guard let jEvent = CGEvent(keyboardEventSource: nil, virtualKey: 38, keyDown: true) else { return XCTFail() }
 
@@ -66,7 +66,7 @@ class GlobalEventsControllerTests: XCTestCase {
     }
 
     func test_that_in_command_mode_the_events_that_we_did_not_implement_are_captured() {
-        VimEngineController.shared.enterCommandMode()
+        VimEngine.shared.enterCommandMode()
 
         guard let pEvent = CGEvent(keyboardEventSource: nil, virtualKey: 35, keyDown: true) else { return XCTFail() }
 

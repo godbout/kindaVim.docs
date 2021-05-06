@@ -6,9 +6,9 @@ enum VimEngineMode {
     case operatorPending
 }
 
-class VimEngineController {
+class VimEngine {
     
-    static var shared = VimEngineController()
+    static var shared = VimEngine()
     
     private(set) var currentMode: VimEngineMode = .insert
     private(set) var operatorPendingBuffer = ""

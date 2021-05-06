@@ -2,7 +2,7 @@ import Foundation
 
 class AppComponent {
     var statusBarController: StatusBarController!
-    var vimEngineController: VimEngineController!
+    var vimEngine: VimEngine!
 
     func setUp() {
         setUpStatusBar()
@@ -14,6 +14,6 @@ class AppComponent {
     }
 
     private func setUpVimEngine() {
-        vimEngineController = VimEngineController.shared
+        vimEngine = VimEngine.shared
     }
 }

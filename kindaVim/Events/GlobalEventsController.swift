@@ -3,10 +3,10 @@ import Foundation
 struct GlobalEventsController {
     
     static func stole(keyCombination: KeyCombination?) -> Bool {
-        if VimEngineController.shared.currentMode != .insert {
+        if VimEngine.shared.currentMode != .insert {
             guard let implementedKeyCombination = keyCombination else { return true }
 
-            VimEngineController.shared.handle(keyCombination: implementedKeyCombination)
+            VimEngine.shared.handle(keyCombination: implementedKeyCombination)
 
             return true
         }
@@ -14,7 +14,7 @@ struct GlobalEventsController {
         guard let implementedKeyCombination = keyCombination else { return false }
 
         if globalVimEngineHotkeyIsPressed(implementedKeyCombination) {
-            VimEngineController.shared.enterCommandMode()
+            VimEngine.shared.enterCommandMode()
             
             print("enter command mode")
             

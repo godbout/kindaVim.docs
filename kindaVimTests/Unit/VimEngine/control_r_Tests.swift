@@ -6,7 +6,7 @@ class control_r_Tests: BaseTests {
     func test_that_control_r_calls_the_controlR_function_on_keyboard_strategy() {
         let keyCombination = KeyCombination(key: .r, control: true)
 
-        VimEngineController.shared.handle(keyCombination: keyCombination)
+        VimEngine.shared.handle(keyCombination: keyCombination)
 
         XCTAssertEqual(keyboardStrategyMock.functionCalled, "controlR()")
     }
@@ -14,9 +14,9 @@ class control_r_Tests: BaseTests {
     func test_that_control_r_keeps_Vim_in_command_mode() {
          let controlR = KeyCombination(key: .r, control: true)
          
-         VimEngineController.shared.handle(keyCombination: controlR)
+        VimEngine.shared.handle(keyCombination: controlR)
 
-         XCTAssertEqual(VimEngineController.shared.currentMode, .command)
+         XCTAssertEqual(VimEngine.shared.currentMode, .command)
      }
 
 }
