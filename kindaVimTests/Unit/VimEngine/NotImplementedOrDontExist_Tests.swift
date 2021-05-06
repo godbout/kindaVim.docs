@@ -1,15 +1,14 @@
 @testable import kindaVim
 import XCTest
 
-// TODO: read below lol
-// for now it just gives some idea
-// but for sure it's currently not testing ALL other combinations possible
-// should we? sounds kinda crazy to test all
-// the moves or operators that haven't been implemented yet
-// i think for moves it should be quite ok, if they don't exist we return nil
-// but for operators it's harder as the switch is based on strings rather than
-// enums
-class AllOthers_Tests: BaseTests {
+class NotImplementedOrDontExist_Tests: BaseTests {}
+
+// this is for single key combination (not operators)
+// single key combination will always fail if they don't exist or ar not implemented
+// this is not the case for operators as operators as arrays of Vim Keys
+// so the list below is non exhaustive but enough to test
+// for the operators (more more below), the list has to be exhaustive
+extension NotImplementedOrDontExist_Tests {
     
     func test_that_key_combinations_that_do_not_exist_do_not_call_any_function_on_keyboard_strategy() {
         let optionA = KeyCombination(key: .a, option: true)
@@ -38,6 +37,13 @@ class AllOthers_Tests: BaseTests {
         VimEngine.shared.handle(keyCombination: controlJ)
         XCTAssertEqual(keyboardStrategyMock.functionCalled, "")
     }
+}
+
+// this is for operators
+// this is harder to test and to make sure all operators command would be caught
+// we would have to test every single one of them
+// currently only testing the most common ones
+extension NotImplementedOrDontExist_Tests {
     
     func test_that_operators_that_do_not_exist_do_not_call_any_function_on_keyboard_strategy() {
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .c))
@@ -45,8 +51,24 @@ class AllOthers_Tests: BaseTests {
         
         XCTAssertEqual(keyboardStrategyMock.functionCalled, "")
     }
-  
-    func test_that_operators_that_exist_but_are_not_implemented_may_call_a_precedent_operator_function_instead() {
+
+    func test_that_caw_does_not_call_any_function_on_keyboard_strategy() {
+        VimEngine.shared.handle(keyCombination: KeyCombination(key: .c))
+        VimEngine.shared.handle(keyCombination: KeyCombination(key: .a))
+        VimEngine.shared.handle(keyCombination: KeyCombination(key: .w))
+
+        XCTAssertEqual(keyboardStrategyMock.functionCalled, "")
+    }
+
+    func test_that_daw_does_not_call_any_function_on_keyboard_strategy() {
+        VimEngine.shared.handle(keyCombination: KeyCombination(key: .d))
+        VimEngine.shared.handle(keyCombination: KeyCombination(key: .a))
+        VimEngine.shared.handle(keyCombination: KeyCombination(key: .w))
+
+        XCTAssertEqual(keyboardStrategyMock.functionCalled, "")
+    }
+
+    func test_that_diw_does_not_call_any_function_on_keyboard_strategy() {
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .d))
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .i))
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .w))

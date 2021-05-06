@@ -106,6 +106,8 @@ class VimEngine {
             }
         } else {
             switch keyCombination.key {
+            case .a:
+                fallthrough
             case .c:
                 fallthrough
             case .d:
@@ -130,6 +132,10 @@ class VimEngine {
         print(operatorPendingBuffer)
         
         switch operatorPendingBuffer {
+        case [.c, .a]:
+            return nil
+        case [.c, .a, .w]:
+            return nil
         case [.c, .c]:
             enterInsertMode()
             
@@ -140,6 +146,10 @@ class VimEngine {
             enterInsertMode()
 
             return keyboardStrategy.ciw()
+        case [.d, .a]:
+            return nil
+        case [.d, .a, .w]:
+            return nil
         case [.d, .d]:
             enterCommandMode()
 

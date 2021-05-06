@@ -84,8 +84,7 @@
 		91E304F52643F5B0004D9933 /* __Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E304F42643F5B0004D9933 /* __Tests.swift */; };
 		91E304F72643F5F2004D9933 /* 0_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E304F62643F5F2004D9933 /* 0_Tests.swift */; };
 		91E304F92643F6D1004D9933 /* ciw_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E304F82643F6D1004D9933 /* ciw_Tests.swift */; };
-		91E304FB2643F74E004D9933 /* ci_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E304FA2643F74E004D9933 /* ci_Tests.swift */; };
-		91E304FD2643FB2D004D9933 /* AllOthers_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E304FC2643FB2D004D9933 /* AllOthers_Tests.swift */; };
+		91E304FD2643FB2D004D9933 /* NotImplementedOrDontExist_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E304FC2643FB2D004D9933 /* NotImplementedOrDontExist_Tests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -181,8 +180,7 @@
 		91E304F42643F5B0004D9933 /* __Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = __Tests.swift; sourceTree = "<group>"; };
 		91E304F62643F5F2004D9933 /* 0_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 0_Tests.swift; sourceTree = "<group>"; };
 		91E304F82643F6D1004D9933 /* ciw_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ciw_Tests.swift; sourceTree = "<group>"; };
-		91E304FA2643F74E004D9933 /* ci_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ci_Tests.swift; sourceTree = "<group>"; };
-		91E304FC2643FB2D004D9933 /* AllOthers_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllOthers_Tests.swift; sourceTree = "<group>"; };
+		91E304FC2643FB2D004D9933 /* NotImplementedOrDontExist_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotImplementedOrDontExist_Tests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -275,7 +273,6 @@
 				91E304C82643EF1C004D9933 /* c_Tests.swift */,
 				91E304CE2643EFFD004D9933 /* C__Tests.swift */,
 				91E304CC2643EFA1004D9933 /* cc_Tests.swift */,
-				91E304FA2643F74E004D9933 /* ci_Tests.swift */,
 				91E304F82643F6D1004D9933 /* ciw_Tests.swift */,
 				91E304CA2643EF64004D9933 /* d_Tests.swift */,
 				91E304D02643F05C004D9933 /* dd_Tests.swift */,
@@ -298,7 +295,7 @@
 				91E304F22643F574004D9933 /* $_Tests.swift */,
 				91E304F42643F5B0004D9933 /* __Tests.swift */,
 				91E304F62643F5F2004D9933 /* 0_Tests.swift */,
-				91E304FC2643FB2D004D9933 /* AllOthers_Tests.swift */,
+				91E304FC2643FB2D004D9933 /* NotImplementedOrDontExist_Tests.swift */,
 			);
 			path = VimEngine;
 			sourceTree = "<group>";
@@ -594,7 +591,6 @@
 				91A54EE52643B6F400400677 /* KS_ciw_Tests.swift in Sources */,
 				91A54EDD2643B58500400677 /* KS_A__Tests.swift in Sources */,
 				91A54EF32643B95500400677 /* KS_k_Tests.swift in Sources */,
-				91E304FB2643F74E004D9933 /* ci_Tests.swift in Sources */,
 				91E304EB2643F483004D9933 /* u_Tests.swift in Sources */,
 				91E304C12643EAD9004D9933 /* AS_BaseTests.swift in Sources */,
 				91E304C92643EF1C004D9933 /* c_Tests.swift in Sources */,
@@ -618,7 +614,7 @@
 				91A54F052643BC3F00400677 /* KS___Tests.swift in Sources */,
 				91E304C52643ED2E004D9933 /* b_Tests.swift in Sources */,
 				91E304CB2643EF64004D9933 /* d_Tests.swift in Sources */,
-				91E304FD2643FB2D004D9933 /* AllOthers_Tests.swift in Sources */,
+				91E304FD2643FB2D004D9933 /* NotImplementedOrDontExist_Tests.swift in Sources */,
 				91A54EE72643B76F00400677 /* KS_dd_Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
