@@ -9,13 +9,7 @@
 import XCTest
 
 
-class KS_$_Tests: XCTestCase {
-    
-    let keyboardStrategy = KeyboardStrategy()
-    
-}
-
-extension KS_$_Tests {
+class KS_$_Tests: KS_BaseTests {
 
     func test_that_$_is_getting_transformed_to_control_a() {
         let transformedKeys = keyboardStrategy.dollarSign()

@@ -8,13 +8,7 @@
 @testable import kindaVim
 import XCTest
 
-class KS_A__Tests: XCTestCase {
-
-    let keyboardStrategy = KeyboardStrategy()
-
-}
-
-extension KS_A__Tests {
+class KS_A__Tests: KS_BaseTests {
     
     func test_that_A_gets_transformed_to_command_right() {
         let transformedKeys = keyboardStrategy.A()

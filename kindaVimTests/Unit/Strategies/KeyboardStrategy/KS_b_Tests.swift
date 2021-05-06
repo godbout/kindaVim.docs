@@ -8,14 +8,8 @@
 @testable import kindaVim
 import XCTest
 
-class KS_b_Tests: XCTestCase {
+class KS_b_Tests: KS_BaseTests {
 
-    let keyboardStrategy = KeyboardStrategy()
-
-}
-
-extension KS_b_Tests {
-    
     func test_that_b_is_getting_transformed_to_alt_left() {
         let transformedKeys = keyboardStrategy.b()
 

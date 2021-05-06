@@ -8,13 +8,7 @@
 @testable import kindaVim
 import XCTest
 
-class AS_l_Tests: XCTestCase {
-
-    let accessibilityStrategy = AccessibilityStrategy()
-
-}
-
-extension AS_l_Tests {
+class AS_l_Tests: AS_BaseTests {
     
     func test_that_l_is_moving_cursor_position_to_the_right_by_one_increment() {
         let element = AccessibilityElement(

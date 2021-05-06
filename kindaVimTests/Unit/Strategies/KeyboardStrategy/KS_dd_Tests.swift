@@ -8,13 +8,7 @@
 @testable import kindaVim
 import XCTest
 
-class KS_dd_Tests: XCTestCase {
-
-    let keyboardStrategy = KeyboardStrategy()
-
-}
-
-extension KS_dd_Tests {
+class KS_dd_Tests: KS_BaseTests {
     
     func test_that_dd_is_getting_transformed_to_a_big_file_of_key_combinations() {
         let transformedKeys = keyboardStrategy.dd()
