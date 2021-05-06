@@ -53,9 +53,39 @@
 		91BC934226352A1E00B62B18 /* GlobalEventsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BC934126352A1E00B62B18 /* GlobalEventsController.swift */; };
 		91BFF31B26403F95003B7A2A /* KeyCombinationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BFF31A26403F95003B7A2A /* KeyCombinationTests.swift */; };
 		91C486052641C0D30003D9D7 /* KeyboardStrategyMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C486042641C0D30003D9D7 /* KeyboardStrategyMock.swift */; };
-		91C486132641CFFE0003D9D7 /* VimEngineControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C486122641CFFE0003D9D7 /* VimEngineControllerTests.swift */; };
-		91E610E2264182B400F4A165 /* InsertModeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E610E1264182B400F4A165 /* InsertModeTests.swift */; };
-		91E610E6264182C700F4A165 /* OperatorPendingModeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E610E5264182C700F4A165 /* OperatorPendingModeTests.swift */; };
+		91E304BD2643E77A004D9933 /* a_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E304BC2643E77A004D9933 /* a_Tests.swift */; };
+		91E304BF2643E843004D9933 /* KS_BaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E304BE2643E843004D9933 /* KS_BaseTests.swift */; };
+		91E304C12643EAD9004D9933 /* AS_BaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E304C02643EAD9004D9933 /* AS_BaseTests.swift */; };
+		91E304C32643EC48004D9933 /* BaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E304C22643EC48004D9933 /* BaseTests.swift */; };
+		91E304C52643ED2E004D9933 /* b_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E304C42643ED2E004D9933 /* b_Tests.swift */; };
+		91E304C72643EEB8004D9933 /* A__Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E304C62643EEB8004D9933 /* A__Tests.swift */; };
+		91E304C92643EF1C004D9933 /* c_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E304C82643EF1C004D9933 /* c_Tests.swift */; };
+		91E304CB2643EF64004D9933 /* d_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E304CA2643EF64004D9933 /* d_Tests.swift */; };
+		91E304CD2643EFA1004D9933 /* cc_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E304CC2643EFA1004D9933 /* cc_Tests.swift */; };
+		91E304CF2643EFFD004D9933 /* C__Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E304CE2643EFFD004D9933 /* C__Tests.swift */; };
+		91E304D12643F05C004D9933 /* dd_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E304D02643F05C004D9933 /* dd_Tests.swift */; };
+		91E304D32643F0C3004D9933 /* g_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E304D22643F0C3004D9933 /* g_Tests.swift */; };
+		91E304D52643F133004D9933 /* G__Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E304D42643F133004D9933 /* G__Tests.swift */; };
+		91E304D72643F195004D9933 /* gg_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E304D62643F195004D9933 /* gg_Tests.swift */; };
+		91E304D92643F1EF004D9933 /* h_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E304D82643F1EF004D9933 /* h_Tests.swift */; };
+		91E304DB2643F22A004D9933 /* i_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E304DA2643F22A004D9933 /* i_Tests.swift */; };
+		91E304DD2643F24E004D9933 /* I__Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E304DC2643F24E004D9933 /* I__Tests.swift */; };
+		91E304DF2643F2C0004D9933 /* l_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E304DE2643F2C0004D9933 /* l_Tests.swift */; };
+		91E304E12643F2F8004D9933 /* j_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E304E02643F2F8004D9933 /* j_Tests.swift */; };
+		91E304E32643F335004D9933 /* k_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E304E22643F335004D9933 /* k_Tests.swift */; };
+		91E304E52643F3AC004D9933 /* o_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E304E42643F3AC004D9933 /* o_Tests.swift */; };
+		91E304E72643F3ED004D9933 /* O__Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E304E62643F3ED004D9933 /* O__Tests.swift */; };
+		91E304E92643F421004D9933 /* control_r_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E304E82643F421004D9933 /* control_r_Tests.swift */; };
+		91E304EB2643F483004D9933 /* u_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E304EA2643F483004D9933 /* u_Tests.swift */; };
+		91E304ED2643F4B8004D9933 /* w_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E304EC2643F4B8004D9933 /* w_Tests.swift */; };
+		91E304EF2643F4ED004D9933 /* x_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E304EE2643F4ED004D9933 /* x_Tests.swift */; };
+		91E304F12643F528004D9933 /* X__Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E304F02643F528004D9933 /* X__Tests.swift */; };
+		91E304F32643F574004D9933 /* $_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E304F22643F574004D9933 /* $_Tests.swift */; };
+		91E304F52643F5B0004D9933 /* __Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E304F42643F5B0004D9933 /* __Tests.swift */; };
+		91E304F72643F5F2004D9933 /* 0_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E304F62643F5F2004D9933 /* 0_Tests.swift */; };
+		91E304F92643F6D1004D9933 /* ciw_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E304F82643F6D1004D9933 /* ciw_Tests.swift */; };
+		91E304FB2643F74E004D9933 /* ci_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E304FA2643F74E004D9933 /* ci_Tests.swift */; };
+		91E304FD2643FB2D004D9933 /* AllOthers_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E304FC2643FB2D004D9933 /* AllOthers_Tests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -120,9 +150,39 @@
 		91BC934126352A1E00B62B18 /* GlobalEventsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalEventsController.swift; sourceTree = "<group>"; };
 		91BFF31A26403F95003B7A2A /* KeyCombinationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyCombinationTests.swift; sourceTree = "<group>"; };
 		91C486042641C0D30003D9D7 /* KeyboardStrategyMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardStrategyMock.swift; sourceTree = "<group>"; };
-		91C486122641CFFE0003D9D7 /* VimEngineControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VimEngineControllerTests.swift; sourceTree = "<group>"; };
-		91E610E1264182B400F4A165 /* InsertModeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsertModeTests.swift; sourceTree = "<group>"; };
-		91E610E5264182C700F4A165 /* OperatorPendingModeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperatorPendingModeTests.swift; sourceTree = "<group>"; };
+		91E304BC2643E77A004D9933 /* a_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = a_Tests.swift; sourceTree = "<group>"; };
+		91E304BE2643E843004D9933 /* KS_BaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KS_BaseTests.swift; sourceTree = "<group>"; };
+		91E304C02643EAD9004D9933 /* AS_BaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AS_BaseTests.swift; sourceTree = "<group>"; };
+		91E304C22643EC48004D9933 /* BaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTests.swift; sourceTree = "<group>"; };
+		91E304C42643ED2E004D9933 /* b_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = b_Tests.swift; sourceTree = "<group>"; };
+		91E304C62643EEB8004D9933 /* A__Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = A__Tests.swift; sourceTree = "<group>"; };
+		91E304C82643EF1C004D9933 /* c_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = c_Tests.swift; sourceTree = "<group>"; };
+		91E304CA2643EF64004D9933 /* d_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = d_Tests.swift; sourceTree = "<group>"; };
+		91E304CC2643EFA1004D9933 /* cc_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cc_Tests.swift; sourceTree = "<group>"; };
+		91E304CE2643EFFD004D9933 /* C__Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = C__Tests.swift; sourceTree = "<group>"; };
+		91E304D02643F05C004D9933 /* dd_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dd_Tests.swift; sourceTree = "<group>"; };
+		91E304D22643F0C3004D9933 /* g_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = g_Tests.swift; sourceTree = "<group>"; };
+		91E304D42643F133004D9933 /* G__Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = G__Tests.swift; sourceTree = "<group>"; };
+		91E304D62643F195004D9933 /* gg_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gg_Tests.swift; sourceTree = "<group>"; };
+		91E304D82643F1EF004D9933 /* h_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = h_Tests.swift; sourceTree = "<group>"; };
+		91E304DA2643F22A004D9933 /* i_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = i_Tests.swift; sourceTree = "<group>"; };
+		91E304DC2643F24E004D9933 /* I__Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = I__Tests.swift; sourceTree = "<group>"; };
+		91E304DE2643F2C0004D9933 /* l_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = l_Tests.swift; sourceTree = "<group>"; };
+		91E304E02643F2F8004D9933 /* j_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = j_Tests.swift; sourceTree = "<group>"; };
+		91E304E22643F335004D9933 /* k_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = k_Tests.swift; sourceTree = "<group>"; };
+		91E304E42643F3AC004D9933 /* o_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = o_Tests.swift; sourceTree = "<group>"; };
+		91E304E62643F3ED004D9933 /* O__Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = O__Tests.swift; sourceTree = "<group>"; };
+		91E304E82643F421004D9933 /* control_r_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = control_r_Tests.swift; sourceTree = "<group>"; };
+		91E304EA2643F483004D9933 /* u_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = u_Tests.swift; sourceTree = "<group>"; };
+		91E304EC2643F4B8004D9933 /* w_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = w_Tests.swift; sourceTree = "<group>"; };
+		91E304EE2643F4ED004D9933 /* x_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = x_Tests.swift; sourceTree = "<group>"; };
+		91E304F02643F528004D9933 /* X__Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = X__Tests.swift; sourceTree = "<group>"; };
+		91E304F22643F574004D9933 /* $_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = $_Tests.swift; sourceTree = "<group>"; };
+		91E304F42643F5B0004D9933 /* __Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = __Tests.swift; sourceTree = "<group>"; };
+		91E304F62643F5F2004D9933 /* 0_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 0_Tests.swift; sourceTree = "<group>"; };
+		91E304F82643F6D1004D9933 /* ciw_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ciw_Tests.swift; sourceTree = "<group>"; };
+		91E304FA2643F74E004D9933 /* ci_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ci_Tests.swift; sourceTree = "<group>"; };
+		91E304FC2643FB2D004D9933 /* AllOthers_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllOthers_Tests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -208,9 +268,37 @@
 		9128B0F2263820C5007DC80B /* VimEngine */ = {
 			isa = PBXGroup;
 			children = (
-				91C486122641CFFE0003D9D7 /* VimEngineControllerTests.swift */,
-				91E610E1264182B400F4A165 /* InsertModeTests.swift */,
-				91E610E5264182C700F4A165 /* OperatorPendingModeTests.swift */,
+				91E304C22643EC48004D9933 /* BaseTests.swift */,
+				91E304BC2643E77A004D9933 /* a_Tests.swift */,
+				91E304C62643EEB8004D9933 /* A__Tests.swift */,
+				91E304C42643ED2E004D9933 /* b_Tests.swift */,
+				91E304C82643EF1C004D9933 /* c_Tests.swift */,
+				91E304CE2643EFFD004D9933 /* C__Tests.swift */,
+				91E304CC2643EFA1004D9933 /* cc_Tests.swift */,
+				91E304FA2643F74E004D9933 /* ci_Tests.swift */,
+				91E304F82643F6D1004D9933 /* ciw_Tests.swift */,
+				91E304CA2643EF64004D9933 /* d_Tests.swift */,
+				91E304D02643F05C004D9933 /* dd_Tests.swift */,
+				91E304D22643F0C3004D9933 /* g_Tests.swift */,
+				91E304D42643F133004D9933 /* G__Tests.swift */,
+				91E304D62643F195004D9933 /* gg_Tests.swift */,
+				91E304D82643F1EF004D9933 /* h_Tests.swift */,
+				91E304DA2643F22A004D9933 /* i_Tests.swift */,
+				91E304DC2643F24E004D9933 /* I__Tests.swift */,
+				91E304E02643F2F8004D9933 /* j_Tests.swift */,
+				91E304E22643F335004D9933 /* k_Tests.swift */,
+				91E304DE2643F2C0004D9933 /* l_Tests.swift */,
+				91E304E42643F3AC004D9933 /* o_Tests.swift */,
+				91E304E62643F3ED004D9933 /* O__Tests.swift */,
+				91E304E82643F421004D9933 /* control_r_Tests.swift */,
+				91E304EA2643F483004D9933 /* u_Tests.swift */,
+				91E304EC2643F4B8004D9933 /* w_Tests.swift */,
+				91E304EE2643F4ED004D9933 /* x_Tests.swift */,
+				91E304F02643F528004D9933 /* X__Tests.swift */,
+				91E304F22643F574004D9933 /* $_Tests.swift */,
+				91E304F42643F5B0004D9933 /* __Tests.swift */,
+				91E304F62643F5F2004D9933 /* 0_Tests.swift */,
+				91E304FC2643FB2D004D9933 /* AllOthers_Tests.swift */,
 			);
 			path = VimEngine;
 			sourceTree = "<group>";
@@ -293,6 +381,7 @@
 		91482E47263DC10600F10ADC /* KeyboardStrategy */ = {
 			isa = PBXGroup;
 			children = (
+				91E304BE2643E843004D9933 /* KS_BaseTests.swift */,
 				91A54EDA2643B3FF00400677 /* KS_a_Tests.swift */,
 				91A54EDC2643B58500400677 /* KS_A__Tests.swift */,
 				91A54EDE2643B60F00400677 /* KS_b_Tests.swift */,
@@ -324,6 +413,7 @@
 		91506D23263EF0AF008E20A3 /* AccessibilityStrategy */ = {
 			isa = PBXGroup;
 			children = (
+				91E304C02643EAD9004D9933 /* AS_BaseTests.swift */,
 				91A54F082643BCD400400677 /* AS_h_Tests.swift */,
 				91A54F0A2643BD2000400677 /* AS_l_Tests.swift */,
 			);
@@ -469,36 +559,66 @@
 				91A54ED92643B34F00400677 /* KS_$_Tests.swift in Sources */,
 				91A54EEF2643B88400400677 /* KS_I__Tests.swift in Sources */,
 				91A54F092643BCD400400677 /* AS_h_Tests.swift in Sources */,
-				91C486132641CFFE0003D9D7 /* VimEngineControllerTests.swift in Sources */,
+				91E304E32643F335004D9933 /* k_Tests.swift in Sources */,
 				91A54EF72643B9F900400677 /* KS_o_Tests.swift in Sources */,
+				91E304E72643F3ED004D9933 /* O__Tests.swift in Sources */,
+				91E304EF2643F4ED004D9933 /* x_Tests.swift in Sources */,
 				9197C08A26366A3B006C696A /* KeyCombinationAdaptorTests.swift in Sources */,
 				91A54F072643BC7B00400677 /* KS_0_Tests.swift in Sources */,
 				91A54EE92643B7A800400677 /* KS_G__Tests.swift in Sources */,
-				91E610E2264182B400F4A165 /* InsertModeTests.swift in Sources */,
+				91E304F72643F5F2004D9933 /* 0_Tests.swift in Sources */,
+				91E304D72643F195004D9933 /* gg_Tests.swift in Sources */,
 				910B05CA2642AECC005D287C /* FailingAccessibilityStrategyStub.swift in Sources */,
 				91A54EE12643B66800400677 /* KS_C__Tests.swift in Sources */,
 				91A54EF92643BA5A00400677 /* KS_O__Tests.swift in Sources */,
+				91E304DD2643F24E004D9933 /* I__Tests.swift in Sources */,
 				91A54EF52643B98700400677 /* KS_l_Tests.swift in Sources */,
+				91E304F12643F528004D9933 /* X__Tests.swift in Sources */,
 				91BFF31B26403F95003B7A2A /* KeyCombinationTests.swift in Sources */,
-				91E610E6264182C700F4A165 /* OperatorPendingModeTests.swift in Sources */,
+				91E304E52643F3AC004D9933 /* o_Tests.swift in Sources */,
 				91A54EFD2643BB2A00400677 /* KS_u_Tests.swift in Sources */,
 				91A54EFF2643BB7000400677 /* KS_w_Tests.swift in Sources */,
+				91E304F52643F5B0004D9933 /* __Tests.swift in Sources */,
 				91A54EF12643B8BA00400677 /* KS_j_Tests.swift in Sources */,
+				91E304D92643F1EF004D9933 /* h_Tests.swift in Sources */,
+				91E304E12643F2F8004D9933 /* j_Tests.swift in Sources */,
+				91E304D52643F133004D9933 /* G__Tests.swift in Sources */,
 				91A54EDB2643B3FF00400677 /* KS_a_Tests.swift in Sources */,
 				91A54F0B2643BD2000400677 /* AS_l_Tests.swift in Sources */,
+				91E304F92643F6D1004D9933 /* ciw_Tests.swift in Sources */,
+				91E304ED2643F4B8004D9933 /* w_Tests.swift in Sources */,
 				91A54EDF2643B60F00400677 /* KS_b_Tests.swift in Sources */,
+				91E304E92643F421004D9933 /* control_r_Tests.swift in Sources */,
 				91A54F032643BBC900400677 /* KS_X__Tests.swift in Sources */,
+				91E304C32643EC48004D9933 /* BaseTests.swift in Sources */,
 				91A54EE52643B6F400400677 /* KS_ciw_Tests.swift in Sources */,
 				91A54EDD2643B58500400677 /* KS_A__Tests.swift in Sources */,
 				91A54EF32643B95500400677 /* KS_k_Tests.swift in Sources */,
+				91E304FB2643F74E004D9933 /* ci_Tests.swift in Sources */,
+				91E304EB2643F483004D9933 /* u_Tests.swift in Sources */,
+				91E304C12643EAD9004D9933 /* AS_BaseTests.swift in Sources */,
+				91E304C92643EF1C004D9933 /* c_Tests.swift in Sources */,
 				91A54EFB2643BAB800400677 /* KS_control_r_Tests.swift in Sources */,
+				91E304CF2643EFFD004D9933 /* C__Tests.swift in Sources */,
 				91A54EED2643B84100400677 /* KS_h_Tests.swift in Sources */,
+				91E304CD2643EFA1004D9933 /* cc_Tests.swift in Sources */,
+				91E304D12643F05C004D9933 /* dd_Tests.swift in Sources */,
 				91A54EE32643B6B400400677 /* KS_cc_Tests.swift in Sources */,
 				9128B0ED26380ACC007DC80B /* GlobalEventsControllerTests.swift in Sources */,
 				91C486052641C0D30003D9D7 /* KeyboardStrategyMock.swift in Sources */,
+				91E304BD2643E77A004D9933 /* a_Tests.swift in Sources */,
 				91A54EEB2643B7E600400677 /* KS_gg_Tests.swift in Sources */,
+				91E304F32643F574004D9933 /* $_Tests.swift in Sources */,
 				91A54F012643BBA100400677 /* KS_x_Tests.swift in Sources */,
+				91E304DB2643F22A004D9933 /* i_Tests.swift in Sources */,
+				91E304D32643F0C3004D9933 /* g_Tests.swift in Sources */,
+				91E304C72643EEB8004D9933 /* A__Tests.swift in Sources */,
+				91E304DF2643F2C0004D9933 /* l_Tests.swift in Sources */,
+				91E304BF2643E843004D9933 /* KS_BaseTests.swift in Sources */,
 				91A54F052643BC3F00400677 /* KS___Tests.swift in Sources */,
+				91E304C52643ED2E004D9933 /* b_Tests.swift in Sources */,
+				91E304CB2643EF64004D9933 /* d_Tests.swift in Sources */,
+				91E304FD2643FB2D004D9933 /* AllOthers_Tests.swift in Sources */,
 				91A54EE72643B76F00400677 /* KS_dd_Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
