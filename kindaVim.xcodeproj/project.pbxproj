@@ -19,17 +19,37 @@
 		9128F2B7262AA90D00625B42 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9128F2B6262AA90D00625B42 /* Preview Assets.xcassets */; };
 		9128F2BA262AA90D00625B42 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9128F2B8262AA90D00625B42 /* Main.storyboard */; };
 		91482E40263DBE8300F10ADC /* KeyboardStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91482E3F263DBE8300F10ADC /* KeyboardStrategy.swift */; };
-		91482E46263DBF7300F10ADC /* KSMotionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91482E45263DBF7300F10ADC /* KSMotionsTests.swift */; };
-		91482E49263DC1F700F10ADC /* KSDeleteInsertingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91482E48263DC1F700F10ADC /* KSDeleteInsertingTests.swift */; };
-		91482E4B263DC57100F10ADC /* KSDeletingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91482E4A263DC57100F10ADC /* KSDeletingTests.swift */; };
-		91482E4D263DC6B100F10ADC /* KSUndosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91482E4C263DC6B100F10ADC /* KSUndosTests.swift */; };
-		91482E4F263DC76500F10ADC /* KSInsertingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91482E4E263DC76500F10ADC /* KSInsertingTests.swift */; };
-		91506D25263EF0C6008E20A3 /* ASMotionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91506D24263EF0C6008E20A3 /* ASMotionsTests.swift */; };
 		917458F1262EB934007D3855 /* StatusBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917458F0262EB934007D3855 /* StatusBarController.swift */; };
 		918024B926386E95004FD719 /* AppComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918024B826386E95004FD719 /* AppComponent.swift */; };
 		9197C0852636695A006C696A /* KeyCombinationAdaptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9197C0842636695A006C696A /* KeyCombinationAdaptor.swift */; };
 		9197C08A26366A3B006C696A /* KeyCombinationAdaptorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9197C08926366A3B006C696A /* KeyCombinationAdaptorTests.swift */; };
 		919DEB632632C85B0052D514 /* KeyCombination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919DEB622632C85B0052D514 /* KeyCombination.swift */; };
+		91A54ED92643B34F00400677 /* KS_$_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A54ED82643B34F00400677 /* KS_$_Tests.swift */; };
+		91A54EDB2643B3FF00400677 /* KS_a_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A54EDA2643B3FF00400677 /* KS_a_Tests.swift */; };
+		91A54EDD2643B58500400677 /* KS_A__Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A54EDC2643B58500400677 /* KS_A__Tests.swift */; };
+		91A54EDF2643B60F00400677 /* KS_b_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A54EDE2643B60F00400677 /* KS_b_Tests.swift */; };
+		91A54EE12643B66800400677 /* KS_C__Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A54EE02643B66800400677 /* KS_C__Tests.swift */; };
+		91A54EE32643B6B400400677 /* KS_cc_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A54EE22643B6B400400677 /* KS_cc_Tests.swift */; };
+		91A54EE52643B6F400400677 /* KS_ciw_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A54EE42643B6F400400677 /* KS_ciw_Tests.swift */; };
+		91A54EE72643B76F00400677 /* KS_dd_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A54EE62643B76F00400677 /* KS_dd_Tests.swift */; };
+		91A54EE92643B7A800400677 /* KS_G__Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A54EE82643B7A800400677 /* KS_G__Tests.swift */; };
+		91A54EEB2643B7E600400677 /* KS_gg_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A54EEA2643B7E600400677 /* KS_gg_Tests.swift */; };
+		91A54EED2643B84100400677 /* KS_h_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A54EEC2643B84100400677 /* KS_h_Tests.swift */; };
+		91A54EEF2643B88400400677 /* KS_I__Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A54EEE2643B88400400677 /* KS_I__Tests.swift */; };
+		91A54EF12643B8BA00400677 /* KS_j_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A54EF02643B8BA00400677 /* KS_j_Tests.swift */; };
+		91A54EF32643B95500400677 /* KS_k_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A54EF22643B95500400677 /* KS_k_Tests.swift */; };
+		91A54EF52643B98700400677 /* KS_l_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A54EF42643B98700400677 /* KS_l_Tests.swift */; };
+		91A54EF72643B9F900400677 /* KS_o_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A54EF62643B9F900400677 /* KS_o_Tests.swift */; };
+		91A54EF92643BA5A00400677 /* KS_O__Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A54EF82643BA5A00400677 /* KS_O__Tests.swift */; };
+		91A54EFB2643BAB800400677 /* KS_control_r_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A54EFA2643BAB800400677 /* KS_control_r_Tests.swift */; };
+		91A54EFD2643BB2A00400677 /* KS_u_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A54EFC2643BB2A00400677 /* KS_u_Tests.swift */; };
+		91A54EFF2643BB7000400677 /* KS_w_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A54EFE2643BB7000400677 /* KS_w_Tests.swift */; };
+		91A54F012643BBA100400677 /* KS_x_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A54F002643BBA100400677 /* KS_x_Tests.swift */; };
+		91A54F032643BBC900400677 /* KS_X__Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A54F022643BBC900400677 /* KS_X__Tests.swift */; };
+		91A54F052643BC3F00400677 /* KS___Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A54F042643BC3F00400677 /* KS___Tests.swift */; };
+		91A54F072643BC7B00400677 /* KS_0_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A54F062643BC7B00400677 /* KS_0_Tests.swift */; };
+		91A54F092643BCD400400677 /* AS_h_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A54F082643BCD400400677 /* AS_h_Tests.swift */; };
+		91A54F0B2643BD2000400677 /* AS_l_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A54F0A2643BD2000400677 /* AS_l_Tests.swift */; };
 		91BC934226352A1E00B62B18 /* GlobalEventsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BC934126352A1E00B62B18 /* GlobalEventsController.swift */; };
 		91BFF31B26403F95003B7A2A /* KeyCombinationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BFF31A26403F95003B7A2A /* KeyCombinationTests.swift */; };
 		91C486052641C0D30003D9D7 /* KeyboardStrategyMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C486042641C0D30003D9D7 /* KeyboardStrategyMock.swift */; };
@@ -66,17 +86,37 @@
 		9128F2C1262AA90D00625B42 /* kindaVimTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = kindaVimTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9128F2C7262AA90D00625B42 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		91482E3F263DBE8300F10ADC /* KeyboardStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardStrategy.swift; sourceTree = "<group>"; };
-		91482E45263DBF7300F10ADC /* KSMotionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSMotionsTests.swift; sourceTree = "<group>"; };
-		91482E48263DC1F700F10ADC /* KSDeleteInsertingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSDeleteInsertingTests.swift; sourceTree = "<group>"; };
-		91482E4A263DC57100F10ADC /* KSDeletingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSDeletingTests.swift; sourceTree = "<group>"; };
-		91482E4C263DC6B100F10ADC /* KSUndosTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSUndosTests.swift; sourceTree = "<group>"; };
-		91482E4E263DC76500F10ADC /* KSInsertingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSInsertingTests.swift; sourceTree = "<group>"; };
-		91506D24263EF0C6008E20A3 /* ASMotionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASMotionsTests.swift; sourceTree = "<group>"; };
 		917458F0262EB934007D3855 /* StatusBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBarController.swift; sourceTree = "<group>"; };
 		918024B826386E95004FD719 /* AppComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppComponent.swift; sourceTree = "<group>"; };
 		9197C0842636695A006C696A /* KeyCombinationAdaptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyCombinationAdaptor.swift; sourceTree = "<group>"; };
 		9197C08926366A3B006C696A /* KeyCombinationAdaptorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyCombinationAdaptorTests.swift; sourceTree = "<group>"; };
 		919DEB622632C85B0052D514 /* KeyCombination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyCombination.swift; sourceTree = "<group>"; };
+		91A54ED82643B34F00400677 /* KS_$_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KS_$_Tests.swift; sourceTree = "<group>"; };
+		91A54EDA2643B3FF00400677 /* KS_a_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KS_a_Tests.swift; sourceTree = "<group>"; };
+		91A54EDC2643B58500400677 /* KS_A__Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KS_A__Tests.swift; sourceTree = "<group>"; };
+		91A54EDE2643B60F00400677 /* KS_b_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KS_b_Tests.swift; sourceTree = "<group>"; };
+		91A54EE02643B66800400677 /* KS_C__Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KS_C__Tests.swift; sourceTree = "<group>"; };
+		91A54EE22643B6B400400677 /* KS_cc_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KS_cc_Tests.swift; sourceTree = "<group>"; };
+		91A54EE42643B6F400400677 /* KS_ciw_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KS_ciw_Tests.swift; sourceTree = "<group>"; };
+		91A54EE62643B76F00400677 /* KS_dd_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KS_dd_Tests.swift; sourceTree = "<group>"; };
+		91A54EE82643B7A800400677 /* KS_G__Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KS_G__Tests.swift; sourceTree = "<group>"; };
+		91A54EEA2643B7E600400677 /* KS_gg_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KS_gg_Tests.swift; sourceTree = "<group>"; };
+		91A54EEC2643B84100400677 /* KS_h_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KS_h_Tests.swift; sourceTree = "<group>"; };
+		91A54EEE2643B88400400677 /* KS_I__Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KS_I__Tests.swift; sourceTree = "<group>"; };
+		91A54EF02643B8BA00400677 /* KS_j_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KS_j_Tests.swift; sourceTree = "<group>"; };
+		91A54EF22643B95500400677 /* KS_k_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KS_k_Tests.swift; sourceTree = "<group>"; };
+		91A54EF42643B98700400677 /* KS_l_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KS_l_Tests.swift; sourceTree = "<group>"; };
+		91A54EF62643B9F900400677 /* KS_o_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KS_o_Tests.swift; sourceTree = "<group>"; };
+		91A54EF82643BA5A00400677 /* KS_O__Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KS_O__Tests.swift; sourceTree = "<group>"; };
+		91A54EFA2643BAB800400677 /* KS_control_r_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KS_control_r_Tests.swift; sourceTree = "<group>"; };
+		91A54EFC2643BB2A00400677 /* KS_u_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KS_u_Tests.swift; sourceTree = "<group>"; };
+		91A54EFE2643BB7000400677 /* KS_w_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KS_w_Tests.swift; sourceTree = "<group>"; };
+		91A54F002643BBA100400677 /* KS_x_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KS_x_Tests.swift; sourceTree = "<group>"; };
+		91A54F022643BBC900400677 /* KS_X__Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KS_X__Tests.swift; sourceTree = "<group>"; };
+		91A54F042643BC3F00400677 /* KS___Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KS___Tests.swift"; sourceTree = "<group>"; };
+		91A54F062643BC7B00400677 /* KS_0_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KS_0_Tests.swift; sourceTree = "<group>"; };
+		91A54F082643BCD400400677 /* AS_h_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AS_h_Tests.swift; sourceTree = "<group>"; };
+		91A54F0A2643BD2000400677 /* AS_l_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AS_l_Tests.swift; sourceTree = "<group>"; };
 		91BC934126352A1E00B62B18 /* GlobalEventsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalEventsController.swift; sourceTree = "<group>"; };
 		91BFF31A26403F95003B7A2A /* KeyCombinationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyCombinationTests.swift; sourceTree = "<group>"; };
 		91C486042641C0D30003D9D7 /* KeyboardStrategyMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardStrategyMock.swift; sourceTree = "<group>"; };
@@ -253,11 +293,30 @@
 		91482E47263DC10600F10ADC /* KeyboardStrategy */ = {
 			isa = PBXGroup;
 			children = (
-				91482E45263DBF7300F10ADC /* KSMotionsTests.swift */,
-				91482E48263DC1F700F10ADC /* KSDeleteInsertingTests.swift */,
-				91482E4A263DC57100F10ADC /* KSDeletingTests.swift */,
-				91482E4C263DC6B100F10ADC /* KSUndosTests.swift */,
-				91482E4E263DC76500F10ADC /* KSInsertingTests.swift */,
+				91A54EDA2643B3FF00400677 /* KS_a_Tests.swift */,
+				91A54EDC2643B58500400677 /* KS_A__Tests.swift */,
+				91A54EDE2643B60F00400677 /* KS_b_Tests.swift */,
+				91A54EE02643B66800400677 /* KS_C__Tests.swift */,
+				91A54EE22643B6B400400677 /* KS_cc_Tests.swift */,
+				91A54EE42643B6F400400677 /* KS_ciw_Tests.swift */,
+				91A54EE62643B76F00400677 /* KS_dd_Tests.swift */,
+				91A54EE82643B7A800400677 /* KS_G__Tests.swift */,
+				91A54EEA2643B7E600400677 /* KS_gg_Tests.swift */,
+				91A54EEC2643B84100400677 /* KS_h_Tests.swift */,
+				91A54EEE2643B88400400677 /* KS_I__Tests.swift */,
+				91A54EF02643B8BA00400677 /* KS_j_Tests.swift */,
+				91A54EF22643B95500400677 /* KS_k_Tests.swift */,
+				91A54EF42643B98700400677 /* KS_l_Tests.swift */,
+				91A54EF62643B9F900400677 /* KS_o_Tests.swift */,
+				91A54EF82643BA5A00400677 /* KS_O__Tests.swift */,
+				91A54EFA2643BAB800400677 /* KS_control_r_Tests.swift */,
+				91A54EFC2643BB2A00400677 /* KS_u_Tests.swift */,
+				91A54EFE2643BB7000400677 /* KS_w_Tests.swift */,
+				91A54F002643BBA100400677 /* KS_x_Tests.swift */,
+				91A54F022643BBC900400677 /* KS_X__Tests.swift */,
+				91A54ED82643B34F00400677 /* KS_$_Tests.swift */,
+				91A54F042643BC3F00400677 /* KS___Tests.swift */,
+				91A54F062643BC7B00400677 /* KS_0_Tests.swift */,
 			);
 			path = KeyboardStrategy;
 			sourceTree = "<group>";
@@ -265,7 +324,8 @@
 		91506D23263EF0AF008E20A3 /* AccessibilityStrategy */ = {
 			isa = PBXGroup;
 			children = (
-				91506D24263EF0C6008E20A3 /* ASMotionsTests.swift */,
+				91A54F082643BCD400400677 /* AS_h_Tests.swift */,
+				91A54F0A2643BD2000400677 /* AS_l_Tests.swift */,
 			);
 			path = AccessibilityStrategy;
 			sourceTree = "<group>";
@@ -406,20 +466,40 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				91506D25263EF0C6008E20A3 /* ASMotionsTests.swift in Sources */,
+				91A54ED92643B34F00400677 /* KS_$_Tests.swift in Sources */,
+				91A54EEF2643B88400400677 /* KS_I__Tests.swift in Sources */,
+				91A54F092643BCD400400677 /* AS_h_Tests.swift in Sources */,
 				91C486132641CFFE0003D9D7 /* VimEngineControllerTests.swift in Sources */,
-				91482E4B263DC57100F10ADC /* KSDeletingTests.swift in Sources */,
+				91A54EF72643B9F900400677 /* KS_o_Tests.swift in Sources */,
 				9197C08A26366A3B006C696A /* KeyCombinationAdaptorTests.swift in Sources */,
+				91A54F072643BC7B00400677 /* KS_0_Tests.swift in Sources */,
+				91A54EE92643B7A800400677 /* KS_G__Tests.swift in Sources */,
 				91E610E2264182B400F4A165 /* InsertModeTests.swift in Sources */,
 				910B05CA2642AECC005D287C /* FailingAccessibilityStrategyStub.swift in Sources */,
+				91A54EE12643B66800400677 /* KS_C__Tests.swift in Sources */,
+				91A54EF92643BA5A00400677 /* KS_O__Tests.swift in Sources */,
+				91A54EF52643B98700400677 /* KS_l_Tests.swift in Sources */,
 				91BFF31B26403F95003B7A2A /* KeyCombinationTests.swift in Sources */,
 				91E610E6264182C700F4A165 /* OperatorPendingModeTests.swift in Sources */,
-				91482E4D263DC6B100F10ADC /* KSUndosTests.swift in Sources */,
-				91482E46263DBF7300F10ADC /* KSMotionsTests.swift in Sources */,
-				91482E4F263DC76500F10ADC /* KSInsertingTests.swift in Sources */,
-				91482E49263DC1F700F10ADC /* KSDeleteInsertingTests.swift in Sources */,
+				91A54EFD2643BB2A00400677 /* KS_u_Tests.swift in Sources */,
+				91A54EFF2643BB7000400677 /* KS_w_Tests.swift in Sources */,
+				91A54EF12643B8BA00400677 /* KS_j_Tests.swift in Sources */,
+				91A54EDB2643B3FF00400677 /* KS_a_Tests.swift in Sources */,
+				91A54F0B2643BD2000400677 /* AS_l_Tests.swift in Sources */,
+				91A54EDF2643B60F00400677 /* KS_b_Tests.swift in Sources */,
+				91A54F032643BBC900400677 /* KS_X__Tests.swift in Sources */,
+				91A54EE52643B6F400400677 /* KS_ciw_Tests.swift in Sources */,
+				91A54EDD2643B58500400677 /* KS_A__Tests.swift in Sources */,
+				91A54EF32643B95500400677 /* KS_k_Tests.swift in Sources */,
+				91A54EFB2643BAB800400677 /* KS_control_r_Tests.swift in Sources */,
+				91A54EED2643B84100400677 /* KS_h_Tests.swift in Sources */,
+				91A54EE32643B6B400400677 /* KS_cc_Tests.swift in Sources */,
 				9128B0ED26380ACC007DC80B /* GlobalEventsControllerTests.swift in Sources */,
 				91C486052641C0D30003D9D7 /* KeyboardStrategyMock.swift in Sources */,
+				91A54EEB2643B7E600400677 /* KS_gg_Tests.swift in Sources */,
+				91A54F012643BBA100400677 /* KS_x_Tests.swift in Sources */,
+				91A54F052643BC3F00400677 /* KS___Tests.swift in Sources */,
+				91A54EE72643B76F00400677 /* KS_dd_Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
