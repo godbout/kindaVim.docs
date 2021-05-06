@@ -2,20 +2,22 @@
 import XCTest
 
 class O__Tests: BaseTests {
+
+    override func setUp() {
+        super.setUp()
+
+        VimEngine.shared.handle(keyCombination: KeyCombination(key: .o, shift: true))
+    }
+
+}
+
+extension O__Tests {
     
     func test_that_O_calls_the_O_function_on_keyboard_strategy() {
-        let keyCombination = KeyCombination(key: .o, shift: true)
-
-        VimEngine.shared.handle(keyCombination: keyCombination)
-
         XCTAssertEqual(keyboardStrategyMock.functionCalled, "O()")
     }
     
     func test_that_O_switches_Vim_to_insert_mode() {
-        let O = KeyCombination(key: .o, shift: true)
-        
-        VimEngine.shared.handle(keyCombination: O)
-
         XCTAssertEqual(VimEngine.shared.currentMode, .insert)
     }
     

@@ -2,22 +2,24 @@
 import XCTest
 
 class __Tests: BaseTests {
+
+    override func setUp() {
+        super.setUp()
+
+        VimEngine.shared.handle(keyCombination: KeyCombination(key: .minus, shift: true))
+    }
+
+}
+
+extension __Tests {
     
     func test_that___calls_the_underscore_function_on_keyboard_strategy() {
-        let keyCombination = KeyCombination(key: .minus, shift: true)
-
-        VimEngine.shared.handle(keyCombination: keyCombination)
-
         XCTAssertEqual(keyboardStrategyMock.functionCalled, "underscore()")
     }
     
     func test_that___keeps_Vim_in_command_mode() {
-         let underscore = KeyCombination(key: .minus, shift: true)
-         
-        VimEngine.shared.handle(keyCombination: underscore)
-
-         XCTAssertEqual(VimEngine.shared.currentMode, .command)
-     }
+        XCTAssertEqual(VimEngine.shared.currentMode, .command)
+    }
     
 }
 

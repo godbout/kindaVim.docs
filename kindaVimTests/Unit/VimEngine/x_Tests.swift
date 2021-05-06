@@ -2,22 +2,24 @@
 import XCTest
 
 class x_Tests: BaseTests {
+
+    override func setUp() {
+        super.setUp()
+
+        VimEngine.shared.handle(keyCombination: KeyCombination(key: .x))
+    }
+
+}
+
+extension x_Tests {
     
     func test_that_x_calls_the_x_function_on_keyboard_strategy() {
-        let keyCombination = KeyCombination(key: .x)
-
-        VimEngine.shared.handle(keyCombination: keyCombination)
-
         XCTAssertEqual(keyboardStrategyMock.functionCalled, "x()")
     }
     
     func test_that_x_keeps_Vim_in_command_mode() {
-         let x = KeyCombination(key: .x)
-         
-        VimEngine.shared.handle(keyCombination: x)
-
-         XCTAssertEqual(VimEngine.shared.currentMode, .command)
-     }
+        XCTAssertEqual(VimEngine.shared.currentMode, .command)
+    }
     
 }
 
