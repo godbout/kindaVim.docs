@@ -1,6 +1,14 @@
 @testable import kindaVim
 import XCTest
 
+// TODO: read below lol
+// for now it just gives some idea
+// but for sure it's currently not testing ALL other combinations possible
+// should we? sounds kinda crazy to test all
+// the moves or operators that haven't been implemented yet
+// i think for moves it should be quite ok, if they don't exist we return nil
+// but for operators it's harder as the switch is based on strings rather than
+// enums
 class AllOthers_Tests: BaseTests {
     
     func test_that_key_combinations_that_do_not_exist_do_not_call_any_function_on_keyboard_strategy() {
@@ -38,14 +46,12 @@ class AllOthers_Tests: BaseTests {
         XCTAssertEqual(keyboardStrategyMock.functionCalled, "")
     }
   
-    // this needs more thinking
-    // diw returns w currently. even if not implemented, shouldn't it return nothing?
-//    func test_that_operators_that_exist_but_are_not_implemented_may_call_a_precedent_operator_function_instead() {
-//        VimEngineController.shared.handle(keyCombination: KeyCombination(key: .d))
-//        VimEngineController.shared.handle(keyCombination: KeyCombination(key: .i))
-//        VimEngineController.shared.handle(keyCombination: KeyCombination(key: .w))
-//
-//        XCTAssertEqual(keyboardStrategyMock.functionCalled, "")
-//    }
+    func test_that_operators_that_exist_but_are_not_implemented_may_call_a_precedent_operator_function_instead() {
+        VimEngine.shared.handle(keyCombination: KeyCombination(key: .d))
+        VimEngine.shared.handle(keyCombination: KeyCombination(key: .i))
+        VimEngine.shared.handle(keyCombination: KeyCombination(key: .w))
+
+        XCTAssertEqual(keyboardStrategyMock.functionCalled, "")
+    }
 
 }

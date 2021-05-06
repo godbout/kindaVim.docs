@@ -11,7 +11,7 @@ class VimEngine {
     static var shared = VimEngine()
     
     private(set) var currentMode: VimEngineMode = .insert
-    private(set) var operatorPendingBuffer = ""
+    private(set) var operatorPendingBuffer = [VimKey]()
 
     var keyboardStrategy: KeyboardStrategyProtocol = KeyboardStrategy()
     var accessibilityStrategy: AccessibilityStrategyProtocol = AccessibilityStrategy()
@@ -44,15 +44,15 @@ class VimEngine {
             case .b:
                 post(keyboardStrategy.b())
             case .c:
-                enterOperatorPendingMode(with: "c")
+                enterOperatorPendingMode(with: .c)
             case .C:
                 enterInsertMode()
 
                 post(keyboardStrategy.C())
             case .d:
-                enterOperatorPendingMode(with: "d")
+                enterOperatorPendingMode(with: .d)
             case .g:
-                enterOperatorPendingMode(with: "g")
+                enterOperatorPendingMode(with: .g)
             case .G:
                 post(keyboardStrategy.G())
             case .h:
@@ -107,15 +107,15 @@ class VimEngine {
         } else {
             switch keyCombination.key {
             case .c:
-                operatorPendingBuffer.append("c")
-            case .g:
-                operatorPendingBuffer.append("g")
+                fallthrough
             case .d:
-                operatorPendingBuffer.append("d")
+                fallthrough
+            case .g:
+                fallthrough
             case .i:
-                operatorPendingBuffer.append("i")
+                fallthrough
             case .w:
-                operatorPendingBuffer.append("w")
+                operatorPendingBuffer.append(keyCombination.vimKey!)
             default:
                 resetOperatorPendingBuffer()
             }
@@ -130,24 +130,28 @@ class VimEngine {
         print(operatorPendingBuffer)
         
         switch operatorPendingBuffer {
-        case "cc":
+        case [.c, .c]:
             enterInsertMode()
             
             return keyboardStrategy.cc()
-        case "gg":
+        case [.c, .i]:
+            return nil
+        case [.c, .i, .w]:
+            enterInsertMode()
+
+            return keyboardStrategy.ciw()
+        case [.d, .d]:
+            enterCommandMode()
+
+            return keyboardStrategy.dd()
+        case [.d, .i]:
+            return nil
+        case [.d, .i, .w]:
+            return nil
+        case [.g, .g]:
             enterCommandMode()
             
             return keyboardStrategy.gg()
-        case "dd":
-            enterCommandMode()
-            
-            return keyboardStrategy.dd()
-        case "ci":
-            return nil
-        case "ciw":
-            enterInsertMode()
-            
-            return keyboardStrategy.ciw()
         default:
             enterCommandMode()
             
@@ -171,12 +175,12 @@ class VimEngine {
     }
     
     private func resetOperatorPendingBuffer() {
-        operatorPendingBuffer = ""
+        operatorPendingBuffer = []
     }
     
-    private func enterOperatorPendingMode(with operator: String) {
+    private func enterOperatorPendingMode(with vimKey: VimKey) {
         currentMode = .operatorPending
-        operatorPendingBuffer.append(`operator`)
+        operatorPendingBuffer.append(vimKey)
     }
 
     private func post(_ keyCombinations: [KeyCombination]) {
