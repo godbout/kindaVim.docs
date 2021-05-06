@@ -1,10 +1,3 @@
-//
-//  KeyboardStrategyMock.swift
-//  kindaVimTests
-//
-//  Created by Guillaume Leclerc on 05/05/2021.
-//
-
 @testable import kindaVim
 import Foundation
 

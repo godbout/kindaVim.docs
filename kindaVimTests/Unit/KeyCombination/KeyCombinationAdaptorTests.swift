@@ -1,10 +1,3 @@
-//
-//  KeyCombinationAdaptorTests.swift
-//  kindaVimTests
-//
-//  Created by Guillaume Leclerc on 26/04/2021.
-//
-
 @testable import kindaVim
 import XCTest
 

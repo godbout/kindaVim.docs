@@ -1,10 +1,3 @@
-//
-//  Display.swift
-//  kindaVim
-//
-//  Created by Guillaume Leclerc on 03/05/2021.
-//
-
 import Foundation
 
 struct Display {

@@ -1,10 +1,3 @@
-//
-//  VimKeyTests.swift
-//  kindaVimTests
-//
-//  Created by Guillaume Leclerc on 03/05/2021.
-//
-
 @testable import kindaVim
 import XCTest
 

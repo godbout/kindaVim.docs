@@ -1,10 +1,3 @@
-//
-//  AppComponent.swift
-//  kindaVim
-//
-//  Created by Guillaume Leclerc on 28/04/2021.
-//
-
 import Foundation
 
 class AppComponent {

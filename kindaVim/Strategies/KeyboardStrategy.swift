@@ -1,10 +1,3 @@
-//
-//  KeyboardStrategy.swift
-//  kindaVim
-//
-//  Created by Guillaume Leclerc on 02/05/2021.
-//
-
 import Foundation
 
 protocol KeyboardStrategyProtocol {

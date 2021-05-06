@@ -1,10 +1,3 @@
-//
-//  GlobalEventsController.swift
-//  kindaVim
-//
-//  Created by Guillaume Leclerc on 25/04/2021.
-//
-
 import Foundation
 
 struct GlobalEventsController {

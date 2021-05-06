@@ -1,10 +1,3 @@
-//
-//  KeyCombinationConverter.swift
-//  kindaVim
-//
-//  Created by Guillaume Leclerc on 26/04/2021.
-//
-
 import Foundation
 
 struct KeyCombinationAdaptor {

@@ -1,10 +1,3 @@
-//
-//  GlobalEventsControllerTests.swift
-//  kindaVimTests
-//
-//  Created by Guillaume Leclerc on 27/04/2021.
-//
-
 @testable import kindaVim
 import XCTest
 

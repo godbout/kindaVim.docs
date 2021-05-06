@@ -1,10 +1,3 @@
-//
-//  VimEngineController.swift
-//  kindaVim
-//
-//  Created by Guillaume Leclerc on 23/04/2021.
-//
-
 import Foundation
 
 enum VimEngineMode {
