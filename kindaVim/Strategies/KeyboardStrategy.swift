@@ -41,7 +41,7 @@ struct KeyboardStrategy: KeyboardStrategyProtocol {
 
     func A() -> [KeyCombination] {
         return [
-            KeyCombination(key: .right, command: true, action: .both)
+            KeyCombination(key: .e, control: true, action: .both)
         ]
     }
 
@@ -53,15 +53,15 @@ struct KeyboardStrategy: KeyboardStrategyProtocol {
 
     func C() -> [KeyCombination] {
         return [
-            KeyCombination(key: .right, shift: true, command: true, action: .both),
+            KeyCombination(key: .e, control: true, shift: true, action: .both),
             KeyCombination(key: .delete, action: .both)
         ]
     }
 
     func cc() -> [KeyCombination] {
         return [
-            KeyCombination(key: .right, command: true, action: .both),
-            KeyCombination(key: .left, shift: true, command: true, action: .both),
+            KeyCombination(key: .e, control: true, action: .both),
+            KeyCombination(key: .a, control: true, shift: true, action: .both),
             KeyCombination(key: .delete, action: .both)
         ]
     }
@@ -76,14 +76,8 @@ struct KeyboardStrategy: KeyboardStrategyProtocol {
 
     func dd() -> [KeyCombination] {
         return [
-            KeyCombination(key: .right, command: true, action: .both),
-            // Emacs moves don't work in Xcode, so can't use
-            // control + a
-            // hence
-            // double command left
-            // dumb but hey
-            KeyCombination(key: .left, shift: true, command: true, action: .both),
-            KeyCombination(key: .left, shift: true, command: true, action: .both),
+            KeyCombination(key: .e, control: true, action: .both),
+            KeyCombination(key: .a, control: true, shift: true, action: .both),
             KeyCombination(key: .delete, action: .both),
             KeyCombination(key: .down, action: .both),
             KeyCombination(key: .a, control: true, action: .both),
@@ -114,7 +108,7 @@ struct KeyboardStrategy: KeyboardStrategyProtocol {
 
     func I() -> [KeyCombination] {
         return [
-            KeyCombination(key: .left, command: true, action: .both)
+            KeyCombination(key: .a, control: true, action: .both)
         ]
     }
 
@@ -138,14 +132,14 @@ struct KeyboardStrategy: KeyboardStrategyProtocol {
 
     func o() -> [KeyCombination] {
         return [
-            KeyCombination(key: .right, command: true, action: .both),
+            KeyCombination(key: .e, control: true, action: .both),
             KeyCombination(key: .enter, action: .both)
         ]
     }
     
     func O() -> [KeyCombination] {
         return [
-            KeyCombination(key: .left, command: true, action: .both),
+            KeyCombination(key: .a, control: true, action: .both),
             KeyCombination(key: .enter, action: .both),
             KeyCombination(key: .up, action: .both)
         ]
@@ -172,11 +166,8 @@ struct KeyboardStrategy: KeyboardStrategyProtocol {
     }
 
     func x() -> [KeyCombination] {
-        // using right and delete because maskSecondaryFn does not seem
-        // to work when posting CGEvents. will fill a Radar bug with Apple
         return [
-            KeyCombination(key: .right, action: .both),
-            KeyCombination(key: .delete, action: .both)
+            KeyCombination(key: .d, control: true, action: .both),
         ]
     }
     
@@ -188,13 +179,7 @@ struct KeyboardStrategy: KeyboardStrategyProtocol {
 
     func dollarSign() -> [KeyCombination] {
         return [
-            // Emacs moves don't work in Xcode, so can't use
-            // control + e
-            // hence
-            // double command right
-            // dumb but hey
-            KeyCombination(key: .right, command: true, action: .both),
-            KeyCombination(key: .right, command: true, action: .both)
+            KeyCombination(key: .e, control: true)
         ]
     }
 
