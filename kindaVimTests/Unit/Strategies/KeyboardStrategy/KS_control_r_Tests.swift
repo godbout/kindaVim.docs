@@ -7,10 +7,7 @@ class KS_control_r_Tests: KS_BaseTests {
         let transformedKeys = keyboardStrategy.controlR()
 
         guard transformedKeys.count == 1 else { return XCTFail() }
-        XCTAssertEqual(transformedKeys[0].key, .z)
-        XCTAssertEqual(transformedKeys[0].command, true)
-        XCTAssertEqual(transformedKeys[0].shift, true)
-        XCTAssertEqual(transformedKeys[0].action, .both)
+        XCTAssertEqual(transformedKeys[0], KeyCombination(key: .z, shift: true, command: true))
     }
     
 }

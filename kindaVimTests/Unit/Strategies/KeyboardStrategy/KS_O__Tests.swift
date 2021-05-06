@@ -7,13 +7,9 @@ class KS_O__Tests: KS_BaseTests {
         let transformedKeys = keyboardStrategy.O()
         
         guard transformedKeys.count == 3 else { return XCTFail() }
-        XCTAssertEqual(transformedKeys[0].key, .a)
-        XCTAssertEqual(transformedKeys[0].control, true)
-        XCTAssertEqual(transformedKeys[0].action, .both)
-        XCTAssertEqual(transformedKeys[1].key, .enter)
-        XCTAssertEqual(transformedKeys[1].action, .both)
-        XCTAssertEqual(transformedKeys[2].key, .up)
-        XCTAssertEqual(transformedKeys[2].action, .both)
+        XCTAssertEqual(transformedKeys[0], KeyCombination(key: .a, control: true))
+        XCTAssertEqual(transformedKeys[1], KeyCombination(key: .enter))
+        XCTAssertEqual(transformedKeys[2], KeyCombination(key: .up))
     }
     
 }

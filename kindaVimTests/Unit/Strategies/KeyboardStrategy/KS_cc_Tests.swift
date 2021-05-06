@@ -7,15 +7,9 @@ class KS_cc_Tests: KS_BaseTests {
         let transformedKeys = keyboardStrategy.cc()
 
         guard transformedKeys.count == 3 else { return XCTFail() }
-        XCTAssertEqual(transformedKeys[0].key, .e)
-        XCTAssertEqual(transformedKeys[0].control, true)
-        XCTAssertEqual(transformedKeys[0].action, .both)
-        XCTAssertEqual(transformedKeys[1].key, .a)
-        XCTAssertEqual(transformedKeys[1].control, true)
-        XCTAssertEqual(transformedKeys[1].shift, true)
-        XCTAssertEqual(transformedKeys[1].action, .both)
-        XCTAssertEqual(transformedKeys[2].key, .delete)
-        XCTAssertEqual(transformedKeys[2].action, .both)
+        XCTAssertEqual(transformedKeys[0], KeyCombination(key: .e, control: true))
+        XCTAssertEqual(transformedKeys[1], KeyCombination(key: .a, control: true, shift: true))
+        XCTAssertEqual(transformedKeys[2], KeyCombination(key: .delete))
     }
     
 }

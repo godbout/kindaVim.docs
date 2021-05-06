@@ -7,14 +7,9 @@ class KS_ciw_Tests: KS_BaseTests {
         let transformedKeys = keyboardStrategy.ciw()
 
         guard transformedKeys.count == 3 else { return XCTFail() }
-        XCTAssertEqual(transformedKeys[0].key, .right)
-        XCTAssertEqual(transformedKeys[0].option, true)
-        XCTAssertEqual(transformedKeys[0].action, .both)
-        XCTAssertEqual(transformedKeys[1].key, .left)
-        XCTAssertEqual(transformedKeys[1].option, true)
-        XCTAssertEqual(transformedKeys[1].action, .both)
-        XCTAssertEqual(transformedKeys[2].key, .delete)
-        XCTAssertEqual(transformedKeys[2].action, .both)
+        XCTAssertEqual(transformedKeys[0], KeyCombination(key: .right, option: true))
+        XCTAssertEqual(transformedKeys[1], KeyCombination(key: .left, option: true, shift: true))
+        XCTAssertEqual(transformedKeys[2], KeyCombination(key: .delete))
     }
     
 }

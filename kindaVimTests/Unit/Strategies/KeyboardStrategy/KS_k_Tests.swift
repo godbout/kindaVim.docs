@@ -7,8 +7,7 @@ class KS_k_Tests: KS_BaseTests {
         let transformedKeys = keyboardStrategy.k()
 
         guard transformedKeys.count == 1 else { return XCTFail() }
-        XCTAssertEqual(transformedKeys[0].key, .up)
-        XCTAssertEqual(transformedKeys[0].action, .both)
+        XCTAssertEqual(transformedKeys[0], KeyCombination(key: .up))
     }
     
 }
