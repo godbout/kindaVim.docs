@@ -137,6 +137,12 @@ class KeyboardStrategyMock: KeyboardStrategyProtocol {
         return []
     }
 
+    func yiw() -> [KeyCombination] {
+        functionCalled = #function
+
+        return []
+    }
+
     func dollarSign() -> [KeyCombination] {
         functionCalled = #function
         

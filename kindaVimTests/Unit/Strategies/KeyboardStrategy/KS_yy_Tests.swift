@@ -3,7 +3,7 @@ import XCTest
 
 class KS_yy_Tests: KS_BaseTests {
 
-    func test_that_yy_is_getting_transformed_to_delete() {
+    func test_that_yy_is_getting_transformed_to_control_e_control_shift_a_command_c_right() {
         let transformedKeys = keyboardStrategy.yy()
 
         guard transformedKeys.count == 4 else { return XCTFail() }

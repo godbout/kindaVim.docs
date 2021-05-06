@@ -166,6 +166,12 @@ class VimEngine {
             enterCommandMode()
             
             return keyboardStrategy.gg()
+        case [.y, .i]:
+            return nil
+        case [.y, .i, .w]:
+            enterCommandMode()
+
+            return keyboardStrategy.yiw()
         case [.y, .y]:
             enterCommandMode()
 

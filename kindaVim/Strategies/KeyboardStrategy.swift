@@ -24,6 +24,7 @@ protocol KeyboardStrategyProtocol {
     func x() -> [KeyCombination]
     func X() -> [KeyCombination]
     func yy() -> [KeyCombination]
+    func yiw() -> [KeyCombination]
     func dollarSign() -> [KeyCombination]
     func underscore() -> [KeyCombination]
     func zero() -> [KeyCombination]
@@ -183,6 +184,15 @@ struct KeyboardStrategy: KeyboardStrategyProtocol {
             KeyCombination(key: .e, control: true, action: .both),
             KeyCombination(key: .a, control: true, shift: true, action: .both),
             KeyCombination(key: .c, command: true, action: .both),
+            KeyCombination(key: .right, action: .both)
+        ]
+    }
+
+    func yiw() -> [KeyCombination] {
+        return [
+            KeyCombination(key: .left, option: true, action: .both),
+            KeyCombination(key: .right, option: true, shift: true, action: .both),
+            KeyCombination(key: .c, command: true),
             KeyCombination(key: .right, action: .both)
         ]
     }
