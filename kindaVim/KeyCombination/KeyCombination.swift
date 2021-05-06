@@ -22,7 +22,7 @@ enum KeyCode: Int64, RawRepresentable {
     case w = 13
 
     case x = 7
-
+    case y = 16
     case z = 6
 
     case delete = 51
@@ -65,6 +65,7 @@ enum VimKey {
     case w
 
     case x, X
+    case y
 
     case dollarSign
     case underscore
@@ -135,6 +136,8 @@ struct KeyCombination {
             return .x
         case .x where control == false && option == false && shift == true && command == false:
             return .X
+        case .y where control == false && option == false && shift == false && command == false:
+            return .y
         case .four where control == false && option == false && shift == true && command == false:
             return .dollarSign
         case .minus where control == false && option == false && shift == true && command == false:
@@ -144,5 +147,17 @@ struct KeyCombination {
         default:
             return nil
         }
+    }
+}
+
+extension KeyCombination: Equatable {
+    public static func == (lhs: KeyCombination, rhs: KeyCombination) -> Bool {
+        lhs.vimKey == rhs.vimKey
+            && lhs.key == rhs.key
+            && lhs.command == rhs.command
+            && lhs.option == rhs.option
+            && lhs.control == rhs.control
+            && lhs.shift == rhs.shift
+            && lhs.action == rhs.action
     }
 }

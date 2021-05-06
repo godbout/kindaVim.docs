@@ -18,6 +18,8 @@
 		9128F2B4262AA90D00625B42 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9128F2B3262AA90D00625B42 /* Assets.xcassets */; };
 		9128F2B7262AA90D00625B42 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9128F2B6262AA90D00625B42 /* Preview Assets.xcassets */; };
 		9128F2BA262AA90D00625B42 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9128F2B8262AA90D00625B42 /* Main.storyboard */; };
+		912B92D426443A06007F44E1 /* KS_yy_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912B92D326443A06007F44E1 /* KS_yy_Tests.swift */; };
+		912B92D826443C8F007F44E1 /* yy_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912B92D726443C8F007F44E1 /* yy_Tests.swift */; };
 		91482E40263DBE8300F10ADC /* KeyboardStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91482E3F263DBE8300F10ADC /* KeyboardStrategy.swift */; };
 		917458F1262EB934007D3855 /* StatusBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917458F0262EB934007D3855 /* StatusBarController.swift */; };
 		918024B926386E95004FD719 /* AppComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918024B826386E95004FD719 /* AppComponent.swift */; };
@@ -114,6 +116,8 @@
 		9128F2BC262AA90D00625B42 /* kindaVim.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = kindaVim.entitlements; sourceTree = "<group>"; };
 		9128F2C1262AA90D00625B42 /* kindaVimTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = kindaVimTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9128F2C7262AA90D00625B42 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		912B92D326443A06007F44E1 /* KS_yy_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KS_yy_Tests.swift; sourceTree = "<group>"; };
+		912B92D726443C8F007F44E1 /* yy_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = yy_Tests.swift; sourceTree = "<group>"; };
 		91482E3F263DBE8300F10ADC /* KeyboardStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardStrategy.swift; sourceTree = "<group>"; };
 		917458F0262EB934007D3855 /* StatusBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBarController.swift; sourceTree = "<group>"; };
 		918024B826386E95004FD719 /* AppComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppComponent.swift; sourceTree = "<group>"; };
@@ -292,6 +296,7 @@
 				91E304EC2643F4B8004D9933 /* w_Tests.swift */,
 				91E304EE2643F4ED004D9933 /* x_Tests.swift */,
 				91E304F02643F528004D9933 /* X__Tests.swift */,
+				912B92D726443C8F007F44E1 /* yy_Tests.swift */,
 				91E304F22643F574004D9933 /* $_Tests.swift */,
 				91E304F42643F5B0004D9933 /* __Tests.swift */,
 				91E304F62643F5F2004D9933 /* 0_Tests.swift */,
@@ -400,6 +405,7 @@
 				91A54EFE2643BB7000400677 /* KS_w_Tests.swift */,
 				91A54F002643BBA100400677 /* KS_x_Tests.swift */,
 				91A54F022643BBC900400677 /* KS_X__Tests.swift */,
+				912B92D326443A06007F44E1 /* KS_yy_Tests.swift */,
 				91A54ED82643B34F00400677 /* KS_$_Tests.swift */,
 				91A54F042643BC3F00400677 /* KS___Tests.swift */,
 				91A54F062643BC7B00400677 /* KS_0_Tests.swift */,
@@ -566,8 +572,10 @@
 				91E304F72643F5F2004D9933 /* 0_Tests.swift in Sources */,
 				91E304D72643F195004D9933 /* gg_Tests.swift in Sources */,
 				910B05CA2642AECC005D287C /* FailingAccessibilityStrategyStub.swift in Sources */,
+				912B92D426443A06007F44E1 /* KS_yy_Tests.swift in Sources */,
 				91A54EE12643B66800400677 /* KS_C__Tests.swift in Sources */,
 				91A54EF92643BA5A00400677 /* KS_O__Tests.swift in Sources */,
+				912B92D826443C8F007F44E1 /* yy_Tests.swift in Sources */,
 				91E304DD2643F24E004D9933 /* I__Tests.swift in Sources */,
 				91A54EF52643B98700400677 /* KS_l_Tests.swift in Sources */,
 				91E304F12643F528004D9933 /* X__Tests.swift in Sources */,

@@ -101,6 +101,8 @@ class VimEngine {
                 post(keyboardStrategy.x())
             case .X:
                 post(keyboardStrategy.X())
+            case .y:
+                enterOperatorPendingMode(with: .y)
             default:
                 ()
             }
@@ -117,6 +119,8 @@ class VimEngine {
             case .i:
                 fallthrough
             case .w:
+                operatorPendingBuffer.append(keyCombination.vimKey!)
+            case .y:
                 operatorPendingBuffer.append(keyCombination.vimKey!)
             default:
                 resetOperatorPendingBuffer()
@@ -162,6 +166,10 @@ class VimEngine {
             enterCommandMode()
             
             return keyboardStrategy.gg()
+        case [.y, .y]:
+            enterCommandMode()
+
+            return keyboardStrategy.yy()
         default:
             enterCommandMode()
             
