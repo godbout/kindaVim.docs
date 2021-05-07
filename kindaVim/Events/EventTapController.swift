@@ -9,8 +9,13 @@ struct EventTapController {
             """
             ***
             KEY PRESSED IS:
-            \(event.getIntegerValueField(.keyboardEventKeycode))
-            \(String(describing: KeyCode(rawValue: event.getIntegerValueField(.keyboardEventKeycode))))
+            key code:\(event.getIntegerValueField(.keyboardEventKeycode))
+            KeyCode: \(String(describing: KeyCode(rawValue: event.getIntegerValueField(.keyboardEventKeycode))))
+            control: \(event.flags.contains(.maskControl))
+            option: \(event.flags.contains(.maskAlternate))
+            shift: \(event.flags.contains(.maskShift))
+            command: \(event.flags.contains(.maskCommand))
+            fn: \(event.flags.contains(.maskSecondaryFn))
             ***
             """
         )

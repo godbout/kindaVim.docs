@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		91013742263DD2430037AB6E /* AccessibilityStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91013741263DD2430037AB6E /* AccessibilityStrategy.swift */; };
+		91054E8B2644FE7D00CC0ACC /* KS_control_u_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91054E8A2644FE7D00CC0ACC /* KS_control_u_Tests.swift */; };
+		91054E8D264501F500CC0ACC /* control_u_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91054E8C264501F500CC0ACC /* control_u_Tests.swift */; };
+		91054E8F2645079B00CC0ACC /* KS_control_d_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91054E8E2645079B00CC0ACC /* KS_control_d_Tests.swift */; };
+		91054E912645087A00CC0ACC /* control_d_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91054E902645087A00CC0ACC /* control_d_Tests.swift */; };
 		910B05CA2642AECC005D287C /* FailingAccessibilityStrategyStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910B05C92642AECC005D287C /* FailingAccessibilityStrategyStub.swift */; };
 		9118C4E7263F0CE50040C297 /* Display.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9118C4E6263F0CE50040C297 /* Display.swift */; };
 		911BB7492632899E006882D8 /* VimEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911BB7482632899E006882D8 /* VimEngine.swift */; };
@@ -103,6 +107,10 @@
 
 /* Begin PBXFileReference section */
 		91013741263DD2430037AB6E /* AccessibilityStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilityStrategy.swift; sourceTree = "<group>"; };
+		91054E8A2644FE7D00CC0ACC /* KS_control_u_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KS_control_u_Tests.swift; sourceTree = "<group>"; };
+		91054E8C264501F500CC0ACC /* control_u_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = control_u_Tests.swift; sourceTree = "<group>"; };
+		91054E8E2645079B00CC0ACC /* KS_control_d_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KS_control_d_Tests.swift; sourceTree = "<group>"; };
+		91054E902645087A00CC0ACC /* control_d_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = control_d_Tests.swift; sourceTree = "<group>"; };
 		910B05C92642AECC005D287C /* FailingAccessibilityStrategyStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FailingAccessibilityStrategyStub.swift; sourceTree = "<group>"; };
 		9118C4E6263F0CE50040C297 /* Display.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Display.swift; sourceTree = "<group>"; };
 		911BB7482632899E006882D8 /* VimEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VimEngine.swift; sourceTree = "<group>"; };
@@ -283,6 +291,7 @@
 				91E304CC2643EFA1004D9933 /* cc_Tests.swift */,
 				91E304F82643F6D1004D9933 /* ciw_Tests.swift */,
 				91E304CA2643EF64004D9933 /* d_Tests.swift */,
+				91054E902645087A00CC0ACC /* control_d_Tests.swift */,
 				91E304D02643F05C004D9933 /* dd_Tests.swift */,
 				91E304D22643F0C3004D9933 /* g_Tests.swift */,
 				91E304D42643F133004D9933 /* G__Tests.swift */,
@@ -297,6 +306,7 @@
 				91E304E62643F3ED004D9933 /* O__Tests.swift */,
 				91E304E82643F421004D9933 /* control_r_Tests.swift */,
 				91E304EA2643F483004D9933 /* u_Tests.swift */,
+				91054E8C264501F500CC0ACC /* control_u_Tests.swift */,
 				91E304EC2643F4B8004D9933 /* w_Tests.swift */,
 				91E304EE2643F4ED004D9933 /* x_Tests.swift */,
 				91E304F02643F528004D9933 /* X__Tests.swift */,
@@ -395,6 +405,7 @@
 				91A54EE02643B66800400677 /* KS_C__Tests.swift */,
 				91A54EE22643B6B400400677 /* KS_cc_Tests.swift */,
 				91A54EE42643B6F400400677 /* KS_ciw_Tests.swift */,
+				91054E8E2645079B00CC0ACC /* KS_control_d_Tests.swift */,
 				91A54EE62643B76F00400677 /* KS_dd_Tests.swift */,
 				91A54EE82643B7A800400677 /* KS_G__Tests.swift */,
 				91A54EEA2643B7E600400677 /* KS_gg_Tests.swift */,
@@ -407,6 +418,7 @@
 				91A54EF82643BA5A00400677 /* KS_O__Tests.swift */,
 				91A54EFA2643BAB800400677 /* KS_control_r_Tests.swift */,
 				91A54EFC2643BB2A00400677 /* KS_u_Tests.swift */,
+				91054E8A2644FE7D00CC0ACC /* KS_control_u_Tests.swift */,
 				91A54EFE2643BB7000400677 /* KS_w_Tests.swift */,
 				91A54F002643BBA100400677 /* KS_x_Tests.swift */,
 				91A54F022643BBC900400677 /* KS_X__Tests.swift */,
@@ -585,6 +597,7 @@
 				91A54EF92643BA5A00400677 /* KS_O__Tests.swift in Sources */,
 				912B92D826443C8F007F44E1 /* yy_Tests.swift in Sources */,
 				91E304DD2643F24E004D9933 /* I__Tests.swift in Sources */,
+				91054E8F2645079B00CC0ACC /* KS_control_d_Tests.swift in Sources */,
 				91A54EF52643B98700400677 /* KS_l_Tests.swift in Sources */,
 				91E304F12643F528004D9933 /* X__Tests.swift in Sources */,
 				91BFF31B26403F95003B7A2A /* KeyCombinationTests.swift in Sources */,
@@ -596,9 +609,11 @@
 				91E304D92643F1EF004D9933 /* h_Tests.swift in Sources */,
 				91E304E12643F2F8004D9933 /* j_Tests.swift in Sources */,
 				91E304D52643F133004D9933 /* G__Tests.swift in Sources */,
+				91054E8B2644FE7D00CC0ACC /* KS_control_u_Tests.swift in Sources */,
 				91A54EDB2643B3FF00400677 /* KS_a_Tests.swift in Sources */,
 				91A54F0B2643BD2000400677 /* AS_l_Tests.swift in Sources */,
 				91E304F92643F6D1004D9933 /* ciw_Tests.swift in Sources */,
+				91054E8D264501F500CC0ACC /* control_u_Tests.swift in Sources */,
 				91E304ED2643F4B8004D9933 /* w_Tests.swift in Sources */,
 				91A54EDF2643B60F00400677 /* KS_b_Tests.swift in Sources */,
 				91E304E92643F421004D9933 /* control_r_Tests.swift in Sources */,
@@ -621,6 +636,7 @@
 				91E304BD2643E77A004D9933 /* a_Tests.swift in Sources */,
 				91A54EEB2643B7E600400677 /* KS_gg_Tests.swift in Sources */,
 				91E304F32643F574004D9933 /* $_Tests.swift in Sources */,
+				91054E912645087A00CC0ACC /* control_d_Tests.swift in Sources */,
 				91A54F012643BBA100400677 /* KS_x_Tests.swift in Sources */,
 				91E304DB2643F22A004D9933 /* i_Tests.swift in Sources */,
 				91E304D32643F0C3004D9933 /* g_Tests.swift in Sources */,
