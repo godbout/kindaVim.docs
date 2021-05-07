@@ -3,12 +3,12 @@ import XCTest
 
 class KS_o_Tests: KS_BaseTests {
     
-    func test_that_o_gets_transformed_to_command_right_and_enter() {
-        let transformedKeys = keyboardStrategy.o()
+    func test_that_o_returns_control_e_enter() {
+        let keyCombinations = keyboardStrategy.o()
 
-        guard transformedKeys.count == 2 else { return XCTFail() }
-        XCTAssertEqual(transformedKeys[0], KeyCombination(key: .e, control: true))
-        XCTAssertEqual(transformedKeys[1], KeyCombination(key: .enter))
+        guard keyCombinations.count == 2 else { return XCTFail() }
+        XCTAssertEqual(keyCombinations[0], KeyCombination(key: .e, control: true))
+        XCTAssertEqual(keyCombinations[1], KeyCombination(key: .enter))
     }
     
 }

@@ -3,11 +3,11 @@ import XCTest
 
 class KS_b_Tests: KS_BaseTests {
 
-    func test_that_b_is_getting_transformed_to_alt_left() {
-        let transformedKeys = keyboardStrategy.b()
+    func test_that_b_returns_alt_left() {
+        let keyCombinations = keyboardStrategy.b()
 
-        guard transformedKeys.count == 1 else { return XCTFail() }
-        XCTAssertEqual(transformedKeys[0], KeyCombination(key: .left, option: true))
+        guard keyCombinations.count == 1 else { return XCTFail() }
+        XCTAssertEqual(keyCombinations[0], KeyCombination(key: .left, option: true))
     }
     
 }

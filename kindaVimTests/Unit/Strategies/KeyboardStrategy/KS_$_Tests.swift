@@ -4,11 +4,11 @@ import XCTest
 
 class KS_$_Tests: KS_BaseTests {
 
-    func test_that_$_is_getting_transformed_to_control_a() {
-        let transformedKeys = keyboardStrategy.dollarSign()
+    func test_that_$_returns_control_e() {
+        let keyCombinations = keyboardStrategy.dollarSign()
 
-        guard transformedKeys.count == 1 else { return XCTFail() }
-        XCTAssertEqual(transformedKeys[0], KeyCombination(key: .e, control: true))
+        guard keyCombinations.count == 1 else { return XCTFail() }
+        XCTAssertEqual(keyCombinations[0], KeyCombination(key: .e, control: true))
     }
 
 }

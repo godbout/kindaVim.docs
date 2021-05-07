@@ -3,13 +3,13 @@ import XCTest
 
 class KS_w_Tests: KS_BaseTests {
     
-    func test_that_w_is_getting_transformed_to_option_right_option_right_option_left() {
-        let transformedKeys = keyboardStrategy.w()
+    func test_that_w_returns_option_right_option_right_option_left() {
+        let keyCombinations = keyboardStrategy.w()
 
-        guard transformedKeys.count == 3 else { return XCTFail() }
-        XCTAssertEqual(transformedKeys[0], KeyCombination(key: .right, option: true))
-        XCTAssertEqual(transformedKeys[1], KeyCombination(key: .right, option: true))
-        XCTAssertEqual(transformedKeys[2], KeyCombination(key: .left, option: true))
+        guard keyCombinations.count == 3 else { return XCTFail() }
+        XCTAssertEqual(keyCombinations[0], KeyCombination(key: .right, option: true))
+        XCTAssertEqual(keyCombinations[1], KeyCombination(key: .right, option: true))
+        XCTAssertEqual(keyCombinations[2], KeyCombination(key: .left, option: true))
     }
     
 }

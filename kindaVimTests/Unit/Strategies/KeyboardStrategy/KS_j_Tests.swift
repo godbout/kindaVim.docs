@@ -3,11 +3,11 @@ import XCTest
 
 class KS_j_Tests: KS_BaseTests {
     
-    func test_that_j_is_getting_transformed_to_down() {
-        let transformedKeys = keyboardStrategy.j()
+    func test_that_j_returns_down() {
+        let keyCombinations = keyboardStrategy.j()
 
-        guard transformedKeys.count == 1 else { return XCTFail() }
-        XCTAssertEqual(transformedKeys[0], KeyCombination(key: .down))
+        guard keyCombinations.count == 1 else { return XCTFail() }
+        XCTAssertEqual(keyCombinations[0], KeyCombination(key: .down))
     }
     
 }

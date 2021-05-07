@@ -3,11 +3,11 @@ import XCTest
 
 class KS_X__Tests: KS_BaseTests {
     
-    func test_that_X_is_getting_transformed_to_delete() {
-        let transformedKeys = keyboardStrategy.X()
+    func test_that_X_returns_delete() {
+        let keyCombinations = keyboardStrategy.X()
 
-        guard transformedKeys.count == 1 else { return XCTFail() }
-        XCTAssertEqual(transformedKeys[0], KeyCombination(key: .delete))
+        guard keyCombinations.count == 1 else { return XCTFail() }
+        XCTAssertEqual(keyCombinations[0], KeyCombination(key: .delete))
     }
     
 }

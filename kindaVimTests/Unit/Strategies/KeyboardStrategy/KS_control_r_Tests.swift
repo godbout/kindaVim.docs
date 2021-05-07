@@ -3,11 +3,11 @@ import XCTest
 
 class KS_control_r_Tests: KS_BaseTests {
     
-    func test_that_control_r_gets_transformed_to_command_shift_z() {
-        let transformedKeys = keyboardStrategy.controlR()
+    func test_that_control_r_returns_command_shift_z() {
+        let keyCombinations = keyboardStrategy.controlR()
 
-        guard transformedKeys.count == 1 else { return XCTFail() }
-        XCTAssertEqual(transformedKeys[0], KeyCombination(key: .z, shift: true, command: true))
+        guard keyCombinations.count == 1 else { return XCTFail() }
+        XCTAssertEqual(keyCombinations[0], KeyCombination(key: .z, shift: true, command: true))
     }
     
 }
