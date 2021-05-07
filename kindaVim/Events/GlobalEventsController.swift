@@ -25,7 +25,12 @@ struct GlobalEventsController {
     }
     
     private static func globalVimEngineHotkeyIsPressed(_ keyCombination: KeyCombination) -> Bool {
-        return keyCombination.key == .escape && keyCombination.command == true
+        // temporary for escape to enter Command Mode
+        // and escape again to send escape key to macOS
+        return keyCombination.key == .escape
+            && keyCombination.control == false
+            && keyCombination.option == false
+            && keyCombination.shift == false
     }
     
 }

@@ -27,6 +27,12 @@ class VimEngine {
     func handle(keyCombination: KeyCombination) {
         if currentMode != .operatorPending {
             switch keyCombination.vimKey {
+            // temporary for escape to enter Command Mode
+            // and escape again to send escape key to macOS
+            case .escape:
+                enterInsertMode()
+
+                post(keyboardStrategy.escape())
             case .dollarSign:
                 post(keyboardStrategy.dollarSign())
             case .underscore:

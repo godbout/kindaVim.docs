@@ -73,6 +73,11 @@ enum VimKey {
     case y
 
     case dollarSign
+
+    // temporary for escape to enter Command Mode
+    // and escape again to send escape key to macOS
+    case escape
+    
     case underscore
     case zero
 }
@@ -147,6 +152,10 @@ struct KeyCombination {
             return .X
         case .y where control == false && option == false && shift == false && command == false:
             return .y
+        // temporary for escape to enter Command Mode
+        // and escape again to send escape key to macOS
+        case .escape where control == false && option == false && shift == false && command == false:
+            return .escape
         case .four where control == false && option == false && shift == true && command == false:
             return .dollarSign
         case .minus where control == false && option == false && shift == true && command == false:

@@ -33,6 +33,11 @@ protocol KeyboardStrategyProtocol {
     func yy() -> [KeyCombination]
     func yiw() -> [KeyCombination]
     func dollarSign() -> [KeyCombination]
+
+    // temporary for escape to enter Command Mode
+    // and escape again to send escape key to macOS
+    func escape() -> [KeyCombination]
+
     func underscore() -> [KeyCombination]
     func zero() -> [KeyCombination]
 
@@ -265,6 +270,14 @@ struct KeyboardStrategy: KeyboardStrategyProtocol {
     func dollarSign() -> [KeyCombination] {
         return [
             KeyCombination(key: .e, control: true)
+        ]
+    }
+
+    // temporary for escape to enter Command Mode
+    // and escape again to send escape key to macOS
+    func escape() -> [KeyCombination] {
+        return [
+            KeyCombination(key: .escape)
         ]
     }
 
