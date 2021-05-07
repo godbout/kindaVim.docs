@@ -31,6 +31,7 @@ struct GlobalEventsController {
             && keyCombination.control == false
             && keyCombination.option == false
             && keyCombination.shift == false
+            && keyCombination.command == false
     }
     
 }

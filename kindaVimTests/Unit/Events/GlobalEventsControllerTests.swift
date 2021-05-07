@@ -2,22 +2,24 @@
 import XCTest
 
 class GlobalEventsControllerTests: XCTestCase {
+
+    let globalHotkeyCombination = KeyCombination(key: .escape)
+
+}
+
+extension GlobalEventsControllerTests {
     
     func test_that_when_in_insert_mode_the_global_hotkey_press_sets_Vim_in_command_mode() {
         VimEngine.shared.enterInsertMode()
-        
-        let globalHotkeyCombination = KeyCombination(key: .escape, command: true)
-        _ = GlobalEventsController.stole(keyCombination: globalHotkeyCombination)
-        
-        let currentVimMode = VimEngine.shared.currentMode
 
-        XCTAssertEqual(currentVimMode, .command)
+        _ = GlobalEventsController.stole(keyCombination: globalHotkeyCombination)        
+
+        XCTAssertEqual(VimEngine.shared.currentMode, .command)
     }
 
     func test_that_when_in_insert_mode_the_global_hotkey_press_is_captured_and_not_sent_back_to_macOS() {
         VimEngine.shared.enterInsertMode()
 
-        let globalHotkeyCombination = KeyCombination(key: .escape, command: true)
         let captured = GlobalEventsController.stole(keyCombination: globalHotkeyCombination)
 
         XCTAssertTrue(captured)
@@ -26,7 +28,6 @@ class GlobalEventsControllerTests: XCTestCase {
     func test_that_when_in_command_mode_the_global_hotkey_press_is_captured_and_not_sent_back_to_macOS() {
         VimEngine.shared.enterCommandMode()
 
-        let globalHotkeyCombination = KeyCombination(key: .escape, command: true)
         let captured = GlobalEventsController.stole(keyCombination: globalHotkeyCombination)
 
         XCTAssertTrue(captured)

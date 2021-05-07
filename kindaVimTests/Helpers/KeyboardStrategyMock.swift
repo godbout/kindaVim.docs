@@ -191,6 +191,14 @@ class KeyboardStrategyMock: KeyboardStrategyProtocol {
         return []
     }
 
+    // temporary for escape to enter Command Mode
+    // and escape again to send escape key to macOS
+    func escape() -> [KeyCombination] {
+        functionCalled = #function
+
+        return []
+    }
+
     func underscore() -> [KeyCombination] {
         functionCalled = #function
         
