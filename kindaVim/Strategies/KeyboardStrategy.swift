@@ -20,6 +20,7 @@ protocol KeyboardStrategyProtocol {
     func O() -> [KeyCombination]
     func controlR() -> [KeyCombination]
     func u() -> [KeyCombination]
+    func controlU() -> [KeyCombination]
     func w() -> [KeyCombination]
     func x() -> [KeyCombination]
     func X() -> [KeyCombination]
@@ -156,6 +157,12 @@ struct KeyboardStrategy: KeyboardStrategyProtocol {
     func u() -> [KeyCombination] {
         return [
             KeyCombination(key: .z, command: true, action: .both)
+        ]
+    }
+    
+    func controlU() -> [KeyCombination] {
+        return [
+            KeyCombination(key: .fnUp, action: .both)
         ]
     }
 

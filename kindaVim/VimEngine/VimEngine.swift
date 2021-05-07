@@ -95,6 +95,8 @@ class VimEngine {
                 post(keyboardStrategy.controlR())
             case .u:
                 post(keyboardStrategy.u())
+            case .controlU:
+                post(keyboardStrategy.controlU())
             case .w:
                 post(keyboardStrategy.w())
             case .x:

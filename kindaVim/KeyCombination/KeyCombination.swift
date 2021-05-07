@@ -35,6 +35,8 @@ enum KeyCode: Int64, RawRepresentable {
     case right = 124
     case up = 126
     case zero = 29
+    
+    case fnUp = 116
 }
 
 enum KeyCombinationAction {
@@ -61,6 +63,7 @@ enum VimKey {
     case controlR
 
     case u
+    case controlU
 
     case w
 
@@ -130,6 +133,8 @@ struct KeyCombination {
             return .controlR
         case .u where control == false && option == false && shift == false && command == false:
             return .u
+        case .u where control == true && option == false && shift == false && command == false:
+            return .controlU
         case .w where control == false && option == false && shift == false && command == false:
             return .w
         case .x where control == false && option == false && shift == false && command == false:
