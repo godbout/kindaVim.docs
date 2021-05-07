@@ -38,6 +38,11 @@ protocol KeyboardStrategyProtocol {
     // and escape again to send escape key to macOS
     func escape() -> [KeyCombination]
 
+    // temporary for pressing enter in Command Mode
+    // to act like an enter in Insert Mode
+    // checking if it feels better (like in Alfred)
+    func enter() -> [KeyCombination]
+
     func underscore() -> [KeyCombination]
     func zero() -> [KeyCombination]
 
@@ -278,6 +283,15 @@ struct KeyboardStrategy: KeyboardStrategyProtocol {
     func escape() -> [KeyCombination] {
         return [
             KeyCombination(key: .escape)
+        ]
+    }
+
+    // temporary for pressing enter in Command Mode
+    // to act like an enter in Insert Mode
+    // checking if it feels better (like in Alfred)
+    func enter() -> [KeyCombination] {
+        return [
+            KeyCombination(key: .enter)
         ]
     }
 

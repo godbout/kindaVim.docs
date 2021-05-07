@@ -33,6 +33,13 @@ class VimEngine {
                 enterInsertMode()
 
                 post(keyboardStrategy.escape())
+            // temporary for pressing enter in Command Mode
+            // to act like an enter in Insert Mode
+            // checking if it feels better (like in Alfred)
+            case .enter:
+                enterInsertMode()
+
+                post(keyboardStrategy.enter())
             case .dollarSign:
                 post(keyboardStrategy.dollarSign())
             case .underscore:

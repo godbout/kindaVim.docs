@@ -77,6 +77,11 @@ enum VimKey {
     // temporary for escape to enter Command Mode
     // and escape again to send escape key to macOS
     case escape
+
+    // temporary for pressing enter in Command Mode
+    // to act like an enter in Insert Mode
+    // checking if it feels better (like in Alfred)
+    case enter
     
     case underscore
     case zero
@@ -156,6 +161,11 @@ struct KeyCombination {
         // and escape again to send escape key to macOS
         case .escape where control == false && option == false && shift == false && command == false:
             return .escape
+        // temporary for pressing enter in Command Mode
+        // to act like an enter in Insert Mode
+        // checking if it feels better (like in Alfred)
+        case .enter where control == false && option == false && shift == false && command == false:
+            return .enter
         case .four where control == false && option == false && shift == true && command == false:
             return .dollarSign
         case .minus where control == false && option == false && shift == true && command == false:
