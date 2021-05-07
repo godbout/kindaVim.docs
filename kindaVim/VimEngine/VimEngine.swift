@@ -174,6 +174,12 @@ class VimEngine {
             enterCommandMode()
 
             return keyboardStrategy.dd()
+        case [.d, .g]:
+            return nil
+        case [.d, .g, .g]:
+            enterCommandMode()
+            
+            return keyboardStrategy.dgg()
         case [.d, .i]:
             return nil
         case [.d, .i, .w]:

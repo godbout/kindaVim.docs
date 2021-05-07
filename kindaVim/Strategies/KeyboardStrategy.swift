@@ -12,6 +12,7 @@ protocol KeyboardStrategyProtocol {
     func ciw() -> [KeyCombination]
     func controlD() -> [KeyCombination]
     func dd() -> [KeyCombination]
+    func dgg() -> [KeyCombination]
     func dG() -> [KeyCombination]
     func G() -> [KeyCombination]
     func gg() -> [KeyCombination]
@@ -114,6 +115,17 @@ struct KeyboardStrategy: KeyboardStrategyProtocol {
             KeyCombination(key: .a, control: true, action: .both),
             KeyCombination(key: .right, option: true, action: .both),
             KeyCombination(key: .left, option: true, action: .both)
+        ]
+    }
+
+    func dgg() -> [KeyCombination] {
+        return [
+            KeyCombination(key: .down),
+            KeyCombination(key: .a, control: true),
+            KeyCombination(key: .up, shift: true, command: true),
+            KeyCombination(key: .delete),
+            KeyCombination(key: .right, option: true),
+            KeyCombination(key: .left, option: true)
         ]
     }
 
