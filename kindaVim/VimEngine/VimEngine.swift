@@ -150,6 +150,12 @@ class VimEngine {
             enterInsertMode()
             
             return keyboardStrategy.cc()
+        case [.c, .g]:
+            retur n nil
+        case [.c, .g, .g]:
+            enterInsertMode()
+
+            return keyboardStrategy.cgg()
         case [.c, .G]:
             enterInsertMode()
             

@@ -7,6 +7,7 @@ protocol KeyboardStrategyProtocol {
     func b() -> [KeyCombination]
     func C() -> [KeyCombination]
     func cc() -> [KeyCombination]
+    func cgg() -> [KeyCombination]
     func cG() -> [KeyCombination]
     func ciw() -> [KeyCombination]
     func controlD() -> [KeyCombination]
@@ -68,6 +69,14 @@ struct KeyboardStrategy: KeyboardStrategyProtocol {
             KeyCombination(key: .e, control: true, action: .both),
             KeyCombination(key: .a, control: true, shift: true, action: .both),
             KeyCombination(key: .delete, action: .both)
+        ]
+    }
+
+    func cgg() -> [KeyCombination] {
+        return [
+            KeyCombination(key: .e, control: true),
+            KeyCombination(key: .up, shift: true, command: true),
+            KeyCombination(key: .delete)
         ]
     }
     

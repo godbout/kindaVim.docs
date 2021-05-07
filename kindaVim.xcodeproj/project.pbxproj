@@ -26,6 +26,8 @@
 		912B92D826443C8F007F44E1 /* yy_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912B92D726443C8F007F44E1 /* yy_Tests.swift */; };
 		912B92DC26443FF8007F44E1 /* yiw_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912B92DB26443FF8007F44E1 /* yiw_Tests.swift */; };
 		912B92E0264443BD007F44E1 /* KS_yiw_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912B92DF264443BD007F44E1 /* KS_yiw_Tests.swift */; };
+		9140E6DD264554320021C2FB /* KS_cgg_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9140E6DC264554320021C2FB /* KS_cgg_Tests.swift */; };
+		9140E6E1264555390021C2FB /* cgg_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9140E6E0264555390021C2FB /* cgg_Tests.swift */; };
 		9145AA83264543BF0056976B /* KS_cG_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9145AA82264543BF0056976B /* KS_cG_Tests.swift */; };
 		9145AA85264545480056976B /* cG_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9145AA84264545480056976B /* cG_Tests.swift */; };
 		91482E40263DBE8300F10ADC /* KeyboardStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91482E3F263DBE8300F10ADC /* KeyboardStrategy.swift */; };
@@ -132,6 +134,8 @@
 		912B92D726443C8F007F44E1 /* yy_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = yy_Tests.swift; sourceTree = "<group>"; };
 		912B92DB26443FF8007F44E1 /* yiw_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = yiw_Tests.swift; sourceTree = "<group>"; };
 		912B92DF264443BD007F44E1 /* KS_yiw_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KS_yiw_Tests.swift; sourceTree = "<group>"; };
+		9140E6DC264554320021C2FB /* KS_cgg_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KS_cgg_Tests.swift; sourceTree = "<group>"; };
+		9140E6E0264555390021C2FB /* cgg_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cgg_Tests.swift; sourceTree = "<group>"; };
 		9145AA82264543BF0056976B /* KS_cG_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KS_cG_Tests.swift; sourceTree = "<group>"; };
 		9145AA84264545480056976B /* cG_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cG_Tests.swift; sourceTree = "<group>"; };
 		91482E3F263DBE8300F10ADC /* KeyboardStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardStrategy.swift; sourceTree = "<group>"; };
@@ -293,6 +297,7 @@
 				91E304C82643EF1C004D9933 /* c_Tests.swift */,
 				91E304CE2643EFFD004D9933 /* C__Tests.swift */,
 				91E304CC2643EFA1004D9933 /* cc_Tests.swift */,
+				9140E6E0264555390021C2FB /* cgg_Tests.swift */,
 				9145AA84264545480056976B /* cG_Tests.swift */,
 				91E304F82643F6D1004D9933 /* ciw_Tests.swift */,
 				91E304CA2643EF64004D9933 /* d_Tests.swift */,
@@ -409,6 +414,7 @@
 				91A54EDE2643B60F00400677 /* KS_b_Tests.swift */,
 				91A54EE02643B66800400677 /* KS_C__Tests.swift */,
 				91A54EE22643B6B400400677 /* KS_cc_Tests.swift */,
+				9140E6DC264554320021C2FB /* KS_cgg_Tests.swift */,
 				9145AA82264543BF0056976B /* KS_cG_Tests.swift */,
 				91A54EE42643B6F400400677 /* KS_ciw_Tests.swift */,
 				91054E8E2645079B00CC0ACC /* KS_control_d_Tests.swift */,
@@ -605,6 +611,7 @@
 				912B92D826443C8F007F44E1 /* yy_Tests.swift in Sources */,
 				91E304DD2643F24E004D9933 /* I__Tests.swift in Sources */,
 				91054E8F2645079B00CC0ACC /* KS_control_d_Tests.swift in Sources */,
+				9140E6E1264555390021C2FB /* cgg_Tests.swift in Sources */,
 				91A54EF52643B98700400677 /* KS_l_Tests.swift in Sources */,
 				91E304F12643F528004D9933 /* X__Tests.swift in Sources */,
 				91BFF31B26403F95003B7A2A /* KeyCombinationTests.swift in Sources */,
@@ -654,6 +661,7 @@
 				91A54F052643BC3F00400677 /* KS___Tests.swift in Sources */,
 				91E304C52643ED2E004D9933 /* b_Tests.swift in Sources */,
 				91E304CB2643EF64004D9933 /* d_Tests.swift in Sources */,
+				9140E6DD264554320021C2FB /* KS_cgg_Tests.swift in Sources */,
 				91E304FD2643FB2D004D9933 /* NotImplementedOrDontExist_Tests.swift in Sources */,
 				91A54EE72643B76F00400677 /* KS_dd_Tests.swift in Sources */,
 			);
