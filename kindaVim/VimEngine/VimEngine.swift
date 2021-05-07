@@ -151,7 +151,7 @@ class VimEngine {
             
             return keyboardStrategy.cc()
         case [.c, .g]:
-            retur n nil
+            return nil
         case [.c, .g, .g]:
             enterInsertMode()
 
@@ -178,6 +178,10 @@ class VimEngine {
             return nil
         case [.d, .i, .w]:
             return nil
+        case [.d, .G]:
+            enterCommandMode()
+            
+            return keyboardStrategy.dG()
         case [.g, .g]:
             enterCommandMode()
             
