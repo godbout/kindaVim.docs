@@ -43,34 +43,34 @@ struct KeyboardStrategy: KeyboardStrategyProtocol {
 
     func a() -> [KeyCombination] {
         return [
-            KeyCombination(key: .right, action: .both)
+            KeyCombination(key: .right)
         ]
     }
 
     func A() -> [KeyCombination] {
         return [
-            KeyCombination(key: .e, control: true, action: .both)
+            KeyCombination(key: .e, control: true)
         ]
     }
 
     func b() -> [KeyCombination] {
         return [
-            KeyCombination(key: .left, option: true, action: .both)
+            KeyCombination(key: .left, option: true)
         ]
     }
 
     func C() -> [KeyCombination] {
         return [
-            KeyCombination(key: .e, control: true, shift: true, action: .both),
-            KeyCombination(key: .delete, action: .both)
+            KeyCombination(key: .e, control: true, shift: true),
+            KeyCombination(key: .delete)
         ]
     }
 
     func cc() -> [KeyCombination] {
         return [
-            KeyCombination(key: .e, control: true, action: .both),
-            KeyCombination(key: .a, control: true, shift: true, action: .both),
-            KeyCombination(key: .delete, action: .both)
+            KeyCombination(key: .e, control: true),
+            KeyCombination(key: .a, control: true, shift: true),
+            KeyCombination(key: .delete)
         ]
     }
 
@@ -85,36 +85,36 @@ struct KeyboardStrategy: KeyboardStrategyProtocol {
     func cG() -> [KeyCombination] {
         return [
             KeyCombination(key: .a, control: true),
-            KeyCombination(key: .down, shift: true, command: true, action: .both),
-            KeyCombination(key: .delete, action: .both)
+            KeyCombination(key: .down, shift: true, command: true),
+            KeyCombination(key: .delete)
         ]
     }
 
     func ciw() -> [KeyCombination] {
         return [
-            KeyCombination(key: .right, option: true, action: .both),
-            KeyCombination(key: .left, option: true, shift: true, action: .both),
-            KeyCombination(key: .delete, action: .both)
+            KeyCombination(key: .right, option: true),
+            KeyCombination(key: .left, option: true, shift: true),
+            KeyCombination(key: .delete)
         ]
     }
     
     func controlD() -> [KeyCombination] {
         return [
-            KeyCombination(key: .fnDown, action: .both)
+            KeyCombination(key: .fnDown)
         ]
     }
 
     func dd() -> [KeyCombination] {
         return [
-            KeyCombination(key: .e, control: true, action: .both),
-            KeyCombination(key: .a, control: true, shift: true, action: .both),
-            KeyCombination(key: .delete, action: .both),
-            KeyCombination(key: .down, action: .both),
-            KeyCombination(key: .a, control: true, action: .both),
-            KeyCombination(key: .delete, action: .both),
-            KeyCombination(key: .a, control: true, action: .both),
-            KeyCombination(key: .right, option: true, action: .both),
-            KeyCombination(key: .left, option: true, action: .both)
+            KeyCombination(key: .e, control: true),
+            KeyCombination(key: .a, control: true, shift: true),
+            KeyCombination(key: .delete),
+            KeyCombination(key: .down),
+            KeyCombination(key: .a, control: true),
+            KeyCombination(key: .delete),
+            KeyCombination(key: .a, control: true),
+            KeyCombination(key: .right, option: true),
+            KeyCombination(key: .left, option: true)
         ]
     }
 
@@ -132,121 +132,121 @@ struct KeyboardStrategy: KeyboardStrategyProtocol {
     func dG() -> [KeyCombination] {
         return [
             KeyCombination(key: .a, control: true),
-            KeyCombination(key: .down, shift: true, command: true, action: .both),
-            KeyCombination(key: .delete, action: .both)
+            KeyCombination(key: .down, shift: true, command: true),
+            KeyCombination(key: .delete)
         ]
     }
 
     func G() -> [KeyCombination] {
         return [
-            KeyCombination(key: .down, command: true, action: .both)
+            KeyCombination(key: .down, command: true)
         ]
     }
 
     func gg() -> [KeyCombination] {
         return [
-            KeyCombination(key: .up, command: true, action: .both)
+            KeyCombination(key: .up, command: true)
         ]
     }
 
     func h() -> [KeyCombination] {
         return [
-            KeyCombination(key: .left, action: .both)
+            KeyCombination(key: .left)
         ]
     }
 
     func I() -> [KeyCombination] {
         return [
-            KeyCombination(key: .a, control: true, action: .both)
+            KeyCombination(key: .a, control: true)
         ]
     }
 
     func j() -> [KeyCombination] {
         return [
-            KeyCombination(key: .down, action: .both)
+            KeyCombination(key: .down)
         ]
     }
     
     func k() -> [KeyCombination] {
         return [
-            KeyCombination(key: .up, action: .both)
+            KeyCombination(key: .up)
         ]
     }
     
     func l() -> [KeyCombination] {
         return [
-            KeyCombination(key: .right, action: .both)
+            KeyCombination(key: .right)
         ]
     }
 
     func o() -> [KeyCombination] {
         return [
-            KeyCombination(key: .e, control: true, action: .both),
-            KeyCombination(key: .enter, action: .both)
+            KeyCombination(key: .e, control: true),
+            KeyCombination(key: .enter)
         ]
     }
     
     func O() -> [KeyCombination] {
         return [
-            KeyCombination(key: .a, control: true, action: .both),
-            KeyCombination(key: .enter, action: .both),
-            KeyCombination(key: .up, action: .both)
+            KeyCombination(key: .a, control: true),
+            KeyCombination(key: .enter),
+            KeyCombination(key: .up)
         ]
     }
 
     func controlR() -> [KeyCombination] {
         return [
-            KeyCombination(key: .z, shift: true, command: true, action: .both)
+            KeyCombination(key: .z, shift: true, command: true)
         ]
     }
     
     func u() -> [KeyCombination] {
         return [
-            KeyCombination(key: .z, command: true, action: .both)
+            KeyCombination(key: .z, command: true)
         ]
     }
     
     func controlU() -> [KeyCombination] {
         return [
-            KeyCombination(key: .fnUp, action: .both)
+            KeyCombination(key: .fnUp)
         ]
     }
 
     func w() -> [KeyCombination] {
         return [
-            KeyCombination(key: .right, option: true, action: .both),
-            KeyCombination(key: .right, option: true, action: .both),
-            KeyCombination(key: .left, option: true, action: .both)
+            KeyCombination(key: .right, option: true),
+            KeyCombination(key: .right, option: true),
+            KeyCombination(key: .left, option: true)
         ]
     }
 
     func x() -> [KeyCombination] {
         return [
-            KeyCombination(key: .d, control: true, action: .both),
+            KeyCombination(key: .d, control: true),
         ]
     }
     
     func X() -> [KeyCombination] {
         return [
-            KeyCombination(key: .delete, action: .both)
+            KeyCombination(key: .delete)
         ]
     }
 
     func yy() -> [KeyCombination] {
         return [
-            KeyCombination(key: .e, control: true, action: .both),
-            KeyCombination(key: .a, control: true, shift: true, action: .both),
-            KeyCombination(key: .c, command: true, action: .both),
-            KeyCombination(key: .right, action: .both)
+            KeyCombination(key: .e, control: true),
+            KeyCombination(key: .a, control: true, shift: true),
+            KeyCombination(key: .c, command: true),
+            KeyCombination(key: .right)
         ]
     }
 
     func yiw() -> [KeyCombination] {
         return [
-            KeyCombination(key: .left, option: true, action: .both),
-            KeyCombination(key: .right, option: true, shift: true, action: .both),
+            KeyCombination(key: .left, option: true),
+            KeyCombination(key: .right, option: true, shift: true),
             KeyCombination(key: .c, command: true),
-            KeyCombination(key: .right, action: .both)
+            KeyCombination(key: .right)
         ]
     }
 
@@ -258,15 +258,15 @@ struct KeyboardStrategy: KeyboardStrategyProtocol {
 
     func underscore() -> [KeyCombination] {
         return [
-            KeyCombination(key: .a, control: true, action: .both),
-            KeyCombination(key: .right, option: true, action: .both),
-            KeyCombination(key: .left, option: true, action: .both)
+            KeyCombination(key: .a, control: true),
+            KeyCombination(key: .right, option: true),
+            KeyCombination(key: .left, option: true)
         ]
     }
 
     func zero() -> [KeyCombination] {
         return [
-            KeyCombination(key: .a, control: true, action: .both)
+            KeyCombination(key: .a, control: true)
         ]
     }
 

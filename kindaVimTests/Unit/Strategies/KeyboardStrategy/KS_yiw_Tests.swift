@@ -7,10 +7,10 @@ class KS_yiw_Tests: KS_BaseTests {
         let transformedKeys = keyboardStrategy.yiw()
 
         guard transformedKeys.count == 4 else { return XCTFail() }
-        XCTAssertEqual(transformedKeys[0], KeyCombination(key: .left, option: true, action: .both))
-        XCTAssertEqual(transformedKeys[1], KeyCombination(key: .right, option: true, shift: true, action: .both))
+        XCTAssertEqual(transformedKeys[0], KeyCombination(key: .left, option: true))
+        XCTAssertEqual(transformedKeys[1], KeyCombination(key: .right, option: true, shift: true))
         XCTAssertEqual(transformedKeys[2], KeyCombination(key: .c, command: true))
-        XCTAssertEqual(transformedKeys[3], KeyCombination(key: .right, action: .both))
+        XCTAssertEqual(transformedKeys[3], KeyCombination(key: .right))
     }
 
 }
