@@ -34,6 +34,12 @@ class KeyboardStrategyMock: KeyboardStrategyProtocol {
 
         return []
     }
+    
+    func cG() -> [KeyCombination] {
+        functionCalled = #function
+
+        return []
+    }
 
     func ciw() -> [KeyCombination] {
         functionCalled = #function

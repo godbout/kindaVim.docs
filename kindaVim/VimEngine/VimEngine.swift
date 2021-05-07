@@ -111,7 +111,7 @@ class VimEngine {
                 ()
             }
         } else {
-            switch keyCombination.key {
+            switch keyCombination.vimKey {
             case .a:
                 fallthrough
             case .c:
@@ -120,10 +120,12 @@ class VimEngine {
                 fallthrough
             case .g:
                 fallthrough
+            case .G:
+                fallthrough
             case .i:
                 fallthrough
             case .w:
-                operatorPendingBuffer.append(keyCombination.vimKey!)
+                fallthrough
             case .y:
                 operatorPendingBuffer.append(keyCombination.vimKey!)
             default:
@@ -148,6 +150,10 @@ class VimEngine {
             enterInsertMode()
             
             return keyboardStrategy.cc()
+        case [.c, .G]:
+            enterInsertMode()
+            
+            return keyboardStrategy.cG()
         case [.c, .i]:
             return nil
         case [.c, .i, .w]:
