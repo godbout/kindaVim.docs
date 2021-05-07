@@ -124,6 +124,8 @@ class VimEngine {
                 fallthrough
             case .i:
                 fallthrough
+            case .j:
+                fallthrough
             case .w:
                 fallthrough
             case .y:
@@ -184,6 +186,10 @@ class VimEngine {
             return nil
         case [.d, .i, .w]:
             return nil
+        case [.d, .j]:
+            enterCommandMode()
+            
+            return keyboardStrategy.dj()
         case [.d, .G]:
             enterCommandMode()
             

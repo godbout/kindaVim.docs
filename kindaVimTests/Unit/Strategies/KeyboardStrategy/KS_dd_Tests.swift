@@ -14,8 +14,8 @@ class KS_dd_Tests: KS_BaseTests {
         XCTAssertEqual(keyCombinations[4], KeyCombination(key: .a, control: true))
         XCTAssertEqual(keyCombinations[5], KeyCombination(key: .delete))
         XCTAssertEqual(keyCombinations[6], KeyCombination(key: .a, control: true))
-        XCTAssertEqual(keyCombinations[7], KeyCombination(key: .right, option: true))
-        XCTAssertEqual(keyCombinations[8], KeyCombination(key: .left, option: true))
+        XCTAssertEqual(keyCombinations[7], KeyCombination(key: .right, command: true))
+        XCTAssertEqual(keyCombinations[8], KeyCombination(key: .left, command: true))
     }
     
 }
