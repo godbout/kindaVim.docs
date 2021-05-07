@@ -51,6 +51,8 @@ class VimEngine {
                 post(keyboardStrategy.C())
             case .d:
                 enterOperatorPendingMode(with: .d)
+            case .controlD:
+                post(keyboardStrategy.controlD())
             case .g:
                 enterOperatorPendingMode(with: .g)
             case .G:

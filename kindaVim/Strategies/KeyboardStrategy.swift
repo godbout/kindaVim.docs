@@ -8,6 +8,7 @@ protocol KeyboardStrategyProtocol {
     func C() -> [KeyCombination]
     func cc() -> [KeyCombination]
     func ciw() -> [KeyCombination]
+    func controlD() -> [KeyCombination]
     func dd() -> [KeyCombination]
     func G() -> [KeyCombination]
     func gg() -> [KeyCombination]
@@ -74,6 +75,12 @@ struct KeyboardStrategy: KeyboardStrategyProtocol {
             KeyCombination(key: .right, option: true, action: .both),
             KeyCombination(key: .left, option: true, shift: true, action: .both),
             KeyCombination(key: .delete, action: .both)
+        ]
+    }
+    
+    func controlD() -> [KeyCombination] {
+        return [
+            KeyCombination(key: .fnDown, action: .both)
         ]
     }
 

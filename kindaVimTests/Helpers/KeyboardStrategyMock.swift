@@ -40,6 +40,12 @@ class KeyboardStrategyMock: KeyboardStrategyProtocol {
 
         return []
     }
+    
+    func controlD() -> [KeyCombination] {
+        functionCalled = #function
+
+        return []
+    }
 
     func dd() -> [KeyCombination] {
         functionCalled = #function
