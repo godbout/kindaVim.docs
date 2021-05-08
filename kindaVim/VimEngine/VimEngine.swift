@@ -127,6 +127,8 @@ class VimEngine {
             switch keyCombination.vimKey {
             case .a:
                 fallthrough
+            case .b:
+                fallthrough
             case .c:
                 fallthrough
             case .d:
@@ -161,6 +163,10 @@ class VimEngine {
             return nil
         case [.c, .a, .w]:
             return nil
+        case [.c, .b]:
+            enterInsertMode()
+            
+            return keyboardStrategy.cb()
         case [.c, .c]:
             enterInsertMode()
             
