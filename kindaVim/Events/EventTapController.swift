@@ -1,3 +1,4 @@
+import AppKit
 import Foundation
 
 struct EventTapController {
@@ -19,10 +20,16 @@ struct EventTapController {
             ***
             """
         )
+        
+        print(
+            """
+            on application: \(String(describing: NSWorkspace.shared.frontmostApplication?.bundleIdentifier))
+            """
+        )
 
         let keyCombinationPressed = KeyCombinationAdaptor.toKeyCombination(from: event)
 
-        if GlobalEventsController.stole(keyCombination: keyCombinationPressed) == true {
+        if GlobalEventsController.handle(keyCombination: keyCombinationPressed) == true {
             return nil
         }
         

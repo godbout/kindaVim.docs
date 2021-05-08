@@ -1,9 +1,18 @@
+import AppKit
 import Foundation
 
 struct GlobalEventsController {
     
-    static func stole(keyCombination: KeyCombination?) -> Bool {
-        if VimEngine.shared.currentMode != .insert {
+    static let appsToIgnore: [String] = [
+        "com.sublimetext.4",
+    ]
+    
+    static func handle(keyCombination: KeyCombination?) -> Bool {
+        if onIgnoredApp() {
+            return false
+        }
+        
+        if inCommandModeOrOperatorPendingMode() {
             guard let implementedKeyCombination = keyCombination else { return true }
 
             VimEngine.shared.handle(keyCombination: implementedKeyCombination)
@@ -22,6 +31,17 @@ struct GlobalEventsController {
         }
 
         return false
+    }
+    
+    private static func onIgnoredApp() -> Bool {
+        return appsToIgnore.contains(
+            NSWorkspace.shared.frontmostApplication?.bundleIdentifier ?? ""
+        )
+    }
+    
+    private static func inCommandModeOrOperatorPendingMode() -> Bool {
+        return VimEngine.shared.currentMode == .command
+            || VimEngine.shared.currentMode == .operatorPending
     }
     
     private static func globalVimEngineHotkeyIsPressed(_ keyCombination: KeyCombination) -> Bool {
