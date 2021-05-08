@@ -191,6 +191,10 @@ class VimEngine {
             return nil
         case [.d, .a, .w]:
             return nil
+        case [.d, .b]:
+            enterCommandMode()
+
+            return keyboardStrategy.db()
         case [.d, .d]:
             enterCommandMode()
 

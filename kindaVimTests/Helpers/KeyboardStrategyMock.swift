@@ -29,7 +29,6 @@ class KeyboardStrategyMock: KeyboardStrategyProtocol {
         return []
     }
 
-
     func cb() -> [KeyCombination] {
         functionCalled = #function
 
@@ -61,6 +60,12 @@ class KeyboardStrategyMock: KeyboardStrategyProtocol {
     }
     
     func controlD() -> [KeyCombination] {
+        functionCalled = #function
+
+        return []
+    }
+
+    func db() -> [KeyCombination] {
         functionCalled = #function
 
         return []
