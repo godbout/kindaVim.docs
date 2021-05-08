@@ -11,7 +11,7 @@ class VimEngine {
     static var shared = VimEngine()
     
     private(set) var currentMode: VimEngineMode = .insert
-    private(set) var operatorPendingBuffer = [VimKey]()
+    private(set) var operatorPendingBuffer = [KeyCombination]()
 
     var keyboardStrategy: KeyboardStrategyProtocol = KeyboardStrategy()
     var accessibilityStrategy: AccessibilityStrategyProtocol = AccessibilityStrategy()
@@ -57,17 +57,17 @@ class VimEngine {
             case .b:
                 post(keyboardStrategy.b())
             case .c:
-                enterOperatorPendingMode(with: .c)
+                enterOperatorPendingMode(with: keyCombination)
             case .C:
                 enterInsertMode()
 
                 post(keyboardStrategy.C())
             case .d:
-                enterOperatorPendingMode(with: .d)
+                enterOperatorPendingMode(with: keyCombination)
             case .controlD:
                 post(keyboardStrategy.controlD())
             case .g:
-                enterOperatorPendingMode(with: .g)
+                enterOperatorPendingMode(with: keyCombination)
             case .G:
                 post(keyboardStrategy.G())
             case .h:
@@ -106,6 +106,8 @@ class VimEngine {
                 enterInsertMode()
 
                 post(keyboardStrategy.O())
+            case .r:
+                enterOperatorPendingMode(with: keyCombination)
             case .controlR:
                 post(keyboardStrategy.controlR())
             case .s:
@@ -123,53 +125,29 @@ class VimEngine {
             case .X:
                 post(keyboardStrategy.X())
             case .y:
-                enterOperatorPendingMode(with: .y)
+                enterOperatorPendingMode(with: keyCombination)
             default:
                 ()
             }
         } else {
-            switch keyCombination.vimKey {
-            case .a:
-                fallthrough
-            case .b:
-                fallthrough
-            case .c:
-                fallthrough
-            case .d:
-                fallthrough
-            case .g:
-                fallthrough
-            case .G:
-                fallthrough
-            case .i:
-                fallthrough
-            case .j:
-                fallthrough
-            case .w:
-                fallthrough
-            case .y:
-                operatorPendingBuffer.append(keyCombination.vimKey!)
-            default:
-                resetOperatorPendingBuffer()
-            }
+            operatorPendingBuffer.append(keyCombination)
 
             if let operatorCommand = operatorCommand() {
                 post(operatorCommand)
+                resetOperatorPendingBuffer()
             }
         }
     }
     
     private func operatorCommand() -> [KeyCombination]? {
-        print(operatorPendingBuffer)
-        
-        switch operatorPendingBuffer {
+        switch operatorPendingBuffer.map({ $0.vimKey }) {
         case [.c, .a]:
             return nil
         case [.c, .a, .w]:
             return nil
         case [.c, .b]:
             enterInsertMode()
-            
+
             return keyboardStrategy.cb()
         case [.c, .c]:
             enterInsertMode()
@@ -236,10 +214,17 @@ class VimEngine {
 
             return keyboardStrategy.yy()
         default:
+            // special case of the simple-change r command
+            if operatorPendingBuffer.first?.vimKey == .r, let replacement = operatorPendingBuffer.last {
+                enterNormalMode()
+
+                return keyboardStrategy.r(with: replacement)
+            }
+
             enterNormalMode()
             
             return nil
-        }        
+        }
     }
     
     func enterNormalMode() {
@@ -261,9 +246,9 @@ class VimEngine {
         operatorPendingBuffer = []
     }
     
-    private func enterOperatorPendingMode(with vimKey: VimKey) {
+    private func enterOperatorPendingMode(with keyCombination: KeyCombination) {
         currentMode = .operatorPending
-        operatorPendingBuffer.append(vimKey)
+        operatorPendingBuffer.append(keyCombination)
     }
 
     private func post(_ keyCombinations: [KeyCombination]) {

@@ -34,6 +34,8 @@
 		9140E6E1264555390021C2FB /* cgg_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9140E6E0264555390021C2FB /* cgg_Tests.swift */; };
 		9145AA83264543BF0056976B /* KS_cG_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9145AA82264543BF0056976B /* KS_cG_Tests.swift */; };
 		9145AA85264545480056976B /* cG_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9145AA84264545480056976B /* cG_Tests.swift */; };
+		91473C7E2647009000AA52D5 /* KS_r_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91473C7D2647009000AA52D5 /* KS_r_Tests.swift */; };
+		91473C82264700C200AA52D5 /* r_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91473C81264700C200AA52D5 /* r_Tests.swift */; };
 		91482E40263DBE8300F10ADC /* KeyboardStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91482E3F263DBE8300F10ADC /* KeyboardStrategy.swift */; };
 		917458F1262EB934007D3855 /* StatusBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917458F0262EB934007D3855 /* StatusBarController.swift */; };
 		918024B926386E95004FD719 /* AppComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918024B826386E95004FD719 /* AppComponent.swift */; };
@@ -154,6 +156,8 @@
 		9140E6E0264555390021C2FB /* cgg_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cgg_Tests.swift; sourceTree = "<group>"; };
 		9145AA82264543BF0056976B /* KS_cG_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KS_cG_Tests.swift; sourceTree = "<group>"; };
 		9145AA84264545480056976B /* cG_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cG_Tests.swift; sourceTree = "<group>"; };
+		91473C7D2647009000AA52D5 /* KS_r_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KS_r_Tests.swift; sourceTree = "<group>"; };
+		91473C81264700C200AA52D5 /* r_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = r_Tests.swift; sourceTree = "<group>"; };
 		91482E3F263DBE8300F10ADC /* KeyboardStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardStrategy.swift; sourceTree = "<group>"; };
 		917458F0262EB934007D3855 /* StatusBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBarController.swift; sourceTree = "<group>"; };
 		918024B826386E95004FD719 /* AppComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppComponent.swift; sourceTree = "<group>"; };
@@ -343,6 +347,7 @@
 				91E304DE2643F2C0004D9933 /* l_Tests.swift */,
 				91E304E42643F3AC004D9933 /* o_Tests.swift */,
 				91E304E62643F3ED004D9933 /* O__Tests.swift */,
+				91473C81264700C200AA52D5 /* r_Tests.swift */,
 				91E304E82643F421004D9933 /* control_r_Tests.swift */,
 				918C26562646D32500C39ADA /* s_Tests.swift */,
 				91E304EA2643F483004D9933 /* u_Tests.swift */,
@@ -463,6 +468,7 @@
 				91A54EF42643B98700400677 /* KS_l_Tests.swift */,
 				91A54EF62643B9F900400677 /* KS_o_Tests.swift */,
 				91A54EF82643BA5A00400677 /* KS_O__Tests.swift */,
+				91473C7D2647009000AA52D5 /* KS_r_Tests.swift */,
 				91A54EFA2643BAB800400677 /* KS_control_r_Tests.swift */,
 				918C26502646D29000C39ADA /* KS_s_Tests.swift */,
 				91A54EFC2643BB2A00400677 /* KS_u_Tests.swift */,
@@ -648,11 +654,13 @@
 				91A54EF92643BA5A00400677 /* KS_O__Tests.swift in Sources */,
 				912B92D826443C8F007F44E1 /* yy_Tests.swift in Sources */,
 				91E304DD2643F24E004D9933 /* I__Tests.swift in Sources */,
+				91473C82264700C200AA52D5 /* r_Tests.swift in Sources */,
 				91054E8F2645079B00CC0ACC /* KS_control_d_Tests.swift in Sources */,
 				9140E6E1264555390021C2FB /* cgg_Tests.swift in Sources */,
 				91A54EF52643B98700400677 /* KS_l_Tests.swift in Sources */,
 				91E304F12643F528004D9933 /* X__Tests.swift in Sources */,
 				91BFF31B26403F95003B7A2A /* KeyCombinationTests.swift in Sources */,
+				91473C7E2647009000AA52D5 /* KS_r_Tests.swift in Sources */,
 				91E304E52643F3AC004D9933 /* o_Tests.swift in Sources */,
 				91A54EFD2643BB2A00400677 /* KS_u_Tests.swift in Sources */,
 				91A54EFF2643BB7000400677 /* KS_w_Tests.swift in Sources */,
