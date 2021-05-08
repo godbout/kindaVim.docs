@@ -6,39 +6,61 @@ enum KeyCode: Int64, RawRepresentable {
     case c = 8
     case d = 2
     case e = 14
-
+    case f = 3
     case g = 5
     case h = 4
     case i = 34
     case j = 38
     case k = 40
     case l = 37
-
+    case m = 46
+    case n = 45
     case o = 31
-
+    case p = 35
+    case q = 12
     case r = 15
     case s = 1
+    case t = 17
     case u = 32
-
+    case v = 9
     case w = 13
-
     case x = 7
     case y = 16
     case z = 6
 
+    case zero = 29
+    case one = 18
+    case two = 19
+    case three = 20
+    case four = 21
+    case five = 23
+    case six = 22
+    case seven = 26
+    case eight = 28
+    case nine = 25
+
+    case backslash = 42
+    case backtick = 50
+    case comma = 43
     case delete = 51
+    case dot = 47
     case down = 125
     case enter = 36
     case escape = 53
-    case four = 21
+    case equal = 24
+    case fnDown = 121
+    case fnLeft = 115
+    case fnRight = 119
+    case fnUp = 116
     case left = 123
+    case leftBracket = 33
     case minus = 27
     case right = 124
+    case rightBracket = 30
+    case semicolon = 41
+    case singleQuote = 39
+    case slash = 44
     case up = 126
-    case zero = 29
-    
-    case fnUp = 116
-    case fnDown = 121
 }
 
 enum KeyCombinationAction {
@@ -51,8 +73,7 @@ enum VimKey {
     case a, A
     case b
     case c, C
-    case d
-    case controlD
+    case d, controlD
 
     case g, G
     case h
@@ -63,12 +84,10 @@ enum VimKey {
 
     case o, O
 
-    case r
-    case controlR
+    case r, controlR
     case s
 
-    case u
-    case controlU
+    case u, controlU
 
     case w
 
