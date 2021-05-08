@@ -108,6 +108,10 @@ class VimEngine {
                 post(keyboardStrategy.O())
             case .controlR:
                 post(keyboardStrategy.controlR())
+            case .s:
+                enterInsertMode()
+                
+                post(keyboardStrategy.s())
             case .u:
                 post(keyboardStrategy.u())
             case .controlU:

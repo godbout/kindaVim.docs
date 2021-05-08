@@ -37,6 +37,8 @@
 		91482E40263DBE8300F10ADC /* KeyboardStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91482E3F263DBE8300F10ADC /* KeyboardStrategy.swift */; };
 		917458F1262EB934007D3855 /* StatusBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917458F0262EB934007D3855 /* StatusBarController.swift */; };
 		918024B926386E95004FD719 /* AppComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918024B826386E95004FD719 /* AppComponent.swift */; };
+		918C26512646D29000C39ADA /* KS_s_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918C26502646D29000C39ADA /* KS_s_Tests.swift */; };
+		918C26572646D32500C39ADA /* s_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918C26562646D32500C39ADA /* s_Tests.swift */; };
 		9197C0852636695A006C696A /* KeyCombinationAdaptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9197C0842636695A006C696A /* KeyCombinationAdaptor.swift */; };
 		9197C08A26366A3B006C696A /* KeyCombinationAdaptorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9197C08926366A3B006C696A /* KeyCombinationAdaptorTests.swift */; };
 		919DEB632632C85B0052D514 /* KeyCombination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919DEB622632C85B0052D514 /* KeyCombination.swift */; };
@@ -155,6 +157,8 @@
 		91482E3F263DBE8300F10ADC /* KeyboardStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardStrategy.swift; sourceTree = "<group>"; };
 		917458F0262EB934007D3855 /* StatusBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBarController.swift; sourceTree = "<group>"; };
 		918024B826386E95004FD719 /* AppComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppComponent.swift; sourceTree = "<group>"; };
+		918C26502646D29000C39ADA /* KS_s_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KS_s_Tests.swift; sourceTree = "<group>"; };
+		918C26562646D32500C39ADA /* s_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = s_Tests.swift; sourceTree = "<group>"; };
 		9197C0842636695A006C696A /* KeyCombinationAdaptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyCombinationAdaptor.swift; sourceTree = "<group>"; };
 		9197C08926366A3B006C696A /* KeyCombinationAdaptorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyCombinationAdaptorTests.swift; sourceTree = "<group>"; };
 		919DEB622632C85B0052D514 /* KeyCombination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyCombination.swift; sourceTree = "<group>"; };
@@ -340,6 +344,7 @@
 				91E304E42643F3AC004D9933 /* o_Tests.swift */,
 				91E304E62643F3ED004D9933 /* O__Tests.swift */,
 				91E304E82643F421004D9933 /* control_r_Tests.swift */,
+				918C26562646D32500C39ADA /* s_Tests.swift */,
 				91E304EA2643F483004D9933 /* u_Tests.swift */,
 				91054E8C264501F500CC0ACC /* control_u_Tests.swift */,
 				91E304EC2643F4B8004D9933 /* w_Tests.swift */,
@@ -459,6 +464,7 @@
 				91A54EF62643B9F900400677 /* KS_o_Tests.swift */,
 				91A54EF82643BA5A00400677 /* KS_O__Tests.swift */,
 				91A54EFA2643BAB800400677 /* KS_control_r_Tests.swift */,
+				918C26502646D29000C39ADA /* KS_s_Tests.swift */,
 				91A54EFC2643BB2A00400677 /* KS_u_Tests.swift */,
 				91054E8A2644FE7D00CC0ACC /* KS_control_u_Tests.swift */,
 				91A54EFE2643BB7000400677 /* KS_w_Tests.swift */,
@@ -654,6 +660,7 @@
 				91E304F52643F5B0004D9933 /* __Tests.swift in Sources */,
 				91A54EF12643B8BA00400677 /* KS_j_Tests.swift in Sources */,
 				91DA6EEB26455A0D00CF7504 /* KS_dgg_Tests.swift in Sources */,
+				918C26512646D29000C39ADA /* KS_s_Tests.swift in Sources */,
 				91E304D92643F1EF004D9933 /* h_Tests.swift in Sources */,
 				91E304E12643F2F8004D9933 /* j_Tests.swift in Sources */,
 				91DA6EE32645581300CF7504 /* KS_dG.swift in Sources */,
@@ -694,6 +701,7 @@
 				91E304D32643F0C3004D9933 /* g_Tests.swift in Sources */,
 				9107EE192646BD15003575A7 /* db_Tests.swift in Sources */,
 				91E304C72643EEB8004D9933 /* A__Tests.swift in Sources */,
+				918C26572646D32500C39ADA /* s_Tests.swift in Sources */,
 				91E304DF2643F2C0004D9933 /* l_Tests.swift in Sources */,
 				9107EE092646B92D003575A7 /* KS_cb_Tests.swift in Sources */,
 				91E304BF2643E843004D9933 /* KS_BaseTests.swift in Sources */,

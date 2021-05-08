@@ -155,6 +155,12 @@ class KeyboardStrategyMock: KeyboardStrategyProtocol {
         return []
     }
 
+    func s() -> [KeyCombination] {
+        functionCalled = #function
+
+        return []
+    }
+
     func u() -> [KeyCombination] {
         functionCalled = #function
         
