@@ -1,7 +1,7 @@
 import Foundation
 
 enum VimEngineMode {
-    case command
+    case normal
     case insert
     case operatorPending
 }
@@ -192,17 +192,17 @@ class VimEngine {
         case [.d, .a, .w]:
             return nil
         case [.d, .b]:
-            enterCommandMode()
+            enterNormalMode()
 
             return keyboardStrategy.db()
         case [.d, .d]:
-            enterCommandMode()
+            enterNormalMode()
 
             return keyboardStrategy.dd()
         case [.d, .g]:
             return nil
         case [.d, .g, .g]:
-            enterCommandMode()
+            enterNormalMode()
             
             return keyboardStrategy.dgg()
         case [.d, .i]:
@@ -210,36 +210,36 @@ class VimEngine {
         case [.d, .i, .w]:
             return nil
         case [.d, .j]:
-            enterCommandMode()
+            enterNormalMode()
             
             return keyboardStrategy.dj()
         case [.d, .G]:
-            enterCommandMode()
+            enterNormalMode()
             
             return keyboardStrategy.dG()
         case [.g, .g]:
-            enterCommandMode()
+            enterNormalMode()
             
             return keyboardStrategy.gg()
         case [.y, .i]:
             return nil
         case [.y, .i, .w]:
-            enterCommandMode()
+            enterNormalMode()
 
             return keyboardStrategy.yiw()
         case [.y, .y]:
-            enterCommandMode()
+            enterNormalMode()
 
             return keyboardStrategy.yy()
         default:
-            enterCommandMode()
+            enterNormalMode()
             
             return nil
         }        
     }
     
-    func enterCommandMode() {
-        currentMode = .command
+    func enterNormalMode() {
+        currentMode = .normal
         resetOperatorPendingBuffer()
 
         Display.tint()

@@ -18,8 +18,8 @@ extension gg_Tests {
         XCTAssertEqual(keyboardStrategyMock.functionCalled, "gg()")
     }
     
-    func test_that_gg_keeps_Vim_in_command_mode() {
-        XCTAssertEqual(VimEngine.shared.currentMode, .command)
+    func test_that_gg_keeps_Vim_in_normal_mode() {
+        XCTAssertEqual(VimEngine.shared.currentMode, .normal)
     }
     
 }

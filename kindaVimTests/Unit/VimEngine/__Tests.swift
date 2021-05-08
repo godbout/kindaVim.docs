@@ -17,8 +17,8 @@ extension __Tests {
         XCTAssertEqual(keyboardStrategyMock.functionCalled, "underscore()")
     }
     
-    func test_that___keeps_Vim_in_command_mode() {
-        XCTAssertEqual(VimEngine.shared.currentMode, .command)
+    func test_that___keeps_Vim_in_normal_mode() {
+        XCTAssertEqual(VimEngine.shared.currentMode, .normal)
     }
     
 }

@@ -17,8 +17,8 @@ extension control_d_Tests {
         XCTAssertEqual(keyboardStrategyMock.functionCalled, "controlD()")
     }
     
-    func test_that_control_d_keeps_Vim_in_command_mode() {
-        XCTAssertEqual(VimEngine.shared.currentMode, .command)
+    func test_that_control_d_keeps_Vim_in_normal_mode() {
+        XCTAssertEqual(VimEngine.shared.currentMode, .normal)
     }
 
 }

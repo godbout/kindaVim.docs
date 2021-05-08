@@ -13,7 +13,7 @@ struct GlobalEventsController {
             return false
         }
         
-        if inCommandModeOrOperatorPendingMode() {
+        if inNormalModeOrOperatorPendingMode() {
             guard let implementedKeyCombination = keyCombination else { return true }
 
             VimEngine.shared.handle(keyCombination: implementedKeyCombination)
@@ -24,9 +24,9 @@ struct GlobalEventsController {
         guard let implementedKeyCombination = keyCombination else { return false }
 
         if globalVimEngineHotkeyIsPressed(implementedKeyCombination) {
-            VimEngine.shared.enterCommandMode()
+            VimEngine.shared.enterNormalMode()
             
-            print("enter mcommand mode")
+            print("enter Normal Mode")
             
             return true
         }
@@ -40,13 +40,13 @@ struct GlobalEventsController {
         )
     }
     
-    private static func inCommandModeOrOperatorPendingMode() -> Bool {
-        return VimEngine.shared.currentMode == .command
+    private static func inNormalModeOrOperatorPendingMode() -> Bool {
+        return VimEngine.shared.currentMode == .normal
             || VimEngine.shared.currentMode == .operatorPending
     }
     
     private static func globalVimEngineHotkeyIsPressed(_ keyCombination: KeyCombination) -> Bool {
-        // temporary for escape to enter Command Mode
+        // temporary for escape to enter Normal Mode
         // and escape again to send escape key to macOS
         return keyCombination.key == .escape
             && keyCombination.control == false

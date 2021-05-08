@@ -9,12 +9,12 @@ class GlobalEventsControllerTests: XCTestCase {
 
 extension GlobalEventsControllerTests {
     
-    func test_that_when_in_insert_mode_the_global_hotkey_press_sets_Vim_in_command_mode() {
+    func test_that_when_in_insert_mode_the_global_hotkey_press_sets_Vim_in_normal_mode() {
         VimEngine.shared.enterInsertMode()
 
         _ = GlobalEventsController.handle(keyCombination: globalHotkeyCombination)        
 
-        XCTAssertEqual(VimEngine.shared.currentMode, .command)
+        XCTAssertEqual(VimEngine.shared.currentMode, .normal)
     }
 
     func test_that_when_in_insert_mode_the_global_hotkey_press_is_captured_and_not_sent_back_to_macOS() {
@@ -25,8 +25,8 @@ extension GlobalEventsControllerTests {
         XCTAssertTrue(captured)
     }
 
-    func test_that_when_in_command_mode_the_global_hotkey_press_is_captured_and_not_sent_back_to_macOS() {
-        VimEngine.shared.enterCommandMode()
+    func test_that_when_in_normal_mode_the_global_hotkey_press_is_captured_and_not_sent_back_to_macOS() {
+        VimEngine.shared.enterNormalMode()
 
         let captured = GlobalEventsController.handle(keyCombination: globalHotkeyCombination)
 
@@ -55,8 +55,8 @@ extension GlobalEventsControllerTests {
         XCTAssertFalse(handled)
     }
     
-    func test_that_in_command_mode_the_events_that_we_implemented_are_captured() {
-        VimEngine.shared.enterCommandMode()
+    func test_that_in_normal_mode_the_events_that_we_implemented_are_captured() {
+        VimEngine.shared.enterNormalMode()
         
         guard let jEvent = CGEvent(keyboardEventSource: nil, virtualKey: 38, keyDown: true) else { return XCTFail() }
 
@@ -66,8 +66,8 @@ extension GlobalEventsControllerTests {
         XCTAssertTrue(handled)
     }
 
-    func test_that_in_command_mode_the_events_that_we_did_not_implement_are_captured() {
-        VimEngine.shared.enterCommandMode()
+    func test_that_in_normal_mode_the_events_that_we_did_not_implement_are_captured() {
+        VimEngine.shared.enterNormalMode()
 
         guard let pEvent = CGEvent(keyboardEventSource: nil, virtualKey: 35, keyDown: true) else { return XCTFail() }
 

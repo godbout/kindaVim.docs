@@ -17,12 +17,8 @@ extension _$_Tests {
         XCTAssertEqual(keyboardStrategyMock.functionCalled, "dollarSign()")
     }
 
-    func test_that_$_keeps_Vim_in_command_mode() {
-        XCTAssertEqual(VimEngine.shared.currentMode, .command)
+    func test_that_$_keeps_Vim_in_normal_mode() {
+        XCTAssertEqual(VimEngine.shared.currentMode, .normal)
     }
     
 }
-
-
-
-

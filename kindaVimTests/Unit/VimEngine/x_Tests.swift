@@ -17,8 +17,8 @@ extension x_Tests {
         XCTAssertEqual(keyboardStrategyMock.functionCalled, "x()")
     }
     
-    func test_that_x_keeps_Vim_in_command_mode() {
-        XCTAssertEqual(VimEngine.shared.currentMode, .command)
+    func test_that_x_keeps_Vim_in_normal_mode() {
+        XCTAssertEqual(VimEngine.shared.currentMode, .normal)
     }
     
 }
