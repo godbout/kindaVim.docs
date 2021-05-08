@@ -25,7 +25,7 @@ struct GlobalEventsController {
         if globalVimEngineHotkeyIsPressed(implementedKeyCombination) {
             VimEngine.shared.enterCommandMode()
             
-            print("enter command mode")
+            print("enter mcommand mode")
             
             return true
         }
