@@ -1,3 +1,4 @@
+import Cocoa
 import Foundation
 
 class AppComponent {
@@ -5,11 +6,16 @@ class AppComponent {
     var vimEngine: VimEngine!
 
     func setUp() {
+        setUpWindowState()
         setUpStatusBar()
         #if !TESTING
             setUpEventTap()
         #endif
         setUpVimEngine()
+    }
+
+    private func setUpWindowState() {
+        NSApplication.shared.hide(self)
     }
 
     private func setUpStatusBar() {
@@ -23,4 +29,5 @@ class AppComponent {
     private func setUpVimEngine() {
         vimEngine = VimEngine.shared
     }
+
 }
