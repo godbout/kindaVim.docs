@@ -6,11 +6,18 @@ class AppComponent {
 
     func setUp() {
         setUpStatusBar()
+        #if !TESTING
+            setUpEventTap()
+        #endif
         setUpVimEngine()
     }
 
     private func setUpStatusBar() {
         statusBarController = StatusBarController()
+    }
+
+    private func setUpEventTap() {
+        _ = EventTapController()
     }
 
     private func setUpVimEngine() {

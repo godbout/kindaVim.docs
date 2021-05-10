@@ -17,10 +17,6 @@ class VimEngine {
     var accessibilityStrategy: AccessibilityStrategyProtocol = AccessibilityStrategy()
 
     private init() {
-        #if !TESTING
-            _ = EventTapController.init()
-        #endif
-        
         print("engine started")
     }
     
