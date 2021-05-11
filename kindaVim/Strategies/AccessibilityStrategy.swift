@@ -14,7 +14,7 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
     func h(on element: AccessibilityElement?) -> AccessibilityElement? {
         guard var element = element else { return nil }
         
-        element.cursorLocation -= 1
+        element.caretLocation -= 1
         
         return element
     }
@@ -22,7 +22,7 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
     func l(on element: AccessibilityElement?) -> AccessibilityElement? {
         guard var element = element else { return nil }
         
-        element.cursorLocation += 1
+        element.caretLocation += 1
         
         return element
     }
@@ -45,7 +45,7 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
             
                 if (AXValueGetValue(value as! AXValue, AXValueType.cfRange, &range)) {
                     accessibilityElement = AccessibilityElement(
-                        cursorLocation: range.location
+                        caretLocation: range.location
                     )
                 }
             }
@@ -59,7 +59,7 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
         print("move using Accessibility Stragety")
 
         var range = CFRange(
-            location: element.cursorLocation,
+            location: element.caretLocation,
             length: 0
         )
                                 
