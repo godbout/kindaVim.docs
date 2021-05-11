@@ -7,14 +7,6 @@ protocol AccessibilityStrategyProtocol {
     
 }
 
-struct AccessibilityElement {
-    
-    var text = ""
-    var cursorLocation = 0
-    var selectionLength = 0
-    
-}
-
 struct AccessibilityStrategy: AccessibilityStrategyProtocol {
     
     static var currentAxFocusedElement: AXUIElement?
@@ -53,8 +45,7 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
             
                 if (AXValueGetValue(value as! AXValue, AXValueType.cfRange, &range)) {
                     accessibilityElement = AccessibilityElement(
-                        cursorLocation: range.location,
-                        selectionLength: range.length
+                        cursorLocation: range.location
                     )
                 }
             }
@@ -66,10 +57,10 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
     
     static func write(element: AccessibilityElement) -> Bool {
         print("move using Accessibility Stragety")
-    
+
         var range = CFRange(
             location: element.cursorLocation,
-            length: element.selectionLength
+            length: 0
         )
                                 
         let newValue = AXValueCreate(AXValueType.cfRange, &range)
