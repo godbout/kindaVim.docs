@@ -1,16 +1,15 @@
-//
-//  ContentView.swift
-//  kindaVim
-//
-//  Created by Guillaume Leclerc on 17/04/2021.
-//
-
 import SwiftUI
 
 struct ContentView: View {
+    @State var textFieldValue = ""
+
     var body: some View {
-        Text("Hello, World!")
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
+        VStack {
+            TextField("single line text field for test", text: $textFieldValue)
+                .padding()
+            Button("wo'hevah", action: {})
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 }
 
