@@ -31,7 +31,6 @@
 		912B92DC26443FF8007F44E1 /* yiw_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912B92DB26443FF8007F44E1 /* yiw_Tests.swift */; };
 		912B92E0264443BD007F44E1 /* KS_yiw_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912B92DF264443BD007F44E1 /* KS_yiw_Tests.swift */; };
 		913EBF48264ADEE700BCCCEE /* AccessibilityElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913EBF47264ADEE700BCCCEE /* AccessibilityElement.swift */; };
-		913EBF4D264ADF3A00BCCCEE /* AccessibilityElementAdaptorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913EBF4C264ADF3A00BCCCEE /* AccessibilityElementAdaptorTests.swift */; };
 		913EBF53264ADF5800BCCCEE /* AccessibilityElementAdaptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913EBF52264ADF5800BCCCEE /* AccessibilityElementAdaptor.swift */; };
 		9140E6DD264554320021C2FB /* KS_cgg_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9140E6DC264554320021C2FB /* KS_cgg_Tests.swift */; };
 		9140E6E1264555390021C2FB /* cgg_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9140E6E0264555390021C2FB /* cgg_Tests.swift */; };
@@ -47,6 +46,10 @@
 		9197C0852636695A006C696A /* KeyCombinationAdaptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9197C0842636695A006C696A /* KeyCombinationAdaptor.swift */; };
 		9197C08A26366A3B006C696A /* KeyCombinationAdaptorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9197C08926366A3B006C696A /* KeyCombinationAdaptorTests.swift */; };
 		919DEB632632C85B0052D514 /* KeyCombination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919DEB622632C85B0052D514 /* KeyCombination.swift */; };
+		919E35C0264DA10000542866 /* AccessibilityElementAdaptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913EBF52264ADF5800BCCCEE /* AccessibilityElementAdaptor.swift */; };
+		919E35C1264DA11E00542866 /* AccessibilityElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913EBF47264ADEE700BCCCEE /* AccessibilityElement.swift */; };
+		919E35C2264DA13700542866 /* AccessibilityStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91013741263DD2430037AB6E /* AccessibilityStrategy.swift */; };
+		919E35C5264E73D400542866 /* AccessibilityElementAdaptorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919E35C4264E73D400542866 /* AccessibilityElementAdaptorTests.swift */; };
 		91A54ED92643B34F00400677 /* KS_$_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A54ED82643B34F00400677 /* KS_$_Tests.swift */; };
 		91A54EDB2643B3FF00400677 /* KS_a_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A54EDA2643B3FF00400677 /* KS_a_Tests.swift */; };
 		91A54EDD2643B58500400677 /* KS_A__Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A54EDC2643B58500400677 /* KS_A__Tests.swift */; };
@@ -124,6 +127,13 @@
 			remoteGlobalIDString = 9128F2AB262AA90C00625B42;
 			remoteInfo = kindaVim;
 		};
+		916BEA8C264DA08300E6E4E5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9128F2A4262AA90C00625B42 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9128F2AB262AA90C00625B42;
+			remoteInfo = kindaVim;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -156,7 +166,6 @@
 		912B92DB26443FF8007F44E1 /* yiw_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = yiw_Tests.swift; sourceTree = "<group>"; };
 		912B92DF264443BD007F44E1 /* KS_yiw_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KS_yiw_Tests.swift; sourceTree = "<group>"; };
 		913EBF47264ADEE700BCCCEE /* AccessibilityElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilityElement.swift; sourceTree = "<group>"; };
-		913EBF4C264ADF3A00BCCCEE /* AccessibilityElementAdaptorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilityElementAdaptorTests.swift; sourceTree = "<group>"; };
 		913EBF52264ADF5800BCCCEE /* AccessibilityElementAdaptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilityElementAdaptor.swift; sourceTree = "<group>"; };
 		9140E6DC264554320021C2FB /* KS_cgg_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KS_cgg_Tests.swift; sourceTree = "<group>"; };
 		9140E6E0264555390021C2FB /* cgg_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cgg_Tests.swift; sourceTree = "<group>"; };
@@ -165,6 +174,8 @@
 		91473C7D2647009000AA52D5 /* KS_r_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KS_r_Tests.swift; sourceTree = "<group>"; };
 		91473C81264700C200AA52D5 /* r_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = r_Tests.swift; sourceTree = "<group>"; };
 		91482E3F263DBE8300F10ADC /* KeyboardStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardStrategy.swift; sourceTree = "<group>"; };
+		916BEA87264DA08300E6E4E5 /* kindaVimUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = kindaVimUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		916BEA8B264DA08300E6E4E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		917458F0262EB934007D3855 /* StatusBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBarController.swift; sourceTree = "<group>"; };
 		918024B826386E95004FD719 /* AppComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppComponent.swift; sourceTree = "<group>"; };
 		918C26502646D29000C39ADA /* KS_s_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KS_s_Tests.swift; sourceTree = "<group>"; };
@@ -172,6 +183,7 @@
 		9197C0842636695A006C696A /* KeyCombinationAdaptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyCombinationAdaptor.swift; sourceTree = "<group>"; };
 		9197C08926366A3B006C696A /* KeyCombinationAdaptorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyCombinationAdaptorTests.swift; sourceTree = "<group>"; };
 		919DEB622632C85B0052D514 /* KeyCombination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyCombination.swift; sourceTree = "<group>"; };
+		919E35C4264E73D400542866 /* AccessibilityElementAdaptorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilityElementAdaptorTests.swift; sourceTree = "<group>"; };
 		91A54ED82643B34F00400677 /* KS_$_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KS_$_Tests.swift; sourceTree = "<group>"; };
 		91A54EDA2643B3FF00400677 /* KS_a_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KS_a_Tests.swift; sourceTree = "<group>"; };
 		91A54EDC2643B58500400677 /* KS_A__Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KS_A__Tests.swift; sourceTree = "<group>"; };
@@ -256,6 +268,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		916BEA84264DA08300E6E4E5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -264,7 +283,6 @@
 			children = (
 				9128B0EB26380AB0007DC80B /* Events */,
 				912687242640634D002E3FB0 /* KeyCombination */,
-				913EBF4B264ADF1D00BCCCEE /* AccessibilityElement */,
 				91482E41263DBF3100F10ADC /* Strategies */,
 				9128B0F2263820C5007DC80B /* VimEngine */,
 			);
@@ -377,6 +395,7 @@
 			children = (
 				9128F2AE262AA90C00625B42 /* kindaVim */,
 				9128F2C4262AA90D00625B42 /* kindaVimTests */,
+				916BEA88264DA08300E6E4E5 /* kindaVimUITests */,
 				9128F2AD262AA90C00625B42 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -386,6 +405,7 @@
 			children = (
 				9128F2AC262AA90C00625B42 /* kindaVim.app */,
 				9128F2C1262AA90D00625B42 /* kindaVimTests.xctest */,
+				916BEA87264DA08300E6E4E5 /* kindaVimUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -435,14 +455,6 @@
 			children = (
 				913EBF47264ADEE700BCCCEE /* AccessibilityElement.swift */,
 				913EBF52264ADF5800BCCCEE /* AccessibilityElementAdaptor.swift */,
-			);
-			path = AccessibilityElement;
-			sourceTree = "<group>";
-		};
-		913EBF4B264ADF1D00BCCCEE /* AccessibilityElement */ = {
-			isa = PBXGroup;
-			children = (
-				913EBF4C264ADF3A00BCCCEE /* AccessibilityElementAdaptorTests.swift */,
 			);
 			path = AccessibilityElement;
 			sourceTree = "<group>";
@@ -520,12 +532,29 @@
 			path = AccessibilityStrategy;
 			sourceTree = "<group>";
 		};
+		916BEA88264DA08300E6E4E5 /* kindaVimUITests */ = {
+			isa = PBXGroup;
+			children = (
+				919E35C3264E73B200542866 /* AccessibilityElement */,
+				916BEA8B264DA08300E6E4E5 /* Info.plist */,
+			);
+			path = kindaVimUITests;
+			sourceTree = "<group>";
+		};
 		919DEB612632C8320052D514 /* VimEngine */ = {
 			isa = PBXGroup;
 			children = (
 				911BB7482632899E006882D8 /* VimEngine.swift */,
 			);
 			path = VimEngine;
+			sourceTree = "<group>";
+		};
+		919E35C3264E73B200542866 /* AccessibilityElement */ = {
+			isa = PBXGroup;
+			children = (
+				919E35C4264E73D400542866 /* AccessibilityElementAdaptorTests.swift */,
+			);
+			path = AccessibilityElement;
 			sourceTree = "<group>";
 		};
 		91C486032641C0AA0003D9D7 /* Helpers */ = {
@@ -575,13 +604,31 @@
 			productReference = 9128F2C1262AA90D00625B42 /* kindaVimTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		916BEA86264DA08300E6E4E5 /* kindaVimUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 916BEA91264DA08300E6E4E5 /* Build configuration list for PBXNativeTarget "kindaVimUITests" */;
+			buildPhases = (
+				916BEA83264DA08300E6E4E5 /* Sources */,
+				916BEA84264DA08300E6E4E5 /* Frameworks */,
+				916BEA85264DA08300E6E4E5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				916BEA8D264DA08300E6E4E5 /* PBXTargetDependency */,
+			);
+			name = kindaVimUITests;
+			productName = kindaVimUITests;
+			productReference = 916BEA87264DA08300E6E4E5 /* kindaVimUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		9128F2A4262AA90C00625B42 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1240;
+				LastSwiftUpdateCheck = 1250;
 				LastUpgradeCheck = 1250;
 				TargetAttributes = {
 					9128F2AB262AA90C00625B42 = {
@@ -589,6 +636,10 @@
 					};
 					9128F2C0262AA90D00625B42 = {
 						CreatedOnToolsVersion = 12.4;
+						TestTargetID = 9128F2AB262AA90C00625B42;
+					};
+					916BEA86264DA08300E6E4E5 = {
+						CreatedOnToolsVersion = 12.5;
 						TestTargetID = 9128F2AB262AA90C00625B42;
 					};
 				};
@@ -608,6 +659,7 @@
 			targets = (
 				9128F2AB262AA90C00625B42 /* kindaVim */,
 				9128F2C0262AA90D00625B42 /* kindaVimTests */,
+				916BEA86264DA08300E6E4E5 /* kindaVimUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -624,6 +676,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		9128F2BF262AA90D00625B42 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		916BEA85264DA08300E6E4E5 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -747,7 +806,17 @@
 				91E304FD2643FB2D004D9933 /* NotImplementedOrDontExist_Tests.swift in Sources */,
 				91A54EE72643B76F00400677 /* KS_dd_Tests.swift in Sources */,
 				9107EE0F2646BA1E003575A7 /* cb_Tests.swift in Sources */,
-				913EBF4D264ADF3A00BCCCEE /* AccessibilityElementAdaptorTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		916BEA83264DA08300E6E4E5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				919E35C2264DA13700542866 /* AccessibilityStrategy.swift in Sources */,
+				919E35C1264DA11E00542866 /* AccessibilityElement.swift in Sources */,
+				919E35C0264DA10000542866 /* AccessibilityElementAdaptor.swift in Sources */,
+				919E35C5264E73D400542866 /* AccessibilityElementAdaptorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -758,6 +827,11 @@
 			isa = PBXTargetDependency;
 			target = 9128F2AB262AA90C00625B42 /* kindaVim */;
 			targetProxy = 9128F2C2262AA90D00625B42 /* PBXContainerItemProxy */;
+		};
+		916BEA8D264DA08300E6E4E5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9128F2AB262AA90C00625B42 /* kindaVim */;
+			targetProxy = 916BEA8C264DA08300E6E4E5 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1099,6 +1173,66 @@
 			};
 			name = Release;
 		};
+		916BEA8E264DA08300E6E4E5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = ZX49WKA8QN;
+				INFOPLIST_FILE = kindaVimUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_BUNDLE_IDENTIFIER = mo.com.sleeplessmind.kindaVimUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = kindaVim;
+			};
+			name = Debug;
+		};
+		916BEA8F264DA08300E6E4E5 /* Testing */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = ZX49WKA8QN;
+				INFOPLIST_FILE = kindaVimUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_BUNDLE_IDENTIFIER = mo.com.sleeplessmind.kindaVimUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = kindaVim;
+			};
+			name = Testing;
+		};
+		916BEA90264DA08300E6E4E5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = ZX49WKA8QN;
+				INFOPLIST_FILE = kindaVimUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_BUNDLE_IDENTIFIER = mo.com.sleeplessmind.kindaVimUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = kindaVim;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1128,6 +1262,16 @@
 				9128F2D9262AA90D00625B42 /* Debug */,
 				910669B4263AA71900583455 /* Testing */,
 				9128F2DA262AA90D00625B42 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		916BEA91264DA08300E6E4E5 /* Build configuration list for PBXNativeTarget "kindaVimUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				916BEA8E264DA08300E6E4E5 /* Debug */,
+				916BEA8F264DA08300E6E4E5 /* Testing */,
+				916BEA90264DA08300E6E4E5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

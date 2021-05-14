@@ -40,6 +40,17 @@
                ReferencedContainer = "container:kindaVim.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            testExecutionOrdering = "random">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "916BEA86264DA08300E6E4E5"
+               BuildableName = "kindaVimUITests.xctest"
+               BlueprintName = "kindaVimUITests"
+               ReferencedContainer = "container:kindaVim.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
