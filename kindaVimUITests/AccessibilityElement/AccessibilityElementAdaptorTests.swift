@@ -11,28 +11,28 @@ class AccessibilityElementAdaptorTests: XCTestCase {
 // from AccessibilityElement to AXUIElement
 extension AccessibilityElementAdaptorTests {
 
-//    func test_that_it_can_convert_an_AccessibilityElement_to_an_AXUIElement() {
-//        let app = XCUIApplication()
-//        app.launch()
-//
-//        let textTyped = "hello you dear"
-//        let accessibilityElement = AccessibilityElement(
-//            text: textTyped,
-//            caretLocation: 3
-//        )
-//
-//        app.textFields.firstMatch.tap()
-//        app.textFields.firstMatch.typeText(textTyped)
-//
-//        let conversionSucceeded = AccessibilityElementAdaptor.toAXFocusedElememt(from: accessibilityElement)
-//
-//        XCTAssertTrue(conversionSucceeded)
-//
-//        let checkBackAccessibilityElement = AccessibilityElementAdaptor.fromAXFocusedElement()
-//
-//        XCTAssertEqual(checkBackAccessibilityElement?.text, textTyped)
-//        XCTAssertEqual(checkBackAccessibilityElement?.caretLocation, 3)
-//    }
+    func test_that_it_can_convert_an_AccessibilityElement_to_an_AXUIElement() {
+        let app = XCUIApplication()
+        app.launch()
+
+        let textTyped = "hello you dear"
+        let accessibilityElement = AccessibilityElement(
+            text: textTyped,
+            caretLocation: 3
+        )
+
+        app.textFields.firstMatch.tap()
+        app.textFields.firstMatch.typeText(textTyped)
+
+        let conversionSucceeded = AccessibilityElementAdaptor.toAXFocusedElememt(from: accessibilityElement)
+
+        XCTAssertTrue(conversionSucceeded)
+
+        let checkBackAccessibilityElement = AccessibilityElementAdaptor.fromAXFocusedElement()
+
+        XCTAssertEqual(checkBackAccessibilityElement?.text, textTyped)
+        XCTAssertEqual(checkBackAccessibilityElement?.caretLocation, 3)
+    }
 
 }
 
