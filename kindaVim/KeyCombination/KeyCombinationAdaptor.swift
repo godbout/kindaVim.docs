@@ -56,7 +56,7 @@ struct KeyCombinationAdaptor {
         return cgEvent
     }
     
-    static func toKeyCombination(from cgEvent: CGEvent) -> KeyCombination? {
+    static func fromCGEvent(from cgEvent: CGEvent) -> KeyCombination? {
         guard let keyCode = KeyCode(rawValue: cgEvent.getIntegerValueField(.keyboardEventKeycode)) else { return nil }
         
         let keyCombination = KeyCombination(

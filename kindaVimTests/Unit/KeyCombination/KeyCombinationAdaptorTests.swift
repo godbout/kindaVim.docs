@@ -10,7 +10,7 @@ extension KeyCombinationAdaptorTests {
         if let jCGEvent = CGEvent(keyboardEventSource: nil, virtualKey: 38, keyDown: true) {
             jCGEvent.type = .keyDown
 
-            let jKeyCombination = try XCTUnwrap(KeyCombinationAdaptor.toKeyCombination(from: jCGEvent))
+            let jKeyCombination = try XCTUnwrap(KeyCombinationAdaptor.fromCGEvent(from: jCGEvent))
 
             XCTAssertEqual(jKeyCombination.key, KeyCode.j)
             XCTAssertEqual(jKeyCombination.command, false)
@@ -23,7 +23,7 @@ extension KeyCombinationAdaptorTests {
 
     func test_that_it_can_convert_a_simple_CGEvent_release_to_a_KeyCombination() throws {
         if let jCGEvent = CGEvent(keyboardEventSource: nil, virtualKey: 38, keyDown: false) {
-            let jKeyCombination = try XCTUnwrap(KeyCombinationAdaptor.toKeyCombination(from: jCGEvent))
+            let jKeyCombination = try XCTUnwrap(KeyCombinationAdaptor.fromCGEvent(from: jCGEvent))
 
             XCTAssertEqual(jKeyCombination.key, KeyCode.j)
             XCTAssertEqual(jKeyCombination.command, false)
@@ -38,7 +38,7 @@ extension KeyCombinationAdaptorTests {
         if let kCGEvent = CGEvent(keyboardEventSource: nil, virtualKey: 40, keyDown: true) {
             kCGEvent.flags.insert([.maskAlternate, .maskCommand])
 
-            let kKeyCombination = try XCTUnwrap(KeyCombinationAdaptor.toKeyCombination(from: kCGEvent))
+            let kKeyCombination = try XCTUnwrap(KeyCombinationAdaptor.fromCGEvent(from: kCGEvent))
 
             XCTAssertEqual(kKeyCombination.key, KeyCode.k)
             XCTAssertEqual(kKeyCombination.command, true)
@@ -53,7 +53,7 @@ extension KeyCombinationAdaptorTests {
         if let kCGEvent = CGEvent(keyboardEventSource: nil, virtualKey: 40, keyDown: false) {
             kCGEvent.flags.insert([.maskControl, .maskShift])
 
-            let kKeyCombination = try XCTUnwrap(KeyCombinationAdaptor.toKeyCombination(from: kCGEvent))
+            let kKeyCombination = try XCTUnwrap(KeyCombinationAdaptor.fromCGEvent(from: kCGEvent))
 
             XCTAssertEqual(kKeyCombination.key, KeyCode.k)
             XCTAssertEqual(kKeyCombination.command, false)

@@ -27,7 +27,7 @@ struct EventTapController {
             """
         )
 
-        let keyCombinationPressed = KeyCombinationAdaptor.toKeyCombination(from: event)
+        let keyCombinationPressed = KeyCombinationAdaptor.fromCGEvent(from: event)
 
         if GlobalEventsController.handle(keyCombination: keyCombinationPressed) == true {
             return nil
