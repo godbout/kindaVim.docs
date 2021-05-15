@@ -14,6 +14,11 @@ class AccessibilityElementAdaptorTests: XCTestCase {
 }
 
 // from AccessibilityElement to AXUIElement
+// REMINDER:
+// internalText is for AccessibilityElement internal use only
+// to search where to position the caret.
+// this does not set the text of the focused AXUIElement (slow, flickers)
+// which is why we need to set it first through the tap and typeText methods
 extension AccessibilityElementAdaptorTests {
 
     func test_that_it_can_convert_an_AccessibilityElement_to_an_AXUIElement_text_field() {
@@ -22,7 +27,6 @@ extension AccessibilityElementAdaptorTests {
             caretLocation: 3
         )
 
-        // can't set to caret location 3 if no text in AXUIElement
         let textInAXFocusedElement = "hello you dear"
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
@@ -41,10 +45,6 @@ extension AccessibilityElementAdaptorTests {
             caretLocation: 1
         )
 
-        // same as above. to be able to set the caret location we need the text in AXUIElement
-        // the internalText of AccessibilityElement is for search purposes, not to set to
-        // the focused AXUIElement (because slow and flickers). we only put the caret location,
-        // and selected text. the text itself comes from what's already in the AXUIElement
         let textInAXFocusedElement = """
         so this is some multiline
             text that i'm trying to
