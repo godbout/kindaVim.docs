@@ -47,39 +47,15 @@ extension AccessibilityElementAdaptorTests {
 
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textTyped)
-//        for _ in 1...5 {
-//            app.textFields.firstMatch.typeKey(.leftArrow, modifierFlags: [])
-//        }
+        for _ in 1...5 {
+            app.textFields.firstMatch.typeKey(.leftArrow, modifierFlags: [])
+        }
 
         let accessibilityElement = AccessibilityElementAdaptor.fromAXFocusedElement()
 
         XCTAssertEqual(accessibilityElement?.text, textTyped)
         XCTAssertEqual(accessibilityElement?.caretLocation, textTyped.count - 5)
     }
-
-//    func test_that_it_can_convert_a_multiple_line_text_field_to_an_AccessibilityElement() {
-//        let app = XCUIApplication()
-//        app.launch()
-//
-//        let textTyped =
-//            """
-//            well that's supposed to be a text view
-//            so like you can type many lines
-//                and it's like super cool.
-//            """
-//
-//        app.textViews.firstMatch.tap()
-//        app.textViews.firstMatch.typeText(textTyped)
-//        app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
-//        for _ in 1...7 {
-//            app.textFields.firstMatch.typeKey(.leftArrow, modifierFlags: [])
-//        }
-//
-//        let accessibilityElement = AccessibilityElementAdaptor.fromAXFocusedElement()
-//
-//        XCTAssertEqual(accessibilityElement?.text, textTyped)
-//        XCTAssertEqual(accessibilityElement?.caretLocation, 45)
-//    }
 
     func test_that_trying_to_convert_a_button_returns_nil() {
         let app = XCUIApplication()

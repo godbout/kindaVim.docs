@@ -34,9 +34,9 @@
             testExecutionOrdering = "random">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "9128F2C0262AA90D00625B42"
-               BuildableName = "kindaVimTests.xctest"
-               BlueprintName = "kindaVimTests"
+               BlueprintIdentifier = "916BEA86264DA08300E6E4E5"
+               BuildableName = "kindaVimUITests.xctest"
+               BlueprintName = "kindaVimUITests"
                ReferencedContainer = "container:kindaVim.xcodeproj">
             </BuildableReference>
          </TestableReference>
