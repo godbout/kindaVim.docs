@@ -2,12 +2,11 @@ import XCTest
 
 class AccessibilityElementAdaptorTests: XCTestCase {
     
-    var app: XCUIApplication!
+    let app = XCUIApplication()
 
     override func setUpWithError() throws {
         continueAfterFailure = false
         
-        app = XCUIApplication()
         app.launch()
     }
 
