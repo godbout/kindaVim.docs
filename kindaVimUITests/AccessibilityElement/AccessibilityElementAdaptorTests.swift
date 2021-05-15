@@ -18,6 +18,7 @@ extension AccessibilityElementAdaptorTests {
         let textTyped = "some text we will set in some fake UIElement"
 
         app.textFields.firstMatch.tap()
+        sleep(1)
         app.textFields.firstMatch.typeText(textTyped)
         for _ in 1...5 {
             app.textFields.firstMatch.typeKey(.leftArrow, modifierFlags: [])
@@ -39,6 +40,7 @@ extension AccessibilityElementAdaptorTests {
         )
 
         app.textFields.firstMatch.tap()
+        sleep(1)
         app.textFields.firstMatch.typeText(textTyped)
 
         let conversionSucceeded = AccessibilityElementAdaptor.toAXFocusedElememt(from: accessibilityElement)
