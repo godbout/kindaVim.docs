@@ -25,7 +25,7 @@ struct AccessibilityElementAdaptor {
                 AXValueGetValue(values[1] as! AXValue, .cfRange, &selectedTextRange)
                 let caretLocation = selectedTextRange.location
 
-                accessibilityElement = AccessibilityElement(text: text, caretLocation: caretLocation)
+                accessibilityElement = AccessibilityElement(internalText: text, caretLocation: caretLocation)
             }
         }
 

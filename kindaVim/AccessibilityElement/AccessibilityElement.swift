@@ -1,6 +1,6 @@
 struct AccessibilityElement {
 
-    var text = ""
+    var internalText = ""
     var caretLocation = 0
 
 }
