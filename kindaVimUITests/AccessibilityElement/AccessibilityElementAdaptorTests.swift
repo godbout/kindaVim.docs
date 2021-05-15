@@ -1,37 +1,20 @@
 import XCTest
 
 class AccessibilityElementAdaptorTests: XCTestCase {
-    
-    let app = XCUIApplication()
 
     override func setUpWithError() throws {
         continueAfterFailure = false
-        
-        app.launch()
     }
 
 }
 
+// from AccessibilityElement to AXUIElement
 extension AccessibilityElementAdaptorTests {
 
-    func test_that_it_can_convert_an_AXUIElement_to_an_AccessibilityElement() throws {
-        let textTyped = "some text we will set in some fake UIElement"
-
-        app.textFields.firstMatch.tap()
-        app.textFields.firstMatch.typeText(textTyped)
-        for _ in 1...5 {
-            app.textFields.firstMatch.typeKey(.leftArrow, modifierFlags: [])
-        }
-        app.buttons.firstMatch.tap()
-        
-
-        let accessibilityElement = AccessibilityElementAdaptor.fromAXFocusedElement()
-
-        XCTAssertEqual(accessibilityElement?.text, textTyped)
-        XCTAssertEqual(accessibilityElement?.caretLocation, textTyped.count - 5)
-    }
-
     func test_that_it_can_convert_an_AccessibilityElement_to_an_AXUIElement() {
+        let app = XCUIApplication()
+        app.launch()
+
         let textTyped = "hello you dear"
         let accessibilityElement = AccessibilityElement(
             text: textTyped,
@@ -52,3 +35,38 @@ extension AccessibilityElementAdaptorTests {
     }
 
 }
+
+// from AXUIElement to AccessibilityElement
+extension AccessibilityElementAdaptorTests {
+
+    func test_that_it_can_convert_a_single_line_text_field_to_an_AccessibilityElement() {
+        let app = XCUIApplication()
+        app.launch()
+
+        let textTyped = "some text we will set in some fake UIElement"
+
+        app.textFields.firstMatch.tap()
+        app.textFields.firstMatch.typeText(textTyped)
+        for _ in 1...5 {
+            app.textFields.firstMatch.typeKey(.leftArrow, modifierFlags: [])
+        }
+
+        let accessibilityElement = AccessibilityElementAdaptor.fromAXFocusedElement()
+
+        XCTAssertEqual(accessibilityElement?.text, textTyped)
+        XCTAssertEqual(accessibilityElement?.caretLocation, textTyped.count - 5)
+    }
+
+    func test_that_trying_to_convert_a_button_returns_nil() {
+        let app = XCUIApplication()
+        app.launch()
+
+        app.buttons.firstMatch.tap()
+
+        let accessibilityElement = AccessibilityElementAdaptor.fromAXFocusedElement()
+
+        XCTAssertNil(accessibilityElement)
+    }
+
+}
+
