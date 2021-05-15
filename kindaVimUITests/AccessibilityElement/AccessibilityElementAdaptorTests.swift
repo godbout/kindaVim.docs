@@ -1,9 +1,14 @@
 import XCTest
 
 class AccessibilityElementAdaptorTests: XCTestCase {
+    
+    var app: XCUIApplication!
 
     override func setUpWithError() throws {
         continueAfterFailure = false
+        
+        app = XCUIApplication()
+        app.launch()
     }
 
 }
@@ -13,15 +18,13 @@ extension AccessibilityElementAdaptorTests {
     func test_that_it_can_convert_an_AXUIElement_to_an_AccessibilityElement() throws {
         let textTyped = "some text we will set in some fake UIElement"
 
-        let app = XCUIApplication()
-        app.launch()
-
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textTyped)
         for _ in 1...5 {
             app.textFields.firstMatch.typeKey(.leftArrow, modifierFlags: [])
         }
         app.buttons.firstMatch.tap()
+        
 
         let accessibilityElement = AccessibilityElementAdaptor.fromAXFocusedElement()
 
@@ -35,9 +38,6 @@ extension AccessibilityElementAdaptorTests {
             text: textTyped,
             caretLocation: 3
         )
-
-        let app = XCUIApplication()
-        app.launch()
 
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textTyped)
