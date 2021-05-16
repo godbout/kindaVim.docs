@@ -23,14 +23,18 @@ struct ContentView: View {
     var body: some View {
         VStack {
             TextField("single line text field for test", text: $textFieldValue)
-                .padding()
-            TextView(text: $textViewValue)
-                .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
-                .padding()
+                
+            if #available(macOS 11.0, *) {
+                TextEditor(text: $textViewValue)
+            } else {
+                TextView(text: $textViewValue)
+                    .frame(minWidth: 0, maxWidth: .infinity, minHeight: 100, maxHeight: .infinity)
+            }
 
             Button("wo'hevah", action: {})
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .padding()
     }
 
 }
