@@ -102,7 +102,7 @@ extension AccessibilityElementAdaptorTests {
         """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        app.textFields.firstMatch.typeKey(.leftArrow, modifierFlags: [])
+        app.textViews.firstMatch.typeKey(.leftArrow, modifierFlags: [])
 
         let accessibilityElement = AccessibilityElementAdaptor.fromAXFocusedElement()
 
