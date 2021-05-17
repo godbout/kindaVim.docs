@@ -13,5 +13,6 @@ struct AccessibilityElement {
     
     var caretLocation = 0
     var lineStart = 0
+    var lineEnd = 0
 
 }

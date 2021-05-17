@@ -5,7 +5,7 @@ class TV_LineStartTests: AEA_BaseTests {}
 // from AXUIElement to AccessibilityElement
 extension TV_LineStartTests {
 
-    func test_that_the_line_start_is_equal_to_0_if_caret_is_at_the_beginning_of_a_TextField() {
+    func test_that_the_line_start_is_equal_to_0_if_caret_is_at_the_beginning_of_a_TextView() {
         let textInAXFocusedElement = """
         caret will go to the beginning so the line
         start is supposed to
@@ -20,7 +20,7 @@ extension TV_LineStartTests {
         XCTAssertEqual(accessibilityElement?.lineStart, 0)
     }
 
-    func test_that_the_line_start_is_equal_to_0_for_an_empty_TextField() {
+    func test_that_the_line_start_is_equal_to_0_for_an_empty_TextView() {
         let textInAXFocusedElement = ""
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
@@ -30,7 +30,7 @@ extension TV_LineStartTests {
         XCTAssertEqual(accessibilityElement?.lineStart, 0)
     }
 
-    func test_that_the_line_start_is_correct_even_if_caret_is_at_the_end_of_a_TextField() {
+    func test_that_the_line_start_is_correct_even_if_caret_is_at_the_end_of_a_TextView() {
         let textInAXFocusedElement = """
         so we gonna position
         that shit (the caret)
@@ -45,7 +45,7 @@ extension TV_LineStartTests {
         XCTAssertEqual(accessibilityElement?.lineStart, 54)
     }
 
-    func test_that_the_line_start_is_correct_if_caret_is_between_the_beginning_and_the_end_of_a_TextField() {
+    func test_that_the_line_start_is_correct_if_caret_is_between_the_beginning_and_the_end_of_a_TextView() {
         let textInAXFocusedElement = """
         hello
         is there anybody out there

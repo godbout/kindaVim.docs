@@ -21,19 +21,19 @@ struct AccessibilityElementAdaptor {
             if error == .success, let values = values as NSArray? {
                 let text = values[0] as! String
                 let numberOfCharacters = values[2] as! Int
-                var lineStart = 0
 
                 var selectedTextRange = CFRange()
                 AXValueGetValue(values[1] as! AXValue, .cfRange, &selectedTextRange)
 
-                lineStart = self.lineStart(for: axFocusedElement, at: selectedTextRange.location, having: numberOfCharacters)
+                let lineRange = self.lineRange(for: axFocusedElement, at: selectedTextRange.location, having: numberOfCharacters)
 
                 print(selectedTextRange.location)
 
                 accessibilityElement = AccessibilityElement(
                     internalText: text,
                     caretLocation: selectedTextRange.location,
-                    lineStart: lineStart
+                    lineStart: lineRange.location,
+                    lineEnd: lineRange.location + lineRange.length
                 )
             }
         }
@@ -41,9 +41,10 @@ struct AccessibilityElementAdaptor {
         return accessibilityElement
     }
 
-    private static func lineStart(for element: AXUIElement, at location: Int, having numberOfCharacters: Int) -> Int {
+    private static func lineRange(for element: AXUIElement, at location: Int, having numberOfCharacters: Int) -> CFRange {
         var lineStart = 0
         var axLineNumber: AnyObject?
+        var lineRange = CFRange()
 
         switch numberOfCharacters {
         case 0:
@@ -54,7 +55,6 @@ struct AccessibilityElementAdaptor {
             var lineRangeValue: AnyObject?
             AXUIElementCopyParameterizedAttributeValue(element, kAXRangeForLineParameterizedAttribute as CFString, axLineNumber as CFTypeRef, &lineRangeValue)
 
-            var lineRange = CFRange()
             AXValueGetValue(lineRangeValue as! AXValue, .cfRange, &lineRange)
 
             lineStart = lineRange.location
@@ -64,13 +64,12 @@ struct AccessibilityElementAdaptor {
             var lineRangeValue: AnyObject?
             AXUIElementCopyParameterizedAttributeValue(element, kAXRangeForLineParameterizedAttribute as CFString, axLineNumber as CFTypeRef, &lineRangeValue)
 
-            var lineRange = CFRange()
             AXValueGetValue(lineRangeValue as! AXValue, .cfRange, &lineRange)
 
             lineStart = lineRange.location
         }
 
-        return lineStart
+        return CFRange(location: lineStart, length: lineRange.length)
     }
 
     private static func axFocusedElement() -> AXUIElement? {
