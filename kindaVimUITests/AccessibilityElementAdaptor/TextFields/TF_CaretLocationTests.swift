@@ -1,9 +1,9 @@
 import XCTest
 
-class CaretLocationTests: AEA_BaseTests {}
+class TF_CaretLocationTests: AEA_BaseTests {}
 
-// TextFields
-extension CaretLocationTests {
+// from AXUIElement to AccessibilityElement
+extension TF_CaretLocationTests {
 
     func test_that_the_caret_location_is_equal_to_0_if_caret_is_at_the_beginning_of_a_non_empty_line() {
         let textInAXFocusedElement = "check caret location when caret is at beginning of a non empty line"
@@ -48,10 +48,5 @@ extension CaretLocationTests {
 
         XCTAssertEqual(accessibilityElement?.caretLocation, 44)
     }
-
-}
-
-// TextViews
-extension CaretLocationTests {
 
 }

@@ -1,9 +1,9 @@
 import XCTest
 
-class LineStartTests: AEA_BaseTests {}
+class TF_LineStartTests: AEA_BaseTests {}
 
-// TextFields
-extension LineStartTests {
+// from AXUIElement to AccessibilityElement
+extension TF_LineStartTests {
 
     func test_that_the_line_start_is_equal_to_0_for_TextFields() {
         let textInAXFocusedElement = "line start should always be equal to 0 for TextFields"
@@ -47,12 +47,5 @@ extension LineStartTests {
 
         XCTAssertEqual(accessibilityElement?.lineStart, 0)
     }
-
-}
-
-// TextViews
-extension LineStartTests {
-
-    
 
 }
