@@ -18,7 +18,7 @@ class AppComponent {
     private func setUpWindowsState() {
         NSApplication.shared.hide(self)
 
-        #if TESTING
+        #if UITESTING
         let contentView = ContentView()
 
         accessibilityElementAdaptorTestingWindow = NSWindow(
