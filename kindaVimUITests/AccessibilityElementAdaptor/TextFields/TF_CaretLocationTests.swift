@@ -50,3 +50,80 @@ extension TF_CaretLocationTests {
     }
 
 }
+
+// from AccessibilityElement to AXUIElement
+// REMINDER:
+// internalText is for AccessibilityElement internal use only
+// to search where to position the caret.
+// this does not set the text of the focused AXUIElement (slow, flickers)
+// which is why we need to set it first through the tap and typeText methods
+extension TF_CaretLocationTests {
+
+    func test_that_we_can_set_the_caret_location_to_0_on_a_non_empty_line() {
+        let accessibilityElement = AccessibilityElement(caretLocation: 0)
+
+        let textInAXFocusedElement = "hello you dear"
+        app.textFields.firstMatch.tap()
+        app.textFields.firstMatch.typeText(textInAXFocusedElement)
+
+        let conversionSucceeded = AccessibilityElementAdaptor.toAXFocusedElememt(from: accessibilityElement)
+        XCTAssertTrue(conversionSucceeded)
+
+        let reconvertedAccessibilityElement = AccessibilityElementAdaptor.fromAXFocusedElement()
+        XCTAssertEqual(reconvertedAccessibilityElement?.caretLocation, 0)
+    }
+
+    func test_that_we_can_set_the_caret_location_to_0_on_an_empty_line() {
+        let accessibilityElement = AccessibilityElement(caretLocation: 0)
+
+        let textInAXFocusedElement = ""
+        app.textFields.firstMatch.tap()
+        app.textFields.firstMatch.typeText(textInAXFocusedElement)
+
+        let conversionSucceeded = AccessibilityElementAdaptor.toAXFocusedElememt(from: accessibilityElement)
+        XCTAssertTrue(conversionSucceeded)
+
+        let reconvertedAccessibilityElement = AccessibilityElementAdaptor.fromAXFocusedElement()
+        XCTAssertEqual(reconvertedAccessibilityElement?.caretLocation, 0)
+    }
+
+    func test_that_we_can_set_the_caret_location_to_the_end_of_the_line() {
+        let accessibilityElement = AccessibilityElement(caretLocation: 26)
+
+        let textInAXFocusedElement = "hello you dear again again"
+        app.textFields.firstMatch.tap()
+        app.textFields.firstMatch.typeText(textInAXFocusedElement)
+
+        let conversionSucceeded = AccessibilityElementAdaptor.toAXFocusedElememt(from: accessibilityElement)
+        XCTAssertTrue(conversionSucceeded)
+
+        let reconvertedAccessibilityElement = AccessibilityElementAdaptor.fromAXFocusedElement()
+        XCTAssertEqual(reconvertedAccessibilityElement?.caretLocation, 26)
+    }
+
+    func test_that_we_can_set_the_caret_location_wherever_between_the_beginning_and_the_end_of_the_line() {
+        let accessibilityElement = AccessibilityElement(caretLocation: 4)
+
+        let textInAXFocusedElement = "hello"
+        app.textFields.firstMatch.tap()
+        app.textFields.firstMatch.typeText(textInAXFocusedElement)
+
+        let conversionSucceeded = AccessibilityElementAdaptor.toAXFocusedElememt(from: accessibilityElement)
+        XCTAssertTrue(conversionSucceeded)
+
+        let reconvertedAccessibilityElement = AccessibilityElementAdaptor.fromAXFocusedElement()
+        XCTAssertEqual(reconvertedAccessibilityElement?.caretLocation, 4)
+    }
+
+    func test_that_the_conversion_fails_if_we_set_the_caret_location_out_of_range() {
+        let accessibilityElement = AccessibilityElement(caretLocation: 19)
+
+        let textInAXFocusedElement = "definitely not 19"
+        app.textFields.firstMatch.tap()
+        app.textFields.firstMatch.typeText(textInAXFocusedElement)
+
+        let conversionSucceeded = AccessibilityElementAdaptor.toAXFocusedElememt(from: accessibilityElement)
+        XCTAssertFalse(conversionSucceeded)
+    }
+
+}

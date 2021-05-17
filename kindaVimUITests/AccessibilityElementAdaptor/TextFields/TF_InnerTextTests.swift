@@ -16,3 +16,11 @@ extension TF_InnerTextTests {
     }
 
 }
+
+// from AccessibilityElement to AXUIElement
+// REMINDER:
+// internalText is for AccessibilityElement internal use only
+// to search where to position the caret.
+// this does not set the text of the focused AXUIElement (slow, flickers)
+// which is why we don't have test here for innerText
+extension TF_InnerTextTests {}

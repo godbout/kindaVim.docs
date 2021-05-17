@@ -53,6 +53,8 @@ struct AccessibilityElementAdaptor {
                     lineStart = lineRange.location
                 }
 
+                print(selectedTextRange.location)
+
                 accessibilityElement = AccessibilityElement(
                     internalText: text,
                     caretLocation: selectedTextRange.location,
@@ -78,7 +80,7 @@ struct AccessibilityElementAdaptor {
         
         var selectedTextRange = CFRange()
         selectedTextRange.location = accessibilityElement.caretLocation
-        selectedTextRange.length = 1
+        selectedTextRange.length = 0
 
         let newValue = AXValueCreate(.cfRange, &selectedTextRange)
 
