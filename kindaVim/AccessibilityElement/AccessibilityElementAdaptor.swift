@@ -16,27 +16,47 @@ struct AccessibilityElementAdaptor {
 
         if let axFocusedElement = axFocusedElement() {
             var values: CFArray?
-            let error = AXUIElementCopyMultipleAttributeValues(axFocusedElement, [kAXValueAttribute, kAXSelectedTextRangeAttribute] as CFArray, .stopOnError, &values)
+            let error = AXUIElementCopyMultipleAttributeValues(axFocusedElement, [kAXValueAttribute, kAXSelectedTextRangeAttribute, kAXNumberOfCharactersAttribute] as CFArray, .stopOnError, &values)
 
             if error == .success, let values = values as NSArray? {
                 let text = values[0] as! String
+                let numberOfCharacters = values[2] as! Int
+                var lineStart = 0
 
                 var selectedTextRange = CFRange()
                 AXValueGetValue(values[1] as! AXValue, .cfRange, &selectedTextRange)
 
-                var lineLocation: AnyObject?
-                AXUIElementCopyParameterizedAttributeValue(axFocusedElement, kAXLineForIndexParameterizedAttribute as CFString, selectedTextRange.location as CFTypeRef, &lineLocation)
+                var axLineNumber: AnyObject?
 
-                var lineRangeValue: AnyObject?
-                AXUIElementCopyParameterizedAttributeValue(axFocusedElement, kAXRangeForLineParameterizedAttribute as CFString, lineLocation as CFTypeRef, &lineRangeValue)
+                switch numberOfCharacters {
+                case 0:
+                    lineStart = 0
+                case selectedTextRange.location:
+                    AXUIElementCopyParameterizedAttributeValue(axFocusedElement, kAXLineForIndexParameterizedAttribute as CFString, selectedTextRange.location - 1 as CFTypeRef, &axLineNumber)
 
-                var lineRange = CFRange()
-                AXValueGetValue(lineRangeValue as! AXValue, .cfRange, &lineRange)
+                    var lineRangeValue: AnyObject?
+                    AXUIElementCopyParameterizedAttributeValue(axFocusedElement, kAXRangeForLineParameterizedAttribute as CFString, axLineNumber as CFTypeRef, &lineRangeValue)
+
+                    var lineRange = CFRange()
+                    AXValueGetValue(lineRangeValue as! AXValue, .cfRange, &lineRange)
+
+                    lineStart = lineRange.location
+                default:
+                    AXUIElementCopyParameterizedAttributeValue(axFocusedElement, kAXLineForIndexParameterizedAttribute as CFString, selectedTextRange.location as CFTypeRef, &axLineNumber)
+
+                    var lineRangeValue: AnyObject?
+                    AXUIElementCopyParameterizedAttributeValue(axFocusedElement, kAXRangeForLineParameterizedAttribute as CFString, axLineNumber as CFTypeRef, &lineRangeValue)
+
+                    var lineRange = CFRange()
+                    AXValueGetValue(lineRangeValue as! AXValue, .cfRange, &lineRange)
+
+                    lineStart = lineRange.location
+                }
 
                 accessibilityElement = AccessibilityElement(
                     internalText: text,
                     caretLocation: selectedTextRange.location,
-                    lineStart: lineRange.location
+                    lineStart: lineStart
                 )
             }
         }
@@ -58,6 +78,7 @@ struct AccessibilityElementAdaptor {
         
         var selectedTextRange = CFRange()
         selectedTextRange.location = accessibilityElement.caretLocation
+        selectedTextRange.length = 1
 
         let newValue = AXValueCreate(.cfRange, &selectedTextRange)
 
