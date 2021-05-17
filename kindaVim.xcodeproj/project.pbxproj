@@ -50,6 +50,8 @@
 		919E35C1264DA11E00542866 /* AccessibilityElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913EBF47264ADEE700BCCCEE /* AccessibilityElement.swift */; };
 		919E35C2264DA13700542866 /* AccessibilityStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91013741263DD2430037AB6E /* AccessibilityStrategy.swift */; };
 		919E35C5264E73D400542866 /* AccessibilityElementAdaptorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919E35C4264E73D400542866 /* AccessibilityElementAdaptorTests.swift */; };
+		919FDCF826527AB0003DF40C /* AEA_BaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919FDCF726527AB0003DF40C /* AEA_BaseTests.swift */; };
+		919FDCFD26527ACA003DF40C /* CaretLocationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919FDCFC26527ACA003DF40C /* CaretLocationTests.swift */; };
 		91A54ED92643B34F00400677 /* KS_$_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A54ED82643B34F00400677 /* KS_$_Tests.swift */; };
 		91A54EDB2643B3FF00400677 /* KS_a_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A54EDA2643B3FF00400677 /* KS_a_Tests.swift */; };
 		91A54EDD2643B58500400677 /* KS_A__Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A54EDC2643B58500400677 /* KS_A__Tests.swift */; };
@@ -188,6 +190,8 @@
 		9197C08926366A3B006C696A /* KeyCombinationAdaptorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyCombinationAdaptorTests.swift; sourceTree = "<group>"; };
 		919DEB622632C85B0052D514 /* KeyCombination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyCombination.swift; sourceTree = "<group>"; };
 		919E35C4264E73D400542866 /* AccessibilityElementAdaptorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilityElementAdaptorTests.swift; sourceTree = "<group>"; };
+		919FDCF726527AB0003DF40C /* AEA_BaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AEA_BaseTests.swift; sourceTree = "<group>"; };
+		919FDCFC26527ACA003DF40C /* CaretLocationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaretLocationTests.swift; sourceTree = "<group>"; };
 		91A54ED82643B34F00400677 /* KS_$_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KS_$_Tests.swift; sourceTree = "<group>"; };
 		91A54EDA2643B3FF00400677 /* KS_a_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KS_a_Tests.swift; sourceTree = "<group>"; };
 		91A54EDC2643B58500400677 /* KS_A__Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KS_A__Tests.swift; sourceTree = "<group>"; };
@@ -502,7 +506,7 @@
 		916BEA88264DA08300E6E4E5 /* kindaVimUITests */ = {
 			isa = PBXGroup;
 			children = (
-				919E35C3264E73B200542866 /* AccessibilityElement */,
+				919E35C3264E73B200542866 /* AccessibilityElementAdaptor */,
 				916BEA8B264DA08300E6E4E5 /* Info.plist */,
 			);
 			path = kindaVimUITests;
@@ -516,12 +520,14 @@
 			path = VimEngine;
 			sourceTree = "<group>";
 		};
-		919E35C3264E73B200542866 /* AccessibilityElement */ = {
+		919E35C3264E73B200542866 /* AccessibilityElementAdaptor */ = {
 			isa = PBXGroup;
 			children = (
 				919E35C4264E73D400542866 /* AccessibilityElementAdaptorTests.swift */,
+				919FDCF726527AB0003DF40C /* AEA_BaseTests.swift */,
+				919FDCFC26527ACA003DF40C /* CaretLocationTests.swift */,
 			);
-			path = AccessibilityElement;
+			path = AccessibilityElementAdaptor;
 			sourceTree = "<group>";
 		};
 		91C486032641C0AA0003D9D7 /* Helpers */ = {
@@ -845,9 +851,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				919FDCF826527AB0003DF40C /* AEA_BaseTests.swift in Sources */,
 				919E35C2264DA13700542866 /* AccessibilityStrategy.swift in Sources */,
 				919E35C1264DA11E00542866 /* AccessibilityElement.swift in Sources */,
 				919E35C0264DA10000542866 /* AccessibilityElementAdaptor.swift in Sources */,
+				919FDCFD26527ACA003DF40C /* CaretLocationTests.swift in Sources */,
 				919E35C5264E73D400542866 /* AccessibilityElementAdaptorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
