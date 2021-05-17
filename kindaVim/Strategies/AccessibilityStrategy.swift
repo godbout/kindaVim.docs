@@ -21,8 +21,18 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
     
     func l(on element: AccessibilityElement?) -> AccessibilityElement? {
         guard var element = element else { return nil }
+
+        // TODO
+        // this will need to be refactored.
+        // TextEngine... engine?
+        let lineStart = element.internalText.index(element.internalText.startIndex, offsetBy: element.lineStart)
+        let lineEnd = element.internalText.index(lineStart, offsetBy: element.lineEnd - element.lineStart)
         
-        element.caretLocation += 1
+        let limit = element.internalText[lineStart..<lineEnd].hasSuffix("\n") ? element.lineEnd - 2 : element.lineEnd - 1
+
+        if element.caretLocation < limit {
+            element.caretLocation += 1
+        }
 
         return element
     }
