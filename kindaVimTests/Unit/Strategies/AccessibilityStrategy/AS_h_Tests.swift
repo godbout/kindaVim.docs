@@ -6,7 +6,8 @@ class AS_h_Tests: AS_BaseTests {
     func test_that_in_normal_setting_h_is_moving_the_caret_position_to_the_left_by_one_increment() {
         let element = AccessibilityElement(
             internalText: "hello world",
-            caretLocation: 6
+            caretLocation: 6,
+            lineStart: 0
         )
     
         let returnedElement = accessibilityStrategy.h(on: element)
@@ -22,7 +23,8 @@ class AS_h_Tests: AS_BaseTests {
             that is
             multiline
             """,
-            caretLocation: 7
+            caretLocation: 7,
+            lineStart: 7
         )
     
         let returnedElement = accessibilityStrategy.h(on: element)

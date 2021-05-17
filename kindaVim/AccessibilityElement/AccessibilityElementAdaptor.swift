@@ -23,9 +23,21 @@ struct AccessibilityElementAdaptor {
 
                 var selectedTextRange = CFRange()
                 AXValueGetValue(values[1] as! AXValue, .cfRange, &selectedTextRange)
-                let caretLocation = selectedTextRange.location
 
-                accessibilityElement = AccessibilityElement(internalText: text, caretLocation: caretLocation)
+                var lineLocation: AnyObject?
+                AXUIElementCopyParameterizedAttributeValue(axFocusedElement, kAXLineForIndexParameterizedAttribute as CFString, selectedTextRange.location as CFTypeRef, &lineLocation)
+
+                var lineRangeValue: AnyObject?
+                AXUIElementCopyParameterizedAttributeValue(axFocusedElement, kAXRangeForLineParameterizedAttribute as CFString, lineLocation as CFTypeRef, &lineRangeValue)
+
+                var lineRange = CFRange()
+                AXValueGetValue(lineRangeValue as! AXValue, .cfRange, &lineRange)
+
+                accessibilityElement = AccessibilityElement(
+                    internalText: text,
+                    caretLocation: selectedTextRange.location,
+                    lineStart: lineRange.location
+                )
             }
         }
 

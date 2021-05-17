@@ -10,6 +10,8 @@
 struct AccessibilityElement {
 
     var internalText = ""
+    
     var caretLocation = 0
+    var lineStart = 0
 
 }

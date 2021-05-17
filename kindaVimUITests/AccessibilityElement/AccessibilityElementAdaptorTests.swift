@@ -24,7 +24,8 @@ extension AccessibilityElementAdaptorTests {
     func test_that_it_can_convert_an_AccessibilityElement_to_an_AXUIElement_text_field() {
         let accessibilityElement = AccessibilityElement(
             internalText: "",
-            caretLocation: 3
+            caretLocation: 3,
+            lineStart: 0
         )
 
         let textInAXFocusedElement = "hello you dear"
@@ -37,12 +38,14 @@ extension AccessibilityElementAdaptorTests {
         let reconvertedAccessibilityElement = AccessibilityElementAdaptor.fromAXFocusedElement()
         XCTAssertEqual(reconvertedAccessibilityElement?.internalText, textInAXFocusedElement)
         XCTAssertEqual(reconvertedAccessibilityElement?.caretLocation, 3)
+        XCTAssertEqual(reconvertedAccessibilityElement?.lineStart, 0)
     }
 
     func test_that_it_can_convert_an_AccessibilityElement_to_an_AXUIElement_text_view() {
         let accessibilityElement = AccessibilityElement(
             internalText: "",
-            caretLocation: 1
+            caretLocation: 1,
+            lineStart: 0
         )
 
         let textInAXFocusedElement = """
@@ -60,12 +63,14 @@ extension AccessibilityElementAdaptorTests {
         let reconvertedAccessibilityElement = AccessibilityElementAdaptor.fromAXFocusedElement()
         XCTAssertEqual(reconvertedAccessibilityElement?.internalText, textInAXFocusedElement)
         XCTAssertEqual(reconvertedAccessibilityElement?.caretLocation, 1)
+        XCTAssertEqual(reconvertedAccessibilityElement?.lineStart, 0)
     }
 
     func test_that_trying_to_convert_an_AccessibilityElement_to_an_AXUIElement_button_returns_false() {
         let accessibilityElement = AccessibilityElement(
             internalText: "hi i'm a button",
-            caretLocation: 5
+            caretLocation: 5,
+            lineStart: 0
         )
 
         app.buttons.firstMatch.tap()
@@ -92,6 +97,7 @@ extension AccessibilityElementAdaptorTests {
 
         XCTAssertEqual(accessibilityElement?.internalText, textInAXFocusedElement)
         XCTAssertEqual(accessibilityElement?.caretLocation, textInAXFocusedElement.count - 5)
+        XCTAssertEqual(accessibilityElement?.lineStart, 0)
     }
 
     func test_that_it_can_convert_an_AXUIElement_text_view_to_an_AccessibilityElement() {
@@ -108,6 +114,7 @@ extension AccessibilityElementAdaptorTests {
 
         XCTAssertEqual(accessibilityElement?.internalText, textInAXFocusedElement)
         XCTAssertEqual(accessibilityElement?.caretLocation, textInAXFocusedElement.count - 1)
+        XCTAssertEqual(accessibilityElement?.lineStart, 71)
     }
 
     func test_that_trying_to_convert_an_AXUIElement_button_to_an_AccessibilityElement_returns_nil() {
@@ -119,4 +126,3 @@ extension AccessibilityElementAdaptorTests {
     }
 
 }
-
