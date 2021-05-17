@@ -69,18 +69,26 @@ extension TV_CaretLocationTests {
 }
 
 // to AXUIElement
+// REMINDER:
+// internalText is for AccessibilityElement internal use only
+// to search where to position the caret, if we are at the end of text for block cursor, etc.
+// this does not set the text of the focused AXUIElement (slow, flickers)
+// which is why we need to set it first through the tap and typeText methods
 extension TV_CaretLocationTests {
 
     func test_that_we_can_set_the_caret_location_to_0_on_a_non_empty_TextView() {
-        let accessibilityElement = AccessibilityElement(caretLocation: 0)
-
-        let textInAXFocusedElement = """
+        let text = """
         so obviously that's
         a TextView that is not empty
         coz like come on there's so me shits inside.
         """
+        let accessibilityElement = AccessibilityElement(
+            internalText: text,
+            caretLocation: 0
+        )
+
         app.textViews.firstMatch.tap()
-        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        app.textViews.firstMatch.typeText(text)
 
         let conversionSucceeded = AccessibilityElementAdaptor.toAXFocusedElememt(from: accessibilityElement)
         XCTAssertTrue(conversionSucceeded)
@@ -90,11 +98,14 @@ extension TV_CaretLocationTests {
     }
 
     func test_that_we_can_set_the_caret_location_to_0_on_an_empty_TextView() {
-        let accessibilityElement = AccessibilityElement(caretLocation: 0)
+        let text = ""
+        let accessibilityElement = AccessibilityElement(
+            internalText: text,
+            caretLocation: 0
+        )
 
-        let textInAXFocusedElement = ""
         app.textViews.firstMatch.tap()
-        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        app.textViews.firstMatch.typeText(text)
 
         let conversionSucceeded = AccessibilityElementAdaptor.toAXFocusedElememt(from: accessibilityElement)
         XCTAssertTrue(conversionSucceeded)
@@ -104,17 +115,20 @@ extension TV_CaretLocationTests {
     }
 
     func test_that_we_can_set_the_caret_location_to_the_end_of_the_TextView() {
-        let accessibilityElement = AccessibilityElement(caretLocation: 0)
-
-        let textInAXFocusedElement = """
+        let text = """
         another looooong
         big shit
         for you
         my
         friend...
         """
+        let accessibilityElement = AccessibilityElement(
+            internalText: text,
+            caretLocation: 0
+        )
+
         app.textViews.firstMatch.tap()
-        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        app.textViews.firstMatch.typeText(text)
 
         let conversionSucceeded = AccessibilityElementAdaptor.toAXFocusedElememt(from: accessibilityElement)
         XCTAssertTrue(conversionSucceeded)
@@ -124,16 +138,19 @@ extension TV_CaretLocationTests {
     }
 
     func test_that_we_can_set_the_caret_location_wherever_between_the_beginning_and_the_end_of_the_TextView() {
-        let accessibilityElement = AccessibilityElement(caretLocation: 25)
-
-        let textInAXFocusedElement = """
+        let text = """
         those shits never stop
         i tell you
         it's biiiiiiig and long
         hallelujah
         """
+        let accessibilityElement = AccessibilityElement(
+            internalText: text,
+            caretLocation: 25
+        )
+
         app.textViews.firstMatch.tap()
-        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        app.textViews.firstMatch.typeText(text)
 
         let conversionSucceeded = AccessibilityElementAdaptor.toAXFocusedElememt(from: accessibilityElement)
         XCTAssertTrue(conversionSucceeded)
@@ -143,15 +160,18 @@ extension TV_CaretLocationTests {
     }
 
     func test_that_the_conversion_fails_if_we_set_the_caret_location_out_of_range() {
-        let accessibilityElement = AccessibilityElement(caretLocation: 1993)
-
-        let textInAXFocusedElement = """
+        let text = """
         i'm multiplug
         but still not
         that long.
         """
+        let accessibilityElement = AccessibilityElement(
+            internalText: text,
+            caretLocation: 1993
+        )
+
         app.textViews.firstMatch.tap()
-        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        app.textViews.firstMatch.typeText(text)
 
         let conversionSucceeded = AccessibilityElementAdaptor.toAXFocusedElememt(from: accessibilityElement)
         XCTAssertFalse(conversionSucceeded)

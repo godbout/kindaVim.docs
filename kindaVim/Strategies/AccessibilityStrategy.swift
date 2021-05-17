@@ -12,10 +12,6 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
     func h(on element: AccessibilityElement?) -> AccessibilityElement? {
         guard var element = element else { return nil }
 
-        print(element.internalText)
-        print(element.caretLocation)
-        print(element.lineStart)
-
         if element.caretLocation > element.lineStart {
             element.caretLocation -= 1
         }

@@ -26,32 +26,7 @@ struct AccessibilityElementAdaptor {
                 var selectedTextRange = CFRange()
                 AXValueGetValue(values[1] as! AXValue, .cfRange, &selectedTextRange)
 
-                var axLineNumber: AnyObject?
-
-                switch numberOfCharacters {
-                case 0:
-                    lineStart = 0
-                case selectedTextRange.location:
-                    AXUIElementCopyParameterizedAttributeValue(axFocusedElement, kAXLineForIndexParameterizedAttribute as CFString, selectedTextRange.location - 1 as CFTypeRef, &axLineNumber)
-
-                    var lineRangeValue: AnyObject?
-                    AXUIElementCopyParameterizedAttributeValue(axFocusedElement, kAXRangeForLineParameterizedAttribute as CFString, axLineNumber as CFTypeRef, &lineRangeValue)
-
-                    var lineRange = CFRange()
-                    AXValueGetValue(lineRangeValue as! AXValue, .cfRange, &lineRange)
-
-                    lineStart = lineRange.location
-                default:
-                    AXUIElementCopyParameterizedAttributeValue(axFocusedElement, kAXLineForIndexParameterizedAttribute as CFString, selectedTextRange.location as CFTypeRef, &axLineNumber)
-
-                    var lineRangeValue: AnyObject?
-                    AXUIElementCopyParameterizedAttributeValue(axFocusedElement, kAXRangeForLineParameterizedAttribute as CFString, axLineNumber as CFTypeRef, &lineRangeValue)
-
-                    var lineRange = CFRange()
-                    AXValueGetValue(lineRangeValue as! AXValue, .cfRange, &lineRange)
-
-                    lineStart = lineRange.location
-                }
+                lineStart = self.lineStart(for: axFocusedElement, at: selectedTextRange.location, having: numberOfCharacters)
 
                 print(selectedTextRange.location)
 
@@ -64,6 +39,38 @@ struct AccessibilityElementAdaptor {
         }
 
         return accessibilityElement
+    }
+
+    private static func lineStart(for element: AXUIElement, at location: Int, having numberOfCharacters: Int) -> Int {
+        var lineStart = 0
+        var axLineNumber: AnyObject?
+
+        switch numberOfCharacters {
+        case 0:
+            lineStart = 0
+        case location:
+            AXUIElementCopyParameterizedAttributeValue(element, kAXLineForIndexParameterizedAttribute as CFString, location - 1 as CFTypeRef, &axLineNumber)
+
+            var lineRangeValue: AnyObject?
+            AXUIElementCopyParameterizedAttributeValue(element, kAXRangeForLineParameterizedAttribute as CFString, axLineNumber as CFTypeRef, &lineRangeValue)
+
+            var lineRange = CFRange()
+            AXValueGetValue(lineRangeValue as! AXValue, .cfRange, &lineRange)
+
+            lineStart = lineRange.location
+        default:
+            AXUIElementCopyParameterizedAttributeValue(element, kAXLineForIndexParameterizedAttribute as CFString, location as CFTypeRef, &axLineNumber)
+
+            var lineRangeValue: AnyObject?
+            AXUIElementCopyParameterizedAttributeValue(element, kAXRangeForLineParameterizedAttribute as CFString, axLineNumber as CFTypeRef, &lineRangeValue)
+
+            var lineRange = CFRange()
+            AXValueGetValue(lineRangeValue as! AXValue, .cfRange, &lineRange)
+
+            lineStart = lineRange.location
+        }
+
+        return lineStart
     }
 
     private static func axFocusedElement() -> AXUIElement? {
@@ -80,12 +87,19 @@ struct AccessibilityElementAdaptor {
         
         var selectedTextRange = CFRange()
         selectedTextRange.location = accessibilityElement.caretLocation
-        selectedTextRange.length = 0
+
+        if caretIsNotAtTheEndOfText(caretLocation: selectedTextRange.location, text: accessibilityElement.internalText) {
+            selectedTextRange.length = 1
+        }
 
         let newValue = AXValueCreate(.cfRange, &selectedTextRange)
 
         guard AXUIElementSetAttributeValue(axFocusedElement, kAXSelectedTextRangeAttribute as CFString, newValue!) == .success else { return false }
         
         return true
+    }
+
+    private static func caretIsNotAtTheEndOfText(caretLocation: Int, text: String) -> Bool {
+        return text.count != caretLocation
     }
 }
