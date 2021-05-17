@@ -60,10 +60,13 @@ extension TV_LineStartTests {
         app.textViews.firstMatch.typeKey(.rightArrow, modifierFlags: [])
         app.textViews.firstMatch.typeKey(.rightArrow, modifierFlags: [])
 
-
         let accessibilityElement = AccessibilityElementAdaptor.fromAXFocusedElement()
 
         XCTAssertEqual(accessibilityElement?.lineStart, 63)
     }
 
 }
+
+// from AccessibilityElement to AXUIElement
+// same. no idea if we're ever gonna set the line start or not
+extension TV_LineStartTests {}
