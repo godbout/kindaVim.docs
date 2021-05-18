@@ -41,7 +41,7 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
         return AccessibilityTextElementAdaptor.fromAXFocusedElement()
     }
     
-    static func write(element: AccessibilityTextElement) -> Bool {
+    static func push(element: AccessibilityTextElement) -> Bool {
         print("move using Accessibility Stragety")
 
         return AccessibilityTextElementAdaptor.toAXFocusedElememt(from: element)

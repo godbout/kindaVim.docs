@@ -69,7 +69,7 @@ class VimEngine {
             case .h:
                 // ugly af; need to refactor
                 if let element = accessibilityStrategy.h(on: focusedElement()) {
-                    if write(element: element) == false {
+                    if push(element: element) == false {
                         post(keyboardStrategy.h())
                     }
                 } else {
@@ -88,7 +88,7 @@ class VimEngine {
             case .l:
                 // ugly af; need to refactor
                 if let element = accessibilityStrategy.l(on: focusedElement()) {
-                    if write(element: element) == false {
+                    if push(element: element) == false {
                         post(keyboardStrategy.l())
                     }
                 } else {
@@ -225,7 +225,7 @@ class VimEngine {
     
     func enterNormalMode() {
         if currentMode == .insert, let element = accessibilityStrategy.h(on: focusedElement()) {
-            _ = write(element: element)
+            _ = push(element: element)
         }
         
         currentMode = .normal
@@ -259,8 +259,8 @@ class VimEngine {
         return AccessibilityStrategy.focusedElement()
     }
 
-    private func write(element: AccessibilityTextElement) -> Bool {
-        return AccessibilityStrategy.write(element: element)
+    private func push(element: AccessibilityTextElement) -> Bool {
+        return AccessibilityStrategy.push(element: element)
     }
     
 }
