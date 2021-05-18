@@ -8,7 +8,7 @@ class KS_$_Tests: KS_BaseTests {
         let keyCombinations = keyboardStrategy.dollarSign()
 
         guard keyCombinations.count == 1 else { return XCTFail() }
-        XCTAssertEqual(keyCombinations[0], KeyCombination(key: .e, control: true))
+        XCTAssertEqual(keyCombinations[0], KeyCombination(key: .right, command: true))
     }
 
 }

@@ -312,7 +312,7 @@ struct KeyboardStrategy: KeyboardStrategyProtocol {
 
     func dollarSign() -> [KeyCombination] {
         return [
-            KeyCombination(key: .e, control: true)
+            KeyCombination(key: .right, command: true)
         ]
     }
 
