@@ -4,7 +4,7 @@ import XCTest
 class AS_h_Tests: AS_BaseTests {
     
     func test_that_in_normal_setting_h_is_moving_the_caret_position_to_the_left_by_one_increment() {
-        let element = AccessibilityElement(
+        let element = AccessibilityTextElement(
             internalText: "hello world",
             caretLocation: 6,
             lineStart: 0
@@ -17,7 +17,7 @@ class AS_h_Tests: AS_BaseTests {
     }
     
     func test_that_at_the_beginning_of_a_line_h_does_not_move() {
-        let element = AccessibilityElement(
+        let element = AccessibilityTextElement(
             internalText: """
             indeed
             that is

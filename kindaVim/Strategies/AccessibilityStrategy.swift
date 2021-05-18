@@ -2,14 +2,14 @@ import Foundation
 
 protocol AccessibilityStrategyProtocol {
     
-    func h(on element: AccessibilityElement?) -> AccessibilityElement?
-    func l(on element: AccessibilityElement?) -> AccessibilityElement?
+    func h(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
+    func l(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
 
 }
 
 struct AccessibilityStrategy: AccessibilityStrategyProtocol {
 
-    func h(on element: AccessibilityElement?) -> AccessibilityElement? {
+    func h(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         guard var element = element else { return nil }
 
         if element.caretLocation > element.lineStart {
@@ -19,7 +19,7 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
         return element
     }
     
-    func l(on element: AccessibilityElement?) -> AccessibilityElement? {
+    func l(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         guard var element = element else { return nil }
 
         // TODO
@@ -37,14 +37,14 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
         return element
     }
 
-    static func focusedElement() -> AccessibilityElement? {
-        return AccessibilityElementAdaptor.fromAXFocusedElement()
+    static func focusedElement() -> AccessibilityTextElement? {
+        return AccessibilityTextElementAdaptor.fromAXFocusedElement()
     }
     
-    static func write(element: AccessibilityElement) -> Bool {
+    static func write(element: AccessibilityTextElement) -> Bool {
         print("move using Accessibility Stragety")
 
-        return AccessibilityElementAdaptor.toAXFocusedElememt(from: element)
+        return AccessibilityTextElementAdaptor.toAXFocusedElememt(from: element)
     }
     
 }

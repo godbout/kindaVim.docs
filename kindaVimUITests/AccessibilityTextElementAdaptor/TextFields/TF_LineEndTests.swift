@@ -10,7 +10,7 @@ extension TF_LineStartTests {
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
 
-        let accessibilityElement = AccessibilityElementAdaptor.fromAXFocusedElement()
+        let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
 
         XCTAssertEqual(accessibilityElement?.lineEnd, 0)
     }
@@ -20,14 +20,14 @@ extension TF_LineStartTests {
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
 
-        let accessibilityElement = AccessibilityElementAdaptor.fromAXFocusedElement()
+        let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
 
         XCTAssertEqual(accessibilityElement?.lineEnd, textInAXFocusedElement.count)
     }
 
 }
 
-// from AccessibilityElement to AXUIElement
+// from AccessibilityTextElement to AXUIElement
 // are we ever gonna set the line start?
 // is that even possible? no idea for now.
 extension TF_LineEndTests {}

@@ -2,7 +2,7 @@ import XCTest
 
 class TV_InnerTextTests: AEA_BaseTests {}
 
-// from AXUIElement to AccessibilityElement
+// from AXUIElement to AccessibilityTextElement
 extension TV_InnerTextTests {
 
     func test_that_the_innerText_matches_the_AXUIElement_text_for_TextView() {
@@ -16,7 +16,7 @@ extension TV_InnerTextTests {
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
 
-        let accessibilityElement = AccessibilityElementAdaptor.fromAXFocusedElement()
+        let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
 
         XCTAssertEqual(accessibilityElement?.internalText, textInAXFocusedElement)
     }

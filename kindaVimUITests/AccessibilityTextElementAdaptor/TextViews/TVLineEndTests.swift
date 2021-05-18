@@ -10,7 +10,7 @@ extension TV_LineEndTests {
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
 
-        let accessibilityElement = AccessibilityElementAdaptor.fromAXFocusedElement()
+        let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
 
         XCTAssertEqual(accessibilityElement?.lineEnd, 0)
     }
@@ -25,7 +25,7 @@ extension TV_LineEndTests {
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
 
-        let accessibilityElement = AccessibilityElementAdaptor.fromAXFocusedElement()
+        let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
 
         XCTAssertEqual(accessibilityElement?.lineEnd, 27)
     }
@@ -43,13 +43,13 @@ extension TV_LineEndTests {
         app.textViews.firstMatch.typeKey(.rightArrow, modifierFlags: [])
         app.textViews.firstMatch.typeKey(.rightArrow, modifierFlags: [])
 
-        let accessibilityElement = AccessibilityElementAdaptor.fromAXFocusedElement()
+        let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
 
         XCTAssertEqual(accessibilityElement?.lineEnd, 18)
     }
 
 }
 
-// from AccessibilityElement to AXUIElement
+// from AccessibilityTextElement to AXUIElement
 // same. no idea if we're ever gonna set the line start or not
 extension TV_LineEndTests {}

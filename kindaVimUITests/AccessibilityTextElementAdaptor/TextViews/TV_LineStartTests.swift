@@ -2,7 +2,7 @@ import XCTest
 
 class TV_LineStartTests: AEA_BaseTests {}
 
-// from AXUIElement to AccessibilityElement
+// from AXUIElement to AccessibilityTextElement
 extension TV_LineStartTests {
 
     func test_that_the_line_start_is_equal_to_0_if_caret_is_at_the_beginning_of_a_TextView() {
@@ -15,7 +15,7 @@ extension TV_LineStartTests {
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [.command])
 
-        let accessibilityElement = AccessibilityElementAdaptor.fromAXFocusedElement()
+        let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
 
         XCTAssertEqual(accessibilityElement?.lineStart, 0)
     }
@@ -25,7 +25,7 @@ extension TV_LineStartTests {
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
 
-        let accessibilityElement = AccessibilityElementAdaptor.fromAXFocusedElement()
+        let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
 
         XCTAssertEqual(accessibilityElement?.lineStart, 0)
     }
@@ -40,7 +40,7 @@ extension TV_LineStartTests {
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
 
-        let accessibilityElement = AccessibilityElementAdaptor.fromAXFocusedElement()
+        let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
 
         XCTAssertEqual(accessibilityElement?.lineStart, 54)
     }
@@ -60,13 +60,13 @@ extension TV_LineStartTests {
         app.textViews.firstMatch.typeKey(.rightArrow, modifierFlags: [])
         app.textViews.firstMatch.typeKey(.rightArrow, modifierFlags: [])
 
-        let accessibilityElement = AccessibilityElementAdaptor.fromAXFocusedElement()
+        let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
 
         XCTAssertEqual(accessibilityElement?.lineStart, 63)
     }
 
 }
 
-// from AccessibilityElement to AXUIElement
+// from AccessibilityTextElement to AXUIElement
 // same. no idea if we're ever gonna set the line start or not
 extension TV_LineStartTests {}

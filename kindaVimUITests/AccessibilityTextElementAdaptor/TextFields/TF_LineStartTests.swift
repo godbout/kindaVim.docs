@@ -2,7 +2,7 @@ import XCTest
 
 class TF_LineStartTests: AEA_BaseTests {}
 
-// from AXUIElement to AccessibilityElement
+// from AXUIElement to AccessibilityTextElement
 extension TF_LineStartTests {
 
     func test_that_the_line_start_is_equal_to_0_for_TextFields() {
@@ -10,7 +10,7 @@ extension TF_LineStartTests {
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
 
-        let accessibilityElement = AccessibilityElementAdaptor.fromAXFocusedElement()
+        let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
 
         XCTAssertEqual(accessibilityElement?.lineStart, 0)
     }
@@ -20,7 +20,7 @@ extension TF_LineStartTests {
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
 
-        let accessibilityElement = AccessibilityElementAdaptor.fromAXFocusedElement()
+        let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
 
         XCTAssertEqual(accessibilityElement?.lineStart, 0)
     }
@@ -30,7 +30,7 @@ extension TF_LineStartTests {
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
 
-        let accessibilityElement = AccessibilityElementAdaptor.fromAXFocusedElement()
+        let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
 
         XCTAssertEqual(accessibilityElement?.lineStart, 0)
     }
@@ -43,14 +43,14 @@ extension TF_LineStartTests {
             app.textFields.firstMatch.typeKey(.leftArrow, modifierFlags: [])
         }
 
-        let accessibilityElement = AccessibilityElementAdaptor.fromAXFocusedElement()
+        let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
 
         XCTAssertEqual(accessibilityElement?.lineStart, 0)
     }
 
 }
 
-// from AccessibilityElement to AXUIElement
+// from AccessibilityTextElement to AXUIElement
 // are we ever gonna set the line start?
 // is that even possible? no idea for now.
 extension TF_LineStartTests {}

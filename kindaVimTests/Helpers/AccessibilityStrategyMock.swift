@@ -5,13 +5,13 @@ class AccessibilityStrategyMock: AccessibilityStrategyProtocol {
     
     var functionCalled = ""
 
-    func h(on _: AccessibilityElement?) -> AccessibilityElement? {
+    func h(on _: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
 
         return nil
     }
     
-    func l(on _: AccessibilityElement?) -> AccessibilityElement? {
+    func l(on _: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
 
         return nil

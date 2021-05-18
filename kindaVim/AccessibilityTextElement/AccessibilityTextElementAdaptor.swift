@@ -1,6 +1,6 @@
 import Foundation
 
-struct AccessibilityElementAdaptor {
+struct AccessibilityTextElementAdaptor {
     
     // TO THINK:
     // tried to keep a static variable to the last axFocusedElement
@@ -11,8 +11,8 @@ struct AccessibilityElementAdaptor {
     // not sure how to handle this yet. without a static variable, we have to requery,
     // which seems actually very fast. so maybe it's safer this way.
 
-    static func fromAXFocusedElement() -> AccessibilityElement? {
-        var accessibilityElement: AccessibilityElement?
+    static func fromAXFocusedElement() -> AccessibilityTextElement? {
+        var accessibilityElement: AccessibilityTextElement?
 
         if let axFocusedElement = axFocusedElement() {
             var values: CFArray?
@@ -29,7 +29,7 @@ struct AccessibilityElementAdaptor {
 
                 print(selectedTextRange.location)
 
-                accessibilityElement = AccessibilityElement(
+                accessibilityElement = AccessibilityTextElement(
                     internalText: text,
                     caretLocation: selectedTextRange.location,
                     lineStart: lineRange.location,
@@ -81,7 +81,7 @@ struct AccessibilityElementAdaptor {
         return axFocusedElement as! AXUIElement?
     }
 
-    static func toAXFocusedElememt(from accessibilityElement: AccessibilityElement) -> Bool {
+    static func toAXFocusedElememt(from accessibilityElement: AccessibilityTextElement) -> Bool {
         guard let axFocusedElement = axFocusedElement() else { return false }
         
         var selectedTextRange = CFRange()

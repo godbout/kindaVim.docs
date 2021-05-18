@@ -3,11 +3,11 @@ import Foundation
 
 struct FailingAccessibilityStrategyStub: AccessibilityStrategyProtocol {
     
-    func h(on element: AccessibilityElement?) -> AccessibilityElement? {
+    func h(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return nil
     }
     
-    func l(on element: AccessibilityElement?) -> AccessibilityElement? {
+    func l(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return nil        
     }
     

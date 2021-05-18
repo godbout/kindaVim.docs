@@ -7,7 +7,7 @@
 // so the way we handle this is by using the SelectedText and SelectedTextRange to remove or add
 // what we need in the current buffer, rather than pushing the full text.
 
-struct AccessibilityElement {
+struct AccessibilityTextElement {
 
     var internalText = ""
     

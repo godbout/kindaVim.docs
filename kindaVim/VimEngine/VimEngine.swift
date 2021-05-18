@@ -255,11 +255,11 @@ class VimEngine {
         KeyboardStrategy.post(keyCombinations)
     }
 
-    private func focusedElement() -> AccessibilityElement? {
+    private func focusedElement() -> AccessibilityTextElement? {
         return AccessibilityStrategy.focusedElement()
     }
 
-    private func write(element: AccessibilityElement) -> Bool {
+    private func write(element: AccessibilityTextElement) -> Bool {
         return AccessibilityStrategy.write(element: element)
     }
     
