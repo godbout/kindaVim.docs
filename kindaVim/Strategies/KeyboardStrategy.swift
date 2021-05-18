@@ -228,7 +228,8 @@ struct KeyboardStrategy: KeyboardStrategyProtocol {
             KeyCombination(key: .enter)
         ]
     }
-    
+
+    // TODO
     func O() -> [KeyCombination] {
         return [
             KeyCombination(key: .a, control: true),
@@ -292,8 +293,9 @@ struct KeyboardStrategy: KeyboardStrategyProtocol {
 
     func yy() -> [KeyCombination] {
         return [
-            KeyCombination(key: .e, control: true),
-            KeyCombination(key: .a, control: true, shift: true),
+            KeyCombination(key: .right, command: true),
+            KeyCombination(key: .left, shift: true, command: true),
+            KeyCombination(key: .left, shift: true, command: true),
             KeyCombination(key: .c, command: true),
             KeyCombination(key: .right)
         ]
