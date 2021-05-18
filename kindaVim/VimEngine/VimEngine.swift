@@ -224,6 +224,10 @@ class VimEngine {
     }
     
     func enterNormalMode() {
+        if currentMode == .insert, let element = accessibilityStrategy.h(on: focusedElement()) {
+            _ = write(element: element)
+        }
+        
         currentMode = .normal
         resetOperatorPendingBuffer()
 
