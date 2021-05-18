@@ -343,7 +343,8 @@ struct KeyboardStrategy: KeyboardStrategyProtocol {
 
     func zero() -> [KeyCombination] {
         return [
-            KeyCombination(key: .a, control: true)
+            KeyCombination(key: .left, command: true),
+            KeyCombination(key: .left, command: true)
         ]
     }
 
