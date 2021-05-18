@@ -135,13 +135,16 @@ struct KeyboardStrategy: KeyboardStrategyProtocol {
     // TODO
     func dd() -> [KeyCombination] {
         return [
-            KeyCombination(key: .e, control: true),
-            KeyCombination(key: .a, control: true, shift: true),
+            KeyCombination(key: .right, command: true),
+            KeyCombination(key: .left, shift: true, command: true),
+            KeyCombination(key: .left, shift: true, command: true),
             KeyCombination(key: .delete),
             KeyCombination(key: .down),
-            KeyCombination(key: .a, control: true),
+            KeyCombination(key: .left, command: true),
+            KeyCombination(key: .left, command: true),
             KeyCombination(key: .delete),
-            KeyCombination(key: .a, control: true),
+            KeyCombination(key: .left, command: true),
+            KeyCombination(key: .left, command: true),
             KeyCombination(key: .right, command: true),
             KeyCombination(key: .left, command: true)
         ]
