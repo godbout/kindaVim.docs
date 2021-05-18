@@ -132,7 +132,6 @@ struct KeyboardStrategy: KeyboardStrategyProtocol {
         ]
     }
 
-    // TODO
     func dd() -> [KeyCombination] {
         return [
             KeyCombination(key: .right, command: true),
@@ -153,7 +152,8 @@ struct KeyboardStrategy: KeyboardStrategyProtocol {
     // TODO
     func dj() -> [KeyCombination] {
         return [
-            KeyCombination(key: .a, control: true),
+            KeyCombination(key: .left, command: true),
+            KeyCombination(key: .left, command: true),
             KeyCombination(key: .down, shift: true),
             KeyCombination(key: .down, shift: true),
             KeyCombination(key: .delete),
