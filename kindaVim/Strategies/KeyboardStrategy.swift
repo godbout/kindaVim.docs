@@ -232,10 +232,10 @@ struct KeyboardStrategy: KeyboardStrategyProtocol {
         ]
     }
 
-    // TODO
     func O() -> [KeyCombination] {
         return [
-            KeyCombination(key: .a, control: true),
+            KeyCombination(key: .right, command: true),
+            KeyCombination(key: .left, command: true),
             KeyCombination(key: .enter),
             KeyCombination(key: .up)
         ]
