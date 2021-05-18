@@ -336,9 +336,8 @@ struct KeyboardStrategy: KeyboardStrategyProtocol {
 
     func underscore() -> [KeyCombination] {
         return [
-            KeyCombination(key: .a, control: true),
-            KeyCombination(key: .right, option: true),
-            KeyCombination(key: .left, option: true)
+            KeyCombination(key: .right, command: true),
+            KeyCombination(key: .left, command: true)
         ]
     }
 
