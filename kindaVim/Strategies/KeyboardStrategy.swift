@@ -97,7 +97,7 @@ struct KeyboardStrategy: KeyboardStrategyProtocol {
 
     func cgg() -> [KeyCombination] {
         return [
-            KeyCombination(key: .e, control: true),
+            KeyCombination(key: .right, command: true),
             KeyCombination(key: .up, shift: true, command: true),
             KeyCombination(key: .delete)
         ]

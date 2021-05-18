@@ -7,7 +7,7 @@ class KS_cgg_Tests: KS_BaseTests {
         let keyCombinations = keyboardStrategy.cgg()
 
         guard keyCombinations.count == 3 else { return XCTFail() }
-        XCTAssertEqual(keyCombinations[0], KeyCombination(key: .e, control: true))
+        XCTAssertEqual(keyCombinations[0], KeyCombination(key: .right, command: true))
         XCTAssertEqual(keyCombinations[1], KeyCombination(key: .up, shift: true, command: true))
         XCTAssertEqual(keyCombinations[2], KeyCombination(key: .delete))
     }
