@@ -76,7 +76,7 @@ struct KeyboardStrategy: KeyboardStrategyProtocol {
 
     func C() -> [KeyCombination] {
         return [
-            KeyCombination(key: .e, control: true, shift: true),
+            KeyCombination(key: .right, shift: true, command: true),
             KeyCombination(key: .delete)
         ]
     }

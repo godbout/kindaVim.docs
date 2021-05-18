@@ -7,7 +7,7 @@ class KS_C__Tests: KS_BaseTests {
         let keyCombinations = keyboardStrategy.C()
 
         guard keyCombinations.count == 2 else { return XCTFail() }
-        XCTAssertEqual(keyCombinations[0], KeyCombination(key: .e, control: true, shift: true))
+        XCTAssertEqual(keyCombinations[0], KeyCombination(key: .right, shift: true, command: true))
         XCTAssertEqual(keyCombinations[1], KeyCombination(key: .delete))
     }
     
