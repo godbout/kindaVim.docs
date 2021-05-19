@@ -2,7 +2,7 @@ import XCTest
 
 class TV_LineStartTests: AEA_BaseTests {}
 
-// from AXUIElement to AccessibilityTextElement
+// from AXUIElement
 extension TV_LineStartTests {
 
     func test_that_the_line_start_is_equal_to_0_if_caret_is_at_the_beginning_of_a_TextView() {
@@ -67,6 +67,6 @@ extension TV_LineStartTests {
 
 }
 
-// from AccessibilityTextElement to AXUIElement
+// to AXUIElement
 // same. no idea if we're ever gonna set the line start or not
 extension TV_LineStartTests {}

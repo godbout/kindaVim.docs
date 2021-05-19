@@ -3,7 +3,7 @@ import XCTest
 
 class KeyCombinationAdaptorTests: XCTestCase {}
 
-// from CGEvent to KeyCombination
+// from CGEvent
 extension KeyCombinationAdaptorTests {
 
     func test_that_it_can_convert_a_simple_CGEvent_press_to_a_KeyCombination() throws {
@@ -66,7 +66,7 @@ extension KeyCombinationAdaptorTests {
 
 }
 
-// From KeyCombination to CGEvent
+// to CGEvent
 extension KeyCombinationAdaptorTests {
     
     func test_that_it_can_convert_a_simple_KeyCombination_press_to_one_CGEvent() {

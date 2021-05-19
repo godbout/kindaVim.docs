@@ -50,6 +50,6 @@ extension TV_LineEndTests {
 
 }
 
-// from AccessibilityTextElement to AXUIElement
+// to AXUIElement
 // same. no idea if we're ever gonna set the line start or not
 extension TV_LineEndTests {}

@@ -27,7 +27,7 @@ extension TF_LineStartTests {
 
 }
 
-// from AccessibilityTextElement to AXUIElement
+// to AXUIElement
 // are we ever gonna set the line start?
 // is that even possible? no idea for now.
 extension TF_LineEndTests {}

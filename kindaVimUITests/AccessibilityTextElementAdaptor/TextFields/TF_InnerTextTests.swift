@@ -2,7 +2,7 @@ import XCTest
 
 class TF_InnerTextTests: AEA_BaseTests {}
 
-// from AXUIElement to AccessibilityTextElement
+// from AXUIElement
 extension TF_InnerTextTests {
 
     func test_that_the_innerText_matches_the_AXUIElement_text_for_TextField() {
@@ -17,7 +17,7 @@ extension TF_InnerTextTests {
 
 }
 
-// from AccessibilityTextElement to AXUIElement
+// to AXUIElement
 // REMINDER:
 // internalText is for AccessibilityTextElement internal use only
 // to search where to position the caret.

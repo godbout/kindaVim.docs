@@ -2,7 +2,7 @@ import XCTest
 
 class NonTextElementsTests: AEA_BaseTests {}
 
-// from AXUIElement to AccessibilityTextElement
+// from AXUIElement
 extension NonTextElementsTests {
 
     func test_that_trying_to_convert_an_AXUIElement_button_to_an_AccessibilityTextElement_returns_nil() {
@@ -15,7 +15,7 @@ extension NonTextElementsTests {
 
 }
 
-// from AccessibilityTextElement to AXUIElement
+// to AXUIElement
 extension NonTextElementsTests {
 
     func test_that_trying_to_convert_an_AccessibilityTextElement_to_an_AXUIElement_button_returns_false() {

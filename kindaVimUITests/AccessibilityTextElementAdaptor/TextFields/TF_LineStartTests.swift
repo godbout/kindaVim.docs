@@ -2,7 +2,7 @@ import XCTest
 
 class TF_LineStartTests: AEA_BaseTests {}
 
-// from AXUIElement to AccessibilityTextElement
+// from AXUIElement
 extension TF_LineStartTests {
 
     func test_that_the_line_start_is_equal_to_0_for_TextFields() {
@@ -50,7 +50,7 @@ extension TF_LineStartTests {
 
 }
 
-// from AccessibilityTextElement to AXUIElement
+// to AXUIElement
 // are we ever gonna set the line start?
 // is that even possible? no idea for now.
 extension TF_LineStartTests {}

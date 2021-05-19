@@ -2,7 +2,7 @@ import XCTest
 
 class TF_CaretLocationTests: AEA_BaseTests {}
 
-// from AXUIElement to AccessibilityTextElement
+// from AXUIElement
 extension TF_CaretLocationTests {
 
     func test_that_the_caret_location_is_equal_to_0_if_caret_is_at_the_beginning_of_a_non_empty_line() {
