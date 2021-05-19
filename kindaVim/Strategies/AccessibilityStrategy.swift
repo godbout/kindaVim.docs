@@ -2,10 +2,10 @@ import Foundation
 
 protocol AccessibilityStrategyProtocol {
     
-    func h(on: AccessibilityTextElement?) -> AccessibilityTextElement?
-    func l(on: AccessibilityTextElement?) -> AccessibilityTextElement?
-    func dollarSign(on: AccessibilityTextElement?) -> AccessibilityTextElement?
-    func blockCursor(_: BlockCursorStatus, on: AccessibilityTextElement?) -> AccessibilityTextElement?
+    func h(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
+    func l(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
+    func dollarSign(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
+    func blockCursor(_ status: BlockCursorStatus, on element: AccessibilityTextElement?) -> AccessibilityTextElement?
 
 }
 

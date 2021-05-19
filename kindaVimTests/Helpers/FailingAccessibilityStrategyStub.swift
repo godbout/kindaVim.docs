@@ -11,11 +11,11 @@ struct FailingAccessibilityStrategyStub: AccessibilityStrategyProtocol {
         return nil        
     }
 
-    func dollarSign(on _: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func dollarSign(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return nil
     }
 
-    func blockCursor(_: BlockCursorStatus, on: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func blockCursor(_ status: BlockCursorStatus, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return nil
     }
     

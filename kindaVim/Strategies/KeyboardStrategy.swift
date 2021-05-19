@@ -26,7 +26,7 @@ protocol KeyboardStrategyProtocol {
     func l() -> [KeyCombination]
     func o() -> [KeyCombination]
     func O() -> [KeyCombination]
-    func r(with: KeyCombination) -> [KeyCombination]
+    func r(with replacement: KeyCombination) -> [KeyCombination]
     func controlR() -> [KeyCombination]
     func s() -> [KeyCombination]
     func u() -> [KeyCombination]
