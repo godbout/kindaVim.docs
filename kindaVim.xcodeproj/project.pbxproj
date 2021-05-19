@@ -32,6 +32,8 @@
 		912B92E0264443BD007F44E1 /* KS_yiw_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912B92DF264443BD007F44E1 /* KS_yiw_Tests.swift */; };
 		912FD7C52652C23200B916DF /* TF_LineEndTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912FD7C42652C23200B916DF /* TF_LineEndTests.swift */; };
 		912FD7CD2652C61600B916DF /* TVLineEndTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912FD7CC2652C61600B916DF /* TVLineEndTests.swift */; };
+		913008A926555EB00075A864 /* AS_0_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913008A826555EB00075A864 /* AS_0_Tests.swift */; };
+		913008AE26555FC30075A864 /* UsingAS_0_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913008AD26555FC30075A864 /* UsingAS_0_Tests.swift */; };
 		913EBF48264ADEE700BCCCEE /* AccessibilityTextElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913EBF47264ADEE700BCCCEE /* AccessibilityTextElement.swift */; };
 		913EBF53264ADF5800BCCCEE /* AccessibilityTextElementAdaptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913EBF52264ADF5800BCCCEE /* AccessibilityTextElementAdaptor.swift */; };
 		9140E6DD264554320021C2FB /* KS_cgg_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9140E6DC264554320021C2FB /* KS_cgg_Tests.swift */; };
@@ -184,6 +186,8 @@
 		912B92DF264443BD007F44E1 /* KS_yiw_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KS_yiw_Tests.swift; sourceTree = "<group>"; };
 		912FD7C42652C23200B916DF /* TF_LineEndTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TF_LineEndTests.swift; sourceTree = "<group>"; };
 		912FD7CC2652C61600B916DF /* TVLineEndTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVLineEndTests.swift; sourceTree = "<group>"; };
+		913008A826555EB00075A864 /* AS_0_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AS_0_Tests.swift; sourceTree = "<group>"; };
+		913008AD26555FC30075A864 /* UsingAS_0_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsingAS_0_Tests.swift; sourceTree = "<group>"; };
 		913EBF47264ADEE700BCCCEE /* AccessibilityTextElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilityTextElement.swift; sourceTree = "<group>"; };
 		913EBF52264ADF5800BCCCEE /* AccessibilityTextElementAdaptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilityTextElementAdaptor.swift; sourceTree = "<group>"; };
 		9140E6DC264554320021C2FB /* KS_cgg_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KS_cgg_Tests.swift; sourceTree = "<group>"; };
@@ -522,6 +526,7 @@
 				91A54F082643BCD400400677 /* AS_h_Tests.swift */,
 				91A54F0A2643BD2000400677 /* AS_l_Tests.swift */,
 				9165BB1F26554C9A00B19718 /* AS_$_Tests.swift */,
+				913008A826555EB00075A864 /* AS_0_Tests.swift */,
 				9182AEBA26553F3C004A8E17 /* AS_BlockCursorTests.swift */,
 			);
 			path = AccessibilityStrategy;
@@ -653,6 +658,7 @@
 				91F7A006264FC75F00B609FF /* UsingAS_h_Tests.swift */,
 				91B78AE6264FCAB5004BC0E6 /* UsingAS_l_Tests.swift */,
 				9165BB2726554DD900B19718 /* UsingAS_$_Tests.swift */,
+				913008AD26555FC30075A864 /* UsingAS_0_Tests.swift */,
 			);
 			path = UsingAS;
 			sourceTree = "<group>";
@@ -844,6 +850,7 @@
 				91E304E52643F3AC004D9933 /* UsingKS_o_Tests.swift in Sources */,
 				91A54EFD2643BB2A00400677 /* KS_u_Tests.swift in Sources */,
 				91A54EFF2643BB7000400677 /* KS_w_Tests.swift in Sources */,
+				913008AE26555FC30075A864 /* UsingAS_0_Tests.swift in Sources */,
 				9145AA85264545480056976B /* UsingKS_cG_Tests.swift in Sources */,
 				91E304F52643F5B0004D9933 /* UsingKS___Tests.swift in Sources */,
 				91A54EF12643B8BA00400677 /* KS_j_Tests.swift in Sources */,
@@ -892,6 +899,7 @@
 				91E304D32643F0C3004D9933 /* UsingKS_g_Tests.swift in Sources */,
 				9107EE192646BD15003575A7 /* UsingKS_db_Tests.swift in Sources */,
 				91E304C72643EEB8004D9933 /* UsingKS_A__Tests.swift in Sources */,
+				913008A926555EB00075A864 /* AS_0_Tests.swift in Sources */,
 				918C26572646D32500C39ADA /* UsingKS_s_Tests.swift in Sources */,
 				9165BB2026554C9A00B19718 /* AS_$_Tests.swift in Sources */,
 				91E304DF2643F2C0004D9933 /* UsingKS_l_Tests.swift in Sources */,
