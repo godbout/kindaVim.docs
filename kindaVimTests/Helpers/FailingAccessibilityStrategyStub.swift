@@ -10,5 +10,9 @@ struct FailingAccessibilityStrategyStub: AccessibilityStrategyProtocol {
     func l(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return nil        
     }
+
+    func blockCursor(_: BlockCursorStatus, on: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        return nil
+    }
     
 }

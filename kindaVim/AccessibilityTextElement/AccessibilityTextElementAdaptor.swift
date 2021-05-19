@@ -88,7 +88,7 @@ struct AccessibilityTextElementAdaptor {
         selectedTextRange.location = accessibilityElement.caretLocation
 
         if caretIsNotAtTheEndOfText(caretLocation: selectedTextRange.location, text: accessibilityElement.internalText) {
-            selectedTextRange.length = 1
+            selectedTextRange.length = accessibilityElement.selectedLength
         }
 
         let newValue = AXValueCreate(.cfRange, &selectedTextRange)

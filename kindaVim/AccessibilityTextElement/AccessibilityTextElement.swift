@@ -15,4 +15,6 @@ struct AccessibilityTextElement {
     var lineStart = 0
     var lineEnd = 0
 
+    var selectedLength = 1
+
 }

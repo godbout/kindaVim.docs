@@ -4,7 +4,13 @@ protocol AccessibilityStrategyProtocol {
     
     func h(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func l(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
+    func blockCursor(_: BlockCursorStatus, on: AccessibilityTextElement?) -> AccessibilityTextElement?
 
+}
+
+enum BlockCursorStatus {
+    case on
+    case off
 }
 
 struct AccessibilityStrategy: AccessibilityStrategyProtocol {
@@ -32,6 +38,20 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
 
         if element.caretLocation < limit {
             element.caretLocation += 1
+        }
+
+        return element
+    }
+
+    func blockCursor(_ status: BlockCursorStatus, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        guard var element = element else { return nil }
+
+        switch status {
+        case .on:
+            element = h(on: element)!
+            element.selectedLength = 1
+        case .off:
+            element.selectedLength = 0
         }
 
         return element

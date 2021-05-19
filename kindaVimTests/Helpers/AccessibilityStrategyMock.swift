@@ -17,4 +17,10 @@ class AccessibilityStrategyMock: AccessibilityStrategyProtocol {
         return nil
     }
 
+    func blockCursor(_: BlockCursorStatus, on: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        functionCalled = #function
+
+        return nil
+    }
+
 }
