@@ -37,7 +37,14 @@ class VimEngine {
 
                 post(keyboardStrategy.enter())
             case .dollarSign:
-                post(keyboardStrategy.dollarSign())
+                // ugly af; need to refactor
+                if let element = accessibilityStrategy.dollarSign(on: focusedElement()) {
+                    if push(element: element) == false {
+                        post(keyboardStrategy.dollarSign())
+                    }
+                } else {
+                    post(keyboardStrategy.dollarSign())
+                }
             case .underscore:
                 post(keyboardStrategy.underscore())
             case .zero:

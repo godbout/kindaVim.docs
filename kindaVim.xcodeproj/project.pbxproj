@@ -41,6 +41,8 @@
 		91473C7E2647009000AA52D5 /* KS_r_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91473C7D2647009000AA52D5 /* KS_r_Tests.swift */; };
 		91473C82264700C200AA52D5 /* UsingKS_r_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91473C81264700C200AA52D5 /* UsingKS_r_Tests.swift */; };
 		91482E40263DBE8300F10ADC /* KeyboardStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91482E3F263DBE8300F10ADC /* KeyboardStrategy.swift */; };
+		9165BB2026554C9A00B19718 /* AS_$_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9165BB1F26554C9A00B19718 /* AS_$_Tests.swift */; };
+		9165BB2826554DD900B19718 /* UsingAS_$_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9165BB2726554DD900B19718 /* UsingAS_$_Tests.swift */; };
 		917458F1262EB934007D3855 /* StatusBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917458F0262EB934007D3855 /* StatusBarController.swift */; };
 		918024B926386E95004FD719 /* AppComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918024B826386E95004FD719 /* AppComponent.swift */; };
 		9182AEAA265536FC004A8E17 /* UsingAS_BlockCursorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9182AEA9265536FC004A8E17 /* UsingAS_BlockCursorTests.swift */; };
@@ -191,6 +193,8 @@
 		91473C7D2647009000AA52D5 /* KS_r_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KS_r_Tests.swift; sourceTree = "<group>"; };
 		91473C81264700C200AA52D5 /* UsingKS_r_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsingKS_r_Tests.swift; sourceTree = "<group>"; };
 		91482E3F263DBE8300F10ADC /* KeyboardStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardStrategy.swift; sourceTree = "<group>"; };
+		9165BB1F26554C9A00B19718 /* AS_$_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AS_$_Tests.swift; sourceTree = "<group>"; };
+		9165BB2726554DD900B19718 /* UsingAS_$_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsingAS_$_Tests.swift; sourceTree = "<group>"; };
 		916BEA87264DA08300E6E4E5 /* kindaVimUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = kindaVimUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		916BEA8B264DA08300E6E4E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		917458F0262EB934007D3855 /* StatusBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBarController.swift; sourceTree = "<group>"; };
@@ -517,6 +521,7 @@
 				91E304C02643EAD9004D9933 /* AS_BaseTests.swift */,
 				91A54F082643BCD400400677 /* AS_h_Tests.swift */,
 				91A54F0A2643BD2000400677 /* AS_l_Tests.swift */,
+				9165BB1F26554C9A00B19718 /* AS_$_Tests.swift */,
 				9182AEBA26553F3C004A8E17 /* AS_BlockCursorTests.swift */,
 			);
 			path = AccessibilityStrategy;
@@ -647,6 +652,7 @@
 				9182AEA9265536FC004A8E17 /* UsingAS_BlockCursorTests.swift */,
 				91F7A006264FC75F00B609FF /* UsingAS_h_Tests.swift */,
 				91B78AE6264FCAB5004BC0E6 /* UsingAS_l_Tests.swift */,
+				9165BB2726554DD900B19718 /* UsingAS_$_Tests.swift */,
 			);
 			path = UsingAS;
 			sourceTree = "<group>";
@@ -822,6 +828,7 @@
 				910B05CA2642AECC005D287C /* FailingAccessibilityStrategyStub.swift in Sources */,
 				912B92D426443A06007F44E1 /* KS_yy_Tests.swift in Sources */,
 				91B78AE7264FCAB5004BC0E6 /* UsingAS_l_Tests.swift in Sources */,
+				9165BB2826554DD900B19718 /* UsingAS_$_Tests.swift in Sources */,
 				91DA6EEF26455D6600CF7504 /* UsingKS_dgg_Tests.swift in Sources */,
 				91A54EE12643B66800400677 /* KS_C__Tests.swift in Sources */,
 				91A54EF92643BA5A00400677 /* KS_O__Tests.swift in Sources */,
@@ -886,6 +893,7 @@
 				9107EE192646BD15003575A7 /* UsingKS_db_Tests.swift in Sources */,
 				91E304C72643EEB8004D9933 /* UsingKS_A__Tests.swift in Sources */,
 				918C26572646D32500C39ADA /* UsingKS_s_Tests.swift in Sources */,
+				9165BB2026554C9A00B19718 /* AS_$_Tests.swift in Sources */,
 				91E304DF2643F2C0004D9933 /* UsingKS_l_Tests.swift in Sources */,
 				9107EE092646B92D003575A7 /* KS_cb_Tests.swift in Sources */,
 				91E304BF2643E843004D9933 /* KS_BaseTests.swift in Sources */,

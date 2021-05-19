@@ -17,6 +17,12 @@ class AccessibilityStrategyMock: AccessibilityStrategyProtocol {
         return nil
     }
 
+    func dollarSign(on _: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        functionCalled = #function
+
+        return nil
+    }
+
     func blockCursor(_: BlockCursorStatus, on: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
 

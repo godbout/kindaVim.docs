@@ -2,8 +2,9 @@ import Foundation
 
 protocol AccessibilityStrategyProtocol {
     
-    func h(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
-    func l(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
+    func h(on: AccessibilityTextElement?) -> AccessibilityTextElement?
+    func l(on: AccessibilityTextElement?) -> AccessibilityTextElement?
+    func dollarSign(on: AccessibilityTextElement?) -> AccessibilityTextElement?
     func blockCursor(_: BlockCursorStatus, on: AccessibilityTextElement?) -> AccessibilityTextElement?
 
 }
@@ -39,6 +40,19 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
         if element.caretLocation < limit {
             element.caretLocation += 1
         }
+
+        return element
+    }
+
+    func dollarSign(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        guard var element = element else { return nil }
+
+        let lineStart = element.internalText.index(element.internalText.startIndex, offsetBy: element.lineStart)
+        let lineEnd = element.internalText.index(lineStart, offsetBy: element.lineEnd - element.lineStart)
+
+        let limit = element.internalText[lineStart..<lineEnd].hasSuffix("\n") ? element.lineEnd - 2 : element.lineEnd - 1
+
+        element.caretLocation = limit
 
         return element
     }
