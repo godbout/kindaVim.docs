@@ -9,12 +9,12 @@
 
 struct AccessibilityTextElement {
 
-    var internalText = ""
+    private(set) var internalText = ""
     
     var caretLocation = 0
-    var lineStart = 0
-    var lineEnd = 0
-
     var selectedLength = 1
+
+    private(set) var lineStart = 0
+    private(set) var lineEnd = 0
 
 }
