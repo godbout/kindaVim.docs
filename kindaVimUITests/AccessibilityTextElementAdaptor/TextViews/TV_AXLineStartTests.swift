@@ -17,7 +17,7 @@ extension TV_LineStartTests {
 
         let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
 
-        XCTAssertEqual(accessibilityElement?.lineStart, 0)
+        XCTAssertEqual(accessibilityElement?.axLineStart, 0)
     }
 
     func test_that_the_line_start_is_equal_to_0_for_an_empty_TextView() {
@@ -27,7 +27,7 @@ extension TV_LineStartTests {
 
         let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
 
-        XCTAssertEqual(accessibilityElement?.lineStart, 0)
+        XCTAssertEqual(accessibilityElement?.axLineStart, 0)
     }
 
     func test_that_the_line_start_is_correct_even_if_caret_is_at_the_end_of_a_TextView() {
@@ -42,7 +42,7 @@ extension TV_LineStartTests {
 
         let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
 
-        XCTAssertEqual(accessibilityElement?.lineStart, 54)
+        XCTAssertEqual(accessibilityElement?.axLineStart, 54)
     }
 
     func test_that_the_line_start_is_correct_if_caret_is_between_the_beginning_and_the_end_of_a_TextView() {
@@ -62,7 +62,7 @@ extension TV_LineStartTests {
 
         let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
 
-        XCTAssertEqual(accessibilityElement?.lineStart, 63)
+        XCTAssertEqual(accessibilityElement?.axLineStart, 63)
     }
 
 }

@@ -1,6 +1,6 @@
 import XCTest
 
-class NonTextElementsTests: AEA_BaseTests {}
+class NonTextElementsTests: ATEA_BaseTests {}
 
 // from AXUIElement
 extension NonTextElementsTests {
@@ -20,9 +20,9 @@ extension NonTextElementsTests {
 
     func test_that_trying_to_convert_an_AccessibilityTextElement_to_an_AXUIElement_button_returns_false() {
         let accessibilityElement = AccessibilityTextElement(
-            internalText: "hi i'm a button",
-            caretLocation: 5,
-            lineStart: 0
+            axText: "hi i'm a button",
+            axCaretLocation: 5,
+            axLineStart: 0
         )
 
         app.buttons.firstMatch.tap()

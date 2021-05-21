@@ -12,7 +12,7 @@ extension TF_LineStartTests {
 
         let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
 
-        XCTAssertEqual(accessibilityElement?.lineEnd, 0)
+        XCTAssertEqual(accessibilityElement?.axLineEnd, 0)
     }
 
     func test_that_the_line_end_is_equal_to_line_length_for_TextFields() {
@@ -22,7 +22,7 @@ extension TF_LineStartTests {
 
         let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
 
-        XCTAssertEqual(accessibilityElement?.lineEnd, textInAXFocusedElement.count)
+        XCTAssertEqual(accessibilityElement?.axLineEnd, textInAXFocusedElement.count)
     }
 
 }

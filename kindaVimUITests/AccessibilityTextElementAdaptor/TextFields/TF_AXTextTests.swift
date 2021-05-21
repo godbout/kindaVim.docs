@@ -12,7 +12,7 @@ extension TF_InnerTextTests {
 
         let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
 
-        XCTAssertEqual(accessibilityElement?.internalText, textInAXFocusedElement)
+        XCTAssertEqual(accessibilityElement?.axText, textInAXFocusedElement)
     }
 
 }

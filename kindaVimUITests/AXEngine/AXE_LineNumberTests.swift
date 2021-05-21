@@ -26,16 +26,6 @@ extension AXE_LineNumberTests {
         XCTAssertEqual(axLineNumber, 0)
     }
 
-    func test_that_it_can_get_the_AX_line_number_when_the_caret_is_at_the_end_of_a_line() {
-        let textInAXFocusedElement = "that's the text that is in the TextField... again... and again..."
-        app.textFields.firstMatch.tap()
-        app.textFields.firstMatch.typeText(textInAXFocusedElement)
-
-        let axLineNumber = AXEngine.axLineNumberFor(location: textInAXFocusedElement.count)
-
-        XCTAssertEqual(axLineNumber, 0)
-    }
-
 }
 
 // TextViews
@@ -67,20 +57,6 @@ please please please again
         let axLineNumber = AXEngine.axLineNumberFor(location: 0)
 
         XCTAssertEqual(axLineNumber, 0)
-    }
-
-    func test_that_it_can_get_the_AX_line_number_when_the_caret_is_at_the_end_of_a_TextView() {
-        let textInAXFocusedElement = """
-some text to put in the TextView
-OMG can you guys speed up the UI Tests
-please please please again again again
-"""
-        app.textViews.firstMatch.tap()
-        app.textViews.firstMatch.typeText(textInAXFocusedElement)
-
-        let axLineNumber = AXEngine.axLineNumberFor(location: textInAXFocusedElement.count)
-
-        XCTAssertEqual(axLineNumber, 2)
     }
 
     func test_that_it_can_get_the_correct_AX_line_number_when_the_caret_is_at_the_beginning_of_a_line() {

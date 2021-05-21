@@ -13,7 +13,7 @@ extension TF_CaretLocationTests {
 
         let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
 
-        XCTAssertEqual(accessibilityElement?.caretLocation, 0)
+        XCTAssertEqual(accessibilityElement?.axCaretLocation, 0)
     }
 
     func test_that_the_caret_location_is_equal_to_0_if_caret_is_on_an_empty_line() {
@@ -23,7 +23,7 @@ extension TF_CaretLocationTests {
 
         let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
 
-        XCTAssertEqual(accessibilityElement?.caretLocation, 0)
+        XCTAssertEqual(accessibilityElement?.axCaretLocation, 0)
     }
 
     func test_that_the_caret_location_is_equal_to_line_length_if_caret_is_at_the_end_of_a_line() {
@@ -33,7 +33,7 @@ extension TF_CaretLocationTests {
 
         let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
 
-        XCTAssertEqual(accessibilityElement?.caretLocation, textInAXFocusedElement.count)
+        XCTAssertEqual(accessibilityElement?.axCaretLocation, textInAXFocusedElement.count)
     }
 
     func test_that_the_caret_location_is_correct_if_caret_is_between_the_beginning_and_the_end_of_a_line() {
@@ -46,7 +46,7 @@ extension TF_CaretLocationTests {
 
         let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
 
-        XCTAssertEqual(accessibilityElement?.caretLocation, 44)
+        XCTAssertEqual(accessibilityElement?.axCaretLocation, 44)
     }
 
 }
@@ -62,8 +62,8 @@ extension TF_CaretLocationTests {
     func test_that_we_can_set_the_caret_location_to_0_on_a_non_empty_line() {
         let text = "hello you dear"
         let accessibilityElement = AccessibilityTextElement(
-            internalText: text,
-            caretLocation: 0
+            axText: text,
+            axCaretLocation: 0
         )
 
         let textInAXFocusedElement = text
@@ -74,14 +74,14 @@ extension TF_CaretLocationTests {
         XCTAssertTrue(conversionSucceeded)
 
         let reconvertedAccessibilityTextElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
-        XCTAssertEqual(reconvertedAccessibilityTextElement?.caretLocation, 0)
+        XCTAssertEqual(reconvertedAccessibilityTextElement?.axCaretLocation, 0)
     }
 
     func test_that_we_can_set_the_caret_location_to_0_on_an_empty_line() {
         let text = ""
         let accessibilityElement = AccessibilityTextElement(
-            internalText: "",
-            caretLocation: 0
+            axText: "",
+            axCaretLocation: 0
         )
 
         let textInAXFocusedElement = text
@@ -92,14 +92,14 @@ extension TF_CaretLocationTests {
         XCTAssertTrue(conversionSucceeded)
 
         let reconvertedAccessibilityTextElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
-        XCTAssertEqual(reconvertedAccessibilityTextElement?.caretLocation, 0)
+        XCTAssertEqual(reconvertedAccessibilityTextElement?.axCaretLocation, 0)
     }
 
     func test_that_we_can_set_the_caret_location_to_the_end_of_the_line() {
         let text = "hello you dear again again"
         let accessibilityElement = AccessibilityTextElement(
-            internalText: text,
-            caretLocation: 26
+            axText: text,
+            axCaretLocation: 26
         )
 
         let textInAXFocusedElement = text
@@ -110,14 +110,14 @@ extension TF_CaretLocationTests {
         XCTAssertTrue(conversionSucceeded)
 
         let reconvertedAccessibilityTextElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
-        XCTAssertEqual(reconvertedAccessibilityTextElement?.caretLocation, 26)
+        XCTAssertEqual(reconvertedAccessibilityTextElement?.axCaretLocation, 26)
     }
 
     func test_that_we_can_set_the_caret_location_wherever_between_the_beginning_and_the_end_of_the_line() {
         let text = "hello"
         let accessibilityElement = AccessibilityTextElement(
-            internalText: text,
-            caretLocation: 4
+            axText: text,
+            axCaretLocation: 4
         )
 
         let textInAXFocusedElement = text
@@ -128,14 +128,14 @@ extension TF_CaretLocationTests {
         XCTAssertTrue(conversionSucceeded)
 
         let reconvertedAccessibilityTextElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
-        XCTAssertEqual(reconvertedAccessibilityTextElement?.caretLocation, 4)
+        XCTAssertEqual(reconvertedAccessibilityTextElement?.axCaretLocation, 4)
     }
 
     func test_that_the_conversion_fails_if_we_set_the_caret_location_out_of_range() {
         let text = "deifnitely not 19"
         let accessibilityElement = AccessibilityTextElement(
-            internalText: text,
-            caretLocation: 19
+            axText: text,
+            axCaretLocation: 19
         )
 
         let textInAXFocusedElement = text
