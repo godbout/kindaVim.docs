@@ -1,58 +1,72 @@
 @testable import kindaVim
 import XCTest
 
-class AS_BlockCursorTests: AS_BaseTests {}
+class AS_h_Tests: AS_BaseTests {}
 
-// block cursor ON
-extension AS_BlockCursorTests {
+// TextFields
+extension AS_h_Tests {
 
-    func test_that_in_normal_setting_blockcursor_ON_moves_the_caret_to_the_left_by_one_increment_and_selects_the_next_character() {
+    func test_that_in_normal_setting_h_goes_one_character_to_the_left_in_TextFields() {
         let element = AccessibilityTextElement(
-            internalText: "setting block cursor ON",
-            caretLocation: 10,
+            internalText: "h goes one character to the left",
+            caretLocation: 16,
+            lineStart: 0
+        )
+        
+        let returnedElement = accessibilityStrategy.h(on: element)
+
+        XCTAssertEqual(returnedElement?.caretLocation, 15)
+    }
+
+    func test_that_at_the_beginning_of_a_line_h_does_not_move_in_TextFields() {
+        let element = AccessibilityTextElement(
+            internalText: "if at the beginning of a line h should not move the caret",
+            caretLocation: 0,
             lineStart: 0
         )
 
-        let returnedElement = accessibilityStrategy.blockCursor(.on, on: element)
+        let returnedElement = accessibilityStrategy.h(on: element)
 
-        XCTAssertEqual(returnedElement?.caretLocation, 9)
+        XCTAssertEqual(returnedElement?.caretLocation, 0)
     }
 
-    func test_that_at_the_beginning_of_a_line_blockcursor_ON_does_not_move_and_still_selects_the_next_character() {
+}
+
+// TextAreas
+extension AS_h_Tests {
+
+    func test_that_in_normal_setting_h_goes_one_character_to_the_left_in_TextAreas() {
         let element = AccessibilityTextElement(
             internalText: """
-another
-setting block cursor
-ON but that is
-multiline!
+h goes one
+character to the
+left even
+in multilines
 """,
-            caretLocation: 29,
-            lineStart: 29
+            caretLocation: 16,
+            lineStart: 11
         )
 
-        let returnedElement = accessibilityStrategy.blockCursor(.on, on: element)
+        let returnedElement = accessibilityStrategy.h(on: element)
 
-        XCTAssertEqual(returnedElement?.caretLocation, 29)
-        XCTAssertEqual(returnedElement?.selectedLength, 1)
+        XCTAssertEqual(returnedElement?.caretLocation, 15)
     }
 
-}
-
-// block cursor OFF
-extension AS_BlockCursorTests {
-
-    func test_that_blockcursor_OFF_removes_character_selection_and_does_not_move_the_caret() {
+    func test_that_at_the_beginning_of_a_line_h_does_not_move_up_to_the_prevous_line_in_TextAreas() {
         let element = AccessibilityTextElement(
-            internalText: "let's go block cursor OFF",
-            caretLocation: 12,
-            lineStart: 0
+            internalText: """
+in multiline if
+at the beginning of a line
+h should not go up to
+the previous line
+""",
+            caretLocation: 43,
+            lineStart: 43
         )
-            
-        let returnedElement = accessibilityStrategy.blockCursor(.off, on: element)
 
-        XCTAssertEqual(returnedElement?.caretLocation, 12)
-        XCTAssertEqual(returnedElement?.selectedLength, 0)
+        let returnedElement = accessibilityStrategy.h(on: element)
+
+        XCTAssertEqual(returnedElement?.caretLocation, 43)
     }
 
 }
-
