@@ -20,6 +20,11 @@
 		9118C4E7263F0CE50040C297 /* Display.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9118C4E6263F0CE50040C297 /* Display.swift */; };
 		911BB7492632899E006882D8 /* VimEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911BB7482632899E006882D8 /* VimEngine.swift */; };
 		911BB75626328D7D006882D8 /* EventTapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911BB75526328D7D006882D8 /* EventTapController.swift */; };
+		912686692657F0880096E927 /* AXEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912686682657F0880096E927 /* AXEngine.swift */; };
+		9126866F2657F51B0096E927 /* AXE_FocusedElementTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9126866E2657F51B0096E927 /* AXE_FocusedElementTests.swift */; };
+		912686762657FCBA0096E927 /* AXEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912686682657F0880096E927 /* AXEngine.swift */; };
+		9126867B2657FD720096E927 /* AXE_LineNumberTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9126867A2657FD720096E927 /* AXE_LineNumberTests.swift */; };
+		912686802657FD920096E927 /* AXE_BaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9126867F2657FD920096E927 /* AXE_BaseTests.swift */; };
 		9128B0ED26380ACC007DC80B /* GlobalEventsControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9128B0EC26380ACC007DC80B /* GlobalEventsControllerTests.swift */; };
 		9128F2B0262AA90C00625B42 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9128F2AF262AA90C00625B42 /* AppDelegate.swift */; };
 		9128F2B2262AA90D00625B42 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9128F2B1262AA90D00625B42 /* ContentView.swift */; };
@@ -170,6 +175,10 @@
 		9118C4E6263F0CE50040C297 /* Display.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Display.swift; sourceTree = "<group>"; };
 		911BB7482632899E006882D8 /* VimEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VimEngine.swift; sourceTree = "<group>"; };
 		911BB75526328D7D006882D8 /* EventTapController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTapController.swift; sourceTree = "<group>"; };
+		912686682657F0880096E927 /* AXEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AXEngine.swift; sourceTree = "<group>"; };
+		9126866E2657F51B0096E927 /* AXE_FocusedElementTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AXE_FocusedElementTests.swift; sourceTree = "<group>"; };
+		9126867A2657FD720096E927 /* AXE_LineNumberTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AXE_LineNumberTests.swift; sourceTree = "<group>"; };
+		9126867F2657FD920096E927 /* AXE_BaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AXE_BaseTests.swift; sourceTree = "<group>"; };
 		9128B0EC26380ACC007DC80B /* GlobalEventsControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalEventsControllerTests.swift; sourceTree = "<group>"; };
 		9128F2AC262AA90C00625B42 /* kindaVim.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kindaVim.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9128F2AF262AA90C00625B42 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -354,6 +363,24 @@
 			path = Events;
 			sourceTree = "<group>";
 		};
+		912686672657F07C0096E927 /* AXEngine */ = {
+			isa = PBXGroup;
+			children = (
+				912686682657F0880096E927 /* AXEngine.swift */,
+			);
+			path = AXEngine;
+			sourceTree = "<group>";
+		};
+		9126866D2657F50C0096E927 /* AXEngine */ = {
+			isa = PBXGroup;
+			children = (
+				9126867F2657FD920096E927 /* AXE_BaseTests.swift */,
+				9126866E2657F51B0096E927 /* AXE_FocusedElementTests.swift */,
+				9126867A2657FD720096E927 /* AXE_LineNumberTests.swift */,
+			);
+			path = AXEngine;
+			sourceTree = "<group>";
+		};
 		9126872326406335002E3FB0 /* KeyCombination */ = {
 			isa = PBXGroup;
 			children = (
@@ -412,6 +439,7 @@
 		9128F2AE262AA90C00625B42 /* kindaVim */ = {
 			isa = PBXGroup;
 			children = (
+				912686672657F07C0096E927 /* AXEngine */,
 				911BB75A26329513006882D8 /* StatusBar */,
 				9118C4E5263F0CDA0040C297 /* Display */,
 				911BB75B26329526006882D8 /* Events */,
@@ -524,6 +552,7 @@
 		916BEA88264DA08300E6E4E5 /* kindaVimUITests */ = {
 			isa = PBXGroup;
 			children = (
+				9126866D2657F50C0096E927 /* AXEngine */,
 				91F83FA12656B7DC00199276 /* Strategies */,
 				919E35C3264E73B200542866 /* AccessibilityTextElementAdaptor */,
 				916BEA8B264DA08300E6E4E5 /* Info.plist */,
@@ -820,6 +849,7 @@
 				9197C0852636695A006C696A /* KeyCombinationAdaptor.swift in Sources */,
 				911BB7492632899E006882D8 /* VimEngine.swift in Sources */,
 				918024B926386E95004FD719 /* AppComponent.swift in Sources */,
+				912686692657F0880096E927 /* AXEngine.swift in Sources */,
 				9128F2B0262AA90C00625B42 /* AppDelegate.swift in Sources */,
 				911BB75626328D7D006882D8 /* EventTapController.swift in Sources */,
 				91013742263DD2430037AB6E /* AccessibilityStrategy.swift in Sources */,
@@ -942,11 +972,15 @@
 				919FDD0D26528E0A003DF40C /* TF_LineStartTests.swift in Sources */,
 				919FDD39265294B1003DF40C /* TV_CaretLocationTests.swift in Sources */,
 				919FDCF826527AB0003DF40C /* AEA_BaseTests.swift in Sources */,
+				9126867B2657FD720096E927 /* AXE_LineNumberTests.swift in Sources */,
 				919E35C2264DA13700542866 /* AccessibilityStrategy.swift in Sources */,
 				919FDD3E26529666003DF40C /* TV_LineStartTests.swift in Sources */,
 				919FDD3426529308003DF40C /* NonTextElementsTests.swift in Sources */,
 				912FD7CD2652C61600B916DF /* TVLineEndTests.swift in Sources */,
+				9126866F2657F51B0096E927 /* AXE_FocusedElementTests.swift in Sources */,
+				912686762657FCBA0096E927 /* AXEngine.swift in Sources */,
 				919FDD0526528BA6003DF40C /* TF_InnerTextTests.swift in Sources */,
+				912686802657FD920096E927 /* AXE_BaseTests.swift in Sources */,
 				91F83FA42656B81400199276 /* AS_BaseTests.swift in Sources */,
 				912FD7C52652C23200B916DF /* TF_LineEndTests.swift in Sources */,
 				919FDD262652922A003DF40C /* TF_CaretLocationTests.swift in Sources */,
