@@ -11,27 +11,21 @@ struct AXEngine {
         return axFocusedElement as! AXUIElement?
     }
 
-    static func axLineNumberFor(location: Int) -> Int? {
-        if let axFocusedElement = AXEngine.axFocusedElement() {
+    static func axLineNumberFor(location: Int, on axFocusedElement: AXUIElement? = axFocusedElement()) -> Int? {
+        if let axFocusedElement = axFocusedElement {
             var currentLine: AnyObject?
-            var error = AXUIElementCopyParameterizedAttributeValue(axFocusedElement, kAXLineForIndexParameterizedAttribute as CFString, location as CFTypeRef, &currentLine)
+            let error = AXUIElementCopyParameterizedAttributeValue(axFocusedElement, kAXLineForIndexParameterizedAttribute as CFString, location as CFTypeRef, &currentLine)
 
             if error == .success {
                 return (currentLine as! Int)
-            } else {
-                error = AXUIElementCopyParameterizedAttributeValue(axFocusedElement, kAXLineForIndexParameterizedAttribute as CFString, location - 1 as CFTypeRef, &currentLine)
-
-                if error == .success {
-                    return (currentLine as! Int)
-                }
             }
         }
 
         return nil
     }
 
-    static func axLineRangeFor(lineNumber: Int) -> CFRange? {
-        if let axFocusedElement = AXEngine.axFocusedElement() {
+    static func axLineRangeFor(lineNumber: Int, on axFocusedElement: AXUIElement? = axFocusedElement()) -> CFRange? {
+        if let axFocusedElement = axFocusedElement {
             var lineRangeValue: AnyObject?
             let error = AXUIElementCopyParameterizedAttributeValue(axFocusedElement, kAXRangeForLineParameterizedAttribute as CFString, lineNumber as CFTypeRef, &lineRangeValue)
 

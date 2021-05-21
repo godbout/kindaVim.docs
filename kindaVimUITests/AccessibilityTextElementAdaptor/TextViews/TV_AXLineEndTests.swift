@@ -1,34 +1,9 @@
 import XCTest
 
-class TV_LineEndTests: AEA_BaseTests {}
+class TV_AXLineEndTests: ATEA_BaseTests {}
 
 // from AXUIElement
-extension TV_LineEndTests {
-
-    func test_that_the_line_end_is_equal_to_0_for_an_empty_TextView() {
-        let textInAXFocusedElement = ""
-        app.textViews.firstMatch.tap()
-        app.textViews.firstMatch.typeText(textInAXFocusedElement)
-
-        let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
-
-        XCTAssertEqual(accessibilityElement?.axLineEnd, 0)
-    }
-
-    func test_that_the_line_end_is_correct_even_if_caret_is_at_the_end_of_a_TextView() {
-        let textInAXFocusedElement = """
-        so
-        that shit
-        at the
-        and see
-        """
-        app.textViews.firstMatch.tap()
-        app.textViews.firstMatch.typeText(textInAXFocusedElement)
-
-        let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
-
-        XCTAssertEqual(accessibilityElement?.axLineEnd, 27)
-    }
+extension TV_AXLineEndTests {
 
     func test_that_the_line_end_is_correct_if_caret_is_between_the_beginning_and_the_end_of_a_TextView() {
         let textInAXFocusedElement = """
@@ -52,4 +27,4 @@ extension TV_LineEndTests {
 
 // to AXUIElement
 // same. no idea if we're ever gonna set the line start or not
-extension TV_LineEndTests {}
+extension TV_AXLineEndTests {}

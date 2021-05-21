@@ -1,9 +1,9 @@
 import XCTest
 
-class TV_LineStartTests: AEA_BaseTests {}
+class TV_AXLineStartTests: ATEA_BaseTests {}
 
 // from AXUIElement
-extension TV_LineStartTests {
+extension TV_AXLineStartTests {
 
     func test_that_the_line_start_is_equal_to_0_if_caret_is_at_the_beginning_of_a_TextView() {
         let textInAXFocusedElement = """
@@ -18,31 +18,6 @@ extension TV_LineStartTests {
         let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
 
         XCTAssertEqual(accessibilityElement?.axLineStart, 0)
-    }
-
-    func test_that_the_line_start_is_equal_to_0_for_an_empty_TextView() {
-        let textInAXFocusedElement = ""
-        app.textViews.firstMatch.tap()
-        app.textViews.firstMatch.typeText(textInAXFocusedElement)
-
-        let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
-
-        XCTAssertEqual(accessibilityElement?.axLineStart, 0)
-    }
-
-    func test_that_the_line_start_is_correct_even_if_caret_is_at_the_end_of_a_TextView() {
-        let textInAXFocusedElement = """
-        so we gonna position
-        that shit (the caret)
-        at the end
-        and see if we can again blow up that whole shit!
-        """
-        app.textViews.firstMatch.tap()
-        app.textViews.firstMatch.typeText(textInAXFocusedElement)
-
-        let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
-
-        XCTAssertEqual(accessibilityElement?.axLineStart, 54)
     }
 
     func test_that_the_line_start_is_correct_if_caret_is_between_the_beginning_and_the_end_of_a_TextView() {
@@ -69,4 +44,4 @@ extension TV_LineStartTests {
 
 // to AXUIElement
 // same. no idea if we're ever gonna set the line start or not
-extension TV_LineStartTests {}
+extension TV_AXLineStartTests {}

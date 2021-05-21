@@ -14,26 +14,24 @@ struct AccessibilityTextElementAdaptor {
     static func fromAXFocusedElement() -> AccessibilityTextElement? {
         var accessibilityElement: AccessibilityTextElement?
 
-        if let axFocusedElement = axFocusedElement() {
+        if let axFocusedElement = AXEngine.axFocusedElement() {
             var values: CFArray?
-            let error = AXUIElementCopyMultipleAttributeValues(axFocusedElement, [kAXValueAttribute, kAXSelectedTextRangeAttribute, kAXNumberOfCharactersAttribute] as CFArray, .stopOnError, &values)
+            let error = AXUIElementCopyMultipleAttributeValues(axFocusedElement, [kAXValueAttribute, kAXSelectedTextRangeAttribute] as CFArray, .stopOnError, &values)
 
             if error == .success, let values = values as NSArray? {
-                let text = values[0] as! String
-                let numberOfCharacters = values[2] as! Int
+                let axText = values[0] as! String
 
                 var selectedTextRange = CFRange()
                 AXValueGetValue(values[1] as! AXValue, .cfRange, &selectedTextRange)
 
-                let lineRange = self.lineRange(for: axFocusedElement, at: selectedTextRange.location, having: numberOfCharacters)
-
-                print(selectedTextRange.location)
+                guard let axLineNumber = AXEngine.axLineNumberFor(location: selectedTextRange.location, on: axFocusedElement) else { return nil}
+                guard let axLineRange = AXEngine.axLineRangeFor(lineNumber: axLineNumber, on: axFocusedElement) else { return nil }
 
                 accessibilityElement = AccessibilityTextElement(
-                    internalText: text,
-                    caretLocation: selectedTextRange.location,
-                    lineStart: lineRange.location,
-                    lineEnd: lineRange.location + lineRange.length
+                    axText: axText,
+                    axCaretLocation: selectedTextRange.location,
+                    axLineStart: axLineRange.location,
+                    axLineEnd: axLineRange.location + axLineRange.length
                 )
             }
         }
@@ -41,55 +39,13 @@ struct AccessibilityTextElementAdaptor {
         return accessibilityElement
     }
 
-    private static func lineRange(for element: AXUIElement, at location: Int, having numberOfCharacters: Int) -> CFRange {
-        var lineStart = 0
-        var axLineNumber: AnyObject?
-        var lineRange = CFRange()
-
-        switch numberOfCharacters {
-        case 0:
-            lineStart = 0
-        case location:
-            AXUIElementCopyParameterizedAttributeValue(element, kAXLineForIndexParameterizedAttribute as CFString, location - 1 as CFTypeRef, &axLineNumber)
-
-            var lineRangeValue: AnyObject?
-            AXUIElementCopyParameterizedAttributeValue(element, kAXRangeForLineParameterizedAttribute as CFString, axLineNumber as CFTypeRef, &lineRangeValue)
-
-            AXValueGetValue(lineRangeValue as! AXValue, .cfRange, &lineRange)
-
-            lineStart = lineRange.location
-        default:
-            AXUIElementCopyParameterizedAttributeValue(element, kAXLineForIndexParameterizedAttribute as CFString, location as CFTypeRef, &axLineNumber)
-
-            var lineRangeValue: AnyObject?
-            AXUIElementCopyParameterizedAttributeValue(element, kAXRangeForLineParameterizedAttribute as CFString, axLineNumber as CFTypeRef, &lineRangeValue)
-
-            AXValueGetValue(lineRangeValue as! AXValue, .cfRange, &lineRange)
-
-            lineStart = lineRange.location
-        }
-
-        return CFRange(location: lineStart, length: lineRange.length)
-    }
-
-    private static func axFocusedElement() -> AXUIElement? {
-        let axSystemWideElement = AXUIElementCreateSystemWide()
-
-        var axFocusedElement: AnyObject?
-        guard AXUIElementCopyAttributeValue(axSystemWideElement, kAXFocusedUIElementAttribute as CFString, &axFocusedElement) == .success else { return nil }
-
-        return axFocusedElement as! AXUIElement?
-    }
-
     static func toAXFocusedElememt(from accessibilityElement: AccessibilityTextElement) -> Bool {
-        guard let axFocusedElement = axFocusedElement() else { return false }
+        guard !accessibilityElement.axText.isEmpty else { return false }
+        guard let axFocusedElement = AXEngine.axFocusedElement() else { return false }
         
         var selectedTextRange = CFRange()
-        selectedTextRange.location = accessibilityElement.caretLocation
-
-        if caretIsNotAtTheEndOfText(caretLocation: selectedTextRange.location, text: accessibilityElement.internalText) {
-            selectedTextRange.length = accessibilityElement.selectedLength
-        }
+        selectedTextRange.location = accessibilityElement.axCaretLocation
+        selectedTextRange.length = 0
 
         let newValue = AXValueCreate(.cfRange, &selectedTextRange)
 
@@ -98,7 +54,4 @@ struct AccessibilityTextElementAdaptor {
         return true
     }
 
-    private static func caretIsNotAtTheEndOfText(caretLocation: Int, text: String) -> Bool {
-        return text.count != caretLocation
-    }
 }

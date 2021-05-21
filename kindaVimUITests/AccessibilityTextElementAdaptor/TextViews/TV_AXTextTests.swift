@@ -1,11 +1,11 @@
 import XCTest
 
-class TV_InnerTextTests: AEA_BaseTests {}
+class TV_AXTextTests: ATEA_BaseTests {}
 
 // from AXUIElement
-extension TV_InnerTextTests {
+extension TV_AXTextTests {
 
-    func test_that_the_innerText_matches_the_AXUIElement_text_for_TextView() {
+    func test_that_the_AXText_matches_the_AXUIElement_text_for_TextView() {
         let textInAXFocusedElement = """
         that's a way longer text
             that is gonna go into a TextView my friend
@@ -15,6 +15,7 @@ extension TV_InnerTextTests {
         """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        app.textViews.firstMatch.typeKey(.leftArrow, modifierFlags: [])
 
         let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
 

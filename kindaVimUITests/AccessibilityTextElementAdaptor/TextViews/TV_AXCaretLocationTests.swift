@@ -1,9 +1,9 @@
 import XCTest
 
-class TV_CaretLocationTests: AEA_BaseTests {}
+class TV_AXCaretLocationTests: ATEA_BaseTests {}
 
 // from AXUIElement
-extension TV_CaretLocationTests {
+extension TV_AXCaretLocationTests {
 
     func test_that_the_caret_location_is_equal_to_0_if_caret_is_at_the_beginning_of_a_non_empty_TextView() {
         let textInAXFocusedElement = """
@@ -18,32 +18,6 @@ extension TV_CaretLocationTests {
         let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
 
         XCTAssertEqual(accessibilityElement?.axCaretLocation, 0)
-    }
-
-    func test_that_the_caret_location_is_equal_to_0_if_the_TextView_is_empty() {
-        let textInAXFocusedElement = ""
-        app.textViews.firstMatch.tap()
-        app.textViews.firstMatch.typeText(textInAXFocusedElement)
-
-        let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
-
-        XCTAssertEqual(accessibilityElement?.axCaretLocation, 0)
-    }
-
-    func test_that_the_caret_location_is_equal_to_text_length_if_caret_is_at_the_end_of_a_TextView() {
-        let textInAXFocusedElement = """
-        another looooong
-        big shit
-        for you
-        my
-        friend...
-        """
-        app.textViews.firstMatch.tap()
-        app.textViews.firstMatch.typeText(textInAXFocusedElement)
-
-        let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
-
-        XCTAssertEqual(accessibilityElement?.axCaretLocation, textInAXFocusedElement.count)
     }
 
     func test_that_the_caret_location_is_correct_if_caret_is_between_the_beginning_and_the_end_of_a_TextView() {
@@ -74,7 +48,7 @@ extension TV_CaretLocationTests {
 // to search where to position the caret, if we are at the end of text for block cursor, etc.
 // this does not set the text of the focused AXUIElement (slow, flickers)
 // which is why we need to set it first through the tap and typeText methods
-extension TV_CaretLocationTests {
+extension TV_AXCaretLocationTests {
 
     func test_that_we_can_set_the_caret_location_to_0_on_a_non_empty_TextView() {
         let text = """
@@ -97,45 +71,6 @@ extension TV_CaretLocationTests {
         XCTAssertEqual(reconvertedAccessibilityTextElement?.axCaretLocation, 0)
     }
 
-    func test_that_we_can_set_the_caret_location_to_0_on_an_empty_TextView() {
-        let text = ""
-        let accessibilityElement = AccessibilityTextElement(
-            axText: text,
-            axCaretLocation: 0
-        )
-
-        app.textViews.firstMatch.tap()
-        app.textViews.firstMatch.typeText(text)
-
-        let conversionSucceeded = AccessibilityTextElementAdaptor.toAXFocusedElememt(from: accessibilityElement)
-        XCTAssertTrue(conversionSucceeded)
-
-        let reconvertedAccessibilityTextElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
-        XCTAssertEqual(reconvertedAccessibilityTextElement?.axCaretLocation, 0)
-    }
-
-    func test_that_we_can_set_the_caret_location_to_the_end_of_the_TextView() {
-        let text = """
-        another looooong
-        big shit
-        for you
-        my
-        friend...
-        """
-        let accessibilityElement = AccessibilityTextElement(
-            axText: text,
-            axCaretLocation: 0
-        )
-
-        app.textViews.firstMatch.tap()
-        app.textViews.firstMatch.typeText(text)
-
-        let conversionSucceeded = AccessibilityTextElementAdaptor.toAXFocusedElememt(from: accessibilityElement)
-        XCTAssertTrue(conversionSucceeded)
-
-        let reconvertedAccessibilityTextElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
-        XCTAssertEqual(reconvertedAccessibilityTextElement?.axCaretLocation, 0)
-    }
 
     func test_that_we_can_set_the_caret_location_wherever_between_the_beginning_and_the_end_of_the_TextView() {
         let text = """

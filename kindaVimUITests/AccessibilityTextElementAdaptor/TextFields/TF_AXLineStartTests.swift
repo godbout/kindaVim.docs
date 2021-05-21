@@ -1,34 +1,15 @@
 import XCTest
 
-class TF_LineStartTests: AEA_BaseTests {}
+class TF_AXLineStartTests: ATEA_BaseTests {}
 
 // from AXUIElement
-extension TF_LineStartTests {
+extension TF_AXLineStartTests {
 
     func test_that_the_line_start_is_equal_to_0_for_TextFields() {
         let textInAXFocusedElement = "line start should always be equal to 0 for TextFields"
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
-
-        let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
-
-        XCTAssertEqual(accessibilityElement?.axLineStart, 0)
-    }
-
-    func test_that_the_line_start_is_equal_to_0_for_an_empty_line() {
-        let textInAXFocusedElement = ""
-        app.textFields.firstMatch.tap()
-        app.textFields.firstMatch.typeText(textInAXFocusedElement)
-
-        let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
-
-        XCTAssertEqual(accessibilityElement?.axLineStart, 0)
-    }
-
-    func test_that_the_line_start_is_equal_to_0_even_if_caret_is_at_the_end_of_a_line() {
-        let textInAXFocusedElement = "line start should be 0 even if caret is at the end of the text"
-        app.textFields.firstMatch.tap()
-        app.textFields.firstMatch.typeText(textInAXFocusedElement)
+        app.textFields.firstMatch.typeKey(.leftArrow, modifierFlags: [])
 
         let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
 
@@ -53,4 +34,4 @@ extension TF_LineStartTests {
 // to AXUIElement
 // are we ever gonna set the line start?
 // is that even possible? no idea for now.
-extension TF_LineStartTests {}
+extension TF_AXLineStartTests {}

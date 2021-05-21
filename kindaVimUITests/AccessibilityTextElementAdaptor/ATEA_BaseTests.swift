@@ -1,6 +1,6 @@
 import XCTest
 
-class AEA_BaseTests: XCTestCase {
+class ATEA_BaseTests: XCTestCase {
 
     var app: XCUIApplication!
 
