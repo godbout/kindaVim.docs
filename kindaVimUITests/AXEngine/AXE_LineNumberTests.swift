@@ -11,7 +11,7 @@ extension AXE_LineNumberTests {
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
 
-        let axLineNumber = AXEngine.axLineNumber(at: 15)
+        let axLineNumber = AXEngine.axLineNumberFor(location: 15)
 
         XCTAssertEqual(axLineNumber, 0)
     }
@@ -21,7 +21,7 @@ extension AXE_LineNumberTests {
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
 
-        let axLineNumber = AXEngine.axLineNumber(at: 0)
+        let axLineNumber = AXEngine.axLineNumberFor(location: 0)
 
         XCTAssertEqual(axLineNumber, 0)
     }
@@ -31,7 +31,7 @@ extension AXE_LineNumberTests {
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
 
-        let axLineNumber = AXEngine.axLineNumber(at: textInAXFocusedElement.count)
+        let axLineNumber = AXEngine.axLineNumberFor(location: textInAXFocusedElement.count)
 
         XCTAssertEqual(axLineNumber, 0)
     }
@@ -50,7 +50,7 @@ please please please
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
 
-        let axLineNumber = AXEngine.axLineNumber(at: 47)
+        let axLineNumber = AXEngine.axLineNumberFor(location: 47)
 
         XCTAssertEqual(axLineNumber, 1)
     }
@@ -64,7 +64,7 @@ please please please again
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
 
-        let axLineNumber = AXEngine.axLineNumber(at: 0)
+        let axLineNumber = AXEngine.axLineNumberFor(location: 0)
 
         XCTAssertEqual(axLineNumber, 0)
     }
@@ -78,7 +78,7 @@ please please please again again again
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
 
-        let axLineNumber = AXEngine.axLineNumber(at: textInAXFocusedElement.count)
+        let axLineNumber = AXEngine.axLineNumberFor(location: textInAXFocusedElement.count)
 
         XCTAssertEqual(axLineNumber, 2)
     }
@@ -93,7 +93,7 @@ that starts to be quite a lot
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
 
-        let axLineNumber = AXEngine.axLineNumber(at: 33)
+        let axLineNumber = AXEngine.axLineNumberFor(location: 33)
 
         XCTAssertEqual(axLineNumber, 1)
     }
@@ -109,7 +109,7 @@ that's big
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
 
-        let axLineNumber = AXEngine.axLineNumber(at: 71)
+        let axLineNumber = AXEngine.axLineNumberFor(location: 71)
 
         XCTAssertEqual(axLineNumber, 1)
     }
