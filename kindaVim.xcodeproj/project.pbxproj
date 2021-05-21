@@ -131,11 +131,12 @@
 		91F7A007264FC75F00B609FF /* UsingAS_h_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F7A006264FC75F00B609FF /* UsingAS_h_Tests.swift */; };
 		91F7A009264FC81000B609FF /* AccessibilityStrategyMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F7A008264FC81000B609FF /* AccessibilityStrategyMock.swift */; };
 		91F83FA42656B81400199276 /* AS_BaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F83FA32656B81400199276 /* AS_BaseTests.swift */; };
-		91F83FAC2656B85100199276 /* AS_h_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F83FAB2656B85100199276 /* AS_h_Tests.swift */; };
-		91F83FB42656BB8F00199276 /* AS_l_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F83FB32656BB8F00199276 /* AS_l_Tests.swift */; };
-		91F83FBF2656C2B100199276 /* AS_0_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F83FBE2656C2B100199276 /* AS_0_Tests.swift */; };
-		91F83FC72656C41400199276 /* AS_$_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F83FC62656C41400199276 /* AS_$_Tests.swift */; };
-		91F83FD22656C56300199276 /* AS_BlockCursor_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F83FD12656C56300199276 /* AS_BlockCursor_Tests.swift */; };
+		91FA1D922657B443005F576E /* AS_BaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FA1D912657B443005F576E /* AS_BaseTests.swift */; };
+		91FA1D942657B48B005F576E /* AS_h_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FA1D932657B48B005F576E /* AS_h_Tests.swift */; };
+		91FA1D962657BE2B005F576E /* AS_0_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FA1D952657BE2B005F576E /* AS_0_Tests.swift */; };
+		91FA1D982657BF0E005F576E /* AS_l_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FA1D972657BF0E005F576E /* AS_l_Tests.swift */; };
+		91FA1D9A2657C13C005F576E /* AS_$_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FA1D992657C13C005F576E /* AS_$_Tests.swift */; };
+		91FA1D9C2657C2BA005F576E /* AS_BlockCursor_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FA1D9B2657C2BA005F576E /* AS_BlockCursor_Tests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -284,11 +285,12 @@
 		91F7A006264FC75F00B609FF /* UsingAS_h_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsingAS_h_Tests.swift; sourceTree = "<group>"; };
 		91F7A008264FC81000B609FF /* AccessibilityStrategyMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilityStrategyMock.swift; sourceTree = "<group>"; };
 		91F83FA32656B81400199276 /* AS_BaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AS_BaseTests.swift; sourceTree = "<group>"; };
-		91F83FAB2656B85100199276 /* AS_h_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AS_h_Tests.swift; sourceTree = "<group>"; };
-		91F83FB32656BB8F00199276 /* AS_l_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AS_l_Tests.swift; sourceTree = "<group>"; };
-		91F83FBE2656C2B100199276 /* AS_0_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AS_0_Tests.swift; sourceTree = "<group>"; };
-		91F83FC62656C41400199276 /* AS_$_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AS_$_Tests.swift; sourceTree = "<group>"; };
-		91F83FD12656C56300199276 /* AS_BlockCursor_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AS_BlockCursor_Tests.swift; sourceTree = "<group>"; };
+		91FA1D912657B443005F576E /* AS_BaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AS_BaseTests.swift; sourceTree = "<group>"; };
+		91FA1D932657B48B005F576E /* AS_h_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AS_h_Tests.swift; sourceTree = "<group>"; };
+		91FA1D952657BE2B005F576E /* AS_0_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AS_0_Tests.swift; sourceTree = "<group>"; };
+		91FA1D972657BF0E005F576E /* AS_l_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AS_l_Tests.swift; sourceTree = "<group>"; };
+		91FA1D992657C13C005F576E /* AS_$_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AS_$_Tests.swift; sourceTree = "<group>"; };
+		91FA1D9B2657C2BA005F576E /* AS_BlockCursor_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AS_BlockCursor_Tests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -468,6 +470,7 @@
 		91482E41263DBF3100F10ADC /* Strategies */ = {
 			isa = PBXGroup;
 			children = (
+				91FA1D902657B42C005F576E /* AccessibilityStrategy */,
 				91482E47263DC10600F10ADC /* KeyboardStrategy */,
 			);
 			path = Strategies;
@@ -662,11 +665,19 @@
 			isa = PBXGroup;
 			children = (
 				91F83FA32656B81400199276 /* AS_BaseTests.swift */,
-				91F83FD12656C56300199276 /* AS_BlockCursor_Tests.swift */,
-				91F83FAB2656B85100199276 /* AS_h_Tests.swift */,
-				91F83FB32656BB8F00199276 /* AS_l_Tests.swift */,
-				91F83FC62656C41400199276 /* AS_$_Tests.swift */,
-				91F83FBE2656C2B100199276 /* AS_0_Tests.swift */,
+			);
+			path = AccessibilityStrategy;
+			sourceTree = "<group>";
+		};
+		91FA1D902657B42C005F576E /* AccessibilityStrategy */ = {
+			isa = PBXGroup;
+			children = (
+				91FA1D912657B443005F576E /* AS_BaseTests.swift */,
+				91FA1D9B2657C2BA005F576E /* AS_BlockCursor_Tests.swift */,
+				91FA1D932657B48B005F576E /* AS_h_Tests.swift */,
+				91FA1D972657BF0E005F576E /* AS_l_Tests.swift */,
+				91FA1D992657C13C005F576E /* AS_$_Tests.swift */,
+				91FA1D952657BE2B005F576E /* AS_0_Tests.swift */,
 			);
 			path = AccessibilityStrategy;
 			sourceTree = "<group>";
@@ -824,6 +835,7 @@
 			files = (
 				91A54ED92643B34F00400677 /* KS_$_Tests.swift in Sources */,
 				91A54EEF2643B88400400677 /* KS_I__Tests.swift in Sources */,
+				91FA1D9C2657C2BA005F576E /* AS_BlockCursor_Tests.swift in Sources */,
 				91E304E32643F335004D9933 /* UsingKS_k_Tests.swift in Sources */,
 				91A54EF72643B9F900400677 /* KS_o_Tests.swift in Sources */,
 				9107EE152646BC32003575A7 /* KS_db_Tests.swift in Sources */,
@@ -847,6 +859,7 @@
 				912B92D826443C8F007F44E1 /* UsingKS_yy_Tests.swift in Sources */,
 				91E304DD2643F24E004D9933 /* UsingKS_I__Tests.swift in Sources */,
 				91473C82264700C200AA52D5 /* UsingKS_r_Tests.swift in Sources */,
+				91FA1D982657BF0E005F576E /* AS_l_Tests.swift in Sources */,
 				91054E8F2645079B00CC0ACC /* KS_control_d_Tests.swift in Sources */,
 				9140E6E1264555390021C2FB /* UsingKS_cgg_Tests.swift in Sources */,
 				91A54EF52643B98700400677 /* KS_l_Tests.swift in Sources */,
@@ -855,6 +868,7 @@
 				91473C7E2647009000AA52D5 /* KS_r_Tests.swift in Sources */,
 				91E304E52643F3AC004D9933 /* UsingKS_o_Tests.swift in Sources */,
 				91A54EFD2643BB2A00400677 /* KS_u_Tests.swift in Sources */,
+				91FA1D9A2657C13C005F576E /* AS_$_Tests.swift in Sources */,
 				91A54EFF2643BB7000400677 /* KS_w_Tests.swift in Sources */,
 				913008AE26555FC30075A864 /* UsingAS_0_Tests.swift in Sources */,
 				9145AA85264545480056976B /* UsingKS_cG_Tests.swift in Sources */,
@@ -886,14 +900,17 @@
 				91E304EB2643F483004D9933 /* UsingKS_u_Tests.swift in Sources */,
 				91E304C92643EF1C004D9933 /* UsingKS_c_Tests.swift in Sources */,
 				91A54EFB2643BAB800400677 /* KS_control_r_Tests.swift in Sources */,
+				91FA1D962657BE2B005F576E /* AS_0_Tests.swift in Sources */,
 				91E304CF2643EFFD004D9933 /* UsingKS_C__Tests.swift in Sources */,
 				91A54EED2643B84100400677 /* KS_h_Tests.swift in Sources */,
 				91E304CD2643EFA1004D9933 /* UsingKS_cc_Tests.swift in Sources */,
 				91E304D12643F05C004D9933 /* UsingKS_dd_Tests.swift in Sources */,
 				91A54EE32643B6B400400677 /* KS_cc_Tests.swift in Sources */,
+				91FA1D942657B48B005F576E /* AS_h_Tests.swift in Sources */,
 				9128B0ED26380ACC007DC80B /* GlobalEventsControllerTests.swift in Sources */,
 				91C486052641C0D30003D9D7 /* KeyboardStrategyMock.swift in Sources */,
 				91E304BD2643E77A004D9933 /* UsingKS_a_Tests.swift in Sources */,
+				91FA1D922657B443005F576E /* AS_BaseTests.swift in Sources */,
 				91F7A009264FC81000B609FF /* AccessibilityStrategyMock.swift in Sources */,
 				91A54EEB2643B7E600400677 /* KS_gg_Tests.swift in Sources */,
 				91E304F32643F574004D9933 /* UsingKS_$_Tests.swift in Sources */,
@@ -925,19 +942,14 @@
 				919FDD0D26528E0A003DF40C /* TF_LineStartTests.swift in Sources */,
 				919FDD39265294B1003DF40C /* TV_CaretLocationTests.swift in Sources */,
 				919FDCF826527AB0003DF40C /* AEA_BaseTests.swift in Sources */,
-				91F83FD22656C56300199276 /* AS_BlockCursor_Tests.swift in Sources */,
 				919E35C2264DA13700542866 /* AccessibilityStrategy.swift in Sources */,
 				919FDD3E26529666003DF40C /* TV_LineStartTests.swift in Sources */,
 				919FDD3426529308003DF40C /* NonTextElementsTests.swift in Sources */,
-				91F83FC72656C41400199276 /* AS_$_Tests.swift in Sources */,
 				912FD7CD2652C61600B916DF /* TVLineEndTests.swift in Sources */,
 				919FDD0526528BA6003DF40C /* TF_InnerTextTests.swift in Sources */,
 				91F83FA42656B81400199276 /* AS_BaseTests.swift in Sources */,
-				91F83FAC2656B85100199276 /* AS_h_Tests.swift in Sources */,
-				91F83FBF2656C2B100199276 /* AS_0_Tests.swift in Sources */,
 				912FD7C52652C23200B916DF /* TF_LineEndTests.swift in Sources */,
 				919FDD262652922A003DF40C /* TF_CaretLocationTests.swift in Sources */,
-				91F83FB42656BB8F00199276 /* AS_l_Tests.swift in Sources */,
 				919E35C1264DA11E00542866 /* AccessibilityTextElement.swift in Sources */,
 				919E35C0264DA10000542866 /* AccessibilityTextElementAdaptor.swift in Sources */,
 				919FDD21265291FA003DF40C /* TV_InnerTextTests.swift in Sources */,
