@@ -6,7 +6,9 @@ class AS_BlockCursorTests: AS_BaseTests {}
 // block cursor ON
 extension AS_BlockCursorTests {
 
-    func test_that_in_normal_setting_blockcursor_ON_moves_the_caret_to_the_left_by_one_increment_and_selects_the_next_character() {
+    func test_that_in_normal_setting_blockcursor_ON_moves_the_caret_to_the_left_by_one_increment_and_selects_the_next_character() throws {
+        throw XCTSkip("block cursor stopped for now due to bug in Big Sur")
+
         let element = AccessibilityTextElement(
             axText: "setting block cursor ON",
             axCaretLocation: 10,
@@ -19,7 +21,9 @@ extension AS_BlockCursorTests {
         XCTAssertEqual(returnedElement?.axSelectedLength, 1)
     }
 
-    func test_that_at_the_beginning_of_a_line_blockcursor_ON_does_not_move_and_still_selects_the_next_character() {
+    func test_that_at_the_beginning_of_a_line_blockcursor_ON_does_not_move_and_still_selects_the_next_character() throws {
+        throw XCTSkip("block cursor stopped for now due to bug in Big Sur")
+
         let element = AccessibilityTextElement(
             axText: """
 another
