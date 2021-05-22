@@ -97,23 +97,6 @@ coz like come on there's so me shits inside.
         XCTAssertEqual(reconvertedAccessibilityTextElement?.axCaretLocation, 0)
     }
     
-    func test_that_we_can_set_the_caret_location_to_0_on_an_empty_TextView() {
-        let text = ""
-        let accessibilityElement = AccessibilityTextElement(
-            axText: text,
-            axCaretLocation: 0
-        )
-
-        app.textViews.firstMatch.tap()
-        app.textViews.firstMatch.typeText(text)
-
-        let conversionSucceeded = AccessibilityTextElementAdaptor.toAXFocusedElememt(from: accessibilityElement)
-        XCTAssertTrue(conversionSucceeded)
-
-        let reconvertedAccessibilityTextElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
-        XCTAssertEqual(reconvertedAccessibilityTextElement?.axCaretLocation, 0)
-    }
-    
     func test_that_we_can_set_the_caret_location_to_the_end_of_the_TextView() {
         let text = """
 another looooong
