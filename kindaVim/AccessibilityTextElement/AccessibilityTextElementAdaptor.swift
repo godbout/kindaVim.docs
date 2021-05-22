@@ -23,7 +23,6 @@ struct AccessibilityTextElementAdaptor {
                 AXValueGetValue(values[1] as! AXValue, .cfRange, &selectedTextRange)
                 
                 let axCaretLocation = selectedTextRange.location
-                let axSelectedLength = selectedTextRange.length
                 let numberOfCharacters = values[2] as! Int
                 var axLineNumber: Int?
                 var axLineStart: Int?
@@ -53,7 +52,6 @@ struct AccessibilityTextElementAdaptor {
                 accessibilityElement = AccessibilityTextElement(
                     axText: axText,
                     axCaretLocation: axCaretLocation,
-                    axSelectedLength: axSelectedLength == 0 ? 1 : axSelectedLength,
                     axLineStart: axLineStart!,
                     axLineEnd: axLineEnd!
                 )
