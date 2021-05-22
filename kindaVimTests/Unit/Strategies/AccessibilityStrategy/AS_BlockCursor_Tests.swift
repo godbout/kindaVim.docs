@@ -16,9 +16,10 @@ extension AS_BlockCursorTests {
         let returnedElement = accessibilityStrategy.blockCursor(.on, on: element)
 
         XCTAssertEqual(returnedElement?.axCaretLocation, 9)
+        XCTAssertEqual(returnedElement?.axSelectedLength, 1)
     }
 
-    func test_that_at_the_beginning_of_a_line_blockcursor_ON_does_not_move() {
+    func test_that_at_the_beginning_of_a_line_blockcursor_ON_does_not_move_and_still_selects_the_next_character() {
         let element = AccessibilityTextElement(
             axText: """
 another
@@ -33,6 +34,7 @@ multiline!
         let returnedElement = accessibilityStrategy.blockCursor(.on, on: element)
 
         XCTAssertEqual(returnedElement?.axCaretLocation, 29)
+        XCTAssertEqual(returnedElement?.axSelectedLength, 1)
     }
 
 }
@@ -40,7 +42,7 @@ multiline!
 // block cursor OFF
 extension AS_BlockCursorTests {
 
-    func test_that_blockcursor_OFF_does_not_move_the_caret() {
+    func test_that_blockcursor_OFF_removes_character_selection_and_does_not_move_the_caret() {
         let element = AccessibilityTextElement(
             axText: "let's go block cursor OFF",
             axCaretLocation: 12,
@@ -50,6 +52,7 @@ extension AS_BlockCursorTests {
         let returnedElement = accessibilityStrategy.blockCursor(.off, on: element)
 
         XCTAssertEqual(returnedElement?.axCaretLocation, 12)
+        XCTAssertEqual(returnedElement?.axSelectedLength, 0)
     }
 
 }

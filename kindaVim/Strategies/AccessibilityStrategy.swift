@@ -69,10 +69,9 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
         switch status {
         case .on:
             element = h(on: element)!
-//            element.selectedLength = 0
+            element.axSelectedLength = 1
         case .off:
-            ()
-//            element.selectedLength = 0
+            element.axSelectedLength = 0
         }
 
         return element
