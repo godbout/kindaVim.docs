@@ -122,9 +122,9 @@ that starts to be quite a lot
 
         let axLineNumber = AXEngine.axLineNumberFor(location: 33)
 
-        // even if visually on second line, linefeed belongs to previous line
-        // and also axLines start at 0, not 1
-        XCTAssertEqual(axLineNumber, 0)
+        // Big Sur bugs here if the first character is selected
+        // it returns the previous line rather than the current :CRY:
+        XCTAssertEqual(axLineNumber, 1)
     }
 
     func test_that_it_can_get_the_correct_AX_line_number_when_the_caret_is_at_the_end_of_a_line() {
