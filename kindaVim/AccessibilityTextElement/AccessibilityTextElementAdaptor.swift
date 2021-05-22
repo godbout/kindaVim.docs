@@ -16,22 +16,44 @@ struct AccessibilityTextElementAdaptor {
 
         if let axFocusedElement = AXEngine.axFocusedElement() {
             var values: CFArray?
-            let error = AXUIElementCopyMultipleAttributeValues(axFocusedElement, [kAXValueAttribute, kAXSelectedTextRangeAttribute] as CFArray, .stopOnError, &values)
+            let error = AXUIElementCopyMultipleAttributeValues(axFocusedElement, [kAXValueAttribute, kAXSelectedTextRangeAttribute, kAXNumberOfCharactersAttribute] as CFArray, .stopOnError, &values)
 
             if error == .success, let values = values as NSArray? {
-                let axText = values[0] as! String
-
                 var selectedTextRange = CFRange()
                 AXValueGetValue(values[1] as! AXValue, .cfRange, &selectedTextRange)
-
-                guard let axLineNumber = AXEngine.axLineNumberFor(location: selectedTextRange.location, on: axFocusedElement) else { return nil}
-                guard let axLineRange = AXEngine.axLineRangeFor(lineNumber: axLineNumber, on: axFocusedElement) else { return nil }
+                
+                let axCaretLocation = selectedTextRange.location
+                let numberOfCharacters = values[2] as! Int
+                var axLineNumber: Int?
+                var axLineStart: Int?
+                var axLineEnd: Int?
+                
+                switch numberOfCharacters {
+                case 0:
+                    axLineNumber = 0
+                    axLineStart = 0
+                    axLineEnd = 0
+                case axCaretLocation:
+                    axLineNumber = AXEngine.axLineNumberFor(location: axCaretLocation - 1, on: axFocusedElement)
+                    guard let axLineNumber = axLineNumber else { return nil }
+                    guard let axLineRange = AXEngine.axLineRangeFor(lineNumber: axLineNumber, on: axFocusedElement) else { return nil }
+                    axLineStart = axLineRange.location
+                    axLineEnd = axLineStart! + axLineRange.length
+                default:
+                    axLineNumber = AXEngine.axLineNumberFor(location: axCaretLocation, on: axFocusedElement)
+                    guard let axLineNumber = axLineNumber else { return nil }
+                    guard let axLineRange = AXEngine.axLineRangeFor(lineNumber: axLineNumber, on: axFocusedElement) else { return nil }
+                    axLineStart = axLineRange.location
+                    axLineEnd = axLineStart! + axLineRange.length
+                }
+                
+                let axText = values[0] as! String
 
                 accessibilityElement = AccessibilityTextElement(
                     axText: axText,
-                    axCaretLocation: selectedTextRange.location,
-                    axLineStart: axLineRange.location,
-                    axLineEnd: axLineRange.location + axLineRange.length
+                    axCaretLocation: axCaretLocation,
+                    axLineStart: axLineStart!,
+                    axLineEnd: axLineEnd!
                 )
             }
         }
@@ -40,7 +62,6 @@ struct AccessibilityTextElementAdaptor {
     }
 
     static func toAXFocusedElememt(from accessibilityElement: AccessibilityTextElement) -> Bool {
-        guard !accessibilityElement.axText.isEmpty else { return false }
         guard let axFocusedElement = AXEngine.axFocusedElement() else { return false }
         
         var selectedTextRange = CFRange()

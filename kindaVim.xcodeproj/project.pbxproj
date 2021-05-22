@@ -68,8 +68,6 @@
 		919FDD3426529308003DF40C /* NonTextElementsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919FDD3326529308003DF40C /* NonTextElementsTests.swift */; };
 		919FDD39265294B1003DF40C /* TV_AXCaretLocationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919FDD38265294B1003DF40C /* TV_AXCaretLocationTests.swift */; };
 		919FDD3E26529666003DF40C /* TV_AXLineStartTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919FDD3D26529666003DF40C /* TV_AXLineStartTests.swift */; };
-		91A2A28B2658219000BE1D5A /* TF_EmptyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A2A28A2658219000BE1D5A /* TF_EmptyTests.swift */; };
-		91A2A2902658225D00BE1D5A /* TV_EmptyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A2A28F2658225D00BE1D5A /* TV_EmptyTests.swift */; };
 		91A54ED92643B34F00400677 /* KS_$_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A54ED82643B34F00400677 /* KS_$_Tests.swift */; };
 		91A54EDB2643B3FF00400677 /* KS_a_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A54EDA2643B3FF00400677 /* KS_a_Tests.swift */; };
 		91A54EDD2643B58500400677 /* KS_A__Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A54EDC2643B58500400677 /* KS_A__Tests.swift */; };
@@ -229,8 +227,6 @@
 		919FDD3326529308003DF40C /* NonTextElementsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NonTextElementsTests.swift; sourceTree = "<group>"; };
 		919FDD38265294B1003DF40C /* TV_AXCaretLocationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TV_AXCaretLocationTests.swift; sourceTree = "<group>"; };
 		919FDD3D26529666003DF40C /* TV_AXLineStartTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TV_AXLineStartTests.swift; sourceTree = "<group>"; };
-		91A2A28A2658219000BE1D5A /* TF_EmptyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TF_EmptyTests.swift; sourceTree = "<group>"; };
-		91A2A28F2658225D00BE1D5A /* TV_EmptyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TV_EmptyTests.swift; sourceTree = "<group>"; };
 		91A54ED82643B34F00400677 /* KS_$_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KS_$_Tests.swift; sourceTree = "<group>"; };
 		91A54EDA2643B3FF00400677 /* KS_a_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KS_a_Tests.swift; sourceTree = "<group>"; };
 		91A54EDC2643B58500400677 /* KS_A__Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KS_A__Tests.swift; sourceTree = "<group>"; };
@@ -589,7 +585,6 @@
 		919FDD1726529172003DF40C /* TextFields */ = {
 			isa = PBXGroup;
 			children = (
-				91A2A28A2658219000BE1D5A /* TF_EmptyTests.swift */,
 				919FDD0426528BA6003DF40C /* TF_AXTextTests.swift */,
 				919FDD252652922A003DF40C /* TF_AXCaretLocationTests.swift */,
 				919FDD0C26528E0A003DF40C /* TF_AXLineStartTests.swift */,
@@ -601,7 +596,6 @@
 		919FDD1826529180003DF40C /* TextViews */ = {
 			isa = PBXGroup;
 			children = (
-				91A2A28F2658225D00BE1D5A /* TV_EmptyTests.swift */,
 				919FDD20265291FA003DF40C /* TV_AXTextTests.swift */,
 				919FDD38265294B1003DF40C /* TV_AXCaretLocationTests.swift */,
 				919FDD3D26529666003DF40C /* TV_AXLineStartTests.swift */,
@@ -983,10 +977,8 @@
 				919FDCF826527AB0003DF40C /* ATEA_BaseTests.swift in Sources */,
 				9126867B2657FD720096E927 /* AXE_LineNumberTests.swift in Sources */,
 				919E35C2264DA13700542866 /* AccessibilityStrategy.swift in Sources */,
-				91A2A28B2658219000BE1D5A /* TF_EmptyTests.swift in Sources */,
 				919FDD3E26529666003DF40C /* TV_AXLineStartTests.swift in Sources */,
 				919FDD3426529308003DF40C /* NonTextElementsTests.swift in Sources */,
-				91A2A2902658225D00BE1D5A /* TV_EmptyTests.swift in Sources */,
 				912FD7CD2652C61600B916DF /* TV_AXLineEndTests.swift in Sources */,
 				9126866F2657F51B0096E927 /* AXE_FocusedElementTests.swift in Sources */,
 				912686762657FCBA0096E927 /* AXEngine.swift in Sources */,
