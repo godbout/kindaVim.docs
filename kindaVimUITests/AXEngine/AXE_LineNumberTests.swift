@@ -45,6 +45,16 @@ extension AXE_LineNumberTests {
 
         XCTAssertNil(axLineNumber)
     }
+    
+    func test_that_it_cannot_get_the_AX_line_number_for_an_out_of_bound_location() {
+        let textInAXFocusedElement = "a very small one"
+        app.textFields.firstMatch.tap()
+        app.textFields.firstMatch.typeText(textInAXFocusedElement)
+
+        let axLineNumber = AXEngine.axLineNumberFor(location: 1000)
+
+        XCTAssertNil(axLineNumber)
+    }
 
 }
 
