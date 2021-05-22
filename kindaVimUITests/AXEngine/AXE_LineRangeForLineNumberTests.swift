@@ -3,6 +3,31 @@ import XCTest
 
 class AXE_LineRangeForLineNumber_Tests: AXE_BaseTests {}
 
+// Both
+extension AXE_LineRangeForLineNumber_Tests {
+    
+    func test_that_it_cannot_get_the_correct_AX_line_range_for_an_empty_field() {
+        let textInAXFocusedElement = ""
+        app.textFields.firstMatch.tap()
+        app.textFields.firstMatch.typeText(textInAXFocusedElement)
+        
+        let axLineRange = AXEngine.axLineRangeFor(lineNumber: 0)
+        
+        XCTAssertNil(axLineRange)
+    }
+    
+    func test_that_it_cannot_get_the_correct_AX_line_range_for_an_out_of_bound_line_number() {
+        let textInAXFocusedElement = ""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        
+        let axLineRange = AXEngine.axLineRangeFor(lineNumber: 69)
+        
+        XCTAssertNil(axLineRange)
+    }
+
+}
+
 // TextFields
 extension AXE_LineRangeForLineNumber_Tests {
 
@@ -11,27 +36,12 @@ extension AXE_LineRangeForLineNumber_Tests {
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
 
-        guard let axLineNumber = AXEngine.axLineNumberFor(location: 4) else { return XCTFail() }
-
-        let axLineRange = AXEngine.axLineRangeFor(lineNumber: axLineNumber)
+        let axLineRange = AXEngine.axLineRangeFor(lineNumber: 0)
 
         XCTAssertEqual(axLineRange?.location, 0)
         XCTAssertEqual(axLineRange?.length, textInAXFocusedElement.count)
     }
-
-    func test_that_it_can_get_the_correct_AX_line_range_when_the_caret_is_at_the_beginning_of_a_TextField() {
-        let textInAXFocusedElement = "we gonna try to get the line range here hehe again"
-        app.textFields.firstMatch.tap()
-        app.textFields.firstMatch.typeText(textInAXFocusedElement)
-
-        guard let axLineNumber = AXEngine.axLineNumberFor(location: 0) else { return XCTFail() }
-
-        let axLineRange = AXEngine.axLineRangeFor(lineNumber: axLineNumber)
-
-        XCTAssertEqual(axLineRange?.location, 0)
-        XCTAssertEqual(axLineRange?.length, textInAXFocusedElement.count)
-    }
-
+    
 }
 
 // TextViews
@@ -47,64 +57,40 @@ on forums.
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
 
-        guard let axLineNumber = AXEngine.axLineNumberFor(location: 33) else { return XCTFail() }
-
-        let axLineRange = AXEngine.axLineRangeFor(lineNumber: axLineNumber)
+        let axLineRange = AXEngine.axLineRangeFor(lineNumber: 1)
 
         XCTAssertEqual(axLineRange?.location, 25)
         XCTAssertEqual(axLineRange?.length, 18)
     }
-
-    func test_that_it_can_get_the_correct_AX_line_range_when_the_caret_is_at_the_beginning_of_a_TextView() {
+    
+    func test_that_it_can_get_the_correct_AX_line_range_for_the_first_line_of_a_TextView() {
         let textInAXFocusedElement = """
-the usual long text view
-to make sure that
-people can Vim while arguing
-on forums LMAO
+gonna try
+to get the ax line range
+of the first line
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
 
-        guard let axLineNumber = AXEngine.axLineNumberFor(location: 0) else { return XCTFail() }
-
-        let axLineRange = AXEngine.axLineRangeFor(lineNumber: axLineNumber)
+        let axLineRange = AXEngine.axLineRangeFor(lineNumber: 0)
 
         XCTAssertEqual(axLineRange?.location, 0)
-        XCTAssertEqual(axLineRange?.length, 25)
+        XCTAssertEqual(axLineRange?.length, 10)
     }
-
-    func test_that_it_can_get_the_correct_AX_line_range_when_the_caret_is_at_the_beginning_of_a_line() {
+    
+    func test_that_it_can_get_the_correct_AX_line_range_for_the_last_line_of_a_TextView() {
         let textInAXFocusedElement = """
-the usual long text view
-people can Vim while arguing
-getting boring to be honest
+gonna try to fucking
+get the ax line range
+of the last line
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
 
-        guard let axLineNumber = AXEngine.axLineNumberFor(location: 25) else { return XCTFail() }
+        let axLineRange = AXEngine.axLineRangeFor(lineNumber: 2)
 
-        let axLineRange = AXEngine.axLineRangeFor(lineNumber: axLineNumber)
-
-        XCTAssertEqual(axLineRange?.location, 25)
-        XCTAssertEqual(axLineRange?.length, 29)
-    }
-
-    func test_that_it_can_get_the_correct_AX_line_range_when_the_caret_is_at_the_end_of_a_line() {
-        let textInAXFocusedElement = """
-the usual long text view
-people can Vim while arguing
-getting boring to be honest
-"""
-        app.textViews.firstMatch.tap()
-        app.textViews.firstMatch.typeText(textInAXFocusedElement)
-
-        guard let axLineNumber = AXEngine.axLineNumberFor(location: 53) else { return XCTFail() }
-
-        let axLineRange = AXEngine.axLineRangeFor(lineNumber: axLineNumber)
-
-        XCTAssertEqual(axLineRange?.location, 25)
-        XCTAssertEqual(axLineRange?.length, 29)
+        XCTAssertEqual(axLineRange?.location, 43)
+        XCTAssertEqual(axLineRange?.length, 16)
     }
 
 }

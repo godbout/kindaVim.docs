@@ -3,6 +3,31 @@ import XCTest
 
 class AXE_LineNumberTests: AXE_BaseTests {}
 
+// Both
+extension AXE_LineNumberTests {
+    
+    func test_that_it_cannot_get_the_AX_line_number_for_an_empty_AXUIElement() {
+        let textInAXFocusedElement = ""
+        app.textFields.firstMatch.tap()
+        app.textFields.firstMatch.typeText(textInAXFocusedElement)
+
+        let axLineNumber = AXEngine.axLineNumberFor(location: textInAXFocusedElement.count)
+
+        XCTAssertNil(axLineNumber)
+    }
+    
+    func test_that_it_cannot_get_the_AX_line_number_for_an_out_of_bound_location() {
+        let textInAXFocusedElement = "a very small one"
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+
+        let axLineNumber = AXEngine.axLineNumberFor(location: 1000)
+
+        XCTAssertNil(axLineNumber)
+    }
+    
+}
+
 // TextFields
 extension AXE_LineNumberTests {
 
@@ -32,26 +57,6 @@ extension AXE_LineNumberTests {
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
 
         let axLineNumber = AXEngine.axLineNumberFor(location: textInAXFocusedElement.count)
-
-        XCTAssertNil(axLineNumber)
-    }
-    
-    func test_that_it_cannot_get_the_AX_line_number_for_an_empty_TextField() {
-        let textInAXFocusedElement = ""
-        app.textFields.firstMatch.tap()
-        app.textFields.firstMatch.typeText(textInAXFocusedElement)
-
-        let axLineNumber = AXEngine.axLineNumberFor(location: textInAXFocusedElement.count)
-
-        XCTAssertNil(axLineNumber)
-    }
-    
-    func test_that_it_cannot_get_the_AX_line_number_for_an_out_of_bound_location() {
-        let textInAXFocusedElement = "a very small one"
-        app.textFields.firstMatch.tap()
-        app.textFields.firstMatch.typeText(textInAXFocusedElement)
-
-        let axLineNumber = AXEngine.axLineNumberFor(location: 1000)
 
         XCTAssertNil(axLineNumber)
     }
@@ -88,6 +93,22 @@ please please please again
 
         XCTAssertEqual(axLineNumber, 0)
     }
+    
+    func test_that_it_cannot_get_the_correct_AX_line_number_when_the_caret_is_at_the_end_of_a_TextView() {
+        let textInAXFocusedElement = """
+some text to put in the TextView
+OMG can you guys speed up the UI Tests
+please please please again again again
+fucking hell
+that's big bis
+"""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+
+        let axLineNumber = AXEngine.axLineNumberFor(location: textInAXFocusedElement.count)
+
+        XCTAssertNil(axLineNumber)
+    }
 
     func test_that_it_can_get_the_correct_AX_line_number_when_the_caret_is_at_the_beginning_of_a_line() {
         let textInAXFocusedElement = """
@@ -122,30 +143,4 @@ that's big
         XCTAssertEqual(axLineNumber, 1)
     }
     
-    func test_that_it_cannot_get_the_correct_AX_line_number_when_the_caret_is_at_the_end_of_a_TextView() {
-        let textInAXFocusedElement = """
-some text to put in the TextView
-OMG can you guys speed up the UI Tests
-please please please again again again
-fucking hell
-that's big bis
-"""
-        app.textViews.firstMatch.tap()
-        app.textViews.firstMatch.typeText(textInAXFocusedElement)
-
-        let axLineNumber = AXEngine.axLineNumberFor(location: textInAXFocusedElement.count)
-
-        XCTAssertNil(axLineNumber)
-    }
-    
-    func test_that_it_cannot_get_the_AX_line_number_for_an_empty_TextView() {
-        let textInAXFocusedElement = ""
-        app.textViews.firstMatch.tap()
-        app.textViews.firstMatch.typeText(textInAXFocusedElement)
-
-        let axLineNumber = AXEngine.axLineNumberFor(location: textInAXFocusedElement.count)
-
-        XCTAssertNil(axLineNumber)
-    }
-
 }
