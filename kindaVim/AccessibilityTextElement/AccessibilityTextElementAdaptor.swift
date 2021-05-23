@@ -22,7 +22,7 @@ struct AccessibilityTextElementAdaptor {
                 var selectedTextRange = CFRange()
                 AXValueGetValue(values[1] as! AXValue, .cfRange, &selectedTextRange)
                 
-                let axText = values[0] as! String
+                let axValue = values[0] as! String
                 let axCaretLocation = selectedTextRange.location
                 var axLineStart: Int?
                 var axLineEnd: Int?
@@ -35,7 +35,7 @@ struct AccessibilityTextElementAdaptor {
                 }
 
                 accessibilityElement = AccessibilityTextElement(
-                    axText: axText,
+                    axValue: axValue,
                     axCaretLocation: axCaretLocation,
                     axLineStart: axLineStart,
                     axLineEnd: axLineEnd

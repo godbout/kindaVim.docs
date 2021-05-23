@@ -8,7 +8,7 @@ extension AS_$_Tests {
 
     func test_that_in_normal_setting_$_is_moving_caret_position_to_the_last_character_of_the_line() {
         let element = AccessibilityTextElement(
-            axText: "hello world",
+            axValue: "hello world",
             axCaretLocation: 4,
             axLineEnd: 11
         )
@@ -25,7 +25,7 @@ extension AS_$_Tests {
 
     func test_that_on_a_line_that_ends_with_invisible_linefeed_$_stops_two_places_before() {
         let element = AccessibilityTextElement(
-            axText: """
+            axValue: """
 indeed
 that is
 multiline
@@ -41,7 +41,7 @@ multiline
 
     func test_that_on_a_line_that_ends_with_a_visible_character_$_stops_one_place_before() {
         let element = AccessibilityTextElement(
-            axText: """
+            axValue: """
 indeed
 that is
 multiline

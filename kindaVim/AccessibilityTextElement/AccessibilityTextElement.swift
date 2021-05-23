@@ -9,7 +9,7 @@
 
 struct AccessibilityTextElement {
 
-    private(set) var axText = ""
+    private(set) var axValue = ""
     
     var axCaretLocation = 0
     var axSelectedLength = 0

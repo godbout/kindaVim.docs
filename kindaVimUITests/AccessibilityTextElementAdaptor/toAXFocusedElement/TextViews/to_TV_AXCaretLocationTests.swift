@@ -9,7 +9,7 @@ a TextView that is not empty
 coz like come on there's so me shits inside.
 """
         let accessibilityElement = AccessibilityTextElement(
-            axText: text,
+            axValue: text,
             axCaretLocation: 0
         )
 
@@ -32,7 +32,7 @@ my
 friend...
 """
         let accessibilityElement = AccessibilityTextElement(
-            axText: text,
+            axValue: text,
             axCaretLocation: 0
         )
 
@@ -54,7 +54,7 @@ it's biiiiiiig and long
 hallelujah
 """
         let accessibilityElement = AccessibilityTextElement(
-            axText: text,
+            axValue: text,
             axCaretLocation: 25
         )
 
@@ -75,7 +75,7 @@ but still not
 that long.
 """
         let accessibilityElement = AccessibilityTextElement(
-            axText: text,
+            axValue: text,
             axCaretLocation: 1993
         )
 

@@ -16,7 +16,7 @@ multilines
 
         let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
 
-        XCTAssertEqual(accessibilityElement?.axText, textInAXFocusedElement)
+        XCTAssertEqual(accessibilityElement?.axValue, textInAXFocusedElement)
     }
 
 }

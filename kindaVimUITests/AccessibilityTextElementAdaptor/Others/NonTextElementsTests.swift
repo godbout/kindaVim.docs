@@ -20,7 +20,7 @@ extension NonTextElementsTests {
 
     func test_that_trying_to_convert_an_AccessibilityTextElement_to_an_AXUIElement_button_returns_false() {
         let accessibilityElement = AccessibilityTextElement(
-            axText: "hi i'm a button",
+            axValue: "hi i'm a button",
             axCaretLocation: 5,
             axLineStart: 0
         )

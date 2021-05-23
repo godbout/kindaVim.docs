@@ -10,7 +10,7 @@ extension AS_BlockCursorTests {
         throw XCTSkip("block cursor stopped for now due to bug in Big Sur")
 
         let element = AccessibilityTextElement(
-            axText: "setting block cursor ON",
+            axValue: "setting block cursor ON",
             axCaretLocation: 10,
             axLineStart: 0
         )
@@ -25,7 +25,7 @@ extension AS_BlockCursorTests {
         throw XCTSkip("block cursor stopped for now due to bug in Big Sur")
 
         let element = AccessibilityTextElement(
-            axText: """
+            axValue: """
 another
 setting block cursor
 ON but that is
@@ -48,7 +48,7 @@ extension AS_BlockCursorTests {
 
     func test_that_blockcursor_OFF_removes_character_selection_and_does_not_move_the_caret() {
         let element = AccessibilityTextElement(
-            axText: "let's go block cursor OFF",
+            axValue: "let's go block cursor OFF",
             axCaretLocation: 12,
             axLineStart: 0
         )

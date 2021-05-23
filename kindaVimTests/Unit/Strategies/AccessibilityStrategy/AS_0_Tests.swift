@@ -8,7 +8,7 @@ extension AS_0_Tests {
 
     func test_that_in_normal_setting_0_is_moving_the_caret_position_to_the_first_character_of_the_line() {
         let element = AccessibilityTextElement(
-            axText: "0 should send us to the beginning of the line",
+            axValue: "0 should send us to the beginning of the line",
             axCaretLocation: 15,
             axLineStart: 0
         )
@@ -26,7 +26,7 @@ extension AS_0_Tests {
     func test_that_at_the_beginning_of_a_line_zero_does_not_move() {
         
         let element = AccessibilityTextElement(
-            axText: """
+            axValue: """
 multiline
 where we gonna test 0
 """,
