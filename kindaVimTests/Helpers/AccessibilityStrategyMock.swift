@@ -4,6 +4,8 @@ import Foundation
 class AccessibilityStrategyMock: AccessibilityStrategyProtocol {
     
     var functionCalled = ""
+    
+    static func dump(element: AccessibilityTextElement?) {}
 
     func h(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function

@@ -7,7 +7,8 @@ protocol AccessibilityStrategyProtocol {
     func dollarSign(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func zero(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func blockCursor(_ status: BlockCursorStatus, on element: AccessibilityTextElement?) -> AccessibilityTextElement?
-
+    
+    static func dump(element: AccessibilityTextElement?)
 }
 
 enum BlockCursorStatus {
@@ -93,6 +94,11 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
         }
 
         return element
+    }
+    
+    static func dump(element: AccessibilityTextElement?) {
+        print("\ncaret position: \(String(describing: element?.axCaretLocation))")
+        print("line start: \(String(describing: element?.axLineStart))", "line end: \(String(describing: element?.axLineEnd))")
     }
 
     static func focusedElement() -> AccessibilityTextElement? {

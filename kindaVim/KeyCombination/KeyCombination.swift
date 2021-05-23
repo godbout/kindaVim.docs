@@ -70,6 +70,9 @@ enum KeyCombinationAction {
 }
 
 enum VimKey {
+    // for dumping data
+    case commandD
+    
     case a, A
     case b
     case c, C
@@ -145,6 +148,8 @@ struct KeyCombination {
             return .d
         case .d where control == true && option == false && shift == false && command == false:
             return .controlD
+        case .d where control == false && option == false && shift == false && command == true:
+            return .commandD
         case .g where control == false && option == false && shift == false && command == false:
             return .g
         case .g where control == false && option == false && shift == true && command == false:

@@ -3,6 +3,8 @@ import Foundation
 
 struct FailingAccessibilityStrategyStub: AccessibilityStrategyProtocol {
     
+    static func dump(element: AccessibilityTextElement?) {}
+    
     func h(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return nil
     }
