@@ -3,14 +3,16 @@ import XCTest
 
 class AS_$_Tests: AS_BaseTests {}
 
-// TextFields
+// Both
 extension AS_$_Tests {
-
-    func test_that_in_normal_setting_$_is_moving_caret_position_to_the_last_character_of_the_line() {
+    
+    func test_that_if_line_ends_with_visible_character_$_goes_one_character_before_the_end() {
+        let text = "hello world"
         let element = AccessibilityTextElement(
-            axValue: "hello world",
+            axValue: text,
             axCaretLocation: 4,
-            axLineEnd: 11
+            axLineStart: 0,
+            axLineEnd: text.count
         )
 
         let returnedElement = accessibilityStrategy.dollarSign(on: element)
@@ -19,18 +21,20 @@ extension AS_$_Tests {
     }
 
 }
-
+    
 // TextViews
 extension AS_$_Tests {
-
-    func test_that_on_a_line_that_ends_with_invisible_linefeed_$_stops_two_places_before() {
-        let element = AccessibilityTextElement(
-            axValue: """
+    
+    func test_that_if_line_ends_with_linefeed_$_goes_two_characters_before_the_end() {
+        let text = """
 indeed
 that is
 multiline
-""",
+"""
+        let element = AccessibilityTextElement(
+            axValue: text,
             axCaretLocation: 13,
+            axLineStart: 7,
             axLineEnd: 14
         )
 
@@ -38,21 +42,25 @@ multiline
 
         XCTAssertEqual(returnedElement?.axCaretLocation, 13)
     }
-
-    func test_that_on_a_line_that_ends_with_a_visible_character_$_stops_one_place_before() {
-        let element = AccessibilityTextElement(
-            axValue: """
+    
+    func test_that_if_caret_is_on_last_empty_line_$_does_not_go_to_end_of_previous_line() {
+        let text = """
 indeed
 that is
-multiline
-""",
-            axCaretLocation: 23,
-            axLineEnd: 24
+multiline with
+stupid empty last line
+
+"""
+        let element = AccessibilityTextElement(
+            axValue: text,
+            axCaretLocation: 53,
+            axLineStart: nil,
+            axLineEnd: nil
         )
 
         let returnedElement = accessibilityStrategy.dollarSign(on: element)
 
-        XCTAssertEqual(returnedElement?.axCaretLocation, 23)
+        XCTAssertEqual(returnedElement?.axCaretLocation, 53)
     }
 
 }

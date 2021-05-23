@@ -19,49 +19,60 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
 
     func h(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         guard var element = element else { return nil }
+        
+        if element.axValue.count != 0, element.axLineStart == nil {
+            element.axCaretLocation -= 1
+        }
 
-//        if element.axCaretLocation > element.axLineStart {
-//            element.axCaretLocation -= 1
-//        }
+        if let axLineStart = element.axLineStart, element.axCaretLocation > axLineStart {
+            element.axCaretLocation -= 1
+        }
 
         return element
     }
 
     func l(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         guard var element = element else { return nil }
-
-//        let lineStart = element.axValue.index(element.axValue.startIndex, offsetBy: element.axLineStart)
-//        let lineEnd = element.axValue.index(lineStart, offsetBy: element.axLineEnd - element.axLineStart)
-//
-//        let limit = element.axValue[lineStart..<lineEnd].hasSuffix("\n") ? element.axLineEnd - 2 : element.axLineEnd - 1
-//
-//        if element.axCaretLocation < limit {
-//            element.axCaretLocation += 1
+        
+//        if element.axValue.count != 0, element.axLineStart == nil {
+//            return element
 //        }
+        
+        if let axLineStart = element.axLineStart, let axLineEnd = element.axLineEnd {
+            let lineStart = element.axValue.index(element.axValue.startIndex, offsetBy: axLineStart)
+            let lineEnd = element.axValue.index(lineStart, offsetBy: axLineEnd - axLineStart)
+            
+            let limit = element.axValue[lineStart..<lineEnd].hasSuffix("\n") ? axLineEnd - 2 : axLineEnd - 1
+
+            if element.axCaretLocation < limit {
+                element.axCaretLocation += 1
+            }
+        }
 
         return element
     }
 
     func dollarSign(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         guard var element = element else { return nil }
+        
+        if let axLineStart = element.axLineStart, let axLineEnd = element.axLineEnd {
+            let lineStart = element.axValue.index(element.axValue.startIndex, offsetBy: axLineStart)
+            let lineEnd = element.axValue.index(lineStart, offsetBy: axLineEnd - axLineStart)
 
-//        let lineStart = element.axValue.index(element.axValue.startIndex, offsetBy: element.axLineStart)
-//        let lineEnd = element.axValue.index(lineStart, offsetBy: element.axLineEnd - element.axLineStart)
-//
-//        let limit = element.axValue[lineStart..<lineEnd].hasSuffix("\n") ? element.axLineEnd - 2 : element.axLineEnd - 1
-//
-//        element.axCaretLocation = limit
+            let limit = element.axValue[lineStart..<lineEnd].hasSuffix("\n") ? axLineEnd - 2 : axLineEnd - 1
+
+            element.axCaretLocation = limit
+        }
 
         return element
     }
 
     func zero(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         guard var element = element else { return nil }
-        
-        print(element.axCaretLocation)
-        print(element.axLineStart, element.axLineEnd)
 
-//        element.axCaretLocation = element.axLineStart
+        if let axLineStart = element.axLineStart {
+            element.axCaretLocation = axLineStart
+        }
 
         return element
     }

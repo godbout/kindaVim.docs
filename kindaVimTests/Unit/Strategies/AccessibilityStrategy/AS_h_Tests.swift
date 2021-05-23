@@ -3,65 +3,87 @@ import XCTest
 
 class AS_h_Tests: AS_BaseTests {}
 
-// TextFields
+// Both
 extension AS_h_Tests {
-
-    func test_that_in_normal_setting_h_goes_one_character_to_the_left_in_TextFields() {
+    
+    func test_that_in_normal_setting_h_goes_one_character_to_the_left() {
+        let text = "h goes one character to the left"
         let element = AccessibilityTextElement(
-            axValue: "h goes one character to the left",
+            axValue: text,
             axCaretLocation: 16,
-            axLineStart: 0
+            axLineStart: 0,
+            axLineEnd: text.count
         )
         
         let returnedElement = accessibilityStrategy.h(on: element)
 
         XCTAssertEqual(returnedElement?.axCaretLocation, 15)
     }
-
-    func test_that_at_the_beginning_of_a_line_h_does_not_move_in_TextFields() {
+    
+    func test_that_for_an_empty_Text_AXUIElement_h_does_not_move() {
         let element = AccessibilityTextElement(
-            axValue: "if at the beginning of a line h should not move the caret",
+            axValue: "",
             axCaretLocation: 0,
-            axLineStart: 0
+            axLineStart: nil,
+            axLineEnd: nil
+        )
+        
+        let returnedElement = accessibilityStrategy.h(on: element)
+
+        XCTAssertEqual(returnedElement?.axCaretLocation, 0)
+    }
+    
+    func test_that_at_the_beginning_of_a_Text_AXUIElement_h_does_not_move() {
+        let text = """
+if at beginning of a Text AXUIElement
+h should not move
+"""
+        let element = AccessibilityTextElement(
+            axValue: text,
+            axCaretLocation: 0,
+            axLineStart: 0,
+            axLineEnd: 37
         )
 
         let returnedElement = accessibilityStrategy.h(on: element)
 
         XCTAssertEqual(returnedElement?.axCaretLocation, 0)
     }
+    
+    func test_that_at_the_end_a_Text_AXUIElement_h_does_move() {
+        let text = """
+if at beginning of a Text AXUIElement
+h should not move
+"""
+        let element = AccessibilityTextElement(
+            axValue: text,
+            axCaretLocation: 55,
+            axLineStart: nil,
+            axLineEnd: nil
+        )
 
+        let returnedElement = accessibilityStrategy.h(on: element)
+
+        XCTAssertEqual(returnedElement?.axCaretLocation, 54)
+    }
+    
 }
 
 // TextAreas
 extension AS_h_Tests {
 
-    func test_that_in_normal_setting_h_goes_one_character_to_the_left_in_TextAreas() {
-        let element = AccessibilityTextElement(
-            axValue: """
-h goes one
-character to the
-left even
-in multilines
-""",
-            axCaretLocation: 16,
-            axLineStart: 11
-        )
-
-        let returnedElement = accessibilityStrategy.h(on: element)
-
-        XCTAssertEqual(returnedElement?.axCaretLocation, 15)
-    }
-
     func test_that_at_the_beginning_of_a_line_h_does_not_move_up_to_the_prevous_line_in_TextAreas() {
-        let element = AccessibilityTextElement(
-            axValue: """
+        let text = """
 in multiline if
 at the beginning of a line
 h should not go up to
 the previous line
-""",
+"""         
+        let element = AccessibilityTextElement(
+            axValue: text,
             axCaretLocation: 43,
-            axLineStart: 43
+            axLineStart: 43,
+            axLineEnd: 69
         )
 
         let returnedElement = accessibilityStrategy.h(on: element)
