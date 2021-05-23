@@ -4,8 +4,18 @@ class TV_AXLineStartTests: ATEA_BaseTests {}
 
 // from AXUIElement
 extension TV_AXLineStartTests {
+    
+    func test_that_the_line_start_is_nil_for_an_empty_TextView() {
+        let textInAXFocusedElement = ""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
 
-    func test_that_the_line_start_is_equal_to_0_if_caret_is_at_the_beginning_of_a_TextView() {
+        let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
+
+        XCTAssertNil(accessibilityElement?.axLineStart)
+    }
+
+    func test_that_the_line_start_is_equal_to_0_if_caret_is_at_the_beginning_of_a_non_empty_TextView() {
         let textInAXFocusedElement = """
 caret will go to the beginning so the line
 start is supposed to
@@ -20,17 +30,7 @@ start is supposed to
         XCTAssertEqual(accessibilityElement?.axLineStart, 0)
     }
     
-    func test_that_the_line_start_is_equal_to_0_for_an_empty_TextView() {
-        let textInAXFocusedElement = ""
-        app.textViews.firstMatch.tap()
-        app.textViews.firstMatch.typeText(textInAXFocusedElement)
-
-        let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
-
-        XCTAssertEqual(accessibilityElement?.axLineStart, 0)
-    }
-    
-    func test_that_the_line_start_is_correct_even_if_caret_is_at_the_end_of_a_TextView() {
+    func test_that_the_line_start_is_nil_if_caret_is_at_the_end_of_a_TextView() {
         let textInAXFocusedElement = """
 so we gonna position
 that shit (the caret)
@@ -42,10 +42,10 @@ and see if we can again blow up that whole shit!
 
         let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
 
-        XCTAssertEqual(accessibilityElement?.axLineStart, 54)
+        XCTAssertNil(accessibilityElement?.axLineStart)
     }
 
-    func test_that_the_line_start_is_correct_if_caret_is_between_the_beginning_and_the_end_of_a_TextView() {
+    func test_that_the_line_start_is_correct_if_caret_is_anywhere_in_between() {
         let textInAXFocusedElement = """
 hello
 is there anybody out there

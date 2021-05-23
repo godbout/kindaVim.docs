@@ -5,17 +5,31 @@ class TV_AXLineEndTests: ATEA_BaseTests {}
 // from AXUIElement
 extension TV_AXLineEndTests {
     
-    func test_that_the_line_end_is_equal_to_0_for_an_empty_TextView() {
+    func test_that_the_line_end_is_nil_for_an_empty_TextView() {
         let textInAXFocusedElement = ""
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
 
         let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
 
-        XCTAssertEqual(accessibilityElement?.axLineEnd, 0)
+        XCTAssertNil(accessibilityElement?.axLineEnd)
     }
     
-    func test_that_the_line_end_is_correct_even_if_caret_is_at_the_end_of_a_TextView() {
+    func test_that_the_line_end_is_nil_if_caret_is_at_the_beginning_of_a_TextView() {
+        let textInAXFocusedElement = """
+line end is still nil
+even if it's a TextView
+when caret is at the end of it
+"""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+
+        let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
+
+        XCTAssertNil(accessibilityElement?.axLineEnd)
+    }
+    
+    func test_that_the_line_end_is_nil_if_caret_is_at_the_end_of_a_TextView() {
         let textInAXFocusedElement = """
 so
 that shit
@@ -27,10 +41,10 @@ and see
 
         let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
 
-        XCTAssertEqual(accessibilityElement?.axLineEnd, 27)
+        XCTAssertNil(accessibilityElement?.axLineEnd)
     }
 
-    func test_that_the_line_end_is_correct_if_caret_is_between_the_beginning_and_the_end_of_a_TextView() {
+    func test_that_the_line_end_is_correct_if_caret_is_anywhere_in_between() {
         let textInAXFocusedElement = """
 hello
 bah bha bah
@@ -51,5 +65,5 @@ is there anyone at home?
 }
 
 // to AXUIElement
-// same. no idea if we're ever gonna set the line start or not
+// no such thing as
 extension TV_AXLineEndTests {}
