@@ -52,19 +52,20 @@ h should not move
     
     func test_that_at_the_end_a_Text_AXUIElement_h_does_move() {
         let text = """
-if at beginning of a Text AXUIElement
-h should not move
+if at the end of a AXUIElement
+h should move if not
+if not on a last empty line
 """
         let element = AccessibilityTextElement(
             axValue: text,
-            axCaretLocation: 55,
+            axCaretLocation: text.count,
             axLineStart: nil,
             axLineEnd: nil
         )
 
         let returnedElement = accessibilityStrategy.h(on: element)
 
-        XCTAssertEqual(returnedElement?.axCaretLocation, 54)
+        XCTAssertEqual(returnedElement?.axCaretLocation, text.count - 1)
     }
     
 }
@@ -89,6 +90,25 @@ the previous line
         let returnedElement = accessibilityStrategy.h(on: element)
 
         XCTAssertEqual(returnedElement?.axCaretLocation, 43)
+    }
+    
+    func test_that_if_caret_is_on_last_empty_line_h_does_not_up_one_line() {
+        let text = """
+multi with
+stupid last empty
+line
+
+"""
+        let element = AccessibilityTextElement(
+            axValue: text,
+            axCaretLocation: 34,
+            axLineStart: nil,
+            axLineEnd: nil
+        )
+
+        let returnedElement = accessibilityStrategy.h(on: element)
+
+        XCTAssertEqual(returnedElement?.axCaretLocation, 34)
     }
 
 }

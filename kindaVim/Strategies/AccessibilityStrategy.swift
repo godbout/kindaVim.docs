@@ -19,11 +19,15 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
 
     func h(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         guard var element = element else { return nil }
-        
-        if element.axValue.count != 0, element.axLineStart == nil {
-            element.axCaretLocation -= 1
-        }
 
+        if element.axCaretLocation == element.axValue.count, element.axValue.count != 0 {
+            if element.axValue.last != "\n" {
+                element.axCaretLocation -= 1
+            }
+            
+            return element
+        }
+        
         if let axLineStart = element.axLineStart, element.axCaretLocation > axLineStart {
             element.axCaretLocation -= 1
         }
