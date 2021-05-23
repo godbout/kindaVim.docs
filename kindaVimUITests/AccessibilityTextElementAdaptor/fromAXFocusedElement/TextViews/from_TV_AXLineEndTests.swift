@@ -1,10 +1,7 @@
 import XCTest
 
-class TV_AXLineEndTests: ATEA_BaseTests {}
+class from_TV_AXLineEndTests: ATEA_BaseTests {
 
-// from AXUIElement
-extension TV_AXLineEndTests {
-    
     func test_that_the_line_end_is_nil_for_an_empty_TextView() {
         let textInAXFocusedElement = ""
         app.textViews.firstMatch.tap()
@@ -63,7 +60,3 @@ is there anyone at home?
     }
 
 }
-
-// to AXUIElement
-// no such thing as
-extension TV_AXLineEndTests {}

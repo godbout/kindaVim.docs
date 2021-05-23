@@ -1,9 +1,6 @@
 import XCTest
 
-class TF_AXLineStartTests: ATEA_BaseTests {}
-
-// from AXUIElement
-extension TF_AXLineStartTests {
+class from_TF_AXLineStartTests: ATEA_BaseTests {
     
     func test_that_the_line_start_is_nil_for_an_empty_TextField() {
         let textInAXFocusedElement = ""
@@ -48,8 +45,3 @@ extension TF_AXLineStartTests {
     }
 
 }
-
-// to AXUIElement
-// are we ever gonna set the line start?
-// is that even possible? no idea for now.
-extension TF_AXLineStartTests {}

@@ -1,10 +1,7 @@
 import XCTest
 
-class TF_AXLineEndTests: ATEA_BaseTests {}
+class from_TF_AXLineEndTests: ATEA_BaseTests {
 
-// from AXUIElement
-extension TF_AXLineEndTests {
-    
     func test_that_the_line_end_is_nil_for_an_empty_TextField() {
         let textInAXFocusedElement = ""
         app.textFields.firstMatch.tap()
@@ -48,8 +45,3 @@ extension TF_AXLineEndTests {
     }
 
 }
-
-// to AXUIElement
-// are we ever gonna set the line end?
-// is that even possible? no idea for now.
-extension TF_AXLineEndTests {}

@@ -1,9 +1,6 @@
 import XCTest
 
-class TV_AXLineStartTests: ATEA_BaseTests {}
-
-// from AXUIElement
-extension TV_AXLineStartTests {
+class from_TV_AXLineStartTests: ATEA_BaseTests {
     
     func test_that_the_line_start_is_nil_for_an_empty_TextView() {
         let textInAXFocusedElement = ""
@@ -66,7 +63,3 @@ is there anyone at home?
     }
 
 }
-
-// to AXUIElement
-// same. no idea if we're ever gonna set the line start or not
-extension TV_AXLineStartTests {}
