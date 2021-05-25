@@ -3,7 +3,7 @@ import XCTest
 
 class KS_cG_Tests: KS_BaseTests {
     
-    func test_that_cG_returns_control_a_shift_command_down_delete() {
+    func test_that_cG_returns_a_bunch_of_key_combinations() {
         let keyCombinations = keyboardStrategy.cG()
 
         guard keyCombinations.count == 4 else { return XCTFail() }

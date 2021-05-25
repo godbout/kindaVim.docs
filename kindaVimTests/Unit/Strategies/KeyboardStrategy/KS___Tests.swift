@@ -3,7 +3,7 @@ import XCTest
 
 class KS___Tests: KS_BaseTests {
     
-    func test_that___returns_control_a_option_right_option_left() {
+    func test_that___returns_command_right_command_left() {
         let keyCombinations = keyboardStrategy.underscore()
 
         guard keyCombinations.count == 2 else { return XCTFail() }

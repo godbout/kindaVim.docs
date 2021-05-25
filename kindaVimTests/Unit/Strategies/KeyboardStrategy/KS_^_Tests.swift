@@ -3,7 +3,7 @@ import XCTest
 
 class KS_caret_Tests: KS_BaseTests {
     
-    func test_that_caret_returns_command_right_option_left() {
+    func test_that_caret_returns_command_right_option_right_option_left() {
         let keyCombinations = keyboardStrategy.caret()
 
         guard keyCombinations.count == 3 else { return XCTFail() }

@@ -3,7 +3,7 @@ import XCTest
 
 class KS_G__Tests: KS_BaseTests {
     
-    func test_that_G_returns_command_down() {
+    func test_that_G_returns_command_down_command_right_option_left_down() {
         let keyCombinations = keyboardStrategy.G()
 
         guard keyCombinations.count == 4 else { return XCTFail() }

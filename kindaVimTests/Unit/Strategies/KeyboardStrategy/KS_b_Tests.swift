@@ -3,7 +3,7 @@ import XCTest
 
 class KS_b_Tests: KS_BaseTests {
 
-    func test_that_b_returns_alt_left() {
+    func test_that_b_returns_option_left() {
         let keyCombinations = keyboardStrategy.b()
 
         guard keyCombinations.count == 1 else { return XCTFail() }

@@ -3,7 +3,7 @@ import XCTest
 
 class KS_O__Tests: KS_BaseTests {
     
-    func test_that_O_returns_control_a_enter_up() {
+    func test_that_O_returns_command_right_command_left_enter_up() {
         let keyCombinations = keyboardStrategy.O()
         
         guard keyCombinations.count == 4 else { return XCTFail() }
