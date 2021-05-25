@@ -190,7 +190,9 @@ struct KeyboardStrategy: KeyboardStrategyProtocol {
 
     func gg() -> [KeyCombination] {
         return [
-            KeyCombination(key: .up, command: true)
+            KeyCombination(key: .up, command: true),
+            KeyCombination(key: .right, command: true),
+            KeyCombination(key: .left, option: true)
         ]
     }
 
