@@ -21,15 +21,13 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
     func h(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         guard var element = element else { return nil }
 
-        if element.axCaretLocation == element.axValue.count, element.axValue.count != 0 {
-            if element.axValue.last != "\n" {
-                element.axCaretLocation -= 1
-            }
-            
+        if element.isNotEmpty(), element.caretIsAtTheEnd(), element.lastCharacterIsNotLinefeed() {
+            element.axCaretLocation -= 1
+
             return element
         }
-        
-        if let axLineStart = element.axLineStart, element.axCaretLocation > axLineStart {
+
+        if element.isNotEmpty(), element.caretIsNotAtTheEnd(), element.axCaretLocation > element.startOfLineLimit() {
             element.axCaretLocation -= 1
         }
 
@@ -38,20 +36,9 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
 
     func l(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         guard var element = element else { return nil }
-        
-//        if element.axValue.count != 0, element.axLineStart == nil {
-//            return element
-//        }
-        
-        if let axLineStart = element.axLineStart, let axLineEnd = element.axLineEnd {
-            let lineStart = element.axValue.index(element.axValue.startIndex, offsetBy: axLineStart)
-            let lineEnd = element.axValue.index(lineStart, offsetBy: axLineEnd - axLineStart)
-            
-            let limit = element.axValue[lineStart..<lineEnd].hasSuffix("\n") ? axLineEnd - 2 : axLineEnd - 1
 
-            if element.axCaretLocation < limit {
-                element.axCaretLocation += 1
-            }
+        if element.caretIsNotAtTheEnd(), element.axCaretLocation < element.endOfLineLimit() {
+            element.axCaretLocation += 1
         }
 
         return element
@@ -59,14 +46,9 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
 
     func dollarSign(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         guard var element = element else { return nil }
-        
-        if let axLineStart = element.axLineStart, let axLineEnd = element.axLineEnd {
-            let lineStart = element.axValue.index(element.axValue.startIndex, offsetBy: axLineStart)
-            let lineEnd = element.axValue.index(lineStart, offsetBy: axLineEnd - axLineStart)
 
-            let limit = element.axValue[lineStart..<lineEnd].hasSuffix("\n") ? axLineEnd - 2 : axLineEnd - 1
-
-            element.axCaretLocation = limit
+        if element.caretIsNotAtTheEnd() {
+            element.axCaretLocation = element.endOfLineLimit()
         }
 
         return element
@@ -75,8 +57,8 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
     func zero(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         guard var element = element else { return nil }
 
-        if let axLineStart = element.axLineStart {
-            element.axCaretLocation = axLineStart
+        if element.caretIsNotAtTheEnd() {
+            element.axCaretLocation = element.startOfLineLimit()
         }
 
         return element

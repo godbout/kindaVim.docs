@@ -17,4 +17,32 @@ struct AccessibilityTextElement {
     private(set) var axLineStart: Int?
     private(set) var axLineEnd: Int?
 
+    
+    func isNotEmpty() -> Bool {
+        return axValue.count != 0
+    }
+
+    func caretIsAtTheEnd() -> Bool {
+        return axLineStart == nil && axLineEnd == nil
+    }
+
+    func caretIsNotAtTheEnd() -> Bool {
+        return axLineStart != nil && axLineEnd != nil
+    }
+
+    func endOfLineLimit() -> Int {
+        let lineStart = axValue.index(axValue.startIndex, offsetBy: axLineStart!)
+        let lineEnd = axValue.index(lineStart, offsetBy: axLineEnd! - axLineStart!)
+
+        return axValue[lineStart..<lineEnd].hasSuffix("\n") ? axLineEnd! - 2 : axLineEnd! - 1
+    }
+
+    func startOfLineLimit() -> Int {
+        return axLineStart!
+    }
+
+    func lastCharacterIsNotLinefeed() -> Bool {
+        return axValue.last != "\n"
+    }
+
 }

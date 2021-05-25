@@ -51,6 +51,7 @@
 		9184371426592D8E003CE952 /* ATEA_BlockCursorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9184371326592D8E003CE952 /* ATEA_BlockCursorTests.swift */; };
 		918C26512646D29000C39ADA /* KS_s_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918C26502646D29000C39ADA /* KS_s_Tests.swift */; };
 		918C26572646D32500C39ADA /* UsingKS_s_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918C26562646D32500C39ADA /* UsingKS_s_Tests.swift */; };
+		918F4DEF265C070D0006CC2E /* TextEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918F4DEE265C070D0006CC2E /* TextEngine.swift */; };
 		9197C0852636695A006C696A /* KeyCombinationAdaptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9197C0842636695A006C696A /* KeyCombinationAdaptor.swift */; };
 		9197C08A26366A3B006C696A /* KeyCombinationAdaptorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9197C08926366A3B006C696A /* KeyCombinationAdaptorTests.swift */; };
 		919DEB632632C85B0052D514 /* KeyCombination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919DEB622632C85B0052D514 /* KeyCombination.swift */; };
@@ -212,6 +213,7 @@
 		9184371326592D8E003CE952 /* ATEA_BlockCursorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ATEA_BlockCursorTests.swift; sourceTree = "<group>"; };
 		918C26502646D29000C39ADA /* KS_s_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KS_s_Tests.swift; sourceTree = "<group>"; };
 		918C26562646D32500C39ADA /* UsingKS_s_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsingKS_s_Tests.swift; sourceTree = "<group>"; };
+		918F4DEE265C070D0006CC2E /* TextEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextEngine.swift; sourceTree = "<group>"; };
 		9197C0842636695A006C696A /* KeyCombinationAdaptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyCombinationAdaptor.swift; sourceTree = "<group>"; };
 		9197C08926366A3B006C696A /* KeyCombinationAdaptorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyCombinationAdaptorTests.swift; sourceTree = "<group>"; };
 		919DEB622632C85B0052D514 /* KeyCombination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyCombination.swift; sourceTree = "<group>"; };
@@ -429,6 +431,7 @@
 		9128F2AE262AA90C00625B42 /* kindaVim */ = {
 			isa = PBXGroup;
 			children = (
+				918F4DED265C06FD0006CC2E /* TextEngine */,
 				912686672657F07C0096E927 /* AXEngine */,
 				911BB75A26329513006882D8 /* StatusBar */,
 				9118C4E5263F0CDA0040C297 /* Display */,
@@ -547,6 +550,14 @@
 				916BEA8B264DA08300E6E4E5 /* Info.plist */,
 			);
 			path = kindaVimUITests;
+			sourceTree = "<group>";
+		};
+		918F4DED265C06FD0006CC2E /* TextEngine */ = {
+			isa = PBXGroup;
+			children = (
+				918F4DEE265C070D0006CC2E /* TextEngine.swift */,
+			);
+			path = TextEngine;
 			sourceTree = "<group>";
 		};
 		919DEB612632C8320052D514 /* VimEngine */ = {
@@ -871,6 +882,7 @@
 				91BC934226352A1E00B62B18 /* GlobalEventsController.swift in Sources */,
 				917458F1262EB934007D3855 /* StatusBarController.swift in Sources */,
 				9197C0852636695A006C696A /* KeyCombinationAdaptor.swift in Sources */,
+				918F4DEF265C070D0006CC2E /* TextEngine.swift in Sources */,
 				911BB7492632899E006882D8 /* VimEngine.swift in Sources */,
 				918024B926386E95004FD719 /* AppComponent.swift in Sources */,
 				912686692657F0880096E927 /* AXEngine.swift in Sources */,
