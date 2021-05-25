@@ -208,6 +208,12 @@ class KeyboardStrategyMock: KeyboardStrategyProtocol {
 
         return []
     }
+    
+    func caret() -> [KeyCombination] {
+        functionCalled = #function
+        
+        return []
+    }
 
     func dollarSign() -> [KeyCombination] {
         functionCalled = #function

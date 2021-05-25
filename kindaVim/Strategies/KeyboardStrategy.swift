@@ -36,6 +36,7 @@ protocol KeyboardStrategyProtocol {
     func X() -> [KeyCombination]
     func yy() -> [KeyCombination]
     func yiw() -> [KeyCombination]
+    func caret() -> [KeyCombination]
     func dollarSign() -> [KeyCombination]
 
     // temporary for escape to enter Command Mode
@@ -315,6 +316,14 @@ struct KeyboardStrategy: KeyboardStrategyProtocol {
             KeyCombination(key: .right, option: true, shift: true),
             KeyCombination(key: .c, command: true),
             KeyCombination(key: .right)
+        ]
+    }
+    
+    func caret() -> [KeyCombination] {
+        return [
+            KeyCombination(key: .left, command: true),
+            KeyCombination(key: .right, option: true),
+            KeyCombination(key: .left, option: true),
         ]
     }
 

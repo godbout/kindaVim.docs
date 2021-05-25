@@ -39,6 +39,8 @@ class VimEngine {
                 enterInsertMode()
 
                 post(keyboardStrategy.enter())
+            case .caret:
+                post(keyboardStrategy.caret())
             case .dollarSign:
                 // ugly af; need to refactor
                 if let element = accessibilityStrategy.dollarSign(on: focusedElement()) {
