@@ -3,6 +3,7 @@ import Foundation
 protocol AccessibilityStrategyProtocol {
     
     func h(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
+    func j(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func l(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func dollarSign(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func zero(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
@@ -32,6 +33,10 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
         }
 
         return element
+    }
+    
+    func j(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        return nil
     }
 
     func l(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
