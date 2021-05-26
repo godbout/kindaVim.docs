@@ -26,10 +26,13 @@ struct AccessibilityTextElementAdaptor {
                 
                 let axValue = values[1] as! String
                 let axCaretLocation = selectedTextRange.location
+                var lineNumber: Int?
                 var axLineStart: Int?
                 var axLineEnd: Int?
 
                 if let axLineNumber = AXEngine.axLineNumberFor(location: axCaretLocation, on: axFocusedElement) {
+                    lineNumber = axLineNumber
+
                     let axLineRange = AXEngine.axLineRangeFor(lineNumber: axLineNumber, on: axFocusedElement)
                     
                     axLineStart = axLineRange!.location
@@ -40,6 +43,7 @@ struct AccessibilityTextElementAdaptor {
                     axRole: axRole,
                     axValue: axValue,
                     axCaretLocation: axCaretLocation,
+                    axLineNumber: lineNumber,
                     axLineStart: axLineStart,
                     axLineEnd: axLineEnd
                 )
