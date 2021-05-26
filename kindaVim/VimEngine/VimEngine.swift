@@ -101,7 +101,14 @@ class VimEngine {
 
                 post(keyboardStrategy.I())
             case .j:
-                post(keyboardStrategy.j())
+                // ugly af; need to refactor
+                if let element = accessibilityStrategy.j(on: focusedElement()) {
+                    if push(element: element) == false {
+                        post(keyboardStrategy.j())
+                    }
+                } else {
+                    post(keyboardStrategy.j())
+                }
             case .k:
                 post(keyboardStrategy.k())
             case .l:
