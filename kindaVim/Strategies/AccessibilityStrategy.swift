@@ -36,7 +36,10 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
     }
     
     func j(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
-        return nil
+        guard var element = element else { return nil }
+        guard element.axRole == .textArea else { return nil }
+        
+        return element
     }
 
     func l(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {

@@ -35,6 +35,8 @@
 		912FD7C52652C23200B916DF /* from_TF_AXLineEndTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912FD7C42652C23200B916DF /* from_TF_AXLineEndTests.swift */; };
 		912FD7CD2652C61600B916DF /* from_TV_AXLineEndTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912FD7CC2652C61600B916DF /* from_TV_AXLineEndTests.swift */; };
 		913008AE26555FC30075A864 /* UsingAS_0_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913008AD26555FC30075A864 /* UsingAS_0_Tests.swift */; };
+		913CC070265E0CA70077CD21 /* from_TF_AXRoleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913CC06F265E0CA70077CD21 /* from_TF_AXRoleTests.swift */; };
+		913CC072265E0E790077CD21 /* from_TV_AXRoleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913CC071265E0E790077CD21 /* from_TV_AXRoleTests.swift */; };
 		913EBF48264ADEE700BCCCEE /* AccessibilityTextElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913EBF47264ADEE700BCCCEE /* AccessibilityTextElement.swift */; };
 		913EBF53264ADF5800BCCCEE /* AccessibilityTextElementAdaptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913EBF52264ADF5800BCCCEE /* AccessibilityTextElementAdaptor.swift */; };
 		9140E6DD264554320021C2FB /* KS_cgg_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9140E6DC264554320021C2FB /* KS_cgg_Tests.swift */; };
@@ -198,6 +200,8 @@
 		912FD7C42652C23200B916DF /* from_TF_AXLineEndTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = from_TF_AXLineEndTests.swift; sourceTree = "<group>"; };
 		912FD7CC2652C61600B916DF /* from_TV_AXLineEndTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = from_TV_AXLineEndTests.swift; sourceTree = "<group>"; };
 		913008AD26555FC30075A864 /* UsingAS_0_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsingAS_0_Tests.swift; sourceTree = "<group>"; };
+		913CC06F265E0CA70077CD21 /* from_TF_AXRoleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = from_TF_AXRoleTests.swift; sourceTree = "<group>"; };
+		913CC071265E0E790077CD21 /* from_TV_AXRoleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = from_TV_AXRoleTests.swift; sourceTree = "<group>"; };
 		913EBF47264ADEE700BCCCEE /* AccessibilityTextElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilityTextElement.swift; sourceTree = "<group>"; };
 		913EBF52264ADF5800BCCCEE /* AccessibilityTextElementAdaptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilityTextElementAdaptor.swift; sourceTree = "<group>"; };
 		9140E6DC264554320021C2FB /* KS_cgg_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KS_cgg_Tests.swift; sourceTree = "<group>"; };
@@ -646,6 +650,7 @@
 				919FDD252652922A003DF40C /* from_TF_AXCaretLocationTests.swift */,
 				919FDD0C26528E0A003DF40C /* from_TF_AXLineStartTests.swift */,
 				912FD7C42652C23200B916DF /* from_TF_AXLineEndTests.swift */,
+				913CC06F265E0CA70077CD21 /* from_TF_AXRoleTests.swift */,
 			);
 			path = TextFields;
 			sourceTree = "<group>";
@@ -657,6 +662,7 @@
 				919FDD38265294B1003DF40C /* from_TV_AXCaretLocationTests.swift */,
 				919FDD3D26529666003DF40C /* from_TV_AXLineStartTests.swift */,
 				912FD7CC2652C61600B916DF /* from_TV_AXLineEndTests.swift */,
+				913CC071265E0E790077CD21 /* from_TV_AXRoleTests.swift */,
 			);
 			path = TextViews;
 			sourceTree = "<group>";
@@ -1019,6 +1025,7 @@
 			files = (
 				9184371426592D8E003CE952 /* ATEA_BlockCursorTests.swift in Sources */,
 				919FDD0D26528E0A003DF40C /* from_TF_AXLineStartTests.swift in Sources */,
+				913CC072265E0E790077CD21 /* from_TV_AXRoleTests.swift in Sources */,
 				919FDD39265294B1003DF40C /* from_TV_AXCaretLocationTests.swift in Sources */,
 				919FDCF826527AB0003DF40C /* ATEA_BaseTests.swift in Sources */,
 				919E35C2264DA13700542866 /* AccessibilityStrategy.swift in Sources */,
@@ -1027,6 +1034,7 @@
 				91F2EC15265A2DF1003F038B /* to_TF_AXCaretLocationTests.swift in Sources */,
 				912FD7CD2652C61600B916DF /* from_TV_AXLineEndTests.swift in Sources */,
 				912686762657FCBA0096E927 /* AXEngine.swift in Sources */,
+				913CC070265E0CA70077CD21 /* from_TF_AXRoleTests.swift in Sources */,
 				919FDD0526528BA6003DF40C /* from_TF_AXTextTests.swift in Sources */,
 				91F83FA42656B81400199276 /* AS_BaseTests.swift in Sources */,
 				91F2EC17265A2E11003F038B /* to_TV_AXCaretLocationTests.swift in Sources */,

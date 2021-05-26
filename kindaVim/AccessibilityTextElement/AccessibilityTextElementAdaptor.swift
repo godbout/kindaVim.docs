@@ -16,13 +16,15 @@ struct AccessibilityTextElementAdaptor {
 
         if let axFocusedElement = AXEngine.axFocusedElement() {
             var values: CFArray?
-            let error = AXUIElementCopyMultipleAttributeValues(axFocusedElement, [kAXValueAttribute, kAXSelectedTextRangeAttribute] as CFArray, .stopOnError, &values)
+            let error = AXUIElementCopyMultipleAttributeValues(axFocusedElement, [kAXRoleAttribute, kAXValueAttribute, kAXSelectedTextRangeAttribute] as CFArray, .stopOnError, &values)
 
             if error == .success, let values = values as NSArray? {
-                var selectedTextRange = CFRange()
-                AXValueGetValue(values[1] as! AXValue, .cfRange, &selectedTextRange)
+                let axRole = role(for: values[0] as! String)
                 
-                let axValue = values[0] as! String
+                var selectedTextRange = CFRange()
+                AXValueGetValue(values[2] as! AXValue, .cfRange, &selectedTextRange)
+                
+                let axValue = values[1] as! String
                 let axCaretLocation = selectedTextRange.location
                 var axLineStart: Int?
                 var axLineEnd: Int?
@@ -35,6 +37,7 @@ struct AccessibilityTextElementAdaptor {
                 }
 
                 accessibilityElement = AccessibilityTextElement(
+                    axRole: axRole,
                     axValue: axValue,
                     axCaretLocation: axCaretLocation,
                     axLineStart: axLineStart,
@@ -44,6 +47,17 @@ struct AccessibilityTextElementAdaptor {
         }
 
         return accessibilityElement
+    }
+    
+    private static func role(for role: String) -> AccessibilityTextElementRole {
+        switch role {
+        case "AXTextField":
+            return .textField
+        case "AXTextArea":
+            return .textArea
+        default:
+            return .someOtherShit
+        }
     }
 
     static func toAXFocusedElememt(from accessibilityElement: AccessibilityTextElement) -> Bool {

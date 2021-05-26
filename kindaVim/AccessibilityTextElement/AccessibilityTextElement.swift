@@ -7,8 +7,18 @@
 // so the way we handle this is by using the SelectedText and SelectedTextRange to remove or add
 // what we need in the current buffer, rather than pushing the full text.
 
+enum AccessibilityTextElementRole {
+    
+    case textField
+    case textArea
+    case someOtherShit
+    
+}
+
+
 struct AccessibilityTextElement {
 
+    private(set) var axRole: AccessibilityTextElementRole = .someOtherShit
     private(set) var axValue = ""
     
     var axCaretLocation = 0
