@@ -24,6 +24,7 @@ struct AccessibilityTextElement {
     var axCaretLocation = 0
     var axSelectedLength = 0
 
+    private(set) var axLineNumber: Int?
     private(set) var axLineStart: Int?
     private(set) var axLineEnd: Int?
 
@@ -41,6 +42,8 @@ struct AccessibilityTextElement {
     }
 
     func endOfLineLimit() -> Int {
+        guard axLineEnd! - axLineStart! > 1 else { return axLineStart! }
+
         let lineStart = axValue.index(axValue.startIndex, offsetBy: axLineStart!)
         let lineEnd = axValue.index(lineStart, offsetBy: axLineEnd! - axLineStart!)
 

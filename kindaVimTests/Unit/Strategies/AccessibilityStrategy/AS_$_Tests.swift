@@ -45,22 +45,26 @@ multiline
     
     func test_that_if_caret_is_on_last_empty_line_$_does_not_go_to_end_of_previous_line() {
         let text = """
-indeed
-that is
-multiline with
-stupid empty last line
+$ shouldn't
+go up one else
 
+it's a bug!
 """
         let element = AccessibilityTextElement(
+            axRole: .textArea,
             axValue: text,
-            axCaretLocation: 53,
-            axLineStart: nil,
-            axLineEnd: nil
+            axCaretLocation: 27,
+            axLineStart: 27,
+            axLineEnd: 28
         )
 
         let returnedElement = accessibilityStrategy.dollarSign(on: element)
 
-        XCTAssertEqual(returnedElement?.axCaretLocation, 53)
+        XCTAssertEqual(returnedElement?.axCaretLocation, 27)
+    }
+
+    func test_that_if_a_line_is_empty_$_does_not_go_up_to_the_end_of_the_previous_line() {
+
     }
 
 }
