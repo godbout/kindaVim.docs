@@ -57,4 +57,31 @@ let's see
 
         XCTAssertEqual(accessibilityElement?.axCaretLocation, 64)
     }
+
+    func test_that_the_column_number_is_saved_and_reapplied_when_we_go_from_one_line_to_a_shorter_one_to_a_longer_than_the_first_one() {
+        let textInAXFocusedElement = """
+a line that is long
+a shorter line
+another long line longer than the first
+"""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [.command])
+        app.textViews.firstMatch.typeKey(.rightArrow, modifierFlags: [.command])
+        app.textViews.firstMatch.typeKey(.leftArrow, modifierFlags: [])
+
+        let firstJ = accessibilityStrategy.j(on: AccessibilityTextElementAdaptor.fromAXFocusedElement())
+        _ = AccessibilityTextElementAdaptor.toAXFocusedElememt(from: firstJ!)
+
+        let secondJ = accessibilityStrategy.j(on: AccessibilityTextElementAdaptor.fromAXFocusedElement())
+
+        XCTAssertEqual(secondJ?.axCaretLocation, 53)
+
+
+
+
+
+
+
+    }
 }
