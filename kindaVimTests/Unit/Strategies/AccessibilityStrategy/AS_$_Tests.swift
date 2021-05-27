@@ -53,7 +53,7 @@ multiline
         XCTAssertEqual(returnedElement?.axCaretLocation, 13)
     }
     
-    func test_that_if_caret_is_on_last_empty_line_$_does_not_go_to_end_of_previous_line() {
+    func test_that_if_a_line_is_empty_$_does_not_go_up_to_the_end_of_the_previous_line() {
         let text = """
 $ shouldn't
 go up one else
@@ -77,8 +77,51 @@ it's a bug!
         XCTAssertEqual(returnedElement?.axCaretLocation, 27)
     }
 
-    func test_that_if_a_line_is_empty_$_does_not_go_up_to_the_end_of_the_previous_line() {
+    func test_that_if_the_caret_is_at_the_last_position_of_the_TextView_$_goes_back_one_character() {
+        let text = """
+some more text
+my friend
+"""
+        let element = AccessibilityTextElement(
+            axRole: .textArea,
+            axValue: text,
+            axCaretLocation: 24,
+            currentLine: AccessibilityTextElementLine(
+                axValue: text,
+                number: nil,
+                start: nil,
+                end: nil
+            )
+        )
 
+        let returnedElement = accessibilityStrategy.dollarSign(on: element)
+
+        XCTAssertEqual(returnedElement?.axCaretLocation, 23)
+    }
+
+    func test_that_if_the_caret_is_on_the_last_empty_line_of_the_TextView_$_does_not_go_up_to_the_end_of_the_previous_line() {
+        let text = """
+$ should not go
+up a line when
+caret is on empty last
+line
+
+"""
+        let element = AccessibilityTextElement(
+            axRole: .textArea,
+            axValue: text,
+            axCaretLocation: 59,
+            currentLine: AccessibilityTextElementLine(
+                axValue: text,
+                number: nil,
+                start: nil,
+                end: nil
+            )
+        )
+
+        let returnedElement = accessibilityStrategy.dollarSign(on: element)
+
+        XCTAssertEqual(returnedElement?.axCaretLocation, 59)
     }
 
 }

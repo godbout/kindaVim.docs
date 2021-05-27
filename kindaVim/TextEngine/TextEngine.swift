@@ -1,3 +1,1 @@
-struct TextEngine {
-
-}
+struct TextEngine {}

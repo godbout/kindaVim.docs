@@ -22,17 +22,20 @@ struct AccessibilityTextElementLine {
     let start: Int?
     let end: Int?
     
-    func endLimit() -> Int {
-        guard end! - start! > 1 else { return start! }
+    func endLimit() -> Int? {
+        guard let start = start, let end = end else { return nil }
+        guard end - start > 1 else { return start }
 
-        let lineStart = axValue.index(axValue.startIndex, offsetBy: start!)
-        let lineEnd = axValue.index(lineStart, offsetBy: end! - start!)
+        let lineStart = axValue.index(axValue.startIndex, offsetBy: start)
+        let lineEnd = axValue.index(lineStart, offsetBy: end - start)
 
-        return axValue[lineStart..<lineEnd].hasSuffix("\n") ? end! - 2 : end! - 1
+        return axValue[lineStart..<lineEnd].hasSuffix("\n") ? end - 2 : end - 1
     }
 
-    func startLimit() -> Int {
-        return start!
+    func startLimit() -> Int? {
+        guard let start = start else { return nil }
+
+        return start
     }
     
 }

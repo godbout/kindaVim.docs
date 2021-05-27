@@ -28,7 +28,7 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
             return element
         }
 
-        if element.isNotEmpty(), element.caretIsNotAtTheEnd(), element.axCaretLocation > element.currentLine.startLimit() {
+        if element.isNotEmpty(), let startLimit = element.currentLine.startLimit(), element.axCaretLocation > startLimit {
             element.axCaretLocation -= 1
         }
 
@@ -43,8 +43,8 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
             if lineRangeForNextLine.length >= element.columnNumber! {
                 element.axCaretLocation = lineRangeForNextLine.location + element.columnNumber!
             } else {
-                if let nextLine = AccessibilityTextElementAdaptor.lineFor(lineNumber: lineNumber + 1) {
-                    element.axCaretLocation = nextLine.endLimit()
+                if let nextLine = AccessibilityTextElementAdaptor.lineFor(lineNumber: lineNumber + 1), let endLimit = nextLine.endLimit() {
+                    element.axCaretLocation = endLimit
                 }
             }
         }
@@ -55,7 +55,7 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
     func l(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         guard var element = element else { return nil }
 
-        if element.caretIsNotAtTheEnd(), element.axCaretLocation < element.currentLine.endLimit() {
+        if let endLimit = element.currentLine.endLimit(), element.axCaretLocation < endLimit {
             element.axCaretLocation += 1
         }
 
@@ -65,8 +65,12 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
     func dollarSign(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         guard var element = element else { return nil }
 
-        if element.caretIsNotAtTheEnd() {
-            element.axCaretLocation = element.currentLine.endLimit()
+        if let endLimit = element.currentLine.endLimit() {
+            element.axCaretLocation = endLimit
+        } else {
+            if element.lastCharacterIsNotLinefeed() {
+                element.axCaretLocation -= 1
+            }
         }
 
         return element
@@ -75,8 +79,8 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
     func zero(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         guard var element = element else { return nil }
 
-        if element.caretIsNotAtTheEnd() {
-            element.axCaretLocation = element.currentLine.startLimit()
+        if element.caretIsNotAtTheEnd(), let startLimit = element.currentLine.startLimit() {
+            element.axCaretLocation = startLimit
         }
 
         return element
