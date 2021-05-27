@@ -28,7 +28,7 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
             return element
         }
 
-        if element.isNotEmpty(), element.caretIsNotAtTheEnd(), element.axCaretLocation > element.startOfLineLimit() {
+        if element.isNotEmpty(), element.caretIsNotAtTheEnd(), element.axCaretLocation > element.currentLine.startLimit() {
             element.axCaretLocation -= 1
         }
 
@@ -39,13 +39,23 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
         guard var element = element else { return nil }
         guard element.axRole == .textArea else { return nil }
         
+        if let lineNumber = element.currentLine.number, let lineRangeForNextLine = AXEngine.axLineRangeFor(lineNumber: lineNumber + 1) {
+            if lineRangeForNextLine.length >= element.columnNumber! {
+                element.axCaretLocation = lineRangeForNextLine.location + element.columnNumber!
+            } else {
+                let nextLine = AccessibilityTextElementAdaptor.lineFor(lineNumber: lineNumber + 1)
+                
+                element.axCaretLocation = nextLine.endLimit()
+            }
+        }
+        
         return element
     }
 
     func l(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         guard var element = element else { return nil }
 
-        if element.caretIsNotAtTheEnd(), element.axCaretLocation < element.endOfLineLimit() {
+        if element.caretIsNotAtTheEnd(), element.axCaretLocation < element.currentLine.endLimit() {
             element.axCaretLocation += 1
         }
 
@@ -56,7 +66,7 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
         guard var element = element else { return nil }
 
         if element.caretIsNotAtTheEnd() {
-            element.axCaretLocation = element.endOfLineLimit()
+            element.axCaretLocation = element.currentLine.endLimit()
         }
 
         return element
@@ -66,7 +76,7 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
         guard var element = element else { return nil }
 
         if element.caretIsNotAtTheEnd() {
-            element.axCaretLocation = element.startOfLineLimit()
+            element.axCaretLocation = element.currentLine.startLimit()
         }
 
         return element
@@ -88,7 +98,7 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
     
     static func dump(element: AccessibilityTextElement?) {
         print("\ncaret position: \(String(describing: element?.axCaretLocation))")
-        print("line start: \(String(describing: element?.axLineStart))", "line end: \(String(describing: element?.axLineEnd))")
+        print("line start: \(String(describing: element?.currentLine.start))", "line end: \(String(describing: element?.currentLine.end))")
     }
 
     static func focusedElement() -> AccessibilityTextElement? {

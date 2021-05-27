@@ -9,7 +9,7 @@ class from_TV_AXLineStartTests: ATEA_BaseTests {
 
         let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
 
-        XCTAssertNil(accessibilityElement?.axLineStart)
+        XCTAssertNil(accessibilityElement?.currentLine.start)
     }
 
     func test_that_the_line_start_is_equal_to_0_if_caret_is_at_the_beginning_of_a_non_empty_TextView() {
@@ -24,7 +24,7 @@ start is supposed to
 
         let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
 
-        XCTAssertEqual(accessibilityElement?.axLineStart, 0)
+        XCTAssertEqual(accessibilityElement?.currentLine.start, 0)
     }
     
     func test_that_the_line_start_is_nil_if_caret_is_at_the_end_of_a_TextView() {
@@ -39,7 +39,7 @@ and see if we can again blow up that whole shit!
 
         let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
 
-        XCTAssertNil(accessibilityElement?.axLineStart)
+        XCTAssertNil(accessibilityElement?.currentLine.start)
     }
 
     func test_that_the_line_start_is_correct_if_caret_is_anywhere_in_between() {
@@ -59,7 +59,7 @@ is there anyone at home?
 
         let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
 
-        XCTAssertEqual(accessibilityElement?.axLineStart, 63)
+        XCTAssertEqual(accessibilityElement?.currentLine.start, 63)
     }
 
 }

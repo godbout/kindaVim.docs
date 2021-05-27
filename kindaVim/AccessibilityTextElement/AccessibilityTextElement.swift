@@ -15,6 +15,25 @@ enum AccessibilityTextElementRole {
     
 }
 
+struct AccessibilityTextElementLine {
+    
+    var text = ""
+    let number: Int?
+    let start: Int?
+    let end: Int?
+    
+    func endLimit() -> Int {
+        guard end! - start! > 1 else { return start! }
+
+        return text[text.startIndex..<text.endIndex].hasSuffix("\n") ? end! - 2 : end! - 1
+    }
+
+    func startLimit() -> Int {
+        return start!
+    }
+    
+}
+
 
 struct AccessibilityTextElement {
 
@@ -23,35 +42,27 @@ struct AccessibilityTextElement {
     
     var axCaretLocation = 0
     var axSelectedLength = 0
-
-    private(set) var axLineNumber: Int?
-    private(set) var axLineStart: Int?
-    private(set) var axLineEnd: Int?
-
+    
+    var currentLine: AccessibilityTextElementLine!
+    
+    var columnNumber: Int? {
+        if let lineStart = currentLine.start {
+            return axCaretLocation - lineStart
+        }
+        
+        return nil
+    }
     
     func isNotEmpty() -> Bool {
         return axValue.count != 0
     }
 
     func caretIsAtTheEnd() -> Bool {
-        return axLineStart == nil && axLineEnd == nil
+        return currentLine.start == nil && currentLine.end == nil
     }
 
     func caretIsNotAtTheEnd() -> Bool {
-        return axLineStart != nil && axLineEnd != nil
-    }
-
-    func endOfLineLimit() -> Int {
-        guard axLineEnd! - axLineStart! > 1 else { return axLineStart! }
-
-        let lineStart = axValue.index(axValue.startIndex, offsetBy: axLineStart!)
-        let lineEnd = axValue.index(lineStart, offsetBy: axLineEnd! - axLineStart!)
-
-        return axValue[lineStart..<lineEnd].hasSuffix("\n") ? axLineEnd! - 2 : axLineEnd! - 1
-    }
-
-    func startOfLineLimit() -> Int {
-        return axLineStart!
+        return currentLine.start != nil && currentLine.end != nil
     }
 
     func lastCharacterIsNotLinefeed() -> Bool {

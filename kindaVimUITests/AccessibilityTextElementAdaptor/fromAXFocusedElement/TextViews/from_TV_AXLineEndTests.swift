@@ -9,7 +9,7 @@ class from_TV_AXLineEndTests: ATEA_BaseTests {
 
         let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
 
-        XCTAssertNil(accessibilityElement?.axLineEnd)
+        XCTAssertNil(accessibilityElement?.currentLine.end)
     }
     
     func test_that_the_line_end_is_nil_if_caret_is_at_the_beginning_of_a_TextView() {
@@ -23,7 +23,7 @@ when caret is at the end of it
 
         let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
 
-        XCTAssertNil(accessibilityElement?.axLineEnd)
+        XCTAssertNil(accessibilityElement?.currentLine.end)
     }
     
     func test_that_the_line_end_is_nil_if_caret_is_at_the_end_of_a_TextView() {
@@ -38,7 +38,7 @@ and see
 
         let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
 
-        XCTAssertNil(accessibilityElement?.axLineEnd)
+        XCTAssertNil(accessibilityElement?.currentLine.end)
     }
 
     func test_that_the_line_end_is_correct_if_caret_is_anywhere_in_between() {
@@ -56,7 +56,7 @@ is there anyone at home?
 
         let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
 
-        XCTAssertEqual(accessibilityElement?.axLineEnd, 18)
+        XCTAssertEqual(accessibilityElement?.currentLine.end, 18)
     }
 
 }

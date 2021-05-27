@@ -16,7 +16,7 @@ second line LMAO
 
         let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
 
-        XCTAssertEqual(accessibilityElement?.axLineNumber, 2)
+        XCTAssertEqual(accessibilityElement?.currentLine.number, 2)
     }
     
     func test_that_line_number_is_equal_to_0_if_the_caret_is_at_the_beginning_of_a_TextView() {
@@ -31,7 +31,7 @@ the start
 
         let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
 
-        XCTAssertEqual(accessibilityElement?.axLineNumber, 0)
+        XCTAssertEqual(accessibilityElement?.currentLine.number, 0)
     }
 
     func test_that_line_number_is_correct_if_the_caret_is_at_the_beginning_of_a_line_for_a_TextView() {
@@ -46,7 +46,7 @@ this time!
 
         let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
 
-        XCTAssertEqual(accessibilityElement?.axLineNumber, 2)
+        XCTAssertEqual(accessibilityElement?.currentLine.number, 2)
     }
 
     func test_that_line_number_is_correct_if_the_caret_is_at_the_end_of_a_line_for_a_TextView() {
@@ -62,7 +62,7 @@ because yes
 
         let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
 
-        XCTAssertEqual(accessibilityElement?.axLineNumber, 1)
+        XCTAssertEqual(accessibilityElement?.currentLine.number, 1)
     }
 
     func test_that_line_number_is_nil_if_the_caret_is_at_the_end_of_a_TextViewcorrect_at_the_beginning_of_a_line_for_a_TextView() {
@@ -76,7 +76,7 @@ i will kill 🍎️
 
         let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
 
-        XCTAssertNil(accessibilityElement?.axLineNumber)
+        XCTAssertNil(accessibilityElement?.currentLine.number)
     }
 
 }

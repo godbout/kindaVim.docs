@@ -26,6 +26,7 @@ struct AccessibilityTextElementAdaptor {
                 
                 let axValue = values[1] as! String
                 let axCaretLocation = selectedTextRange.location
+                var lineText = ""
                 var lineNumber: Int?
                 var axLineStart: Int?
                 var axLineEnd: Int?
@@ -37,20 +38,46 @@ struct AccessibilityTextElementAdaptor {
                     
                     axLineStart = axLineRange!.location
                     axLineEnd = axLineStart! + axLineRange!.length
+                    
+                    let lineStart = axValue.index(axValue.startIndex, offsetBy: axLineStart!)
+                    let lineEnd = axValue.index(lineStart, offsetBy: axLineEnd! - axLineStart!)
+                    
+                    lineText = String(axValue[lineStart..<lineEnd])
                 }
+                
+                let currentLine = AccessibilityTextElementLine(
+                    text: lineText,
+                    number: lineNumber,
+                    start: axLineStart,
+                    end: axLineEnd
+                )
 
                 accessibilityElement = AccessibilityTextElement(
                     axRole: axRole,
                     axValue: axValue,
                     axCaretLocation: axCaretLocation,
-                    axLineNumber: lineNumber,
-                    axLineStart: axLineStart,
-                    axLineEnd: axLineEnd
+                    currentLine: currentLine
                 )
             }
         }
 
         return accessibilityElement
+    }
+    
+    static func lineFor(lineNumber: Int) -> AccessibilityTextElementLine {
+        var start: Int?
+        var end: Int?
+        
+        if let axLineRange = AXEngine.axLineRangeFor(lineNumber: lineNumber) {
+            start = axLineRange.location
+            end = start! + axLineRange.length
+        }
+        
+        return AccessibilityTextElementLine(
+            number: lineNumber,
+            start: start,
+            end: end
+        )
     }
     
     private static func role(for role: String) -> AccessibilityTextElementRole {

@@ -10,7 +10,7 @@ class from_TF_AXLineNumberTests: ATEA_BaseTests {
 
         let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
 
-        XCTAssertEqual(accessibilityElement?.axLineNumber, 0)
+        XCTAssertEqual(accessibilityElement?.currentLine.number, 0)
     }
 
     func test_that_line_number_is_equal_to_0_if_the_caret_is_at_the_beginning_of_the_line() {
@@ -21,7 +21,7 @@ class from_TF_AXLineNumberTests: ATEA_BaseTests {
 
         let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
 
-        XCTAssertEqual(accessibilityElement?.axLineNumber, 0)
+        XCTAssertEqual(accessibilityElement?.currentLine.number, 0)
     }
 
     func test_that_line_number_is_nil_if_the_caret_is_at_the_end_of_the_line() {
@@ -31,7 +31,7 @@ class from_TF_AXLineNumberTests: ATEA_BaseTests {
 
         let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
 
-        XCTAssertNil(accessibilityElement?.axLineNumber)
+        XCTAssertNil(accessibilityElement?.currentLine.number)
     }
     
 }
