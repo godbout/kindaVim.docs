@@ -40,11 +40,14 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
         guard element.axRole == .textArea else { return nil }
         
         if let lineNumber = element.currentLine.number, let lineRangeForNextLine = AXEngine.axLineRangeFor(lineNumber: lineNumber + 1) {
-            if lineRangeForNextLine.length >= element.columnNumber! {
-                element.axCaretLocation = lineRangeForNextLine.location + element.columnNumber!
+            if lineRangeForNextLine.length >= AccessibilityTextElement.globalColumnNumber {
+                element.axCaretLocation = lineRangeForNextLine.location + AccessibilityTextElement.globalColumnNumber
+                AccessibilityTextElement.globalColumnNumber = element.axCaretLocation - lineRangeForNextLine.location
             } else {
                 if let nextLine = AccessibilityTextElementAdaptor.lineFor(lineNumber: lineNumber + 1), let endLimit = nextLine.endLimit() {
+                    let savedGlobalColumnNumber = AccessibilityTextElement.globalColumnNumber
                     element.axCaretLocation = endLimit
+                    AccessibilityTextElement.globalColumnNumber = savedGlobalColumnNumber
                 }
             }
         }

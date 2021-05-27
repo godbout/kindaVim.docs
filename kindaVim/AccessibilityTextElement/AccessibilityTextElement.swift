@@ -43,21 +43,22 @@ struct AccessibilityTextElementLine {
 
 struct AccessibilityTextElement {
 
+    static var globalColumnNumber = 0
+
     private(set) var axRole: AccessibilityTextElementRole = .someOtherShit
     private(set) var axValue = ""
     
-    var axCaretLocation = 0
+    var axCaretLocation = 0 {
+        didSet {
+            if let lineStart = currentLine.start {
+                Self.globalColumnNumber = axCaretLocation - lineStart
+            }
+        }
+    }
     var axSelectedLength = 0
     
     var currentLine: AccessibilityTextElementLine!
-    
-    var columnNumber: Int? {
-        if let lineStart = currentLine.start {
-            return axCaretLocation - lineStart
-        }
-        
-        return nil
-    }
+
     
     func isNotEmpty() -> Bool {
         return axValue.count != 0

@@ -35,6 +35,8 @@ column shit
         app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [.command])
         app.textViews.firstMatch.typeKey(.rightArrow, modifierFlags: [.option])
 
+        AccessibilityTextElement.globalColumnNumber = 3
+
         let accessibilityElement = accessibilityStrategy.j(on: AccessibilityTextElementAdaptor.fromAXFocusedElement())
 
         XCTAssertEqual(accessibilityElement?.axCaretLocation, 15)
@@ -70,18 +72,13 @@ another long line longer than the first
         app.textViews.firstMatch.typeKey(.rightArrow, modifierFlags: [.command])
         app.textViews.firstMatch.typeKey(.leftArrow, modifierFlags: [])
 
-        let firstJ = accessibilityStrategy.j(on: AccessibilityTextElementAdaptor.fromAXFocusedElement())
-        _ = AccessibilityTextElementAdaptor.toAXFocusedElememt(from: firstJ!)
+//        let firstJ = accessibilityStrategy.j(on: AccessibilityTegitxtElementAdaptor.fromAXFocusedElement())
+//        _ = AccessibilityTextElementAdaptor.toAXFocusedElememt(from: firstJ!)
+//        let secondJ = accessibilityStrategy.j(on: AccessibilityTextElementAdaptor.fromAXFocusedElement())
+//        _ = AccessibilityTextElementAdaptor.toAXFocusedElememt(from: secondJ!)
 
-        let secondJ = accessibilityStrategy.j(on: AccessibilityTextElementAdaptor.fromAXFocusedElement())
+        let accessibilityElement = accessibilityStrategy.j(on: AccessibilityTextElementAdaptor.fromAXFocusedElement())
 
-        XCTAssertEqual(secondJ?.axCaretLocation, 53)
-
-
-
-
-
-
-
+        XCTAssertEqual(accessibilityElement?.axCaretLocation, 53)
     }
 }
