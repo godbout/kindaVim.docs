@@ -11,6 +11,19 @@ struct AXEngine {
         return axFocusedElement as! AXUIElement?
     }
 
+    static func axValue(of axFocusedElement: AXUIElement?) -> String? {
+        if let axFocusedElement = axFocusedElement {
+            var axValue: AnyObject?
+            let error = AXUIElementCopyAttributeValue(axFocusedElement, kAXValueAttribute as CFString, &axValue)
+
+            if error == .success {
+                return (axValue as! String)
+            }
+        }
+
+        return nil
+    }
+
     static func axLineNumberFor(location: Int, on axFocusedElement: AXUIElement? = axFocusedElement()) -> Int? {
         if let axFocusedElement = axFocusedElement {
             var currentLine: AnyObject?

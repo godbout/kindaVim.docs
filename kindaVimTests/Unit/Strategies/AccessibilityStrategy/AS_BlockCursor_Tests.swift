@@ -15,6 +15,7 @@ extension AS_BlockCursorTests {
             axValue: text,
             axCaretLocation: 10,
             currentLine: AccessibilityTextElementLine(
+                axValue: text,
                 number: 0,
                 start: 0,
                 end: 23
@@ -41,6 +42,7 @@ multiline!
             axValue: text,
             axCaretLocation: 29,
             currentLine: AccessibilityTextElementLine(
+                axValue: text,
                 number: 2,
                 start: 29,
                 end: 44
@@ -65,6 +67,7 @@ extension AS_BlockCursorTests {
             axValue: text,
             axCaretLocation: 12,
             currentLine: AccessibilityTextElementLine(
+                axValue: text,
                 number: 0,
                 start: 0,
                 end: 25

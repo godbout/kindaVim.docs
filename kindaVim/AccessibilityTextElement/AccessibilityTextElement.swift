@@ -17,7 +17,7 @@ enum AccessibilityTextElementRole {
 
 struct AccessibilityTextElementLine {
     
-    var text = ""
+    var axValue: String
     let number: Int?
     let start: Int?
     let end: Int?
@@ -25,7 +25,10 @@ struct AccessibilityTextElementLine {
     func endLimit() -> Int {
         guard end! - start! > 1 else { return start! }
 
-        return text[text.startIndex..<text.endIndex].hasSuffix("\n") ? end! - 2 : end! - 1
+        let lineStart = axValue.index(axValue.startIndex, offsetBy: start!)
+        let lineEnd = axValue.index(lineStart, offsetBy: end! - start!)
+
+        return axValue[lineStart..<lineEnd].hasSuffix("\n") ? end! - 2 : end! - 1
     }
 
     func startLimit() -> Int {

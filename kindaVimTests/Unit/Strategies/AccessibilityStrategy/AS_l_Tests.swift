@@ -13,6 +13,7 @@ extension AS_l_Tests {
             axValue: text,
             axCaretLocation: 16,
             currentLine: AccessibilityTextElementLine(
+                axValue: text,
                 number: 0,
                 start: 0,
                 end: 38
@@ -31,6 +32,7 @@ extension AS_l_Tests {
             axValue: text,
             axCaretLocation: 0,
             currentLine: AccessibilityTextElementLine(
+                axValue: text,
                 number: nil,
                 start: nil,
                 end: nil
@@ -53,6 +55,7 @@ hehe
             axValue: text,
             axCaretLocation: 29,
             currentLine: AccessibilityTextElementLine(
+                axValue: text,
                 number: 2,
                 start: 26,
                 end: 30

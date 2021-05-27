@@ -13,6 +13,7 @@ extension AS_h_Tests {
             axValue: text,
             axCaretLocation: 16,
             currentLine: AccessibilityTextElementLine(
+                axValue: text,
                 number: 0,
                 start: 0,
                 end: 32
@@ -31,6 +32,7 @@ extension AS_h_Tests {
             axValue: text,
             axCaretLocation: 0,
             currentLine: AccessibilityTextElementLine(
+                axValue: text,
                 number: nil,
                 start: nil,
                 end: nil
@@ -52,6 +54,7 @@ h should not move
             axValue: text,
             axCaretLocation: 0,
             currentLine: AccessibilityTextElementLine(
+                axValue: text,
                 number: 0,
                 start: 0,
                 end: 38
@@ -74,6 +77,7 @@ if not on a last empty line
             axValue: text,
             axCaretLocation: 79,
             currentLine: AccessibilityTextElementLine(
+                axValue: text,
                 number: nil,
                 start: nil,
                 end: nil
@@ -102,6 +106,7 @@ the previous line
             axValue: text,
             axCaretLocation: 43,
             currentLine: AccessibilityTextElementLine(
+                axValue: text,
                 number: 2,
                 start: 43,
                 end: 65
@@ -125,6 +130,7 @@ line
             axValue: text,
             axCaretLocation: 34,
             currentLine: AccessibilityTextElementLine(
+                axValue: text,
                 number: nil,
                 start: nil,
                 end: nil

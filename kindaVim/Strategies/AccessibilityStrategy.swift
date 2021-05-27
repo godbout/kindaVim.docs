@@ -43,9 +43,9 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
             if lineRangeForNextLine.length >= element.columnNumber! {
                 element.axCaretLocation = lineRangeForNextLine.location + element.columnNumber!
             } else {
-                let nextLine = AccessibilityTextElementAdaptor.lineFor(lineNumber: lineNumber + 1)
-                
-                element.axCaretLocation = nextLine.endLimit()
+                if let nextLine = AccessibilityTextElementAdaptor.lineFor(lineNumber: lineNumber + 1) {
+                    element.axCaretLocation = nextLine.endLimit()
+                }
             }
         }
         

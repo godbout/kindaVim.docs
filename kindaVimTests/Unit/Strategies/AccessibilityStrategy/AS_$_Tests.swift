@@ -13,6 +13,7 @@ extension AS_$_Tests {
             axValue: text,
             axCaretLocation: 4,
             currentLine: AccessibilityTextElementLine(
+                axValue: text,
                 number: 0,
                 start: 0,
                 end: 11
@@ -40,6 +41,7 @@ multiline
             axValue: text,
             axCaretLocation: 13,
             currentLine: AccessibilityTextElementLine(
+                axValue: text,
                 number: 1,
                 start: 7,
                 end: 15
@@ -63,6 +65,7 @@ it's a bug!
             axValue: text,
             axCaretLocation: 27,
             currentLine: AccessibilityTextElementLine(
+                axValue: text,
                 number: 2,
                 start: 27,
                 end: 28

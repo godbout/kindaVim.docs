@@ -13,6 +13,7 @@ extension AS_0_Tests {
             axValue: text,
             axCaretLocation: 15,
             currentLine: AccessibilityTextElementLine(
+                axValue: text,
                 number: 0,
                 start: 0,
                 end: 45
@@ -39,6 +40,7 @@ where we gonna test 0
             axValue: text,
             axCaretLocation: 10,
             currentLine: AccessibilityTextElementLine(
+                axValue: text,
                 number: 1,
                 start: 10,
                 end: 31
