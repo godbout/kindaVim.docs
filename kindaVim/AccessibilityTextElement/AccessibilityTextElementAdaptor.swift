@@ -19,32 +19,19 @@ struct AccessibilityTextElementAdaptor {
             let error = AXUIElementCopyMultipleAttributeValues(axFocusedElement, [kAXRoleAttribute, kAXValueAttribute, kAXSelectedTextRangeAttribute] as CFArray, .stopOnError, &values)
 
             if error == .success, let values = values as NSArray? {
-                let axRole = role(for: values[0] as! String)
-                
                 var selectedTextRange = CFRange()
                 AXValueGetValue(values[2] as! AXValue, .cfRange, &selectedTextRange)
-                
+
+                let axRole = role(for: values[0] as! String)
                 let axValue = values[1] as! String
                 let axCaretLocation = selectedTextRange.location
-                var lineNumber: Int?
-                var axLineStart: Int?
-                var axLineEnd: Int?
+                var currentLine: AccessibilityTextElementLine!
 
-                if let axLineNumber = AXEngine.axLineNumberFor(location: axCaretLocation, on: axFocusedElement) {
-                    lineNumber = axLineNumber
-
-                    let axLineRange = AXEngine.axLineRangeFor(lineNumber: axLineNumber, on: axFocusedElement)
-                    
-                    axLineStart = axLineRange!.location
-                    axLineEnd = axLineStart! + axLineRange!.length
+                if let axLineNumber = AXEngine.axLineNumberFor(location: axCaretLocation, on: axFocusedElement), let line = lineFor(lineNumber: axLineNumber, on: axFocusedElement) {
+                    currentLine = line
+                } else {
+                    currentLine = AccessibilityTextElementLine(axValue: axValue, number: nil, start: nil, end: nil)
                 }
-                
-                let currentLine = AccessibilityTextElementLine(
-                    axValue: axValue,
-                    number: lineNumber,
-                    start: axLineStart,
-                    end: axLineEnd
-                )
 
                 accessibilityElement = AccessibilityTextElement(
                     axRole: axRole,
