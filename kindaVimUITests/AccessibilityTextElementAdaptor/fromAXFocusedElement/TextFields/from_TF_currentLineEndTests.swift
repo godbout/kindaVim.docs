@@ -1,6 +1,6 @@
 import XCTest
 
-class from_TF_AXLineEndTests: ATEA_BaseTests {
+class from_TF_currentLineEndTests: ATEA_BaseTests {
 
     func test_that_the_line_end_is_nil_for_an_empty_TextField() {
         let textInAXFocusedElement = ""

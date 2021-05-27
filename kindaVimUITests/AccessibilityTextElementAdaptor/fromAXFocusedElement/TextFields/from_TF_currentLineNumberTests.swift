@@ -1,6 +1,6 @@
 import XCTest
 
-class from_TF_AXLineNumberTests: ATEA_BaseTests {
+class from_TF_currentLineNumberTests: ATEA_BaseTests {
 
     func test_that_in_normal_setting_the_line_number_is_correct() {
         let textInAXFocusedElement = "line number should be 0"

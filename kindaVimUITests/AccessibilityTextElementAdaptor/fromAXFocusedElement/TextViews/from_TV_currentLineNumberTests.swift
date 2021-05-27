@@ -1,6 +1,6 @@
 import XCTest
 
-class from_TV_AXLineNumberTests: ATEA_BaseTests {
+class from_TV_currentLineNumberTests: ATEA_BaseTests {
 
     func test_that_in_normal_setting_the_line_number_is_correct() {
         let textInAXFocusedElement = """

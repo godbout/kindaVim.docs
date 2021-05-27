@@ -1,6 +1,6 @@
 import XCTest
 
-class from_TV_AXLineStartTests: ATEA_BaseTests {
+class from_TV_currentLineStartTests: ATEA_BaseTests {
     
     func test_that_the_line_start_is_nil_for_an_empty_TextView() {
         let textInAXFocusedElement = ""
