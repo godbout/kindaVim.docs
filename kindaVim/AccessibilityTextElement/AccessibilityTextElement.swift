@@ -67,10 +67,6 @@ struct AccessibilityTextElement {
         return currentLine.start == nil && currentLine.end == nil
     }
 
-    func caretIsNotAtTheEnd() -> Bool {
-        return currentLine.start != nil && currentLine.end != nil
-    }
-
     func lastCharacterIsNotLinefeed() -> Bool {
         return axValue.last != "\n"
     }

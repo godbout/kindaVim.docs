@@ -79,7 +79,7 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
     func zero(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         guard var element = element else { return nil }
 
-        if element.caretIsNotAtTheEnd(), let startLimit = element.currentLine.startLimit() {
+        if let startLimit = element.currentLine.startLimit() {
             element.axCaretLocation = startLimit
         }
 
