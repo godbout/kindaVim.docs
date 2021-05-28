@@ -41,13 +41,55 @@
             </BuildableReference>
             <SkippedTests>
                <Test
-                  Identifier = "AS_BaseTests">
+                  Identifier = "ATEA_BaseTests">
                </Test>
                <Test
-                  Identifier = "AS_j_Tests">
+                  Identifier = "ATEA_BlockCursorTests">
                </Test>
                <Test
-                  Identifier = "AS_k_Tests">
+                  Identifier = "NonTextElementsTests">
+               </Test>
+               <Test
+                  Identifier = "from_TF_AXCaretLocationTests">
+               </Test>
+               <Test
+                  Identifier = "from_TF_AXRoleTests">
+               </Test>
+               <Test
+                  Identifier = "from_TF_AXTextTests">
+               </Test>
+               <Test
+                  Identifier = "from_TF_currentLineEndTests">
+               </Test>
+               <Test
+                  Identifier = "from_TF_currentLineNumberTests">
+               </Test>
+               <Test
+                  Identifier = "from_TF_currentLineStartTests">
+               </Test>
+               <Test
+                  Identifier = "from_TV_AXCaretLocationTests">
+               </Test>
+               <Test
+                  Identifier = "from_TV_AXRoleTests">
+               </Test>
+               <Test
+                  Identifier = "from_TV_AXTextTests">
+               </Test>
+               <Test
+                  Identifier = "from_TV_currentLineEndTests">
+               </Test>
+               <Test
+                  Identifier = "from_TV_currentLineNumberTests">
+               </Test>
+               <Test
+                  Identifier = "from_TV_currentLineStartTests">
+               </Test>
+               <Test
+                  Identifier = "to_TF_AXCaretLocationTests">
+               </Test>
+               <Test
+                  Identifier = "to_TV_AXCaretLocationTests">
                </Test>
             </SkippedTests>
          </TestableReference>
