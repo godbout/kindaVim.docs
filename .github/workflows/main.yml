@@ -38,7 +38,7 @@ jobs:
     - name: build
       run: xcodebuild clean -scheme kindaVim build
     - name: run tests (non-UI)
-      run: xcodebuild clean -scheme kindaVim -configuration Testing test
+      run: xcodebuild clean -scheme "Unit Tests" -configuration Testing test
     - name: upload coverage to codecov
       run: bash <(curl -s https://codecov.io/bash)
       env:
