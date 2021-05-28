@@ -12,75 +12,66 @@ struct AccessibilityTextElementAdaptor {
     // which seems actually very fast. so maybe it's safer this way.
 
     static func fromAXFocusedElement() -> AccessibilityTextElement? {
-        var accessibilityElement: AccessibilityTextElement?
+        guard let axFocusedElement = AXEngine.axFocusedElement() else { return nil }
 
-        if let axFocusedElement = AXEngine.axFocusedElement() {
-            var values: CFArray?
-            let error = AXUIElementCopyMultipleAttributeValues(axFocusedElement, [kAXRoleAttribute, kAXValueAttribute, kAXSelectedTextRangeAttribute] as CFArray, .stopOnError, &values)
+        var values: CFArray?
+        let error = AXUIElementCopyMultipleAttributeValues(axFocusedElement, [kAXRoleAttribute, kAXValueAttribute, kAXSelectedTextRangeAttribute] as CFArray, .stopOnError, &values)
 
-            if error == .success, let values = values as NSArray? {
-                var selectedTextRange = CFRange()
-                AXValueGetValue(values[2] as! AXValue, .cfRange, &selectedTextRange)
+        guard error == .success, let elementValues = values as NSArray? else { return nil }
 
-                let axRole = role(for: values[0] as! String)
-                let axValue = values[1] as! String
-                let axCaretLocation = selectedTextRange.location
-                var currentLine: AccessibilityTextElementLine!
+        var selectedTextRange = CFRange()
+        AXValueGetValue(elementValues[2] as! AXValue, .cfRange, &selectedTextRange)
 
-                if let axLineNumber = AXEngine.axLineNumberFor(location: axCaretLocation, on: axFocusedElement), let line = lineFor(lineNumber: axLineNumber, on: axFocusedElement) {
-                    currentLine = line
-                } else {
-                    currentLine = AccessibilityTextElementLine(axValue: axValue, number: nil, start: nil, end: nil)
-                }
+        let axRole = role(for: elementValues[0] as! String)
+        let axValue = elementValues[1] as! String
+        let axCaretLocation = selectedTextRange.location
+        var currentLine: AccessibilityTextElementLine!
 
-                accessibilityElement = AccessibilityTextElement(
-                    axRole: axRole,
-                    axValue: axValue,
-                    axCaretLocation: axCaretLocation,
-                    currentLine: currentLine
-                )
-            }
+        if let line = lineFor(location: axCaretLocation, on: axFocusedElement) {
+            currentLine = line
+        } else {
+            currentLine = AccessibilityTextElementLine(axValue: axValue, number: nil, start: nil, end: nil)
         }
 
-        return accessibilityElement
-    }
-    
-    static func lineFor(lineNumber: Int, on axFocusedElement: AXUIElement? = AXEngine.axFocusedElement()) -> AccessibilityTextElementLine? {
-        if let axFocusedElement = axFocusedElement {
-            var axValue = ""
-            var start: Int?
-            var end: Int?
-
-            if let axLineRange = AXEngine.axLineRangeFor(lineNumber: lineNumber, on: axFocusedElement) {
-                start = axLineRange.location
-                end = start! + axLineRange.length
-            }
-
-            if let elementValue = AXEngine.axValue(of: axFocusedElement) {
-                axValue = elementValue
-            }
-
-            return AccessibilityTextElementLine(
-                axValue: axValue,
-                number: lineNumber,
-                start: start,
-                end: end
-            )
-        }
-
-        return nil
+        return AccessibilityTextElement(
+            axRole: axRole,
+            axValue: axValue,
+            axCaretLocation: axCaretLocation,
+            currentLine: currentLine
+        )
     }
 
     static func lineFor(location: Int, on axFocusedElement: AXUIElement? = AXEngine.axFocusedElement()) -> AccessibilityTextElementLine? {
-        if let axLineNumber = AXEngine.axLineNumberFor(location: location, on: axFocusedElement), let line = lineFor(lineNumber: axLineNumber, on: axFocusedElement) {
-            return line
-        } else {
-            let axValue = AXEngine.axValue(of: axFocusedElement) ?? ""
+        guard let axFocusedElement = axFocusedElement else { return nil }
+        guard let axLineNumber = AXEngine.axLineNumberFor(location: location, on: axFocusedElement) else { return nil }
 
-            return AccessibilityTextElementLine(axValue: axValue, number: nil, start: nil, end: nil)
-        }
+        return lineFor(lineNumber: axLineNumber, on: axFocusedElement)
     }
     
+    static func lineFor(lineNumber: Int, on axFocusedElement: AXUIElement? = AXEngine.axFocusedElement()) -> AccessibilityTextElementLine? {
+        guard let axFocusedElement = axFocusedElement else { return nil }
+
+        var axValue = ""
+        var start: Int?
+        var end: Int?
+
+        if let axLineRange = AXEngine.axLineRangeFor(lineNumber: lineNumber, on: axFocusedElement) {
+            start = axLineRange.location
+            end = start! + axLineRange.length
+        }
+
+        if let elementValue = AXEngine.axValue(of: axFocusedElement) {
+            axValue = elementValue
+        }
+
+        return AccessibilityTextElementLine(
+            axValue: axValue,
+            number: lineNumber,
+            start: start,
+            end: end
+        )
+    }
+
     private static func role(for role: String) -> AccessibilityTextElementRole {
         switch role {
         case "AXTextField":
