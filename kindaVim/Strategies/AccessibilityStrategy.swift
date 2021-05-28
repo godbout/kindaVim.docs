@@ -39,19 +39,19 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
         guard var element = element else { return nil }
         guard element.axRole == .textArea else { return nil }
         
-        if let lineNumber = element.currentLine.number, let lineRangeForNextLine = AXEngine.axLineRangeFor(lineNumber: lineNumber + 1) {
-            if lineRangeForNextLine.length >= AccessibilityTextElement.globalColumnNumber {
-                element.axCaretLocation = lineRangeForNextLine.location + AccessibilityTextElement.globalColumnNumber
-                AccessibilityTextElement.globalColumnNumber = element.axCaretLocation - lineRangeForNextLine.location
+        if let currentLineNumber = element.currentLine.number, let nextLine = AccessibilityTextElementAdaptor.lineFor(lineNumber: currentLineNumber + 1) {
+            if let nextLineLength = nextLine.length, nextLineLength >= AccessibilityTextElement.globalColumnNumber {
+                element.axCaretLocation = nextLine.start! + AccessibilityTextElement.globalColumnNumber
+                AccessibilityTextElement.globalColumnNumber = element.axCaretLocation - nextLine.start!
             } else {
-                if let nextLine = AccessibilityTextElementAdaptor.lineFor(lineNumber: lineNumber + 1), let endLimit = nextLine.endLimit() {
+                if let endLimit = nextLine.endLimit() {
                     let savedGlobalColumnNumber = AccessibilityTextElement.globalColumnNumber
                     element.axCaretLocation = endLimit
                     AccessibilityTextElement.globalColumnNumber = savedGlobalColumnNumber
                 }
             }
         }
-        
+                
         return element
     }
 

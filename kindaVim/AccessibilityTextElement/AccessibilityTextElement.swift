@@ -21,6 +21,11 @@ struct AccessibilityTextElementLine {
     let number: Int?
     let start: Int?
     let end: Int?
+    var length: Int? {
+        guard let start = start, let end = end else { return nil }
+        
+        return end - start        
+    }
     
     func endLimit() -> Int? {
         guard let start = start, let end = end else { return nil }
@@ -50,8 +55,8 @@ struct AccessibilityTextElement {
     
     var axCaretLocation = 0 {
         didSet {
-            if let lineStart = currentLine.start {
-                Self.globalColumnNumber = axCaretLocation - lineStart
+            if let currentLineStart = currentLine.start {
+                Self.globalColumnNumber = axCaretLocation - currentLineStart
             }
         }
     }

@@ -64,11 +64,12 @@ let's see
         XCTAssertEqual(accessibilityElement?.axCaretLocation, 64)
     }
 
-    func test_that_the_column_number_is_saved_and_reapplied_when_we_go_from_one_line_to_a_shorter_one_to_a_longer_than_the_first_one() {
+    func test_that_the_column_number_is_saved_and_reapplied_in_properly() {
         let textInAXFocusedElement = """
 a line that is long
 a shorter line
 another long line longer than the first
+another long line longer than all the other ones!!!
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
@@ -80,12 +81,17 @@ another long line longer than the first
         
         let firstJ = accessibilityStrategy.j(on: AccessibilityTextElementAdaptor.fromAXFocusedElement())
         _ = AccessibilityTextElementAdaptor.toAXFocusedElememt(from: firstJ!)
+        
+        XCTAssertEqual(firstJ?.axCaretLocation, 33)
+        
         let secondJ = accessibilityStrategy.j(on: AccessibilityTextElementAdaptor.fromAXFocusedElement())
         _ = AccessibilityTextElementAdaptor.toAXFocusedElememt(from: secondJ!)
+        
+        XCTAssertEqual(secondJ?.axCaretLocation, 53)
 
-        let accessibilityElement = accessibilityStrategy.j(on: AccessibilityTextElementAdaptor.fromAXFocusedElement())
+        let thirdJ = accessibilityStrategy.j(on: AccessibilityTextElementAdaptor.fromAXFocusedElement())
 
-        XCTAssertEqual(accessibilityElement?.axCaretLocation, 53)
+        XCTAssertEqual(thirdJ?.axCaretLocation, 93)
     }
     
     func test_that_when_at_the_last_line_j_does_nothing() {
