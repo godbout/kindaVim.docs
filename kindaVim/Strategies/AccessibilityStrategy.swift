@@ -66,11 +66,18 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
         guard var element = element else { return nil }
         guard element.axRole == .textArea else { return nil }
 
-        if let currentLineNumber = element.currentLine.number, let previousLine = AccessibilityTextElementAdaptor.lineFor(lineNumber: currentLineNumber - 1) {
+        var previousLine: AccessibilityTextElementLine?
+
+        if element.currentLine.isLastLine() {
+            previousLine = AccessibilityTextElementAdaptor.lineFor(location: element.axCaretLocation - 1)
+        } else {
+            previousLine = AccessibilityTextElementAdaptor.lineFor(lineNumber: element.currentLine.number! - 1)
+        }
+
+        if let previousLine = previousLine {
             if let previousLineLength = previousLine.length, previousLineLength > AccessibilityTextElement.globalColumnNumber {
                 element.axCaretLocation = previousLine.start! + AccessibilityTextElement.globalColumnNumber - 1
                 AccessibilityTextElement.globalColumnNumber = element.axCaretLocation - previousLine.start! + 1
-                
             } else {
                 if let endLimit = previousLine.endLimit() {
                     let globalColumnNumber = AccessibilityTextElement.globalColumnNumber
@@ -79,7 +86,7 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
                 }
             }
         }
-        
+
         return element
     }
 

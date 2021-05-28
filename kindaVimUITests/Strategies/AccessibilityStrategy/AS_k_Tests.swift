@@ -153,7 +153,6 @@ empty
         XCTAssertEqual(jFirst?.axCaretLocation, 38)
 
         let thenK = accessibilityStrategy.k(on: AccessibilityTextElementAdaptor.fromAXFocusedElement())
-//        _ = AccessibilityTextElementAdaptor.toAXFocusedElememt(from: thenK!)
 
         XCTAssertEqual(thenK?.axCaretLocation, 35)
     }

@@ -70,6 +70,16 @@ struct AccessibilityTextElementAdaptor {
 
         return nil
     }
+
+    static func lineFor(location: Int, on axFocusedElement: AXUIElement? = AXEngine.axFocusedElement()) -> AccessibilityTextElementLine? {
+        if let axLineNumber = AXEngine.axLineNumberFor(location: location, on: axFocusedElement), let line = lineFor(lineNumber: axLineNumber, on: axFocusedElement) {
+            return line
+        } else {
+            let axValue = AXEngine.axValue(of: axFocusedElement) ?? ""
+
+            return AccessibilityTextElementLine(axValue: axValue, number: nil, start: nil, end: nil)
+        }
+    }
     
     private static func role(for role: String) -> AccessibilityTextElementRole {
         switch role {
