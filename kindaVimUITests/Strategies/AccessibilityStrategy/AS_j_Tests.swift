@@ -132,5 +132,24 @@ hehe
 
         XCTAssertEqual(accessibilityElement?.axCaretLocation, 28)
     }
+
+    func test_that_if_the_last_line_is_only_a_linefeed_character_j_can_still_go_there() {
+        let textInAXFocusedElement = """
+another fucking
+edge case
+
+"""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
+        app.textViews.firstMatch.typeKey(.rightArrow, modifierFlags: [])
+
+        // need to move the caretLocation to have a proper AccessibilityTextElement.globalColumnNumber
+        VimEngine.shared.handle(keyCombination: KeyCombination(key: .l))
+
+        let accessibilityElement = accessibilityStrategy.j(on: AccessibilityTextElementAdaptor.fromAXFocusedElement())
+
+        XCTAssertEqual(accessibilityElement?.axCaretLocation, 26)
+    }
     
 }

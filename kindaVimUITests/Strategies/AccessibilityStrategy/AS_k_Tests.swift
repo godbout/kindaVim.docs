@@ -130,5 +130,32 @@ to previous line length
 
         XCTAssertEqual(accessibilityElement?.axCaretLocation, 42)
     }
+
+    func test_that_if_we_are_on_the_last_line_and_it_is_just_a_linefeed_we_can_still_go_up_and_follow_the_globalColumnNumber() {
+        let textInAXFocusedElement = """
+fucking hell
+with the last line
+empty
+
+"""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
+        app.textViews.firstMatch.typeKey(.rightArrow, modifierFlags: [])
+        app.textViews.firstMatch.typeKey(.rightArrow, modifierFlags: [])
+
+        // need to move the caretLocation to have a proper AccessibilityTextElement.globalColumnNumber
+        VimEngine.shared.handle(keyCombination: KeyCombination(key: .l))
+
+        let jFirst = accessibilityStrategy.j(on: AccessibilityTextElementAdaptor.fromAXFocusedElement())
+        _ = AccessibilityTextElementAdaptor.toAXFocusedElememt(from: jFirst!)
+
+        XCTAssertEqual(jFirst?.axCaretLocation, 38)
+
+        let thenK = accessibilityStrategy.k(on: AccessibilityTextElementAdaptor.fromAXFocusedElement())
+//        _ = AccessibilityTextElementAdaptor.toAXFocusedElememt(from: thenK!)
+
+        XCTAssertEqual(thenK?.axCaretLocation, 35)
+    }
     
 }
