@@ -43,8 +43,17 @@ struct AccessibilityTextElementLine {
         return start
     }
 
-    func isLastLineAndIsOnlyALinefeedCharacter() -> Bool {
+    func isLastLine() -> Bool {
         return start == nil && end == nil
+    }
+
+    func isOnlyALinefeedCharacter() -> Bool {
+        guard let start = start, let end = end else { return axValue.last == "\n" }
+
+        let lineStart = axValue.index(axValue.startIndex, offsetBy: start)
+        let lineEnd = axValue.index(lineStart, offsetBy: end - start)
+
+        return axValue[lineStart..<lineEnd] == "\n"
     }
     
 }

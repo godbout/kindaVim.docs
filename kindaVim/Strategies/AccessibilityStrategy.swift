@@ -41,7 +41,7 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
         guard element.axRole == .textArea else { return nil }
 
         if let currentLineNumber = element.currentLine.number, let nextLine = AccessibilityTextElementAdaptor.lineFor(lineNumber: currentLineNumber + 1) {
-            if nextLine.isLastLineAndIsOnlyALinefeedCharacter() {
+            if nextLine.isLastLine(), nextLine.isOnlyALinefeedCharacter() {
                 let globalColumNumber = AccessibilityTextElement.globalColumnNumber
                 element.axCaretLocation = element.axValue.count
                 AccessibilityTextElement.globalColumnNumber = globalColumNumber
@@ -65,7 +65,7 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
     func k(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         guard var element = element else { return nil }
         guard element.axRole == .textArea else { return nil }
-        
+
         if let currentLineNumber = element.currentLine.number, let previousLine = AccessibilityTextElementAdaptor.lineFor(lineNumber: currentLineNumber - 1) {
             if let previousLineLength = previousLine.length, previousLineLength > AccessibilityTextElement.globalColumnNumber {
                 element.axCaretLocation = previousLine.start! + AccessibilityTextElement.globalColumnNumber - 1
