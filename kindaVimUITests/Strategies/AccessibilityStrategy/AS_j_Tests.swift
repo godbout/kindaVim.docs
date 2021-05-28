@@ -23,8 +23,6 @@ extension AS_j_Tests {
 extension AS_j_Tests {
 
     func test_that_in_normal_setting_j_goes_to_the_next_line_at_the_same_column() {
-//        VimEngine.shared.enterNormalMode()
-        
         let textInAXFocusedElement = """
 let the fun
 begin with the
@@ -88,6 +86,23 @@ another long line longer than the first
         let accessibilityElement = accessibilityStrategy.j(on: AccessibilityTextElementAdaptor.fromAXFocusedElement())
 
         XCTAssertEqual(accessibilityElement?.axCaretLocation, 53)
+    }
+    
+    func test_that_when_at_the_last_line_j_does_nothing() {
+        let textInAXFocusedElement = """
+at the last line
+j should
+shut up
+"""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        
+        // need to move the caretLocation to have a proper AccessibilityTextElement.globalColumnNumber
+        VimEngine.shared.handle(keyCombination: KeyCombination(key: .h))
+        
+        let accessibilityElement = accessibilityStrategy.j(on: AccessibilityTextElementAdaptor.fromAXFocusedElement())
+
+        XCTAssertEqual(accessibilityElement?.axCaretLocation, 32)
     }
     
 }
