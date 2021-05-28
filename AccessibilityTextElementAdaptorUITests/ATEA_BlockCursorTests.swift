@@ -17,7 +17,7 @@ class ATEA_BlockCursorTests: ATEA_BaseTests {
 //        app.textViews.firstMatch.typeText(text)
 //
 //        let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
-//        XCTAssertEqual(accessibilityElement?.axSelectedLength, 1)
+//        XCTAssertEqual(accessibilityElement?selectedLength, 1)
     }
 
 }

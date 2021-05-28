@@ -9,8 +9,8 @@ a TextView that is not empty
 coz like come on there's so me shits inside.
 """
         let accessibilityElement = AccessibilityTextElement(
-            axValue: text,
-            axCaretLocation: 0
+            value: text,
+            caretLocation: 0
         )
 
         app.textViews.firstMatch.tap()
@@ -20,7 +20,7 @@ coz like come on there's so me shits inside.
         XCTAssertTrue(conversionSucceeded)
 
         let reconvertedAccessibilityTextElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
-        XCTAssertEqual(reconvertedAccessibilityTextElement?.axCaretLocation, 0)
+        XCTAssertEqual(reconvertedAccessibilityTextElement?.caretLocation, 0)
     }
     
     func test_that_we_can_set_the_caret_location_to_the_end_of_the_TextView() {
@@ -32,8 +32,8 @@ my
 friend...
 """
         let accessibilityElement = AccessibilityTextElement(
-            axValue: text,
-            axCaretLocation: 0
+            value: text,
+            caretLocation: 0
         )
 
         app.textViews.firstMatch.tap()
@@ -43,7 +43,7 @@ friend...
         XCTAssertTrue(conversionSucceeded)
 
         let reconvertedAccessibilityTextElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
-        XCTAssertEqual(reconvertedAccessibilityTextElement?.axCaretLocation, 0)
+        XCTAssertEqual(reconvertedAccessibilityTextElement?.caretLocation, 0)
     }
 
     func test_that_we_can_set_the_caret_location_wherever_between_the_beginning_and_the_end_of_the_TextView() {
@@ -54,8 +54,8 @@ it's biiiiiiig and long
 hallelujah
 """
         let accessibilityElement = AccessibilityTextElement(
-            axValue: text,
-            axCaretLocation: 25
+            value: text,
+            caretLocation: 25
         )
 
         app.textViews.firstMatch.tap()
@@ -65,7 +65,7 @@ hallelujah
         XCTAssertTrue(conversionSucceeded)
 
         let reconvertedAccessibilityTextElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
-        XCTAssertEqual(reconvertedAccessibilityTextElement?.axCaretLocation, 25)
+        XCTAssertEqual(reconvertedAccessibilityTextElement?.caretLocation, 25)
     }
 
     func test_that_the_conversion_fails_if_we_set_the_caret_location_out_of_range() {
@@ -75,8 +75,8 @@ but still not
 that long.
 """
         let accessibilityElement = AccessibilityTextElement(
-            axValue: text,
-            axCaretLocation: 1993
+            value: text,
+            caretLocation: 1993
         )
 
         app.textViews.firstMatch.tap()

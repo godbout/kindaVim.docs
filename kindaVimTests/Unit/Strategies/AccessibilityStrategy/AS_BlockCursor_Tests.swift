@@ -11,11 +11,11 @@ extension AS_BlockCursorTests {
         
         let text = "setting block cursor ON"
         let element = AccessibilityTextElement(
-            axRole: .textField,
-            axValue: text,
-            axCaretLocation: 10,
+            role: .textField,
+            value: text,
+            caretLocation: 10,
             currentLine: AccessibilityTextElementLine(
-                axValue: text,
+                fullValue: text,
                 number: 0,
                 start: 0,
                 end: 23
@@ -24,8 +24,8 @@ extension AS_BlockCursorTests {
 
         let returnedElement = accessibilityStrategy.blockCursor(.on, on: element)
 
-        XCTAssertEqual(returnedElement?.axCaretLocation, 9)
-        XCTAssertEqual(returnedElement?.axSelectedLength, 1)
+        XCTAssertEqual(returnedElement?.caretLocation, 9)
+        XCTAssertEqual(returnedElement?.selectedLength, 1)
     }
 
     func test_that_at_the_beginning_of_a_line_blockcursor_ON_does_not_move_and_still_selects_the_next_character() throws {
@@ -38,11 +38,11 @@ ON but that is
 multiline!
 """
         let element = AccessibilityTextElement(
-            axRole: .textArea,
-            axValue: text,
-            axCaretLocation: 29,
+            role: .textArea,
+            value: text,
+            caretLocation: 29,
             currentLine: AccessibilityTextElementLine(
-                axValue: text,
+                fullValue: text,
                 number: 2,
                 start: 29,
                 end: 44
@@ -51,8 +51,8 @@ multiline!
         
         let returnedElement = accessibilityStrategy.blockCursor(.on, on: element)
 
-        XCTAssertEqual(returnedElement?.axCaretLocation, 29)
-        XCTAssertEqual(returnedElement?.axSelectedLength, 1)
+        XCTAssertEqual(returnedElement?.caretLocation, 29)
+        XCTAssertEqual(returnedElement?.selectedLength, 1)
     }
 
 }
@@ -63,11 +63,11 @@ extension AS_BlockCursorTests {
     func test_that_blockcursor_OFF_removes_character_selection_and_does_not_move_the_caret() {
         let text = "let's go block cursor OFF"
         let element = AccessibilityTextElement(
-            axRole: .textField,
-            axValue: text,
-            axCaretLocation: 12,
+            role: .textField,
+            value: text,
+            caretLocation: 12,
             currentLine: AccessibilityTextElementLine(
-                axValue: text,
+                fullValue: text,
                 number: 0,
                 start: 0,
                 end: 25
@@ -76,8 +76,8 @@ extension AS_BlockCursorTests {
 
         let returnedElement = accessibilityStrategy.blockCursor(.off, on: element)
 
-        XCTAssertEqual(returnedElement?.axCaretLocation, 12)
-        XCTAssertEqual(returnedElement?.axSelectedLength, 0)
+        XCTAssertEqual(returnedElement?.caretLocation, 12)
+        XCTAssertEqual(returnedElement?.selectedLength, 0)
     }
 
 }

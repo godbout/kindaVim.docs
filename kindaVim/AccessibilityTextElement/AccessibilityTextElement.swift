@@ -17,7 +17,7 @@ enum AccessibilityTextElementRole {
 
 struct AccessibilityTextElementLine {
     
-    var axValue: String
+    var fullValue: String
     let number: Int?
     let start: Int?
     let end: Int?
@@ -31,10 +31,10 @@ struct AccessibilityTextElementLine {
         guard let start = start, let end = end else { return nil }
         guard end - start > 1 else { return start }
 
-        let lineStart = axValue.index(axValue.startIndex, offsetBy: start)
-        let lineEnd = axValue.index(lineStart, offsetBy: end - start)
+        let lineStart = fullValue.index(fullValue.startIndex, offsetBy: start)
+        let lineEnd = fullValue.index(lineStart, offsetBy: end - start)
 
-        return axValue[lineStart..<lineEnd].hasSuffix("\n") ? end - 2 : end - 1
+        return fullValue[lineStart..<lineEnd].hasSuffix("\n") ? end - 2 : end - 1
     }
 
     func startLimit() -> Int? {
@@ -48,12 +48,12 @@ struct AccessibilityTextElementLine {
     }
 
     func isOnlyALinefeedCharacter() -> Bool {
-        guard let start = start, let end = end else { return axValue.last == "\n" }
+        guard let start = start, let end = end else { return fullValue.last == "\n" }
 
-        let lineStart = axValue.index(axValue.startIndex, offsetBy: start)
-        let lineEnd = axValue.index(lineStart, offsetBy: end - start)
+        let lineStart = fullValue.index(fullValue.startIndex, offsetBy: start)
+        let lineEnd = fullValue.index(lineStart, offsetBy: end - start)
 
-        return axValue[lineStart..<lineEnd] == "\n"
+        return fullValue[lineStart..<lineEnd] == "\n"
     }
     
 }
@@ -63,23 +63,23 @@ struct AccessibilityTextElement {
 
     static var globalColumnNumber = 1
 
-    private(set) var axRole: AccessibilityTextElementRole = .someOtherShit
-    private(set) var axValue = ""
+    private(set) var role: AccessibilityTextElementRole = .someOtherShit
+    private(set) var value = ""
     
-    var axCaretLocation = 0 {
+    var caretLocation = 0 {
         didSet {
             if let currentLineStart = currentLine.start {
-                Self.globalColumnNumber = axCaretLocation - currentLineStart + 1
+                Self.globalColumnNumber = caretLocation - currentLineStart + 1
             }
         }
     }
-    var axSelectedLength = 0
+    var selectedLength = 0
     
     var currentLine: AccessibilityTextElementLine!
 
     
     func isNotEmpty() -> Bool {
-        return axValue.count != 0
+        return value.count != 0
     }
 
     func caretIsAtTheEnd() -> Bool {
@@ -87,7 +87,7 @@ struct AccessibilityTextElement {
     }
 
     func lastCharacterIsNotLinefeed() -> Bool {
-        return axValue.last != "\n"
+        return value.last != "\n"
     }
 
 }

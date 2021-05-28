@@ -30,13 +30,13 @@ struct AccessibilityTextElementAdaptor {
         if let line = lineFor(location: axCaretLocation, on: axFocusedElement) {
             currentLine = line
         } else {
-            currentLine = AccessibilityTextElementLine(axValue: axValue, number: nil, start: nil, end: nil)
+            currentLine = AccessibilityTextElementLine(fullValue: axValue, number: nil, start: nil, end: nil)
         }
 
         return AccessibilityTextElement(
-            axRole: axRole,
-            axValue: axValue,
-            axCaretLocation: axCaretLocation,
+            role: axRole,
+            value: axValue,
+            caretLocation: axCaretLocation,
             currentLine: currentLine
         )
     }
@@ -65,7 +65,7 @@ struct AccessibilityTextElementAdaptor {
         }
 
         return AccessibilityTextElementLine(
-            axValue: axValue,
+            fullValue: axValue,
             number: lineNumber,
             start: start,
             end: end
@@ -87,8 +87,8 @@ struct AccessibilityTextElementAdaptor {
         guard let axFocusedElement = AXEngine.axFocusedElement() else { return false }
         
         var selectedTextRange = CFRange()
-        selectedTextRange.location = accessibilityElement.axCaretLocation
-        selectedTextRange.length = accessibilityElement.axSelectedLength
+        selectedTextRange.location = accessibilityElement.caretLocation
+        selectedTextRange.length = accessibilityElement.selectedLength
 
         let newValue = AXValueCreate(.cfRange, &selectedTextRange)
 

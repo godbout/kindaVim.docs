@@ -9,11 +9,11 @@ extension AS_0_Tests {
     func test_that_in_normal_setting_0_is_moving_the_caret_position_to_the_first_character_of_the_line() {
         let text = "0 should send us to the beginning of the line"
         let element = AccessibilityTextElement(
-            axRole: .textField,
-            axValue: text,
-            axCaretLocation: 15,
+            role: .textField,
+            value: text,
+            caretLocation: 15,
             currentLine: AccessibilityTextElementLine(
-                axValue: text,
+                fullValue: text,
                 number: 0,
                 start: 0,
                 end: 45
@@ -22,7 +22,7 @@ extension AS_0_Tests {
 
         let returnedElement = accessibilityStrategy.zero(on: element)
 
-        XCTAssertEqual(returnedElement?.axCaretLocation, 0)
+        XCTAssertEqual(returnedElement?.caretLocation, 0)
     }
 
 }
@@ -36,11 +36,11 @@ multiline
 where we gonna test 0
 """
         let element = AccessibilityTextElement(
-            axRole: .textArea,
-            axValue: text,
-            axCaretLocation: 10,
+            role: .textArea,
+            value: text,
+            caretLocation: 10,
             currentLine: AccessibilityTextElementLine(
-                axValue: text,
+                fullValue: text,
                 number: 1,
                 start: 10,
                 end: 31
@@ -49,7 +49,7 @@ where we gonna test 0
 
         let returnedElement = accessibilityStrategy.zero(on: element)
 
-        XCTAssertEqual(returnedElement?.axCaretLocation, 10)
+        XCTAssertEqual(returnedElement?.caretLocation, 10)
     }
 
 }

@@ -9,7 +9,7 @@ class from_TF_AXRoleTests: ATEA_BaseTests {
 
         let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
 
-        XCTAssertEqual(accessibilityElement?.axRole, .textField)
+        XCTAssertEqual(accessibilityElement?.role, .textField)
     }
 
 }

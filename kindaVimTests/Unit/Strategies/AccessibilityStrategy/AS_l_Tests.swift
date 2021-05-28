@@ -9,11 +9,11 @@ extension AS_l_Tests {
     func test_that_in_normal_setting_l_goes_one_character_to_the_right_in_Text_AXUIElement() {
         let text = "l should go one character to the right"
         let element = AccessibilityTextElement(
-            axRole: .textField,
-            axValue: text,
-            axCaretLocation: 16,
+            role: .textField,
+            value: text,
+            caretLocation: 16,
             currentLine: AccessibilityTextElementLine(
-                axValue: text,
+                fullValue: text,
                 number: 0,
                 start: 0,
                 end: 38
@@ -22,17 +22,17 @@ extension AS_l_Tests {
 
         let returnedElement = accessibilityStrategy.l(on: element)
 
-        XCTAssertEqual(returnedElement?.axCaretLocation, 17)
+        XCTAssertEqual(returnedElement?.caretLocation, 17)
     }
     
     func test_that_l_does_not_move_if_Text_AXUIElement_is_empty() {
         let text = ""
         let element = AccessibilityTextElement(
-            axRole: .textField,
-            axValue: text,
-            axCaretLocation: 0,
+            role: .textField,
+            value: text,
+            caretLocation: 0,
             currentLine: AccessibilityTextElementLine(
-                axValue: text,
+                fullValue: text,
                 number: nil,
                 start: nil,
                 end: nil
@@ -41,7 +41,7 @@ extension AS_l_Tests {
         
         let returnedElement = accessibilityStrategy.l(on: element)
 
-        XCTAssertEqual(returnedElement?.axCaretLocation, 0)
+        XCTAssertEqual(returnedElement?.caretLocation, 0)
     }
     
     func test_that_l_does_not_move_if_caret_is_at_end_limit_of_Text_AXUIElement() {
@@ -51,11 +51,11 @@ shit again
 hehe
 """
         let element = AccessibilityTextElement(
-            axRole: .textArea,
-            axValue: text,
-            axCaretLocation: 29,
+            role: .textArea,
+            value: text,
+            caretLocation: 29,
             currentLine: AccessibilityTextElementLine(
-                axValue: text,
+                fullValue: text,
                 number: 2,
                 start: 26,
                 end: 30
@@ -64,7 +64,7 @@ hehe
 
         let returnedElement = accessibilityStrategy.l(on: element)
 
-        XCTAssertEqual(returnedElement?.axCaretLocation, 29)
+        XCTAssertEqual(returnedElement?.caretLocation, 29)
     }
 
 }

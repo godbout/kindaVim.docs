@@ -13,7 +13,7 @@ hehe
 
         let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
 
-        XCTAssertEqual(accessibilityElement?.axRole, .textArea)
+        XCTAssertEqual(accessibilityElement?.role, .textArea)
     }
 
 }

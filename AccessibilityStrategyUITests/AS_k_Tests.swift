@@ -39,7 +39,7 @@ to the same column
 
         let accessibilityElement = accessibilityStrategy.k(on: AccessibilityTextElementAdaptor.fromAXFocusedElement())
 
-        XCTAssertEqual(accessibilityElement?.axCaretLocation, 38)
+        XCTAssertEqual(accessibilityElement?.caretLocation, 38)
     }
 
     func test_that_if_the_previous_line_is_shorter_k_goes_to_the_end_of_line_limit_of_that_previous_line() {
@@ -59,7 +59,7 @@ than the previous shorter than...
         
         let accessibilityElement = accessibilityStrategy.k(on: AccessibilityTextElementAdaptor.fromAXFocusedElement())
 
-        XCTAssertEqual(accessibilityElement?.axCaretLocation, 39)
+        XCTAssertEqual(accessibilityElement?.caretLocation, 39)
     }
 
     func test_that_the_column_number_is_saved_and_reapplied_properly() {
@@ -79,16 +79,16 @@ another quite long line
         let firstK = accessibilityStrategy.k(on: AccessibilityTextElementAdaptor.fromAXFocusedElement())
         _ = AccessibilityTextElementAdaptor.toAXFocusedElememt(from: firstK!)
         
-        XCTAssertEqual(firstK?.axCaretLocation, 81)
+        XCTAssertEqual(firstK?.caretLocation, 81)
         
         let secondK = accessibilityStrategy.k(on: AccessibilityTextElementAdaptor.fromAXFocusedElement())
         _ = AccessibilityTextElementAdaptor.toAXFocusedElememt(from: secondK!)
         
-        XCTAssertEqual(secondK?.axCaretLocation, 51)
+        XCTAssertEqual(secondK?.caretLocation, 51)
 
         let thirdK = accessibilityStrategy.k(on: AccessibilityTextElementAdaptor.fromAXFocusedElement())
 
-        XCTAssertEqual(thirdK?.axCaretLocation, 18)
+        XCTAssertEqual(thirdK?.caretLocation, 18)
     }
     
     func test_that_when_at_the_first_line_k_does_nothing() {
@@ -106,7 +106,7 @@ nothing ankulay
         
         let accessibilityElement = accessibilityStrategy.k(on: AccessibilityTextElementAdaptor.fromAXFocusedElement())
 
-        XCTAssertEqual(accessibilityElement?.axCaretLocation, 1)
+        XCTAssertEqual(accessibilityElement?.caretLocation, 1)
     }
     
     func test_that_when_current_line_column_is_equal_to_previous_line_length_the_caret_ends_up_at_the_right_previous_line_end_limit() {
@@ -128,7 +128,7 @@ to previous line length
         
         let accessibilityElement = accessibilityStrategy.k(on: AccessibilityTextElementAdaptor.fromAXFocusedElement())
 
-        XCTAssertEqual(accessibilityElement?.axCaretLocation, 42)
+        XCTAssertEqual(accessibilityElement?.caretLocation, 42)
     }
 
     func test_that_if_we_are_on_the_last_line_and_it_is_just_a_linefeed_we_can_still_go_up_and_follow_the_globalColumnNumber() {
@@ -150,11 +150,11 @@ empty
         let jFirst = accessibilityStrategy.j(on: AccessibilityTextElementAdaptor.fromAXFocusedElement())
         _ = AccessibilityTextElementAdaptor.toAXFocusedElememt(from: jFirst!)
 
-        XCTAssertEqual(jFirst?.axCaretLocation, 38)
+        XCTAssertEqual(jFirst?.caretLocation, 38)
 
         let thenK = accessibilityStrategy.k(on: AccessibilityTextElementAdaptor.fromAXFocusedElement())
 
-        XCTAssertEqual(thenK?.axCaretLocation, 35)
+        XCTAssertEqual(thenK?.caretLocation, 35)
     }
     
 }

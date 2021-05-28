@@ -24,13 +24,13 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
         guard var element = element else { return nil }
 
         if element.isNotEmpty(), element.caretIsAtTheEnd(), element.lastCharacterIsNotLinefeed() {
-            element.axCaretLocation -= 1
+            element.caretLocation -= 1
 
             return element
         }
 
-        if element.isNotEmpty(), let startLimit = element.currentLine.startLimit(), element.axCaretLocation > startLimit {
-            element.axCaretLocation -= 1
+        if element.isNotEmpty(), let startLimit = element.currentLine.startLimit(), element.caretLocation > startLimit {
+            element.caretLocation -= 1
         }
 
         return element
@@ -38,21 +38,21 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
     
     func j(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         guard var element = element else { return nil }
-        guard element.axRole == .textArea else { return nil }
+        guard element.role == .textArea else { return nil }
 
         if let currentLineNumber = element.currentLine.number, let nextLine = AccessibilityTextElementAdaptor.lineFor(lineNumber: currentLineNumber + 1) {
             if nextLine.isLastLine(), nextLine.isOnlyALinefeedCharacter() {
                 let globalColumNumber = AccessibilityTextElement.globalColumnNumber
-                element.axCaretLocation = element.axValue.count
+                element.caretLocation = element.value.count
                 AccessibilityTextElement.globalColumnNumber = globalColumNumber
             } else {
                 if let nextLineLength = nextLine.length, nextLineLength > AccessibilityTextElement.globalColumnNumber {
-                    element.axCaretLocation = nextLine.start! + AccessibilityTextElement.globalColumnNumber - 1
-                    AccessibilityTextElement.globalColumnNumber = element.axCaretLocation - nextLine.start! + 1
+                    element.caretLocation = nextLine.start! + AccessibilityTextElement.globalColumnNumber - 1
+                    AccessibilityTextElement.globalColumnNumber = element.caretLocation - nextLine.start! + 1
                 } else {
                     if let endLimit = nextLine.endLimit() {
                         let globalColumNumber = AccessibilityTextElement.globalColumnNumber
-                        element.axCaretLocation = endLimit
+                        element.caretLocation = endLimit
                         AccessibilityTextElement.globalColumnNumber = globalColumNumber
                     }
                 }
@@ -64,24 +64,24 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
     
     func k(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         guard var element = element else { return nil }
-        guard element.axRole == .textArea else { return nil }
+        guard element.role == .textArea else { return nil }
 
         var previousLine: AccessibilityTextElementLine?
 
         if element.currentLine.isLastLine() {
-            previousLine = AccessibilityTextElementAdaptor.lineFor(location: element.axCaretLocation - 1)
+            previousLine = AccessibilityTextElementAdaptor.lineFor(location: element.caretLocation - 1)
         } else {
             previousLine = AccessibilityTextElementAdaptor.lineFor(lineNumber: element.currentLine.number! - 1)
         }
 
         if let previousLine = previousLine {
             if let previousLineLength = previousLine.length, previousLineLength > AccessibilityTextElement.globalColumnNumber {
-                element.axCaretLocation = previousLine.start! + AccessibilityTextElement.globalColumnNumber - 1
-                AccessibilityTextElement.globalColumnNumber = element.axCaretLocation - previousLine.start! + 1
+                element.caretLocation = previousLine.start! + AccessibilityTextElement.globalColumnNumber - 1
+                AccessibilityTextElement.globalColumnNumber = element.caretLocation - previousLine.start! + 1
             } else {
                 if let endLimit = previousLine.endLimit() {
                     let globalColumnNumber = AccessibilityTextElement.globalColumnNumber
-                    element.axCaretLocation = endLimit
+                    element.caretLocation = endLimit
                     AccessibilityTextElement.globalColumnNumber = globalColumnNumber
                 }
             }
@@ -93,8 +93,8 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
     func l(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         guard var element = element else { return nil }
 
-        if let endLimit = element.currentLine.endLimit(), element.axCaretLocation < endLimit {
-            element.axCaretLocation += 1
+        if let endLimit = element.currentLine.endLimit(), element.caretLocation < endLimit {
+            element.caretLocation += 1
         }
 
         return element
@@ -104,10 +104,10 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
         guard var element = element else { return nil }
 
         if let endLimit = element.currentLine.endLimit() {
-            element.axCaretLocation = endLimit
+            element.caretLocation = endLimit
         } else {
             if element.lastCharacterIsNotLinefeed() {
-                element.axCaretLocation -= 1
+                element.caretLocation -= 1
             }
         }
 
@@ -118,7 +118,7 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
         guard var element = element else { return nil }
 
         if let startLimit = element.currentLine.startLimit() {
-            element.axCaretLocation = startLimit
+            element.caretLocation = startLimit
         }
 
         return element
@@ -130,16 +130,16 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
         switch status {
         case .on:
             element = h(on: element)!
-            element.axSelectedLength = 0
+            element.selectedLength = 0
         case .off:
-            element.axSelectedLength = 0
+            element.selectedLength = 0
         }
 
         return element
     }
     
     static func dump(element: AccessibilityTextElement?) {
-        print("\ncaret position: \(String(describing: element?.axCaretLocation))")
+        print("\ncaret position: \(String(describing: element?.caretLocation))")
         print("line start: \(String(describing: element?.currentLine.start))", "line end: \(String(describing: element?.currentLine.end))")
     }
 

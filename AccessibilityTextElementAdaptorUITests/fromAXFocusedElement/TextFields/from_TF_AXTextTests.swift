@@ -10,7 +10,7 @@ class from_TF_AXTextTests: ATEA_BaseTests {
 
         let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
 
-        XCTAssertEqual(accessibilityElement?.axValue, textInAXFocusedElement)
+        XCTAssertEqual(accessibilityElement?.value, textInAXFocusedElement)
     }
 
 }
