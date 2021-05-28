@@ -21,7 +21,6 @@
 		911BB7492632899E006882D8 /* VimEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911BB7482632899E006882D8 /* VimEngine.swift */; };
 		911BB75626328D7D006882D8 /* EventTapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911BB75526328D7D006882D8 /* EventTapController.swift */; };
 		912686692657F0880096E927 /* AXEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912686682657F0880096E927 /* AXEngine.swift */; };
-		912686762657FCBA0096E927 /* AXEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912686682657F0880096E927 /* AXEngine.swift */; };
 		9128B0ED26380ACC007DC80B /* GlobalEventsControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9128B0EC26380ACC007DC80B /* GlobalEventsControllerTests.swift */; };
 		9128F2B0262AA90C00625B42 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9128F2AF262AA90C00625B42 /* AppDelegate.swift */; };
 		9128F2B2262AA90D00625B42 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9128F2B1262AA90D00625B42 /* ContentView.swift */; };
@@ -32,11 +31,7 @@
 		912B92D826443C8F007F44E1 /* UsingKS_yy_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912B92D726443C8F007F44E1 /* UsingKS_yy_Tests.swift */; };
 		912B92DC26443FF8007F44E1 /* UsingKS_yiw_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912B92DB26443FF8007F44E1 /* UsingKS_yiw_Tests.swift */; };
 		912B92E0264443BD007F44E1 /* KS_yiw_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912B92DF264443BD007F44E1 /* KS_yiw_Tests.swift */; };
-		912FD7C52652C23200B916DF /* from_TF_currentLineEndTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912FD7C42652C23200B916DF /* from_TF_currentLineEndTests.swift */; };
-		912FD7CD2652C61600B916DF /* from_TV_currentLineEndTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912FD7CC2652C61600B916DF /* from_TV_currentLineEndTests.swift */; };
 		913008AE26555FC30075A864 /* UsingAS_0_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913008AD26555FC30075A864 /* UsingAS_0_Tests.swift */; };
-		913CC070265E0CA70077CD21 /* from_TF_AXRoleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913CC06F265E0CA70077CD21 /* from_TF_AXRoleTests.swift */; };
-		913CC072265E0E790077CD21 /* from_TV_AXRoleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913CC071265E0E790077CD21 /* from_TV_AXRoleTests.swift */; };
 		913EBF48264ADEE700BCCCEE /* AccessibilityTextElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913EBF47264ADEE700BCCCEE /* AccessibilityTextElement.swift */; };
 		913EBF53264ADF5800BCCCEE /* AccessibilityTextElementAdaptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913EBF52264ADF5800BCCCEE /* AccessibilityTextElementAdaptor.swift */; };
 		9140E6DD264554320021C2FB /* KS_cgg_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9140E6DC264554320021C2FB /* KS_cgg_Tests.swift */; };
@@ -48,32 +43,28 @@
 		91482E40263DBE8300F10ADC /* KeyboardStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91482E3F263DBE8300F10ADC /* KeyboardStrategy.swift */; };
 		9165BB2826554DD900B19718 /* UsingAS_$_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9165BB2726554DD900B19718 /* UsingAS_$_Tests.swift */; };
 		917458F1262EB934007D3855 /* StatusBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917458F0262EB934007D3855 /* StatusBarController.swift */; };
-		917A45D226602C8C00FA1845 /* VimEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911BB7482632899E006882D8 /* VimEngine.swift */; };
-		917A45D626602C9B00FA1845 /* KeyboardStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91482E3F263DBE8300F10ADC /* KeyboardStrategy.swift */; };
-		917A45DA26602CA700FA1845 /* KeyCombination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919DEB622632C85B0052D514 /* KeyCombination.swift */; };
-		917A45DE26602CB300FA1845 /* Display.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9118C4E6263F0CE50040C297 /* Display.swift */; };
-		917A45E226602CBF00FA1845 /* KeyCombinationAdaptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9197C0842636695A006C696A /* KeyCombinationAdaptor.swift */; };
 		918024B926386E95004FD719 /* AppComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918024B826386E95004FD719 /* AppComponent.swift */; };
 		9182AEAA265536FC004A8E17 /* UsingAS_BlockCursorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9182AEA9265536FC004A8E17 /* UsingAS_BlockCursorTests.swift */; };
-		9184371426592D8E003CE952 /* ATEA_BlockCursorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9184371326592D8E003CE952 /* ATEA_BlockCursorTests.swift */; };
-		91872E0D26609FDA001007B3 /* AS_k_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91872E0C26609FDA001007B3 /* AS_k_Tests.swift */; };
 		918C26512646D29000C39ADA /* KS_s_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918C26502646D29000C39ADA /* KS_s_Tests.swift */; };
 		918C26572646D32500C39ADA /* UsingKS_s_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918C26562646D32500C39ADA /* UsingKS_s_Tests.swift */; };
 		918F4DEF265C070D0006CC2E /* TextEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918F4DEE265C070D0006CC2E /* TextEngine.swift */; };
 		9197C0852636695A006C696A /* KeyCombinationAdaptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9197C0842636695A006C696A /* KeyCombinationAdaptor.swift */; };
 		9197C08A26366A3B006C696A /* KeyCombinationAdaptorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9197C08926366A3B006C696A /* KeyCombinationAdaptorTests.swift */; };
 		919DEB632632C85B0052D514 /* KeyCombination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919DEB622632C85B0052D514 /* KeyCombination.swift */; };
-		919E35C0264DA10000542866 /* AccessibilityTextElementAdaptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913EBF52264ADF5800BCCCEE /* AccessibilityTextElementAdaptor.swift */; };
-		919E35C1264DA11E00542866 /* AccessibilityTextElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913EBF47264ADEE700BCCCEE /* AccessibilityTextElement.swift */; };
-		919E35C2264DA13700542866 /* AccessibilityStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91013741263DD2430037AB6E /* AccessibilityStrategy.swift */; };
-		919FDCF826527AB0003DF40C /* ATEA_BaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919FDCF726527AB0003DF40C /* ATEA_BaseTests.swift */; };
-		919FDD0526528BA6003DF40C /* from_TF_AXTextTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919FDD0426528BA6003DF40C /* from_TF_AXTextTests.swift */; };
-		919FDD0D26528E0A003DF40C /* from_TF_currentLineStartTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919FDD0C26528E0A003DF40C /* from_TF_currentLineStartTests.swift */; };
-		919FDD21265291FA003DF40C /* from_TV_AXTextTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919FDD20265291FA003DF40C /* from_TV_AXTextTests.swift */; };
-		919FDD262652922A003DF40C /* from_TF_AXCaretLocationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919FDD252652922A003DF40C /* from_TF_AXCaretLocationTests.swift */; };
-		919FDD3426529308003DF40C /* NonTextElementsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919FDD3326529308003DF40C /* NonTextElementsTests.swift */; };
-		919FDD39265294B1003DF40C /* from_TV_AXCaretLocationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919FDD38265294B1003DF40C /* from_TV_AXCaretLocationTests.swift */; };
-		919FDD3E26529666003DF40C /* from_TV_currentLineStartTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919FDD3D26529666003DF40C /* from_TV_currentLineStartTests.swift */; };
+		91A147D52661224000D160AD /* AS_BaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F83FA32656B81400199276 /* AS_BaseTests.swift */; };
+		91A147D62661224000D160AD /* AS_j_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CA37E0265E9288004869EA /* AS_j_Tests.swift */; };
+		91A147D72661224000D160AD /* AS_k_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91872E0C26609FDA001007B3 /* AS_k_Tests.swift */; };
+		91A147ED2661234200D160AD /* AccessibilityStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91013741263DD2430037AB6E /* AccessibilityStrategy.swift */; };
+		91A147F32661237E00D160AD /* AccessibilityTextElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913EBF47264ADEE700BCCCEE /* AccessibilityTextElement.swift */; };
+		91A147F92661238100D160AD /* AccessibilityTextElementAdaptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913EBF52264ADF5800BCCCEE /* AccessibilityTextElementAdaptor.swift */; };
+		91A147FF2661238800D160AD /* AXEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912686682657F0880096E927 /* AXEngine.swift */; };
+		91A1480A266123BB00D160AD /* VimEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911BB7482632899E006882D8 /* VimEngine.swift */; };
+		91A14810266123C200D160AD /* Display.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9118C4E6263F0CE50040C297 /* Display.swift */; };
+		91A14816266123CF00D160AD /* KeyCombination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919DEB622632C85B0052D514 /* KeyCombination.swift */; };
+		91A1481C266123D100D160AD /* KeyCombinationAdaptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9197C0842636695A006C696A /* KeyCombinationAdaptor.swift */; };
+		91A14822266123DC00D160AD /* KeyboardStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91482E3F263DBE8300F10ADC /* KeyboardStrategy.swift */; };
+		91A1482D2661242900D160AD /* ATEA_BlockCursorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9184371326592D8E003CE952 /* ATEA_BlockCursorTests.swift */; };
+		91A1482E2661242900D160AD /* ATEA_BaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919FDCF726527AB0003DF40C /* ATEA_BaseTests.swift */; };
 		91A54ED92643B34F00400677 /* KS_$_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A54ED82643B34F00400677 /* KS_$_Tests.swift */; };
 		91A54EDB2643B3FF00400677 /* KS_a_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A54EDA2643B3FF00400677 /* KS_a_Tests.swift */; };
 		91A54EDD2643B58500400677 /* KS_A__Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A54EDC2643B58500400677 /* KS_A__Tests.swift */; };
@@ -104,16 +95,31 @@
 		91C2788926456EBC0049436F /* KS_dj_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C2788826456EBC0049436F /* KS_dj_Tests.swift */; };
 		91C2788B264570900049436F /* UsingKS_dj_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C2788A264570900049436F /* UsingKS_dj_Tests.swift */; };
 		91C486052641C0D30003D9D7 /* KeyboardStrategyMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C486042641C0D30003D9D7 /* KeyboardStrategyMock.swift */; };
-		91CA37D2265E8750004869EA /* from_TF_currentLineNumberTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CA37D1265E8750004869EA /* from_TF_currentLineNumberTests.swift */; };
-		91CA37D7265E8B44004869EA /* from_TV_currentLineNumberTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CA37D6265E8B44004869EA /* from_TV_currentLineNumberTests.swift */; };
 		91CA37DC265E8F47004869EA /* UsingAS_j_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CA37DB265E8F47004869EA /* UsingAS_j_Tests.swift */; };
-		91CA37E1265E9288004869EA /* AS_j_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CA37E0265E9288004869EA /* AS_j_Tests.swift */; };
 		91CE734E265CD06300248D18 /* KS_^_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CE734D265CD06300248D18 /* KS_^_Tests.swift */; };
 		91CE7350265CD31B00248D18 /* UsingKS_^_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CE734F265CD31B00248D18 /* UsingKS_^_Tests.swift */; };
 		91DA6EE32645581300CF7504 /* KS_dG.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91DA6EE22645581300CF7504 /* KS_dG.swift */; };
 		91DA6EE72645593D00CF7504 /* UsingKS_dG_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91DA6EE62645593D00CF7504 /* UsingKS_dG_Tests.swift */; };
 		91DA6EEB26455A0D00CF7504 /* KS_dgg_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91DA6EEA26455A0D00CF7504 /* KS_dgg_Tests.swift */; };
 		91DA6EEF26455D6600CF7504 /* UsingKS_dgg_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91DA6EEE26455D6600CF7504 /* UsingKS_dgg_Tests.swift */; };
+		91E207082661250400E73009 /* from_TF_AXTextTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919FDD0426528BA6003DF40C /* from_TF_AXTextTests.swift */; };
+		91E207092661250400E73009 /* from_TF_currentLineNumberTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CA37D1265E8750004869EA /* from_TF_currentLineNumberTests.swift */; };
+		91E2070A2661250400E73009 /* from_TF_currentLineStartTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919FDD0C26528E0A003DF40C /* from_TF_currentLineStartTests.swift */; };
+		91E2070B2661250400E73009 /* from_TF_currentLineEndTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912FD7C42652C23200B916DF /* from_TF_currentLineEndTests.swift */; };
+		91E2070C2661250400E73009 /* from_TF_AXRoleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913CC06F265E0CA70077CD21 /* from_TF_AXRoleTests.swift */; };
+		91E2070D2661250400E73009 /* from_TF_AXCaretLocationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919FDD252652922A003DF40C /* from_TF_AXCaretLocationTests.swift */; };
+		91E207182661250B00E73009 /* from_TV_AXCaretLocationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919FDD38265294B1003DF40C /* from_TV_AXCaretLocationTests.swift */; };
+		91E207192661250B00E73009 /* from_TV_currentLineStartTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919FDD3D26529666003DF40C /* from_TV_currentLineStartTests.swift */; };
+		91E2071A2661250B00E73009 /* from_TV_currentLineNumberTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CA37D6265E8B44004869EA /* from_TV_currentLineNumberTests.swift */; };
+		91E2071B2661250B00E73009 /* from_TV_currentLineEndTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912FD7CC2652C61600B916DF /* from_TV_currentLineEndTests.swift */; };
+		91E2071C2661250B00E73009 /* from_TV_AXRoleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913CC071265E0E790077CD21 /* from_TV_AXRoleTests.swift */; };
+		91E2071D2661250B00E73009 /* from_TV_AXTextTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919FDD20265291FA003DF40C /* from_TV_AXTextTests.swift */; };
+		91E207282661251100E73009 /* to_TF_AXCaretLocationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F2EC14265A2DF1003F038B /* to_TF_AXCaretLocationTests.swift */; };
+		91E207382661251700E73009 /* to_TV_AXCaretLocationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F2EC16265A2E11003F038B /* to_TV_AXCaretLocationTests.swift */; };
+		91E2073E2661251A00E73009 /* NonTextElementsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919FDD3326529308003DF40C /* NonTextElementsTests.swift */; };
+		91E2074E2661252C00E73009 /* AccessibilityTextElementAdaptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913EBF52264ADF5800BCCCEE /* AccessibilityTextElementAdaptor.swift */; };
+		91E207542661253900E73009 /* AccessibilityTextElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913EBF47264ADEE700BCCCEE /* AccessibilityTextElement.swift */; };
+		91E207642661254200E73009 /* AXEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912686682657F0880096E927 /* AXEngine.swift */; };
 		91E266952660AB8C00C4A4B5 /* UsingAS_k_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E266942660AB8C00C4A4B5 /* UsingAS_k_Tests.swift */; };
 		91E304BD2643E77A004D9933 /* UsingKS_a_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E304BC2643E77A004D9933 /* UsingKS_a_Tests.swift */; };
 		91E304BF2643E843004D9933 /* KS_BaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E304BE2643E843004D9933 /* KS_BaseTests.swift */; };
@@ -146,12 +152,9 @@
 		91E304F72643F5F2004D9933 /* UsingKS_0_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E304F62643F5F2004D9933 /* UsingKS_0_Tests.swift */; };
 		91E304F92643F6D1004D9933 /* UsingKS_ciw_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E304F82643F6D1004D9933 /* UsingKS_ciw_Tests.swift */; };
 		91E304FD2643FB2D004D9933 /* UsingKS_NotImplementedOrDontExist_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E304FC2643FB2D004D9933 /* UsingKS_NotImplementedOrDontExist_Tests.swift */; };
-		91F2EC15265A2DF1003F038B /* to_TF_AXCaretLocationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F2EC14265A2DF1003F038B /* to_TF_AXCaretLocationTests.swift */; };
-		91F2EC17265A2E11003F038B /* to_TV_AXCaretLocationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F2EC16265A2E11003F038B /* to_TV_AXCaretLocationTests.swift */; };
 		91F7A005264FC70500B609FF /* UsingAS_BaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F7A004264FC70500B609FF /* UsingAS_BaseTests.swift */; };
 		91F7A007264FC75F00B609FF /* UsingAS_h_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F7A006264FC75F00B609FF /* UsingAS_h_Tests.swift */; };
 		91F7A009264FC81000B609FF /* AccessibilityStrategyMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F7A008264FC81000B609FF /* AccessibilityStrategyMock.swift */; };
-		91F83FA42656B81400199276 /* AS_BaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F83FA32656B81400199276 /* AS_BaseTests.swift */; };
 		91FA1D922657B443005F576E /* AS_BaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FA1D912657B443005F576E /* AS_BaseTests.swift */; };
 		91FA1D942657B48B005F576E /* AS_h_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FA1D932657B48B005F576E /* AS_h_Tests.swift */; };
 		91FA1D962657BE2B005F576E /* AS_0_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FA1D952657BE2B005F576E /* AS_0_Tests.swift */; };
@@ -168,7 +171,14 @@
 			remoteGlobalIDString = 9128F2AB262AA90C00625B42;
 			remoteInfo = kindaVim;
 		};
-		916BEA8C264DA08300E6E4E5 /* PBXContainerItemProxy */ = {
+		91A147B52661221100D160AD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9128F2A4262AA90C00625B42 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9128F2AB262AA90C00625B42;
+			remoteInfo = kindaVim;
+		};
+		91A147C92661222900D160AD /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 9128F2A4262AA90C00625B42 /* Project object */;
 			proxyType = 1;
@@ -222,8 +232,6 @@
 		91473C81264700C200AA52D5 /* UsingKS_r_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsingKS_r_Tests.swift; sourceTree = "<group>"; };
 		91482E3F263DBE8300F10ADC /* KeyboardStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardStrategy.swift; sourceTree = "<group>"; };
 		9165BB2726554DD900B19718 /* UsingAS_$_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsingAS_$_Tests.swift; sourceTree = "<group>"; };
-		916BEA87264DA08300E6E4E5 /* kindaVimUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = kindaVimUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		916BEA8B264DA08300E6E4E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		917458F0262EB934007D3855 /* StatusBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBarController.swift; sourceTree = "<group>"; };
 		918024B826386E95004FD719 /* AppComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppComponent.swift; sourceTree = "<group>"; };
 		9182AEA9265536FC004A8E17 /* UsingAS_BlockCursorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsingAS_BlockCursorTests.swift; sourceTree = "<group>"; };
@@ -243,6 +251,10 @@
 		919FDD3326529308003DF40C /* NonTextElementsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NonTextElementsTests.swift; sourceTree = "<group>"; };
 		919FDD38265294B1003DF40C /* from_TV_AXCaretLocationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = from_TV_AXCaretLocationTests.swift; sourceTree = "<group>"; };
 		919FDD3D26529666003DF40C /* from_TV_currentLineStartTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = from_TV_currentLineStartTests.swift; sourceTree = "<group>"; };
+		91A147B02661221100D160AD /* AccessibilityTextElementAdaptorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AccessibilityTextElementAdaptorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		91A147B42661221100D160AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		91A147C42661222900D160AD /* AccessibilityStrategyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AccessibilityStrategyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		91A147C82661222900D160AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		91A54ED82643B34F00400677 /* KS_$_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KS_$_Tests.swift; sourceTree = "<group>"; };
 		91A54EDA2643B3FF00400677 /* KS_a_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KS_a_Tests.swift; sourceTree = "<group>"; };
 		91A54EDC2643B58500400677 /* KS_A__Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KS_A__Tests.swift; sourceTree = "<group>"; };
@@ -344,7 +356,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		916BEA84264DA08300E6E4E5 /* Frameworks */ = {
+		91A147AD2661221100D160AD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		91A147C12661222900D160AD /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -438,7 +457,8 @@
 			children = (
 				9128F2AE262AA90C00625B42 /* kindaVim */,
 				9128F2C4262AA90D00625B42 /* kindaVimTests */,
-				916BEA88264DA08300E6E4E5 /* kindaVimUITests */,
+				91A147B12661221100D160AD /* AccessibilityTextElementAdaptorUITests */,
+				91A147C52661222900D160AD /* AccessibilityStrategyUITests */,
 				9128F2AD262AA90C00625B42 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -448,7 +468,8 @@
 			children = (
 				9128F2AC262AA90C00625B42 /* kindaVim.app */,
 				9128F2C1262AA90D00625B42 /* kindaVimTests.xctest */,
-				916BEA87264DA08300E6E4E5 /* kindaVimUITests.xctest */,
+				91A147B02661221100D160AD /* AccessibilityTextElementAdaptorUITests.xctest */,
+				91A147C42661222900D160AD /* AccessibilityStrategyUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -568,16 +589,6 @@
 			path = KeyboardStrategy;
 			sourceTree = "<group>";
 		};
-		916BEA88264DA08300E6E4E5 /* kindaVimUITests */ = {
-			isa = PBXGroup;
-			children = (
-				91F83FA12656B7DC00199276 /* Strategies */,
-				919E35C3264E73B200542866 /* AccessibilityTextElementAdaptor */,
-				916BEA8B264DA08300E6E4E5 /* Info.plist */,
-			);
-			path = kindaVimUITests;
-			sourceTree = "<group>";
-		};
 		918F4DED265C06FD0006CC2E /* TextEngine */ = {
 			isa = PBXGroup;
 			children = (
@@ -592,18 +603,6 @@
 				911BB7482632899E006882D8 /* VimEngine.swift */,
 			);
 			path = VimEngine;
-			sourceTree = "<group>";
-		};
-		919E35C3264E73B200542866 /* AccessibilityTextElementAdaptor */ = {
-			isa = PBXGroup;
-			children = (
-				919FDCF726527AB0003DF40C /* ATEA_BaseTests.swift */,
-				9184371326592D8E003CE952 /* ATEA_BlockCursorTests.swift */,
-				91F2EC10265A2CEE003F038B /* fromAXFocusedElement */,
-				91F2EC11265A2CF5003F038B /* toAXFocusedElement */,
-				919FDD192652918D003DF40C /* Others */,
-			);
-			path = AccessibilityTextElementAdaptor;
 			sourceTree = "<group>";
 		};
 		919FDD1726529172003DF40C /* TextFields */ = {
@@ -628,6 +627,30 @@
 				919FDD3326529308003DF40C /* NonTextElementsTests.swift */,
 			);
 			path = Others;
+			sourceTree = "<group>";
+		};
+		91A147B12661221100D160AD /* AccessibilityTextElementAdaptorUITests */ = {
+			isa = PBXGroup;
+			children = (
+				919FDCF726527AB0003DF40C /* ATEA_BaseTests.swift */,
+				9184371326592D8E003CE952 /* ATEA_BlockCursorTests.swift */,
+				91F2EC10265A2CEE003F038B /* fromAXFocusedElement */,
+				91F2EC11265A2CF5003F038B /* toAXFocusedElement */,
+				919FDD192652918D003DF40C /* Others */,
+				91A147B42661221100D160AD /* Info.plist */,
+			);
+			path = AccessibilityTextElementAdaptorUITests;
+			sourceTree = "<group>";
+		};
+		91A147C52661222900D160AD /* AccessibilityStrategyUITests */ = {
+			isa = PBXGroup;
+			children = (
+				91F83FA32656B81400199276 /* AS_BaseTests.swift */,
+				91CA37E0265E9288004869EA /* AS_j_Tests.swift */,
+				91872E0C26609FDA001007B3 /* AS_k_Tests.swift */,
+				91A147C82661222900D160AD /* Info.plist */,
+			);
+			path = AccessibilityStrategyUITests;
 			sourceTree = "<group>";
 		};
 		91C486032641C0AA0003D9D7 /* Helpers */ = {
@@ -750,24 +773,6 @@
 			path = UsingAS;
 			sourceTree = "<group>";
 		};
-		91F83FA12656B7DC00199276 /* Strategies */ = {
-			isa = PBXGroup;
-			children = (
-				91F83FA22656B7F700199276 /* AccessibilityStrategy */,
-			);
-			path = Strategies;
-			sourceTree = "<group>";
-		};
-		91F83FA22656B7F700199276 /* AccessibilityStrategy */ = {
-			isa = PBXGroup;
-			children = (
-				91F83FA32656B81400199276 /* AS_BaseTests.swift */,
-				91CA37E0265E9288004869EA /* AS_j_Tests.swift */,
-				91872E0C26609FDA001007B3 /* AS_k_Tests.swift */,
-			);
-			path = AccessibilityStrategy;
-			sourceTree = "<group>";
-		};
 		91FA1D902657B42C005F576E /* AccessibilityStrategy */ = {
 			isa = PBXGroup;
 			children = (
@@ -819,22 +824,40 @@
 			productReference = 9128F2C1262AA90D00625B42 /* kindaVimTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		916BEA86264DA08300E6E4E5 /* kindaVimUITests */ = {
+		91A147AF2661221100D160AD /* AccessibilityTextElementAdaptorUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 916BEA91264DA08300E6E4E5 /* Build configuration list for PBXNativeTarget "kindaVimUITests" */;
+			buildConfigurationList = 91A147BB2661221100D160AD /* Build configuration list for PBXNativeTarget "AccessibilityTextElementAdaptorUITests" */;
 			buildPhases = (
-				916BEA83264DA08300E6E4E5 /* Sources */,
-				916BEA84264DA08300E6E4E5 /* Frameworks */,
-				916BEA85264DA08300E6E4E5 /* Resources */,
+				91A147AC2661221100D160AD /* Sources */,
+				91A147AD2661221100D160AD /* Frameworks */,
+				91A147AE2661221100D160AD /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				916BEA8D264DA08300E6E4E5 /* PBXTargetDependency */,
+				91A147B62661221100D160AD /* PBXTargetDependency */,
 			);
-			name = kindaVimUITests;
-			productName = kindaVimUITests;
-			productReference = 916BEA87264DA08300E6E4E5 /* kindaVimUITests.xctest */;
+			name = AccessibilityTextElementAdaptorUITests;
+			productName = AccessibilityTextElementAdaptorUITests;
+			productReference = 91A147B02661221100D160AD /* AccessibilityTextElementAdaptorUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		91A147C32661222900D160AD /* AccessibilityStrategyUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 91A147CB2661222900D160AD /* Build configuration list for PBXNativeTarget "AccessibilityStrategyUITests" */;
+			buildPhases = (
+				91A147C02661222900D160AD /* Sources */,
+				91A147C12661222900D160AD /* Frameworks */,
+				91A147C22661222900D160AD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				91A147CA2661222900D160AD /* PBXTargetDependency */,
+			);
+			name = AccessibilityStrategyUITests;
+			productName = AccessibilityStrategyUITests;
+			productReference = 91A147C42661222900D160AD /* AccessibilityStrategyUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -843,7 +866,7 @@
 		9128F2A4262AA90C00625B42 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1250;
+				LastSwiftUpdateCheck = 1240;
 				LastUpgradeCheck = 1250;
 				TargetAttributes = {
 					9128F2AB262AA90C00625B42 = {
@@ -853,8 +876,12 @@
 						CreatedOnToolsVersion = 12.4;
 						TestTargetID = 9128F2AB262AA90C00625B42;
 					};
-					916BEA86264DA08300E6E4E5 = {
-						CreatedOnToolsVersion = 12.5;
+					91A147AF2661221100D160AD = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = 9128F2AB262AA90C00625B42;
+					};
+					91A147C32661222900D160AD = {
+						CreatedOnToolsVersion = 12.4;
 						TestTargetID = 9128F2AB262AA90C00625B42;
 					};
 				};
@@ -874,7 +901,8 @@
 			targets = (
 				9128F2AB262AA90C00625B42 /* kindaVim */,
 				9128F2C0262AA90D00625B42 /* kindaVimTests */,
-				916BEA86264DA08300E6E4E5 /* kindaVimUITests */,
+				91A147AF2661221100D160AD /* AccessibilityTextElementAdaptorUITests */,
+				91A147C32661222900D160AD /* AccessibilityStrategyUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -897,7 +925,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		916BEA85264DA08300E6E4E5 /* Resources */ = {
+		91A147AE2661221100D160AD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		91A147C22661222900D160AD /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1040,39 +1075,49 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		916BEA83264DA08300E6E4E5 /* Sources */ = {
+		91A147AC2661221100D160AD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				91CA37E1265E9288004869EA /* AS_j_Tests.swift in Sources */,
-				917A45DA26602CA700FA1845 /* KeyCombination.swift in Sources */,
-				9184371426592D8E003CE952 /* ATEA_BlockCursorTests.swift in Sources */,
-				919FDD0D26528E0A003DF40C /* from_TF_currentLineStartTests.swift in Sources */,
-				913CC072265E0E790077CD21 /* from_TV_AXRoleTests.swift in Sources */,
-				917A45D626602C9B00FA1845 /* KeyboardStrategy.swift in Sources */,
-				91CA37D2265E8750004869EA /* from_TF_currentLineNumberTests.swift in Sources */,
-				919FDD39265294B1003DF40C /* from_TV_AXCaretLocationTests.swift in Sources */,
-				919FDCF826527AB0003DF40C /* ATEA_BaseTests.swift in Sources */,
-				919E35C2264DA13700542866 /* AccessibilityStrategy.swift in Sources */,
-				919FDD3E26529666003DF40C /* from_TV_currentLineStartTests.swift in Sources */,
-				919FDD3426529308003DF40C /* NonTextElementsTests.swift in Sources */,
-				91F2EC15265A2DF1003F038B /* to_TF_AXCaretLocationTests.swift in Sources */,
-				917A45DE26602CB300FA1845 /* Display.swift in Sources */,
-				912FD7CD2652C61600B916DF /* from_TV_currentLineEndTests.swift in Sources */,
-				91CA37D7265E8B44004869EA /* from_TV_currentLineNumberTests.swift in Sources */,
-				912686762657FCBA0096E927 /* AXEngine.swift in Sources */,
-				917A45E226602CBF00FA1845 /* KeyCombinationAdaptor.swift in Sources */,
-				913CC070265E0CA70077CD21 /* from_TF_AXRoleTests.swift in Sources */,
-				919FDD0526528BA6003DF40C /* from_TF_AXTextTests.swift in Sources */,
-				91F83FA42656B81400199276 /* AS_BaseTests.swift in Sources */,
-				91F2EC17265A2E11003F038B /* to_TV_AXCaretLocationTests.swift in Sources */,
-				912FD7C52652C23200B916DF /* from_TF_currentLineEndTests.swift in Sources */,
-				919FDD262652922A003DF40C /* from_TF_AXCaretLocationTests.swift in Sources */,
-				917A45D226602C8C00FA1845 /* VimEngine.swift in Sources */,
-				91872E0D26609FDA001007B3 /* AS_k_Tests.swift in Sources */,
-				919E35C1264DA11E00542866 /* AccessibilityTextElement.swift in Sources */,
-				919E35C0264DA10000542866 /* AccessibilityTextElementAdaptor.swift in Sources */,
-				919FDD21265291FA003DF40C /* from_TV_AXTextTests.swift in Sources */,
+				91E2074E2661252C00E73009 /* AccessibilityTextElementAdaptor.swift in Sources */,
+				91E2071C2661250B00E73009 /* from_TV_AXRoleTests.swift in Sources */,
+				91A1482D2661242900D160AD /* ATEA_BlockCursorTests.swift in Sources */,
+				91E207542661253900E73009 /* AccessibilityTextElement.swift in Sources */,
+				91E2070D2661250400E73009 /* from_TF_AXCaretLocationTests.swift in Sources */,
+				91E207192661250B00E73009 /* from_TV_currentLineStartTests.swift in Sources */,
+				91E207382661251700E73009 /* to_TV_AXCaretLocationTests.swift in Sources */,
+				91E2071A2661250B00E73009 /* from_TV_currentLineNumberTests.swift in Sources */,
+				91E207642661254200E73009 /* AXEngine.swift in Sources */,
+				91A1482E2661242900D160AD /* ATEA_BaseTests.swift in Sources */,
+				91E2070A2661250400E73009 /* from_TF_currentLineStartTests.swift in Sources */,
+				91E207092661250400E73009 /* from_TF_currentLineNumberTests.swift in Sources */,
+				91E2070C2661250400E73009 /* from_TF_AXRoleTests.swift in Sources */,
+				91E2071D2661250B00E73009 /* from_TV_AXTextTests.swift in Sources */,
+				91E207182661250B00E73009 /* from_TV_AXCaretLocationTests.swift in Sources */,
+				91E207082661250400E73009 /* from_TF_AXTextTests.swift in Sources */,
+				91E2073E2661251A00E73009 /* NonTextElementsTests.swift in Sources */,
+				91E2070B2661250400E73009 /* from_TF_currentLineEndTests.swift in Sources */,
+				91E2071B2661250B00E73009 /* from_TV_currentLineEndTests.swift in Sources */,
+				91E207282661251100E73009 /* to_TF_AXCaretLocationTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		91A147C02661222900D160AD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				91A14822266123DC00D160AD /* KeyboardStrategy.swift in Sources */,
+				91A14810266123C200D160AD /* Display.swift in Sources */,
+				91A14816266123CF00D160AD /* KeyCombination.swift in Sources */,
+				91A147FF2661238800D160AD /* AXEngine.swift in Sources */,
+				91A147F32661237E00D160AD /* AccessibilityTextElement.swift in Sources */,
+				91A147D62661224000D160AD /* AS_j_Tests.swift in Sources */,
+				91A147F92661238100D160AD /* AccessibilityTextElementAdaptor.swift in Sources */,
+				91A147D52661224000D160AD /* AS_BaseTests.swift in Sources */,
+				91A1480A266123BB00D160AD /* VimEngine.swift in Sources */,
+				91A1481C266123D100D160AD /* KeyCombinationAdaptor.swift in Sources */,
+				91A147ED2661234200D160AD /* AccessibilityStrategy.swift in Sources */,
+				91A147D72661224000D160AD /* AS_k_Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1084,10 +1129,15 @@
 			target = 9128F2AB262AA90C00625B42 /* kindaVim */;
 			targetProxy = 9128F2C2262AA90D00625B42 /* PBXContainerItemProxy */;
 		};
-		916BEA8D264DA08300E6E4E5 /* PBXTargetDependency */ = {
+		91A147B62661221100D160AD /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 9128F2AB262AA90C00625B42 /* kindaVim */;
-			targetProxy = 916BEA8C264DA08300E6E4E5 /* PBXContainerItemProxy */;
+			targetProxy = 91A147B52661221100D160AD /* PBXContainerItemProxy */;
+		};
+		91A147CA2661222900D160AD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9128F2AB262AA90C00625B42 /* kindaVim */;
+			targetProxy = 91A147C92661222900D160AD /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1429,67 +1479,153 @@
 			};
 			name = Release;
 		};
-		916BEA8E264DA08300E6E4E5 /* Debug */ = {
+		91A147B72661221100D160AD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "Developer ID Application";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = ZX49WKA8QN;
-				INFOPLIST_FILE = kindaVimUITests/Info.plist;
+				INFOPLIST_FILE = AccessibilityTextElementAdaptorUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				PRODUCT_BUNDLE_IDENTIFIER = mo.com.sleeplessmind.kindaVimUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = mo.com.sleeplessmind.AccessibilityTextElementAdaptorUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TEST_TARGET_NAME = kindaVim;
 			};
 			name = Debug;
 		};
-		916BEA8F264DA08300E6E4E5 /* Testing */ = {
+		91A147B82661221100D160AD /* Testing */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "Developer ID Application";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = ZX49WKA8QN;
-				INFOPLIST_FILE = kindaVimUITests/Info.plist;
+				INFOPLIST_FILE = AccessibilityTextElementAdaptorUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				PRODUCT_BUNDLE_IDENTIFIER = mo.com.sleeplessmind.kindaVimUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = mo.com.sleeplessmind.AccessibilityTextElementAdaptorUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TEST_TARGET_NAME = kindaVim;
 			};
 			name = Testing;
 		};
-		916BEA90264DA08300E6E4E5 /* Release */ = {
+		91A147B92661221100D160AD /* UI Testing */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "Developer ID Application";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = ZX49WKA8QN;
-				INFOPLIST_FILE = kindaVimUITests/Info.plist;
+				INFOPLIST_FILE = AccessibilityTextElementAdaptorUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				PRODUCT_BUNDLE_IDENTIFIER = mo.com.sleeplessmind.kindaVimUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = mo.com.sleeplessmind.AccessibilityTextElementAdaptorUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = kindaVim;
+			};
+			name = "UI Testing";
+		};
+		91A147BA2661221100D160AD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = ZX49WKA8QN;
+				INFOPLIST_FILE = AccessibilityTextElementAdaptorUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = mo.com.sleeplessmind.AccessibilityTextElementAdaptorUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = kindaVim;
+			};
+			name = Release;
+		};
+		91A147CC2661222900D160AD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = ZX49WKA8QN;
+				INFOPLIST_FILE = AccessibilityStrategyUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = mo.com.sleeplessmind.AccessibilityStrategyUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = kindaVim;
+			};
+			name = Debug;
+		};
+		91A147CD2661222900D160AD /* Testing */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = ZX49WKA8QN;
+				INFOPLIST_FILE = AccessibilityStrategyUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = mo.com.sleeplessmind.AccessibilityStrategyUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = kindaVim;
+			};
+			name = Testing;
+		};
+		91A147CE2661222900D160AD /* UI Testing */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = ZX49WKA8QN;
+				INFOPLIST_FILE = AccessibilityStrategyUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = mo.com.sleeplessmind.AccessibilityStrategyUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = kindaVim;
+			};
+			name = "UI Testing";
+		};
+		91A147CF2661222900D160AD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = ZX49WKA8QN;
+				INFOPLIST_FILE = AccessibilityStrategyUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = mo.com.sleeplessmind.AccessibilityStrategyUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TEST_TARGET_NAME = kindaVim;
 			};
@@ -1606,28 +1742,6 @@
 			};
 			name = "UI Testing";
 		};
-		91C2C0462652312E00D6E234 /* UI Testing */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "Developer ID Application";
-				CODE_SIGN_STYLE = Manual;
-				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = ZX49WKA8QN;
-				INFOPLIST_FILE = kindaVimUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@loader_path/../Frameworks",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				PRODUCT_BUNDLE_IDENTIFIER = mo.com.sleeplessmind.kindaVimUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 5.0;
-				TEST_TARGET_NAME = kindaVim;
-			};
-			name = "UI Testing";
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1664,13 +1778,24 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		916BEA91264DA08300E6E4E5 /* Build configuration list for PBXNativeTarget "kindaVimUITests" */ = {
+		91A147BB2661221100D160AD /* Build configuration list for PBXNativeTarget "AccessibilityTextElementAdaptorUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				916BEA8E264DA08300E6E4E5 /* Debug */,
-				916BEA8F264DA08300E6E4E5 /* Testing */,
-				91C2C0462652312E00D6E234 /* UI Testing */,
-				916BEA90264DA08300E6E4E5 /* Release */,
+				91A147B72661221100D160AD /* Debug */,
+				91A147B82661221100D160AD /* Testing */,
+				91A147B92661221100D160AD /* UI Testing */,
+				91A147BA2661221100D160AD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		91A147CB2661222900D160AD /* Build configuration list for PBXNativeTarget "AccessibilityStrategyUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				91A147CC2661222900D160AD /* Debug */,
+				91A147CD2661222900D160AD /* Testing */,
+				91A147CE2661222900D160AD /* UI Testing */,
+				91A147CF2661222900D160AD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
