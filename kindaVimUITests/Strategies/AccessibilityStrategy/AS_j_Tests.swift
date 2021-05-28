@@ -133,7 +133,7 @@ hehe
         XCTAssertEqual(accessibilityElement?.axCaretLocation, 28)
     }
 
-    func test_that_if_the_last_line_is_only_a_linefeed_character_j_can_still_go_there() {
+    func test_that_if_the_last_line_is_only_a_linefeed_character_j_can_still_go_there_and_the_globalColumnNumber_is_not_overriden() {
         let textInAXFocusedElement = """
 another fucking
 edge case
@@ -146,10 +146,12 @@ edge case
 
         // need to move the caretLocation to have a proper AccessibilityTextElement.globalColumnNumber
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .l))
+        let globalColumnNumber = AccessibilityTextElement.globalColumnNumber
 
         let accessibilityElement = accessibilityStrategy.j(on: AccessibilityTextElementAdaptor.fromAXFocusedElement())
 
         XCTAssertEqual(accessibilityElement?.axCaretLocation, 26)
+        XCTAssertEqual(globalColumnNumber, AccessibilityTextElement.globalColumnNumber)
     }
     
 }

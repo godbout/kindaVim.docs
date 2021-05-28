@@ -42,6 +42,10 @@ struct AccessibilityTextElementLine {
 
         return start
     }
+
+    func isLastLineAndIsOnlyALinefeedCharacter() -> Bool {
+        return start == nil && end == nil
+    }
     
 }
 

@@ -39,16 +39,22 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
     func j(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         guard var element = element else { return nil }
         guard element.axRole == .textArea else { return nil }
-        
+
         if let currentLineNumber = element.currentLine.number, let nextLine = AccessibilityTextElementAdaptor.lineFor(lineNumber: currentLineNumber + 1) {
-            if let nextLineLength = nextLine.length, nextLineLength > AccessibilityTextElement.globalColumnNumber {
-                element.axCaretLocation = nextLine.start! + AccessibilityTextElement.globalColumnNumber - 1
-                AccessibilityTextElement.globalColumnNumber = element.axCaretLocation - nextLine.start! + 1
+            if nextLine.isLastLineAndIsOnlyALinefeedCharacter() {
+                let globalColumNumber = AccessibilityTextElement.globalColumnNumber
+                element.axCaretLocation = element.axValue.count
+                AccessibilityTextElement.globalColumnNumber = globalColumNumber
             } else {
-                if let endLimit = nextLine.endLimit() {
-                    let globalColumNumber = AccessibilityTextElement.globalColumnNumber
-                    element.axCaretLocation = endLimit
-                    AccessibilityTextElement.globalColumnNumber = globalColumNumber
+                if let nextLineLength = nextLine.length, nextLineLength > AccessibilityTextElement.globalColumnNumber {
+                    element.axCaretLocation = nextLine.start! + AccessibilityTextElement.globalColumnNumber - 1
+                    AccessibilityTextElement.globalColumnNumber = element.axCaretLocation - nextLine.start! + 1
+                } else {
+                    if let endLimit = nextLine.endLimit() {
+                        let globalColumNumber = AccessibilityTextElement.globalColumnNumber
+                        element.axCaretLocation = endLimit
+                        AccessibilityTextElement.globalColumnNumber = globalColumNumber
+                    }
                 }
             }
         }
