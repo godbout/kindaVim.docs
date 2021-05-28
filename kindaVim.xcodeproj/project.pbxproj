@@ -48,6 +48,11 @@
 		91482E40263DBE8300F10ADC /* KeyboardStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91482E3F263DBE8300F10ADC /* KeyboardStrategy.swift */; };
 		9165BB2826554DD900B19718 /* UsingAS_$_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9165BB2726554DD900B19718 /* UsingAS_$_Tests.swift */; };
 		917458F1262EB934007D3855 /* StatusBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917458F0262EB934007D3855 /* StatusBarController.swift */; };
+		917A45D226602C8C00FA1845 /* VimEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911BB7482632899E006882D8 /* VimEngine.swift */; };
+		917A45D626602C9B00FA1845 /* KeyboardStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91482E3F263DBE8300F10ADC /* KeyboardStrategy.swift */; };
+		917A45DA26602CA700FA1845 /* KeyCombination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919DEB622632C85B0052D514 /* KeyCombination.swift */; };
+		917A45DE26602CB300FA1845 /* Display.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9118C4E6263F0CE50040C297 /* Display.swift */; };
+		917A45E226602CBF00FA1845 /* KeyCombinationAdaptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9197C0842636695A006C696A /* KeyCombinationAdaptor.swift */; };
 		918024B926386E95004FD719 /* AppComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918024B826386E95004FD719 /* AppComponent.swift */; };
 		9182AEAA265536FC004A8E17 /* UsingAS_BlockCursorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9182AEA9265536FC004A8E17 /* UsingAS_BlockCursorTests.swift */; };
 		9184371426592D8E003CE952 /* ATEA_BlockCursorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9184371326592D8E003CE952 /* ATEA_BlockCursorTests.swift */; };
@@ -1033,9 +1038,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				91CA37E1265E9288004869EA /* AS_j_Tests.swift in Sources */,
+				917A45DA26602CA700FA1845 /* KeyCombination.swift in Sources */,
 				9184371426592D8E003CE952 /* ATEA_BlockCursorTests.swift in Sources */,
 				919FDD0D26528E0A003DF40C /* from_TF_currentLineStartTests.swift in Sources */,
 				913CC072265E0E790077CD21 /* from_TV_AXRoleTests.swift in Sources */,
+				917A45D626602C9B00FA1845 /* KeyboardStrategy.swift in Sources */,
 				91CA37D2265E8750004869EA /* from_TF_currentLineNumberTests.swift in Sources */,
 				919FDD39265294B1003DF40C /* from_TV_AXCaretLocationTests.swift in Sources */,
 				919FDCF826527AB0003DF40C /* ATEA_BaseTests.swift in Sources */,
@@ -1043,15 +1050,18 @@
 				919FDD3E26529666003DF40C /* from_TV_currentLineStartTests.swift in Sources */,
 				919FDD3426529308003DF40C /* NonTextElementsTests.swift in Sources */,
 				91F2EC15265A2DF1003F038B /* to_TF_AXCaretLocationTests.swift in Sources */,
+				917A45DE26602CB300FA1845 /* Display.swift in Sources */,
 				912FD7CD2652C61600B916DF /* from_TV_currentLineEndTests.swift in Sources */,
 				91CA37D7265E8B44004869EA /* from_TV_currentLineNumberTests.swift in Sources */,
 				912686762657FCBA0096E927 /* AXEngine.swift in Sources */,
+				917A45E226602CBF00FA1845 /* KeyCombinationAdaptor.swift in Sources */,
 				913CC070265E0CA70077CD21 /* from_TF_AXRoleTests.swift in Sources */,
 				919FDD0526528BA6003DF40C /* from_TF_AXTextTests.swift in Sources */,
 				91F83FA42656B81400199276 /* AS_BaseTests.swift in Sources */,
 				91F2EC17265A2E11003F038B /* to_TV_AXCaretLocationTests.swift in Sources */,
 				912FD7C52652C23200B916DF /* from_TF_currentLineEndTests.swift in Sources */,
 				919FDD262652922A003DF40C /* from_TF_AXCaretLocationTests.swift in Sources */,
+				917A45D226602C8C00FA1845 /* VimEngine.swift in Sources */,
 				919E35C1264DA11E00542866 /* AccessibilityTextElement.swift in Sources */,
 				919E35C0264DA10000542866 /* AccessibilityTextElementAdaptor.swift in Sources */,
 				919FDD21265291FA003DF40C /* from_TV_AXTextTests.swift in Sources */,

@@ -11,7 +11,7 @@ extension AS_j_Tests {
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
         app.textFields.firstMatch.typeKey(.leftArrow, modifierFlags: [.option])
-
+        
         let accessibilityElement = accessibilityStrategy.j(on: AccessibilityTextElementAdaptor.fromAXFocusedElement())
 
         XCTAssertNil(accessibilityElement)
@@ -23,6 +23,8 @@ extension AS_j_Tests {
 extension AS_j_Tests {
 
     func test_that_in_normal_setting_j_goes_to_the_next_line_at_the_same_column() {
+//        VimEngine.shared.enterNormalMode()
+        
         let textInAXFocusedElement = """
 let the fun
 begin with the
@@ -35,11 +37,12 @@ column shit
         app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [.command])
         app.textViews.firstMatch.typeKey(.rightArrow, modifierFlags: [.option])
 
-        AccessibilityTextElement.globalColumnNumber = 3
+        // need to move the caretLocation to have a proper AccessibilityTextElement.globalColumnNumber
+        VimEngine.shared.handle(keyCombination: KeyCombination(key: .l))
 
         let accessibilityElement = accessibilityStrategy.j(on: AccessibilityTextElementAdaptor.fromAXFocusedElement())
 
-        XCTAssertEqual(accessibilityElement?.axCaretLocation, 15)
+        XCTAssertEqual(accessibilityElement?.axCaretLocation, 16)
     }
 
     func test_that_if_the_next_line_is_shorter_j_goes_to_the_end_of_line_limit_of_that_next_line() {
@@ -55,6 +58,9 @@ let's see
         app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
         app.textViews.firstMatch.typeKey(.rightArrow, modifierFlags: [.option])
 
+        // need to move the caretLocation to have a proper AccessibilityTextElement.globalColumnNumber
+        VimEngine.shared.handle(keyCombination: KeyCombination(key: .l))
+        
         let accessibilityElement = accessibilityStrategy.j(on: AccessibilityTextElementAdaptor.fromAXFocusedElement())
 
         XCTAssertEqual(accessibilityElement?.axCaretLocation, 64)
@@ -70,15 +76,18 @@ another long line longer than the first
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [.command])
         app.textViews.firstMatch.typeKey(.rightArrow, modifierFlags: [.command])
-        app.textViews.firstMatch.typeKey(.leftArrow, modifierFlags: [])
 
-//        let firstJ = accessibilityStrategy.j(on: AccessibilityTegitxtElementAdaptor.fromAXFocusedElement())
-//        _ = AccessibilityTextElementAdaptor.toAXFocusedElememt(from: firstJ!)
-//        let secondJ = accessibilityStrategy.j(on: AccessibilityTextElementAdaptor.fromAXFocusedElement())
-//        _ = AccessibilityTextElementAdaptor.toAXFocusedElememt(from: secondJ!)
+        // need to move the caretLocation to have a proper AccessibilityTextElement.globalColumnNumber
+        VimEngine.shared.handle(keyCombination: KeyCombination(key: .h))
+        
+        let firstJ = accessibilityStrategy.j(on: AccessibilityTextElementAdaptor.fromAXFocusedElement())
+        _ = AccessibilityTextElementAdaptor.toAXFocusedElememt(from: firstJ!)
+        let secondJ = accessibilityStrategy.j(on: AccessibilityTextElementAdaptor.fromAXFocusedElement())
+        _ = AccessibilityTextElementAdaptor.toAXFocusedElememt(from: secondJ!)
 
         let accessibilityElement = accessibilityStrategy.j(on: AccessibilityTextElementAdaptor.fromAXFocusedElement())
 
         XCTAssertEqual(accessibilityElement?.axCaretLocation, 53)
     }
+    
 }
