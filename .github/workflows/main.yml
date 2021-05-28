@@ -36,7 +36,7 @@ jobs:
         security import $CERTIFICATE_PATH -P $P12_PASSWORD -A -t cert -f pkcs12 -k $KEYCHAIN_PATH
         security list-keychain -d user -s $KEYCHAIN_PATH
     - name: build
-      run: xcodebuild clean -scheme kindaVim build
+      run: xcodebuild clean -scheme "Unit Tests" build
     - name: run tests (non-UI)
       run: xcodebuild clean -scheme "Unit Tests" -configuration Testing test
     - name: upload coverage to codecov
