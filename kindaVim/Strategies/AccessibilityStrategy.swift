@@ -41,18 +41,39 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
         guard element.axRole == .textArea else { return nil }
         
         if let currentLineNumber = element.currentLine.number, let nextLine = AccessibilityTextElementAdaptor.lineFor(lineNumber: currentLineNumber + 1) {
-            if let nextLineLength = nextLine.length, nextLineLength >= AccessibilityTextElement.globalColumnNumber {
-                element.axCaretLocation = nextLine.start! + AccessibilityTextElement.globalColumnNumber
-                AccessibilityTextElement.globalColumnNumber = element.axCaretLocation - nextLine.start!
+            if let nextLineLength = nextLine.length, nextLineLength > AccessibilityTextElement.globalColumnNumber {
+                element.axCaretLocation = nextLine.start! + AccessibilityTextElement.globalColumnNumber - 1
+                AccessibilityTextElement.globalColumnNumber = element.axCaretLocation - nextLine.start! + 1
             } else {
                 if let endLimit = nextLine.endLimit() {
-                    let savedGlobalColumnNumber = AccessibilityTextElement.globalColumnNumber
+                    let globalColumNumber = AccessibilityTextElement.globalColumnNumber
                     element.axCaretLocation = endLimit
-                    AccessibilityTextElement.globalColumnNumber = savedGlobalColumnNumber
+                    AccessibilityTextElement.globalColumnNumber = globalColumNumber
                 }
             }
         }
                 
+        return element
+    }
+    
+    func k(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        guard var element = element else { return nil }
+        guard element.axRole == .textArea else { return nil }
+        
+        if let currentLineNumber = element.currentLine.number, let previousLine = AccessibilityTextElementAdaptor.lineFor(lineNumber: currentLineNumber - 1) {
+            if let previousLineLength = previousLine.length, previousLineLength > AccessibilityTextElement.globalColumnNumber {
+                element.axCaretLocation = previousLine.start! + AccessibilityTextElement.globalColumnNumber - 1
+                AccessibilityTextElement.globalColumnNumber = element.axCaretLocation - previousLine.start! + 1
+                
+            } else {
+                if let endLimit = previousLine.endLimit() {
+                    let globalColumnNumber = AccessibilityTextElement.globalColumnNumber
+                    element.axCaretLocation = endLimit
+                    AccessibilityTextElement.globalColumnNumber = globalColumnNumber
+                }
+            }
+        }
+        
         return element
     }
 
@@ -118,5 +139,5 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
 
         return AccessibilityTextElementAdaptor.toAXFocusedElememt(from: element)
     }
-    
+
 }

@@ -48,7 +48,7 @@ struct AccessibilityTextElementLine {
 
 struct AccessibilityTextElement {
 
-    static var globalColumnNumber = 0
+    static var globalColumnNumber = 1
 
     private(set) var axRole: AccessibilityTextElementRole = .someOtherShit
     private(set) var axValue = ""
@@ -56,7 +56,7 @@ struct AccessibilityTextElement {
     var axCaretLocation = 0 {
         didSet {
             if let currentLineStart = currentLine.start {
-                Self.globalColumnNumber = axCaretLocation - currentLineStart
+                Self.globalColumnNumber = axCaretLocation - currentLineStart + 1
             }
         }
     }

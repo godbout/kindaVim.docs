@@ -111,4 +111,26 @@ shut up
         XCTAssertEqual(accessibilityElement?.axCaretLocation, 32)
     }
     
+    func test_that_when_the_current_line_column_is_equal_to_the_next_line_length_and_that_this_line_is_not_the_last_one_the_caret_gets_at_the_correct_end_limit_of_the_next_line() {
+        let textInAXFocusedElement = """
+tryig somethi
+some more
+again
+hehe
+"""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        app.textViews.firstMatch.typeKey(.leftArrow, modifierFlags: [])
+        app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
+        app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
+        app.textViews.firstMatch.typeKey(.rightArrow, modifierFlags: [])
+        
+        // need to move the caretLocation to have a proper AccessibilityTextElement.globalColumnNumber
+        VimEngine.shared.handle(keyCombination: KeyCombination(key: .l))
+        
+        let accessibilityElement = accessibilityStrategy.j(on: AccessibilityTextElementAdaptor.fromAXFocusedElement())
+
+        XCTAssertEqual(accessibilityElement?.axCaretLocation, 28)
+    }
+    
 }

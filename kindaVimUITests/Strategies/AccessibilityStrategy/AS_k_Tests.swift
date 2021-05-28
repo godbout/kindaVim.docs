@@ -109,4 +109,26 @@ nothing ankulay
         XCTAssertEqual(accessibilityElement?.axCaretLocation, 1)
     }
     
+    func test_that_when_current_line_column_is_equal_to_previous_line_length_the_caret_ends_up_at_the_right_previous_line_end_limit() {
+        let textInAXFocusedElement = """
+weird bug when
+current line column
+is equal
+to previous line length
+"""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        app.textViews.firstMatch.typeKey(.leftArrow, modifierFlags: [.command])
+        for _ in 1...7 {
+            app.textViews.firstMatch.typeKey(.rightArrow, modifierFlags: [])
+        }
+        
+        // need to move the caretLocation to have a proper AccessibilityTextElement.globalColumnNumber
+        VimEngine.shared.handle(keyCombination: KeyCombination(key: .l))
+        
+        let accessibilityElement = accessibilityStrategy.k(on: AccessibilityTextElementAdaptor.fromAXFocusedElement())
+
+        XCTAssertEqual(accessibilityElement?.axCaretLocation, 42)
+    }
+    
 }
