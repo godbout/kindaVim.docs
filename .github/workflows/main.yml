@@ -37,7 +37,7 @@ jobs:
         security list-keychain -d user -s $KEYCHAIN_PATH
     - name: build
       run: xcodebuild clean -scheme kindaVim build
-    - name: run tests (except AccessibilityTextElementAdaptor UITests)
+    - name: run tests (non-UI)
       run: xcodebuild clean -scheme kindaVim -configuration Testing test
     - name: upload coverage to codecov
       run: bash <(curl -s https://codecov.io/bash)

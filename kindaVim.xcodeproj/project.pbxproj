@@ -1482,7 +1482,8 @@
 		91A147B72661221100D160AD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "Developer ID Application";
+				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = ZX49WKA8QN;
 				INFOPLIST_FILE = AccessibilityTextElementAdaptorUITests/Info.plist;
@@ -1493,6 +1494,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = mo.com.sleeplessmind.AccessibilityTextElementAdaptorUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TEST_TARGET_NAME = kindaVim;
 			};
@@ -1501,7 +1503,8 @@
 		91A147B82661221100D160AD /* Testing */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "Developer ID Application";
+				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = ZX49WKA8QN;
 				INFOPLIST_FILE = AccessibilityTextElementAdaptorUITests/Info.plist;
@@ -1512,6 +1515,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = mo.com.sleeplessmind.AccessibilityTextElementAdaptorUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TEST_TARGET_NAME = kindaVim;
 			};
@@ -1520,7 +1524,8 @@
 		91A147B92661221100D160AD /* UI Testing */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "Developer ID Application";
+				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = ZX49WKA8QN;
 				INFOPLIST_FILE = AccessibilityTextElementAdaptorUITests/Info.plist;
@@ -1531,6 +1536,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = mo.com.sleeplessmind.AccessibilityTextElementAdaptorUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TEST_TARGET_NAME = kindaVim;
 			};
@@ -1539,7 +1545,8 @@
 		91A147BA2661221100D160AD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "Developer ID Application";
+				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = ZX49WKA8QN;
 				INFOPLIST_FILE = AccessibilityTextElementAdaptorUITests/Info.plist;
@@ -1550,6 +1557,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = mo.com.sleeplessmind.AccessibilityTextElementAdaptorUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TEST_TARGET_NAME = kindaVim;
 			};
@@ -1558,7 +1566,8 @@
 		91A147CC2661222900D160AD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "Developer ID Application";
+				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = ZX49WKA8QN;
 				INFOPLIST_FILE = AccessibilityStrategyUITests/Info.plist;
@@ -1569,6 +1578,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = mo.com.sleeplessmind.AccessibilityStrategyUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TEST_TARGET_NAME = kindaVim;
 			};
@@ -1577,7 +1587,8 @@
 		91A147CD2661222900D160AD /* Testing */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "Developer ID Application";
+				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = ZX49WKA8QN;
 				INFOPLIST_FILE = AccessibilityStrategyUITests/Info.plist;
@@ -1588,6 +1599,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = mo.com.sleeplessmind.AccessibilityStrategyUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TEST_TARGET_NAME = kindaVim;
 			};
@@ -1596,7 +1608,8 @@
 		91A147CE2661222900D160AD /* UI Testing */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "Developer ID Application";
+				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = ZX49WKA8QN;
 				INFOPLIST_FILE = AccessibilityStrategyUITests/Info.plist;
@@ -1607,6 +1620,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = mo.com.sleeplessmind.AccessibilityStrategyUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TEST_TARGET_NAME = kindaVim;
 			};
@@ -1615,7 +1629,8 @@
 		91A147CF2661222900D160AD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "Developer ID Application";
+				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = ZX49WKA8QN;
 				INFOPLIST_FILE = AccessibilityStrategyUITests/Info.plist;
@@ -1626,6 +1641,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = mo.com.sleeplessmind.AccessibilityStrategyUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TEST_TARGET_NAME = kindaVim;
 			};
