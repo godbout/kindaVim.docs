@@ -1,7 +1,8 @@
 import Foundation
 
 protocol AccessibilityStrategyProtocol {
-    
+
+    func a(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func h(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func j(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func k(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
@@ -19,6 +20,16 @@ enum BlockCursorStatus {
 }
 
 struct AccessibilityStrategy: AccessibilityStrategyProtocol {
+
+    func a(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        guard var element = element else { return nil }
+        guard element.value.count != 0 else { return element }
+        guard element.currentLine.isOnlyALinefeedCharacter() != true else { return element }
+
+        element.caretLocation += 1
+
+        return element
+    }
 
     func h(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         guard var element = element else { return nil }
