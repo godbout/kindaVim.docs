@@ -6,26 +6,24 @@ class AS_w_Tests: AS_BaseTests {}
 // Both
 extension AS_w_Tests {
 
-    func test_that_w_can_move_from_the_beginning_of_a_word_to_the_beginning_of_the_next_one() {
-        let text = "a few words my dear"
+    func test_that_it_calls_the_TextEngine_wordForward_function() {
+        let text = "should be calling wordForward"
         let element = AccessibilityTextElement(
-            role: .textArea,
+            role: .textField,
             value: text,
-            caretLocation: 6,
+            caretLocation: 11,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 0,
                 start: 0,
-                end: 19
+                end: 29
             )
         )
-
-        let returnedElement = accessibilityStrategy.w(on: element)
-
-        XCTAssertEqual(returnedElement?.caretLocation, 12)
+        
+        _ = accessibilityStrategy.w(on: element)
+        
+        XCTAssertEqual(textEngineMock.functionCalled, "wordForward(count:for:playground:)")        
     }
-
-
 
 }
 
