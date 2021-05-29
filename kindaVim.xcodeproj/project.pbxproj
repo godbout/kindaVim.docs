@@ -211,7 +211,7 @@
 		9128F2B9262AA90D00625B42 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9128F2BB262AA90D00625B42 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9128F2BC262AA90D00625B42 /* kindaVim.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = kindaVim.entitlements; sourceTree = "<group>"; };
-		9128F2C1262AA90D00625B42 /* kindaVimTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = kindaVimTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9128F2C1262AA90D00625B42 /* UniTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UniTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9128F2C7262AA90D00625B42 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		912B92D326443A06007F44E1 /* KS_yy_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KS_yy_Tests.swift; sourceTree = "<group>"; };
 		912B92D726443C8F007F44E1 /* UsingKS_yy_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsingKS_yy_Tests.swift; sourceTree = "<group>"; };
@@ -373,17 +373,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		9115315D263860F80048F8F8 /* Unit */ = {
-			isa = PBXGroup;
-			children = (
-				9128B0EB26380AB0007DC80B /* Events */,
-				912687242640634D002E3FB0 /* KeyCombination */,
-				91482E41263DBF3100F10ADC /* Strategies */,
-				9128B0F2263820C5007DC80B /* VimEngine */,
-			);
-			path = Unit;
-			sourceTree = "<group>";
-		};
 		9118C4E5263F0CDA0040C297 /* Display */ = {
 			isa = PBXGroup;
 			children = (
@@ -456,7 +445,7 @@
 			isa = PBXGroup;
 			children = (
 				9128F2AE262AA90C00625B42 /* kindaVim */,
-				9128F2C4262AA90D00625B42 /* kindaVimTests */,
+				9128F2C4262AA90D00625B42 /* UnitTests */,
 				91A147B12661221100D160AD /* AccessibilityTextElementAdaptorUITests */,
 				91A147C52661222900D160AD /* AccessibilityStrategyUITests */,
 				9128F2AD262AA90C00625B42 /* Products */,
@@ -467,7 +456,7 @@
 			isa = PBXGroup;
 			children = (
 				9128F2AC262AA90C00625B42 /* kindaVim.app */,
-				9128F2C1262AA90D00625B42 /* kindaVimTests.xctest */,
+				9128F2C1262AA90D00625B42 /* UniTests.xctest */,
 				91A147B02661221100D160AD /* AccessibilityTextElementAdaptorUITests.xctest */,
 				91A147C42661222900D160AD /* AccessibilityStrategyUITests.xctest */,
 			);
@@ -506,14 +495,20 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		9128F2C4262AA90D00625B42 /* kindaVimTests */ = {
+		9128F2C4262AA90D00625B42 /* UnitTests */ = {
 			isa = PBXGroup;
 			children = (
 				91C486032641C0AA0003D9D7 /* Helpers */,
-				9115315D263860F80048F8F8 /* Unit */,
+				9128B0EB26380AB0007DC80B /* Events */,
+				912687242640634D002E3FB0 /* KeyCombination */,
+				91482E41263DBF3100F10ADC /* Strategies */,
+				9128B0F2263820C5007DC80B /* VimEngine */,
+				91C486042641C0D30003D9D7 /* KeyboardStrategyMock.swift */,
+				910B05C92642AECC005D287C /* FailingAccessibilityStrategyStub.swift */,
+				91F7A008264FC81000B609FF /* AccessibilityStrategyMock.swift */,
 				9128F2C7262AA90D00625B42 /* Info.plist */,
 			);
-			path = kindaVimTests;
+			path = UnitTests;
 			sourceTree = "<group>";
 		};
 		913EBF46264ADECB00BCCCEE /* AccessibilityTextElement */ = {
@@ -656,9 +651,6 @@
 		91C486032641C0AA0003D9D7 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				91C486042641C0D30003D9D7 /* KeyboardStrategyMock.swift */,
-				910B05C92642AECC005D287C /* FailingAccessibilityStrategyStub.swift */,
-				91F7A008264FC81000B609FF /* AccessibilityStrategyMock.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -806,9 +798,9 @@
 			productReference = 9128F2AC262AA90C00625B42 /* kindaVim.app */;
 			productType = "com.apple.product-type.application";
 		};
-		9128F2C0262AA90D00625B42 /* kindaVimTests */ = {
+		9128F2C0262AA90D00625B42 /* UniTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9128F2D8262AA90D00625B42 /* Build configuration list for PBXNativeTarget "kindaVimTests" */;
+			buildConfigurationList = 9128F2D8262AA90D00625B42 /* Build configuration list for PBXNativeTarget "UniTests" */;
 			buildPhases = (
 				9128F2BD262AA90D00625B42 /* Sources */,
 				9128F2BE262AA90D00625B42 /* Frameworks */,
@@ -819,9 +811,9 @@
 			dependencies = (
 				9128F2C3262AA90D00625B42 /* PBXTargetDependency */,
 			);
-			name = kindaVimTests;
+			name = UniTests;
 			productName = kindaVimTests;
-			productReference = 9128F2C1262AA90D00625B42 /* kindaVimTests.xctest */;
+			productReference = 9128F2C1262AA90D00625B42 /* UniTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		91A147AF2661221100D160AD /* AccessibilityTextElementAdaptorUITests */ = {
@@ -900,7 +892,7 @@
 			projectRoot = "";
 			targets = (
 				9128F2AB262AA90C00625B42 /* kindaVim */,
-				9128F2C0262AA90D00625B42 /* kindaVimTests */,
+				9128F2C0262AA90D00625B42 /* UniTests */,
 				91A147AF2661221100D160AD /* AccessibilityTextElementAdaptorUITests */,
 				91A147C32661222900D160AD /* AccessibilityStrategyUITests */,
 			);
@@ -1249,7 +1241,7 @@
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = ZX49WKA8QN;
-				INFOPLIST_FILE = kindaVimTests/Info.plist;
+				INFOPLIST_FILE = UnitTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -1440,7 +1432,7 @@
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = ZX49WKA8QN;
-				INFOPLIST_FILE = kindaVimTests/Info.plist;
+				INFOPLIST_FILE = UnitTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -1464,7 +1456,7 @@
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = ZX49WKA8QN;
-				INFOPLIST_FILE = kindaVimTests/Info.plist;
+				INFOPLIST_FILE = UnitTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -1743,7 +1735,7 @@
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = ZX49WKA8QN;
-				INFOPLIST_FILE = kindaVimTests/Info.plist;
+				INFOPLIST_FILE = UnitTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -1783,7 +1775,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9128F2D8262AA90D00625B42 /* Build configuration list for PBXNativeTarget "kindaVimTests" */ = {
+		9128F2D8262AA90D00625B42 /* Build configuration list for PBXNativeTarget "UniTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9128F2D9262AA90D00625B42 /* Debug */,
