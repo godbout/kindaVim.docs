@@ -1,31 +1,18 @@
 protocol TextEngineProtocol {
     
-    func wordBackward(count: Int, for location: Int, playground text: String) -> Int
-    func wordForward(count: Int, for location: Int, playground text: String) -> Int
-    
-}
-
-
-extension TextEngineProtocol {
-    
-    func wordBackward(count: Int = 1, for location: Int, playground text: String) -> Int {
-        return wordBackward(count: count, for: location, playground: text)
-    }
-    
-    func wordForward(count: Int = 1, for location: Int, playground text: String) -> Int {
-        return wordForward(count: count, for: location, playground: text)
-    }
+    func wordBackward(for location: Int, playground text: String) -> Int
+    func wordForward(for location: Int, playground text: String) -> Int
     
 }
 
 
 struct TextEngine: TextEngineProtocol {
     
-    func wordBorward(count: Int = 1, for location: Int, playground text: String) -> Int {
+    func wordBackward(for location: Int, playground text: String) -> Int {
         return location
     }
 
-    func wordForward(count: Int = 1, for location: Int, playground text: String) -> Int {
+    func wordForward(for location: Int, playground text: String) -> Int {
         let start = text.index(text.startIndex, offsetBy: location)
         let end = text.endIndex
 

@@ -26,7 +26,7 @@ the TextEngineTests
         
         _ = accessibilityStrategy.b(on: element)
         
-        XCTAssertEqual(textEngineMock.functionCalled, "wordBackward(count:for:playground:)")        
+        XCTAssertEqual(textEngineMock.functionCalled, "wordBackward(for:playground:)")        
     }
     
 }

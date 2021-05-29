@@ -22,7 +22,7 @@ extension AS_w_Tests {
         
         _ = accessibilityStrategy.w(on: element)
         
-        XCTAssertEqual(textEngineMock.functionCalled, "wordForward(count:for:playground:)")        
+        XCTAssertEqual(textEngineMock.functionCalled, "wordForward(for:playground:)")        
     }
 
 }
