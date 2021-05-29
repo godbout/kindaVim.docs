@@ -155,7 +155,14 @@ class VimEngine {
             case .controlU:
                 post(keyboardStrategy.controlU())
             case .w:
-                post(keyboardStrategy.w())
+                // ugly af; need to refactor
+                if let element = accessibilityStrategy.w(on: focusedElement()) {
+                    if push(element: element) == false {
+                        post(keyboardStrategy.w())
+                    }
+                } else {
+                    post(keyboardStrategy.w())
+                }
             case .x:
                 post(keyboardStrategy.x())
             case .X:

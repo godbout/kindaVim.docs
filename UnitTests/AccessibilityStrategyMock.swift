@@ -37,6 +37,12 @@ class AccessibilityStrategyMock: AccessibilityStrategyProtocol {
         return nil
     }
 
+    func w(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        functionCalled = #function
+
+        return nil
+    }
+
     func dollarSign(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
 

@@ -7,6 +7,7 @@ protocol AccessibilityStrategyProtocol {
     func j(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func k(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func l(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
+    func w(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func dollarSign(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func zero(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func blockCursor(_ status: BlockCursorStatus, on element: AccessibilityTextElement?) -> AccessibilityTextElement?
@@ -108,6 +109,10 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
             element.caretLocation += 1
         }
 
+        return element
+    }
+
+    func w(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return element
     }
 

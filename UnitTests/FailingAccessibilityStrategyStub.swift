@@ -25,6 +25,10 @@ struct FailingAccessibilityStrategyStub: AccessibilityStrategyProtocol {
         return nil        
     }
 
+    func w(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        return nil
+    }
+
     func dollarSign(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return nil
     }
