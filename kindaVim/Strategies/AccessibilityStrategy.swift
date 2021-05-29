@@ -113,6 +113,10 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
     }
 
     func w(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        guard var element = element else { return nil }
+
+        element.caretLocation = TextEngine.wordForward(for: element.caretLocation, playground: element.value)
+
         return element
     }
 
