@@ -22,6 +22,9 @@ enum BlockCursorStatus {
 }
 
 struct AccessibilityStrategy: AccessibilityStrategyProtocol {
+    
+    var textEngine: TextEngineProtocol = TextEngine()
+    
 
     func a(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         guard var element = element else { return nil }
@@ -34,7 +37,11 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
     }
     
     func b(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
-        return nil
+        guard var element = element else { return nil }
+        
+        element.caretLocation = textEngine.wordBackward(for: element.caretLocation, playground: element.value)
+        
+        return element
     }
 
     func h(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
@@ -120,7 +127,7 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
     func w(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         guard var element = element else { return nil }
 
-        element.caretLocation = TextEngine.wordForward(for: element.caretLocation, playground: element.value)
+        element.caretLocation = textEngine.wordForward(for: element.caretLocation, playground: element.value)
 
         return element
     }

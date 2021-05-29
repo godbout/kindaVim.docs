@@ -2,7 +2,15 @@
 import XCTest
 
 class AS_BaseTests: XCTestCase {
-
-    let accessibilityStrategy = AccessibilityStrategy()
-
+    
+    var textEngineMock = TextEngineMock()
+    var accessibilityStrategy: AccessibilityStrategy!
+    
+    
+    override func setUp() {
+        super.setUp()
+                       
+        accessibilityStrategy = AccessibilityStrategy(textEngine: textEngineMock)
+    }    
+    
 }

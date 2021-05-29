@@ -1,7 +1,7 @@
 @testable import kindaVim
 import XCTest
 
-class wordForwardTests: XCTestCase {}
+class wordForwardTests: TextEngineBaseTests {}
 
 // Both
 extension wordForwardTests {
@@ -9,7 +9,7 @@ extension wordForwardTests {
     func test_that_it_can_go_to_the_beginning_of_the_next_word() {
         let text = "a few words to live by"
         
-        let newCaretPosition = TextEngine.wordForward(for: 6, playground: text)
+        let newCaretPosition = textEngine.wordForward(for: 6, playground: text)
         
         XCTAssertEqual(newCaretPosition, 12)
     }
@@ -17,15 +17,15 @@ extension wordForwardTests {
     func test_that_it_stops_at_punctuations() {
         let text = "class wordForwardTests: XCTestCase {"
         
-        let newCaretPosition = TextEngine.wordForward(for: 8, playground: text)
+        let newCaretPosition = textEngine.wordForward(for: 8, playground: text)
         
         XCTAssertEqual(newCaretPosition, 22)
     }
     
     func test_that_it_does_not_get_blocked_at_a_punctuation() {
-        let text = "TextEngine.wordForward"
+        let text = "textEngine.wordForward"
         
-        let newCaretPosition = TextEngine.wordForward(for: 10, playground: text)
+        let newCaretPosition = textEngine.wordForward(for: 10, playground: text)
         
         XCTAssertEqual(newCaretPosition, 11)
     }
@@ -33,7 +33,7 @@ extension wordForwardTests {
     func test_that_it_does_not_stop_at_an_underscore() {
         let text = "func test_that_it_does_not_stop_at_an_underscore() {"
         
-        let newCaretPosition = TextEngine.wordForward(for: 5, playground: text)
+        let newCaretPosition = textEngine.wordForward(for: 5, playground: text)
         
         XCTAssertEqual(newCaretPosition, 48)
     }
@@ -41,7 +41,7 @@ extension wordForwardTests {
     func test_that_it_passes_several_consecutive_whitespaces() {
         let text = "this is some text with        space"
         
-        let newCaretPosition = TextEngine.wordForward(for: 20, playground: text)
+        let newCaretPosition = textEngine.wordForward(for: 20, playground: text)
         
         XCTAssertEqual(newCaretPosition, 30)
     }
@@ -49,7 +49,7 @@ extension wordForwardTests {
     func test_that_if_it_reaches_the_end_of_the_buffer_it_stops_before_the_last_character() {
         let text = "w at the end of the buffer shouldn't craaaash"
 
-        let newCaretPosition = TextEngine.wordForward(for: 42, playground: text)
+        let newCaretPosition = textEngine.wordForward(for: 42, playground: text)
 
         XCTAssertEqual(newCaretPosition, 44)
     }
@@ -65,7 +65,7 @@ w can go
 to the next line
 """
 
-        let newCaretPosition = TextEngine.wordForward(for: 7, playground: text)
+        let newCaretPosition = textEngine.wordForward(for: 7, playground: text)
 
         XCTAssertEqual(newCaretPosition, 9)
     }
@@ -77,7 +77,7 @@ w should stop
 at empty lines
 """
         
-        let newCaretPosition = TextEngine.wordForward(for: 12, playground: text)
+        let newCaretPosition = textEngine.wordForward(for: 12, playground: text)
         
         XCTAssertEqual(newCaretPosition, 14)
     }
@@ -90,7 +90,7 @@ at the following line that looks empty but has
 whitespaces
 """
 
-        let newCaretPosition = TextEngine.wordForward(for: 63, playground: text)
+        let newCaretPosition = textEngine.wordForward(for: 63, playground: text)
 
         XCTAssertEqual(newCaretPosition, 68)
     }
