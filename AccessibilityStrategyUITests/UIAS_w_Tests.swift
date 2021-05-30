@@ -1,6 +1,11 @@
 @testable import kindaVim
 import XCTest
 
+// these tests might be removed later
+// not sure it's very worthy to create
+// tests to assure the globalColumnNumber
+// is updated properly for each linewise
+// move
 class UIAS_w_Tests: UIAS_BaseTests {}
 
 // TextViews

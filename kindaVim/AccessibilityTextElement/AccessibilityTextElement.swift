@@ -68,8 +68,8 @@ struct AccessibilityTextElement {
     
     var caretLocation = 0 {
         didSet {
-            if let currentLineStart = currentLine.start {
-                Self.globalColumnNumber = caretLocation - currentLineStart + 1
+            if let lineForLocation = AccessibilityTextElementAdaptor.lineFor(location: caretLocation), let lineStart = lineForLocation.start {
+                Self.globalColumnNumber = caretLocation - lineStart + 1
             }
         }
     }
