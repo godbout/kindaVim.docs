@@ -13,7 +13,7 @@ struct TextEngine: TextEngineProtocol {
         let startIndex = text.startIndex
         
         for index in text[startIndex..<anchorIndex].indices.reversed() {
-            guard index != text.startIndex else { return 0 }
+            guard index != startIndex else { return 0 }
             let previousIndex = text.index(before: index)
             
             if text[index] == "_" {
@@ -73,57 +73,70 @@ struct TextEngine: TextEngineProtocol {
     }
 
     func wordForward(for location: Int, playground text: String) -> Int {
-        let start = text.index(text.startIndex, offsetBy: location)
-        let end = text.endIndex
-
-        let locationIndex = text.index(text.startIndex, offsetBy: location)
-
-        for index in text[start..<end].indices {
-            if index == text.index(before: text.endIndex) {
-                return text.distance(from: text.startIndex, to: text.index(before: text.endIndex)) 
-            }
+        let anchorIndex = text.index(text.startIndex, offsetBy: location)
+        let endIndex = text.endIndex
+        
+        for index in text[anchorIndex..<endIndex].indices {
+            guard index != text.index(before: endIndex) else { return text.count - 1 }
+            let nextIndex = text.index(after: index)
             
             if text[index] == "_" {
-                continue
-            }
-
-            if text[index].isNewline {
-                let nextIndex = text[start..<end].index(after: index)
-                    
-                if text[nextIndex].isNewline || !text[nextIndex].isWhitespace {
-                    return text.distance(from: text.startIndex, to: text.index(after: index))
-                } else {
+                if text[nextIndex].isLetter {
                     continue
                 }
             }
-
-            if text[index].isWhitespace {
-                let nextIndex = text[start..<end].index(after: index)
-
+            
+            if text[index].isPunctuation && text[index] != "_" {
+                if (text[nextIndex].isPunctuation && text[nextIndex] != "_") || text[nextIndex].isSymbol || text[nextIndex].isWhitespace {
+                    continue
+                }
+            }
+            
+            if text[index].isLetter {
+                if text[nextIndex].isLetter {
+                    continue
+                }
+                
                 if text[nextIndex].isWhitespace {
                     continue
-                } else {
-                    return text.distance(from: text.startIndex, to: text.index(after: index))
                 }
-            }
-
-            if text[index].isPunctuation {
-                if text[locationIndex].isPunctuation {
+                
+                if text[nextIndex] == "_" {
                     continue
-                } else {
-                    return text.distance(from: text.startIndex, to: index)
                 }
-            }
-
-            if text[index].isLetter {
-                if text[locationIndex].isLetter {
+                
+                if text[nextIndex].isNumber {
                     continue
-                } else {
-                    return text.distance(from: text.startIndex, to: index)
                 }
             }
+            
+            if text[index].isNumber {
+                if text[nextIndex].isNumber || text[nextIndex].isWhitespace || text[nextIndex].isLetter {
+                    continue
+                }
+            }
+            
+            if text[index].isWhitespace && !text[index].isNewline {
+                if text[nextIndex].isWhitespace {
+                    continue
+                }
+            }
+            
+            if text[index].isNewline {
+                if text[nextIndex].isWhitespace && !text[nextIndex].isNewline {
+                    continue
+                }
+            }
+            
+            if text[index].isSymbol {
+                if text[nextIndex].isSymbol || text[nextIndex].isWhitespace {
+                    continue
+                }
+            }
+            
+            return text.distance(from: text.startIndex, to: nextIndex)
         }
-
+        
         return location
     }
 

@@ -53,6 +53,66 @@ extension wordForwardTests {
 
         XCTAssertEqual(newCaretPosition, 44)
     }
+    
+    func test_that_it_passes_several_consecutive_punctuations() {
+        let text = "for index in text[anchorIndex..<endIndex].indices {"
+        
+        let newCaretPosition = textEngine.wordForward(for: 29, playground: text)
+        
+        XCTAssertEqual(newCaretPosition, 32)
+    }
+    
+    func test_that_it_does_not_stop_at_a_space_after_a_punctuation() {
+        let text = "let anchorIndex = text.index(text.startIndex, offsetBy: location)"
+        
+        let newCaretPosition = textEngine.wordForward(for: 54, playground: text)
+        
+        XCTAssertEqual(newCaretPosition, 56)
+    }
+    
+    func test_that_it_does_not_stop_at_a_space_after_a_symbol() {
+        let text = "guard index != text.index(before: endIndex) else { return text.count - 1 }"
+        
+        let newCaretPosition = textEngine.wordForward(for: 12, playground: text)
+        
+        XCTAssertEqual(newCaretPosition, 15)
+    }
+    
+    func test_that_it_does_not_stop_at_a_space_after_a_number() {
+        let text = "guard index != text.index(before: endIndex) else { return text.count - 1 }"
+        
+        let newCaretPosition = textEngine.wordForward(for: 71, playground: text)
+        
+        XCTAssertEqual(newCaretPosition, 73)
+    }
+    
+    func test_that_it_stops_at_underscores_that_are_not_part_of_a_word() {
+        let text = """
+if text[nextIndex] == "_" {
+"""
+        
+        let newCaretPosition = textEngine.wordForward(for: 22, playground: text)
+        
+        XCTAssertEqual(newCaretPosition, 23)
+    }
+    
+    func test_that_it_stops_at_punctuations_that_are_preceded_by_an_underscore() {
+        let text = """
+if text[nextIndex] == "_" {
+"""
+        
+        let newCaretPosition = textEngine.wordForward(for: 23, playground: text)
+        
+        XCTAssertEqual(newCaretPosition, 24)
+    }
+    
+    func test_that_it_does_not_stop_at_numbers_that_are_part_of_a_word() {
+        let text = "saf sadfhasdf4asdf dfd"
+        
+        let newCaretPosition = textEngine.wordForward(for: 5, playground: text)
+        
+        XCTAssertEqual(newCaretPosition, 19)
+    }
 
 }
 
