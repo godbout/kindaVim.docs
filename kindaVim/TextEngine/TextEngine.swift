@@ -17,7 +17,7 @@ struct TextEngine: TextEngineProtocol {
             let previousIndex = text.index(before: index)
             
             if text[index] == "_" {
-                if text[previousIndex].isLetter {
+                if text[previousIndex].isLetter || text[previousIndex].isNumber || text[previousIndex] == "_" {
                     continue
                 }
             }
@@ -59,7 +59,7 @@ struct TextEngine: TextEngineProtocol {
             }
 
             return text.distance(from: startIndex, to: index)
-        }
+        }        
         
         return location
     }
