@@ -9,10 +9,10 @@ protocol TextEngineProtocol {
 struct TextEngine: TextEngineProtocol {
     
     func wordBackward(for location: Int, playground text: String) -> Int {
-        let endAnchor = text.index(text.startIndex, offsetBy: location)
-        let start = text.startIndex
+        let anchorIndex = text.index(text.startIndex, offsetBy: location)
+        let startIndex = text.startIndex
         
-        for index in text[start..<endAnchor].indices.reversed() {
+        for index in text[startIndex..<anchorIndex].indices.reversed() {
             guard index != text.startIndex else { return 0 }
             let previousIndex = text.index(before: index)
             
@@ -21,29 +21,36 @@ struct TextEngine: TextEngineProtocol {
                     continue
                 }
             }
-                        
+            
             if text[index].isLetter {
-                if text[previousIndex] == "_" {
+                if text[previousIndex].isLetter {
                     continue
                 }
                 
-                if text[previousIndex].isWhitespace || text[previousIndex].isPunctuation {
-                    return text.distance(from: start, to: index)
-                }
-            }
-            
-            if text[index].isPunctuation {
-                if !text[previousIndex].isPunctuation {
-                    return text.distance(from: start, to: index)
+                if text[previousIndex] == "_" {
+                    continue
                 }
             }
             
             if text[index].isNewline {
-                if text[previousIndex].isNewline {
-                    return text.distance(from: start, to: index)
+                if !text[previousIndex].isNewline {
+                    continue
+                }
+            }
+                        
+            if text[index].isWhitespace {
+                if !text[index].isNewline {
+                    continue
                 }
             }
             
+            if text[index].isPunctuation && text[index] != "_" {
+                if text[previousIndex].isPunctuation && text[previousIndex] != "_" {
+                    continue
+                }
+            }
+            
+            return text.distance(from: startIndex, to: index)
         }
         
         return location

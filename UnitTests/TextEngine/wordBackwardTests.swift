@@ -124,4 +124,33 @@ whitespaces
         XCTAssertEqual(newCaretPosition, 59)
     }
     
+    func test_that_it_stops_at_punctuations_that_are_before_an_underscore() {
+        let text = """
+if text[index] == "_" {
+"""
+        let newCaretPosition = textEngine.wordBackward(for: 22, playground: text)
+        
+        XCTAssertEqual(newCaretPosition, 20)
+    }
+        
+    func test_that_it_stops_at_underscores_that_are_not_part_of_a_word() {
+        let text = """
+if text[index] == "_" {
+"""
+        let newCaretPosition = textEngine.wordBackward(for: 20, playground: text)
+        
+        XCTAssertEqual(newCaretPosition, 19)
+    }
+    
+    
+    
+    func test_that_it_stops_at_symbols_that_are_after_a_whitespace() {
+        let text = """
+if text[index] == "_" {
+"""
+        let newCaretPosition = textEngine.wordBackward(for: 18, playground: text)
+        
+        XCTAssertEqual(newCaretPosition, 15)
+    }
+    
 }
