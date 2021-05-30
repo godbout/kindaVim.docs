@@ -30,6 +30,16 @@ struct TextEngine: TextEngineProtocol {
                 if text[previousIndex] == "_" {
                     continue
                 }
+                
+                if text[previousIndex].isNumber {
+                    continue
+                }
+            }
+            
+            if text[index].isNumber {
+                if text[previousIndex].isLetter || text[previousIndex].isNumber || text[previousIndex] == "_" {
+                    continue
+                }
             }
             
             if text[index].isNewline {
@@ -50,6 +60,12 @@ struct TextEngine: TextEngineProtocol {
                 }
             }
             
+            if text[index].isSymbol {
+                if text[previousIndex].isSymbol || (text[previousIndex].isPunctuation && text[previousIndex] != "_") {
+                    continue
+                }
+            }
+
             return text.distance(from: startIndex, to: index)
         }
         
