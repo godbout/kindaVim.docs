@@ -72,7 +72,6 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
             } else {
                 if let nextLineLength = nextLine.length, nextLineLength > AccessibilityTextElement.globalColumnNumber {
                     element.caretLocation = nextLine.start! + AccessibilityTextElement.globalColumnNumber - 1
-                    AccessibilityTextElement.globalColumnNumber = element.caretLocation - nextLine.start! + 1
                 } else {
                     if let endLimit = nextLine.endLimit() {
                         let globalColumNumber = AccessibilityTextElement.globalColumnNumber
@@ -101,7 +100,6 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
         if let previousLine = previousLine {
             if let previousLineLength = previousLine.length, previousLineLength > AccessibilityTextElement.globalColumnNumber {
                 element.caretLocation = previousLine.start! + AccessibilityTextElement.globalColumnNumber - 1
-                AccessibilityTextElement.globalColumnNumber = element.caretLocation - previousLine.start! + 1
             } else {
                 if let endLimit = previousLine.endLimit() {
                     let globalColumnNumber = AccessibilityTextElement.globalColumnNumber
