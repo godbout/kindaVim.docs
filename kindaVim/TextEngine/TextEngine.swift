@@ -40,10 +40,8 @@ struct TextEngine: TextEngineProtocol {
                 }
             }
                         
-            if text[index].isWhitespace {
-                if !text[index].isNewline {
-                    continue
-                }
+            if text[index].isWhitespace && !text[index].isNewline {
+                continue
             }
             
             if text[index].isPunctuation && text[index] != "_" {
