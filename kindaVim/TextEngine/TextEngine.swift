@@ -23,15 +23,7 @@ struct TextEngine: TextEngineProtocol {
             }
             
             if text[index].isLetter {
-                if text[previousIndex].isLetter {
-                    continue
-                }
-                
-                if text[previousIndex] == "_" {
-                    continue
-                }
-                
-                if text[previousIndex].isNumber {
+                if text[previousIndex].isLetter || text[previousIndex].isNumber || text[previousIndex] == "_" {
                     continue
                 }
             }
@@ -93,25 +85,17 @@ struct TextEngine: TextEngineProtocol {
             }
             
             if text[index].isLetter {
-                if text[nextIndex].isLetter {
+                if text[nextIndex].isLetter || text[nextIndex].isNumber || text[nextIndex] == "_" {
                     continue
                 }
                 
                 if text[nextIndex].isWhitespace {
                     continue
                 }
-                
-                if text[nextIndex] == "_" {
-                    continue
-                }
-                
-                if text[nextIndex].isNumber {
-                    continue
-                }
             }
             
             if text[index].isNumber {
-                if text[nextIndex].isNumber || text[nextIndex].isWhitespace || text[nextIndex].isLetter {
+                if text[nextIndex].isLetter || text[nextIndex].isNumber || text[nextIndex].isWhitespace {
                     continue
                 }
             }
