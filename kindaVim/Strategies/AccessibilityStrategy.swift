@@ -41,6 +41,10 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
         
         element.caretLocation = textEngine.wordBackward(for: element.caretLocation, playground: element.value)
         
+        if let lineForLocation = AccessibilityTextElementAdaptor.lineFor(location: element.caretLocation), let lineStart = lineForLocation.start {
+            AccessibilityTextElement.globalColumnNumber = element.caretLocation - lineStart + 1
+        }
+        
         return element
     }
 

@@ -1,10 +1,10 @@
 @testable import kindaVim
 import XCTest
 
-class AS_k_Tests: AS_BaseTests {}
+class UIAS_k_Tests: UIAS_BaseTests {}
 
 // TextFields
-extension AS_k_Tests {
+extension UIAS_k_Tests {
 
     func test_that_for_TextFields_k_returns_nil_coz_we_want_the_KS_to_take_over() {
         let textInAXFocusedElement = "k on a TextField shouldn't use the AS! think Alfred"
@@ -20,7 +20,7 @@ extension AS_k_Tests {
 }
 
 // TextViews
-extension AS_k_Tests {
+extension UIAS_k_Tests {
 
     func test_that_in_normal_setting_k_goes_to_the_previous_line_at_the_same_column() {
         let textInAXFocusedElement = """

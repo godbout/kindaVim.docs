@@ -1,6 +1,10 @@
 @testable import kindaVim
 import XCTest
 
+// this is tested more deeply by
+// 1. test of the TextEngine function this move is calling
+// 2. AS UI Tests where we tests that the globalColumnNumber is updated
+//    correctly when the caret changes line due to this move
 class AS_b_Tests: AS_BaseTests {}
 
 // Both

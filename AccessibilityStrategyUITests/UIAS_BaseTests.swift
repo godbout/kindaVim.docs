@@ -1,6 +1,6 @@
 import XCTest
 
-class AS_BaseTests: XCTestCase {
+class UIAS_BaseTests: XCTestCase {
 
     var app: XCUIApplication!
     let accessibilityStrategy = AccessibilityStrategy()
