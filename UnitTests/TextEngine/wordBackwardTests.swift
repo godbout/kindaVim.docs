@@ -199,4 +199,20 @@ whitespaces
         XCTAssertEqual(newCaretPosition, 59)
     }
     
+    func test_that_letters_numbers_and_underscores_together_are_considered_a_word() {
+        let text = "this is gonna be only one word__oh_my_55_a yes"
+        
+        let newCaretPosition = textEngine.wordForward(for: 26, playground: text)
+        
+        XCTAssertEqual(newCaretPosition, 43)
+    }
+    
+    func test_that_it_does_not_stop_after_an_underscore_that_finishes_a_word() {
+        let text = "but who writes stuff like_ this"
+        
+        let newCaretPosition = textEngine.wordForward(for: 23, playground: text)
+        
+        XCTAssertEqual(newCaretPosition, 27)
+    }
+    
 }

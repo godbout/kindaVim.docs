@@ -73,11 +73,11 @@ struct TextEngine: TextEngineProtocol {
             let nextIndex = text.index(after: index)
             
             if text[index] == "_" {
-                if text[nextIndex].isLetter {
+                if text[nextIndex].isLetter || text[nextIndex].isNumber || text[nextIndex] == "_" || text[nextIndex].isWhitespace {
                     continue
                 }
             }
-            
+                        
             if text[index].isPunctuation && text[index] != "_" {
                 if (text[nextIndex].isPunctuation && text[nextIndex] != "_") || text[nextIndex].isSymbol || text[nextIndex].isWhitespace {
                     continue
@@ -85,17 +85,13 @@ struct TextEngine: TextEngineProtocol {
             }
             
             if text[index].isLetter {
-                if text[nextIndex].isLetter || text[nextIndex].isNumber || text[nextIndex] == "_" {
-                    continue
-                }
-                
-                if text[nextIndex].isWhitespace {
+                if text[nextIndex].isLetter || text[nextIndex].isNumber || text[nextIndex] == "_" || text[nextIndex].isWhitespace {
                     continue
                 }
             }
             
             if text[index].isNumber {
-                if text[nextIndex].isLetter || text[nextIndex].isNumber || text[nextIndex].isWhitespace {
+                if text[nextIndex].isLetter || text[nextIndex].isNumber || text[nextIndex] == "_" || text[nextIndex].isWhitespace {
                     continue
                 }
             }
