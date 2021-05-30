@@ -9,6 +9,43 @@ protocol TextEngineProtocol {
 struct TextEngine: TextEngineProtocol {
     
     func wordBackward(for location: Int, playground text: String) -> Int {
+        let endAnchor = text.index(text.startIndex, offsetBy: location)
+        let start = text.startIndex
+        
+        for index in text[start..<endAnchor].indices.reversed() {
+            guard index != text.startIndex else { return 0 }
+            let previousIndex = text.index(before: index)
+            
+            if text[index] == "_" {
+                if text[previousIndex].isLetter {
+                    continue
+                }
+            }
+                        
+            if text[index].isLetter {
+                if text[previousIndex] == "_" {
+                    continue
+                }
+                
+                if text[previousIndex].isWhitespace || text[previousIndex].isPunctuation {
+                    return text.distance(from: start, to: index)
+                }
+            }
+            
+            if text[index].isPunctuation {
+                if !text[previousIndex].isPunctuation {
+                    return text.distance(from: start, to: index)
+                }
+            }
+            
+            if text[index].isNewline {
+                if text[previousIndex].isNewline {
+                    return text.distance(from: start, to: index)
+                }
+            }
+            
+        }
+        
         return location
     }
 
@@ -16,7 +53,7 @@ struct TextEngine: TextEngineProtocol {
         let start = text.index(text.startIndex, offsetBy: location)
         let end = text.endIndex
 
-        let currentCharacterIndex = text.index(text.startIndex, offsetBy: location)
+        let locationIndex = text.index(text.startIndex, offsetBy: location)
 
         for index in text[start..<end].indices {
             if index == text.index(before: text.endIndex) {
@@ -48,7 +85,7 @@ struct TextEngine: TextEngineProtocol {
             }
 
             if text[index].isPunctuation {
-                if text[currentCharacterIndex].isPunctuation {
+                if text[locationIndex].isPunctuation {
                     continue
                 } else {
                     return text.distance(from: text.startIndex, to: index)
@@ -56,7 +93,7 @@ struct TextEngine: TextEngineProtocol {
             }
 
             if text[index].isLetter {
-                if text[currentCharacterIndex].isLetter {
+                if text[locationIndex].isLetter {
                     continue
                 } else {
                     return text.distance(from: text.startIndex, to: index)
