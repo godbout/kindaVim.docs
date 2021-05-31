@@ -168,6 +168,7 @@
 		91E304F72643F5F2004D9933 /* UsingKS_0_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E304F62643F5F2004D9933 /* UsingKS_0_Tests.swift */; };
 		91E304F92643F6D1004D9933 /* UsingKS_ciw_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E304F82643F6D1004D9933 /* UsingKS_ciw_Tests.swift */; };
 		91E304FD2643FB2D004D9933 /* UsingKS_NotImplementedOrDontExist_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E304FC2643FB2D004D9933 /* UsingKS_NotImplementedOrDontExist_Tests.swift */; };
+		91EB72EC2664E9BF00D25D74 /* AS_ci"_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91EB72EB2664E9BF00D25D74 /* AS_ci"_Tests.swift */; };
 		91F7A005264FC70500B609FF /* UsingAS_BaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F7A004264FC70500B609FF /* UsingAS_BaseTests.swift */; };
 		91F7A007264FC75F00B609FF /* UsingAS_h_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F7A006264FC75F00B609FF /* UsingAS_h_Tests.swift */; };
 		91F7A009264FC81000B609FF /* AccessibilityStrategyMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F7A008264FC81000B609FF /* AccessibilityStrategyMock.swift */; };
@@ -358,8 +359,14 @@
 		91E304F62643F5F2004D9933 /* UsingKS_0_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsingKS_0_Tests.swift; sourceTree = "<group>"; };
 		91E304F82643F6D1004D9933 /* UsingKS_ciw_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsingKS_ciw_Tests.swift; sourceTree = "<group>"; };
 		91E304FC2643FB2D004D9933 /* UsingKS_NotImplementedOrDontExist_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsingKS_NotImplementedOrDontExist_Tests.swift; sourceTree = "<group>"; };
+<<<<<<< HEAD
 		91F2EC14265A2DF1003F038B /* to_TF_caretLocationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = to_TF_caretLocationTests.swift; sourceTree = "<group>"; };
 		91F2EC16265A2E11003F038B /* to_TV_caretLocationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = to_TV_caretLocationTests.swift; sourceTree = "<group>"; };
+=======
+		91EB72EB2664E9BF00D25D74 /* AS_ci"_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AS_ci\"_Tests.swift"; sourceTree = "<group>"; };
+		91F2EC14265A2DF1003F038B /* to_TF_AXCaretLocationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = to_TF_AXCaretLocationTests.swift; sourceTree = "<group>"; };
+		91F2EC16265A2E11003F038B /* to_TV_AXCaretLocationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = to_TV_AXCaretLocationTests.swift; sourceTree = "<group>"; };
+>>>>>>> add first AS tests for ci"
 		91F7A004264FC70500B609FF /* UsingAS_BaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsingAS_BaseTests.swift; sourceTree = "<group>"; };
 		91F7A006264FC75F00B609FF /* UsingAS_h_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsingAS_h_Tests.swift; sourceTree = "<group>"; };
 		91F7A008264FC81000B609FF /* AccessibilityStrategyMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilityStrategyMock.swift; sourceTree = "<group>"; };
@@ -823,6 +830,7 @@
 				91FA1D9B2657C2BA005F576E /* AS_BlockCursor_Tests.swift */,
 				91AC4E8B26622B750085C96F /* AS_a_Tests.swift */,
 				9153E85A266279E000064761 /* AS_b_Tests.swift */,
+				91EB72EB2664E9BF00D25D74 /* AS_ci"_Tests.swift */,
 				91FA1D932657B48B005F576E /* AS_h_Tests.swift */,
 				91FA1D972657BF0E005F576E /* AS_l_Tests.swift */,
 				9136AF8E26615A8E00385C07 /* AS_w_Tests.swift */,
@@ -1069,6 +1077,7 @@
 				91E304D52643F133004D9933 /* UsingKS_G__Tests.swift in Sources */,
 				91054E8B2644FE7D00CC0ACC /* KS_control_u_Tests.swift in Sources */,
 				91A54EDB2643B3FF00400677 /* KS_a_Tests.swift in Sources */,
+				91EB72EC2664E9BF00D25D74 /* AS_ci"_Tests.swift in Sources */,
 				9153E86126627C8100064761 /* TextEngineMock.swift in Sources */,
 				91F7A007264FC75F00B609FF /* UsingAS_h_Tests.swift in Sources */,
 				9182AEAA265536FC004A8E17 /* UsingAS_BlockCursorTests.swift in Sources */,
