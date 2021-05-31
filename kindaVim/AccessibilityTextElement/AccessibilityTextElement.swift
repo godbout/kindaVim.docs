@@ -39,10 +39,7 @@ struct AccessibilityTextElementLine {
         guard let start = start, let end = end else { return nil }
         guard end - start > 1 else { return start }
 
-        let lineStartIndex = fullValue.index(fullValue.startIndex, offsetBy: start)
-        let lineEndIndex = fullValue.index(lineStartIndex, offsetBy: end - start)
-
-        return fullValue[lineStartIndex..<lineEndIndex].hasSuffix("\n") ? end - 2 : end - 1
+        return value.hasSuffix("\n") ? end - 2 : end - 1
     }
 
     func startLimit() -> Int? {

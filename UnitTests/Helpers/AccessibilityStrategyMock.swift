@@ -5,7 +5,9 @@ class AccessibilityStrategyMock: AccessibilityStrategyProtocol {
     
     var functionCalled = ""
     
-    static func dump(element: AccessibilityTextElement?) {}
+    static func test(element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        return nil
+    }
 
     func a(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
