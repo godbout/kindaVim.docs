@@ -183,99 +183,100 @@ class VimEngine {
             }
         } else {
             operatorPendingBuffer.append(keyCombination)
+            
+            parseOperatorCommand()
 
-            if let operatorCommand = operatorCommand() {
-                post(operatorCommand)
+            if currentMode != .operatorPending {
                 resetOperatorPendingBuffer()
             }
         }
     }
     
-    private func operatorCommand() -> [KeyCombination]? {
+    private func parseOperatorCommand() {
         switch operatorPendingBuffer.map({ $0.vimKey }) {
         case [.c, .a]:
-            return nil
+            ()
         case [.c, .a, .w]:
-            return nil
+            ()
         case [.c, .b]:
             enterInsertMode()
-
-            return keyboardStrategy.cb()
+            
+            post(keyboardStrategy.cb())
         case [.c, .c]:
             enterInsertMode()
             
-            return keyboardStrategy.cc()
+            post(keyboardStrategy.cc())
         case [.c, .g]:
-            return nil
+            ()
         case [.c, .g, .g]:
             enterInsertMode()
-
-            return keyboardStrategy.cgg()
+            
+            post(keyboardStrategy.cgg())
         case [.c, .G]:
             enterInsertMode()
             
-            return keyboardStrategy.cG()
+            post(keyboardStrategy.cG())
         case [.c, .i]:
-            return nil
+            ()
         case [.c, .i, .w]:
             enterInsertMode()
-
-            return keyboardStrategy.ciw()
+            
+            post(keyboardStrategy.ciw())
         case [.d, .a]:
-            return nil
+            ()
         case [.d, .a, .w]:
-            return nil
+            ()
         case [.d, .b]:
             enterNormalMode()
-
-            return keyboardStrategy.db()
+            
+            post(keyboardStrategy.db())
         case [.d, .d]:
             enterNormalMode()
-
-            return keyboardStrategy.dd()
+            
+            post(keyboardStrategy.dd())
         case [.d, .g]:
-            return nil
+            ()
         case [.d, .g, .g]:
             enterNormalMode()
             
-            return keyboardStrategy.dgg()
+            post(keyboardStrategy.dgg())
         case [.d, .i]:
-            return nil
+            ()
         case [.d, .i, .w]:
-            return nil
+            ()
         case [.d, .j]:
             enterNormalMode()
             
-            return keyboardStrategy.dj()
+            post(keyboardStrategy.dj())
         case [.d, .G]:
             enterNormalMode()
             
-            return keyboardStrategy.dG()
+            post(keyboardStrategy.dG())
         case [.g, .g]:
             enterNormalMode()
             
-            return keyboardStrategy.gg()
+            post(keyboardStrategy.gg())
         case [.y, .i]:
-            return nil
+            ()
         case [.y, .i, .w]:
             enterNormalMode()
-
-            return keyboardStrategy.yiw()
+            
+            post(keyboardStrategy.yiw())
         case [.y, .y]:
             enterNormalMode()
-
-            return keyboardStrategy.yy()
+            
+            post(keyboardStrategy.yy())
         default:
             // special case of the simple-change r command
             if operatorPendingBuffer.first?.vimKey == .r, let replacement = operatorPendingBuffer.last {
                 enterNormalMode()
-
-                return keyboardStrategy.r(with: replacement)
+                post(keyboardStrategy.r(with: replacement))
             }
 
+            // if we don't recognize any operator move
+            // then we go back to normal mode
+            // and the operator pending buffer will be resetted
             enterNormalMode()
-            
-            return nil
         }
     }
     
