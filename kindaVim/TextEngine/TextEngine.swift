@@ -27,7 +27,7 @@ extension Character {
 struct TextEngine: TextEngineProtocol {
     
     func findFirst(_ character: Character, in text: String) -> Int? {
-        guard let characterIndex = text.firstIndex(of: "\"") else { return nil }
+        guard let characterIndex = text.firstIndex(of: character) else { return nil }
         
         return text.distance(from: text.startIndex, to: characterIndex)
     }
