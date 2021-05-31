@@ -15,7 +15,7 @@ struct AccessibilityTextElementAdaptor {
         guard let axFocusedElement = AXEngine.axFocusedElement() else { return nil }
 
         var values: CFArray?
-        let error = AXUIElementCopyMultipleAttributeValues(axFocusedElement, [kAXRoleAttribute, kAXValueAttribute, kAXSelectedTextRangeAttribute, kAXSelectedTextAttribute] as CFArray, .stopOnError, &values)
+        let error = AXUIElementCopyMultipleAttributeValues(axFocusedElement, [kAXRoleAttribute, kAXValueAttribute, kAXSelectedTextRangeAttribute] as CFArray, .stopOnError, &values)
 
         guard error == .success, let elementValues = values as NSArray? else { return nil }
 
@@ -25,7 +25,6 @@ struct AccessibilityTextElementAdaptor {
         let axRole = role(for: elementValues[0] as! String)
         let axValue = elementValues[1] as! String
         let axCaretLocation = selectedTextRange.location
-        let axSelectedText = elementValues[3] as! String
         var currentLine: AccessibilityTextElementLine!
 
         if let line = lineFor(location: axCaretLocation, on: axFocusedElement) {
@@ -38,7 +37,6 @@ struct AccessibilityTextElementAdaptor {
             role: axRole,
             value: axValue,
             caretLocation: axCaretLocation,
-            selectedText: axSelectedText,
             currentLine: currentLine
         )
     }
