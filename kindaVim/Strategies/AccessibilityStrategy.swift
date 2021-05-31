@@ -53,7 +53,7 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
         if let firstDoubleQuoteLocation = textEngine.findFirst("\"", in: lineText), let secondDoubleQuoteLocation = textEngine.findSecond("\"", in: lineText) {
             element.caretLocation = element.currentLine.start! + (firstDoubleQuoteLocation + 1)
             element.selectedLength = secondDoubleQuoteLocation - (firstDoubleQuoteLocation + 1)
-//            element.selectedText = ""
+            element.selectedText = ""
         }
         
         return element        
