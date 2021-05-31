@@ -46,7 +46,17 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
     }
     
     func ciDoubleQuote(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
-        return nil
+        guard var element = element else { return nil }
+        
+        let lineText = element.currentLine.value
+        
+        if let firstDoubleQuoteLocation = textEngine.findFirst("\"", in: lineText), let secondDoubleQuoteLocation = textEngine.findSecond("\"", in: lineText) {
+            element.caretLocation = element.currentLine.start! + (firstDoubleQuoteLocation + 1)
+            element.selectedLength = secondDoubleQuoteLocation - (firstDoubleQuoteLocation + 1)
+//            element.selectedText = ""
+        }
+        
+        return element        
     }
 
     func h(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
