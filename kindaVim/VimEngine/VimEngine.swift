@@ -23,9 +23,11 @@ class VimEngine {
     func handle(keyCombination: KeyCombination) {
         if currentMode != .operatorPending {
             switch keyCombination.vimKey {
-            // to dump info
+            // to test (can dump info to console, send stuff to AX etc.)
             case .commandD:
-                AccessibilityStrategy.dump(element: focusedElement())
+                if let element = AccessibilityStrategy.test(element: focusedElement()) {
+                    _ = push(element: element)
+                }
             // temporary for escape to enter Command Mode
             // and escape again to send escape key to macOS
             case .escape:

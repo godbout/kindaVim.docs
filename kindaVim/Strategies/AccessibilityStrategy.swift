@@ -13,7 +13,7 @@ protocol AccessibilityStrategyProtocol {
     func zero(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func blockCursor(_ status: BlockCursorStatus, on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     
-    static func dump(element: AccessibilityTextElement?)
+    static func test(element: AccessibilityTextElement?) -> AccessibilityTextElement?
 }
 
 enum BlockCursorStatus {
@@ -168,9 +168,11 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
         return element
     }
     
-    static func dump(element: AccessibilityTextElement?) {
+    static func test(element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         print("\ncaret position: \(String(describing: element?.caretLocation))")
         print("line start: \(String(describing: element?.currentLine.start))", "line end: \(String(describing: element?.currentLine.end))")
+        
+        return nil
     }
 
     static func focusedElement() -> AccessibilityTextElement? {
