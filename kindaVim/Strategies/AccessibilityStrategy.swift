@@ -4,6 +4,7 @@ protocol AccessibilityStrategyProtocol {
 
     func a(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func b(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
+    func ciDoubleQuote(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func h(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func j(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func k(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
@@ -42,6 +43,10 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
         element.caretLocation = textEngine.wordBackward(for: element.caretLocation, playground: element.value)  
         
         return element
+    }
+    
+    func ciDoubleQuote(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        return nil
     }
 
     func h(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {

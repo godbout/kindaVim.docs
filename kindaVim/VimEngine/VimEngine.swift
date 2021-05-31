@@ -218,6 +218,12 @@ class VimEngine {
             post(keyboardStrategy.cG())
         case [.c, .i]:
             ()
+        case [.c, .i, .doubleQuote]:
+            enterInsertMode()
+
+            if let element = accessibilityStrategy.ciDoubleQuote(on: focusedElement()) {
+                push(element: element)
+            }
         case [.c, .i, .w]:
             enterInsertMode()
             

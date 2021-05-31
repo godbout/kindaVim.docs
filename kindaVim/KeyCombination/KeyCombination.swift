@@ -98,6 +98,7 @@ enum VimKey {
     case y
 
     case caret
+    case doubleQuote
     case dollarSign
 
     // temporary for escape to enter Command Mode
@@ -202,6 +203,8 @@ struct KeyCombination {
             return .dollarSign
         case .minus where control == false && option == false && shift == true && command == false:
             return .underscore
+        case .singleQuote where control == false && option == false && shift == true && command == false:
+            return .doubleQuote
         case .six where control == false && option == false && shift == true && command == false:
             return .caret
         case .zero where control == false && option == false && shift == false && command == false:
