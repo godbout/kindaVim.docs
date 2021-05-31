@@ -28,6 +28,8 @@
 		9128F2B4262AA90D00625B42 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9128F2B3262AA90D00625B42 /* Assets.xcassets */; };
 		9128F2B7262AA90D00625B42 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9128F2B6262AA90D00625B42 /* Preview Assets.xcassets */; };
 		9128F2BA262AA90D00625B42 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9128F2B8262AA90D00625B42 /* Main.storyboard */; };
+		912924E526652B5D009AB40C /* to_TF_selectedTextTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912924E426652B5D009AB40C /* to_TF_selectedTextTests.swift */; };
+		912924EF26652EAD009AB40C /* to_TV_selectedTextTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912924EE26652EAD009AB40C /* to_TV_selectedTextTests.swift */; };
 		912B92D426443A06007F44E1 /* KS_yy_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912B92D326443A06007F44E1 /* KS_yy_Tests.swift */; };
 		912B92D826443C8F007F44E1 /* UsingKS_yy_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912B92D726443C8F007F44E1 /* UsingKS_yy_Tests.swift */; };
 		912B92DC26443FF8007F44E1 /* UsingKS_yiw_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912B92DB26443FF8007F44E1 /* UsingKS_yiw_Tests.swift */; };
@@ -227,6 +229,8 @@
 		9128F2BC262AA90D00625B42 /* kindaVim.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = kindaVim.entitlements; sourceTree = "<group>"; };
 		9128F2C1262AA90D00625B42 /* UniTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UniTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9128F2C7262AA90D00625B42 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		912924E426652B5D009AB40C /* to_TF_selectedTextTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = to_TF_selectedTextTests.swift; sourceTree = "<group>"; };
+		912924EE26652EAD009AB40C /* to_TV_selectedTextTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = to_TV_selectedTextTests.swift; sourceTree = "<group>"; };
 		912B92D326443A06007F44E1 /* KS_yy_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KS_yy_Tests.swift; sourceTree = "<group>"; };
 		912B92D726443C8F007F44E1 /* UsingKS_yy_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsingKS_yy_Tests.swift; sourceTree = "<group>"; };
 		912B92DB26443FF8007F44E1 /* UsingKS_yiw_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsingKS_yiw_Tests.swift; sourceTree = "<group>"; };
@@ -524,11 +528,11 @@
 			isa = PBXGroup;
 			children = (
 				91C486032641C0AA0003D9D7 /* Helpers */,
-				91BCB6B326624F5500CDCA98 /* TextEngine */,
 				9128B0EB26380AB0007DC80B /* Events */,
 				912687242640634D002E3FB0 /* KeyCombination */,
-				91482E41263DBF3100F10ADC /* Strategies */,
 				9128B0F2263820C5007DC80B /* VimEngine */,
+				91482E41263DBF3100F10ADC /* Strategies */,
+				91BCB6B326624F5500CDCA98 /* TextEngine */,
 				9128F2C7262AA90D00625B42 /* Info.plist */,
 			);
 			path = UnitTests;
@@ -627,6 +631,7 @@
 			isa = PBXGroup;
 			children = (
 				91F2EC14265A2DF1003F038B /* to_TF_AXCaretLocationTests.swift */,
+				912924E426652B5D009AB40C /* to_TF_selectedTextTests.swift */,
 			);
 			path = TextFields;
 			sourceTree = "<group>";
@@ -635,6 +640,7 @@
 			isa = PBXGroup;
 			children = (
 				91F2EC16265A2E11003F038B /* to_TV_AXCaretLocationTests.swift */,
+				912924EE26652EAD009AB40C /* to_TV_selectedTextTests.swift */,
 			);
 			path = TextViews;
 			sourceTree = "<group>";
@@ -1126,7 +1132,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				912924E526652B5D009AB40C /* to_TF_selectedTextTests.swift in Sources */,
 				91E2074E2661252C00E73009 /* AccessibilityTextElementAdaptor.swift in Sources */,
+				912924EF26652EAD009AB40C /* to_TV_selectedTextTests.swift in Sources */,
 				91E2071C2661250B00E73009 /* from_TV_AXRoleTests.swift in Sources */,
 				91A1482D2661242900D160AD /* ATEA_BlockCursorTests.swift in Sources */,
 				91E207542661253900E73009 /* AccessibilityTextElement.swift in Sources */,

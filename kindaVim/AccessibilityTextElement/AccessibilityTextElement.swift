@@ -84,6 +84,7 @@ struct AccessibilityTextElement {
         }
     }
     var selectedLength = 0
+    var selectedText: String?
     
     var currentLine: AccessibilityTextElementLine!
 
