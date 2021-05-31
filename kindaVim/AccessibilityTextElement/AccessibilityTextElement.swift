@@ -53,12 +53,17 @@ struct AccessibilityTextElementLine {
     }
 
     func isOnlyALinefeedCharacter() -> Bool {
-        guard let start = start, let end = end else { return fullValue.last == "\n" }
+        // if start and end are nil, then the insertion point is after the last character of the TextField
+        // this is not possible to reach without clicking there, but still
+        // because Apple's AX API returns nil for everything, we can't grab the line range for that line
+        // therefore the line.value is "", therefore we need to check against the fullValue coming from the
+        // element.
+        // probably later we need to refactor the line.value so that if start and end are nil then
+        // we grab the last sentence of the fullValue, like from last index until we fine a linefeed, rolling
+        // backwards
+        guard let _ = start, let _ = end else { return fullValue.last == "\n" }
 
-        let lineStart = fullValue.index(fullValue.startIndex, offsetBy: start)
-        let lineEnd = fullValue.index(lineStart, offsetBy: end - start)
-
-        return fullValue[lineStart..<lineEnd] == "\n"
+        return value == "\n"
     }
     
 }
