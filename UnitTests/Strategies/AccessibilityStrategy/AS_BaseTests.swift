@@ -3,14 +3,14 @@ import XCTest
 
 class AS_BaseTests: XCTestCase {
     
-    var textEngineMock = TextEngineMock()
+    var textEngine = TextEngine()
     var accessibilityStrategy: AccessibilityStrategy!
     
     
     override func setUp() {
         super.setUp()
                        
-        accessibilityStrategy = AccessibilityStrategy(textEngine: textEngineMock)
+        accessibilityStrategy = AccessibilityStrategy(textEngine: textEngine)
     }    
     
 }

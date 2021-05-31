@@ -1,11 +1,22 @@
 @testable import kindaVim
 import XCTest
 
-// this is tested more deeply by
-// 1. test of the TextEngine function this move is calling
-// 2. AS UI Tests where we tests that the globalColumnNumber is updated
+// we use a mock here just to make sure the correct function
+// is called, but all the rest of the tests are handled by:
+// 1. tests of the TextEngine function this move is calling
+// 2. AS UI Tests where we test that the globalColumnNumber is updated
 //    correctly when the caret changes line due to this move
-class AS_b_Tests: AS_BaseTests {}
+class AS_b_Tests: AS_BaseTests {
+    
+    let textEngineMock = TextEngineMock()
+    
+    override func setUp() {
+        super.setUp()
+        
+        accessibilityStrategy = AccessibilityStrategy(textEngine: textEngineMock)
+    }    
+    
+}
 
 // Both
 extension AS_b_Tests {
