@@ -1,6 +1,6 @@
 import XCTest
 
-class to_TV_AXCaretLocationTests: ATEA_BaseTests {
+class to_TV_caretLocationTests: ATEA_BaseTests {
 
     func test_that_we_can_set_the_caret_location_to_0_on_a_non_empty_TextView() {
         let text = """

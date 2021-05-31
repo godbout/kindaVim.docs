@@ -1,6 +1,6 @@
 import XCTest
 
-class from_TF_AXRoleTests: ATEA_BaseTests {
+class from_TF_roleTests: ATEA_BaseTests {
     
     func test_that_the_role_for_TextFields_is_correct() {
         let textInAXFocusedElement = "just need to grab the field role"
