@@ -1,5 +1,6 @@
 protocol TextEngineProtocol {
-    
+    func findFirst(_ character: Character, in text: String) -> Int?
+    func findSecond(_ character: Character, in text: String) -> Int?
     func wordBackward(for location: Int, playground text: String) -> Int
     func wordForward(for location: Int, playground text: String) -> Int
     
@@ -24,6 +25,20 @@ extension Character {
 
 
 struct TextEngine: TextEngineProtocol {
+    
+    func findFirst(_ character: Character, in text: String) -> Int? {
+        guard let characterIndex = text.firstIndex(of: "\"") else { return nil }
+        
+        return text.distance(from: text.startIndex, to: characterIndex)
+    }
+    
+    func findSecond(_ character: Character, in text: String) -> Int? {
+        guard let firstCharacterIndex = text.firstIndex(of: character) else { return nil }
+        let nextToFirstCharacterIndex = text.index(after: firstCharacterIndex)                
+        guard let secondCharacterLocation = findFirst(character, in: String(text[nextToFirstCharacterIndex..<text.endIndex])) else { return nil }
+        
+        return text.distance(from: text.startIndex, to: nextToFirstCharacterIndex) + secondCharacterLocation
+    }
     
     func wordBackward(for location: Int, playground text: String) -> Int {
         let anchorIndex = text.index(text.startIndex, offsetBy: location)
