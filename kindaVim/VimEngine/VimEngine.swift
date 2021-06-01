@@ -99,6 +99,8 @@ class VimEngine {
                 post(keyboardStrategy.controlD())
             case .f:
                 enterOperatorPendingMode(with: keyCombination)
+            case .F:
+                enterOperatorPendingMode(with: keyCombination)
             case .g:
                 enterOperatorPendingMode(with: keyCombination)
             case .G:
@@ -279,6 +281,12 @@ class VimEngine {
         default:
             if operatorPendingBuffer.first?.vimKey == .f, let characterToGoTo = operatorPendingBuffer.last {
                 if let element = accessibilityStrategy.f(characterToGoTo: characterToGoTo.character, on: focusedElement()) {
+                    _ = push(element: element)
+                }
+            }
+            
+            if operatorPendingBuffer.first?.vimKey == .F, let characterToGoTo = operatorPendingBuffer.last {
+                if let element = accessibilityStrategy.F(characterToGoTo: characterToGoTo.character, on: focusedElement()) {
                     _ = push(element: element)
                 }
             }

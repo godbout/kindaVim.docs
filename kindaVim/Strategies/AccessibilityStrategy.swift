@@ -6,6 +6,7 @@ protocol AccessibilityStrategyProtocol {
     func b(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func ciDoubleQuote(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func f(characterToGoTo: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement?
+    func F(characterToGoTo: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func h(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func j(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func k(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
@@ -70,6 +71,18 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
             element.caretLocation = element.currentLine.start! + characterFoundIndex            
         }
 
+        return element
+    }
+    
+    func F(characterToGoTo: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        guard var element = element else { return nil }
+        
+        let lineText = element.currentLine.value
+        
+        if let characterFoundIndex = textEngine.findPrevious(characterToGoTo, before: element.caretLocation, in: lineText) {
+            element.caretLocation = element.currentLine.start! + characterFoundIndex            
+        }
+        
         return element
     }
 

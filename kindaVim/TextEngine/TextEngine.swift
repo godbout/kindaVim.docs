@@ -1,6 +1,7 @@
 protocol TextEngineProtocol {
     func findFirst(_ character: Character, in text: String) -> Int?
     func findNext(_ character: Character, after location: Int, in text: String) -> Int?
+    func findPrevious(_ character: Character, before location: Int, in text: String) -> Int?
     func findSecond(_ character: Character, in text: String) -> Int?
     func wordBackward(for location: Int, playground text: String) -> Int
     func wordForward(for location: Int, playground text: String) -> Int
@@ -40,6 +41,10 @@ struct TextEngine: TextEngineProtocol {
         guard let characterToGoToLocation = findFirst(character, in: String(text[searchStartIndex..<searchEndIndex])) else { return nil }
         
         return (location + 1) + characterToGoToLocation
+    }
+    
+    func findPrevious(_ character: Character, before location: Int, in text: String) -> Int? {
+        return nil 
     }
     
     func findSecond(_ character: Character, in text: String) -> Int? {
