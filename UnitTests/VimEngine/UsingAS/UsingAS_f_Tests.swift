@@ -7,6 +7,7 @@ class UsingAS_f_Tests: UsingAS_BaseTests {
         super.setUp()
         
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .f))
+        VimEngine.shared.handle(keyCombination: KeyCombination(key: .i))
     }
     
 }
