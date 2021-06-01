@@ -1,5 +1,6 @@
 import Foundation
 
+
 protocol AccessibilityStrategyProtocol {
 
     func a(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
@@ -16,15 +17,10 @@ protocol AccessibilityStrategyProtocol {
     func w(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func dollarSign(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func zero(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
-    func blockCursor(_ status: BlockCursorStatus, on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     
     static func test(element: AccessibilityTextElement?) -> AccessibilityTextElement?
 }
 
-enum BlockCursorStatus {
-    case on
-    case off
-}
 
 struct AccessibilityStrategy: AccessibilityStrategyProtocol {
     
@@ -37,6 +33,7 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
         guard element.currentLine.isOnlyALinefeedCharacter() != true else { return element }
 
         element.caretLocation += 1
+        element.selectedLength = 0
 
         return element
     }
@@ -241,20 +238,6 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
 
         if let startLimit = element.currentLine.startLimit() {
             element.caretLocation = startLimit
-        }
-
-        return element
-    }
-
-    func blockCursor(_ status: BlockCursorStatus, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
-        guard var element = element else { return nil }
-
-        switch status {
-        case .on:
-            element = h(on: element)!
-            element.selectedLength = 1
-        case .off:
-            element.selectedLength = 0
         }
 
         return element

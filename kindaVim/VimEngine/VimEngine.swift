@@ -319,7 +319,7 @@ class VimEngine {
     }
     
     func enterNormalMode() {
-        if currentMode == .insert, let element = accessibilityStrategy.blockCursor(.on, on: focusedElement()) {
+        if currentMode == .insert, let element = accessibilityStrategy.h(on: focusedElement()) {
             _ = push(element: element)
         }
         
@@ -331,10 +331,6 @@ class VimEngine {
 
 
     func enterInsertMode() {
-        if let element = accessibilityStrategy.blockCursor(.off, on: focusedElement()) {
-            _ = push(element: element)
-        }
-        
         currentMode = .insert
         resetOperatorPendingBuffer()
 
