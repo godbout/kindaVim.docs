@@ -21,6 +21,8 @@
 		9107EE192646BD15003575A7 /* UsingKS_db_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9107EE182646BD15003575A7 /* UsingKS_db_Tests.swift */; };
 		910B05CA2642AECC005D287C /* FailingAccessibilityStrategyStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910B05C92642AECC005D287C /* FailingAccessibilityStrategyStub.swift */; };
 		9118C4E7263F0CE50040C297 /* Display.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9118C4E6263F0CE50040C297 /* Display.swift */; };
+		911A0C7D26668EB800B78C15 /* AS_F__Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911A0C7C26668EB800B78C15 /* AS_F__Tests.swift */; };
+		911A0C8326668F4C00B78C15 /* AS_T__Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911A0C8226668F4C00B78C15 /* AS_T__Tests.swift */; };
 		911BB7492632899E006882D8 /* VimEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911BB7482632899E006882D8 /* VimEngine.swift */; };
 		911BB75626328D7D006882D8 /* EventTapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911BB75526328D7D006882D8 /* EventTapController.swift */; };
 		9124BFF926668D10004C45B9 /* UsingAS_T__Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9124BFF826668D10004C45B9 /* UsingAS_T__Tests.swift */; };
@@ -230,6 +232,8 @@
 		9107EE182646BD15003575A7 /* UsingKS_db_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsingKS_db_Tests.swift; sourceTree = "<group>"; };
 		910B05C92642AECC005D287C /* FailingAccessibilityStrategyStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FailingAccessibilityStrategyStub.swift; sourceTree = "<group>"; };
 		9118C4E6263F0CE50040C297 /* Display.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Display.swift; sourceTree = "<group>"; };
+		911A0C7C26668EB800B78C15 /* AS_F__Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AS_F__Tests.swift; sourceTree = "<group>"; };
+		911A0C8226668F4C00B78C15 /* AS_T__Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AS_T__Tests.swift; sourceTree = "<group>"; };
 		911BB7482632899E006882D8 /* VimEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VimEngine.swift; sourceTree = "<group>"; };
 		911BB75526328D7D006882D8 /* EventTapController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTapController.swift; sourceTree = "<group>"; };
 		9124BFF826668D10004C45B9 /* UsingAS_T__Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsingAS_T__Tests.swift; sourceTree = "<group>"; };
@@ -858,9 +862,11 @@
 				9153E85A266279E000064761 /* AS_b_Tests.swift */,
 				91643DE22665376D002F2D0E /* AS_ci"_Tests.swift */,
 				9101F4BA266657B500F7BCF3 /* AS_f_Tests.swift */,
+				911A0C7C26668EB800B78C15 /* AS_F__Tests.swift */,
 				91FA1D932657B48B005F576E /* AS_h_Tests.swift */,
 				91FA1D972657BF0E005F576E /* AS_l_Tests.swift */,
 				91EC166A2666706500A577D8 /* AS_t_Tests.swift */,
+				911A0C8226668F4C00B78C15 /* AS_T__Tests.swift */,
 				9136AF8E26615A8E00385C07 /* AS_w_Tests.swift */,
 				91FA1D992657C13C005F576E /* AS_$_Tests.swift */,
 				91FA1D952657BE2B005F576E /* AS_0_Tests.swift */,
@@ -1055,8 +1061,10 @@
 				91A54ED92643B34F00400677 /* KS_$_Tests.swift in Sources */,
 				9136AF8F26615A8E00385C07 /* AS_w_Tests.swift in Sources */,
 				91A54EEF2643B88400400677 /* KS_I__Tests.swift in Sources */,
+				911A0C8326668F4C00B78C15 /* AS_T__Tests.swift in Sources */,
 				91643DED2665378D002F2D0E /* UsingAS_ci"_Tests.swift in Sources */,
 				91FA1D9C2657C2BA005F576E /* AS_BlockCursor_Tests.swift in Sources */,
+				911A0C7D26668EB800B78C15 /* AS_F__Tests.swift in Sources */,
 				91E304E32643F335004D9933 /* UsingKS_k_Tests.swift in Sources */,
 				91A54EF72643B9F900400677 /* KS_o_Tests.swift in Sources */,
 				9107EE152646BC32003575A7 /* KS_db_Tests.swift in Sources */,
