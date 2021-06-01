@@ -1,7 +1,7 @@
 @testable import kindaVim
 import XCTest
 
-// more tests are done on the TextEngine level—especially findNext func
+// more tests are done on the TextEngine level
 // the TextEngine tests make sure it works properly if we are
 // at last character, out of bound, on the character we're searching, etc...
 // here the two tests relevant are:
