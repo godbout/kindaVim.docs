@@ -165,6 +165,8 @@ class VimEngine {
                 post(keyboardStrategy.s())
             case .t:
                 enterOperatorPendingMode(with: keyCombination)
+            case .T:
+                enterOperatorPendingMode(with: keyCombination)
             case .u:
                 post(keyboardStrategy.u())
             case .controlU:
@@ -291,13 +293,18 @@ class VimEngine {
                 }
             }
 
-            // special case of the simple-change r command
             if operatorPendingBuffer.first?.vimKey == .r, let replacement = operatorPendingBuffer.last {
                 post(keyboardStrategy.r(with: replacement))
             }
             
             if operatorPendingBuffer.first?.vimKey == .t, let characterToGoBefore = operatorPendingBuffer.last {
                 if let element = accessibilityStrategy.t(characterToGoBefore: characterToGoBefore.character, on: focusedElement()) {
+                    _ = push(element: element)
+                }
+            }
+            
+            if operatorPendingBuffer.first?.vimKey == .T, let characterToGoAfter = operatorPendingBuffer.last {
+                if let element = accessibilityStrategy.T(characterToGoAfter: characterToGoAfter.character, on: focusedElement()) {
                     _ = push(element: element)
                 }
             }
