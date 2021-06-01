@@ -10,6 +10,7 @@ protocol AccessibilityStrategyProtocol {
     func j(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func k(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func l(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
+    func t(characterToGoBefore: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func w(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func dollarSign(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func zero(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
@@ -147,6 +148,18 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
             element.caretLocation += 1
         }
 
+        return element
+    }
+    
+    func t(characterToGoBefore: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        guard var element = element else { return nil }
+        
+        let lineText = element.currentLine.value
+        
+//        if let characterToGoToIndex = textEngine.findNext(characterToGoTo, after: element.caretLocation, in: lineText) {
+//            element.caretLocation = element.currentLine.start! + characterToGoToIndex            
+//        }
+        
         return element
     }
 
