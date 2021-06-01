@@ -180,6 +180,12 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
     func T(characterToGoAfter: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         guard var element = element else { return nil }
         
+        let lineText = element.currentLine.value
+        
+        if let characterFoundLocation = textEngine.findPrevious(characterToGoAfter, before: element.caretLocation, in: lineText) {
+            element.caretLocation = element.currentLine.start! + characterFoundLocation + 1
+        }
+        
         return element
     }
 
