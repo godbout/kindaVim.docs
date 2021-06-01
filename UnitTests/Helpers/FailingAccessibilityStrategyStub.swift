@@ -19,6 +19,10 @@ struct FailingAccessibilityStrategyStub: AccessibilityStrategyProtocol {
         return nil
     }
     
+    func f(characterToGoTo: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        return nil
+    }
+    
     func h(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return nil
     }
