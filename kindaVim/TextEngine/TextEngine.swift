@@ -34,6 +34,12 @@ struct TextEngine: TextEngineProtocol {
         return text.distance(from: text.startIndex, to: characterIndex)
     }
     
+    func findLast(_ character: Character, in text: String) -> Int? {
+        guard let characterIndex = text.lastIndex(of: character) else { return nil }
+        
+        return text.distance(from: text.startIndex, to: characterIndex)
+    }
+    
     func findNext(_ character: Character, after location: Int, in text: String) -> Int? {
         guard let searchStartIndex = text.index(text.startIndex, offsetBy: location + 1, limitedBy: text.endIndex) else { return nil }
         let searchEndIndex = text.endIndex
