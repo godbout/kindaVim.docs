@@ -11,6 +11,12 @@ class TextEngineMock: TextEngineProtocol {
         return nil 
     }
     
+    func findNext(_ character: Character, after location: Int, in text: String) -> Int? {
+        functionCalled = #function
+        
+        return nil 
+    }
+    
     func findSecond(_ character: Character, in text: String) -> Int? {
         functionCalled = #function
         
