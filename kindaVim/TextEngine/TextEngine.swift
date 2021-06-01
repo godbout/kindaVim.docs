@@ -50,7 +50,12 @@ struct TextEngine: TextEngineProtocol {
     }
     
     func findPrevious(_ character: Character, before location: Int, in text: String) -> Int? {
-        return nil 
+        let searchStartIndex = text.startIndex
+        guard let searchEndIndex = text.index(text.startIndex, offsetBy: location, limitedBy: text.endIndex) else { return nil }
+        
+        guard let characterToGoToLocation = findLast(character, in: String(text[searchStartIndex..<searchEndIndex])) else { return nil }
+        
+        return characterToGoToLocation
     }
     
     func findSecond(_ character: Character, in text: String) -> Int? {
