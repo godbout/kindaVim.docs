@@ -68,8 +68,8 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
         
         let lineText = element.currentLine.value
         
-        if let characterFoundIndex = textEngine.findNext(characterToGoTo, after: element.caretLocation, in: lineText) {
-            element.caretLocation = element.currentLine.start! + characterFoundIndex            
+        if let characterFoundLocation = textEngine.findNext(characterToGoTo, after: element.caretLocation, in: lineText) {
+            element.caretLocation = element.currentLine.start! + characterFoundLocation            
         }
 
         return element
@@ -80,8 +80,8 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
         
         let lineText = element.currentLine.value
         
-        if let characterFoundIndex = textEngine.findPrevious(characterToGoTo, before: element.caretLocation, in: lineText) {
-            element.caretLocation = element.currentLine.start! + characterFoundIndex            
+        if let characterFoundLocation = textEngine.findPrevious(characterToGoTo, before: element.caretLocation, in: lineText) {
+            element.caretLocation = element.currentLine.start! + characterFoundLocation            
         }
         
         return element
@@ -170,8 +170,8 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
         
         let lineText = element.currentLine.value
         
-        if let characterFoundIndex = textEngine.findNext(characterToGoBefore, after: element.caretLocation, in: lineText) {
-            element.caretLocation = element.currentLine.start! + characterFoundIndex - 1            
+        if let characterFoundLocation = textEngine.findNext(characterToGoBefore, after: element.caretLocation, in: lineText) {
+            element.caretLocation = element.currentLine.start! + characterFoundLocation - 1            
         }
         
         return element
