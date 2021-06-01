@@ -66,8 +66,8 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
         
         let lineText = element.currentLine.value
         
-        if let characterToGoToIndex = textEngine.findNext(characterToGoTo, after: element.caretLocation, in: lineText) {
-            element.caretLocation = element.currentLine.start! + characterToGoToIndex            
+        if let characterFoundIndex = textEngine.findNext(characterToGoTo, after: element.caretLocation, in: lineText) {
+            element.caretLocation = element.currentLine.start! + characterFoundIndex            
         }
 
         return element
