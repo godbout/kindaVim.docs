@@ -180,3 +180,13 @@ extension KeyCombinationTests {
     }
 
 }
+
+// wanted to test the character computer property
+// but cannot because we need a REAL CGEvent.
+// a fake one is not enough as they result of keyboardGetUnicodeString
+// is not computed according to keyCode and modifiers, but to what
+// modifiers you really press physically. at least it seems as i kept
+// receiving the lowercase versions of the keyCode even if the 
+// shift flag was passed. and the tests would pass if i keep pressing shift LMAO
+// so we just have to trust Apple for now
+extension KeyCombinationTests {}

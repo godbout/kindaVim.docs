@@ -123,6 +123,15 @@ struct KeyCombination {
     var option: Bool = false
     var control: Bool = false
     var shift: Bool = false
+    var character: Character {
+        let cgEvent = KeyCombinationAdaptor.toCGEvents(from: self)
+        
+        var uniChar = UniChar()
+        var length = 0
+        cgEvent.first?.keyboardGetUnicodeString(maxStringLength: 1, actualStringLength: &length, unicodeString: &uniChar)
+        
+        return Character(UnicodeScalar(uniChar) ?? "?")        
+    }
     var action: KeyCombinationAction = .both
     
     init(key: KeyCode, control: Bool = false, option: Bool = false, shift: Bool = false, command: Bool = false, action: KeyCombinationAction = .both) {
