@@ -1,7 +1,7 @@
 @testable import kindaVim
 import XCTest
 
-class UsingAS_F_Tests: UsingAS_BaseTests {
+class UsingAS_F__Tests: UsingAS_BaseTests {
     
     override func setUp() {
         super.setUp()
@@ -12,7 +12,7 @@ class UsingAS_F_Tests: UsingAS_BaseTests {
     
 }
 
-extension UsingAS_F_Tests {
+extension UsingAS_F__Tests {
     
     func test_that_it_calls_the_correct_function_on_accessibility_strategy() {
         XCTAssertEqual(accessibilityStrategyMock.functionCalled, "F(characterToGoTo:on:)")
