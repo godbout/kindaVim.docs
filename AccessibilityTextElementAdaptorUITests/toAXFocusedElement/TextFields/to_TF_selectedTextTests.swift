@@ -14,7 +14,7 @@ class to_TF_selectedTextTests: ATEA_BaseTests {
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
         
-        let conversionSucceeded = AccessibilityTextElementAdaptor.toAXFocusedElememt(from: accessibilityElement)
+        let conversionSucceeded = AccessibilityTextElementAdaptor.toAXfocusedElement(from: accessibilityElement)
         XCTAssertTrue(conversionSucceeded)
         
         let reconvertedAccessibilityTextElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()

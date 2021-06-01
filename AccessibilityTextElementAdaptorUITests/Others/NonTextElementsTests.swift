@@ -27,7 +27,7 @@ extension NonTextElementsTests {
 //
 //        app.buttons.firstMatch.tap()
 //
-//        let conversionSucceeded = AccessibilityTextElementAdaptor.toAXFocusedElememt(from: accessibilityElement)
+//        let conversionSucceeded = AccessibilityTextElementAdaptor.toAXfocusedElement(from: accessibilityElement)
 //
 //        XCTAssertFalse(conversionSucceeded)
     }

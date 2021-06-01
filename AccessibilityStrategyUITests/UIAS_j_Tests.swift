@@ -80,12 +80,12 @@ another long line longer than all the other ones!!!
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .h))
         
         let firstJ = accessibilityStrategy.j(on: AccessibilityTextElementAdaptor.fromAXFocusedElement())
-        _ = AccessibilityTextElementAdaptor.toAXFocusedElememt(from: firstJ!)
+        _ = AccessibilityTextElementAdaptor.toAXfocusedElement(from: firstJ!)
         
         XCTAssertEqual(firstJ?.caretLocation, 33)
         
         let secondJ = accessibilityStrategy.j(on: AccessibilityTextElementAdaptor.fromAXFocusedElement())
-        _ = AccessibilityTextElementAdaptor.toAXFocusedElememt(from: secondJ!)
+        _ = AccessibilityTextElementAdaptor.toAXfocusedElement(from: secondJ!)
         
         XCTAssertEqual(secondJ?.caretLocation, 53)
 

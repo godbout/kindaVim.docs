@@ -83,7 +83,7 @@ struct AccessibilityTextElementAdaptor {
         }
     }
 
-    static func toAXFocusedElememt(from accessibilityElement: AccessibilityTextElement) -> Bool {
+    static func toAXfocusedElement(from accessibilityElement: AccessibilityTextElement) -> Bool {
         guard let axFocusedElement = AXEngine.axFocusedElement() else { return false }
         
         var selectedTextRange = CFRange()
