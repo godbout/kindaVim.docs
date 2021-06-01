@@ -6,7 +6,7 @@ class AS_ciDoubleQuote_Tests: AS_BaseTests {}
 // Both
 extension AS_ciDoubleQuote_Tests {
     
-    func test_that_in_normal_setting_it_deletes_what_is_between_two_double_quotes() {
+    func test_that_in_normal_setting_it_deletes_what_is_between_two_double_quotes() throws {
         throw XCTSkip("this test for sure can't pass. would need to push to AXUIElement first. skip for now.")
         
         let text = """
