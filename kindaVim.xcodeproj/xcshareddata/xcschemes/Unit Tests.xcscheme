@@ -40,26 +40,6 @@
                ReferencedContainer = "container:kindaVim.xcodeproj">
             </BuildableReference>
          </TestableReference>
-         <TestableReference
-            skipped = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "91A147AF2661221100D160AD"
-               BuildableName = "AccessibilityTextElementAdaptorUITests.xctest"
-               BlueprintName = "AccessibilityTextElementAdaptorUITests"
-               ReferencedContainer = "container:kindaVim.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "91A147C32661222900D160AD"
-               BuildableName = "AccessibilityStrategyUITests.xctest"
-               BlueprintName = "AccessibilityStrategyUITests"
-               ReferencedContainer = "container:kindaVim.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

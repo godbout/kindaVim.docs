@@ -54,13 +54,27 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
         
         let lineText = element.currentLine.value
         
+        if let previousDoubleQuoteLocation = textEngine.findPrevious("\"", before: element.caretLocation, in: lineText) {
+            if let nextDoubleQuoteLocation = textEngine.findNext("\"", after: element.caretLocation, in: lineText) {
+                element.caretLocation = element.currentLine.start! + (previousDoubleQuoteLocation + 1)
+                element.selectedLength = nextDoubleQuoteLocation - (previousDoubleQuoteLocation + 1)
+                element.selectedText = ""
+                
+                return element
+            }
+            
+            return nil
+        }
+                
         if let firstDoubleQuoteLocation = textEngine.findFirst("\"", in: lineText), let secondDoubleQuoteLocation = textEngine.findSecond("\"", in: lineText) {
             element.caretLocation = element.currentLine.start! + (firstDoubleQuoteLocation + 1)
             element.selectedLength = secondDoubleQuoteLocation - (firstDoubleQuoteLocation + 1)
             element.selectedText = ""
+            
+            return element
         }
         
-        return element        
+        return nil        
     }
 
     func f(characterToGoTo: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
