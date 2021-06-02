@@ -227,6 +227,8 @@ class VimEngine {
         case [.c, .i]:
             ()
         case [.c, .i, .doubleQuote]:
+            enterNormalMode()
+            
             if let element = accessibilityStrategy.ciDoubleQuote(on: focusedElement()) {
                 if push(element: element) == true {
                     enterInsertMode()
