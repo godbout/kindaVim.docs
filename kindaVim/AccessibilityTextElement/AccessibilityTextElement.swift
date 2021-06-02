@@ -15,6 +15,7 @@ enum AccessibilityTextElementRole {
     
 }
 
+
 struct AccessibilityTextElementLine {
     
     var fullValue: String
