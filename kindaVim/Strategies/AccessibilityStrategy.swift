@@ -5,14 +5,14 @@ protocol AccessibilityStrategyProtocol {
     func a(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func b(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func ciDoubleQuote(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
-    func f(characterToGoTo: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement?
-    func F(characterToGoTo: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement?
+    func f(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement?
+    func F(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func h(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func j(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func k(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func l(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
-    func t(characterToGoBefore: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement?
-    func T(characterToGoAfter: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement?
+    func t(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement?
+    func T(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func w(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func dollarSign(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func zero(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
@@ -77,24 +77,24 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
         return nil        
     }
 
-    func f(characterToGoTo: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func f(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         guard var element = element else { return nil }
         
         let lineText = element.currentLine.value
         
-        if let characterFoundLocation = textEngine.findNext(characterToGoTo, after: element.caretLocation, in: lineText) {
+        if let characterFoundLocation = textEngine.findNext(character, after: element.caretLocation, in: lineText) {
             element.caretLocation = element.currentLine.start! + characterFoundLocation            
         }
 
         return element
     }
     
-    func F(characterToGoTo: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func F(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         guard var element = element else { return nil }
         
         let lineText = element.currentLine.value
         
-        if let characterFoundLocation = textEngine.findPrevious(characterToGoTo, before: element.caretLocation, in: lineText) {
+        if let characterFoundLocation = textEngine.findPrevious(character, before: element.caretLocation, in: lineText) {
             element.caretLocation = element.currentLine.start! + characterFoundLocation            
         }
         
@@ -179,24 +179,24 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
         return element
     }
     
-    func t(characterToGoBefore: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func t(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         guard var element = element else { return nil }
         
         let lineText = element.currentLine.value
         
-        if let characterFoundLocation = textEngine.findNext(characterToGoBefore, after: element.caretLocation, in: lineText) {
+        if let characterFoundLocation = textEngine.findNext(character, after: element.caretLocation, in: lineText) {
             element.caretLocation = element.currentLine.start! + characterFoundLocation - 1            
         }
         
         return element
     }
     
-    func T(characterToGoAfter: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func T(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         guard var element = element else { return nil }
         
         let lineText = element.currentLine.value
         
-        if let characterFoundLocation = textEngine.findPrevious(characterToGoAfter, before: element.caretLocation, in: lineText) {
+        if let characterFoundLocation = textEngine.findPrevious(character, before: element.caretLocation, in: lineText) {
             element.caretLocation = element.currentLine.start! + characterFoundLocation + 1
         }
         

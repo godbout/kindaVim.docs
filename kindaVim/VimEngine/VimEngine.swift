@@ -284,13 +284,13 @@ class VimEngine {
             post(keyboardStrategy.yy())
         default:
             if operatorPendingBuffer.first?.vimKey == .f, let characterToGoTo = operatorPendingBuffer.last {
-                if let element = accessibilityStrategy.f(characterToGoTo: characterToGoTo.character, on: focusedElement()) {
+                if let element = accessibilityStrategy.f(to: characterToGoTo.character, on: focusedElement()) {
                     _ = push(element: element)
                 }
             }
             
             if operatorPendingBuffer.first?.vimKey == .F, let characterToGoTo = operatorPendingBuffer.last {
-                if let element = accessibilityStrategy.F(characterToGoTo: characterToGoTo.character, on: focusedElement()) {
+                if let element = accessibilityStrategy.F(to: characterToGoTo.character, on: focusedElement()) {
                     _ = push(element: element)
                 }
             }
@@ -300,13 +300,13 @@ class VimEngine {
             }
             
             if operatorPendingBuffer.first?.vimKey == .t, let characterToGoBefore = operatorPendingBuffer.last {
-                if let element = accessibilityStrategy.t(characterToGoBefore: characterToGoBefore.character, on: focusedElement()) {
+                if let element = accessibilityStrategy.t(to: characterToGoBefore.character, on: focusedElement()) {
                     _ = push(element: element)
                 }
             }
             
             if operatorPendingBuffer.first?.vimKey == .T, let characterToGoAfter = operatorPendingBuffer.last {
-                if let element = accessibilityStrategy.T(characterToGoAfter: characterToGoAfter.character, on: focusedElement()) {
+                if let element = accessibilityStrategy.T(to: characterToGoAfter.character, on: focusedElement()) {
                     _ = push(element: element)
                 }
             }

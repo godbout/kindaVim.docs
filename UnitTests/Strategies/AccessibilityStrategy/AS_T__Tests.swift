@@ -27,7 +27,7 @@ extension AS_T__Tests {
         )
         
         
-        let returnedElement = accessibilityStrategy.T(characterToGoAfter: "h", on: element)
+        let returnedElement = accessibilityStrategy.T(to: "h", on: element)
         
         XCTAssertEqual(returnedElement?.caretLocation, 2)
     }
@@ -51,7 +51,7 @@ that is not there
         )
         
         
-        let returnedElement = accessibilityStrategy.T(characterToGoAfter: "z", on: element)
+        let returnedElement = accessibilityStrategy.T(to: "z", on: element)
         
         XCTAssertEqual(returnedElement?.caretLocation, 22)
     }

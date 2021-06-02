@@ -27,7 +27,7 @@ extension AS_t_Tests {
         )
         
         
-        let returnedElement = accessibilityStrategy.t(characterToGoBefore: "i", on: element)
+        let returnedElement = accessibilityStrategy.t(to: "i", on: element)
         
         XCTAssertEqual(returnedElement?.caretLocation, 15)
     }
@@ -51,7 +51,7 @@ that is not there
         )
         
         
-        let returnedElement = accessibilityStrategy.t(characterToGoBefore: "z", on: element)
+        let returnedElement = accessibilityStrategy.t(to: "z", on: element)
         
         XCTAssertEqual(returnedElement?.caretLocation, 22)
     }

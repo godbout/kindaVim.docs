@@ -27,13 +27,13 @@ class AccessibilityStrategyMock: AccessibilityStrategyProtocol {
         return nil
     }
     
-    func f(characterToGoTo: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func f(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         
         return nil
     }
     
-    func F(characterToGoTo: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func F(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         
         return nil
@@ -63,13 +63,13 @@ class AccessibilityStrategyMock: AccessibilityStrategyProtocol {
         return nil
     }
     
-    func t(characterToGoBefore: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func t(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         
         return nil
     }
     
-    func T(characterToGoAfter: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func T(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         
         return nil
