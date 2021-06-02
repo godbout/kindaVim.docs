@@ -144,5 +144,30 @@ that's " three quotes " in there "
         XCTAssertEqual(returnedElement?.selectedLength, 14)
         XCTAssertEqual(returnedElement?.selectedText, "") 
     }
+    
+    // this is for now. but later this will have to be removed as the behavior when the caret
+    // is at a double quote is more complicated than this
+    func test_that_current_when_the_caret_is_at_the_last_quote_and_there_are_more_than_one_in_total_it_deletes_the_content() {
+        let text = """
+that's " three quotes " in there "
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            caretLocation: 33,
+            currentLine: AccessibilityTextElementLine(
+                fullValue: text,
+                number: 0,
+                start: 0,
+                end: 34
+            )
+        )
+        
+        let returnedElement = accessibilityStrategy.ciDoubleQuote(on: element)
+        
+        XCTAssertEqual(returnedElement?.caretLocation, 23)
+        XCTAssertEqual(returnedElement?.selectedLength, 10)
+        XCTAssertEqual(returnedElement?.selectedText, "") 
+    }
   
 }
