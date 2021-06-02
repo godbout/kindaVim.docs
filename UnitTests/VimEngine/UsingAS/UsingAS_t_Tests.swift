@@ -15,7 +15,7 @@ class UsingAS_t_Tests: UsingAS_BaseTests {
 extension UsingAS_t_Tests {
     
     func test_that_it_calls_the_correct_function_on_accessibility_strategy() {
-        XCTAssertEqual(accessibilityStrategyMock.functionCalled, "t(characterToGoBefore:on:)")
+        XCTAssertEqual(accessibilityStrategyMock.functionCalled, "t(to:on:)")
     }
     
     func test_that_it_keeps_Vim_in_normal_mode() {
