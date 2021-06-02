@@ -39,6 +39,25 @@ extension AS_w_Tests {
         
         XCTAssertEqual(textEngineMock.functionCalled, "wordForward(for:playground:)")        
     }
+    
+    func test_that_it_does_not_drop_the_block_cursor() {
+        let text = "checking the block cursor status when calling that shit move!"
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            caretLocation: 0,
+            currentLine: AccessibilityTextElementLine(
+                fullValue: text,
+                number: 0,
+                start: 0,
+                end: 12
+            )
+        )
+        
+        let returnedElement = accessibilityStrategy.w(on: element)
+        
+        XCTAssertEqual(returnedElement?.selectedLength, 1)
+    }
 
 }
 
