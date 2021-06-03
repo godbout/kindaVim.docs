@@ -31,7 +31,7 @@ that we cannot say
 // TextViews
 extension findFirstTests {
     
-    func test_that_it_does_return_the_first_of_a_whole_multiline_not_just_first_of_the_line() {
+    func test_that_it_does_return_the_first_of_a_whole_multiline() {
         let text = """
 there's a z here
 but also one here z

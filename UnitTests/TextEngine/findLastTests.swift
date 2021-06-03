@@ -21,3 +21,20 @@ extension findLastTests {
     }
 
 }
+
+
+// TextViews
+extension findLastTests {
+    
+    func test_that_in_multiline_texts_it_returns_the_last_of_the_whole_text() {
+        let text = """
+a big text
+that is big
+yes big
+"""
+        let location = textEngine.findLast("g", in: text)
+        
+        XCTAssertEqual(location, 29)
+    }
+    
+}
