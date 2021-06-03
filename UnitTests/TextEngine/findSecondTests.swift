@@ -15,13 +15,20 @@ some text with at least two " in " it
         XCTAssertEqual(location, 33)        
     }
     
+    func test_that_if_there_is_no_second_occurrence_it_returns_nil() {
+        let text = "there's only one...i cannot say haha"
+        
+        let location = textEngine.findSecond("l", in: text)
+        
+        XCTAssertNil(location)
+    }
     
-    
-}
-
-
-// TextViews
-extension findSecondTests {
-    
+    func test_that_it_returns_nil_for_an_empty_line() {
+        let text = ""
+        
+        let location = textEngine.findSecond("a", in: text)
+        
+        XCTAssertNil(location)
+    }
     
 }

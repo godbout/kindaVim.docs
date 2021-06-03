@@ -44,6 +44,14 @@ here so caret shouldn't move
         XCTAssertEqual(location, nil)
     }
     
+    func test_that_it_returns_nil_for_an_empty_line() {
+        let text = ""
+        
+        let location = textEngine.findPrevious("a", before: 0, in: text)
+        
+        XCTAssertNil(location)
+    }
+    
 }
 
 // TextViews

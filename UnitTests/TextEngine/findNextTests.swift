@@ -42,8 +42,15 @@ here so caret shouldn't move
         let text = "caret at the endLinit of line"
         let location = textEngine.findNext("e", after: 28, in: text)
         
-        XCTAssertEqual(location, nil)
+        XCTAssertEqual(location, nil)        
+    }
+    
+    func test_that_it_returns_nil_for_an_empty_line() {
+        let text = ""
         
+        let location = textEngine.findNext("a", after: 0, in: text)
+        
+        XCTAssertNil(location)
     }
     
 }
