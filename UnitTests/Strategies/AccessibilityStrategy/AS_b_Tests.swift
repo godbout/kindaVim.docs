@@ -41,7 +41,7 @@ the TextEngineTests
         
         _ = accessibilityStrategy.b(on: element)
         
-        XCTAssertEqual(textEngineMock.functionCalled, "wordBackward(for:playground:)")        
+        XCTAssertEqual(textEngineMock.functionCalled, "wordBackward(startingAt:in:)")        
     }
     
     func test_that_it_does_not_drop_the_block_cursor() {

@@ -5,8 +5,8 @@ protocol TextEngineProtocol {
     func findNext(_ character: Character, after location: Int, in text: String) -> Int?
     func findPrevious(_ character: Character, before location: Int, in text: String) -> Int?
     func findSecond(_ character: Character, in text: String) -> Int?
-    func wordBackward(for location: Int, playground text: String) -> Int
-    func wordForward(for location: Int, playground text: String) -> Int
+    func wordBackward(startingAt location: Int, in text: String) -> Int
+    func wordForward(startingAt location: Int, in text: String) -> Int
     
 }
 
@@ -74,7 +74,7 @@ struct TextEngine: TextEngineProtocol {
         return text.distance(from: text.startIndex, to: nextToFirstCharacterIndex) + secondCharacterLocation
     }
     
-    func wordBackward(for location: Int, playground text: String) -> Int {
+    func wordBackward(startingAt location: Int, in text: String) -> Int {
         let anchorIndex = text.index(text.startIndex, offsetBy: location)
         let startIndex = text.startIndex
         
@@ -116,7 +116,7 @@ struct TextEngine: TextEngineProtocol {
         return location
     }
 
-    func wordForward(for location: Int, playground text: String) -> Int {
+    func wordForward(startingAt location: Int, in text: String) -> Int {
         let anchorIndex = text.index(text.startIndex, offsetBy: location)
         let endIndex = text.endIndex
         

@@ -35,13 +35,13 @@ class TextEngineMock: TextEngineProtocol {
         return nil 
     }
     
-    func wordBackward(for location: Int, playground text: String) -> Int {
+    func wordBackward(startingAt location: Int, in text: String) -> Int {
         functionCalled = #function
         
         return location
     }
     
-    func wordForward(for location: Int, playground text: String) -> Int {
+    func wordForward(startingAt location: Int, in text: String) -> Int {
         functionCalled = #function
         
         return location

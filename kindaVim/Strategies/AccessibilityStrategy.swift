@@ -42,7 +42,7 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
     func b(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         guard var element = element else { return nil }
         
-        element.caretLocation = textEngine.wordBackward(for: element.caretLocation, playground: element.value)  
+        element.caretLocation = textEngine.wordBackward(startingAt: element.caretLocation, in: element.value)  
         
         return element
     }
@@ -230,7 +230,7 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
     func w(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         guard var element = element else { return nil }
 
-        element.caretLocation = textEngine.wordForward(for: element.caretLocation, playground: element.value)
+        element.caretLocation = textEngine.wordForward(startingAt: element.caretLocation, in: element.value)
 
         return element
     }
