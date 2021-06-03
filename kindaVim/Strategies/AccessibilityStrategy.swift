@@ -129,7 +129,16 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
     func I(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         guard var element = element else { return nil }
         
-        return nil
+        let lineText = element.currentLine.value
+        
+        let characterFoundLocation = textEngine.findFirstNonBlank(in: lineText)
+        
+        if let lineStart = element.currentLine.start {
+            element.caretLocation = lineStart + characterFoundLocation
+            element.selectedLength = 0
+        } 
+        
+        return element
     }
     
     func j(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
