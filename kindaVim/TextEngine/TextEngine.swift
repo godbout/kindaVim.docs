@@ -52,18 +52,18 @@ struct TextEngine: TextEngineProtocol {
         guard let searchStartIndex = text.index(text.startIndex, offsetBy: location + 1, limitedBy: text.endIndex) else { return nil }
         let searchEndIndex = text.endIndex
         
-        guard let characterToGoToLocation = findFirst(character, in: String(text[searchStartIndex..<searchEndIndex])) else { return nil }
+        guard let characterFoundLocation = findFirst(character, in: String(text[searchStartIndex..<searchEndIndex])) else { return nil }
         
-        return (location + 1) + characterToGoToLocation
+        return (location + 1) + characterFoundLocation
     }
     
     func findPrevious(_ character: Character, before location: Int, in text: String) -> Int? {
         let searchStartIndex = text.startIndex
         guard let searchEndIndex = text.index(text.startIndex, offsetBy: location, limitedBy: text.endIndex) else { return nil }
         
-        guard let characterToGoToLocation = findLast(character, in: String(text[searchStartIndex..<searchEndIndex])) else { return nil }
+        guard let characterFoundLocation = findLast(character, in: String(text[searchStartIndex..<searchEndIndex])) else { return nil }
         
-        return characterToGoToLocation
+        return characterFoundLocation
     }
     
     func findSecond(_ character: Character, in text: String) -> Int? {
