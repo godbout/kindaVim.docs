@@ -11,6 +11,12 @@ class TextEngineMock: TextEngineProtocol {
         return nil 
     }
     
+    func findFirstNonBlank(in text: String) -> Int {
+        functionCalled = #function
+        
+        return 0
+    }
+    
     func findNext(_ character: Character, after location: Int, in text: String) -> Int? {
         functionCalled = #function
         

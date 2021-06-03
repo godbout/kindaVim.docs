@@ -186,6 +186,8 @@
 		91F7A005264FC70500B609FF /* UsingAS_BaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F7A004264FC70500B609FF /* UsingAS_BaseTests.swift */; };
 		91F7A007264FC75F00B609FF /* UsingAS_h_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F7A006264FC75F00B609FF /* UsingAS_h_Tests.swift */; };
 		91F7A009264FC81000B609FF /* AccessibilityStrategyMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F7A008264FC81000B609FF /* AccessibilityStrategyMock.swift */; };
+		91F90BF62669230C00176433 /* AS_I__Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F90BF52669230C00176433 /* AS_I__Tests.swift */; };
+		91F90BFC2669249700176433 /* findFirstNonBlankTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F90BFB2669249700176433 /* findFirstNonBlankTests.swift */; };
 		91FA1D922657B443005F576E /* AS_BaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FA1D912657B443005F576E /* AS_BaseTests.swift */; };
 		91FA1D942657B48B005F576E /* AS_h_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FA1D932657B48B005F576E /* AS_h_Tests.swift */; };
 		91FA1D962657BE2B005F576E /* AS_0_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FA1D952657BE2B005F576E /* AS_0_Tests.swift */; };
@@ -393,6 +395,8 @@
 		91F7A006264FC75F00B609FF /* UsingAS_h_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsingAS_h_Tests.swift; sourceTree = "<group>"; };
 		91F7A008264FC81000B609FF /* AccessibilityStrategyMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilityStrategyMock.swift; sourceTree = "<group>"; };
 		91F83FA32656B81400199276 /* UIAS_BaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAS_BaseTests.swift; sourceTree = "<group>"; };
+		91F90BF52669230C00176433 /* AS_I__Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AS_I__Tests.swift; sourceTree = "<group>"; };
+		91F90BFB2669249700176433 /* findFirstNonBlankTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = findFirstNonBlankTests.swift; sourceTree = "<group>"; };
 		91FA1D912657B443005F576E /* AS_BaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AS_BaseTests.swift; sourceTree = "<group>"; };
 		91FA1D932657B48B005F576E /* AS_h_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AS_h_Tests.swift; sourceTree = "<group>"; };
 		91FA1D952657BE2B005F576E /* AS_0_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AS_0_Tests.swift; sourceTree = "<group>"; };
@@ -715,6 +719,7 @@
 			children = (
 				9153E86A2662963300064761 /* TextEngineBaseTests.swift */,
 				91643DFB266537A3002F2D0E /* findFirstTests.swift */,
+				91F90BFB2669249700176433 /* findFirstNonBlankTests.swift */,
 				91C47DA126668435008E55AA /* findLastTests.swift */,
 				9101F4C026665AE500F7BCF3 /* findNextTests.swift */,
 				913E7C09266681E300370A7F /* findPreviousTests.swift */,
@@ -864,6 +869,7 @@
 				9101F4BA266657B500F7BCF3 /* AS_f_Tests.swift */,
 				911A0C7C26668EB800B78C15 /* AS_F__Tests.swift */,
 				91FA1D932657B48B005F576E /* AS_h_Tests.swift */,
+				91F90BF52669230C00176433 /* AS_I__Tests.swift */,
 				91FA1D972657BF0E005F576E /* AS_l_Tests.swift */,
 				91EC166A2666706500A577D8 /* AS_t_Tests.swift */,
 				911A0C8226668F4C00B78C15 /* AS_T__Tests.swift */,
@@ -1099,6 +1105,7 @@
 				91A54EF52643B98700400677 /* KS_l_Tests.swift in Sources */,
 				91E304F12643F528004D9933 /* UsingKS_X__Tests.swift in Sources */,
 				91BFF31B26403F95003B7A2A /* KeyCombinationTests.swift in Sources */,
+				91F90BFC2669249700176433 /* findFirstNonBlankTests.swift in Sources */,
 				9170AD6326662149000651D5 /* UsingAS_f_Tests.swift in Sources */,
 				91473C7E2647009000AA52D5 /* KS_r_Tests.swift in Sources */,
 				91E304E52643F3AC004D9933 /* UsingKS_o_Tests.swift in Sources */,
@@ -1178,6 +1185,7 @@
 				91E304C52643ED2E004D9933 /* UsingKS_b_Tests.swift in Sources */,
 				91643DE32665376D002F2D0E /* AS_ci"_Tests.swift in Sources */,
 				91E304CB2643EF64004D9933 /* UsingKS_d_Tests.swift in Sources */,
+				91F90BF62669230C00176433 /* AS_I__Tests.swift in Sources */,
 				9140E6DD264554320021C2FB /* KS_cgg_Tests.swift in Sources */,
 				91E304FD2643FB2D004D9933 /* UsingKS_NotImplementedOrDontExist_Tests.swift in Sources */,
 				91A54EE72643B76F00400677 /* KS_dd_Tests.swift in Sources */,
