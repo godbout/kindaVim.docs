@@ -6,6 +6,7 @@ protocol AccessibilityStrategyProtocol {
     func a(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func b(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func ciDoubleQuote(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
+    func dd(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func f(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func F(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func h(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
@@ -74,6 +75,12 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
         }
         
         return nil        
+    }
+    
+    func dd(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        guard var element = element else { return nil }
+        
+        return nil
     }
 
     func f(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {

@@ -261,7 +261,14 @@ class VimEngine {
         case [.d, .d]:
             enterNormalMode()
             
-            post(keyboardStrategy.dd())
+            // ugly af; need to refactor
+            if let element = accessibilityStrategy.dd(on: focusedElement()) {
+                if push(element: element) == false {
+                    post(keyboardStrategy.dd())
+                }
+            } else {
+                post(keyboardStrategy.dd())
+            }
         case [.d, .g]:
             ()
         case [.d, .g, .g]:
