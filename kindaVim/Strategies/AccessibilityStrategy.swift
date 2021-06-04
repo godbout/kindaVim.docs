@@ -79,9 +79,12 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
     
     func dd(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         guard var element = element else { return nil }
-        guard let lineEnd = element.currentLine.end else { return nil }
+        guard let lineEnd = element.currentLine.end else { return element }
         
-        element.caretLocation = element.currentLine.start!
+        let startOfNextLineToEndOfText = element.value[element.value.index(element.value.startIndex, offsetBy: lineEnd)..<element.value.endIndex]
+        let firstNonBlankOnNextLineLocation = textEngine.findFirstNonBlank(in: String(startOfNextLineToEndOfText))
+
+        element.caretLocation = element.currentLine.start! + firstNonBlankOnNextLineLocation
         element.selectedLength = lineEnd - element.currentLine.start!
         element.selectedText = ""
         
