@@ -230,13 +230,17 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
     
     func o(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         guard var element = element else { return nil }
+        guard element.role == .textArea else { return element }
         
         let lineText = element.currentLine.value
         let caretLocationIndex = lineText.index(lineText.startIndex, offsetBy: element.caretLocation - element.currentLine.start!)
-        let textFromCaretToEndOfLine = lineText[caretLocationIndex..<lineText.index(before: lineText.endIndex)]
+        let textFromCaretToOneCharacterBeforeEndOfLine = lineText[caretLocationIndex..<lineText.index(before: lineText.endIndex)]
         
-        element.selectedLength = textFromCaretToEndOfLine.count
-        element.selectedText = String(textFromCaretToEndOfLine + "\n")
+        let firstNonBlankOfCurrentLineLocation = textEngine.findFirstNonBlank(in: lineText)
+        let firstNonBlankOfCurrentLineText = lineText[lineText.startIndex..<lineText.index(lineText.startIndex, offsetBy: firstNonBlankOfCurrentLineLocation)]      
+        
+        element.selectedLength = textFromCaretToOneCharacterBeforeEndOfLine.count
+        element.selectedText = String(textFromCaretToOneCharacterBeforeEndOfLine + "\n" + firstNonBlankOfCurrentLineText)
         
         return element
     }
