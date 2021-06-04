@@ -162,7 +162,14 @@ class VimEngine {
             case .o:
                 enterInsertMode()
 
-                post(keyboardStrategy.o())
+                // ugly af; need to refactor
+                if let element = accessibilityStrategy.o(on: focusedElement()) {
+                    if push(element: element) == false {
+                        post(keyboardStrategy.o())
+                    }
+                } else {
+                    post(keyboardStrategy.o())
+                }
             case .O:
                 enterInsertMode()
 

@@ -15,6 +15,7 @@ protocol AccessibilityStrategyProtocol {
     func j(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func k(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func l(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
+    func o(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func t(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func T(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func w(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
@@ -224,6 +225,19 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
             element.caretLocation += 1
         }
 
+        return element
+    }
+    
+    func o(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        guard var element = element else { return nil }
+        
+        let lineText = element.currentLine.value
+        let caretLocationIndex = lineText.index(lineText.startIndex, offsetBy: element.caretLocation - element.currentLine.start!)
+        let textFromCaretToEndOfLine = lineText[caretLocationIndex..<lineText.index(before: lineText.endIndex)]
+        
+        element.selectedLength = textFromCaretToEndOfLine.count
+        element.selectedText = String(textFromCaretToEndOfLine + "\n")
+        
         return element
     }
     
