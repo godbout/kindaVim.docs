@@ -263,11 +263,12 @@ class VimEngine {
             
             // ugly af; need to refactor
             if let element = accessibilityStrategy.dd(on: focusedElement()) {
-                if push(element: element) == false {
-                    post(keyboardStrategy.dd())
+                if push(element: element) == true {
+                    print("true")
+//                    post(keyboardStrategy.dd())
                 }
             } else {
-                post(keyboardStrategy.dd())
+//                post(keyboardStrategy.dd())
             }
         case [.d, .g]:
             ()
