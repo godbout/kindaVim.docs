@@ -4,6 +4,7 @@ import Foundation
 protocol AccessibilityStrategyProtocol {
 
     func a(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
+    func A(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func b(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func ciDoubleQuote(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func dd(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
@@ -38,6 +39,16 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
 
         element.caretLocation += 1
 
+        return element
+    }
+    
+    func A(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        guard var element = element else { return nil }
+        
+        if let endLimit = element.currentLine.endLimit() {
+            element.caretLocation = endLimit + 1
+        }
+        
         return element
     }
     
