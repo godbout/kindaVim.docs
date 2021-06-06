@@ -119,17 +119,6 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
     func h(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         guard var element = element else { return nil }
         
-        // to handle the Accessibility bug where it returns the wrong
-        // line number when we're at the beginning of a line (returns the previous)
-        if #available(macOS 11.0, *) {
-            let currentLocationIndex = element.value.index(element.value.startIndex, offsetBy: element.caretLocation)
-            let characterBeforeCurrentLocationIndex = element.value.index(before: currentLocationIndex)
-            
-            if element.value[characterBeforeCurrentLocationIndex] == "\n" {
-                return element
-            }
-        }
-
         if element.isNotEmpty(), element.caretIsAtTheEnd(), element.lastCharacterIsNotLinefeed() {
             element.caretLocation -= 1
 
