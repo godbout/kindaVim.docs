@@ -24,7 +24,6 @@ extension AS_o_Tests {
         
         let returnedElement = accessibilityStrategy.o(on: element)
         
-        XCTAssertEqual(returnedElement?.selectedLength, 1)
         XCTAssertNil(returnedElement?.selectedText)
     }
     

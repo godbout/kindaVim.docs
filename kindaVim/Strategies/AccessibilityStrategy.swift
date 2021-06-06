@@ -37,7 +37,6 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
         guard element.currentLine.isOnlyALinefeedCharacter() != true else { return element }
 
         element.caretLocation += 1
-        element.selectedLength = 0
 
         return element
     }
@@ -133,10 +132,6 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
     }
     
     func i(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
-        guard var element = element else { return nil }
-        
-        element.selectedLength = 0
-        
         return element
     }
     
@@ -149,7 +144,6 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
         
         if let lineStart = element.currentLine.start {
             element.caretLocation = lineStart + characterFoundLocation
-            element.selectedLength = 0
         } 
         
         return element
