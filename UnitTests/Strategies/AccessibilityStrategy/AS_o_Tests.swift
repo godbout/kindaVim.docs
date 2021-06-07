@@ -112,5 +112,76 @@ so the new line follows that
         XCTAssertEqual(returnedElement?.selectedLength, 6)
         XCTAssertEqual(returnedElement?.selectedText, " space\n\t")            
     }
+    
+    func test_that_if_on_the_last_line_it_does_not_cut_and_put_the_last_character_on_the_next_new_line() {
+        let text = """
+it should not cut the last character
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            caretLocation: 25,
+            currentLine: AccessibilityTextElementLine(
+                fullValue: text,
+                number: 0,
+                start: 0,
+                end: 36
+            )
+        )
+        
+        let returnedElement = accessibilityStrategy.o(on: element)
+        
+        XCTAssertEqual(returnedElement?.selectedLength, 11)
+        XCTAssertEqual(returnedElement?.selectedText, "t character\n")        
+        
+    }
+    
+    func test_that_if_on_the_last_empty_line_it_does_create_a_new_line() {
+        let text = """
+caret on empty last line
+
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            caretLocation: 25,
+            currentLine: AccessibilityTextElementLine(
+                fullValue: text,
+                number: nil,
+                start: nil,
+                end: nil
+            )
+        )
+        
+        let returnedElement = accessibilityStrategy.o(on: element)
+        
+        XCTAssertEqual(returnedElement?.selectedLength, 0)
+        XCTAssertEqual(returnedElement?.selectedText, "\n")   
+    }
+    
+    func test_that_if_on_a_line_that_is_just_a_linefeed_it_does_create_one_line_and_goes_to_that_line_not_two_lines_below() {
+        let text = """
+two lines empty below
+
+
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            caretLocation: 22,
+            currentLine: AccessibilityTextElementLine(
+                fullValue: text,
+                number: 1,
+                start: 22,
+                end: 23
+            )
+        )
+        
+        let returnedElement = accessibilityStrategy.o(on: element)
+        
+        XCTAssertEqual(returnedElement?.selectedLength, 0)
+        XCTAssertEqual(returnedElement?.selectedText, "\n")   
+    }
+    
 }
 
