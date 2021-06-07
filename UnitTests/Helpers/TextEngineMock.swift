@@ -35,6 +35,12 @@ class TextEngineMock: TextEngineProtocol {
         return nil 
     }
     
+    func previousLine(before location: Int, in text: String) -> String? {
+        functionCalled = #function
+        
+        return nil
+    }
+    
     func wordBackward(startingAt location: Int, in text: String) -> Int {
         functionCalled = #function
         
