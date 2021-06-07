@@ -48,6 +48,10 @@ struct AccessibilityTextElementLine {
 
         return start
     }
+    
+    func isFirstLine() -> Bool {
+        return start == 0
+    }
 
     func isLastLine() -> Bool {
         return start == nil && end == nil

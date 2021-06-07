@@ -1,3 +1,4 @@
+
 import Foundation
 
 
@@ -256,7 +257,45 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
         guard var element = element else { return nil }
         guard element.role == .textArea else { return element }
         
-        return element
+        if element.currentLine.isFirstLine() {
+            let lineText = element.currentLine.value
+            let firstNonBlankOfCurrentLineLocation = textEngine.findFirstNonBlank(in: lineText)
+            let firstNonBlankOfCurrentLineText = lineText[lineText.startIndex..<lineText.index(lineText.startIndex, offsetBy: firstNonBlankOfCurrentLineLocation)]
+            
+            element.caretLocation = 0
+            element.selectedLength = 0
+            element.selectedText = "\n"            
+            
+            _ = AccessibilityTextElementAdaptor.toAXfocusedElement(from: element)
+            
+            element.caretLocation = 0
+            element.selectedLength = 0
+            element.selectedText = String(firstNonBlankOfCurrentLineText)
+            
+            return element            
+        }
+        
+        if element.currentLine.isLastLine() {
+            element.selectedText = "\n"
+            
+            _ = AccessibilityTextElementAdaptor.toAXfocusedElement(from: element)
+            
+            element.selectedText = ""
+            
+            return element
+        }
+                
+        let previousLine = textEngine.previousLine(before: element.caretLocation, in: element.value)!
+        let lineText = element.currentLine.value
+        let lineStart = element.currentLine.start!
+        let firstNonBlankOfCurrentLineLocation = textEngine.findFirstNonBlank(in: lineText)
+        let firstNonBlankOfCurrentLineText = lineText[lineText.startIndex..<lineText.index(lineText.startIndex, offsetBy: firstNonBlankOfCurrentLineLocation)]
+            
+        element.caretLocation = lineStart - previousLine.count
+        element.selectedLength = previousLine.count - 1
+        element.selectedText = previousLine + firstNonBlankOfCurrentLineText
+            
+        return element         
     }
     
     func t(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {

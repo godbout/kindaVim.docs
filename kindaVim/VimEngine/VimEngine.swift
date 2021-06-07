@@ -197,10 +197,10 @@ class VimEngine {
                 // ugly af; need to refactor
                 if let element = accessibilityStrategy.O(on: focusedElement()) {
                     if push(element: element) == false {
-                        post(keyboardStrategy.O())
+                       post(keyboardStrategy.O())
                     }
                 } else {
-                    post(keyboardStrategy.O())
+                   post(keyboardStrategy.O())
                 }
             case .r:
                 enterOperatorPendingMode(with: keyCombination)
