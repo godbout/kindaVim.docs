@@ -1,6 +1,7 @@
 @testable import kindaVim
 import XCTest
 
+
 // more tests are done on the TextEngine level
 // the TextEngine tests make sure it works properly if we are
 // at last character, out of bound, on the character we're searching, etc...
@@ -8,6 +9,7 @@ import XCTest
 // 1. can find the character, then getting the right location
 // 2. cannot find the character, then not moving
 class AS_t_Tests: AS_BaseTests {}
+
 
 // Both
 extension AS_t_Tests {
@@ -55,5 +57,36 @@ that is not there
         
         XCTAssertEqual(returnedElement?.caretLocation, 22)
     }
-        
+    
 }
+
+
+// TextViews
+extension AS_t_Tests {
+    
+    func test_that_it_can_find_the_character_on_a_line_for_a_multiline() {
+        let text = """
+fFtT should
+work on multilines
+without crashing
+yeah
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            caretLocation: 31,
+            currentLine: AccessibilityTextElementLine(
+                fullValue: text,
+                number: 2,
+                start: 31,
+                end: 48
+            )
+        )
+        
+        let returnedElement = accessibilityStrategy.t(to: "a", on: element)
+        
+        XCTAssertEqual(returnedElement?.caretLocation, 40)
+    }
+    
+}
+

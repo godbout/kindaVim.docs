@@ -55,5 +55,35 @@ that is not there
         
         XCTAssertEqual(returnedElement?.caretLocation, 22)
     }
+    
+}
+
+
+// TextViews
+extension AS_f_Tests {
+    
+    func test_that_it_can_find_the_character_on_a_line_for_a_multiline() {
+        let text = """
+fFtT should
+work on multilines
+without crashing
+yeah
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            caretLocation: 48,
+            currentLine: AccessibilityTextElementLine(
+                fullValue: text,
+                number: 3,
+                start: 48,
+                end: 52
+            )
+        )
         
+        let returnedElement = accessibilityStrategy.f(to: "h", on: element)
+        
+        XCTAssertEqual(returnedElement?.caretLocation, 51)
+    }
+    
 }

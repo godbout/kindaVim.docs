@@ -105,10 +105,12 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
 
     func f(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         guard var element = element else { return nil }
+        guard let lineStart = element.currentLine.start else { return element }
         
         let lineText = element.currentLine.value
+        let lineCaretLocation = element.caretLocation - lineStart
         
-        if let characterFoundLocation = textEngine.findNext(character, after: element.caretLocation, in: lineText) {
+        if let characterFoundLocation = textEngine.findNext(character, after: lineCaretLocation, in: lineText) {
             element.caretLocation = element.currentLine.start! + characterFoundLocation            
         }
 
@@ -117,10 +119,12 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
     
     func F(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         guard var element = element else { return nil }
+        guard let lineStart = element.currentLine.start else { return element }
         
         let lineText = element.currentLine.value
+        let lineCaretLocation = element.caretLocation - lineStart
         
-        if let characterFoundLocation = textEngine.findPrevious(character, before: element.caretLocation, in: lineText) {
+        if let characterFoundLocation = textEngine.findPrevious(character, before: lineCaretLocation, in: lineText) {
             element.caretLocation = element.currentLine.start! + characterFoundLocation            
         }
         
@@ -242,10 +246,12 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
     
     func t(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         guard var element = element else { return nil }
+        guard let lineStart = element.currentLine.start else { return element }
         
         let lineText = element.currentLine.value
+        let lineCaretLocation = element.caretLocation - lineStart
         
-        if let characterFoundLocation = textEngine.findNext(character, after: element.caretLocation, in: lineText) {
+        if let characterFoundLocation = textEngine.findNext(character, after: lineCaretLocation, in: lineText) {
             element.caretLocation = element.currentLine.start! + characterFoundLocation - 1            
         }
         
@@ -254,10 +260,12 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
     
     func T(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         guard var element = element else { return nil }
+        guard let lineStart = element.currentLine.start else { return element }        
         
         let lineText = element.currentLine.value
+        let lineCaretLocation = element.caretLocation - lineStart
         
-        if let characterFoundLocation = textEngine.findPrevious(character, before: element.caretLocation, in: lineText) {
+        if let characterFoundLocation = textEngine.findPrevious(character, before: lineCaretLocation, in: lineText) {
             element.caretLocation = element.currentLine.start! + characterFoundLocation + 1
         }
         

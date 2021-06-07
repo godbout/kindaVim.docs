@@ -334,17 +334,18 @@ class VimEngine {
             
             post(keyboardStrategy.yy())
         default:
-            if operatorPendingBuffer.first?.vimKey == .f, let characterToGoTo = operatorPendingBuffer.last {
-                if var element = accessibilityStrategy.f(to: characterToGoTo.character, on: focusedElement()) {
+            if operatorPendingBuffer.first?.vimKey == .f, let character = operatorPendingBuffer.last {
+                if var element = accessibilityStrategy.f(to: character.character, on: focusedElement()) {
                     element.selectedLength = 1
                     _ = push(element: element)
                 }
             }
             
-            if operatorPendingBuffer.first?.vimKey == .F, let characterToGoTo = operatorPendingBuffer.last {
-                if var element = accessibilityStrategy.F(to: characterToGoTo.character, on: focusedElement()) {
+            if operatorPendingBuffer.first?.vimKey == .F, let character = operatorPendingBuffer.last {
+                if var element = accessibilityStrategy.F(to: character.character, on: focusedElement()) {
                     element.selectedLength = 1
-                    _ = push(element: element)
+                    let result = push(element: element)
+                    print(result)
                 }
             }
 
@@ -352,15 +353,15 @@ class VimEngine {
                 post(keyboardStrategy.r(with: replacement))
             }
             
-            if operatorPendingBuffer.first?.vimKey == .t, let characterToGoBefore = operatorPendingBuffer.last {
-                if var element = accessibilityStrategy.t(to: characterToGoBefore.character, on: focusedElement()) {
+            if operatorPendingBuffer.first?.vimKey == .t, let character = operatorPendingBuffer.last {
+                if var element = accessibilityStrategy.t(to: character.character, on: focusedElement()) {
                     element.selectedLength = 1
                     _ = push(element: element)
                 }
             }
             
-            if operatorPendingBuffer.first?.vimKey == .T, let characterToGoAfter = operatorPendingBuffer.last {
-                if var element = accessibilityStrategy.T(to: characterToGoAfter.character, on: focusedElement()) {
+            if operatorPendingBuffer.first?.vimKey == .T, let character = operatorPendingBuffer.last {
+                if var element = accessibilityStrategy.T(to: character.character, on: focusedElement()) {
                     element.selectedLength = 1
                     _ = push(element: element)
                 }
