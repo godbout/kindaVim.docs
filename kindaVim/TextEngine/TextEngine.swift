@@ -6,6 +6,7 @@ protocol TextEngineProtocol {
     func findPrevious(_ character: Character, before location: Int, in text: String) -> Int?
     func findSecond(_ character: Character, in text: String) -> Int?
     func previousLine(before location: Int, in text: String) -> String?
+    func nextLine(after location: Int, in text: String) -> String?
     func wordBackward(startingAt location: Int, in text: String) -> Int
     func wordForward(startingAt location: Int, in text: String) -> Int
     
@@ -85,6 +86,16 @@ struct TextEngine: TextEngineProtocol {
         return String(text[previousLineStartIndex..<previousLineEndIndex])        
     }
     
+    func nextLine(after location: Int, in text: String) -> String? {
+        guard let nextLineStartLocation = findNext("\n", after: location - 1, in: text) else { return nil }
+        let nextLineEndLocation = findNext("\n", after: nextLineStartLocation, in: text) ?? text.count - 1
+
+        let nextLineStartLocationIndex = text.index(text.startIndex, offsetBy: nextLineStartLocation + 1)
+        let nextLineEndLocationIndex = text.index(text.startIndex, offsetBy: nextLineEndLocation + 1)
+
+        return String(text[nextLineStartLocationIndex..<nextLineEndLocationIndex])
+    }
+
     func wordBackward(startingAt location: Int, in text: String) -> Int {
         let anchorIndex = text.index(text.startIndex, offsetBy: location)
         let startIndex = text.startIndex
