@@ -122,10 +122,7 @@ class VimEngine {
                 // ugly af; need to refactor
                 if var element = accessibilityStrategy.h(on: focusedElement()) {
                     element.selectedLength = 1
-                    
-                    if push(element: element) == false {
-                        post(keyboardStrategy.h())
-                    }
+                    _ = push(element: element)
                 } else {
                     post(keyboardStrategy.h())
                 }
