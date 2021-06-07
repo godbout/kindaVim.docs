@@ -299,10 +299,13 @@ class VimEngine {
             enterNormalMode()
             
             // ugly af; need to refactor
-            if var element = accessibilityStrategy.dd(on: focusedElement()) {
-                element.selectedLength = 1
-                
-                if push(element: element) == false {
+            if let element = accessibilityStrategy.dd(on: focusedElement()) {
+                if push(element: element) == true {
+                    if var element = focusedElement() {
+                        element.selectedLength = 1
+                        _ = push(element: element)
+                    }
+                } else {
                     post(keyboardStrategy.dd())
                 }
             } else {
