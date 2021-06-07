@@ -65,12 +65,14 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
     
     func ciDoubleQuote(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         guard var element = element else { return nil }
+        guard let lineStart = element.currentLine.start else { return element }
         
         let lineText = element.currentLine.value
+        let lineCaretLocation = element.caretLocation - lineStart
         
-        if let previousDoubleQuoteLocation = textEngine.findPrevious("\"", before: element.caretLocation, in: lineText) {
-            if let nextDoubleQuoteLocation = textEngine.findNext("\"", after: element.caretLocation - 1, in: lineText) {
-                element.caretLocation = element.currentLine.start! + (previousDoubleQuoteLocation + 1)
+        if let previousDoubleQuoteLocation = textEngine.findPrevious("\"", before: lineCaretLocation, in: lineText) {
+            if let nextDoubleQuoteLocation = textEngine.findNext("\"", after: lineCaretLocation - 1, in: lineText) {
+                element.caretLocation = lineStart + (previousDoubleQuoteLocation + 1)
                 element.selectedLength = nextDoubleQuoteLocation - (previousDoubleQuoteLocation + 1)
                 element.selectedText = ""
                 
@@ -81,7 +83,7 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
         }
                 
         if let firstDoubleQuoteLocation = textEngine.findFirst("\"", in: lineText), let secondDoubleQuoteLocation = textEngine.findSecond("\"", in: lineText) {
-            element.caretLocation = element.currentLine.start! + (firstDoubleQuoteLocation + 1)
+            element.caretLocation = lineStart + (firstDoubleQuoteLocation + 1)
             element.selectedLength = secondDoubleQuoteLocation - (firstDoubleQuoteLocation + 1)
             element.selectedText = ""
             

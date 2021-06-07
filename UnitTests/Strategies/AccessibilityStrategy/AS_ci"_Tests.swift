@@ -103,17 +103,19 @@ now the caret is before the " shit with " double quotes
     
     func test_that_if_the_caret_is_after_the_double_quotes_then_no_content_is_deleted_and_the_caret_does_not_move() {
         let text = """
+adding some lines on top because
+it doesn't pass for long text
 now the "caret" is after the quotes
 """
         let element = AccessibilityTextElement(
             role: .textArea,
             value: text,
-            caretLocation: 22,
+            caretLocation: 85,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
-                number: 0,
-                start: 0,
-                end: 35
+                number: 2,
+                start: 63,
+                end: 98
             )
         )
         

@@ -61,7 +61,7 @@ huhu only one " in there...
         
         let finalElement = applyMoveAndGetBackUpdatedElement()
         
-        XCTAssertEqual(finalElement?.value, "huhu only one \" in there...")
+        XCTAssertNil(finalElement)
     }
     
     func test_a_case_where_it_should_not_delete_the_content_stays_in_normal_mode() {
