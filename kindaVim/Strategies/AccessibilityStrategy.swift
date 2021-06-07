@@ -17,6 +17,7 @@ protocol AccessibilityStrategyProtocol {
     func k(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func l(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func o(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
+    func O(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func t(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func T(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func w(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
@@ -247,6 +248,13 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
             element.selectedLength = textFromCaretToLimitForCopyingText.count
             element.selectedText = String(textFromCaretToLimitForCopyingText + "\n" + firstNonBlankOfCurrentLineText)                            
         }
+        
+        return element
+    }
+    
+    func O(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        guard var element = element else { return nil }
+        guard element.role == .textArea else { return element }
         
         return element
     }
