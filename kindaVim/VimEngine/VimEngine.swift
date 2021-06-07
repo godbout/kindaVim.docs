@@ -45,7 +45,9 @@ class VimEngine {
                 post(keyboardStrategy.caret())
             case .dollarSign:
                 // ugly af; need to refactor
-                if let element = accessibilityStrategy.dollarSign(on: focusedElement()) {
+                if var element = accessibilityStrategy.dollarSign(on: focusedElement()) {
+                    element.selectedLength = 1
+                    
                     if push(element: element) == false {
                         post(keyboardStrategy.dollarSign())
                     }
@@ -56,7 +58,9 @@ class VimEngine {
                 post(keyboardStrategy.underscore())
             case .zero:
                 // ugly af; need to refactor
-                if let element = accessibilityStrategy.zero(on: focusedElement()) {
+                if var element = accessibilityStrategy.zero(on: focusedElement()) {
+                    element.selectedLength = 1
+                    
                     if push(element: element) == false {
                         post(keyboardStrategy.zero())
                     }
@@ -78,9 +82,7 @@ class VimEngine {
                 enterInsertMode()
 
                 // ugly af; need to refactor
-                if var element = accessibilityStrategy.A(on: focusedElement()) {
-                    element.selectedLength = 0
-                    
+                if let element = accessibilityStrategy.A(on: focusedElement()) {
                     if push(element: element) == false {
                         post(keyboardStrategy.A())
                     }
@@ -89,7 +91,9 @@ class VimEngine {
                 }
             case .b:
                 // ugly af; need to refactor
-                if let element = accessibilityStrategy.b(on: focusedElement()) {
+                if var element = accessibilityStrategy.b(on: focusedElement()) {
+                    element.selectedLength = 1
+                    
                     if push(element: element) == false {
                         post(keyboardStrategy.b())
                     }
@@ -127,8 +131,7 @@ class VimEngine {
                 }
             case .i:
                 // ugly af; need to refactor
-                if var element = accessibilityStrategy.i(on: focusedElement()) {
-                    element.selectedLength = 0
+                if let element = accessibilityStrategy.i(on: focusedElement()) {
                     _ = push(element: element)
                 }
                 
@@ -210,7 +213,9 @@ class VimEngine {
                 post(keyboardStrategy.controlU())
             case .w:
                 // ugly af; need to refactor
-                if let element = accessibilityStrategy.w(on: focusedElement()) {
+                if var element = accessibilityStrategy.w(on: focusedElement()) {
+                    element.selectedLength = 1
+                    
                     if push(element: element) == false {
                         post(keyboardStrategy.w())
                     }
@@ -287,7 +292,9 @@ class VimEngine {
             enterNormalMode()
             
             // ugly af; need to refactor
-            if let element = accessibilityStrategy.dd(on: focusedElement()) {
+            if var element = accessibilityStrategy.dd(on: focusedElement()) {
+                element.selectedLength = 1
+                
                 if push(element: element) == false {
                     post(keyboardStrategy.dd())
                 }
@@ -328,13 +335,15 @@ class VimEngine {
             post(keyboardStrategy.yy())
         default:
             if operatorPendingBuffer.first?.vimKey == .f, let characterToGoTo = operatorPendingBuffer.last {
-                if let element = accessibilityStrategy.f(to: characterToGoTo.character, on: focusedElement()) {
+                if var element = accessibilityStrategy.f(to: characterToGoTo.character, on: focusedElement()) {
+                    element.selectedLength = 1
                     _ = push(element: element)
                 }
             }
             
             if operatorPendingBuffer.first?.vimKey == .F, let characterToGoTo = operatorPendingBuffer.last {
-                if let element = accessibilityStrategy.F(to: characterToGoTo.character, on: focusedElement()) {
+                if var element = accessibilityStrategy.F(to: characterToGoTo.character, on: focusedElement()) {
+                    element.selectedLength = 1
                     _ = push(element: element)
                 }
             }
@@ -344,13 +353,15 @@ class VimEngine {
             }
             
             if operatorPendingBuffer.first?.vimKey == .t, let characterToGoBefore = operatorPendingBuffer.last {
-                if let element = accessibilityStrategy.t(to: characterToGoBefore.character, on: focusedElement()) {
+                if var element = accessibilityStrategy.t(to: characterToGoBefore.character, on: focusedElement()) {
+                    element.selectedLength = 1
                     _ = push(element: element)
                 }
             }
             
             if operatorPendingBuffer.first?.vimKey == .T, let characterToGoAfter = operatorPendingBuffer.last {
-                if let element = accessibilityStrategy.T(to: characterToGoAfter.character, on: focusedElement()) {
+                if var element = accessibilityStrategy.T(to: characterToGoAfter.character, on: focusedElement()) {
+                    element.selectedLength = 1
                     _ = push(element: element)
                 }
             }
