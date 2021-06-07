@@ -44,6 +44,7 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
     
     func A(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         guard var element = element else { return nil }
+        guard !element.currentLine.isOnlyALinefeedCharacter() else { return element }
         
         if let endLimit = element.currentLine.endLimit() {
             element.caretLocation = endLimit + 1

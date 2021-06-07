@@ -82,15 +82,73 @@ not of a whole TV
     }
     
     func test_that_if_the_caret_is_at_the_end_of_a_line_it_does_not_go_down_one_line() {
+        let text = """
+if the caret
+is at the end of a line
+it shouldn't go one line
+below
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            caretLocation: 36,
+            currentLine: AccessibilityTextElementLine(
+                fullValue: text,
+                number: 1,
+                start: 13,
+                end: 37
+            )
+        )
         
+        let returnedElement = accessibilityStrategy.A(on: element)
+        
+        XCTAssertEqual(returnedElement?.caretLocation, 36)
     }
     
     func test_that_if_the_caret_is_on_an_empty_line_it_does_not_go_down_one_line() {
+        let text = """
+if there's an empty
+
+line the caret should
+not go down
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            caretLocation: 20,
+            currentLine: AccessibilityTextElementLine(
+                fullValue: text,
+                number: 1,
+                start: 20,
+                end: 21
+            )
+        )
         
+        let returnedElement = accessibilityStrategy.A(on: element)
+        
+        XCTAssertEqual(returnedElement?.caretLocation, 20)        
     }
     
     func test_that_if_the_caret_is_at_the_end_of_the_TextView_it_does_not_crash() {
+        let text = """
+at the end
+of a TextView
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            caretLocation: 24,
+            currentLine: AccessibilityTextElementLine(
+                fullValue: text,
+                number: nil,
+                start: nil,
+                end: nil
+            )
+        )
         
+        let returnedElement = accessibilityStrategy.A(on: element)
+        
+        XCTAssertEqual(returnedElement?.caretLocation, 24)    
     }
      
 }
