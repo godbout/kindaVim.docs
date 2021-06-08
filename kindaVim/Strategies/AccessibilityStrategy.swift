@@ -50,6 +50,7 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
             return element
         }
         
+        
         guard element.currentLine.isOnlyALinefeedCharacter() == false else { return element }
 
         element.caretLocation += 1
@@ -72,6 +73,7 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
             return element
         }
         
+        
         guard element.currentLine.isOnlyALinefeedCharacter() == false else { return element }
                 
         element.caretLocation = element.currentLine.endLimit()! + 1
@@ -85,7 +87,8 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
         if element.isEmpty() {
             return element
         }
-                
+              
+        
         element.caretLocation = textEngine.wordBackward(startingAt: element.caretLocation, in: element.value)  
         
         return element
@@ -105,6 +108,7 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
         if element.caretIsAtTheEnd(), element.lastCharacterIsLinefeed() {
             return element            
         }
+        
         
         let lineText = element.currentLine.value
         let firstNonBlankOfCurrentLineLocation = textEngine.findFirstNonBlank(in: lineText)
@@ -130,6 +134,7 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
         if element.caretIsAtTheEnd(), element.lastCharacterIsLinefeed() {
             return nil 
         }
+        
         
         let lineStart = element.currentLine.start!        
         
@@ -208,6 +213,7 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
             return element
         }
         
+        
         let lineStart = element.currentLine.start!
         
         let lineText = element.currentLine.value
@@ -235,6 +241,7 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
             return element
         }
         
+        
         let lineStart = element.currentLine.start!
         
         let lineText = element.currentLine.value
@@ -250,13 +257,22 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
     func h(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         guard var element = element else { return nil }
         
-        if element.isNotEmpty(), element.caretIsAtTheEnd(), element.lastCharacterIsNotLinefeed() {
-            element.caretLocation -= 1
-
+        if element.isEmpty() {
             return element
         }
-
-        if element.isNotEmpty(), let startLimit = element.currentLine.startLimit(), element.caretLocation > startLimit {
+        
+        if element.caretIsAtTheEnd(), element.lastCharacterIsNotLinefeed() {
+            element.caretLocation -= 1
+            
+            return element
+        }
+        
+        if element.caretIsAtTheEnd(), element.lastCharacterIsLinefeed() {
+            return element
+        }
+        
+        
+        if element.caretLocation > element.currentLine.startLimit()! {
             element.caretLocation -= 1
         }
 
