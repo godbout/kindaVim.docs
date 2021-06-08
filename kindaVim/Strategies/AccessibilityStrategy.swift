@@ -308,6 +308,19 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
     func j(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         guard var element = element else { return nil }
         guard element.role == .textArea else { return nil }
+        
+        if element.isEmpty() {
+            return element
+        }
+        
+        if element.caretIsAtTheEnd(), element.lastCharacterIsNotLinefeed() {
+            return element
+        }
+        
+        if element.caretIsAtTheEnd(), element.lastCharacterIsLinefeed() {
+            return element
+        }
+        
 
         if let currentLineNumber = element.currentLine.number, let nextLine = AccessibilityTextElementAdaptor.lineFor(lineNumber: currentLineNumber + 1) {
             if nextLine.isLastLine(), nextLine.isOnlyALinefeedCharacter() {
@@ -333,6 +346,11 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
     func k(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         guard var element = element else { return nil }
         guard element.role == .textArea else { return nil }
+        
+        if element.isEmpty() {
+            return element
+        }
+        
 
         var previousLine: AccessibilityTextElementLine?
 
