@@ -138,6 +138,7 @@
 		91CE7350265CD31B00248D18 /* UsingKS_^_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CE734F265CD31B00248D18 /* UsingKS_^_Tests.swift */; };
 		91D2D5B2266F957E004634C0 /* UsingAS_ciw_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D2D5B1266F957E004634C0 /* UsingAS_ciw_Tests.swift */; };
 		91D2D5B8266F9610004634C0 /* AS_ciw_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D2D5B7266F9610004634C0 /* AS_ciw_Tests.swift */; };
+		91D2D5BE266F9D4D004634C0 /* endOfWordForwardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D2D5BD266F9D4D004634C0 /* endOfWordForwardTests.swift */; };
 		91D8FE182669F81B00FBE896 /* UsingAS_dd_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D8FE172669F81B00FBE896 /* UsingAS_dd_Tests.swift */; };
 		91D9A054266E6C6900D850F5 /* UIAS_O__Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D9A053266E6C6900D850F5 /* UIAS_O__Tests.swift */; };
 		91DA6EE32645581300CF7504 /* KS_dG.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91DA6EE22645581300CF7504 /* KS_dG.swift */; };
@@ -380,6 +381,7 @@
 		91CE734F265CD31B00248D18 /* UsingKS_^_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UsingKS_^_Tests.swift"; sourceTree = "<group>"; };
 		91D2D5B1266F957E004634C0 /* UsingAS_ciw_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsingAS_ciw_Tests.swift; sourceTree = "<group>"; };
 		91D2D5B7266F9610004634C0 /* AS_ciw_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AS_ciw_Tests.swift; sourceTree = "<group>"; };
+		91D2D5BD266F9D4D004634C0 /* endOfWordForwardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = endOfWordForwardTests.swift; sourceTree = "<group>"; };
 		91D8FE172669F81B00FBE896 /* UsingAS_dd_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsingAS_dd_Tests.swift; sourceTree = "<group>"; };
 		91D9A053266E6C6900D850F5 /* UIAS_O__Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAS_O__Tests.swift; sourceTree = "<group>"; };
 		91DA6EE22645581300CF7504 /* KS_dG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KS_dG.swift; sourceTree = "<group>"; };
@@ -756,6 +758,7 @@
 			isa = PBXGroup;
 			children = (
 				9153E86A2662963300064761 /* TextEngineBaseTests.swift */,
+				91D2D5BD266F9D4D004634C0 /* endOfWordForwardTests.swift */,
 				91643DFB266537A3002F2D0E /* findFirstTests.swift */,
 				91F90BFB2669249700176433 /* findFirstNonBlankTests.swift */,
 				91C47DA126668435008E55AA /* findLastTests.swift */,
@@ -1227,6 +1230,7 @@
 				91E304CD2643EFA1004D9933 /* UsingKS_cc_Tests.swift in Sources */,
 				91E304D12643F05C004D9933 /* UsingKS_dd_Tests.swift in Sources */,
 				91A54EE32643B6B400400677 /* KS_cc_Tests.swift in Sources */,
+				91D2D5BE266F9D4D004634C0 /* endOfWordForwardTests.swift in Sources */,
 				91FA1D942657B48B005F576E /* AS_h_Tests.swift in Sources */,
 				9128B0ED26380ACC007DC80B /* GlobalEventsControllerTests.swift in Sources */,
 				91C486052641C0D30003D9D7 /* KeyboardStrategyMock.swift in Sources */,

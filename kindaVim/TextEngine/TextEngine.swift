@@ -1,12 +1,13 @@
 protocol TextEngineProtocol {
     
+    func endOfWordForward(startingAt location: Int, in text: String) -> Int    
     func findFirst(_ character: Character, in text: String) -> Int?
     func findFirstNonBlank(in text: String) -> Int
     func findNext(_ character: Character, after location: Int, in text: String) -> Int?
     func findPrevious(_ character: Character, before location: Int, in text: String) -> Int?
     func findSecond(_ character: Character, in text: String) -> Int?
-    func previousLine(before location: Int, in text: String) -> String?
     func nextLine(after location: Int, in text: String) -> String?
+    func previousLine(before location: Int, in text: String) -> String?
     func wordBackward(startingAt location: Int, in text: String) -> Int
     func wordForward(startingAt location: Int, in text: String) -> Int
     
@@ -134,6 +135,48 @@ struct TextEngine: TextEngineProtocol {
 
             return text.distance(from: startIndex, to: index)
         }        
+        
+        return location
+    }
+    
+    func endOfWordForward(startingAt location: Int, in text: String) -> Int {
+        guard let anchorIndex = text.index(text.startIndex, offsetBy: location + 1, limitedBy: text.endIndex) else { return text.count - 1 }
+        let endIndex = text.endIndex
+        
+        for index in text[anchorIndex..<endIndex].indices {
+            guard index != text.index(before: endIndex) else { return text.count - 1 }
+            let nextIndex = text.index(after: index)
+
+            if text[index].isCharacterThatConstitutesAVimWord() {
+                if text[nextIndex].isCharacterThatConstitutesAVimWord() {
+                    continue
+                }
+            }
+            
+            if text[index].isPunctuationButNotUnderscore() {
+                if text[nextIndex].isPunctuationButNotUnderscore() || text[nextIndex].isSymbol {
+                    continue
+                }
+            }
+            
+            if text[index].isSymbol {
+                if text[nextIndex].isSymbol {
+                    continue
+                }
+            }
+            
+            if text[index].isWhitespaceButNotNewline() {
+                if text[nextIndex].isWhitespace || text[nextIndex].isCharacterThatConstitutesAVimWord() || text[nextIndex].isPunctuationButNotUnderscore() || text[nextIndex].isSymbol {
+                    continue
+                }
+            }
+            
+            if text[index].isNewline {
+                continue
+            }
+            
+            return text.distance(from: text.startIndex, to: text.index(before: nextIndex))            
+        }
         
         return location
     }
