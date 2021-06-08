@@ -39,7 +39,7 @@ struct TextEngine: TextEngineProtocol {
     }
     
     func findFirstNonBlank(in text: String) -> Int {
-        guard let characterIndex = text.firstIndex(where: { !$0.isWhitespace }) else { return 0 }
+        guard let characterIndex = text.firstIndex(where: { !$0.isWhitespaceButNotNewline() }) else { return text.count }
         
         return text.distance(from: text.startIndex, to: characterIndex)
     }

@@ -1,7 +1,9 @@
 @testable import kindaVim
 import XCTest
 
+
 class findFirstNonBlankTests: TextEngineBaseTests {}
+
 
 // Both
 extension findFirstNonBlankTests {
@@ -44,6 +46,31 @@ extension findFirstNonBlankTests {
         let location = textEngine.findFirstNonBlank(in: text)
         
         XCTAssertEqual(location, 0)
+    }
+    
+    func test_that_if_the_TextField_only_contains_spaces_the_caret_goes_to_the_end_of_the_text() {
+        let text = "        "
+        
+        let location = textEngine.findFirstNonBlank(in: text)
+        
+        XCTAssertEqual(location, 8)
+    }
+    
+}
+
+
+// TextViews
+extension findFirstNonBlankTests {
+    
+    func test_that_for_a_line_with_linefeed_the_caret_goes_to_the_end_of_the_line_before_the_linefeed() {
+        let text = """
+            
+and a line is empty!
+"""
+        
+        let location = textEngine.findFirstNonBlank(in: text)
+        
+        XCTAssertEqual(location, 12)
     }
     
 }

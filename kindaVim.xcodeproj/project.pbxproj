@@ -269,7 +269,7 @@
 		9128F2B9262AA90D00625B42 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9128F2BB262AA90D00625B42 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9128F2BC262AA90D00625B42 /* kindaVim.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = kindaVim.entitlements; sourceTree = "<group>"; };
-		9128F2C1262AA90D00625B42 /* UniTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UniTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9128F2C1262AA90D00625B42 /* UnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9128F2C7262AA90D00625B42 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		912924E426652B5D009AB40C /* to_TF_selectedTextTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = to_TF_selectedTextTests.swift; sourceTree = "<group>"; };
 		912924EE26652EAD009AB40C /* to_TV_selectedTextTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = to_TV_selectedTextTests.swift; sourceTree = "<group>"; };
@@ -551,7 +551,7 @@
 			isa = PBXGroup;
 			children = (
 				9128F2AC262AA90C00625B42 /* kindaVim.app */,
-				9128F2C1262AA90D00625B42 /* UniTests.xctest */,
+				9128F2C1262AA90D00625B42 /* UnitTests.xctest */,
 				91A147B02661221100D160AD /* AccessibilityTextElementAdaptorUITests.xctest */,
 				91A147C42661222900D160AD /* AccessibilityStrategyUITests.xctest */,
 			);
@@ -948,9 +948,9 @@
 			productReference = 9128F2AC262AA90C00625B42 /* kindaVim.app */;
 			productType = "com.apple.product-type.application";
 		};
-		9128F2C0262AA90D00625B42 /* UniTests */ = {
+		9128F2C0262AA90D00625B42 /* UnitTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9128F2D8262AA90D00625B42 /* Build configuration list for PBXNativeTarget "UniTests" */;
+			buildConfigurationList = 9128F2D8262AA90D00625B42 /* Build configuration list for PBXNativeTarget "UnitTests" */;
 			buildPhases = (
 				9128F2BD262AA90D00625B42 /* Sources */,
 				9128F2BE262AA90D00625B42 /* Frameworks */,
@@ -961,9 +961,9 @@
 			dependencies = (
 				9128F2C3262AA90D00625B42 /* PBXTargetDependency */,
 			);
-			name = UniTests;
+			name = UnitTests;
 			productName = kindaVimTests;
-			productReference = 9128F2C1262AA90D00625B42 /* UniTests.xctest */;
+			productReference = 9128F2C1262AA90D00625B42 /* UnitTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		91A147AF2661221100D160AD /* AccessibilityTextElementAdaptorUITests */ = {
@@ -1042,7 +1042,7 @@
 			projectRoot = "";
 			targets = (
 				9128F2AB262AA90C00625B42 /* kindaVim */,
-				9128F2C0262AA90D00625B42 /* UniTests */,
+				9128F2C0262AA90D00625B42 /* UnitTests */,
 				91A147AF2661221100D160AD /* AccessibilityTextElementAdaptorUITests */,
 				91A147C32661222900D160AD /* AccessibilityStrategyUITests */,
 			);
@@ -1973,7 +1973,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9128F2D8262AA90D00625B42 /* Build configuration list for PBXNativeTarget "UniTests" */ = {
+		9128F2D8262AA90D00625B42 /* Build configuration list for PBXNativeTarget "UnitTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9128F2D9262AA90D00625B42 /* Debug */,
