@@ -77,6 +77,7 @@ enum VimKey {
     case b
     case c, C
     case d, controlD
+    case e
 
     case f, F
 
@@ -164,6 +165,8 @@ struct KeyCombination {
             return .controlD
         case .d where control == false && option == false && shift == false && command == true:
             return .commandD
+        case .e where control == false && option == false && shift == false && command == false:
+            return .e
         case .f where control == false && option == false && shift == false && command == false:
             return .f
         case .f where control == false && option == false && shift == true && command == false:

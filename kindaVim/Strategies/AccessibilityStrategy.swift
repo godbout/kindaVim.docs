@@ -9,7 +9,9 @@ protocol AccessibilityStrategyProtocol {
     func b(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func cc(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func ciDoubleQuote(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
+    func ciw(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func dd(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
+    func e(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func f(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func F(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func h(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
@@ -193,6 +195,19 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
                 element.selectedText = ""
             }
         }        
+        
+        return element
+    }
+    
+    func e(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        guard var element = element else { return nil }
+        
+        if element.isEmpty() {
+            return element
+        }
+        
+        
+        element.caretLocation = textEngine.endOfWordForward(startingAt: element.caretLocation, in: element.value)  
         
         return element
     }
