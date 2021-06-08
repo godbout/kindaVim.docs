@@ -99,7 +99,7 @@ struct AccessibilityTextElement {
     var currentLine: AccessibilityTextElementLine!
     
     func isEmpty() -> Bool {
-        return value.count == 0
+        return value.isEmpty
     }
     
     func isNotEmpty() -> Bool {
