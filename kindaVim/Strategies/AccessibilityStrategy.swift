@@ -118,7 +118,20 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
     
     func ciDoubleQuote(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         guard var element = element else { return nil }
-        guard let lineStart = element.currentLine.start else { return element }
+        
+        if element.isEmpty() {
+            return nil
+        }
+        
+        if element.caretIsAtTheEnd(), element.lastCharacterIsNotLinefeed() {
+            return nil
+        }
+        
+        if element.caretIsAtTheEnd(), element.lastCharacterIsLinefeed() {
+            return nil 
+        }
+        
+        let lineStart = element.currentLine.start!        
         
         let lineText = element.currentLine.value
         let lineCaretLocation = element.caretLocation - lineStart
