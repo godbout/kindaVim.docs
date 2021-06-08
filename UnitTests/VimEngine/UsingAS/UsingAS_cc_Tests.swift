@@ -18,4 +18,8 @@ extension UsingAS_cc_Tests {
         XCTAssertEqual(accessibilityStrategyMock.functionCalled, "cc(on:)")
     }
     
+    func test_that_it_switches_Vim_into_insert_mode() {
+        XCTAssertEqual(VimEngine.shared.currentMode, .insert)
+    }
+    
 }
