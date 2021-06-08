@@ -91,7 +91,7 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
         }
               
         
-        element.caretLocation = textEngine.wordBackward(startingAt: element.caretLocation, in: element.value)  
+        element.caretLocation = textEngine.beginningOfWordBackward(startingAt: element.caretLocation, in: element.value)  
         
         return element
     }
@@ -544,7 +544,7 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
         }
 
         
-        element.caretLocation = textEngine.wordForward(startingAt: element.caretLocation, in: element.value)
+        element.caretLocation = textEngine.beginningOfWordForward(startingAt: element.caretLocation, in: element.value)
 
         return element
     }

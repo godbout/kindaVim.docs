@@ -41,7 +41,7 @@ the TextEngineTests
         
         _ = accessibilityStrategy.b(on: element)
         
-        XCTAssertEqual(textEngineMock.functionCalled, "wordBackward(startingAt:in:)")        
+        XCTAssertEqual(textEngineMock.functionCalled, "beginningOfWordBackward(startingAt:in:)")        
     }
     
 }

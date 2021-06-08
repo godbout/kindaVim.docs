@@ -5,6 +5,18 @@ class TextEngineMock: TextEngineProtocol {
     
     var functionCalled = ""
     
+    func beginningOfWordBackward(startingAt location: Int, in text: String) -> Int {
+        functionCalled = #function
+        
+        return location
+    }
+    
+    func beginningOfWordForward(startingAt location: Int, in text: String) -> Int {
+        functionCalled = #function
+        
+        return location
+    }
+    
     func endOfWordForward(startingAt location: Int, in text: String) -> Int {
         functionCalled = #function
         
@@ -51,18 +63,6 @@ class TextEngineMock: TextEngineProtocol {
         functionCalled = #function
         
         return nil
-    }
-    
-    func wordBackward(startingAt location: Int, in text: String) -> Int {
-        functionCalled = #function
-        
-        return location
-    }
-    
-    func wordForward(startingAt location: Int, in text: String) -> Int {
-        functionCalled = #function
-        
-        return location
     }
     
 }

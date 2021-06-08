@@ -84,7 +84,7 @@ let nextIndex = text.index(after: index)
     func test_that_it_skips_lines_that_are_just_made_of_whitespaces() {
         let text = """
 let nextIndex = text.index(after: index)
-
+               
 if text[index].isCharacterThatConstitutesAVimWord() {
 """
 

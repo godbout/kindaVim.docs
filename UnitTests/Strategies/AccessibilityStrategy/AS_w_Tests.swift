@@ -37,7 +37,7 @@ extension AS_w_Tests {
         
         _ = accessibilityStrategy.w(on: element)
         
-        XCTAssertEqual(textEngineMock.functionCalled, "wordForward(startingAt:in:)")        
+        XCTAssertEqual(textEngineMock.functionCalled, "beginningOfWordForward(startingAt:in:)")        
     }
 
 }

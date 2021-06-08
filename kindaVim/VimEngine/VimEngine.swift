@@ -297,10 +297,10 @@ class VimEngine {
             enterInsertMode()
             
             // ugly af; need to refactor
-            if var element = accessibilityStrategy.ciw(on: focusedElement()) {
+            if let element = accessibilityStrategy.ciw(on: focusedElement()) {
                 _ = push(element: element)
             } else {
-                post(keyboardStrategy.cc())
+                post(keyboardStrategy.ciw())
             }            
         case [.d, .a]:
             ()
