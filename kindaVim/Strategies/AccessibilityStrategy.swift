@@ -7,6 +7,7 @@ protocol AccessibilityStrategyProtocol {
     func a(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func A(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func b(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
+    func cc(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func ciDoubleQuote(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func dd(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func f(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement?
@@ -59,6 +60,12 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
         guard var element = element else { return nil }
         
         element.caretLocation = textEngine.wordBackward(startingAt: element.caretLocation, in: element.value)  
+        
+        return element
+    }
+    
+    func cc(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        guard var element = element  else { return nil }
         
         return element
     }
