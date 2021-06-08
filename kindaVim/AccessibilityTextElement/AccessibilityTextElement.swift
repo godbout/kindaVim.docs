@@ -35,6 +35,11 @@ struct AccessibilityTextElementLine {
         
         return end - start        
     }
+    var lengthWithoutLinefeed: Int? {
+        guard let length = length else { return nil }
+        
+        return value.hasSuffix("\n") ? length - 1 : length
+    }
     
     func endLimit() -> Int? {
         guard let start = start, let end = end else { return nil }
@@ -92,18 +97,25 @@ struct AccessibilityTextElement {
     var selectedText: String?
     
     var currentLine: AccessibilityTextElementLine!
-
+    
+    func isEmpty() -> Bool {
+        return value.count == 0
+    }
     
     func isNotEmpty() -> Bool {
-        return value.count != 0
+        return !isEmpty()
     }
 
     func caretIsAtTheEnd() -> Bool {
         return currentLine.start == nil && currentLine.end == nil
     }
+    
+    func lastCharacterIsLinefeed() -> Bool {
+        return value.last == "\n"
+    }
 
     func lastCharacterIsNotLinefeed() -> Bool {
-        return value.last != "\n"
+        return !lastCharacterIsLinefeed()
     }
 
 }
