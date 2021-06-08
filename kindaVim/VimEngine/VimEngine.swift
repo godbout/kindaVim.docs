@@ -290,7 +290,12 @@ class VimEngine {
         case [.c, .i, .w]:
             enterInsertMode()
             
-            post(keyboardStrategy.ciw())
+            // ugly af; need to refactor
+            if var element = accessibilityStrategy.ciw(on: focusedElement()) {
+                _ = push(element: element)
+            } else {
+                post(keyboardStrategy.cc())
+            }            
         case [.d, .a]:
             ()
         case [.d, .a, .w]:
