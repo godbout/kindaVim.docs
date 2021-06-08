@@ -37,8 +37,20 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
 
     func a(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         guard var element = element else { return nil }
-        guard element.value.count != 0 else { return element }
-        guard element.currentLine.isOnlyALinefeedCharacter() != true else { return element }
+        
+        if element.isEmpty() {
+            return element
+        }
+        
+        if element.caretIsAtTheEnd(), element.lastCharacterIsNotLinefeed() {
+            return element
+        }
+        
+        if element.caretIsAtTheEnd(), element.lastCharacterIsLinefeed() {
+            return element
+        }
+        
+        guard element.currentLine.isOnlyALinefeedCharacter() == false else { return element }
 
         element.caretLocation += 1
 
