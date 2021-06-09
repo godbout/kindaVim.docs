@@ -4,10 +4,10 @@ protocol TextEngineProtocol {
     func beginningOfWordForward(startingAt location: Int, in text: String) -> Int
     func endOfWordForward(startingAt location: Int, in text: String) -> Int    
     func findFirst(_ character: Character, in text: String) -> Int?
-    func firstNonBlank(in text: String) -> Int
     func findNext(_ character: Character, after location: Int, in text: String) -> Int?
     func findPrevious(_ character: Character, before location: Int, in text: String) -> Int?
     func findSecond(_ character: Character, in text: String) -> Int?
+    func firstNonBlank(in text: String) -> Int
     func innerWord(startingAt location: Int, in text: String) -> (Int, Int)
     func nextLine(after location: Int, in text: String) -> String?
     func previousLine(before location: Int, in text: String) -> String?
@@ -128,27 +128,6 @@ extension TextEngine {
         return location
     }
     
-    func firstNonBlank(in text: String) -> Int {
-        guard let characterIndex = text.firstIndex(where: { !$0.isWhitespaceButNotNewline() }) else { return text.count }
-        
-        return text.distance(from: text.startIndex, to: characterIndex)
-    }
-
-    func innerWord(startingAt location: Int, in text: String) -> (Int, Int) {
-        let characterAtLocationIndex = text.index(text.startIndex, offsetBy: location)
-        let characterAtLocationText = text[characterAtLocationIndex]
-
-        if characterAtLocationText == " " {
-            let previousNonBlankLocation = findPreviousNonBlank(startingAt: location, in: text) ?? 0
-            let nextNonBlankLocation = findNextNonBlank(after: location, in: text) ?? text.count            
-        }
-
-        let beginningOfWordLocation = beginningOfWordBackward(startingAt: location + 1, in: text)
-        let endOfWordLocation = endOfWordForward(startingAt: location - 1, in: text)
-
-        return (beginningOfWordLocation, endOfWordLocation + 1)
-    }    
-    
     func endOfWordForward(startingAt location: Int, in text: String) -> Int {
         guard let anchorIndex = text.index(text.startIndex, offsetBy: location + 1, limitedBy: text.endIndex) else { return text.count - 1 }
         let endIndex = text.endIndex
@@ -156,13 +135,13 @@ extension TextEngine {
         for index in text[anchorIndex..<endIndex].indices {
             guard index != text.index(before: endIndex) else { return text.count - 1 }
             let nextIndex = text.index(after: index)
-
+            
             if text[index].isCharacterThatConstitutesAVimWord() {
                 if text[nextIndex].isCharacterThatConstitutesAVimWord() {
                     continue
                 }
             }
-
+            
             if text[index].isPunctuationButNotUnderscore() {
                 if text[nextIndex].isPunctuationButNotUnderscore() || text[nextIndex].isSymbol {
                     continue
@@ -174,7 +153,7 @@ extension TextEngine {
                     continue
                 }
             }
-
+            
             if text[index].isWhitespaceButNotNewline() {
                 if text[nextIndex].isWhitespace || text[nextIndex].isCharacterThatConstitutesAVimWord() || text[nextIndex].isPunctuationButNotUnderscore() || text[nextIndex].isSymbol {
                     continue
@@ -190,8 +169,32 @@ extension TextEngine {
         
         return location
     }
+    
+    func firstNonBlank(in text: String) -> Int {
+        guard let characterIndex = text.firstIndex(where: { !$0.isWhitespaceButNotNewline() }) else { return text.count }
+        
+        return text.distance(from: text.startIndex, to: characterIndex)
+    }
+
+    func innerWord(startingAt location: Int, in text: String) -> (Int, Int) {
+        let characterAtLocationIndex = text.index(text.startIndex, offsetBy: location)
+        let characterAtLocationText = text[characterAtLocationIndex]
+
+        if characterAtLocationText == " " {
+            let previousNonBlankLocation = findPreviousNonBlank(startingAt: location, in: text) ?? -1
+            let nextNonBlankLocation = findNextNonBlank(after: location, in: text) ?? text.count  
+            
+            return (previousNonBlankLocation + 1, nextNonBlankLocation)
+        }
+
+        let beginningOfWordLocation = beginningOfWordBackward(startingAt: location + 1, in: text)
+        let endOfWordLocation = endOfWordForward(startingAt: location - 1, in: text)
+
+        return (beginningOfWordLocation, endOfWordLocation + 1)
+    }    
 
 }
+
 
 // here we have the helper funcs that may return nil
 // they help for the other Vim Text Engine moves,
@@ -220,6 +223,24 @@ extension TextEngine {
         return (location + 1) + characterFoundLocation
     }
     
+    func findNextNonBlank(after location: Int, in text: String) -> Int? {
+        let anchorIndex = text.index(text.startIndex, offsetBy: location)
+        let endIndex = text.endIndex
+        
+        for index in text[anchorIndex..<endIndex].indices {
+            guard index != text.index(before: endIndex) else { return nil }
+            let nextIndex = text.index(after: index)
+            
+            if text[nextIndex].isWhitespaceButNotNewline() {
+                continue
+            }
+            
+            return text.distance(from: text.startIndex, to: nextIndex)
+        }
+        
+        return nil
+    }
+    
     func findPrevious(_ character: Character, before location: Int, in text: String) -> Int? {
         let searchStartIndex = text.startIndex
         guard let searchEndIndex = text.index(text.startIndex, offsetBy: location, limitedBy: text.endIndex) else { return nil }
@@ -227,6 +248,24 @@ extension TextEngine {
         guard let characterFoundLocation = findLast(character, in: String(text[searchStartIndex..<searchEndIndex])) else { return nil }
         
         return characterFoundLocation
+    }
+    
+    func findPreviousNonBlank(startingAt location: Int, in text: String) -> Int? {
+        guard let anchorIndex = text.index(text.startIndex, offsetBy: location + 1, limitedBy: text.endIndex) else { return nil }
+        let startIndex = text.startIndex
+        
+        for index in text[startIndex..<anchorIndex].indices.reversed() {
+            guard index != startIndex else { return nil }
+            let previousIndex = text.index(before: index)
+            
+            if text[previousIndex].isWhitespaceButNotNewline() {
+                continue
+            }
+            
+            return text.distance(from: startIndex, to: previousIndex)
+        }
+        
+        return nil
     }
     
     func findSecond(_ character: Character, in text: String) -> Int? {
@@ -255,42 +294,6 @@ extension TextEngine {
         let previousLineStartIndex = text.index(text.startIndex, offsetBy: previousLineStartLocation + 1)
         
         return String(text[previousLineStartIndex..<previousLineEndIndex])
-    }
-    
-    func findPreviousNonBlank(startingAt location: Int, in text: String) -> Int? {
-        guard let anchorIndex = text.index(text.startIndex, offsetBy: location + 1, limitedBy: text.endIndex) else { return nil }
-        let startIndex = text.startIndex
-        
-        for index in text[startIndex..<anchorIndex].indices.reversed() {
-            guard index != startIndex else { return nil }
-            let previousIndex = text.index(before: index)
-            
-            if text[previousIndex].isWhitespaceButNotNewline() {
-                continue
-            }
-            
-            return text.distance(from: startIndex, to: previousIndex)
-        }
-        
-        return nil
-    }
-    
-    func findNextNonBlank(after location: Int, in text: String) -> Int? {
-        let anchorIndex = text.index(text.startIndex, offsetBy: location)
-        let endIndex = text.endIndex
-        
-        for index in text[anchorIndex..<endIndex].indices {
-            guard index != text.index(before: endIndex) else { return nil }
-            let nextIndex = text.index(after: index)
-            
-            if text[nextIndex].isWhitespaceButNotNewline() {
-                continue
-            }
-            
-            return text.distance(from: text.startIndex, to: nextIndex)
-        }
-        
-        return nil
     }
     
 }
