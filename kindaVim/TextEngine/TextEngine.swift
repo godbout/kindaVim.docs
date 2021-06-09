@@ -4,7 +4,7 @@ protocol TextEngineProtocol {
     func beginningOfWordForward(startingAt location: Int, in text: String) -> Int
     func endOfWordForward(startingAt location: Int, in text: String) -> Int    
     func findFirst(_ character: Character, in text: String) -> Int?
-    func findFirstNonBlank(in text: String) -> Int
+    func firstNonBlank(in text: String) -> Int
     func findNext(_ character: Character, after location: Int, in text: String) -> Int?
     func findPrevious(_ character: Character, before location: Int, in text: String) -> Int?
     func findSecond(_ character: Character, in text: String) -> Int?
@@ -119,13 +119,7 @@ struct TextEngine: TextEngineProtocol {
         return location
     }
 
-    func findFirst(_ character: Character, in text: String) -> Int? {
-        guard let characterIndex = text.firstIndex(of: character) else { return nil }
-
-        return text.distance(from: text.startIndex, to: characterIndex)
-    }
-
-    func findFirstNonBlank(in text: String) -> Int {
+    func firstNonBlank(in text: String) -> Int {
         guard let characterIndex = text.firstIndex(where: { !$0.isWhitespaceButNotNewline() }) else { return 0 }
 
         return text.distance(from: text.startIndex, to: characterIndex)

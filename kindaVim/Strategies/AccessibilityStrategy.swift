@@ -113,7 +113,7 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
         
         
         let lineText = element.currentLine.value
-        let firstNonBlankOfCurrentLineLocation = textEngine.findFirstNonBlank(in: lineText)
+        let firstNonBlankOfCurrentLineLocation = textEngine.firstNonBlank(in: lineText)
                 
         element.caretLocation = element.currentLine.start! + firstNonBlankOfCurrentLineLocation
         element.selectedLength = element.currentLine.lengthWithoutLinefeed! - firstNonBlankOfCurrentLineLocation
@@ -170,7 +170,7 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
         guard let lineStart = element.currentLine.start else { return element }
                 
         if let nextLine = textEngine.nextLine(after: element.caretLocation, in: element.value) {
-            let firstNonBlankOfNextLineLocation = textEngine.findFirstNonBlank(in: nextLine)
+            let firstNonBlankOfNextLineLocation = textEngine.firstNonBlank(in: nextLine)
             let firstNonBlankOfNextLineText = nextLine[nextLine.startIndex..<nextLine.index(nextLine.startIndex, offsetBy: firstNonBlankOfNextLineLocation)]
             
             element.caretLocation = lineStart
@@ -178,7 +178,7 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
             element.selectedText = String(firstNonBlankOfNextLineText)
         } else {
             if let previousLine = textEngine.previousLine(before: element.caretLocation, in: element.value) {
-                let firstNonBlankOfPreviousLineLocation = textEngine.findFirstNonBlank(in: previousLine)
+                let firstNonBlankOfPreviousLineLocation = textEngine.firstNonBlank(in: previousLine)
                 
                 element.caretLocation = lineStart - 1
                 element.selectedLength = element.currentLine.length! + 1
@@ -313,7 +313,7 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
 
         
         let lineText = element.currentLine.value        
-        let characterFoundLocation = textEngine.findFirstNonBlank(in: lineText)        
+        let characterFoundLocation = textEngine.firstNonBlank(in: lineText)        
         
         element.caretLocation = element.currentLine.start! + characterFoundLocation 
         
@@ -427,7 +427,7 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
             
             let textFromCaretToLimitForCopyingText = lineText[lineCaretLocationIndex..<limitForCopyingTextIndex]
             
-            let firstNonBlankOfCurrentLineLocation = textEngine.findFirstNonBlank(in: lineText)
+            let firstNonBlankOfCurrentLineLocation = textEngine.firstNonBlank(in: lineText)
             let firstNonBlankOfCurrentLineText = lineText[lineText.startIndex..<lineText.index(lineText.startIndex, offsetBy: firstNonBlankOfCurrentLineLocation)]      
             
             element.selectedLength = textFromCaretToLimitForCopyingText.count
@@ -443,7 +443,7 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
         
         if element.currentLine.isFirstLine() {
             let lineText = element.currentLine.value
-            let firstNonBlankOfCurrentLineLocation = textEngine.findFirstNonBlank(in: lineText)
+            let firstNonBlankOfCurrentLineLocation = textEngine.firstNonBlank(in: lineText)
             let firstNonBlankOfCurrentLineText = lineText[lineText.startIndex..<lineText.index(lineText.startIndex, offsetBy: firstNonBlankOfCurrentLineLocation)]
             
             element.caretLocation = 0
@@ -472,7 +472,7 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
         let previousLine = textEngine.previousLine(before: element.caretLocation, in: element.value)!
         let lineText = element.currentLine.value
         let lineStart = element.currentLine.start!
-        let firstNonBlankOfCurrentLineLocation = textEngine.findFirstNonBlank(in: lineText)
+        let firstNonBlankOfCurrentLineLocation = textEngine.firstNonBlank(in: lineText)
         let firstNonBlankOfCurrentLineText = lineText[lineText.startIndex..<lineText.index(lineText.startIndex, offsetBy: firstNonBlankOfCurrentLineLocation)]
             
         element.caretLocation = lineStart - previousLine.count

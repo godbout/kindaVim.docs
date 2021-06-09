@@ -28,13 +28,7 @@ class TextEngineMock: TextEngineProtocol {
         
         return nil 
     }
-    
-    func findFirstNonBlank(in text: String) -> Int {
-        functionCalled = #function
-        
-        return 0
-    }
-    
+            
     func findNext(_ character: Character, after location: Int, in text: String) -> Int? {
         functionCalled = #function
         
@@ -51,6 +45,18 @@ class TextEngineMock: TextEngineProtocol {
         functionCalled = #function
         
         return nil 
+    }
+    
+    func firstNonBlank(in text: String) -> Int {
+        functionCalled = #function
+        
+        return 0
+    }
+    
+    func innerWord(startingAt location: Int, in text: String) -> (Int, Int) {
+        functionCalled = #function
+        
+        return (0, 0)
     }
     
     func previousLine(before location: Int, in text: String) -> String? {
