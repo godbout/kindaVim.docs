@@ -1,7 +1,7 @@
 @testable import kindaVim
 import XCTest
 
-// this move is mainly using the TextEngine.findFirstNonBlank function
+// this move is mainly using the TextEngine.firstNonBlank function
 // so most of the tests are there. we still need to test here that if the
 // caret location is at the end of the line, it doesn't crash.
 // and of course as usual, testing the block cursor status.
@@ -11,30 +11,30 @@ class AS_I__Tests: AS_BaseTests {}
 // Both
 extension AS_I__Tests {
     
-    func test_that_it_calls_the_TextEngine_findFirstNonBlank_function() {
+    func test_that_it_calls_the_TextEngine_firstNonBlank_function() {
         let textEngineMock = TextEngineMock()
         accessibilityStrategy = AccessibilityStrategy(textEngine: textEngineMock)
         
         let text = """
-just testing call to findFirstNonBlank
+just testing call to firstNonBlank
 all the cases are tested in
 the TextEngineTests
 """
         let element = AccessibilityTextElement(
             role: .textArea,
             value: text,
-            caretLocation: 82,
+            caretLocation: 79,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 2,
-                start: 67,
-                end: 86
+                start: 63,
+                end: 82
             )
         )
         
         _ = accessibilityStrategy.I(on: element)
         
-        XCTAssertEqual(textEngineMock.functionCalled, "findFirstNonBlank(in:)")        
+        XCTAssertEqual(textEngineMock.functionCalled, "firstNonBlank(in:)")        
     }
     
     func test_that_if_the_caret_is_at_the_end_of_the_TextField_it_does_not_crash() {
