@@ -24,6 +24,8 @@ protocol AccessibilityStrategyProtocol {
     func t(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func T(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func w(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
+    
+    func caret(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func dollarSign(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func zero(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     
@@ -570,6 +572,12 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
         
         element.caretLocation = textEngine.beginningOfWordForward(startingAt: element.caretLocation, in: element.value)
 
+        return element
+    }
+    
+    func caret(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        guard var element = element else { return nil }
+        
         return element
     }
 

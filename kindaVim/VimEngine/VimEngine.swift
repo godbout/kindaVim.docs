@@ -42,7 +42,13 @@ class VimEngine {
 
                 post(keyboardStrategy.enter())
             case .caret:
-                post(keyboardStrategy.caret())
+                // ugly af; need to refactor
+                if var element = accessibilityStrategy.caret(on: focusedElement()) {
+                    element.selectedLength = 1                    
+                    _ = push(element: element)
+                } else {
+                    post(keyboardStrategy.caret())
+                }
             case .dollarSign:
                 // ugly af; need to refactor
                 if var element = accessibilityStrategy.dollarSign(on: focusedElement()) {

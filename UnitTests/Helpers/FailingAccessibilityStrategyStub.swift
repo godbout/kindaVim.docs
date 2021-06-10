@@ -90,6 +90,10 @@ struct FailingAccessibilityStrategyStub: AccessibilityStrategyProtocol {
     func w(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return nil
     }
+    
+    func caret(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        return nil
+    }
 
     func dollarSign(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return nil
