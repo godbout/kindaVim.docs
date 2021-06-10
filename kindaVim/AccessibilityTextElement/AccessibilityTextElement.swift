@@ -41,28 +41,28 @@ struct AccessibilityTextElementLine {
         return value.hasSuffix("\n") ? length - 1 : length
     }
     
-    func endLimit() -> Int? {
+    var endLimit: Int? {
         guard let start = start, let end = end else { return nil }
         guard end - start > 1 else { return start }
 
         return value.hasSuffix("\n") ? end - 2 : end - 1
     }
 
-    func startLimit() -> Int? {
+    var startLimit: Int? {
         guard let start = start else { return nil }
 
         return start
     }
     
-    func isFirstLine() -> Bool {
+    var isFirstLine: Bool {
         return start == 0
     }
 
-    func isLastLine() -> Bool {
+    var isLastLine: Bool {
         return start == nil && end == nil
     }
 
-    func isOnlyALinefeedCharacter() -> Bool {
+    var isOnlyALinefeedCharacter: Bool {
         // if start and end are nil, then the insertion point is after the last character of the TextField
         // this is not possible to reach without clicking there, but still
         // because Apple's AX API returns nil for everything, we can't grab the line range for that line
@@ -98,24 +98,24 @@ struct AccessibilityTextElement {
     
     var currentLine: AccessibilityTextElementLine!
     
-    func isEmpty() -> Bool {
+    var isEmpty: Bool {
         return value.isEmpty
     }
     
-    func isNotEmpty() -> Bool {
-        return !isEmpty()
+    var isNotEmpty: Bool {
+        return !isEmpty
     }
 
-    func caretIsAtTheEnd() -> Bool {
+    var caretIsAtTheEnd: Bool {
         return currentLine.start == nil && currentLine.end == nil
     }
     
-    func lastCharacterIsLinefeed() -> Bool {
+    var lastCharacterIsLinefeed: Bool {
         return value.last == "\n"
     }
 
-    func lastCharacterIsNotLinefeed() -> Bool {
-        return !lastCharacterIsLinefeed()
+    var lastCharacterIsNotLinefeed: Bool {
+        return !lastCharacterIsLinefeed
     }
 
 }

@@ -39,20 +39,20 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
     func a(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         guard var element = element else { return nil }
         
-        if element.isEmpty() {
+        if element.isEmpty {
             return element
         }
         
-        if element.caretIsAtTheEnd(), element.lastCharacterIsNotLinefeed() {
+        if element.caretIsAtTheEnd, element.lastCharacterIsNotLinefeed {
             return element
         }
         
-        if element.caretIsAtTheEnd(), element.lastCharacterIsLinefeed() {
+        if element.caretIsAtTheEnd, element.lastCharacterIsLinefeed {
             return element
         }
         
         
-        guard element.currentLine.isOnlyALinefeedCharacter() == false else { return element }
+        guard element.currentLine.isOnlyALinefeedCharacter == false else { return element }
 
         element.caretLocation += 1
 
@@ -62,22 +62,22 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
     func A(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         guard var element = element else { return nil }
         
-        if element.isEmpty() {
+        if element.isEmpty {
             return element
         }
         
-        if element.caretIsAtTheEnd(), element.lastCharacterIsNotLinefeed() {
+        if element.caretIsAtTheEnd, element.lastCharacterIsNotLinefeed {
             return element
         }
         
-        if element.caretIsAtTheEnd(), element.lastCharacterIsLinefeed() {
+        if element.caretIsAtTheEnd, element.lastCharacterIsLinefeed {
             return element
         }
         
         
-        guard element.currentLine.isOnlyALinefeedCharacter() == false else { return element }
+        guard element.currentLine.isOnlyALinefeedCharacter == false else { return element }
                 
-        element.caretLocation = element.currentLine.endLimit()! + 1
+        element.caretLocation = element.currentLine.endLimit! + 1
         
         return element
     }
@@ -85,7 +85,7 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
     func b(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         guard var element = element else { return nil }
         
-        if element.isEmpty() {
+        if element.isEmpty {
             return element
         }
               
@@ -98,15 +98,15 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
     func cc(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         guard var element = element  else { return nil }
         
-        if element.isEmpty() {
+        if element.isEmpty {
             return element
         }
         
-        if element.caretIsAtTheEnd(), element.lastCharacterIsNotLinefeed() {
+        if element.caretIsAtTheEnd, element.lastCharacterIsNotLinefeed {
             return element
         }
         
-        if element.caretIsAtTheEnd(), element.lastCharacterIsLinefeed() {
+        if element.caretIsAtTheEnd, element.lastCharacterIsLinefeed {
             return element            
         }
         
@@ -124,15 +124,15 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
     func ciDoubleQuote(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         guard var element = element else { return nil }
         
-        if element.isEmpty() {
+        if element.isEmpty {
             return nil
         }
         
-        if element.caretIsAtTheEnd(), element.lastCharacterIsNotLinefeed() {
+        if element.caretIsAtTheEnd, element.lastCharacterIsNotLinefeed {
             return nil
         }
         
-        if element.caretIsAtTheEnd(), element.lastCharacterIsLinefeed() {
+        if element.caretIsAtTheEnd, element.lastCharacterIsLinefeed {
             return nil 
         }
         
@@ -167,15 +167,15 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
     func ciw(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         guard var element = element else { return nil }
         
-        if element.isEmpty() {
+        if element.isEmpty {
             return element
         }
         
-        if element.caretIsAtTheEnd(), element.lastCharacterIsNotLinefeed() {
+        if element.caretIsAtTheEnd, element.lastCharacterIsNotLinefeed {
             return element
         }
         
-        if element.caretIsAtTheEnd(), element.lastCharacterIsLinefeed() {
+        if element.caretIsAtTheEnd, element.lastCharacterIsLinefeed {
             return element
         }
         
@@ -226,7 +226,7 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
     func e(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         guard var element = element else { return nil }
         
-        if element.isEmpty() {
+        if element.isEmpty {
             return element
         }
         
@@ -239,15 +239,15 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
     func f(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         guard var element = element else { return nil }
         
-        if element.isEmpty() {
+        if element.isEmpty {
             return element
         }
         
-        if element.caretIsAtTheEnd(), element.lastCharacterIsNotLinefeed() {
+        if element.caretIsAtTheEnd, element.lastCharacterIsNotLinefeed {
             return element
         }
         
-        if element.caretIsAtTheEnd(), element.lastCharacterIsNotLinefeed() {
+        if element.caretIsAtTheEnd, element.lastCharacterIsNotLinefeed {
             return element
         }
         
@@ -266,15 +266,15 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
     func F(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         guard var element = element else { return nil }
         
-        if element.isEmpty() {
+        if element.isEmpty {
             return element
         }
         
-        if element.caretIsAtTheEnd(), element.lastCharacterIsNotLinefeed() {
+        if element.caretIsAtTheEnd, element.lastCharacterIsNotLinefeed {
             return element
         }
         
-        if element.caretIsAtTheEnd(), element.lastCharacterIsLinefeed() {
+        if element.caretIsAtTheEnd, element.lastCharacterIsLinefeed {
             return element
         }
         
@@ -294,22 +294,22 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
     func h(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         guard var element = element else { return nil }
         
-        if element.isEmpty() {
+        if element.isEmpty {
             return element
         }
         
-        if element.caretIsAtTheEnd(), element.lastCharacterIsNotLinefeed() {
+        if element.caretIsAtTheEnd, element.lastCharacterIsNotLinefeed {
             element.caretLocation -= 1
             
             return element
         }
         
-        if element.caretIsAtTheEnd(), element.lastCharacterIsLinefeed() {
+        if element.caretIsAtTheEnd, element.lastCharacterIsLinefeed {
             return element
         }
         
         
-        if element.caretLocation > element.currentLine.startLimit()! {
+        if element.caretLocation > element.currentLine.startLimit! {
             element.caretLocation -= 1
         }
 
@@ -323,15 +323,15 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
     func I(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         guard var element = element else { return nil }
         
-        if element.isEmpty() {
+        if element.isEmpty {
             return element
         }
         
-        if element.caretIsAtTheEnd(), element.lastCharacterIsNotLinefeed() {
+        if element.caretIsAtTheEnd, element.lastCharacterIsNotLinefeed {
             return element
         }
         
-        if element.caretIsAtTheEnd(), element.lastCharacterIsLinefeed() {
+        if element.caretIsAtTheEnd, element.lastCharacterIsLinefeed {
             return element
         }
 
@@ -348,21 +348,21 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
         guard var element = element else { return nil }
         guard element.role == .textArea else { return nil }
         
-        if element.isEmpty() {
+        if element.isEmpty {
             return element
         }
         
-        if element.caretIsAtTheEnd(), element.lastCharacterIsNotLinefeed() {
+        if element.caretIsAtTheEnd, element.lastCharacterIsNotLinefeed {
             return element
         }
         
-        if element.caretIsAtTheEnd(), element.lastCharacterIsLinefeed() {
+        if element.caretIsAtTheEnd, element.lastCharacterIsLinefeed {
             return element
         }
         
 
         if let currentLineNumber = element.currentLine.number, let nextLine = AccessibilityTextElementAdaptor.lineFor(lineNumber: currentLineNumber + 1) {
-            if nextLine.isLastLine(), nextLine.isOnlyALinefeedCharacter() {
+            if nextLine.isLastLine, nextLine.isOnlyALinefeedCharacter {
                 let globalColumNumber = AccessibilityTextElement.globalColumnNumber
                 element.caretLocation = element.value.count
                 AccessibilityTextElement.globalColumnNumber = globalColumNumber
@@ -370,7 +370,7 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
                 if let nextLineLength = nextLine.length, nextLineLength > AccessibilityTextElement.globalColumnNumber {
                     element.caretLocation = nextLine.start! + AccessibilityTextElement.globalColumnNumber - 1
                 } else {
-                    if let endLimit = nextLine.endLimit() {
+                    if let endLimit = nextLine.endLimit {
                         let globalColumNumber = AccessibilityTextElement.globalColumnNumber
                         element.caretLocation = endLimit
                         AccessibilityTextElement.globalColumnNumber = globalColumNumber
@@ -386,14 +386,14 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
         guard var element = element else { return nil }
         guard element.role == .textArea else { return nil }
         
-        if element.isEmpty() {
+        if element.isEmpty {
             return element
         }
         
 
         var previousLine: AccessibilityTextElementLine?
 
-        if element.currentLine.isLastLine() {
+        if element.currentLine.isLastLine {
             previousLine = AccessibilityTextElementAdaptor.lineFor(location: element.caretLocation - 1)
         } else {
             previousLine = AccessibilityTextElementAdaptor.lineFor(lineNumber: element.currentLine.number! - 1)
@@ -403,7 +403,7 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
             if let previousLineLength = previousLine.length, previousLineLength > AccessibilityTextElement.globalColumnNumber {
                 element.caretLocation = previousLine.start! + AccessibilityTextElement.globalColumnNumber - 1
             } else {
-                if let endLimit = previousLine.endLimit() {
+                if let endLimit = previousLine.endLimit {
                     let globalColumnNumber = AccessibilityTextElement.globalColumnNumber
                     element.caretLocation = endLimit
                     AccessibilityTextElement.globalColumnNumber = globalColumnNumber
@@ -417,20 +417,20 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
     func l(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         guard var element = element else { return nil }
         
-        if element.isEmpty() {
+        if element.isEmpty {
             return element
         }
         
-        if element.caretIsAtTheEnd(), element.lastCharacterIsNotLinefeed() {
+        if element.caretIsAtTheEnd, element.lastCharacterIsNotLinefeed {
             return element
         }
         
-        if element.caretIsAtTheEnd(), element.lastCharacterIsLinefeed() {
+        if element.caretIsAtTheEnd, element.lastCharacterIsLinefeed {
             return element
         }
 
         
-        if element.caretLocation < element.currentLine.endLimit()! {
+        if element.caretLocation < element.currentLine.endLimit! {
             element.caretLocation += 1
         }
 
@@ -441,13 +441,13 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
         guard var element = element else { return nil }
         guard element.role == .textArea else { return element }
         
-        if element.currentLine.isLastLine() || element.currentLine.isOnlyALinefeedCharacter() {
+        if element.currentLine.isLastLine || element.currentLine.isOnlyALinefeedCharacter {
             element.selectedLength = 0
             element.selectedText = "\n" 
         } else {
             let lineText = element.currentLine.value         
             let lineCaretLocationIndex = lineText.index(lineText.startIndex, offsetBy: element.caretLocation - element.currentLine.start!)            
-            let limitForCopyingTextIndex = lineText.index(lineText.startIndex, offsetBy: element.currentLine.endLimit()! - element.currentLine.start! + 1)        
+            let limitForCopyingTextIndex = lineText.index(lineText.startIndex, offsetBy: element.currentLine.endLimit! - element.currentLine.start! + 1)        
             
             let textFromCaretToLimitForCopyingText = lineText[lineCaretLocationIndex..<limitForCopyingTextIndex]
             
@@ -465,7 +465,7 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
         guard var element = element else { return nil }
         guard element.role == .textArea else { return element }
         
-        if element.currentLine.isFirstLine() {
+        if element.currentLine.isFirstLine {
             let lineText = element.currentLine.value
             let firstNonBlankOfCurrentLineLocation = textEngine.firstNonBlank(in: lineText)
             let firstNonBlankOfCurrentLineText = lineText[lineText.startIndex..<lineText.index(lineText.startIndex, offsetBy: firstNonBlankOfCurrentLineLocation)]
@@ -483,7 +483,7 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
             return element            
         }
         
-        if element.currentLine.isLastLine() {
+        if element.currentLine.isLastLine {
             element.selectedText = "\n"
             
             _ = AccessibilityTextElementAdaptor.toAXfocusedElement(from: element)
@@ -509,15 +509,15 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
     func t(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         guard var element = element else { return nil }
         
-        if element.isEmpty() {
+        if element.isEmpty {
             return element
         }
         
-        if element.caretIsAtTheEnd(), element.lastCharacterIsNotLinefeed() {
+        if element.caretIsAtTheEnd, element.lastCharacterIsNotLinefeed {
             return element
         }
         
-        if element.caretIsAtTheEnd(), element.lastCharacterIsLinefeed() {
+        if element.caretIsAtTheEnd, element.lastCharacterIsLinefeed {
             return element
         }
         
@@ -536,15 +536,15 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
     func T(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         guard var element = element else { return nil }
         
-        if element.isEmpty() {
+        if element.isEmpty {
             return element
         }
         
-        if element.caretIsAtTheEnd(), element.lastCharacterIsNotLinefeed() {
+        if element.caretIsAtTheEnd, element.lastCharacterIsNotLinefeed {
             return element
         }
         
-        if element.caretIsAtTheEnd(), element.lastCharacterIsLinefeed() {
+        if element.caretIsAtTheEnd, element.lastCharacterIsLinefeed {
             return element
         }
         
@@ -563,7 +563,7 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
     func w(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         guard var element = element else { return nil }
         
-        if element.isEmpty() {
+        if element.isEmpty {
             return element
         }
 
@@ -576,22 +576,22 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
     func dollarSign(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         guard var element = element else { return nil }
         
-        if element.isEmpty() {
+        if element.isEmpty {
             return element
         }
         
-        if element.caretIsAtTheEnd(), element.lastCharacterIsNotLinefeed() {
+        if element.caretIsAtTheEnd, element.lastCharacterIsNotLinefeed {
             element.caretLocation -= 1
             
             return element
         }
         
-        if element.caretIsAtTheEnd(), element.lastCharacterIsLinefeed() {
+        if element.caretIsAtTheEnd, element.lastCharacterIsLinefeed {
             return element
         }
         
         
-        element.caretLocation = element.currentLine.endLimit()!
+        element.caretLocation = element.currentLine.endLimit!
 
         return element
     }
@@ -599,20 +599,20 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
     func zero(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         guard var element = element else { return nil }
         
-        if element.isEmpty() {
+        if element.isEmpty {
             return element
         }
         
-        if element.caretIsAtTheEnd(), element.lastCharacterIsNotLinefeed() {
+        if element.caretIsAtTheEnd, element.lastCharacterIsNotLinefeed {
             return element
         }
         
-        if element.caretIsAtTheEnd(), element.lastCharacterIsNotLinefeed() {
+        if element.caretIsAtTheEnd, element.lastCharacterIsNotLinefeed {
             return element
         }
 
         
-        element.caretLocation = element.currentLine.startLimit()!
+        element.caretLocation = element.currentLine.startLimit!
 
         return element
     }
