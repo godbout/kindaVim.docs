@@ -83,6 +83,7 @@
 		918024B926386E95004FD719 /* AppComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918024B826386E95004FD719 /* AppComponent.swift */; };
 		9180FB6F266FD1EA00E12818 /* innerWordTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9180FB6E266FD1EA00E12818 /* innerWordTests.swift */; };
 		918B893726727196002CF63C /* UsingAS_^_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918B893626727196002CF63C /* UsingAS_^_Tests.swift */; };
+		918B893D267272F8002CF63C /* AS_^_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918B893C267272F8002CF63C /* AS_^_Tests.swift */; };
 		918C26512646D29000C39ADA /* KS_s_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918C26502646D29000C39ADA /* KS_s_Tests.swift */; };
 		918C26572646D32500C39ADA /* UsingKS_s_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918C26562646D32500C39ADA /* UsingKS_s_Tests.swift */; };
 		918F4DEF265C070D0006CC2E /* TextEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918F4DEE265C070D0006CC2E /* TextEngine.swift */; };
@@ -332,6 +333,7 @@
 		9184371326592D8E003CE952 /* ATEA_BlockCursorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ATEA_BlockCursorTests.swift; sourceTree = "<group>"; };
 		91872E0C26609FDA001007B3 /* UIAS_k_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAS_k_Tests.swift; sourceTree = "<group>"; };
 		918B893626727196002CF63C /* UsingAS_^_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UsingAS_^_Tests.swift"; sourceTree = "<group>"; };
+		918B893C267272F8002CF63C /* AS_^_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AS_^_Tests.swift"; sourceTree = "<group>"; };
 		918C26502646D29000C39ADA /* KS_s_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KS_s_Tests.swift; sourceTree = "<group>"; };
 		918C26562646D32500C39ADA /* UsingKS_s_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsingKS_s_Tests.swift; sourceTree = "<group>"; };
 		918F4DEE265C070D0006CC2E /* TextEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextEngine.swift; sourceTree = "<group>"; };
@@ -969,6 +971,7 @@
 				911A0C8226668F4C00B78C15 /* AS_T__Tests.swift */,
 				9136AF8E26615A8E00385C07 /* AS_w_Tests.swift */,
 				91FA1D992657C13C005F576E /* AS_$_Tests.swift */,
+				918B893C267272F8002CF63C /* AS_^_Tests.swift */,
 				91FA1D952657BE2B005F576E /* AS_0_Tests.swift */,
 			);
 			path = AccessibilityStrategy;
@@ -1262,6 +1265,7 @@
 				91E304EB2643F483004D9933 /* UsingKS_u_Tests.swift in Sources */,
 				917BE836266FB2DE0072D0A7 /* UsingAS_e_Tests.swift in Sources */,
 				91E304C92643EF1C004D9933 /* UsingKS_c_Tests.swift in Sources */,
+				918B893D267272F8002CF63C /* AS_^_Tests.swift in Sources */,
 				91A54EFB2643BAB800400677 /* KS_control_r_Tests.swift in Sources */,
 				91CBBB962669FA450006BCA8 /* AS_dd_Tests.swift in Sources */,
 				91CE7350265CD31B00248D18 /* UsingKS_^_Tests.swift in Sources */,
