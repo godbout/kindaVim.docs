@@ -17,15 +17,15 @@ protocol TextEngineProtocol {
 
 extension Character {
     
-    func isCharacterThatConstitutesAVimWord() -> Bool {
+    var isCharacterThatConstitutesAVimWord: Bool {
         return self.isLetter || self.isNumber || self == "_"
     }
     
-    func isPunctuationButNotUnderscore() -> Bool {
+    var isPunctuationButNotUnderscore: Bool {
         return self.isPunctuation && self != "_"
     }
     
-    func isWhitespaceButNotNewline() -> Bool { 
+    var isWhitespaceButNotNewline: Bool { 
         return self.isWhitespace && !self.isNewline
     }
     
@@ -50,25 +50,25 @@ extension TextEngine {
             guard index != startIndex else { return 0 }
             let previousIndex = text.index(before: index)
             
-            if text[index].isCharacterThatConstitutesAVimWord() {
-                if text[previousIndex].isCharacterThatConstitutesAVimWord() {
+            if text[index].isCharacterThatConstitutesAVimWord {
+                if text[previousIndex].isCharacterThatConstitutesAVimWord {
                     continue
                 }
             }
             
-            if text[index].isPunctuationButNotUnderscore() {
-                if text[previousIndex].isPunctuationButNotUnderscore() {
+            if text[index].isPunctuationButNotUnderscore {
+                if text[previousIndex].isPunctuationButNotUnderscore {
                     continue
                 }
             }
             
             if text[index].isSymbol {
-                if text[previousIndex].isSymbol || text[previousIndex].isPunctuationButNotUnderscore() {
+                if text[previousIndex].isSymbol || text[previousIndex].isPunctuationButNotUnderscore {
                     continue
                 }
             }
             
-            if text[index].isWhitespaceButNotNewline() {
+            if text[index].isWhitespaceButNotNewline {
                 continue
             }
             
@@ -92,14 +92,14 @@ extension TextEngine {
             guard index != text.index(before: endIndex) else { return text.count - 1 }
             let nextIndex = text.index(after: index)
 
-            if text[index].isCharacterThatConstitutesAVimWord() {
-                if text[nextIndex].isCharacterThatConstitutesAVimWord() || text[nextIndex].isWhitespace {
+            if text[index].isCharacterThatConstitutesAVimWord {
+                if text[nextIndex].isCharacterThatConstitutesAVimWord || text[nextIndex].isWhitespace {
                     continue
                 }
             }
             
-            if text[index].isPunctuationButNotUnderscore() {
-                if text[nextIndex].isPunctuationButNotUnderscore() || text[nextIndex].isSymbol || text[nextIndex].isWhitespace {
+            if text[index].isPunctuationButNotUnderscore {
+                if text[nextIndex].isPunctuationButNotUnderscore || text[nextIndex].isSymbol || text[nextIndex].isWhitespace {
                     continue
                 }
             }
@@ -110,14 +110,14 @@ extension TextEngine {
                 }
             }
             
-            if text[index].isWhitespaceButNotNewline() {
+            if text[index].isWhitespaceButNotNewline {
                 if text[nextIndex].isWhitespace {
                     continue
                 }
             }
             
             if text[index].isNewline {
-                if text[nextIndex].isWhitespaceButNotNewline() {
+                if text[nextIndex].isWhitespaceButNotNewline {
                     continue
                 }
             }
@@ -136,14 +136,14 @@ extension TextEngine {
             guard index != text.index(before: endIndex) else { return text.count - 1 }
             let nextIndex = text.index(after: index)
             
-            if text[index].isCharacterThatConstitutesAVimWord() {
-                if text[nextIndex].isCharacterThatConstitutesAVimWord() {
+            if text[index].isCharacterThatConstitutesAVimWord {
+                if text[nextIndex].isCharacterThatConstitutesAVimWord {
                     continue
                 }
             }
             
-            if text[index].isPunctuationButNotUnderscore() {
-                if text[nextIndex].isPunctuationButNotUnderscore() || text[nextIndex].isSymbol {
+            if text[index].isPunctuationButNotUnderscore {
+                if text[nextIndex].isPunctuationButNotUnderscore || text[nextIndex].isSymbol {
                     continue
                 }
             }
@@ -154,8 +154,8 @@ extension TextEngine {
                 }
             }
             
-            if text[index].isWhitespaceButNotNewline() {
-                if text[nextIndex].isWhitespace || text[nextIndex].isCharacterThatConstitutesAVimWord() || text[nextIndex].isPunctuationButNotUnderscore() || text[nextIndex].isSymbol {
+            if text[index].isWhitespaceButNotNewline {
+                if text[nextIndex].isWhitespace || text[nextIndex].isCharacterThatConstitutesAVimWord || text[nextIndex].isPunctuationButNotUnderscore || text[nextIndex].isSymbol {
                     continue
                 }
             }
@@ -171,7 +171,7 @@ extension TextEngine {
     }
     
     func firstNonBlank(in text: String) -> Int {
-        guard let characterIndex = text.firstIndex(where: { !$0.isWhitespaceButNotNewline() }) else { return text.count }
+        guard let characterIndex = text.firstIndex(where: { !$0.isWhitespaceButNotNewline }) else { return text.count }
         
         return text.distance(from: text.startIndex, to: characterIndex)
     }
@@ -231,7 +231,7 @@ extension TextEngine {
             guard index != text.index(before: endIndex) else { return nil }
             let nextIndex = text.index(after: index)
             
-            if text[nextIndex].isWhitespaceButNotNewline() {
+            if text[nextIndex].isWhitespaceButNotNewline {
                 continue
             }
             
@@ -258,7 +258,7 @@ extension TextEngine {
             guard index != startIndex else { return nil }
             let previousIndex = text.index(before: index)
             
-            if text[previousIndex].isWhitespaceButNotNewline() {
+            if text[previousIndex].isWhitespaceButNotNewline {
                 continue
             }
             
