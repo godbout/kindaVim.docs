@@ -266,7 +266,7 @@ class VimEngine {
             enterInsertMode()
             
             // ugly af; need to refactor
-            if var element = accessibilityStrategy.cc(on: focusedElement()) {
+            if let element = accessibilityStrategy.cc(on: focusedElement()) {
                 if push(element: element) == false {
                     post(keyboardStrategy.cc())
                 }

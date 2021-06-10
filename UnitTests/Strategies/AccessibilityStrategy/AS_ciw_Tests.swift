@@ -2,6 +2,10 @@
 import XCTest
 
 
+// ciw uses only the TextEngine.innerWord func.
+// this is already tested, so here we have only a bunch of
+// tests for extra caution, but most of them are already done
+// in TE.innerWord
 class AS_ciw_Tests: AS_BaseTests {}
 
 
@@ -89,7 +93,68 @@ line
 // Both
 extension AS_ciw_Tests {
     
-
+    func test_that_it_can_delete_a_word_separated_by_spaces() {
+        let text = "a sentence with a word, or more..."
+        let element = AccessibilityTextElement(
+            role: .textField,
+            value: text,
+            caretLocation: 12,
+            currentLine: AccessibilityTextElementLine(
+                fullValue: text,
+                number: 0,
+                start: 0,
+                end: 34
+            )
+        )
+        
+        let returnedElement = accessibilityStrategy.ciw(on: element)
+        
+        XCTAssertEqual(returnedElement?.caretLocation, 11)
+        XCTAssertEqual(returnedElement?.selectedLength, 4)
+        XCTAssertEqual(returnedElement?.selectedText, "")      
+    }    
+    
+    func test_that_it_deletes_a_single_space_when_the_space_is_alone() {
+        let text = "a sentence with a word, or more..."
+        let element = AccessibilityTextElement(
+            role: .textField,
+            value: text,
+            caretLocation: 15,
+            currentLine: AccessibilityTextElementLine(
+                fullValue: text,
+                number: 0,
+                start: 0,
+                end: 34
+            )
+        )
+        
+        let returnedElement = accessibilityStrategy.ciw(on: element)
+        
+        XCTAssertEqual(returnedElement?.caretLocation, 15)
+        XCTAssertEqual(returnedElement?.selectedLength, 1)
+        XCTAssertEqual(returnedElement?.selectedText, "")      
+    }
+    
+    func test_that_it_deletes_up_to_the_beginning_of_a_line() {
+        let text = "         hehehehe"
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            caretLocation: 6,
+            currentLine: AccessibilityTextElementLine(
+                fullValue: text,
+                number: 0,
+                start: 0,
+                end: 17
+            )
+        )
+        
+        let returnedElement = accessibilityStrategy.ciw(on: element)
+        
+        XCTAssertEqual(returnedElement?.caretLocation, 0)
+        XCTAssertEqual(returnedElement?.selectedLength, 9)
+        XCTAssertEqual(returnedElement?.selectedText, "")     
+    }
     
 }
 
@@ -97,5 +162,30 @@ extension AS_ciw_Tests {
 // TextViews
 extension AS_ciw_Tests {
     
-
+    func test_that_it_stops_at_linefeeds() {
+        let text = """
+can't go from
+one line to      
+    the other
+"""
+        
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            caretLocation: 27,
+            currentLine: AccessibilityTextElementLine(
+                fullValue: text,
+                number: 1,
+                start: 14,
+                end: 32
+            )
+        )
+        
+        let returnedElement = accessibilityStrategy.ciw(on: element)
+        
+        XCTAssertEqual(returnedElement?.caretLocation, 25)
+        XCTAssertEqual(returnedElement?.selectedLength, 6)
+        XCTAssertEqual(returnedElement?.selectedText, "")     
+    }
+    
 }
