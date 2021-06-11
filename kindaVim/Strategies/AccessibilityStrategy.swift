@@ -297,6 +297,28 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
     func gg(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         guard var element = element else { return nil }
         
+        if element.isEmpty {
+            return element
+        }
+        
+        if element.caretIsAtTheEnd, element.lastCharacterIsNotLinefeed {
+            return element
+        }
+        
+        if element.caretIsAtTheEnd, element.lastCharacterIsLinefeed {
+            return element
+        }
+        
+                
+        let characterFoundLocation = textEngine.firstNonBlank(in: element.value)        
+        let firstLine = textEngine.firstLine(in: element.value)
+        
+        if characterFoundLocation >= firstLine.endLimit { 
+            element.caretLocation = firstLine.endLimit
+        } else {
+            element.caretLocation = characterFoundLocation
+        }            
+        
         return element
     }
 
