@@ -135,7 +135,13 @@ class VimEngine {
             case .g:
                 enterOperatorPendingMode(with: keyCombination)
             case .G:
-                post(keyboardStrategy.G())
+                // ugly af; need to refactor
+                if var element = accessibilityStrategy.G(on: focusedElement()) {
+                    element.selectedLength = 1
+                    _ = push(element: element)
+                } else {
+                    post(keyboardStrategy.G())
+                }
             case .h:
                 // ugly af; need to refactor
                 if var element = accessibilityStrategy.h(on: focusedElement()) {

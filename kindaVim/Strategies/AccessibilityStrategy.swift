@@ -14,6 +14,7 @@ protocol AccessibilityStrategyProtocol {
     func f(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func F(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func gg(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
+    func G(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func h(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func i(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func I(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
@@ -322,7 +323,13 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
         
         return element
     }
-
+    
+    func G(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        guard var element = element else { return nil }
+        
+        return element
+    }
+    
     func h(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         guard var element = element else { return nil }
         

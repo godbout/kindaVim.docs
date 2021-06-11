@@ -51,6 +51,10 @@ struct FailingAccessibilityStrategyStub: AccessibilityStrategyProtocol {
         return nil
     }
     
+    func G(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        return nil
+    }
+    
     func h(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return nil
     }
