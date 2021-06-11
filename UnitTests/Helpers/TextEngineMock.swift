@@ -65,6 +65,12 @@ class TextEngineMock: TextEngineProtocol {
         return ""
     }
     
+    func lastLine(in text: String) -> String {
+        functionCalled = #function
+        
+        return ""
+    }
+    
     func nextLine(after location: Int, in text: String) -> String? {
         functionCalled = #function
         
