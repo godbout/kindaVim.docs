@@ -5,11 +5,9 @@ import XCTest
 class UIAS_O__Tests: UIAS_BaseTests {
     
     private func applyMoveAndGetBackUpdatedElement() -> AccessibilityTextElement? {
-        let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
-        guard let transformedElement = accessibilityStrategy.O(on: accessibilityElement) else { return nil }
-        _ = AccessibilityTextElementAdaptor.toAXfocusedElement(from: transformedElement)
-        
-        return  AccessibilityTextElementAdaptor.fromAXFocusedElement()        
+        return applyMoveAndGetBackUpdatedElement { focusedElement in
+            accessibilityStrategy.O(on: focusedElement)
+        }
     }
     
 }

@@ -1,6 +1,7 @@
 @testable import kindaVim
 import XCTest
 
+
 // here we're just running a few UI Tests to complete the AccessibilityStrategy Unit Tests
 // and also to be able to test whether ci" returns in insert mode when successful, or in 
 // normal mode when it cannot apply the change. this need to be done here because the way
@@ -9,14 +10,13 @@ import XCTest
 class UIAS_ciDoubleQuote_Tests: UIAS_BaseTests {
     
     private func applyMoveAndGetBackUpdatedElement() -> AccessibilityTextElement? {
-        let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
-        guard let transformedElement = accessibilityStrategy.ciDoubleQuote(on: accessibilityElement) else { return nil }
-        _ = AccessibilityTextElementAdaptor.toAXfocusedElement(from: transformedElement)
-        
-        return  AccessibilityTextElementAdaptor.fromAXFocusedElement()        
+        return applyMoveAndGetBackUpdatedElement { focusedElement in 
+            accessibilityStrategy.ciDoubleQuote(on: focusedElement)
+        }
     }
     
 }
+
 
 // Both
 extension UIAS_ciDoubleQuote_Tests {

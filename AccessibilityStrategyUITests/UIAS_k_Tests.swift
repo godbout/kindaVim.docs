@@ -1,7 +1,9 @@
 @testable import kindaVim
 import XCTest
 
+
 class UIAS_k_Tests: UIAS_BaseTests {}
+
 
 // TextFields
 extension UIAS_k_Tests {
@@ -18,6 +20,7 @@ extension UIAS_k_Tests {
     }
 
 }
+
 
 // TextViews
 extension UIAS_k_Tests {
