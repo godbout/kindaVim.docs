@@ -135,9 +135,9 @@ class VimEngine {
             case .g:
                 enterOperatorPendingMode(with: keyCombination)
             case .G:
-                // ugly af; need to refactor
                 if var element = accessibilityStrategy.G(on: focusedElement()) {
-                    element.selectedLength = 1
+                    // G can go to the last empty line, but in that case we can't select the character as there is none
+                    element.selectedLength = (element.caretLocation == element.value.count) ? 0 : 1
                     _ = push(element: element)
                 } else {
                     post(keyboardStrategy.G())
