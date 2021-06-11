@@ -61,7 +61,13 @@ class VimEngine {
                     post(keyboardStrategy.dollarSign())
                 }
             case .underscore:
-                post(keyboardStrategy.underscore())
+                // ugly af; need to refactor
+                if var element = accessibilityStrategy.underscore(on: focusedElement()) {
+                    element.selectedLength = 1                    
+                    _ = push(element: element)
+                } else {
+                    post(keyboardStrategy.underscore())
+                }
             case .zero:
                 // ugly af; need to refactor
                 if var element = accessibilityStrategy.zero(on: focusedElement()) {

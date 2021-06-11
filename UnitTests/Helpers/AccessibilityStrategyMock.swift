@@ -152,6 +152,12 @@ class AccessibilityStrategyMock: AccessibilityStrategyProtocol {
 
         return nil
     }
+    
+    func underscore(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        functionCalled = #function
+        
+        return nil
+    }
 
     func zero(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function

@@ -102,6 +102,10 @@ struct FailingAccessibilityStrategyStub: AccessibilityStrategyProtocol {
     func dollarSign(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return nil
     }
+    
+    func underscore(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        return nil
+    }
 
     func zero(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return nil

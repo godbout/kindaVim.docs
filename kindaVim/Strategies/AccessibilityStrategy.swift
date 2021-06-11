@@ -28,6 +28,7 @@ protocol AccessibilityStrategyProtocol {
     
     func caret(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func dollarSign(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
+    func underscore(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func zero(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     
     static func test(element: AccessibilityTextElement?) -> AccessibilityTextElement?
@@ -653,6 +654,12 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
         
         element.caretLocation = element.currentLine.endLimit!
 
+        return element
+    }
+    
+    func underscore(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        guard var element = element else { return nil }
+        
         return element
     }
 
