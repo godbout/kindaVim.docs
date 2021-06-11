@@ -8,7 +8,13 @@ import XCTest
 // here the two tests relevant are:
 // 1. can find the character, then getting the right location
 // 2. cannot find the character, then not moving
-class AS_t_Tests: AS_BaseTests {}
+class AS_t_Tests: AS_BaseTests {
+    
+    private func applyMove(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        return accessibilityStrategy.t(to: character, on: element) 
+    }
+    
+}
 
 
 // Both
@@ -29,7 +35,7 @@ extension AS_t_Tests {
         )
         
         
-        let returnedElement = accessibilityStrategy.t(to: "i", on: element)
+        let returnedElement = applyMove(to: "i", on: element)
         
         XCTAssertEqual(returnedElement?.caretLocation, 15)
     }
@@ -53,7 +59,7 @@ that is not there
         )
         
         
-        let returnedElement = accessibilityStrategy.t(to: "z", on: element)
+        let returnedElement = applyMove(to: "z", on: element)
         
         XCTAssertEqual(returnedElement?.caretLocation, 22)
     }
@@ -83,7 +89,7 @@ yeah
             )
         )
         
-        let returnedElement = accessibilityStrategy.t(to: "a", on: element)
+        let returnedElement = applyMove(to: "a", on: element)
         
         XCTAssertEqual(returnedElement?.caretLocation, 40)
     }

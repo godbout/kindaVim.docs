@@ -2,7 +2,13 @@
 import XCTest
 
 
-class AS_o_Tests: AS_BaseTests {}
+class AS_o_Tests: AS_BaseTests {
+    
+    private func applyMove(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        return accessibilityStrategy.o(on: element) 
+    }
+    
+}
 
 
 // TextFields
@@ -22,7 +28,7 @@ extension AS_o_Tests {
             )
         )
         
-        let returnedElement = accessibilityStrategy.o(on: element)
+        let returnedElement = applyMove(on: element)
         
         XCTAssertNil(returnedElement?.selectedText)
     }
@@ -52,7 +58,7 @@ below
             )
         )
         
-        let returnedElement = accessibilityStrategy.o(on: element)
+        let returnedElement = applyMove(on: element)
         
         XCTAssertEqual(returnedElement?.selectedLength, 9)
         XCTAssertEqual(returnedElement?.selectedText, " new line\n")        
@@ -76,7 +82,7 @@ so the new line follows that
             )
         )
         
-        let returnedElement = accessibilityStrategy.o(on: element)
+        let returnedElement = applyMove(on: element)
         
         XCTAssertEqual(returnedElement?.selectedLength, 6)
         XCTAssertEqual(returnedElement?.selectedText, " space\n    ")            
@@ -107,7 +113,7 @@ so the new line follows that
             )
         )
         
-        let returnedElement = accessibilityStrategy.o(on: element)
+        let returnedElement = applyMove(on: element)
         
         XCTAssertEqual(returnedElement?.selectedLength, 6)
         XCTAssertEqual(returnedElement?.selectedText, " space\n\t")            
@@ -129,7 +135,7 @@ it should not cut the last character
             )
         )
         
-        let returnedElement = accessibilityStrategy.o(on: element)
+        let returnedElement = applyMove(on: element)
         
         XCTAssertEqual(returnedElement?.selectedLength, 11)
         XCTAssertEqual(returnedElement?.selectedText, "t character\n")        
@@ -153,7 +159,7 @@ caret on empty last line
             )
         )
         
-        let returnedElement = accessibilityStrategy.o(on: element)
+        let returnedElement = applyMove(on: element)
         
         XCTAssertEqual(returnedElement?.selectedLength, 0)
         XCTAssertEqual(returnedElement?.selectedText, "\n")   
@@ -177,7 +183,7 @@ two lines empty below
             )
         )
         
-        let returnedElement = accessibilityStrategy.o(on: element)
+        let returnedElement = applyMove(on: element)
         
         XCTAssertEqual(returnedElement?.selectedLength, 0)
         XCTAssertEqual(returnedElement?.selectedText, "\n")   

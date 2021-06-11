@@ -1,7 +1,15 @@
 @testable import kindaVim
 import XCTest
 
-class AS_$_Tests: AS_BaseTests {}
+
+class AS_$_Tests: AS_BaseTests {
+    
+    private func applyMove(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        return accessibilityStrategy.dollarSign(on: element) 
+    }
+    
+}
+
 
 // Both
 extension AS_$_Tests {
@@ -20,13 +28,14 @@ extension AS_$_Tests {
             )
         )
 
-        let returnedElement = accessibilityStrategy.dollarSign(on: element)
+        let returnedElement = applyMove(on: element)
 
         XCTAssertEqual(returnedElement?.caretLocation, 10)
     }
 
 }
     
+
 // TextViews
 extension AS_$_Tests {
     
@@ -48,7 +57,7 @@ multiline
             )
         )
 
-        let returnedElement = accessibilityStrategy.dollarSign(on: element)
+        let returnedElement = applyMove(on: element)
 
         XCTAssertEqual(returnedElement?.caretLocation, 13)
     }
@@ -72,7 +81,7 @@ it's a bug!
             )
         )
 
-        let returnedElement = accessibilityStrategy.dollarSign(on: element)
+        let returnedElement = applyMove(on: element)
 
         XCTAssertEqual(returnedElement?.caretLocation, 27)
     }
@@ -94,7 +103,7 @@ my friend
             )
         )
 
-        let returnedElement = accessibilityStrategy.dollarSign(on: element)
+        let returnedElement = applyMove(on: element)
 
         XCTAssertEqual(returnedElement?.caretLocation, 23)
     }
@@ -119,7 +128,7 @@ line
             )
         )
 
-        let returnedElement = accessibilityStrategy.dollarSign(on: element)
+        let returnedElement = applyMove(on: element)
 
         XCTAssertEqual(returnedElement?.caretLocation, 59)
     }

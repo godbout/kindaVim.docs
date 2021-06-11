@@ -1,13 +1,21 @@
 @testable import kindaVim
 import XCTest
 
+
 // more tests are done on the TextEngine level
 // the TextEngine tests make sure it works properly if we are
 // at last character, out of bound, on the character we're searching, etc...
 // here the two tests relevant are:
 // 1. can find the character, then getting the right location
 // 2. cannot find the character, then not moving
-class AS_f_Tests: AS_BaseTests {}
+class AS_f_Tests: AS_BaseTests {
+    
+    private func applyMove(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        return accessibilityStrategy.f(to: character, on: element) 
+    }
+    
+}
+
 
 // Both
 extension AS_f_Tests {
@@ -27,7 +35,7 @@ extension AS_f_Tests {
         )
         
         
-        let returnedElement = accessibilityStrategy.f(to: "i", on: element)
+        let returnedElement = applyMove(to: "i", on: element)
         
         XCTAssertEqual(returnedElement?.caretLocation, 16)
     }
@@ -51,7 +59,7 @@ that is not there
         )
         
         
-        let returnedElement = accessibilityStrategy.f(to: "z", on: element)
+        let returnedElement = applyMove(to: "z", on: element)
         
         XCTAssertEqual(returnedElement?.caretLocation, 22)
     }
@@ -81,7 +89,7 @@ yeah
             )
         )
         
-        let returnedElement = accessibilityStrategy.f(to: "h", on: element)
+        let returnedElement = applyMove(to: "h", on: element)
         
         XCTAssertEqual(returnedElement?.caretLocation, 51)
     }

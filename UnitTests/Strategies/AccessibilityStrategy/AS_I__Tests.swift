@@ -1,11 +1,19 @@
 @testable import kindaVim
 import XCTest
 
+
 // this move is mainly using the TextEngine.firstNonBlank function
 // so most of the tests are there. we still need to test here that if the
 // caret location is at the end of the line, it doesn't crash.
 // and of course as usual, testing the block cursor status.
-class AS_I__Tests: AS_BaseTests {}
+class AS_I__Tests: AS_BaseTests {
+    
+    private func applyMove(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        return accessibilityStrategy.I(on: element) 
+    }
+    
+}
+
 
 
 // Both
@@ -32,7 +40,7 @@ the TextEngineTests
             )
         )
         
-        _ = accessibilityStrategy.I(on: element)
+        _ = applyMove(on: element)
         
         XCTAssertEqual(textEngineMock.functionCalled, "firstNonBlank(in:)")        
     }
@@ -51,7 +59,7 @@ the TextEngineTests
             )
         )
         
-        let returnedElement = accessibilityStrategy.I(on: element)
+        let returnedElement = applyMove(on: element)
         
         XCTAssertEqual(returnedElement?.caretLocation, 47)
     }
@@ -70,7 +78,7 @@ the TextEngineTests
             )
         )
         
-        let returnedElement = accessibilityStrategy.I(on: element)
+        let returnedElement = applyMove(on: element)
         
         XCTAssertEqual(returnedElement?.selectedLength, 0)
     }

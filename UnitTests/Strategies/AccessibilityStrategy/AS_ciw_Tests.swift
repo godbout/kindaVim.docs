@@ -6,7 +6,13 @@ import XCTest
 // this is already tested, so here we have only a bunch of
 // tests for extra caution, but most of them are already done
 // in TE.innerWord
-class AS_ciw_Tests: AS_BaseTests {}
+class AS_ciw_Tests: AS_BaseTests {
+    
+    private func applyMove(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        return accessibilityStrategy.ciw(on: element) 
+    }
+    
+}
 
 
 // the 3 special cases:
@@ -29,7 +35,7 @@ extension AS_ciw_Tests {
             )
         )
         
-        let returnedElement = accessibilityStrategy.ciw(on: element)
+        let returnedElement = applyMove(on: element)
         
         XCTAssertEqual(returnedElement?.caretLocation, 0)
         XCTAssertEqual(returnedElement?.selectedLength, 0)
@@ -53,7 +59,7 @@ gonna be at the end
             )
         )
         
-        let returnedElement = accessibilityStrategy.ciw(on: element)
+        let returnedElement = applyMove(on: element)
         
         XCTAssertEqual(returnedElement?.caretLocation, 28)
         XCTAssertEqual(returnedElement?.selectedLength, 0)
@@ -80,7 +86,7 @@ line
             )
         )
         
-        let returnedElement = accessibilityStrategy.ciw(on: element)
+        let returnedElement = applyMove(on: element)
         
         XCTAssertEqual(returnedElement?.caretLocation, 31)
         XCTAssertEqual(returnedElement?.selectedLength, 0)
@@ -107,7 +113,7 @@ extension AS_ciw_Tests {
             )
         )
         
-        let returnedElement = accessibilityStrategy.ciw(on: element)
+        let returnedElement = applyMove(on: element)
         
         XCTAssertEqual(returnedElement?.caretLocation, 11)
         XCTAssertEqual(returnedElement?.selectedLength, 4)
@@ -128,7 +134,7 @@ extension AS_ciw_Tests {
             )
         )
         
-        let returnedElement = accessibilityStrategy.ciw(on: element)
+        let returnedElement = applyMove(on: element)
         
         XCTAssertEqual(returnedElement?.caretLocation, 15)
         XCTAssertEqual(returnedElement?.selectedLength, 1)
@@ -149,7 +155,7 @@ extension AS_ciw_Tests {
             )
         )
         
-        let returnedElement = accessibilityStrategy.ciw(on: element)
+        let returnedElement = applyMove(on: element)
         
         XCTAssertEqual(returnedElement?.caretLocation, 0)
         XCTAssertEqual(returnedElement?.selectedLength, 9)
@@ -181,7 +187,7 @@ one line to
             )
         )
         
-        let returnedElement = accessibilityStrategy.ciw(on: element)
+        let returnedElement = applyMove(on: element)
         
         XCTAssertEqual(returnedElement?.caretLocation, 25)
         XCTAssertEqual(returnedElement?.selectedLength, 6)

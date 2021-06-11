@@ -2,7 +2,13 @@
 import XCTest
 
 
-class AS_A__Tests: AS_BaseTests {}
+class AS_A__Tests: AS_BaseTests {
+    
+    private func applyMove(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        return accessibilityStrategy.A(on: element) 
+    }
+    
+}
 
 
 // Both
@@ -22,7 +28,7 @@ extension AS_A__Tests {
             )
         )
         
-        let returnedElement = accessibilityStrategy.A(on: element)
+        let returnedElement = applyMove(on: element)
         
         XCTAssertEqual(returnedElement?.caretLocation, 0)
     }
@@ -47,7 +53,7 @@ extension AS_A__Tests {
             )
         )
         
-        let returnedElement = accessibilityStrategy.A(on: element)
+        let returnedElement = applyMove(on: element)
         
         XCTAssertEqual(returnedElement?.caretLocation, 36)
     }
@@ -76,7 +82,7 @@ not of a whole TV
             )
         )
         
-        let returnedElement = accessibilityStrategy.A(on: element)
+        let returnedElement = applyMove(on: element)
         
         XCTAssertEqual(returnedElement?.caretLocation, 32)
     }
@@ -100,7 +106,7 @@ below
             )
         )
         
-        let returnedElement = accessibilityStrategy.A(on: element)
+        let returnedElement = applyMove(on: element)
         
         XCTAssertEqual(returnedElement?.caretLocation, 36)
     }
@@ -124,7 +130,7 @@ not go down
             )
         )
         
-        let returnedElement = accessibilityStrategy.A(on: element)
+        let returnedElement = applyMove(on: element)
         
         XCTAssertEqual(returnedElement?.caretLocation, 20)        
     }
@@ -146,7 +152,7 @@ of a TextView
             )
         )
         
-        let returnedElement = accessibilityStrategy.A(on: element)
+        let returnedElement = applyMove(on: element)
         
         XCTAssertEqual(returnedElement?.caretLocation, 24)    
     }

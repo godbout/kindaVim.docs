@@ -1,13 +1,20 @@
 @testable import kindaVim
 import XCTest
 
+
 // TODO: there is more to do here
 // there's a special case of when the caret is on a quote
 // rather than mindlessly deleting what's between the previous and the current quote
 // vim will actually calculate the pairs from the start. so if you're on the third quote,
 // vim will not delete what's between the second and first, but will look for a fourth, not find
 // it and do nothing. tough
-class AS_ciDoubleQuote_Tests: AS_BaseTests {}
+class AS_ciDoubleQuote_Tests: AS_BaseTests {
+    
+    private func applyMove(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        return accessibilityStrategy.ciDoubleQuote(on: element) 
+    }
+    
+}
 
 // Both
 extension AS_ciDoubleQuote_Tests {
@@ -28,7 +35,7 @@ finally dealing with the "real stuff"!
             )
         )
         
-        let returnedElement = accessibilityStrategy.ciDoubleQuote(on: element)
+        let returnedElement = applyMove(on: element)
         
         XCTAssertEqual(returnedElement?.caretLocation, 26)
         XCTAssertEqual(returnedElement?.selectedLength, 10)
@@ -54,7 +61,7 @@ a text with only one quote " lol
             )
         )
         
-        let returnedElement = accessibilityStrategy.ciDoubleQuote(on: element)
+        let returnedElement = applyMove(on: element)
         
         XCTAssertNil(returnedElement)
     }
@@ -73,7 +80,7 @@ a text with only one quote " lol
             )
         )
         
-        let returnedElement = accessibilityStrategy.ciDoubleQuote(on: element)
+        let returnedElement = applyMove(on: element)
         
         XCTAssertNil(returnedElement)
     }
@@ -94,7 +101,7 @@ now the caret is before the " shit with " double quotes
             )
         )
         
-        let returnedElement = accessibilityStrategy.ciDoubleQuote(on: element)
+        let returnedElement = applyMove(on: element)
         
         XCTAssertEqual(returnedElement?.caretLocation, 29)
         XCTAssertEqual(returnedElement?.selectedLength, 11)
@@ -119,7 +126,7 @@ now the "caret" is after the quotes
             )
         )
         
-        let returnedElement = accessibilityStrategy.ciDoubleQuote(on: element)
+        let returnedElement = applyMove(on: element)
         
         XCTAssertNil(returnedElement)
     }
@@ -140,7 +147,7 @@ that's " three quotes " in there "
             )
         )
         
-        let returnedElement = accessibilityStrategy.ciDoubleQuote(on: element)
+        let returnedElement = applyMove(on: element)
         
         XCTAssertEqual(returnedElement?.caretLocation, 8)
         XCTAssertEqual(returnedElement?.selectedLength, 14)
@@ -165,7 +172,7 @@ that's " three quotes " in there "
             )
         )
         
-        let returnedElement = accessibilityStrategy.ciDoubleQuote(on: element)
+        let returnedElement = applyMove(on: element)
         
         XCTAssertEqual(returnedElement?.caretLocation, 23)
         XCTAssertEqual(returnedElement?.selectedLength, 10)
@@ -186,7 +193,7 @@ that's " three quotes " in there "
             )
         )
         
-        let returnedElement = accessibilityStrategy.ciDoubleQuote(on: element)
+        let returnedElement = applyMove(on: element)
         
         // the way to check for ciDoubleQuote that it loses the block cursor is through the selectedText
         XCTAssertEqual(returnedElement?.selectedText, "")
@@ -206,7 +213,7 @@ that's " three quotes " in there "
             )
         )
         
-        let returnedElement = accessibilityStrategy.ciDoubleQuote(on: element)
+        let returnedElement = applyMove(on: element)
         
         // the way to check it keeps the block cursor is that it's returning nil so the element does not change
         // this might be changed later as we may not return nil in the future

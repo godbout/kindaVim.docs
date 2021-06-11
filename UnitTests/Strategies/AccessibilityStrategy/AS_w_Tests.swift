@@ -1,6 +1,7 @@
 @testable import kindaVim
 import XCTest
 
+
 // we use a mock here just to make sure the correct function
 // is called, but all the rest of the tests are handled by:
 // 1. tests of the TextEngine function this move is calling
@@ -17,6 +18,7 @@ class AS_w_Tests: AS_BaseTests {
     }    
     
 }
+
 
 // Both
 extension AS_w_Tests {

@@ -1,7 +1,15 @@
 @testable import kindaVim
 import XCTest
 
-class AS_h_Tests: AS_BaseTests {}
+
+class AS_h_Tests: AS_BaseTests {
+    
+    private func applyMove(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        return accessibilityStrategy.h(on: element) 
+    }
+    
+}
+
 
 // Both
 extension AS_h_Tests {
@@ -20,7 +28,7 @@ extension AS_h_Tests {
             )
         )
 
-        let returnedElement = accessibilityStrategy.h(on: element)
+        let returnedElement = applyMove(on: element)
 
         XCTAssertEqual(returnedElement?.caretLocation, 15)
     }
@@ -39,7 +47,7 @@ extension AS_h_Tests {
             )
         )
 
-        let returnedElement = accessibilityStrategy.h(on: element)
+        let returnedElement = applyMove(on: element)
 
         XCTAssertEqual(returnedElement?.caretLocation, 0)
     }
@@ -61,7 +69,7 @@ h should not move
             )
         )
 
-        let returnedElement = accessibilityStrategy.h(on: element)
+        let returnedElement = applyMove(on: element)
 
         XCTAssertEqual(returnedElement?.caretLocation, 0)
     }
@@ -84,12 +92,13 @@ if not on a last empty line
             )
         )
 
-        let returnedElement = accessibilityStrategy.h(on: element)
+        let returnedElement = applyMove(on: element)
 
         XCTAssertEqual(returnedElement?.caretLocation, text.count - 1)
     }
     
 }
+
 
 // TextAreas
 extension AS_h_Tests {
@@ -113,7 +122,7 @@ the previous line
             )
         )
 
-        let returnedElement = accessibilityStrategy.h(on: element)
+        let returnedElement = applyMove(on: element)
 
         XCTAssertEqual(returnedElement?.caretLocation, 43)
     }
@@ -137,7 +146,7 @@ line
             )
         )
 
-        let returnedElement = accessibilityStrategy.h(on: element)
+        let returnedElement = applyMove(on: element)
 
         XCTAssertEqual(returnedElement?.caretLocation, 34)
     }

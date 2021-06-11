@@ -2,7 +2,13 @@
 import XCTest
 
 
-class AS_cc_Tests: AS_BaseTests {}
+class AS_cc_Tests: AS_BaseTests {
+    
+    private func applyMove(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        return accessibilityStrategy.cc(on: element) 
+    }
+    
+}
 
 
 // the 3 special cases:
@@ -25,7 +31,7 @@ extension AS_cc_Tests {
             )
         )
         
-        let returnedElement = accessibilityStrategy.cc(on: element)
+        let returnedElement = applyMove(on: element)
         
         XCTAssertEqual(returnedElement?.caretLocation, 0)
         XCTAssertEqual(returnedElement?.selectedLength, 0)
@@ -49,7 +55,7 @@ gonna be at the end
             )
         )
         
-        let returnedElement = accessibilityStrategy.cc(on: element)
+        let returnedElement = applyMove(on: element)
         
         XCTAssertEqual(returnedElement?.caretLocation, 28)
         XCTAssertEqual(returnedElement?.selectedLength, 0)
@@ -76,7 +82,7 @@ line
             )
         )
         
-        let returnedElement = accessibilityStrategy.cc(on: element)
+        let returnedElement = applyMove(on: element)
         
         XCTAssertEqual(returnedElement?.caretLocation, 31)
         XCTAssertEqual(returnedElement?.selectedLength, 0)
@@ -103,7 +109,7 @@ extension AS_cc_Tests {
             )
         )
         
-        let returnedElement = accessibilityStrategy.cc(on: element)
+        let returnedElement = applyMove(on: element)
         
         XCTAssertEqual(returnedElement?.caretLocation, 0)
         XCTAssertEqual(returnedElement?.selectedLength, 21)
@@ -134,7 +140,7 @@ lol
             )
         )
         
-        let returnedElement = accessibilityStrategy.cc(on: element)
+        let returnedElement = applyMove(on: element)
         
         XCTAssertEqual(returnedElement?.caretLocation, 14)
         XCTAssertEqual(returnedElement?.selectedLength, 14)
@@ -159,7 +165,7 @@ be kept
             )
         )
         
-        let returnedElement = accessibilityStrategy.cc(on: element)
+        let returnedElement = applyMove(on: element)
         
         XCTAssertEqual(returnedElement?.caretLocation, 3)
         XCTAssertEqual(returnedElement?.selectedLength, 15)

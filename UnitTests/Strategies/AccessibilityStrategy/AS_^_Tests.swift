@@ -7,7 +7,13 @@ import XCTest
 // some for redundancy, some that are specific to the ^ move, like
 // The 3 Cases, or the fact that it should not stop at the end of
 // the line itself like firstNonBlank, but at the end limit
-class AS_caret_Tests: AS_BaseTests {}
+class AS_caret_Tests: AS_BaseTests {
+    
+    private func applyMove(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        return accessibilityStrategy.caret(on: element) 
+    }
+    
+}
 
 
 // the 3 special cases:
@@ -30,7 +36,7 @@ extension AS_caret_Tests {
             )
         )
         
-        let returnedElement = accessibilityStrategy.caret(on: element)
+        let returnedElement = applyMove(on: element)
         
         XCTAssertEqual(returnedElement?.caretLocation, 0)
     }
@@ -52,7 +58,7 @@ gonna be at the end
             )
         )
         
-        let returnedElement = accessibilityStrategy.caret(on: element)
+        let returnedElement = applyMove(on: element)
         
         XCTAssertEqual(returnedElement?.caretLocation, 28)        
     }
@@ -76,7 +82,7 @@ line
             )
         )
         
-        let returnedElement = accessibilityStrategy.caret(on: element)
+        let returnedElement = applyMove(on: element)
         
         XCTAssertEqual(returnedElement?.caretLocation, 31)
     }    
@@ -102,7 +108,7 @@ extension AS_caret_Tests {
             )
         )
         
-        let returnedElement = accessibilityStrategy.caret(on: element)
+        let returnedElement = applyMove(on: element)
         
         XCTAssertEqual(returnedElement?.caretLocation, 4)        
     }
@@ -127,7 +133,7 @@ without a linefeed but with spaces
             )
         )
         
-        let returnedElement = accessibilityStrategy.caret(on: element)
+        let returnedElement = applyMove(on: element)
         
         XCTAssertEqual(returnedElement?.caretLocation, 85)    
     }
@@ -158,7 +164,7 @@ empty line has a linefeed
             )
         )
         
-        let returnedElement = accessibilityStrategy.caret(on: element)
+        let returnedElement = applyMove(on: element)
         
         XCTAssertEqual(returnedElement?.caretLocation, 61)   
     }

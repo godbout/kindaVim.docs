@@ -1,7 +1,15 @@
 @testable import kindaVim
 import XCTest
 
-class AS_a_Tests: AS_BaseTests {}
+
+class AS_a_Tests: AS_BaseTests {
+    
+    private func applyMove(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        return accessibilityStrategy.a(on: element) 
+    }
+    
+}
+
 
 // Both
 extension AS_a_Tests {
@@ -20,7 +28,7 @@ extension AS_a_Tests {
             )
         )
 
-        let returnedElement = accessibilityStrategy.a(on: element)
+        let returnedElement = applyMove(on: element)
 
         XCTAssertEqual(returnedElement?.caretLocation, 17)
     }
@@ -39,7 +47,7 @@ extension AS_a_Tests {
             )
         )
 
-        let returnedElement = accessibilityStrategy.a(on: element)
+        let returnedElement = applyMove(on: element)
 
         XCTAssertEqual(returnedElement?.caretLocation, 0)
     }
@@ -58,12 +66,13 @@ extension AS_a_Tests {
             )
         )
         
-        let returnedElement = accessibilityStrategy.a(on: element)
+        let returnedElement = applyMove(on: element)
         
         XCTAssertEqual(returnedElement?.selectedLength, 0)
     }
 
 }
+
 
 // TextViews
 extension AS_a_Tests {
@@ -86,7 +95,7 @@ a should not move
             )
         )
 
-        let returnedElement = accessibilityStrategy.a(on: element)
+        let returnedElement = applyMove(on: element)
 
         XCTAssertEqual(returnedElement?.caretLocation, 17)
     }
