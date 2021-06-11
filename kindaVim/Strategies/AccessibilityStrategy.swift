@@ -312,8 +312,8 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
         }
         
                 
-        let characterFoundLocation = textEngine.firstNonBlank(in: element.value)        
         let firstLine = textEngine.firstLine(in: element.value)
+        let characterFoundLocation = textEngine.firstNonBlank(in: firstLine)        
         
         if characterFoundLocation >= firstLine.endLimit { 
             element.caretLocation = firstLine.endLimit
