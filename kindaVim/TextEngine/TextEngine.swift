@@ -9,9 +9,10 @@ protocol TextEngineProtocol {
     func findSecond(_ character: Character, in text: String) -> Int?
     func firstNonBlank(in text: String) -> Int
     func innerWord(startingAt location: Int, in text: String) -> (Int, Int)
+    func firstLine(in text: String) -> String
     func nextLine(after location: Int, in text: String) -> String?
     func previousLine(before location: Int, in text: String) -> String?
-    
+
 }
 
 
@@ -274,6 +275,14 @@ extension TextEngine {
         guard let secondCharacterLocation = findFirst(character, in: String(text[nextToFirstCharacterIndex..<text.endIndex])) else { return nil }
         
         return text.distance(from: text.startIndex, to: nextToFirstCharacterIndex) + secondCharacterLocation
+    }
+    
+    func firstLine(in text: String) -> String {
+        guard let nextLineStartLocation = findNext("\n", after: -1, in: text) else { return text }
+                    
+        let nextLineStartLocationIndex = text.index(text.startIndex, offsetBy: nextLineStartLocation + 1)
+        
+        return String(text[text.startIndex..<nextLineStartLocationIndex])
     }
     
     func nextLine(after location: Int, in text: String) -> String? {

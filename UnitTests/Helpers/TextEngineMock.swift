@@ -59,10 +59,10 @@ class TextEngineMock: TextEngineProtocol {
         return (0, 0)
     }
     
-    func previousLine(before location: Int, in text: String) -> String? {
+    func firstLine(in text: String) -> String {
         functionCalled = #function
         
-        return nil
+        return ""
     }
     
     func nextLine(after location: Int, in text: String) -> String? {
@@ -70,5 +70,11 @@ class TextEngineMock: TextEngineProtocol {
         
         return nil
     }
+    
+    func previousLine(before location: Int, in text: String) -> String? {
+        functionCalled = #function
+        
+        return nil
+    }    
     
 }
