@@ -42,7 +42,6 @@ class VimEngine {
 
                 post(keyboardStrategy.enter())
             case .caret:
-                // ugly af; need to refactor
                 if var element = accessibilityStrategy.caret(on: focusedElement()) {
                     element.selectedLength = 1                    
                     _ = push(element: element)
@@ -50,18 +49,13 @@ class VimEngine {
                     post(keyboardStrategy.caret())
                 }
             case .dollarSign:
-                // ugly af; need to refactor
                 if var element = accessibilityStrategy.dollarSign(on: focusedElement()) {
                     element.selectedLength = 1
-                    
-                    if push(element: element) == false {
-                        post(keyboardStrategy.dollarSign())
-                    }
+                    _ = push(element: element)
                 } else {
                     post(keyboardStrategy.dollarSign())
                 }
             case .underscore:
-                // ugly af; need to refactor
                 if var element = accessibilityStrategy.underscore(on: focusedElement()) {
                     element.selectedLength = 1                    
                     _ = push(element: element)
@@ -69,46 +63,32 @@ class VimEngine {
                     post(keyboardStrategy.underscore())
                 }
             case .zero:
-                // ugly af; need to refactor
                 if var element = accessibilityStrategy.zero(on: focusedElement()) {
                     element.selectedLength = 1
-                    
-                    if push(element: element) == false {
-                        post(keyboardStrategy.zero())
-                    }
+                    _ = push(element: element)
                 } else {
                     post(keyboardStrategy.zero())
                 }
             case .a:
                 enterInsertMode()
 
-                // ugly af; need to refactor
                 if let element = accessibilityStrategy.a(on: focusedElement()) {
-                    if push(element: element) == false {
-                        post(keyboardStrategy.a())
-                    }
+                    _ = push(element: element)
                 } else {
                     post(keyboardStrategy.a())
                 }
             case .A:
                 enterInsertMode()
 
-                // ugly af; need to refactor
                 if let element = accessibilityStrategy.A(on: focusedElement()) {
-                    if push(element: element) == false {
-                        post(keyboardStrategy.A())
-                    }
+                    _ = push(element: element)
                 } else {
                     post(keyboardStrategy.A())
                 }
             case .b:
-                // ugly af; need to refactor
                 if var element = accessibilityStrategy.b(on: focusedElement()) {
                     element.selectedLength = 1
-                    
-                    if push(element: element) == false {
-                        post(keyboardStrategy.b())
-                    }
+                    _ = push(element: element)
                 } else {
                     post(keyboardStrategy.b())
                 }  
@@ -123,7 +103,6 @@ class VimEngine {
             case .controlD:
                 post(keyboardStrategy.controlD())
             case .e:
-                // ugly af; need to refactor
                 if var element = accessibilityStrategy.e(on: focusedElement()) {
                     element.selectedLength = 1                    
                     _ = push(element: element)
@@ -143,7 +122,6 @@ class VimEngine {
                     post(keyboardStrategy.G())
                 }
             case .h:
-                // ugly af; need to refactor
                 if var element = accessibilityStrategy.h(on: focusedElement()) {
                     element.selectedLength = 1
                     _ = push(element: element)
@@ -151,7 +129,6 @@ class VimEngine {
                     post(keyboardStrategy.h())
                 }
             case .i:
-                // ugly af; need to refactor
                 if let element = accessibilityStrategy.i(on: focusedElement()) {
                     _ = push(element: element)
                 }
@@ -160,66 +137,45 @@ class VimEngine {
             case .I:
                 enterInsertMode()
                 
-                // ugly af; need to refactor
                 if let element = accessibilityStrategy.I(on: focusedElement()) {
-                    if push(element: element) == false {
-                        post(keyboardStrategy.I())
-                    }
+                    _ = push(element: element)
                 } else {
                     post(keyboardStrategy.I())
                 }
             case .j:
-                // ugly af; need to refactor
                 if var element = accessibilityStrategy.j(on: focusedElement()) {
-                    element.selectedLength = 1
-                    
-                    if push(element: element) == false {
-                        post(keyboardStrategy.j())
-                    }
+                    element.selectedLength = 1                    
+                    _ = push(element: element)
                 } else {
                     post(keyboardStrategy.j())
                 }
             case .k:
-                // ugly af; need to refactor
                 if var element = accessibilityStrategy.k(on: focusedElement()) {
                     element.selectedLength = 1
-                    
-                    if push(element: element) == false {
-                        post(keyboardStrategy.k())
-                    }
+                    _ = push(element: element)
                 } else {
                     post(keyboardStrategy.k())
                 }
             case .l:
-                // ugly af; need to refactor
                 if var element = accessibilityStrategy.l(on: focusedElement()) {
                     element.selectedLength = 1
-                    
-                    if push(element: element) == false {
-                        post(keyboardStrategy.l())
-                    }
+                    _ = push(element: element)
                 } else {
                     post(keyboardStrategy.l())
                 }
             case .o:
                 enterInsertMode()
 
-                // ugly af; need to refactor
                 if let element = accessibilityStrategy.o(on: focusedElement()) {
-                    if push(element: element) == false {
-                        post(keyboardStrategy.o())
-                    }
+                    _ = push(element: element)
                 } else {
                     post(keyboardStrategy.o())
                 }
             case .O:
                 enterInsertMode()
                 
-                // ugly af; need to refactor
                 if let element = accessibilityStrategy.O(on: focusedElement()) {
-                    if push(element: element) == false {
-                       post(keyboardStrategy.O())
-                    }
+                    _ = push(element: element)
                 } else {
                    post(keyboardStrategy.O())
                 }
@@ -240,13 +196,9 @@ class VimEngine {
             case .controlU:
                 post(keyboardStrategy.controlU())
             case .w:
-                // ugly af; need to refactor
                 if var element = accessibilityStrategy.w(on: focusedElement()) {
                     element.selectedLength = 1
-                    
-                    if push(element: element) == false {
-                        post(keyboardStrategy.w())
-                    }
+                    _ = push(element: element)
                 } else {
                     post(keyboardStrategy.w())
                 }
@@ -283,11 +235,8 @@ class VimEngine {
         case [.c, .c]:
             enterInsertMode()
             
-            // ugly af; need to refactor
             if let element = accessibilityStrategy.cc(on: focusedElement()) {
-                if push(element: element) == false {
-                    post(keyboardStrategy.cc())
-                }
+                _ = push(element: element)
             } else {
                 post(keyboardStrategy.cc())
             }
@@ -314,7 +263,6 @@ class VimEngine {
         case [.c, .i, .w]:
             enterInsertMode()
             
-            // ugly af; need to refactor
             if let element = accessibilityStrategy.ciw(on: focusedElement()) {
                 _ = push(element: element)
             } else {
@@ -331,15 +279,12 @@ class VimEngine {
         case [.d, .d]:
             enterNormalMode()
             
-            // ugly af; need to refactor
             if let element = accessibilityStrategy.dd(on: focusedElement()) {
-                if push(element: element) == true {
-                    if var element = focusedElement() {
-                        element.selectedLength = 1
-                        _ = push(element: element)
-                    }
-                } else {
-                    post(keyboardStrategy.dd())
+                _ = push(element: element)
+                
+                if var element = focusedElement() {
+                    element.selectedLength = 1
+                    _ = push(element: element)
                 }
             } else {
                 post(keyboardStrategy.dd())
@@ -365,13 +310,9 @@ class VimEngine {
         case [.g, .g]:
             enterNormalMode()
             
-            // ugly af; need to refactor
             if var element = accessibilityStrategy.gg(on: focusedElement()) {
-                element.selectedLength = 1
-                
-                if push(element: element) == false {
-                    post(keyboardStrategy.gg())
-                }
+                element.selectedLength = 1                
+                _ = push(element: element)
             } else {
                 post(keyboardStrategy.gg())
             }

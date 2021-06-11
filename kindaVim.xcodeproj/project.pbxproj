@@ -92,6 +92,8 @@
 		917BE842266FB6620072D0A7 /* UIAS_e_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917BE841266FB6620072D0A7 /* UIAS_e_Tests.swift */; };
 		918024B926386E95004FD719 /* AppComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918024B826386E95004FD719 /* AppComponent.swift */; };
 		9180FB6F266FD1EA00E12818 /* innerWordTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9180FB6E266FD1EA00E12818 /* innerWordTests.swift */; };
+		9187CCEE2673E76E0031DAFA /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9163BD662673ADA800BB7113 /* Character.swift */; };
+		9187CCF32673E7700031DAFA /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9163BD702673ADAD00BB7113 /* String.swift */; };
 		918B893726727196002CF63C /* UsingAS_^_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918B893626727196002CF63C /* UsingAS_^_Tests.swift */; };
 		918B893D267272F8002CF63C /* AS_^_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918B893C267272F8002CF63C /* AS_^_Tests.swift */; };
 		918C26512646D29000C39ADA /* KS_s_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918C26502646D29000C39ADA /* KS_s_Tests.swift */; };
@@ -1408,6 +1410,7 @@
 				91A14816266123CF00D160AD /* KeyCombination.swift in Sources */,
 				91DC7549266E8EAF00C09653 /* UIAS_dd_Tests.swift in Sources */,
 				91A147FF2661238800D160AD /* AXEngine.swift in Sources */,
+				9187CCEE2673E76E0031DAFA /* Character.swift in Sources */,
 				91A147F32661237E00D160AD /* AccessibilityTextElement.swift in Sources */,
 				917BE842266FB6620072D0A7 /* UIAS_e_Tests.swift in Sources */,
 				91A147D62661224000D160AD /* UIAS_j_Tests.swift in Sources */,
@@ -1418,6 +1421,7 @@
 				9152D91D2663EA9000DF2FB7 /* UIAS_w_Tests.swift in Sources */,
 				915477E926615DEB0084F4F9 /* TextEngine.swift in Sources */,
 				91A1481C266123D100D160AD /* KeyCombinationAdaptor.swift in Sources */,
+				9187CCF32673E7700031DAFA /* String.swift in Sources */,
 				91A147ED2661234200D160AD /* AccessibilityStrategy.swift in Sources */,
 				91A147D72661224000D160AD /* UIAS_k_Tests.swift in Sources */,
 			);
