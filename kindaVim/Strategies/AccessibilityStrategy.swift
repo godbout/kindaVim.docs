@@ -13,6 +13,7 @@ protocol AccessibilityStrategyProtocol {
     func e(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func f(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func F(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement?
+    func gg(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func h(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func i(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func I(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
@@ -289,6 +290,12 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
         if let characterFoundLocation = textEngine.findPrevious(character, before: lineCaretLocation, in: lineText) {
             element.caretLocation = element.currentLine.start! + characterFoundLocation            
         }
+        
+        return element
+    }
+    
+    func gg(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        guard var element = element else { return nil }
         
         return element
     }

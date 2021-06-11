@@ -353,7 +353,16 @@ class VimEngine {
         case [.g, .g]:
             enterNormalMode()
             
-            post(keyboardStrategy.gg())
+            // ugly af; need to refactor
+            if var element = accessibilityStrategy.gg(on: focusedElement()) {
+                element.selectedLength = 1
+                
+                if push(element: element) == false {
+                    post(keyboardStrategy.gg())
+                }
+            } else {
+                post(keyboardStrategy.gg())
+            }
         case [.y, .i]:
             ()
         case [.y, .i, .w]:
