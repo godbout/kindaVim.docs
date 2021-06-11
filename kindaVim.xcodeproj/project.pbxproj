@@ -80,6 +80,8 @@
 		91643DFD266537A3002F2D0E /* findFirstTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91643DFB266537A3002F2D0E /* findFirstTests.swift */; };
 		9165A91E266E8038002290A7 /* nextLineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9165A91D266E8038002290A7 /* nextLineTests.swift */; };
 		9165BB2826554DD900B19718 /* UsingAS_$_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9165BB2726554DD900B19718 /* UsingAS_$_Tests.swift */; };
+		916DF9782673D86E004D107E /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9163BD662673ADA800BB7113 /* Character.swift */; };
+		916DF97D2673D870004D107E /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9163BD702673ADAD00BB7113 /* String.swift */; };
 		9170AD6326662149000651D5 /* UsingAS_f_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9170AD6226662149000651D5 /* UsingAS_f_Tests.swift */; };
 		91712453266E45AA002F512B /* UsingAS_O__Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91712452266E45AA002F512B /* UsingAS_O__Tests.swift */; };
 		91712459266E465F002F512B /* AS_O__Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91712458266E465F002F512B /* AS_O__Tests.swift */; };
@@ -1202,6 +1204,7 @@
 			files = (
 				91CE734E265CD06300248D18 /* KS_^_Tests.swift in Sources */,
 				91A54ED92643B34F00400677 /* KS_$_Tests.swift in Sources */,
+				916DF97D2673D870004D107E /* String.swift in Sources */,
 				9136AF8F26615A8E00385C07 /* AS_w_Tests.swift in Sources */,
 				91A54EEF2643B88400400677 /* KS_I__Tests.swift in Sources */,
 				911A0C8326668F4C00B78C15 /* AS_T__Tests.swift in Sources */,
@@ -1339,6 +1342,7 @@
 				91E304D32643F0C3004D9933 /* UsingKS_g_Tests.swift in Sources */,
 				9107EE192646BD15003575A7 /* UsingKS_db_Tests.swift in Sources */,
 				9136AF89266158EA00385C07 /* UsingAS_w_Tests.swift in Sources */,
+				916DF9782673D86E004D107E /* Character.swift in Sources */,
 				91E304C72643EEB8004D9933 /* UsingKS_A__Tests.swift in Sources */,
 				914732B526738AD90016E2DC /* AS_gg_Tests.swift in Sources */,
 				91CDCDB32673CA6A00D18B86 /* AS___Tests.swift in Sources */,

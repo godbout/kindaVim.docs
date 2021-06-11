@@ -65,10 +65,10 @@ class TextEngineMock: TextEngineProtocol {
         return ""
     }
     
-    func lastLine(in text: String) -> String {
+    func lastLine(in text: String) -> TextEngineLine {
         functionCalled = #function
         
-        return ""
+        return TextEngineLine(start: 0, end: 0, value: "")
     }
     
     func nextLine(after location: Int, in text: String) -> String? {
