@@ -273,9 +273,9 @@ extension TextEngine {
     func firstLine(in text: String) -> String {
         guard let nextLineStartLocation = findNext("\n", after: -1, in: text) else { return text }
                     
-        let nextLineStartLocationIndex = text.index(text.startIndex, offsetBy: nextLineStartLocation + 1)
+        let nextLineStartIndex = text.index(text.startIndex, offsetBy: nextLineStartLocation + 1)
         
-        return String(text[text.startIndex..<nextLineStartLocationIndex])
+        return String(text[text.startIndex..<nextLineStartIndex])
     }
     
     func lastLine(in text: String) -> TextEngineLine {
@@ -294,10 +294,10 @@ extension TextEngine {
         guard let nextLineStartLocation = findNext("\n", after: location - 1, in: text) else { return nil }
         let nextLineEndLocation = findNext("\n", after: nextLineStartLocation, in: text) ?? text.count - 1
         
-        let nextLineStartLocationIndex = text.index(text.startIndex, offsetBy: nextLineStartLocation + 1)
-        let nextLineEndLocationIndex = text.index(text.startIndex, offsetBy: nextLineEndLocation + 1)
+        let nextLineStartIndex = text.index(text.startIndex, offsetBy: nextLineStartLocation + 1)
+        let nextLineEndIndex = text.index(text.startIndex, offsetBy: nextLineEndLocation + 1)
         
-        return String(text[nextLineStartLocationIndex..<nextLineEndLocationIndex])
+        return String(text[nextLineStartIndex..<nextLineEndIndex])
     }
     
     func previousLine(before location: Int, in text: String) -> String? {
