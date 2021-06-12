@@ -20,27 +20,15 @@ extension AccessibilityStrategy {
         let lineText = element.currentLine.value
         let lineCaretLocation = element.caretLocation - lineStart
         
-        if let previousDoubleQuoteLocation = textEngine.findPrevious("\"", before: lineCaretLocation, in: lineText) {
-            if let nextDoubleQuoteLocation = textEngine.findNext("\"", after: lineCaretLocation - 1, in: lineText) {
-                element.caretLocation = lineStart + (previousDoubleQuoteLocation + 1)
-                element.selectedLength = nextDoubleQuoteLocation - (previousDoubleQuoteLocation + 1)
+        if let (startQuotedStringLocation, endQuotedStringLocation) = textEngine.innerQuotedString(using: "\"", startingAt: lineCaretLocation, in: lineText) {
+                element.caretLocation = lineStart + (startQuotedStringLocation)
+                element.selectedLength = endQuotedStringLocation - (startQuotedStringLocation)
                 element.selectedText = ""
                 
                 return element
-            }
-            
-            return nil
         }
         
-        if let firstDoubleQuoteLocation = textEngine.findFirst("\"", in: lineText), let secondDoubleQuoteLocation = textEngine.findSecond("\"", in: lineText) {
-            element.caretLocation = lineStart + (firstDoubleQuoteLocation + 1)
-            element.selectedLength = secondDoubleQuoteLocation - (firstDoubleQuoteLocation + 1)
-            element.selectedText = ""
-            
-            return element
-        }
-        
-        return nil        
+        return nil
     }
     
 }
