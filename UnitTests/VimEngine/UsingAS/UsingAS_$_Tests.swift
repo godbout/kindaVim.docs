@@ -13,11 +13,11 @@ class UsingAS_$_Tests: UsingAS_BaseTests {
 
 extension UsingAS_$_Tests {
 
-    func test_that_$_calls_the_$_function_on_accessibility_strategy() {
+    func test_that_it_calls_the_correct_function_on_accessibility_strategy() {
         XCTAssertEqual(accessibilityStrategyMock.functionCalled, "dollarSign(on:)")
     }
 
-    func test_that_$_keeps_Vim_in_normal_mode() {
+    func test_that_it_keeps_Vim_in_normal_mode() {
         XCTAssertEqual(VimEngine.shared.currentMode, .normal)
     }
 

@@ -13,7 +13,7 @@ class UsingAS_A__Tests: UsingAS_BaseTests {
 
 extension UsingAS_A__Tests {
 
-    func test_that_it_calls_the_a_function_on_accessibility_strategy() {
+    func test_that_it_calls_the_correct_function_on_accessibility_strategy() {
         XCTAssertEqual(accessibilityStrategyMock.functionCalled, "A(on:)")
     }
 
