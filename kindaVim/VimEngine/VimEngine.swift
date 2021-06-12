@@ -115,7 +115,7 @@ class VimEngine {
                 enterOperatorPendingMode(with: keyCombination)
             case .G:
                 if var element = accessibilityStrategy.G(on: focusedElement()) {
-                    // G can go to the last empty line, but in that case we can't select the character as there is none
+                    // move can go to the last empty line, but in that case we can't select the character as there is none
                     element.selectedLength = (element.caretLocation == element.value.count) ? 0 : 1
                     _ = push(element: element)
                 } else {
@@ -144,7 +144,8 @@ class VimEngine {
                 }
             case .j:
                 if var element = accessibilityStrategy.j(on: focusedElement()) {
-                    element.selectedLength = 1                    
+                    // move can go to the last empty line, but in that case we can't select the character as there is none
+                    element.selectedLength = (element.caretLocation == element.value.count) ? 0 : 1
                     _ = push(element: element)
                 } else {
                     post(keyboardStrategy.j())
