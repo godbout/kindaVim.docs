@@ -43,6 +43,9 @@
 		912B92D826443C8F007F44E1 /* UsingKS_yy_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912B92D726443C8F007F44E1 /* UsingKS_yy_Tests.swift */; };
 		912B92DC26443FF8007F44E1 /* UsingKS_yiw_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912B92DB26443FF8007F44E1 /* UsingKS_yiw_Tests.swift */; };
 		912B92E0264443BD007F44E1 /* KS_yiw_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912B92DF264443BD007F44E1 /* KS_yiw_Tests.swift */; };
+		912DD6962675041900E22EE4 /* UsingAS_yi"_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912DD6952675041900E22EE4 /* UsingAS_yi"_Tests.swift */; };
+		912DD6A02675050F00E22EE4 /* AS_yiDoubleQuote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912DD69F2675050F00E22EE4 /* AS_yiDoubleQuote.swift */; };
+		912DD6A5267505BB00E22EE4 /* AS_yiDoubleQuote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912DD69F2675050F00E22EE4 /* AS_yiDoubleQuote.swift */; };
 		913008AE26555FC30075A864 /* UsingAS_0_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913008AD26555FC30075A864 /* UsingAS_0_Tests.swift */; };
 		91308E3926666F0900D13A13 /* UsingAS_t_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91308E3826666F0900D13A13 /* UsingAS_t_Tests.swift */; };
 		9136AF89266158EA00385C07 /* UsingAS_w_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9136AF88266158EA00385C07 /* UsingAS_w_Tests.swift */; };
@@ -366,6 +369,8 @@
 		912B92D726443C8F007F44E1 /* UsingKS_yy_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsingKS_yy_Tests.swift; sourceTree = "<group>"; };
 		912B92DB26443FF8007F44E1 /* UsingKS_yiw_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsingKS_yiw_Tests.swift; sourceTree = "<group>"; };
 		912B92DF264443BD007F44E1 /* KS_yiw_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KS_yiw_Tests.swift; sourceTree = "<group>"; };
+		912DD6952675041900E22EE4 /* UsingAS_yi"_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UsingAS_yi\"_Tests.swift"; sourceTree = "<group>"; };
+		912DD69F2675050F00E22EE4 /* AS_yiDoubleQuote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AS_yiDoubleQuote.swift; sourceTree = "<group>"; };
 		912FD7C42652C23200B916DF /* from_TF_currentLineEndTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = from_TF_currentLineEndTests.swift; sourceTree = "<group>"; };
 		912FD7CC2652C61600B916DF /* from_TV_currentLineEndTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = from_TV_currentLineEndTests.swift; sourceTree = "<group>"; };
 		913008AD26555FC30075A864 /* UsingAS_0_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsingAS_0_Tests.swift; sourceTree = "<group>"; };
@@ -941,6 +946,7 @@
 				91AB98E32674D6ED007682CA /* AS_T_.swift */,
 				91AB98E92674D705007682CA /* AS_w.swift */,
 				91AB98EF2674D727007682CA /* AS_x.swift */,
+				912DD69F2675050F00E22EE4 /* AS_yiDoubleQuote.swift */,
 				9173F94B2674DAD9009CB9E6 /* AS_yy.swift */,
 				91AB98F52674D73A007682CA /* AS_^.swift */,
 				91AB98FB2674D747007682CA /* AS_$.swift */,
@@ -1124,6 +1130,7 @@
 				9124BFF826668D10004C45B9 /* UsingAS_T__Tests.swift */,
 				9136AF88266158EA00385C07 /* UsingAS_w_Tests.swift */,
 				9193EBB12674B7C4009AC0AD /* UsingAS_x_Tests.swift */,
+				912DD6952675041900E22EE4 /* UsingAS_yi"_Tests.swift */,
 				9173F9552674E2A5009CB9E6 /* UsingAS_yy_Tests.swift */,
 				91819F4C2674F73E00D48EEB /* UsingAS_Y__Tests.swift */,
 				9165BB2726554DD900B19718 /* UsingAS_$_Tests.swift */,
@@ -1360,6 +1367,7 @@
 				91AB985A2674D4F2007682CA /* AS_a.swift in Sources */,
 				9128F2B0262AA90C00625B42 /* AppDelegate.swift in Sources */,
 				911BB75626328D7D006882D8 /* EventTapController.swift in Sources */,
+				912DD6A02675050F00E22EE4 /* AS_yiDoubleQuote.swift in Sources */,
 				9163BD712673ADAD00BB7113 /* String.swift in Sources */,
 				91013742263DD2430037AB6E /* AccessibilityStrategy.swift in Sources */,
 				9118C4E7263F0CE50040C297 /* Display.swift in Sources */,
@@ -1458,6 +1466,7 @@
 				91A54EF12643B8BA00400677 /* KS_j_Tests.swift in Sources */,
 				91DA6EEB26455A0D00CF7504 /* KS_dgg_Tests.swift in Sources */,
 				918C26512646D29000C39ADA /* KS_s_Tests.swift in Sources */,
+				912DD6962675041900E22EE4 /* UsingAS_yi"_Tests.swift in Sources */,
 				91308E3926666F0900D13A13 /* UsingAS_t_Tests.swift in Sources */,
 				91E304D92643F1EF004D9933 /* UsingKS_h_Tests.swift in Sources */,
 				913E7C042666803400370A7F /* UsingAS_F__Tests.swift in Sources */,
@@ -1598,6 +1607,7 @@
 				91A14816266123CF00D160AD /* KeyCombination.swift in Sources */,
 				91AB99112674D812007682CA /* AS_f.swift in Sources */,
 				91AB991C2674D812007682CA /* AS_j.swift in Sources */,
+				912DD6A5267505BB00E22EE4 /* AS_yiDoubleQuote.swift in Sources */,
 				91DC7549266E8EAF00C09653 /* UIAS_dd_Tests.swift in Sources */,
 				91AB990F2674D812007682CA /* AS__.swift in Sources */,
 				91AB990E2674D812007682CA /* AS_h.swift in Sources */,

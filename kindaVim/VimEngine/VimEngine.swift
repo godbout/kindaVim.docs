@@ -335,6 +335,13 @@ class VimEngine {
             }
         case [.y, .i]:
             ()
+        case [.y, .i, .doubleQuote]:
+            enterNormalMode()
+            
+            if var element = accessibilityStrategy.yiDoubleQuote(on: focusedElement()) {
+                element.selectedLength = 1
+                _ = push(element: element)
+            }
         case [.y, .i, .w]:
             enterNormalMode()
             
