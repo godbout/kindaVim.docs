@@ -306,11 +306,7 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
         if element.caretIsAtTheEnd, element.lastCharacterIsNotLinefeed {
             return element
         }
-        
-        if element.caretIsAtTheEnd, element.lastCharacterIsLinefeed {
-            return element
-        }
-        
+                
                 
         let firstLine = textEngine.firstLine(in: element.value)
         let characterFoundLocation = textEngine.firstNonBlank(in: firstLine)        
