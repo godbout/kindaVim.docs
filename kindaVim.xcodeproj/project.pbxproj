@@ -99,6 +99,8 @@
 		918C26512646D29000C39ADA /* KS_s_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918C26502646D29000C39ADA /* KS_s_Tests.swift */; };
 		918C26572646D32500C39ADA /* UsingKS_s_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918C26562646D32500C39ADA /* UsingKS_s_Tests.swift */; };
 		918F4DEF265C070D0006CC2E /* TextEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918F4DEE265C070D0006CC2E /* TextEngine.swift */; };
+		9193CC7A2674B8DB00F30608 /* AS_x_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9193CC792674B8DB00F30608 /* AS_x_Tests.swift */; };
+		9193CC802674C6F300F30608 /* UIAS_x_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9193CC7F2674C6F300F30608 /* UIAS_x_Tests.swift */; };
 		9193EBB22674B7C4009AC0AD /* UsingAS_x_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9193EBB12674B7C4009AC0AD /* UsingAS_x_Tests.swift */; };
 		9197C0852636695A006C696A /* KeyCombinationAdaptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9197C0842636695A006C696A /* KeyCombinationAdaptor.swift */; };
 		9197C08A26366A3B006C696A /* KeyCombinationAdaptorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9197C08926366A3B006C696A /* KeyCombinationAdaptorTests.swift */; };
@@ -360,6 +362,8 @@
 		918C26502646D29000C39ADA /* KS_s_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KS_s_Tests.swift; sourceTree = "<group>"; };
 		918C26562646D32500C39ADA /* UsingKS_s_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsingKS_s_Tests.swift; sourceTree = "<group>"; };
 		918F4DEE265C070D0006CC2E /* TextEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextEngine.swift; sourceTree = "<group>"; };
+		9193CC792674B8DB00F30608 /* AS_x_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AS_x_Tests.swift; sourceTree = "<group>"; };
+		9193CC7F2674C6F300F30608 /* UIAS_x_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAS_x_Tests.swift; sourceTree = "<group>"; };
 		9193EBB12674B7C4009AC0AD /* UsingAS_x_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsingAS_x_Tests.swift; sourceTree = "<group>"; };
 		9197C0842636695A006C696A /* KeyCombinationAdaptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyCombinationAdaptor.swift; sourceTree = "<group>"; };
 		9197C08926366A3B006C696A /* KeyCombinationAdaptorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyCombinationAdaptorTests.swift; sourceTree = "<group>"; };
@@ -802,6 +806,7 @@
 				91872E0C26609FDA001007B3 /* UIAS_k_Tests.swift */,
 				91D9A053266E6C6900D850F5 /* UIAS_O__Tests.swift */,
 				9152D91C2663EA9000DF2FB7 /* UIAS_w_Tests.swift */,
+				9193CC7F2674C6F300F30608 /* UIAS_x_Tests.swift */,
 				91A147C82661222900D160AD /* Info.plist */,
 			);
 			path = AccessibilityStrategyUITests;
@@ -1014,6 +1019,7 @@
 				91EC166A2666706500A577D8 /* AS_t_Tests.swift */,
 				911A0C8226668F4C00B78C15 /* AS_T__Tests.swift */,
 				9136AF8E26615A8E00385C07 /* AS_w_Tests.swift */,
+				9193CC792674B8DB00F30608 /* AS_x_Tests.swift */,
 				91FA1D992657C13C005F576E /* AS_$_Tests.swift */,
 				918B893C267272F8002CF63C /* AS_^_Tests.swift */,
 				91CDCDB22673CA6A00D18B86 /* AS___Tests.swift */,
@@ -1331,6 +1337,7 @@
 				91A54EE32643B6B400400677 /* KS_cc_Tests.swift in Sources */,
 				91D2D5BE266F9D4D004634C0 /* endOfWordForwardTests.swift in Sources */,
 				91FA1D942657B48B005F576E /* AS_h_Tests.swift in Sources */,
+				9193CC7A2674B8DB00F30608 /* AS_x_Tests.swift in Sources */,
 				9128B0ED26380ACC007DC80B /* GlobalEventsControllerTests.swift in Sources */,
 				91C486052641C0D30003D9D7 /* KeyboardStrategyMock.swift in Sources */,
 				91E304BD2643E77A004D9933 /* UsingKS_a_Tests.swift in Sources */,
@@ -1411,6 +1418,7 @@
 				91D9A054266E6C6900D850F5 /* UIAS_O__Tests.swift in Sources */,
 				91A14822266123DC00D160AD /* KeyboardStrategy.swift in Sources */,
 				91A14810266123C200D160AD /* Display.swift in Sources */,
+				9193CC802674C6F300F30608 /* UIAS_x_Tests.swift in Sources */,
 				91A14816266123CF00D160AD /* KeyCombination.swift in Sources */,
 				91DC7549266E8EAF00C09653 /* UIAS_dd_Tests.swift in Sources */,
 				91A147FF2661238800D160AD /* AXEngine.swift in Sources */,
