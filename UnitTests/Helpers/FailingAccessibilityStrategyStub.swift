@@ -99,6 +99,10 @@ struct FailingAccessibilityStrategyStub: AccessibilityStrategyProtocol {
         return nil
     }
     
+    func x(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        return nil
+    }
+    
     func caret(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return nil
     }

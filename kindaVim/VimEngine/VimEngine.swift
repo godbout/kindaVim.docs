@@ -203,7 +203,12 @@ class VimEngine {
                     post(keyboardStrategy.w())
                 }
             case .x:
-                post(keyboardStrategy.x())
+                if var element = accessibilityStrategy.x(on: focusedElement()) {
+                    element.selectedLength = 1
+                    _ = push(element: element)
+                } else {
+                    post(keyboardStrategy.x())
+                }                
             case .X:
                 post(keyboardStrategy.X())
             case .y:

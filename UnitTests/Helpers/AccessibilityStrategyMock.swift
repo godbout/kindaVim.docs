@@ -147,6 +147,12 @@ class AccessibilityStrategyMock: AccessibilityStrategyProtocol {
         return nil
     }
     
+    func x(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        functionCalled = #function
+        
+        return nil
+    }
+    
     func caret(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         
