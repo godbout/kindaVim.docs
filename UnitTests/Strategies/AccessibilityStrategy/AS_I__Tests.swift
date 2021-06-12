@@ -63,24 +63,5 @@ the TextEngineTests
         
         XCTAssertEqual(returnedElement?.caretLocation, 47)
     }
-        
-    func test_that_it_drops_the_block_cursor() {
-        let text = "checking the block cursor status when calling that shit move!"
-        let element = AccessibilityTextElement(
-            role: .textArea,
-            value: text,
-            caretLocation: 0,
-            currentLine: AccessibilityTextElementLine(
-                fullValue: text,
-                number: 0,
-                start: 0,
-                end: 12
-            )
-        )
-        
-        let returnedElement = applyMove(on: element)
-        
-        XCTAssertEqual(returnedElement?.selectedLength, 0)
-    }
-    
+            
 }
