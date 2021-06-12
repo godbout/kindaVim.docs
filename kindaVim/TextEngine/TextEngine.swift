@@ -8,6 +8,7 @@ protocol TextEngineProtocol {
     func findPrevious(_ character: Character, before location: Int, in text: String) -> Int?
     func findSecond(_ character: Character, in text: String) -> Int?
     func firstNonBlank(in text: String) -> Int
+    func innerQuotedString(using character: Character, startingAt location: Int, in text: String) -> (Int, Int)?
     func innerWord(startingAt location: Int, in text: String) -> (Int, Int)
     func lastLine(in text: String) -> TextEngineLine
     func firstLine(in text: String) -> String
@@ -169,6 +170,22 @@ extension TextEngine {
         
         return text.distance(from: text.startIndex, to: characterIndex)
     }
+    
+    func innerQuotedString(using quote: Character, startingAt location: Int, in text: String) -> (Int, Int)? {
+        if let previousQuoteLocation = findPrevious(quote, before: location, in: text) {
+            if let nextQuoteLocation = findNext(quote, after: location - 1, in: text) {
+                return (previousQuoteLocation + 1, nextQuoteLocation)
+            }
+            
+            return nil
+        }
+        
+        if let firstQuoteLocation = findFirst(quote, in: text), let secondQuoteLocation = findSecond(quote, in: text) {
+            return (firstQuoteLocation + 1, secondQuoteLocation)
+        }
+        
+        return nil
+    }    
 
     func innerWord(startingAt location: Int, in text: String) -> (Int, Int) {
         let characterAtLocationIndex = text.index(text.startIndex, offsetBy: location)

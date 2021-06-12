@@ -53,6 +53,12 @@ class TextEngineMock: TextEngineProtocol {
         return 0
     }
     
+    func innerQuotedString(using quote: Character, startingAt location: Int, in text: String) -> (Int, Int)? {
+        functionCalled = #function
+        
+        return nil
+    }
+    
     func innerWord(startingAt location: Int, in text: String) -> (Int, Int) {
         functionCalled = #function
         

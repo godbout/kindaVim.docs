@@ -75,6 +75,7 @@
 		9153E86126627C8100064761 /* TextEngineMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9153E86026627C8100064761 /* TextEngineMock.swift */; };
 		9153E86B2662963300064761 /* TextEngineBaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9153E86A2662963300064761 /* TextEngineBaseTests.swift */; };
 		915477E926615DEB0084F4F9 /* TextEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918F4DEE265C070D0006CC2E /* TextEngine.swift */; };
+		9156CCFC267514E6004D2CCA /* innerQuotedStringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9156CCFB267514E6004D2CCA /* innerQuotedStringTests.swift */; };
 		915A093C2667DD1A007D7572 /* UIAS_ci"_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915A093B2667DD1A007D7572 /* UIAS_ci"_Tests.swift */; };
 		9163BD672673ADA800BB7113 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9163BD662673ADA800BB7113 /* Character.swift */; };
 		9163BD712673ADAD00BB7113 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9163BD702673ADAD00BB7113 /* String.swift */; };
@@ -404,6 +405,7 @@
 		9153E85A266279E000064761 /* AS_b_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AS_b_Tests.swift; sourceTree = "<group>"; };
 		9153E86026627C8100064761 /* TextEngineMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextEngineMock.swift; sourceTree = "<group>"; };
 		9153E86A2662963300064761 /* TextEngineBaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextEngineBaseTests.swift; sourceTree = "<group>"; };
+		9156CCFB267514E6004D2CCA /* innerQuotedStringTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = innerQuotedStringTests.swift; sourceTree = "<group>"; };
 		915A093B2667DD1A007D7572 /* UIAS_ci"_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAS_ci\"_Tests.swift"; sourceTree = "<group>"; };
 		9163BD662673ADA800BB7113 /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 		9163BD702673ADAD00BB7113 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
@@ -986,6 +988,7 @@
 				91BFFCFC2662A0F9004A08DD /* beginningOfWordBackwardTests.swift */,
 				91D2D5BD266F9D4D004634C0 /* endOfWordForwardTests.swift */,
 				91F90BFB2669249700176433 /* firstNonBlankTests.swift */,
+				9156CCFB267514E6004D2CCA /* innerQuotedStringTests.swift */,
 				9180FB6E266FD1EA00E12818 /* innerWordTests.swift */,
 			);
 			path = VimMoves;
@@ -1538,6 +1541,7 @@
 				91A54F012643BBA100400677 /* KS_x_Tests.swift in Sources */,
 				91E304DB2643F22A004D9933 /* UsingKS_i_Tests.swift in Sources */,
 				91BCB6B626624FF500CDCA98 /* beginningOfWordForwardTests.swift in Sources */,
+				9156CCFC267514E6004D2CCA /* innerQuotedStringTests.swift in Sources */,
 				91E304D32643F0C3004D9933 /* UsingKS_g_Tests.swift in Sources */,
 				9107EE192646BD15003575A7 /* UsingKS_db_Tests.swift in Sources */,
 				9136AF89266158EA00385C07 /* UsingAS_w_Tests.swift in Sources */,
