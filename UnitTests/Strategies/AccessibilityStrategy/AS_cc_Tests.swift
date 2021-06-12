@@ -63,7 +63,7 @@ gonna be at the end
 
     }
     
-    func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_and_on_an_empty_line_on_its_own_it_deletes_the_non_existing_line_lol_so_basically_it_looks_like_it_does_nothing() {
+    func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_and_on_an_empty_line_it_does_nothing_and_does_not_crash() {
         let text = """
 caret is on its
 own empty
