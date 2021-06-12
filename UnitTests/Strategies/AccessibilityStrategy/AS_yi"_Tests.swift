@@ -2,6 +2,11 @@
 import XCTest
 
 
+// this move is mostly using the TextEngine.innerQuotedString function.
+// we're still doing the tests mostly to check that what is pasted in NSPasteboard is
+// correct.
+//
+// the tests are useful as i found out that it was not correct :D
 class AS_yiDoubleQuote_Tests: AS_BaseTests {
 
     private func applyMove(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
@@ -99,27 +104,152 @@ line
 
 // Both
 extension AS_yiDoubleQuote_Tests {
-
-    func test_that_in_normal_setting_it_copies_the_content_within_the_quotes_and_move_the_caret_correctly_inside() {
-        let text = """
-just some "text" you see
-"""
+    
+    func test_that_there_is_no_double_quote_it_does_not_move_or_copy_anything() {
+        let text = "some text without any double quote"
         let element = AccessibilityTextElement(
             role: .textField,
             value: text,
-            caretLocation: 7,
+            caretLocation: 23,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 0,
                 start: 0,
-                end: 24
+                end: 34
             )
         )
-
+        
+        NSPasteboard.general.clearContents()
+        NSPasteboard.general.setString("no double quote", forType: .string)
+        
         let returnedElement = applyMove(on: element)
-
-        XCTAssertEqual(NSPasteboard.general.string(forType: .string), "text")
-        XCTAssertEqual(returnedElement?.caretLocation, 11)
+        
+        XCTAssertEqual(NSPasteboard.general.string(forType: .string), "no double quote")
+        XCTAssertEqual(returnedElement?.caretLocation, 23)
     }
-
+    
+    func test_that_there_is_only_one_double_quote_it_does_not_move_or_copy_anything_either() {
+        let text = """
+now there's one " double quote
+"""
+        let element = AccessibilityTextElement(
+            role: .textField,
+            value: text,
+            caretLocation: 12,
+            currentLine: AccessibilityTextElementLine(
+                fullValue: text,
+                number: 0,
+                start: 0,
+                end: 30
+            )
+        )
+        
+        NSPasteboard.general.clearContents()
+        NSPasteboard.general.setString("only one double quote", forType: .string)
+        
+        let returnedElement = applyMove(on: element)
+        
+        XCTAssertEqual(NSPasteboard.general.string(forType: .string), "only one double quote")
+        XCTAssertEqual(returnedElement?.caretLocation, 12)
+    }
+    
+    func test_that_if_there_are_two_double_quotes_and_the_caret_is_before_them_then_it_moves_the_caret_and_copy_the_text() {
+        let text = """
+now there's
+two "double quotes" on the second line
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            caretLocation: 14,
+            currentLine: AccessibilityTextElementLine(
+                fullValue: text,
+                number: 1,
+                start: 12,
+                end: 50
+            )
+        )
+        
+        let returnedElement = applyMove(on: element)
+        
+        XCTAssertEqual(NSPasteboard.general.string(forType: .string), "double quotes")
+        XCTAssertEqual(returnedElement?.caretLocation, 17)  
+    }
+    
+    func test_that_if_there_are_two_double_quotes_and_the_caret_is_between_them_then_it_moves_the_caret_and_copy_the_text() {
+        let text = """
+again multiline
+again
+and now "hohohohoho"
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            caretLocation: 37,
+            currentLine: AccessibilityTextElementLine(
+                fullValue: text,
+                number: 2,
+                start: 22,
+                end: 42
+            )
+        )
+        
+        let returnedElement = applyMove(on: element)
+        
+        XCTAssertEqual(NSPasteboard.general.string(forType: .string), "hohohohoho")
+        XCTAssertEqual(returnedElement?.caretLocation, 31)  
+    }
+    
+    func test_that_if_there_are_two_double_quotes_and_the_caret_is_after_them_then_it_does_not_move_or_copy_anything() {
+        let text = """
+double "quotes" before the caret
+"""
+        let element = AccessibilityTextElement(
+            role: .textField,
+            value: text,
+            caretLocation: 26,
+            currentLine: AccessibilityTextElementLine(
+                fullValue: text,
+                number: 0,
+                start: 0,
+                end: 32
+            )
+        )
+        
+        NSPasteboard.general.clearContents()
+        NSPasteboard.general.setString("caret after double quote", forType: .string)
+        
+        let returnedElement = applyMove(on: element)
+        
+        XCTAssertEqual(NSPasteboard.general.string(forType: .string), "caret after double quote")
+        XCTAssertEqual(returnedElement?.caretLocation, 26)  
+    }
+    
+    func test_that_if_there_are_three_double_quotes_and_the_caret_is_not_after_all_of_them_then_it_moves_the_caret_and_copy_the_right_text() {
+        let text = """
+heheheheh
+"quote" and some more" yeyeyeye
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            caretLocation: 30,
+            currentLine: AccessibilityTextElementLine(
+                fullValue: text,
+                number: 1,
+                start: 10,
+                end: 41
+            )
+        )
+        
+        let returnedElement = applyMove(on: element)
+        
+        XCTAssertEqual(NSPasteboard.general.string(forType: .string), " and some more")
+        XCTAssertEqual(returnedElement?.caretLocation, 17)  
+    }
+    
+    func test_matching_pairs_of_double_quotes() throws {
+        throw XCTSkip("not for now i'm afraid...")
+    }    
+    
 }
