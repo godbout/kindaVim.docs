@@ -217,6 +217,13 @@ class VimEngine {
                 post(keyboardStrategy.X())
             case .y:
                 enterOperatorPendingMode(with: keyCombination)
+            case .Y:
+                if var element = accessibilityStrategy.yy(on: focusedElement()) {
+                    element.selectedLength = 1
+                    _ = push(element: element)
+                } else {
+                    post(keyboardStrategy.yy())
+                }                
             default:
                 ()
             }

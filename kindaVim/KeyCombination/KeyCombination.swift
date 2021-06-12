@@ -99,7 +99,7 @@ enum VimKey {
     case w
 
     case x, X
-    case y
+    case y, Y
 
     case caret
     case doubleQuote
@@ -213,6 +213,8 @@ struct KeyCombination {
             return .X
         case .y where control == false && option == false && shift == false && command == false:
             return .y
+        case .y where control == false && option == false && shift == true && command == false:
+            return .Y
         // temporary for escape to enter Command Mode
         // and escape again to send escape key to macOS
         case .escape where control == false && option == false && shift == false && command == false:

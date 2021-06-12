@@ -2,19 +2,19 @@
 import XCTest
 
 
-class UsingAS_yy_Tests: UsingAS_BaseTests {
+// the Y move is just an alias to yy. so it just calls yy
+class UsingAS_Y__Tests: UsingAS_BaseTests {
     
     override func setUp() {
         super.setUp()
         
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .y))
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .y))
+        VimEngine.shared.handle(keyCombination: KeyCombination(key: .y, shift: true))
     }
     
 }
 
 
-extension UsingAS_yy_Tests {
+extension UsingAS_Y__Tests {
     
     func test_that_it_calls_the_correct_function_on_accessibility_strategy() {
         XCTAssertEqual(accessibilityStrategyMock.functionCalled, "yy(on:)")
