@@ -27,6 +27,7 @@ protocol AccessibilityStrategyProtocol {
     func T(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func w(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func x(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
+    func yy(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     
     func caret(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func dollarSign(on element: AccessibilityTextElement?) -> AccessibilityTextElement?

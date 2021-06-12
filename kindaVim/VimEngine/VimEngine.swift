@@ -334,7 +334,12 @@ class VimEngine {
         case [.y, .y]:
             enterNormalMode()
             
-            post(keyboardStrategy.yy())
+            if var element = accessibilityStrategy.yy(on: focusedElement()) {
+                element.selectedLength = 1
+                _ = push(element: element)
+            } else {
+                post(keyboardStrategy.yy())
+            }
         default:
             if operatorPendingBuffer.first?.vimKey == .f, let character = operatorPendingBuffer.last {
                 if var element = accessibilityStrategy.f(to: character.character, on: focusedElement()) {

@@ -11,7 +11,7 @@ extension AccessibilityStrategy {
             return element
         }
         
-        if element.caretIsAtTheEnd, element.lastCharacterIsNotLinefeed {
+        if element.caretIsAtTheEnd, element.lastCharacterIsLinefeed {
             return element
         }
         
