@@ -41,8 +41,7 @@ hehe there's gonna be some "double quotes" in that shit
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
         app.textFields.firstMatch.typeKey(.leftArrow, modifierFlags: [.command])
-        
-        VimEngine.shared.enterNormalMode()                
+                        
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .c))
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .i))
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .singleQuote, shift: true))
@@ -72,8 +71,7 @@ huhu only one " in there...
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)                
         app.textFields.firstMatch.typeKey(.leftArrow, modifierFlags: [.option])
-        
-        VimEngine.shared.enterNormalMode()                
+                        
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .c))
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .i))
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .singleQuote, shift: true))
