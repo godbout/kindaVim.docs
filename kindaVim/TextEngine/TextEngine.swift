@@ -5,6 +5,7 @@ protocol TextEngineProtocol {
     func beginningOfWordForward(startingAt location: Int, in text: String) -> Int
     func beginningOfWORDForward(startingAt location: Int, in text: String) -> Int
     func endOfWordForward(startingAt location: Int, in text: String) -> Int    
+    func endOfWORDForward(startingAt location: Int, in text: String) -> Int    
     func findFirst(_ character: Character, in text: String) -> Int?
     func findNext(_ character: Character, after location: Int, in text: String) -> Int?
     func findPrevious(_ character: Character, before location: Int, in text: String) -> Int?
@@ -222,6 +223,22 @@ extension TextEngine {
             if text[index].isNewline {
                 continue
             }
+            
+            return text.distance(from: text.startIndex, to: text.index(before: nextIndex))
+        }
+        
+        return location
+    }
+    
+    func endOfWORDForward(startingAt location: Int, in text: String) -> Int {
+        guard let anchorIndex = text.index(text.startIndex, offsetBy: location + 1, limitedBy: text.endIndex) else { return text.count - 1 }
+        let endIndex = text.endIndex
+        
+        for index in text[anchorIndex..<endIndex].indices {
+            guard index != text.index(before: endIndex) else { return text.count - 1 }
+            let nextIndex = text.index(after: index)
+            
+            
             
             return text.distance(from: text.startIndex, to: text.index(before: nextIndex))
         }

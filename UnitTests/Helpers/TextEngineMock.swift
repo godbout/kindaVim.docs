@@ -35,6 +35,12 @@ class TextEngineMock: TextEngineProtocol {
         return location
     }
     
+    func endOfWORDForward(startingAt location: Int, in text: String) -> Int {
+        functionCalled = #function
+        
+        return location
+    }
+    
     func findFirst(_ character: Character, in text: String) -> Int? {
         functionCalled = #function
         

@@ -183,6 +183,11 @@ extension VimEngine {
                 element.selectedLength = 1                    
                 _ = push(element: element)
             }
+        case .E:
+            if var element = accessibilityStrategy.E(on: focusedElement()) {
+                element.selectedLength = 1                    
+                _ = push(element: element)
+            }
         case .f:
             enterOperatorPendingMode(with: keyCombination)
         case .F:
