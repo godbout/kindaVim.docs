@@ -99,6 +99,12 @@ class AccessibilityStrategyMock: AccessibilityStrategyProtocol {
         return nil
     }
     
+    func ge(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        functionCalled = #function
+        
+        return nil
+    }
+    
     func gg(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         

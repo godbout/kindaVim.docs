@@ -440,6 +440,13 @@ extension VimEngine {
             enterNormalMode()
             
             post(keyboardStrategy.dG())
+        case [.g, .e]:
+            enterNormalMode()
+            
+            if var element = accessibilityStrategy.ge(on: focusedElement()) {
+                element.selectedLength = 1                
+                _ = push(element: element)
+            }                      
         case [.g, .g]:
             enterNormalMode()
             
