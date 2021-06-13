@@ -89,7 +89,21 @@ extension TextEngine {
             guard index != startIndex else { return 0 }
             let previousIndex = text.index(before: index)
             
+            if text[index].isCharacterThatConstitutesAVimWORD {
+                if text[previousIndex].isCharacterThatConstitutesAVimWORD {
+                    continue
+                }
+            }
             
+            if text[index].isWhitespaceButNotNewline {
+                continue
+            }
+            
+            if text[index].isNewline {
+                if !text[previousIndex].isNewline {
+                    continue
+                }
+            }
             
             return text.distance(from: startIndex, to: index)
         }        
