@@ -60,6 +60,7 @@ enum KeyCode: Int64, RawRepresentable {
     case semicolon = 41
     case singleQuote = 39
     case slash = 44
+    case space = 49
     case up = 126
 }
 
