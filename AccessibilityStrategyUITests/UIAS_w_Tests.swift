@@ -24,12 +24,12 @@ gets updated properly
         
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
+        app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [.command])
         
         // need to move the caretLocation to have a proper AccessibilityTextElement.globalColumnNumber
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .w))
         
-        XCTAssertEqual(AccessibilityTextElement.globalColumnNumber, 1)
+        XCTAssertEqual(AccessibilityTextElement.globalColumnNumber, 6)
     }
 
 }

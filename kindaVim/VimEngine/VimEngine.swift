@@ -1,11 +1,15 @@
 import Foundation
 
+
 enum VimEngineMode {
+    
     case normal
     case insert
     case operatorPending
     case visual
+    
 }
+
 
 class VimEngine {
     
@@ -17,229 +21,299 @@ class VimEngine {
     var keyboardStrategy: KeyboardStrategyProtocol = KeyboardStrategy()
     var accessibilityStrategy: AccessibilityStrategyProtocol = AccessibilityStrategy()
 
+    
     private init() {
         print("engine started")
     }
     
     func handle(keyCombination: KeyCombination) {
-        if currentMode != .operatorPending {
-            switch keyCombination.vimKey {
-            // to test (can dump info to console, send stuff to AX etc.)
-            case .commandD:
-                if let element = AccessibilityStrategy.test(element: focusedElement()) {
-                    _ = push(element: element)
-                }
-            // temporary for escape to enter Command Mode
-            // and escape again to send escape key to macOS
-            case .escape:
-                enterInsertMode()
-
-                post(keyboardStrategy.escape())
-            // temporary for pressing enter in Command Mode
-            // to act like an enter in Insert Mode
-            // checking if it feels better (like in Alfred)
-            case .enter:
-                enterInsertMode()
-
-                post(keyboardStrategy.enter())
-            case .caret:
-                if var element = accessibilityStrategy.caret(on: focusedElement()) {
-                    element.selectedLength = 1                    
-                    _ = push(element: element)
-                } else {
-                    post(keyboardStrategy.caret())
-                }
-            case .dollarSign:
-                if var element = accessibilityStrategy.dollarSign(on: focusedElement()) {
-                    element.selectedLength = 1
-                    _ = push(element: element)
-                } else {
-                    post(keyboardStrategy.dollarSign())
-                }
-            case .underscore:
-                if var element = accessibilityStrategy.underscore(on: focusedElement()) {
-                    element.selectedLength = 1                    
-                    _ = push(element: element)
-                } else {
-                    post(keyboardStrategy.underscore())
-                }
-            case .zero:
-                if var element = accessibilityStrategy.zero(on: focusedElement()) {
-                    element.selectedLength = 1
-                    _ = push(element: element)
-                } else {
-                    post(keyboardStrategy.zero())
-                }
-            case .a:
-                enterInsertMode()
-
-                if let element = accessibilityStrategy.a(on: focusedElement()) {
-                    _ = push(element: element)
-                } else {
-                    post(keyboardStrategy.a())
-                }
-            case .A:
-                enterInsertMode()
-
-                if let element = accessibilityStrategy.A(on: focusedElement()) {
-                    _ = push(element: element)
-                } else {
-                    post(keyboardStrategy.A())
-                }
-            case .b:
-                if var element = accessibilityStrategy.b(on: focusedElement()) {
-                    element.selectedLength = 1
-                    _ = push(element: element)
-                } else {
-                    post(keyboardStrategy.b())
-                }  
-            case .c:
-                enterOperatorPendingMode(with: keyCombination)
-            case .C:
-                enterInsertMode()
-
-                post(keyboardStrategy.C())
-            case .d:
-                enterOperatorPendingMode(with: keyCombination)
-            case .controlD:
-                post(keyboardStrategy.controlD())
-            case .e:
-                if var element = accessibilityStrategy.e(on: focusedElement()) {
-                    element.selectedLength = 1                    
-                    _ = push(element: element)
-                }
-            case .f:
-                enterOperatorPendingMode(with: keyCombination)
-            case .F:
-                enterOperatorPendingMode(with: keyCombination)
-            case .g:
-                enterOperatorPendingMode(with: keyCombination)
-            case .G:
-                if var element = accessibilityStrategy.G(on: focusedElement()) {
-                    // move can go to the last empty line, but in that case we can't select the character as there is none
-                    element.selectedLength = (element.caretLocation == element.value.count) ? 0 : 1
-                    _ = push(element: element)
-                } else {
-                    post(keyboardStrategy.G())
-                }
-            case .h:
-                if var element = accessibilityStrategy.h(on: focusedElement()) {
-                    element.selectedLength = 1
-                    _ = push(element: element)
-                } else {
-                    post(keyboardStrategy.h())
-                }
-            case .i:
-                if let element = accessibilityStrategy.i(on: focusedElement()) {
-                    _ = push(element: element)
-                }
-                
-                enterInsertMode()
-            case .I:
-                enterInsertMode()
-                
-                if let element = accessibilityStrategy.I(on: focusedElement()) {
-                    _ = push(element: element)
-                } else {
-                    post(keyboardStrategy.I())
-                }
-            case .j:
-                if var element = accessibilityStrategy.j(on: focusedElement()) {
-                    // move can go to the last empty line, but in that case we can't select the character as there is none
-                    element.selectedLength = (element.caretLocation == element.value.count) ? 0 : 1
-                    _ = push(element: element)
-                } else {
-                    post(keyboardStrategy.j())
-                }
-            case .k:
-                if var element = accessibilityStrategy.k(on: focusedElement()) {
-                    element.selectedLength = 1
-                    _ = push(element: element)
-                } else {
-                    post(keyboardStrategy.k())
-                }
-            case .l:
-                if var element = accessibilityStrategy.l(on: focusedElement()) {
-                    element.selectedLength = 1
-                    _ = push(element: element)
-                } else {
-                    post(keyboardStrategy.l())
-                }
-            case .o:
-                enterInsertMode()
-
-                if let element = accessibilityStrategy.o(on: focusedElement()) {
-                    _ = push(element: element)
-                } else {
-                    post(keyboardStrategy.o())
-                }
-            case .O:
-                enterInsertMode()
-                
-                if let element = accessibilityStrategy.O(on: focusedElement()) {
-                    _ = push(element: element)
-                } else {
-                   post(keyboardStrategy.O())
-                }
-            case .r:
-                enterOperatorPendingMode(with: keyCombination)
-            case .controlR:
-                post(keyboardStrategy.controlR())
-            case .s:
-                enterInsertMode()
-                
-                post(keyboardStrategy.s())
-            case .t:
-                enterOperatorPendingMode(with: keyCombination)
-            case .T:
-                enterOperatorPendingMode(with: keyCombination)
-            case .u:
-                post(keyboardStrategy.u())
-            case .controlU:
-                post(keyboardStrategy.controlU())
-            case .w:
-                if var element = accessibilityStrategy.w(on: focusedElement()) {
-                    element.selectedLength = 1
-                    _ = push(element: element)
-                } else {
-                    post(keyboardStrategy.w())
-                }
-            case .x:
-                if let element = accessibilityStrategy.x(on: focusedElement()) {
-                    _ = push(element: element)
-                    
-                    if var element = focusedElement() {
-                        element.selectedLength = 1
-                        _ = push(element: element)
-                    }
-                } else {
-                    post(keyboardStrategy.x())
-                }                
-            case .X:
-                post(keyboardStrategy.X())
-            case .y:
-                enterOperatorPendingMode(with: keyCombination)
-            case .Y:
-                if var element = accessibilityStrategy.yy(on: focusedElement()) {
-                    element.selectedLength = 1
-                    _ = push(element: element)
-                } else {
-                    post(keyboardStrategy.yy())
-                }                
-            default:
-                ()
-            }
-        } else {
-            operatorPendingBuffer.append(keyCombination)
-            
-            parseOperatorCommand()
-
-            if currentMode != .operatorPending {
-                resetOperatorPendingBuffer()
-            }
+        switch currentMode {
+        case .normal:
+            handleNormalMode(with: keyCombination)
+        case .operatorPending:
+            handleOperatorPendingMode(with: keyCombination)
+        case .visual:
+            handleVisualMode(with: keyCombination)
+        default:
+            ()
         }
     }
     
+    func enterInsertMode() {
+        currentMode = .insert
+        resetOperatorPendingBuffer()
+        
+        Display.reset()
+    }
+    
+    func enterNormalMode() {
+        if currentMode == .insert, var element = accessibilityStrategy.h(on: focusedElement()) {
+            element.selectedLength = 1
+            _ = push(element: element)
+        }
+        
+        currentMode = .normal
+        resetOperatorPendingBuffer()
+
+        Display.tint()
+    }
+    
+    private func enterOperatorPendingMode(with keyCombination: KeyCombination) {
+        currentMode = .operatorPending
+        operatorPendingBuffer.append(keyCombination)
+    }
+    
+    func enterVisualMode() {
+        currentMode = .visual
+    }
+    
+    private func resetOperatorPendingBuffer() {
+        operatorPendingBuffer = []
+    }
+
+    private func post(_ keyCombinations: [KeyCombination]) {
+        KeyboardStrategy.post(keyCombinations)
+    }
+
+    private func focusedElement() -> AccessibilityTextElement? {
+        return AccessibilityStrategy.focusedElement()
+    }
+
+    private func push(element: AccessibilityTextElement) -> Bool {
+        return AccessibilityStrategy.push(element: element)
+    }
+    
+}
+
+
+// normal mode
+extension VimEngine {
+ 
+    func handleNormalMode(with keyCombination: KeyCombination) {
+        switch keyCombination.vimKey {
+        // to test (can dump info to console, send stuff to AX etc.)
+        case .commandD:
+            if let element = AccessibilityStrategy.test(element: focusedElement()) {
+                _ = push(element: element)
+            }
+        // temporary for escape to enter Command Mode
+        // and escape again to send escape key to macOS
+        case .escape:
+            enterInsertMode()
+            
+            post(keyboardStrategy.escape())
+        // temporary for pressing enter in Command Mode
+        // to act like an enter in Insert Mode
+        // checking if it feels better (like in Alfred)
+        case .enter:
+            enterInsertMode()
+            
+            post(keyboardStrategy.enter())
+        case .caret:
+            if var element = accessibilityStrategy.caret(on: focusedElement()) {
+                element.selectedLength = 1                    
+                _ = push(element: element)
+            } else {
+                post(keyboardStrategy.caret())
+            }
+        case .dollarSign:
+            if var element = accessibilityStrategy.dollarSign(on: focusedElement()) {
+                element.selectedLength = 1
+                _ = push(element: element)
+            } else {
+                post(keyboardStrategy.dollarSign())
+            }
+        case .underscore:
+            if var element = accessibilityStrategy.underscore(on: focusedElement()) {
+                element.selectedLength = 1                    
+                _ = push(element: element)
+            } else {
+                post(keyboardStrategy.underscore())
+            }
+        case .zero:
+            if var element = accessibilityStrategy.zero(on: focusedElement()) {
+                element.selectedLength = 1
+                _ = push(element: element)
+            } else {
+                post(keyboardStrategy.zero())
+            }
+        case .a:
+            enterInsertMode()
+            
+            if let element = accessibilityStrategy.a(on: focusedElement()) {
+                _ = push(element: element)
+            } else {
+                post(keyboardStrategy.a())
+            }
+        case .A:
+            enterInsertMode()
+            
+            if let element = accessibilityStrategy.A(on: focusedElement()) {
+                _ = push(element: element)
+            } else {
+                post(keyboardStrategy.A())
+            }
+        case .b:
+            if var element = accessibilityStrategy.b(on: focusedElement()) {
+                element.selectedLength = 1
+                _ = push(element: element)
+            } else {
+                post(keyboardStrategy.b())
+            }  
+        case .c:
+            enterOperatorPendingMode(with: keyCombination)
+        case .C:
+            enterInsertMode()
+            
+            post(keyboardStrategy.C())
+        case .d:
+            enterOperatorPendingMode(with: keyCombination)
+        case .controlD:
+            post(keyboardStrategy.controlD())
+        case .e:
+            if var element = accessibilityStrategy.e(on: focusedElement()) {
+                element.selectedLength = 1                    
+                _ = push(element: element)
+            }
+        case .f:
+            enterOperatorPendingMode(with: keyCombination)
+        case .F:
+            enterOperatorPendingMode(with: keyCombination)
+        case .g:
+            enterOperatorPendingMode(with: keyCombination)
+        case .G:
+            if var element = accessibilityStrategy.G(on: focusedElement()) {
+                // move can go to the last empty line, but in that case we can't select the character as there is none
+                element.selectedLength = (element.caretLocation == element.value.count) ? 0 : 1
+                _ = push(element: element)
+            } else {
+                post(keyboardStrategy.G())
+            }
+        case .h:
+            if var element = accessibilityStrategy.h(on: focusedElement()) {
+                element.selectedLength = 1
+                _ = push(element: element)
+            } else {
+                post(keyboardStrategy.h())
+            }
+        case .i:
+            if let element = accessibilityStrategy.i(on: focusedElement()) {
+                _ = push(element: element)
+            }
+            
+            enterInsertMode()
+        case .I:
+            enterInsertMode()
+            
+            if let element = accessibilityStrategy.I(on: focusedElement()) {
+                _ = push(element: element)
+            } else {
+                post(keyboardStrategy.I())
+            }
+        case .j:
+            if var element = accessibilityStrategy.j(on: focusedElement()) {
+                // move can go to the last empty line, but in that case we can't select the character as there is none
+                element.selectedLength = (element.caretLocation == element.value.count) ? 0 : 1
+                _ = push(element: element)
+            } else {
+                post(keyboardStrategy.j())
+            }
+        case .k:
+            if var element = accessibilityStrategy.k(on: focusedElement()) {
+                element.selectedLength = 1
+                _ = push(element: element)
+            } else {
+                post(keyboardStrategy.k())
+            }
+        case .l:
+            if var element = accessibilityStrategy.l(on: focusedElement()) {
+                element.selectedLength = 1
+                _ = push(element: element)
+            } else {
+                post(keyboardStrategy.l())
+            }
+        case .o:
+            enterInsertMode()
+            
+            if let element = accessibilityStrategy.o(on: focusedElement()) {
+                _ = push(element: element)
+            } else {
+                post(keyboardStrategy.o())
+            }
+        case .O:
+            enterInsertMode()
+            
+            if let element = accessibilityStrategy.O(on: focusedElement()) {
+                _ = push(element: element)
+            } else {
+                post(keyboardStrategy.O())
+            }
+        case .r:
+            enterOperatorPendingMode(with: keyCombination)
+        case .controlR:
+            post(keyboardStrategy.controlR())
+        case .s:
+            enterInsertMode()
+            
+            post(keyboardStrategy.s())
+        case .t:
+            enterOperatorPendingMode(with: keyCombination)
+        case .T:
+            enterOperatorPendingMode(with: keyCombination)
+        case .u:
+            post(keyboardStrategy.u())
+        case .controlU:
+            post(keyboardStrategy.controlU())
+        case .w:
+            if var element = accessibilityStrategy.w(on: focusedElement()) {
+                element.selectedLength = 1
+                _ = push(element: element)
+            } else {
+                post(keyboardStrategy.w())
+            }
+        case .x:
+            if let element = accessibilityStrategy.x(on: focusedElement()) {
+                _ = push(element: element)
+                
+                if var element = focusedElement() {
+                    element.selectedLength = 1
+                    _ = push(element: element)
+                }
+            } else {
+                post(keyboardStrategy.x())
+            }                
+        case .X:
+            post(keyboardStrategy.X())
+        case .y:
+            enterOperatorPendingMode(with: keyCombination)
+        case .Y:
+            if var element = accessibilityStrategy.yy(on: focusedElement()) {
+                element.selectedLength = 1
+                _ = push(element: element)
+            } else {
+                post(keyboardStrategy.yy())
+            }                
+        default:
+            ()
+        }
+    }
+        
+}
+
+
+// operator pending mode
+extension VimEngine {
+    
+    func handleOperatorPendingMode(with keyCombination: KeyCombination) {
+        operatorPendingBuffer.append(keyCombination)
+        
+        parseOperatorCommand()
+        
+        if currentMode != .operatorPending {
+            resetOperatorPendingBuffer()
+        }
+    }
+
     private func parseOperatorCommand() {
         switch operatorPendingBuffer.map({ $0.vimKey }) {
         case [.c, .a]:
@@ -389,7 +463,7 @@ class VimEngine {
                     _ = push(element: element)
                 }
             }
-
+            
             if operatorPendingBuffer.first?.vimKey == .r, let replacement = operatorPendingBuffer.last {
                 let axFocusedElement = focusedElement()
                 
@@ -420,7 +494,7 @@ class VimEngine {
                     _ = push(element: element)
                 }
             }
-
+            
             // if we don't recognize any operator move
             // then we go back to normal mode
             // and the operator pending buffer will be resetted
@@ -428,49 +502,12 @@ class VimEngine {
         }
     }
     
-    func enterNormalMode() {
-        if currentMode == .insert, var element = accessibilityStrategy.h(on: focusedElement()) {
-            element.selectedLength = 1
-            _ = push(element: element)
-        }
-        
-        currentMode = .normal
-        resetOperatorPendingBuffer()
-
-        Display.tint()
-    }
+}
 
 
-    func enterInsertMode() {
-        currentMode = .insert
-        resetOperatorPendingBuffer()
-
-        Display.reset()
-    }
+// visual mode
+extension VimEngine {
     
-    func enterVisualMode() {
-        currentMode = .visual
-    }
-    
-    private func resetOperatorPendingBuffer() {
-        operatorPendingBuffer = []
-    }
-    
-    private func enterOperatorPendingMode(with keyCombination: KeyCombination) {
-        currentMode = .operatorPending
-        operatorPendingBuffer.append(keyCombination)
-    }
-
-    private func post(_ keyCombinations: [KeyCombination]) {
-        KeyboardStrategy.post(keyCombinations)
-    }
-
-    private func focusedElement() -> AccessibilityTextElement? {
-        return AccessibilityStrategy.focusedElement()
-    }
-
-    private func push(element: AccessibilityTextElement) -> Bool {
-        return AccessibilityStrategy.push(element: element)
-    }
+    func handleVisualMode(with keyCombination: KeyCombination) {}
     
 }

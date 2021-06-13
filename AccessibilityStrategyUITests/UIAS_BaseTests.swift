@@ -11,6 +11,8 @@ class UIAS_BaseTests: XCTestCase {
 
         app = XCUIApplication()
         app.launch()
+        
+        VimEngine.shared.enterNormalMode()
     }
     
     func applyMoveAndGetBackUpdatedElement(_ move: (AccessibilityTextElement?) -> AccessibilityTextElement?) -> AccessibilityTextElement? {
