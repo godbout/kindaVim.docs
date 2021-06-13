@@ -272,6 +272,13 @@ extension VimEngine {
             } else {
                 post(keyboardStrategy.w())
             }
+        case .W:
+            if var element = accessibilityStrategy.W(on: focusedElement()) {
+                element.selectedLength = 1
+                _ = push(element: element)
+            } else {
+                post(keyboardStrategy.w())
+            }            
         case .x:
             if let element = accessibilityStrategy.x(on: focusedElement()) {
                 _ = push(element: element)
