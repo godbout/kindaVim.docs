@@ -17,6 +17,12 @@ class TextEngineMock: TextEngineProtocol {
         return location
     }
     
+    func beginningOfWORDForward(startingAt location: Int, in text: String) -> Int {
+        functionCalled = #function
+        
+        return location
+    }
+    
     func endOfWordForward(startingAt location: Int, in text: String) -> Int {
         functionCalled = #function
         

@@ -12,4 +12,8 @@ extension Character {
         return self.isWhitespace && !self.isNewline
     }
     
+    var isCharacterThatConstitutesAVimWORD: Bool {
+        return self.isLetter || self.isNumber || self.isPunctuation || self.isSymbol
+    }
+    
 }
