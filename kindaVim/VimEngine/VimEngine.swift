@@ -4,6 +4,7 @@ enum VimEngineMode {
     case normal
     case insert
     case operatorPending
+    case visual
 }
 
 class VimEngine {
@@ -445,6 +446,10 @@ class VimEngine {
         resetOperatorPendingBuffer()
 
         Display.reset()
+    }
+    
+    func enterVisualMode() {
+        currentMode = .visual
     }
     
     private func resetOperatorPendingBuffer() {

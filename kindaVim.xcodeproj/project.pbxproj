@@ -774,8 +774,8 @@
 			isa = PBXGroup;
 			children = (
 				91C486032641C0AA0003D9D7 /* Helpers */,
-				91BCB6B326624F5500CDCA98 /* TextEngine */,
 				9128B0EB26380AB0007DC80B /* Events */,
+				91BCB6B326624F5500CDCA98 /* TextEngine */,
 				912687242640634D002E3FB0 /* KeyCombination */,
 				91482E41263DBF3100F10ADC /* Strategies */,
 				9128B0F2263820C5007DC80B /* VimEngine */,
