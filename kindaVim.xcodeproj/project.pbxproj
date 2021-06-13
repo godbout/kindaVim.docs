@@ -76,6 +76,7 @@
 		914B4A21267686B600E53817 /* AS_E_.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914B4A1B2676867600E53817 /* AS_E_.swift */; };
 		914B4A272676870700E53817 /* AS_E__Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914B4A262676870700E53817 /* AS_E__Tests.swift */; };
 		914B4A2D2676874600E53817 /* endOfWORDForward_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914B4A2C2676874600E53817 /* endOfWORDForward_Tests.swift */; };
+		914B4A332676882500E53817 /* UIAS_E__Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914B4A322676882500E53817 /* UIAS_E__Tests.swift */; };
 		914CA8A12673CCB2009FEFD8 /* UsingAS_G__Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914CA8A02673CCB2009FEFD8 /* UsingAS_G__Tests.swift */; };
 		914CA8A72673CDB7009FEFD8 /* AS_G__Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914CA8A62673CDB7009FEFD8 /* AS_G__Tests.swift */; };
 		914CA8AD2673D0A2009FEFD8 /* lastLineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914CA8AC2673D0A2009FEFD8 /* lastLineTests.swift */; };
@@ -442,6 +443,7 @@
 		914B4A1B2676867600E53817 /* AS_E_.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AS_E_.swift; sourceTree = "<group>"; };
 		914B4A262676870700E53817 /* AS_E__Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AS_E__Tests.swift; sourceTree = "<group>"; };
 		914B4A2C2676874600E53817 /* endOfWORDForward_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = endOfWORDForward_Tests.swift; sourceTree = "<group>"; };
+		914B4A322676882500E53817 /* UIAS_E__Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAS_E__Tests.swift; sourceTree = "<group>"; };
 		914CA8A02673CCB2009FEFD8 /* UsingAS_G__Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsingAS_G__Tests.swift; sourceTree = "<group>"; };
 		914CA8A62673CDB7009FEFD8 /* AS_G__Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AS_G__Tests.swift; sourceTree = "<group>"; };
 		914CA8AC2673D0A2009FEFD8 /* lastLineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lastLineTests.swift; sourceTree = "<group>"; };
@@ -1020,6 +1022,7 @@
 				91B9CBD8267685280040C49B /* UIAS_B__Tests.swift */,
 				91DC7548266E8EAF00C09653 /* UIAS_dd_Tests.swift */,
 				917BE841266FB6620072D0A7 /* UIAS_e_Tests.swift */,
+				914B4A322676882500E53817 /* UIAS_E__Tests.swift */,
 				91CA37E0265E9288004869EA /* UIAS_j_Tests.swift */,
 				915A093B2667DD1A007D7572 /* UIAS_ci"_Tests.swift */,
 				91DC92FF26765F1B004E74B6 /* UIAS_ct_Tests.swift */,
@@ -1760,6 +1763,7 @@
 				91AB991A2674D812007682CA /* AS_A_.swift in Sources */,
 				91ACB2AE26761BF0000B3CE7 /* AS_ciBacktick.swift in Sources */,
 				91AB99232674D812007682CA /* AS_I_.swift in Sources */,
+				914B4A332676882500E53817 /* UIAS_E__Tests.swift in Sources */,
 				91A147FF2661238800D160AD /* AXEngine.swift in Sources */,
 				91AB991B2674D812007682CA /* AS_gg.swift in Sources */,
 				91AB99272674D812007682CA /* AS_dd.swift in Sources */,
