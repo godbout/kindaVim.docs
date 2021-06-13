@@ -160,7 +160,14 @@ extension VimEngine {
                 _ = push(element: element)
             } else {
                 post(keyboardStrategy.b())
-            }  
+            }
+        case .B:
+            if var element = accessibilityStrategy.B(on: focusedElement()) {
+                element.selectedLength = 1
+                _ = push(element: element)
+            } else {
+                post(keyboardStrategy.b())
+            }
         case .c:
             enterOperatorPendingMode(with: keyCombination)
         case .C:
