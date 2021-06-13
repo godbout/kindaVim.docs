@@ -2,7 +2,7 @@
 import XCTest
 
 
-class AS_ge_Tests: AS_BaseTests {
+class AS_gE__Tests: AS_BaseTests {
     
     let textEngineMock = TextEngineMock()
     
@@ -16,29 +16,29 @@ class AS_ge_Tests: AS_BaseTests {
 
 
 // Both
-extension AS_ge_Tests {
+extension AS_gE__Tests {
     
-    func test_that_it_calls_the_TextEngine_endOfWordBackward_function() {
+    func test_that_it_calls_the_TextEngine_endOfWORDBackward_function() {
         let text = """
 this should call the
-endOfWordBackward func
+endOfWORDBackward func
 from the TextEngine
 """
         let element = AccessibilityTextElement(
             role: .textArea,
             value: text,
-            caretLocation: 32,
+            caretLocation: 36,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 1,
                 start: 21,
-                end: 43
+                end: 44
             )
         )
         
-        _ = accessibilityStrategy.ge(on: element)
+        _ = accessibilityStrategy.gE(on: element)
         
-        XCTAssertEqual(textEngineMock.functionCalled, "endOfWordBackward(startingAt:in:)")        
+        XCTAssertEqual(textEngineMock.functionCalled, "endOfWORDBackward(startingAt:in:)")        
     }
     
 }
