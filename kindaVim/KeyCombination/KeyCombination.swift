@@ -114,6 +114,8 @@ enum VimKey {
     // checking if it feels better (like in Alfred)
     case enter
     
+    case singleQuote
+    
     case underscore
     case zero
 }
@@ -230,6 +232,8 @@ struct KeyCombination {
             return .underscore
         case .singleQuote where control == false && option == false && shift == true && command == false:
             return .doubleQuote
+        case .singleQuote where control == false && option == false && shift == false && command == false:
+            return .singleQuote
         case .six where control == false && option == false && shift == true && command == false:
             return .caret
         case .zero where control == false && option == false && shift == false && command == false:

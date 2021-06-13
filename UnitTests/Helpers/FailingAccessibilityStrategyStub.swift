@@ -31,6 +31,10 @@ struct FailingAccessibilityStrategyStub: AccessibilityStrategyProtocol {
         return nil
     }
     
+    func ciSingleQuote(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        return nil
+    }
+    
     func dd(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return nil
     }

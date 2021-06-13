@@ -277,6 +277,14 @@ class VimEngine {
                     enterInsertMode()
                 }
             }
+        case [.c, .i, .singleQuote]:
+            enterNormalMode()
+            
+            if let element = accessibilityStrategy.ciSingleQuote(on: focusedElement()) {
+                if push(element: element) == true {
+                    enterInsertMode()
+                }
+            }
         case [.c, .i, .w]:
             enterInsertMode()
             
