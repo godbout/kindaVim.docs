@@ -79,6 +79,7 @@ class VimEngine {
         return AccessibilityStrategy.focusedElement()
     }
 
+    @discardableResult
     private func push(element: AccessibilityTextElement) -> Bool {
         return AccessibilityStrategy.push(element: element)
     }
@@ -378,7 +379,9 @@ extension VimEngine {
                 _ = push(element: element)
             } else {
                 post(keyboardStrategy.ciw())
-            }            
+            }           
+        case [.c, .t]:
+            ()
         case [.d, .a]:
             ()
         case [.d, .a, .w]:
@@ -450,6 +453,17 @@ extension VimEngine {
                 post(keyboardStrategy.yy())
             }
         default:
+            if operatorPendingBuffer.first?.vimKey == .c, operatorPendingBuffer[1].vimKey == .t, let character = operatorPendingBuffer.last {
+                let axFocusedElement = focusedElement()
+                
+                if let element = accessibilityStrategy.ct(to: character.character, on: axFocusedElement), element != axFocusedElement {
+                    push(element: element)                    
+                    enterInsertMode()
+                    
+                    return
+                }
+            }
+            
             if operatorPendingBuffer.first?.vimKey == .f, let character = operatorPendingBuffer.last {
                 if var element = accessibilityStrategy.f(to: character.character, on: focusedElement()) {
                     element.selectedLength = 1
