@@ -20,12 +20,12 @@ extension AccessibilityStrategy {
         let lineText = element.currentLine.value
         let lineCaretLocation = element.caretLocation - lineStart
         
-        if let (startQuotedStringLocation, endQuotedStringLocation) = textEngine.innerQuotedString(using: "\"", startingAt: lineCaretLocation, in: lineText) {
-                element.caretLocation = lineStart + (startQuotedStringLocation)
-                element.selectedLength = endQuotedStringLocation - (startQuotedStringLocation)
-                element.selectedText = ""
+        if let quotedStringRange = textEngine.innerQuotedString(using: "\"", startingAt: lineCaretLocation, in: lineText) {
+            element.caretLocation = lineStart + quotedStringRange.lowerBound
+            element.selectedLength = quotedStringRange.count
+            element.selectedText = ""
                 
-                return element
+            return element
         }
         
         return nil

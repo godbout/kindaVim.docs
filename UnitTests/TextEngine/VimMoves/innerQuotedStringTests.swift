@@ -27,19 +27,19 @@ extension innerQuotedString {
     func test_that_if_there_are_two_quotes_and_the_caret_is_before_them_then_it_can_find_the_text() {
         let text = "finally some serious 'gourmet' shit"
         
-        guard let (textStartLocation, textEndLocation) = textEngine.innerQuotedString(using: "'", startingAt: 4, in: text) else { return XCTFail() }
+        guard let quotedStringRange = textEngine.innerQuotedString(using: "'", startingAt: 4, in: text) else { return XCTFail() }
         
-        XCTAssertEqual(textStartLocation, 22)
-        XCTAssertEqual(textEndLocation, 29) 
+        XCTAssertEqual(quotedStringRange.lowerBound, 22)
+        XCTAssertEqual(quotedStringRange.upperBound, 29) 
     }
     
     func test_that_if_there_are_two_quotes_and_the_caret_is_between_them_then_it_can_find_the_text() {
         let text = "wow now we're gonna eat shit a bit' lol"
         
-        guard let (textStartLocation, textEndLocation) = textEngine.innerQuotedString(using: "'", startingAt: 15, in: text) else { return XCTFail() }
+        guard let quotedStringRange = textEngine.innerQuotedString(using: "'", startingAt: 15, in: text) else { return XCTFail() }
         
-        XCTAssertEqual(textStartLocation, 11)
-        XCTAssertEqual(textEndLocation, 34) 
+        XCTAssertEqual(quotedStringRange.lowerBound, 11)
+        XCTAssertEqual(quotedStringRange.upperBound, 34) 
     }
     
     func test_that_if_there_are_two_quotes_and_the_caret_is_after_them_then_it_returns_nil() {
@@ -53,10 +53,10 @@ extension innerQuotedString {
     func test_that_if_there_are_three_quotes_it_finds_the_correct_text() {
         let text = "that's \" three quotes \" in there \""
         
-        guard let (textStartLocation, textEndLocation) = textEngine.innerQuotedString(using: "\"", startingAt: 29, in: text) else { return XCTFail() }
+        guard let quotedStringRange = textEngine.innerQuotedString(using: "\"", startingAt: 29, in: text) else { return XCTFail() }
         
-        XCTAssertEqual(textStartLocation, 23)
-        XCTAssertEqual(textEndLocation, 33) 
+        XCTAssertEqual(quotedStringRange.lowerBound, 23)
+        XCTAssertEqual(quotedStringRange.upperBound, 33) 
     }
     
     func test_that_if_the_caret_is_on_a_quote_then_it_calculates_the_matching_pairs_and_finds_the_correct_text() throws {

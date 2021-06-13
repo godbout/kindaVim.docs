@@ -22,11 +22,11 @@ extension AccessibilityStrategy {
         let lineText = element.currentLine.value
         let lineCaretLocation = element.caretLocation - lineStart
         
-        if let (startQuotedStringLocation, endQuotedStringLocation) = textEngine.innerQuotedString(using: "\"", startingAt: lineCaretLocation, in: lineText) {
-            element.caretLocation = lineStart + startQuotedStringLocation
+        if let quotedStringRange = textEngine.innerQuotedString(using: "\"", startingAt: lineCaretLocation, in: lineText) {
+            element.caretLocation = lineStart + quotedStringRange.lowerBound
                 
-            let startDoubleQuoteIndex = lineText.index(lineText.startIndex, offsetBy: startQuotedStringLocation)
-            let endDoubleQuoteIndex = lineText.index(lineText.startIndex, offsetBy: endQuotedStringLocation)
+            let startDoubleQuoteIndex = lineText.index(lineText.startIndex, offsetBy: quotedStringRange.lowerBound)
+            let endDoubleQuoteIndex = lineText.index(lineText.startIndex, offsetBy: quotedStringRange.upperBound)
                 
             NSPasteboard.general.clearContents()
             NSPasteboard.general.setString(String(lineText[startDoubleQuoteIndex..<endDoubleQuoteIndex]), forType: .string)                
