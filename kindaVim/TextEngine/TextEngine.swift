@@ -238,7 +238,21 @@ extension TextEngine {
             guard index != text.index(before: endIndex) else { return text.count - 1 }
             let nextIndex = text.index(after: index)
             
+            if text[index].isCharacterThatConstitutesAVimWORD {
+                if text[nextIndex].isCharacterThatConstitutesAVimWORD {
+                    continue
+                }
+            }
             
+            if text[index].isWhitespaceButNotNewline {
+                if text[nextIndex].isWhitespace || text[nextIndex].isCharacterThatConstitutesAVimWord || text[nextIndex].isPunctuationButNotUnderscore || text[nextIndex].isSymbol {
+                    continue
+                }
+            }
+            
+            if text[index].isNewline {
+                continue
+            }
             
             return text.distance(from: text.startIndex, to: text.index(before: nextIndex))
         }
