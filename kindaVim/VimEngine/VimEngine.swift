@@ -390,12 +390,16 @@ class VimEngine {
             }
 
             if operatorPendingBuffer.first?.vimKey == .r, let replacement = operatorPendingBuffer.last {
-                if let element = accessibilityStrategy.r(with: replacement.character, on: focusedElement()) {
-                    _ = push(element: element)
-                    
-                    if var element = accessibilityStrategy.h(on: focusedElement()) {                        
-                        element.selectedLength = 1
+                let axFocusedElement = focusedElement()
+                
+                if let element = accessibilityStrategy.r(with: replacement.character, on: axFocusedElement) {
+                    if element != axFocusedElement {
                         _ = push(element: element)
+                        
+                        if var element = accessibilityStrategy.h(on: focusedElement()) {                        
+                            element.selectedLength = 1
+                            _ = push(element: element)
+                        }                        
                     }
                 } else {
                     post(keyboardStrategy.r(with: replacement))

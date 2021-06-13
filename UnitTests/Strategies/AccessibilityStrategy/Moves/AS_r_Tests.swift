@@ -141,10 +141,7 @@ extension AS_r_Tests {
         XCTAssertEqual(returnedElement?.selectedText, " ")
     }
     
-    // the reason we replace the character by itself here is that after the move the VimEngine will apply h to go back
-    // one character if possible (not at line start limit) but when pressing escape if we don't replace the character
-    // by itself then h would move the caret back one character and it would be one too many
-    func test_that_if_the_replacement_is_escape_then_it_pretends_it_does_nothing_by_replacing_the_character_by_itself() {
+    func test_that_if_the_replacement_is_escape_then_it_does_nothing() {
         let text = "trying to replace by an escape does shit!"
         let element = AccessibilityTextElement(
             role: .textField,
@@ -160,9 +157,7 @@ extension AS_r_Tests {
         
         let returnedElement = applyMove(with: "\u{1b}", on: element)
         
-        XCTAssertEqual(returnedElement?.caretLocation, 15)
-        XCTAssertEqual(returnedElement?.selectedLength, 1)
-        XCTAssertEqual(returnedElement?.selectedText, "c")
+        XCTAssertEqual(returnedElement, element)
     }
     
 }

@@ -15,16 +15,12 @@ extension AccessibilityStrategy {
             return element
         }
         
+        
         let characterUndeCaretIndex = element.value.index(element.value.startIndex, offsetBy: element.caretLocation)
         let characterUnderCaretText = element.value[characterUndeCaretIndex]
         guard characterUnderCaretText != "\n" else { return element }
         
-        if replacement == "\u{1b}" {
-            element.selectedLength = 1
-            element.selectedText = String(characterUnderCaretText)
-            
-            return element
-        }
+        guard replacement != "\u{1b}" else { return element }            
         
         element.selectedLength = 1
         element.selectedText = replacement.isNewline ? "\n" : String(replacement)
