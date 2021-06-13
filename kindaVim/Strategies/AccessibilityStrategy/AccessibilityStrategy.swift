@@ -51,15 +51,15 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
         guard var element = element else { return nil }
         
         if element.isEmpty {
-            return nil
+            return element
         }
         
         if element.caretIsAtTheEnd, element.lastCharacterIsNotLinefeed {
-            return nil
+            return element
         }
         
         if element.caretIsAtTheEnd, element.lastCharacterIsLinefeed {
-            return nil 
+            return element 
         }
         
         
@@ -75,7 +75,7 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
             return element
         }
         
-        return nil    
+        return element    
     }
     
     static func test(element: AccessibilityTextElement?) -> AccessibilityTextElement? {

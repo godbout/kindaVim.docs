@@ -49,9 +49,9 @@ extension AS_ciBacktick_Tests {
         
         let returnedElement = applyMove(on: element)
         
-        // the way to check it keeps the block cursor is that it's returning nil so the element does not change
-        // this might be changed later as we may not return nil in the future
-        XCTAssertNil(returnedElement)
+        // the way to check it keeps the block cursor is that the returned element is the same as
+        // the passed element
+        XCTAssertEqual(returnedElement, element)
     }
     
 }

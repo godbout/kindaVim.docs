@@ -272,26 +272,29 @@ class VimEngine {
         case [.c, .i, .doubleQuote]:
             enterNormalMode()
             
-            if let element = accessibilityStrategy.ciDoubleQuote(on: focusedElement()) {
-                if push(element: element) == true {
-                    enterInsertMode()
-                }
+            let axFocusedElement = focusedElement()
+            
+            if let element = accessibilityStrategy.ciDoubleQuote(on: axFocusedElement), element != axFocusedElement {
+                _ = push(element: element)
+                enterInsertMode()
             }
         case [.c, .i, .singleQuote]:
             enterNormalMode()
             
-            if let element = accessibilityStrategy.ciSingleQuote(on: focusedElement()) {
-                if push(element: element) == true {
-                    enterInsertMode()
-                }
-            }
+            let axFocusedElement = focusedElement()
+            
+            if let element = accessibilityStrategy.ciSingleQuote(on: axFocusedElement), element != axFocusedElement {
+                _ = push(element: element)
+                enterInsertMode()
+            }            
         case [.c, .i, .backtick]:
             enterNormalMode()
             
-            if let element = accessibilityStrategy.ciBacktick(on: focusedElement()) {
-                if push(element: element) == true {
-                    enterInsertMode()
-                }
+            let axFocusedElement = focusedElement()
+            
+            if let element = accessibilityStrategy.ciBacktick(on: axFocusedElement), element != axFocusedElement {
+                _ = push(element: element)
+                enterInsertMode()
             }
         case [.c, .i, .w]:
             enterInsertMode()

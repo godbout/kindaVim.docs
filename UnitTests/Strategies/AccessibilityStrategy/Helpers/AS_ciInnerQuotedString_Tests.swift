@@ -28,9 +28,7 @@ finally dealing with the "real stuff"!
         XCTAssertEqual(returnedElement?.selectedText, "")
     }
         
-    // currently "does not move" means we get back nil. getting back nil currently allows us
-    // to not enter insert mode. this might change in the future. the system needs to be done better
-    // (more consistently)
+    // the change has been made! "does not move" means the returned element is the same as the one passed
     func test_that_if_there_is_only_one_quote_no_content_is_deleted_and_the_caret_does_not_move() {
         let text = """
 a text with only one quote ' lol
@@ -49,7 +47,7 @@ a text with only one quote ' lol
         
         let returnedElement = accessibilityStrategy.ciInnerQuotedString(using: "'", on: element)
         
-        XCTAssertNil(returnedElement)
+        XCTAssertEqual(returnedElement, element)
     }
     
     func test_that_if_there_are_no_quote_no_content_is_deleted_and_the_caret_does_not_move() {
@@ -68,7 +66,7 @@ a text with only one quote ' lol
         
         let returnedElement = accessibilityStrategy.ciInnerQuotedString(using: "'", on: element)
         
-        XCTAssertNil(returnedElement)
+        XCTAssertEqual(returnedElement, element)
     }
     
     func test_that_if_the_caret_is_before_the_quotes_then_the_content_within_is_deleted_and_the_caret_moves() {
@@ -114,7 +112,7 @@ now the "caret" is after the quotes
         
         let returnedElement = accessibilityStrategy.ciInnerQuotedString(using: "\"", on: element)
         
-        XCTAssertNil(returnedElement)
+        XCTAssertEqual(returnedElement, element)
     }
     
     func test_that_if_there_are_three_quotes_then_the_correct_content_is_deleted_and_the_caret_moves() {

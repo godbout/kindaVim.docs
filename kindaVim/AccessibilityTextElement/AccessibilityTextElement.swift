@@ -79,6 +79,16 @@ struct AccessibilityTextElementLine {
 }
 
 
+extension AccessibilityTextElementLine: Equatable {
+    public static func == (lhs: AccessibilityTextElementLine, rhs: AccessibilityTextElementLine) -> Bool {
+        lhs.fullValue == rhs.fullValue
+            && lhs.number == rhs.number
+            && lhs.start == rhs.start
+            && lhs.end == rhs.end
+    }
+}
+
+
 struct AccessibilityTextElement {
 
     static var globalColumnNumber = 1
@@ -118,4 +128,18 @@ struct AccessibilityTextElement {
         return !lastCharacterIsLinefeed
     }
 
+}
+
+
+extension AccessibilityTextElement: Equatable {
+    
+    public static func == (lhs: AccessibilityTextElement, rhs: AccessibilityTextElement) -> Bool {
+        lhs.role == rhs.role
+            && lhs.value == rhs.value
+            && lhs.caretLocation == rhs.caretLocation
+            && lhs.selectedLength == rhs.selectedLength
+            && lhs.selectedText == rhs.selectedText
+            && lhs.currentLine == rhs.currentLine
+    }
+    
 }
