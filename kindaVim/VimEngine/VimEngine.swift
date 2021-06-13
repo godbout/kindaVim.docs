@@ -382,13 +382,17 @@ class VimEngine {
             if operatorPendingBuffer.first?.vimKey == .F, let character = operatorPendingBuffer.last {
                 if var element = accessibilityStrategy.F(to: character.character, on: focusedElement()) {
                     element.selectedLength = 1
-                    let result = push(element: element)
-                    print(result)
+                    _ = push(element: element)
                 }
             }
 
             if operatorPendingBuffer.first?.vimKey == .r, let replacement = operatorPendingBuffer.last {
-                post(keyboardStrategy.r(with: replacement))
+                if var element = accessibilityStrategy.r(with: replacement.character, on: focusedElement()) {
+                    element.selectedLength = 1
+                    _ = push(element: element)
+                } else {
+                    post(keyboardStrategy.r(with: replacement))
+                }
             }
             
             if operatorPendingBuffer.first?.vimKey == .t, let character = operatorPendingBuffer.last {
