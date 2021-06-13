@@ -445,17 +445,24 @@ extension VimEngine {
             
             if var element = accessibilityStrategy.ge(on: focusedElement()) {
                 element.selectedLength = 1                
-                _ = push(element: element)
-            }                      
+                push(element: element)
+            }     
         case [.g, .g]:
             enterNormalMode()
             
             if var element = accessibilityStrategy.gg(on: focusedElement()) {
                 element.selectedLength = 1                
-                _ = push(element: element)
+                push(element: element)
             } else {
                 post(keyboardStrategy.gg())
             }
+        case [.g, .E]:
+            enterNormalMode()
+            
+            if var element = accessibilityStrategy.gE(on: focusedElement()) {
+                element.selectedLength = 1                
+                push(element: element)
+            }                 
         case [.y, .i]:
             ()
         case [.y, .i, .doubleQuote]:

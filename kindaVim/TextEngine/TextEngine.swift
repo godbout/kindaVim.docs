@@ -4,6 +4,8 @@ protocol TextEngineProtocol {
     func beginningOfWORDBackward(startingAt location: Int, in text: String) -> Int
     func beginningOfWordForward(startingAt location: Int, in text: String) -> Int
     func beginningOfWORDForward(startingAt location: Int, in text: String) -> Int
+    func endOfWordBackward(startingAt location: Int, in text: String) -> Int    
+    func endOfWORDBackward(startingAt location: Int, in text: String) -> Int    
     func endOfWordForward(startingAt location: Int, in text: String) -> Int    
     func endOfWORDForward(startingAt location: Int, in text: String) -> Int    
     func findFirst(_ character: Character, in text: String) -> Int?
@@ -183,6 +185,38 @@ extension TextEngine {
             }
             
             return text.distance(from: text.startIndex, to: nextIndex)
+        }
+        
+        return location
+    }
+    
+    func endOfWordBackward(startingAt location: Int, in text: String) -> Int {
+        guard let anchorIndex = text.index(text.startIndex, offsetBy: location + 1, limitedBy: text.endIndex) else { return text.count - 1 }
+        let endIndex = text.endIndex
+        
+        for index in text[anchorIndex..<endIndex].indices {
+            guard index != text.index(before: endIndex) else { return text.count - 1 }
+            let nextIndex = text.index(after: index)
+            
+            
+            
+            return text.distance(from: text.startIndex, to: text.index(before: nextIndex))
+        }
+        
+        return location
+    }
+    
+    func endOfWORDBackward(startingAt location: Int, in text: String) -> Int {
+        guard let anchorIndex = text.index(text.startIndex, offsetBy: location + 1, limitedBy: text.endIndex) else { return text.count - 1 }
+        let endIndex = text.endIndex
+        
+        for index in text[anchorIndex..<endIndex].indices {
+            guard index != text.index(before: endIndex) else { return text.count - 1 }
+            let nextIndex = text.index(after: index)
+            
+            
+            
+            return text.distance(from: text.startIndex, to: text.index(before: nextIndex))
         }
         
         return location

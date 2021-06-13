@@ -29,6 +29,18 @@ class TextEngineMock: TextEngineProtocol {
         return location
     }
     
+    func endOfWordBackward(startingAt location: Int, in text: String) -> Int {
+        functionCalled = #function
+        
+        return location
+    }
+    
+    func endOfWORDBackward(startingAt location: Int, in text: String) -> Int {
+        functionCalled = #function
+        
+        return location
+    }
+    
     func endOfWordForward(startingAt location: Int, in text: String) -> Int {
         functionCalled = #function
         
