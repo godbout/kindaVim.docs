@@ -285,6 +285,14 @@ class VimEngine {
                     enterInsertMode()
                 }
             }
+        case [.c, .i, .backtick]:
+            enterNormalMode()
+            
+            if let element = accessibilityStrategy.ciBacktick(on: focusedElement()) {
+                if push(element: element) == true {
+                    enterInsertMode()
+                }
+            }
         case [.c, .i, .w]:
             enterInsertMode()
             

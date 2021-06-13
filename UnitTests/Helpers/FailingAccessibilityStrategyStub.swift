@@ -27,6 +27,10 @@ struct FailingAccessibilityStrategyStub: AccessibilityStrategyProtocol {
         return nil
     }
     
+    func ciBacktick(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        return nil
+    }
+    
     func ciDoubleQuote(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return nil
     }
