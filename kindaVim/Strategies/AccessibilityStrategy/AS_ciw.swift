@@ -16,10 +16,10 @@ extension AccessibilityStrategy {
         }
         
         
-        let (beginningOfWordLocation, endOfWordLocation) = textEngine.innerWord(startingAt: element.caretLocation, in: element.value)
+        let wordRange = textEngine.innerWord(startingAt: element.caretLocation, in: element.value)
         
-        element.caretLocation = beginningOfWordLocation
-        element.selectedLength = endOfWordLocation - beginningOfWordLocation
+        element.caretLocation = wordRange.lowerBound
+        element.selectedLength = wordRange.count
         element.selectedText = ""
         
         return element

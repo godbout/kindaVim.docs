@@ -9,7 +9,7 @@ protocol TextEngineProtocol {
     func findSecond(_ character: Character, in text: String) -> Int?
     func firstNonBlank(in text: String) -> Int
     func innerQuotedString(using character: Character, startingAt location: Int, in text: String) -> (Int, Int)?
-    func innerWord(startingAt location: Int, in text: String) -> (Int, Int)
+    func innerWord(startingAt location: Int, in text: String) -> Range<Int>
     func lastLine(in text: String) -> TextEngineLine
     func firstLine(in text: String) -> String
     func nextLine(after location: Int, in text: String) -> String?
@@ -187,7 +187,7 @@ extension TextEngine {
         return nil
     }    
 
-    func innerWord(startingAt location: Int, in text: String) -> (Int, Int) {
+    func innerWord(startingAt location: Int, in text: String) -> Range<Int> {
         let characterAtLocationIndex = text.index(text.startIndex, offsetBy: location)
         let characterAtLocationText = text[characterAtLocationIndex]
 
@@ -195,13 +195,13 @@ extension TextEngine {
             let previousNonBlankLocation = findPreviousNonBlank(startingAt: location, in: text) ?? -1
             let nextNonBlankLocation = findNextNonBlank(after: location, in: text) ?? text.count  
             
-            return (previousNonBlankLocation + 1, nextNonBlankLocation)
+            return (previousNonBlankLocation + 1)..<nextNonBlankLocation
         }
 
         let beginningOfWordLocation = beginningOfWordBackward(startingAt: location + 1, in: text)
         let endOfWordLocation = endOfWordForward(startingAt: location - 1, in: text)
 
-        return (beginningOfWordLocation, endOfWordLocation + 1)
+        return beginningOfWordLocation..<(endOfWordLocation + 1)
     }    
 
 }

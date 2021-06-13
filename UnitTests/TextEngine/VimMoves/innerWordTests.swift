@@ -16,46 +16,46 @@ extension innerWordTests {
     func test_that_it_the_caret_is_on_a_letter_if_finds_the_correct_inner_word() {
         let text = "ok we're gonna try to get the inner word here"
         
-        let (wordStartLocation, wordEndLocsation) = textEngine.innerWord(startingAt: 10, in: text)
+        let wordRange = textEngine.innerWord(startingAt: 10, in: text)
         
-        XCTAssertEqual(wordStartLocation, 9)
-        XCTAssertEqual(wordEndLocsation, 14) 
+        XCTAssertEqual(wordRange.lowerBound, 9)
+        XCTAssertEqual(wordRange.upperBound, 14) 
     }
     
     func test_that_if_the_caret_is_on_a_space_the_inner_word_is_all_the_consecutive_spaces() {
         let text = "ok so now we have a lot of     spaces"
         
-        let (wordStartLocation, wordEndLocsation) = textEngine.innerWord(startingAt: 28, in: text)
+        let wordRange = textEngine.innerWord(startingAt: 28, in: text)
         
-        XCTAssertEqual(wordStartLocation, 26)
-        XCTAssertEqual(wordEndLocsation, 31)         
+        XCTAssertEqual(wordRange.lowerBound, 26)
+        XCTAssertEqual(wordRange.upperBound, 31)         
     }
     
     func test_that_if_the_caret_is_on_a_single_space_it_recognizes_it_as_an_inner_word() {
         let text = "a single space is an inner word"
         
-        let (wordStartLocation, wordEndLocsation) = textEngine.innerWord(startingAt: 20, in: text)
+        let wordRange = textEngine.innerWord(startingAt: 20, in: text)
         
-        XCTAssertEqual(wordStartLocation, 20)
-        XCTAssertEqual(wordEndLocsation, 21) 
+        XCTAssertEqual(wordRange.lowerBound, 20)
+        XCTAssertEqual(wordRange.upperBound, 21) 
     }
     
     func test_that_if_the_TextField_starts_with_spaces_it_finds_the_correct_inner_word() {
         let text = "     that's lots of spaces"
         
-        let (wordStartLocation, wordEndLocsation) = textEngine.innerWord(startingAt: 4, in: text)
+        let wordRange = textEngine.innerWord(startingAt: 4, in: text)
         
-        XCTAssertEqual(wordStartLocation, 0)
-        XCTAssertEqual(wordEndLocsation, 5) 
+        XCTAssertEqual(wordRange.lowerBound, 0)
+        XCTAssertEqual(wordRange.upperBound, 5) 
     }
     
     func test_that_if_the_TextField_ends_with_spaces_it_still_gets_the_correct_inner_word() {
         let text = "that's lots of spaces again       "
         
-        let (wordStartLocation, wordEndLocsation) = textEngine.innerWord(startingAt: 29, in: text)
+        let wordRange = textEngine.innerWord(startingAt: 29, in: text)
         
-        XCTAssertEqual(wordStartLocation, 27)
-        XCTAssertEqual(wordEndLocsation, 34) 
+        XCTAssertEqual(wordRange.lowerBound, 27)
+        XCTAssertEqual(wordRange.upperBound, 34) 
     }
     
 }
@@ -71,10 +71,10 @@ spill
    on the next line
 """
         
-        let (wordStartLocation, wordEndLocsation) = textEngine.innerWord(startingAt: 23, in: text)
+        let wordRange = textEngine.innerWord(startingAt: 23, in: text)
         
-        XCTAssertEqual(wordStartLocation, 20)
-        XCTAssertEqual(wordEndLocsation, 26)
+        XCTAssertEqual(wordRange.lowerBound, 20)
+        XCTAssertEqual(wordRange.upperBound, 26)
     }
     
     func test_that_inner_word_stops_at_linefeeds_at_the_beginning_of_lines() {
@@ -84,10 +84,10 @@ spill also
     backwards
 """
         
-        let (wordStartLocation, wordEndLocsation) = textEngine.innerWord(startingAt: 33, in: text)
+        let wordrange = textEngine.innerWord(startingAt: 33, in: text)
         
-        XCTAssertEqual(wordStartLocation, 30)
-        XCTAssertEqual(wordEndLocsation, 34)
+        XCTAssertEqual(wordrange.lowerBound, 30)
+        XCTAssertEqual(wordrange.upperBound, 34)
     }
     
 }

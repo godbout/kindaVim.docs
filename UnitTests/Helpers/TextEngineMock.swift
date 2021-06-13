@@ -59,10 +59,10 @@ class TextEngineMock: TextEngineProtocol {
         return nil
     }
     
-    func innerWord(startingAt location: Int, in text: String) -> (Int, Int) {
+    func innerWord(startingAt location: Int, in text: String) -> Range<Int> {
         functionCalled = #function
         
-        return (0, 0)
+        return 0..<0
     }
     
     func firstLine(in text: String) -> String {
