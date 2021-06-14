@@ -196,7 +196,7 @@ extension TextEngine {
         
         for index in text [startIndex..<anchorIndex].indices.reversed() {
             guard index != startIndex else { return 0 }
-            let previousIndex = text.index(before: index)
+            guard index != text.index(before: text.endIndex) else { return text.count - 1 }
             let nextIndex = text.index(after: index)
             
             if text[index].isCharacterThatConstitutesAVimWord {
@@ -223,7 +223,12 @@ extension TextEngine {
                 }
             }
             
+            // weird, special case, but can't find another
+            // way to make this work after two full days of
+            // head banging on that shit
             if text[index].isNewline {
+                let previousIndex = text.index(before: index)
+                
                 if !text[previousIndex].isNewline {
                     continue
                 }                
