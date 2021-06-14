@@ -206,13 +206,13 @@ extension TextEngine {
             }
             
             if text[index].isPunctuationButNotUnderscore {
-                if text[nextIndex].isPunctuationButNotUnderscore {
+                if text[nextIndex].isPunctuationButNotUnderscore || text[nextIndex].isSymbol {
                     continue
                 }
             }
             
             if text[index].isSymbol {
-                if text[nextIndex].isSymbol {
+                if text[nextIndex].isSymbol || text[nextIndex].isPunctuationButNotUnderscore {
                     continue
                 }
             }

@@ -123,12 +123,12 @@ if text[index] == "_" {
         XCTAssertEqual(newCaretPosition, 14)
     }
     
-    func test_that_it_does_stop_at_a_symbol_if_it_is_preceded_by_a_punctuation() {
+    func test_that_it_does_not_stop_at_a_symbol_if_it_is_followed_by_a_punctuation() {
         let text = "ext[index] != 28"
         
-        let newCaretPosition = textEngine.endOfWordBackward(startingAt: 15, in: text)
+        let newCaretPosition = textEngine.endOfWordBackward(startingAt: 12, in: text)
         
-        XCTAssertEqual(newCaretPosition, 12)
+        XCTAssertEqual(newCaretPosition, 9)
     }
     
     func test_that_letters_numbers_and_underscores_together_are_considered_a_word() {
