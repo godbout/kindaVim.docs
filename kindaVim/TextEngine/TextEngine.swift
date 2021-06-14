@@ -280,7 +280,7 @@ extension TextEngine {
                 continue
             }
             
-            return text.distance(from: text.startIndex, to: text.index(before: nextIndex))
+            return text.distance(from: text.startIndex, to: index)
         }
         
         return location
@@ -310,7 +310,7 @@ extension TextEngine {
                 continue
             }
             
-            return text.distance(from: text.startIndex, to: text.index(before: nextIndex))
+            return text.distance(from: text.startIndex, to: index)
         }
         
         return location
