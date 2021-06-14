@@ -170,14 +170,14 @@ at empty lines
     
     func test_that_it_stops_at_an_empty_line_but_skip_the_whitespaces_on_the_current_line() {
         let text = """
-ge should stop at empty lines and 
+ge should stop at empty lines and
 
     skip the whitespaces on this line
 """
         
         let newCaretPosition = textEngine.endOfWordBackward(startingAt: 42, in: text)
         
-        XCTAssertEqual(newCaretPosition, 32)
+        XCTAssertEqual(newCaretPosition, 34)
     }
     
     func test_that_it_does_not_stop_at_a_line_that_has_just_whitespaces() {

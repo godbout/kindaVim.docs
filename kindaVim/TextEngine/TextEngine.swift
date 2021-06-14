@@ -194,35 +194,42 @@ extension TextEngine {
         let anchorIndex = text.index(text.startIndex, offsetBy: location)
         let startIndex = text.startIndex
         
-        for index in text [startIndex...anchorIndex].indices.reversed() {
+        for index in text [startIndex..<anchorIndex].indices.reversed() {
             guard index != startIndex else { return 0 }
             let previousIndex = text.index(before: index)
+            let nextIndex = text.index(after: index)
             
             if text[index].isCharacterThatConstitutesAVimWord {
-                if text[previousIndex].isCharacterThatConstitutesAVimWord || text[previousIndex].isWhitespace {
+                if text[nextIndex].isCharacterThatConstitutesAVimWord {
                     continue
                 }
             }
             
             if text[index].isPunctuationButNotUnderscore {
-                if text[previousIndex].isPunctuationButNotUnderscore || text[previousIndex].isWhitespace {
+                if text[nextIndex].isPunctuationButNotUnderscore {
                     continue
                 }
             }
             
             if text[index].isSymbol {
-                if text[previousIndex].isSymbol || text[previousIndex].isWhitespace {
+                if text[nextIndex].isSymbol {
                     continue
                 }
             }
             
-            if text[index].isWhitespace {
-                if text[previousIndex].isWhitespace {
+            if text[index].isWhitespaceButNotNewline {
+                if text[nextIndex].isWhitespace || text[nextIndex].isCharacterThatConstitutesAVimWord || text[nextIndex].isPunctuationButNotUnderscore || text[nextIndex].isSymbol {
                     continue
                 }
             }
             
-            return text.distance(from: startIndex, to: previousIndex)
+            if text[index].isNewline {
+                if !text[previousIndex].isNewline {
+                    continue
+                }                
+            }
+    
+            return text.distance(from: startIndex, to: index)
         }
         
         return location

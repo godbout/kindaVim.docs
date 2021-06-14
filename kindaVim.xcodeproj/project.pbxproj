@@ -89,6 +89,8 @@
 		915477E926615DEB0084F4F9 /* TextEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918F4DEE265C070D0006CC2E /* TextEngine.swift */; };
 		9156CCFC267514E6004D2CCA /* innerQuotedStringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9156CCFB267514E6004D2CCA /* innerQuotedStringTests.swift */; };
 		9157254026768BF300F36730 /* AS_gE__Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9157253F26768BF300F36730 /* AS_gE__Tests.swift */; };
+		9157254626768C6700F36730 /* endOfWordBackwardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9157254526768C6700F36730 /* endOfWordBackwardTests.swift */; };
+		9157254C26768C7500F36730 /* endOfWORDBackward_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9157254B26768C7500F36730 /* endOfWORDBackward_Tests.swift */; };
 		915A093C2667DD1A007D7572 /* UIAS_ci"_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915A093B2667DD1A007D7572 /* UIAS_ci"_Tests.swift */; };
 		9163BD672673ADA800BB7113 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9163BD662673ADA800BB7113 /* Character.swift */; };
 		9163BD712673ADAD00BB7113 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9163BD702673ADAD00BB7113 /* String.swift */; };
@@ -463,6 +465,8 @@
 		9153E86A2662963300064761 /* TextEngineBaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextEngineBaseTests.swift; sourceTree = "<group>"; };
 		9156CCFB267514E6004D2CCA /* innerQuotedStringTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = innerQuotedStringTests.swift; sourceTree = "<group>"; };
 		9157253F26768BF300F36730 /* AS_gE__Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AS_gE__Tests.swift; sourceTree = "<group>"; };
+		9157254526768C6700F36730 /* endOfWordBackwardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = endOfWordBackwardTests.swift; sourceTree = "<group>"; };
+		9157254B26768C7500F36730 /* endOfWORDBackward_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = endOfWORDBackward_Tests.swift; sourceTree = "<group>"; };
 		915A093B2667DD1A007D7572 /* UIAS_ci"_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAS_ci\"_Tests.swift"; sourceTree = "<group>"; };
 		9163BD662673ADA800BB7113 /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 		9163BD702673ADAD00BB7113 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
@@ -1136,6 +1140,8 @@
 				91B9CBCE267683290040C49B /* beginningOfWORDBackward_Tests.swift */,
 				91BCB6B426624F6500CDCA98 /* beginningOfWordForwardTests.swift */,
 				916E867D2676794800E2A807 /* beginningOfWORDForward_Tests.swift */,
+				9157254526768C6700F36730 /* endOfWordBackwardTests.swift */,
+				9157254B26768C7500F36730 /* endOfWORDBackward_Tests.swift */,
 				91D2D5BD266F9D4D004634C0 /* endOfWordForwardTests.swift */,
 				914B4A2C2676874600E53817 /* endOfWORDForward_Tests.swift */,
 				91F90BFB2669249700176433 /* firstNonBlankTests.swift */,
@@ -1556,6 +1562,7 @@
 				9145AA83264543BF0056976B /* KS_cG_Tests.swift in Sources */,
 				91E304E72643F3ED004D9933 /* UsingKS_O__Tests.swift in Sources */,
 				91E304EF2643F4ED004D9933 /* UsingKS_x_Tests.swift in Sources */,
+				9157254626768C6700F36730 /* endOfWordBackwardTests.swift in Sources */,
 				91712453266E45AA002F512B /* UsingAS_O__Tests.swift in Sources */,
 				9197C08A26366A3B006C696A /* KeyCombinationAdaptorTests.swift in Sources */,
 				91A54F072643BC7B00400677 /* KS_0_Tests.swift in Sources */,
@@ -1661,6 +1668,7 @@
 				91E304C32643EC48004D9933 /* UsingKS_BaseTests.swift in Sources */,
 				91A54EE52643B6F400400677 /* KS_ciw_Tests.swift in Sources */,
 				91E988A6266921FF00935D97 /* UsingAS_I__Tests.swift in Sources */,
+				9157254C26768C7500F36730 /* endOfWORDBackward_Tests.swift in Sources */,
 				9153E8512662792F00064761 /* UsingAS_b_Tests.swift in Sources */,
 				91A54EDD2643B58500400677 /* KS_A__Tests.swift in Sources */,
 				91EA3B7526693CA3009801AD /* AS_i_Tests.swift in Sources */,
