@@ -172,8 +172,8 @@ extension KeyCombinationTests {
         let controlA = KeyCombination(key: .a, control: true)
         XCTAssertNil(controlA.vimKey)
         
-        let shiftB = KeyCombination(key: .b, shift: true)
-        XCTAssertNil(shiftB.vimKey)
+        let commandB = KeyCombination(key: .b, command: true)
+        XCTAssertNil(commandB.vimKey)
         
         let controlJ = KeyCombination(key: .j, control: true)
         XCTAssertNil(controlJ.vimKey)

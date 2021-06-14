@@ -29,8 +29,8 @@ extension UsingKS_NotImplementedOrDontExist_Tests {
         VimEngine.shared.handle(keyCombination: controlA)
         XCTAssertEqual(keyboardStrategyMock.functionCalled, "")
 
-        let shiftB = KeyCombination(key: .b, shift: true)
-        VimEngine.shared.handle(keyCombination: shiftB)
+        let commandB = KeyCombination(key: .b, command: true)
+        VimEngine.shared.handle(keyCombination: commandB)
         XCTAssertEqual(keyboardStrategyMock.functionCalled, "")
 
         let controlJ = KeyCombination(key: .j, control: true)
