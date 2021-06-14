@@ -191,34 +191,44 @@ extension TextEngine {
     }
     
     func endOfWordBackward(startingAt location: Int, in text: String) -> Int {
-        guard let anchorIndex = text.index(text.startIndex, offsetBy: location + 1, limitedBy: text.endIndex) else { return text.count - 1 }
-        let endIndex = text.endIndex
+        let anchorIndex = text.index(text.startIndex, offsetBy: location)
+        let startIndex = text.startIndex
         
-        for index in text[anchorIndex..<endIndex].indices {
-            guard index != text.index(before: endIndex) else { return text.count - 1 }
-            let nextIndex = text.index(after: index)
+        for index in text [startIndex...anchorIndex].indices.reversed() {
+            guard index != startIndex else { return 0 }
+            let previousIndex = text.index(before: index)
             
+            if text[index].isCharacterThatConstitutesAVimWord {
+                if text[previousIndex].isCharacterThatConstitutesAVimWord || text[previousIndex].isWhitespace {
+                    continue
+                }
+            }
             
+            if text[index].isPunctuationButNotUnderscore {
+                if text[previousIndex].isPunctuationButNotUnderscore || text[previousIndex].isWhitespace {
+                    continue
+                }
+            }
             
-            return text.distance(from: text.startIndex, to: text.index(before: nextIndex))
+            if text[index].isSymbol {
+                if text[previousIndex].isSymbol || text[previousIndex].isWhitespace {
+                    continue
+                }
+            }
+            
+            if text[index].isWhitespace {
+                if text[previousIndex].isWhitespace {
+                    continue
+                }
+            }
+            
+            return text.distance(from: startIndex, to: previousIndex)
         }
         
         return location
     }
     
     func endOfWORDBackward(startingAt location: Int, in text: String) -> Int {
-        guard let anchorIndex = text.index(text.startIndex, offsetBy: location + 1, limitedBy: text.endIndex) else { return text.count - 1 }
-        let endIndex = text.endIndex
-        
-        for index in text[anchorIndex..<endIndex].indices {
-            guard index != text.index(before: endIndex) else { return text.count - 1 }
-            let nextIndex = text.index(after: index)
-            
-            
-            
-            return text.distance(from: text.startIndex, to: text.index(before: nextIndex))
-        }
-        
         return location
     }
     

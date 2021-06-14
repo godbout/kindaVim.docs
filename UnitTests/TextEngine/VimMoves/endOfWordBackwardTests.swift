@@ -139,58 +139,58 @@ if text[index] == "_" {
         XCTAssertEqual(newCaretPosition, 24)
     }
     
-//}
-//
-//
-//// TextViews
-//extension endOfWordBackwardTests {
-//    
-//    func test_that_it_does_not_get_blocked_on_a_line() {
-//        let text = """
-//to the previous line
-//b can go
-//"""
-//        
-//        let newCaretPosition = textEngine.endOfWordBackward(startingAt: 21, in: text)
-//        
-//        XCTAssertEqual(newCaretPosition, 16)
-//    }
-//    
-//    func test_that_it_stops_at_an_empty_line() {
-//        let text = """
-//b should stop
-//
-//at empty lines
-//"""
-//        
-//        let newCaretPosition = textEngine.endOfWordBackward(startingAt: 15, in: text)
-//        
-//        XCTAssertEqual(newCaretPosition, 14)
-//    }
-//    
-//    func test_that_it_stops_at_an_empty_line_but_skip_the_whitespaces_on_the_current_line() {
-//        let text = """
-//b should stop at empty lines and 
-//
-//    skip the whitespaces on this line
-//"""
-//        
-//        let newCaretPosition = textEngine.endOfWordBackward(startingAt: 39, in: text)
-//        
-//        XCTAssertEqual(newCaretPosition, 34)
-//    }
-//    
-//    func test_that_it_does_not_stop_at_a_line_that_has_just_whitespaces() {
-//        let text = """
-//b shouldn't stop
-//at the previous line that looks empty but has
-//   
-//whitespaces
-//"""
-//        
-//        let newCaretPosition = textEngine.endOfWordBackward(startingAt: 67, in: text)
-//        
-//        XCTAssertEqual(newCaretPosition, 59)
-//    }
+}
+
+
+// TextViews
+extension endOfWordBackwardTests {
+    
+    func test_that_it_does_not_get_blocked_on_a_line() {
+        let text = """
+to the previous line
+ge can go
+"""
+        
+        let newCaretPosition = textEngine.endOfWordBackward(startingAt: 22, in: text)
+        
+        XCTAssertEqual(newCaretPosition, 19)
+    }
+    
+    func test_that_it_stops_at_an_empty_line() {
+        let text = """
+ge should stop
+
+at empty lines
+"""
+        
+        let newCaretPosition = textEngine.endOfWordBackward(startingAt: 16, in: text)
+        
+        XCTAssertEqual(newCaretPosition, 15)
+    }
+    
+    func test_that_it_stops_at_an_empty_line_but_skip_the_whitespaces_on_the_current_line() {
+        let text = """
+ge should stop at empty lines and 
+
+    skip the whitespaces on this line
+"""
+        
+        let newCaretPosition = textEngine.endOfWordBackward(startingAt: 42, in: text)
+        
+        XCTAssertEqual(newCaretPosition, 32)
+    }
+    
+    func test_that_it_does_not_stop_at_a_line_that_has_just_whitespaces() {
+        let text = """
+ge shouldn't stop
+at the previous line that looks empty but has
+   
+whitespaces
+"""
+        
+        let newCaretPosition = textEngine.endOfWordBackward(startingAt: 73, in: text)
+        
+        XCTAssertEqual(newCaretPosition, 62)
+    }
     
 }
