@@ -10,11 +10,11 @@ import XCTest
 // indeed behave differently: we will never paste linewise in TextFields
 class UIAS_p_TextFields_Tests: UIAS_BaseTests {
     
-    private func applyMoveAndGetBackUpdatedElement() -> AccessibilityTextElement? {
-        return applyMoveAndGetBackUpdatedElement { focusedElement in 
-            accessibilityStrategy.p(on: focusedElement)
-        }
-    }
+    private func sendMoveThroughVimEngineAndGetBackUpdatedFocusedElement() -> AccessibilityTextElement? {
+        VimEngine.shared.handle(keyCombination: KeyCombination(key: .p))
+        
+        return AccessibilityTextElementAdaptor.fromAXFocusedElement()        
+    }    
     
 }
 
@@ -32,10 +32,12 @@ extension UIAS_p_TextFields_Tests {
                 
         NSPasteboard.general.clearContents()
         NSPasteboard.general.setString("test 1 of The 3 Cases", forType: .string)
-        
-        let finalElement = applyMoveAndGetBackUpdatedElement()
+                
+        let finalElement = sendMoveThroughVimEngineAndGetBackUpdatedFocusedElement() 
         
         XCTAssertEqual(finalElement?.value, "test 1 of The 3 Cases")
+        XCTAssertEqual(finalElement?.caretLocation, 20)
+        XCTAssertEqual(finalElement?.selectedLength, 1)
     }
     
     func test_that_if_the_caret_is_at_the_last_character_of_the_TextField_it_does_nothing_and_does_not_crash() {
@@ -46,9 +48,11 @@ extension UIAS_p_TextFields_Tests {
         NSPasteboard.general.clearContents()
         NSPasteboard.general.setString("test 2 of The 3 Cases", forType: .string)
         
-        let finalElement = applyMoveAndGetBackUpdatedElement()
+        let finalElement = sendMoveThroughVimEngineAndGetBackUpdatedFocusedElement()
         
         XCTAssertEqual(finalElement?.value, "the user has clicked out of the boundaries!")
+        XCTAssertEqual(finalElement?.caretLocation, 42)
+        XCTAssertEqual(finalElement?.selectedLength, 1)
     }
 
 }
@@ -67,9 +71,11 @@ extension UIAS_p_TextFields_Tests {
         NSPasteboard.general.clearContents()
         NSPasteboard.general.setString("text to paste!!!", forType: .string)
         
-        let finalElement = applyMoveAndGetBackUpdatedElement()
+        let finalElement = sendMoveThroughVimEngineAndGetBackUpdatedFocusedElement()
         
         XCTAssertEqual(finalElement?.value, "we gonna paste some text to paste!!!shit")
+        XCTAssertEqual(finalElement?.caretLocation, 35)
+        XCTAssertEqual(finalElement?.selectedLength, 1)
     }
     
 }

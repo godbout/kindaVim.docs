@@ -25,6 +25,7 @@ struct AccessibilityTextElementAdaptor {
         let axRole = role(for: elementValues[0] as! String)
         let axValue = elementValues[1] as! String
         let axCaretLocation = selectedTextRange.location
+        let axSelectedLength = selectedTextRange.length
         var currentLine: AccessibilityTextElementLine!
 
         if let line = lineFor(location: axCaretLocation, on: axFocusedElement) {
@@ -37,6 +38,7 @@ struct AccessibilityTextElementAdaptor {
             role: axRole,
             value: axValue,
             caretLocation: axCaretLocation,
+            selectedLength: axSelectedLength,
             currentLine: currentLine
         )
     }
