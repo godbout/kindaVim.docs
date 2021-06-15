@@ -71,3 +71,32 @@ extension AS_p_TextFields_Tests {
     }
     
 }
+
+
+// TextFields
+extension AS_p_TextFields_Tests {
+    
+    func test_that_in_normal_setting_it_pastes_the_content_inline() {
+        let text = "some beautiful untouched text"
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            caretLocation: 19,
+            currentLine: AccessibilityTextElementLine(
+                fullValue: text,
+                number: 0,
+                start: 0,
+                end: 29
+            )
+        )
+        
+        NSPasteboard.general.clearContents()
+        NSPasteboard.general.setString("gonna paste that", forType: .string)
+        
+        let returnedElement = applyMove(on: element)
+        
+        XCTAssertEqual(returnedElement?.caretLocation, 19)     
+        XCTAssertNotEqual(returnedElement?.selectedText, "gonna paste that")
+    }
+    
+}
