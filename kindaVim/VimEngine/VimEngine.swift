@@ -11,6 +11,14 @@ enum VimEngineMode {
 }
 
 
+enum VimEngineYankStyle {
+    
+    case characterwise
+    case linewise
+    
+}
+
+
 class VimEngine {
     
     static var shared = VimEngine()
@@ -20,6 +28,8 @@ class VimEngine {
 
     var keyboardStrategy: KeyboardStrategyProtocol = KeyboardStrategy()
     var accessibilityStrategy: AccessibilityStrategyProtocol = AccessibilityStrategy()
+    
+    static var lastYankStyle: VimEngineYankStyle = .characterwise
 
     
     private init() {
