@@ -51,13 +51,25 @@ extension UIAS_p_Tests {
         NSPasteboard.general.clearContents()
         NSPasteboard.general.setString("test 2 of The 3 Cases", forType: .string)
         
-        // so that we get the h move, hence the correct location
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .p))
-        
         let finalElement = applyMoveAndGetBackUpdatedElement()
         
         XCTAssertEqual(finalElement?.value, "the user has clicked out of the boundaries!")
         XCTAssertEqual(finalElement?.caretLocation, 42)
+    }
+    
+    func test_that_in_normal_setting_it_pastes_the_text_after_the_cursor_and_the_cursor_ends_up_at_the_end_of_the_pasted_text() {
+        let textInAXFocusedElement = "we gonna paste some shit"
+        app.textFields.firstMatch.tap()
+        app.textFields.firstMatch.typeText(textInAXFocusedElement)
+        app.textFields.firstMatch.typeKey(.leftArrow, modifierFlags: [.option])
+        app.textFields.firstMatch.typeKey(.leftArrow, modifierFlags: [])
+        
+        NSPasteboard.general.clearContents()
+        NSPasteboard.general.setString("text to paste!!!", forType: .string)
+                
+        let finalElement = applyMoveAndGetBackUpdatedElement()
+        
+        XCTAssertEqual(finalElement?.value, "we gonna paste some text to paste!!!shit")
     }
 
 }
