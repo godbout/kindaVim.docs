@@ -37,7 +37,6 @@ extension UIAS_p_TextFields_Tests {
         
         XCTAssertEqual(finalElement?.value, "test 1 of The 3 Cases")
         XCTAssertEqual(finalElement?.caretLocation, 20)
-        XCTAssertEqual(finalElement?.selectedLength, 1)
     }
     
     func test_that_if_the_caret_is_at_the_last_character_of_the_TextField_it_does_nothing_and_does_not_crash() {
@@ -52,7 +51,6 @@ extension UIAS_p_TextFields_Tests {
         
         XCTAssertEqual(finalElement?.value, "the user has clicked out of the boundaries!")
         XCTAssertEqual(finalElement?.caretLocation, 42)
-        XCTAssertEqual(finalElement?.selectedLength, 1)
     }
 
 }
@@ -75,7 +73,6 @@ extension UIAS_p_TextFields_Tests {
         
         XCTAssertEqual(finalElement?.value, "we gonna paste some text to paste!!!shit")
         XCTAssertEqual(finalElement?.caretLocation, 35)
-        XCTAssertEqual(finalElement?.selectedLength, 1)
     }
     
 }

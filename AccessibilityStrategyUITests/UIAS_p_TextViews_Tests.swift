@@ -36,7 +36,6 @@ extension UIAS_p_TextViews_Tests {
         
         XCTAssertEqual(finalElement?.value, "test 1 of The 3 Cases for TextArea")
         XCTAssertEqual(finalElement?.caretLocation, 33)
-        XCTAssertEqual(finalElement?.selectedLength, 1)
     }
     
     func test_that_if_the_caret_is_at_the_last_character_of_the_TextArea_it_does_nothing_and_does_not_crash() {
@@ -51,7 +50,6 @@ extension UIAS_p_TextViews_Tests {
         
         XCTAssertEqual(finalElement?.value, "the user has clicked out of the boundaries!")
         XCTAssertEqual(finalElement?.caretLocation, 42)
-        XCTAssertEqual(finalElement?.selectedLength, 1)
     }
     
     func test_that_if_the_caret_is_at_the_last_character_of_the_TextArea_and_on_an_empty_line_it_still_pastes() {
@@ -77,7 +75,6 @@ test 3 of The 3 Cases for TextArea
 """
         )
         XCTAssertEqual(finalElement?.caretLocation, 64)
-        XCTAssertEqual(finalElement?.selectedLength, 1)
     }   
 
 }
@@ -114,7 +111,6 @@ a linefeed at the end of the line
 """
         )
         XCTAssertEqual(finalElement?.caretLocation, 74)
-        XCTAssertEqual(finalElement?.selectedLength, 1)
     }
     
     func test_that_if_on_last_line_and_the_last_yanking_style_was_linewise_it_pastes_the_content_on_a_new_line_below() {
@@ -144,11 +140,6 @@ new line to paste after last line
 """
         )
         XCTAssertEqual(finalElement?.caretLocation, 89)
-        XCTAssertEqual(finalElement?.selectedLength, 1)
     }
     
 }
-
-
-
-
