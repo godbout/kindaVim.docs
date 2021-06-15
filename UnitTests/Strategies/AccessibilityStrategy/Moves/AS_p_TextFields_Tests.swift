@@ -94,8 +94,8 @@ extension AS_p_TextFields_Tests {
         
         let returnedElement = applyMove(on: element)
         
-        XCTAssertEqual(returnedElement?.caretLocation, 19)     
-        XCTAssertNotEqual(returnedElement?.selectedText, "gonna paste that")
+        XCTAssertEqual(returnedElement?.caretLocation, 20)     
+        XCTAssertEqual(returnedElement?.selectedText, "gonna paste that")
     }
     
 }

@@ -21,11 +21,14 @@ extension AccessibilityStrategy {
         
         if element.isEmpty {
             element.selectedText = NSPasteboard.general.string(forType: .string)
+            
+            return element
         }
         
         if element.caretIsAtTheEnd, element.lastCharacterIsNotLinefeed {
             return element
         }
+        
         
         element.caretLocation += 1
         element.selectedText = NSPasteboard.general.string(forType: .string)
