@@ -271,7 +271,7 @@ extension VimEngine {
                 post(keyboardStrategy.O())
             }
         case .p:
-            if var element = accessibilityStrategy.p(on: focusedElement()) {
+            if let element = accessibilityStrategy.p(on: focusedElement()) {
                 _ = push(element: element)
                 
                 if var element = accessibilityStrategy.h(on: focusedElement()) {                        
