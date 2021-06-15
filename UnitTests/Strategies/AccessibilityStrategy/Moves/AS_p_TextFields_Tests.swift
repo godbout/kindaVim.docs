@@ -6,9 +6,8 @@ import XCTest
 //    this is because TextFields are supposed to have only one line, so even
 //    if we paste something that has been copied in a linewise way, we will
 //    still paste it characterwise. so mega tests for both, including The 3 Cases.
-// 2. because we set the selectedText, and we replace the block cursor after,
-//    we have to test through UI Tests. below are the basic tests we can do before
-//    all that magic happens, which means basically we can only test the selectedText content
+// 2. because i think of the selectedText that we fill and the NSPasteboard, it's
+//    better to cover a bit more through UI Tests, so there's a couple of them.
 class AS_p_TextFields_Tests: AS_BaseTests {
     
     private func applyMove(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
