@@ -34,7 +34,23 @@ extension AccessibilityStrategy {
     }
     
     private func pForTextAreas(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
-        return nil
+        guard var element = element else { return nil }
+        
+        if element.isEmpty {
+            element.selectedText = NSPasteboard.general.string(forType: .string)            
+        }
+        
+        if element.caretIsAtTheEnd, element.lastCharacterIsNotLinefeed {
+            return element
+        }
+        
+        if element.caretIsAtTheEnd, element.lastCharacterIsLinefeed {
+            element.selectedText = NSPasteboard.general.string(forType: .string)
+        }
+        
+        
+        
+        return element
     }
     
 }
