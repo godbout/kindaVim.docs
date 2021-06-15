@@ -24,4 +24,8 @@ extension UsingAS_yy_Tests {
         XCTAssertEqual(VimEngine.shared.currentMode, .normal)
     }
     
+    func test_that_it_sets_the_last_yank_style_to_linewise() {
+        XCTAssertEqual(VimEngine.shared.lastYankStyle, .linewise)
+    }
+    
 }

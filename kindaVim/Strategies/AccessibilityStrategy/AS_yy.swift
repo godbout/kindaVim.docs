@@ -16,7 +16,7 @@ extension AccessibilityStrategy {
         if element.caretIsAtTheEnd, element.lastCharacterIsLinefeed {
             return element
         }
-        
+
         
         NSPasteboard.general.clearContents()
         NSPasteboard.general.setString(element.currentLine.value, forType: .string)     

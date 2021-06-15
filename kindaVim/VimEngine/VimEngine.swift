@@ -25,11 +25,10 @@ class VimEngine {
     
     private(set) var currentMode: VimEngineMode = .insert
     private(set) var operatorPendingBuffer = [KeyCombination]()
-
+    
+    var lastYankStyle: VimEngineYankStyle = .characterwise
     var keyboardStrategy: KeyboardStrategyProtocol = KeyboardStrategy()
     var accessibilityStrategy: AccessibilityStrategyProtocol = AccessibilityStrategy()
-    
-    static var lastYankStyle: VimEngineYankStyle = .characterwise
 
     
     private init() {
@@ -499,6 +498,7 @@ extension VimEngine {
             post(keyboardStrategy.yiw())
         case [.y, .y]:
             enterNormalMode()
+            lastYankStyle = .linewise
             
             if var element = accessibilityStrategy.yy(on: focusedElement()) {
                 element.selectedLength = 1
