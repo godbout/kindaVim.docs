@@ -40,7 +40,9 @@ extension AccessibilityStrategy {
         guard var element = element else { return nil }
         
         if element.isEmpty {
-            element.selectedText = NSPasteboard.general.string(forType: .string)            
+            element.selectedText = NSPasteboard.general.string(forType: .string)    
+            
+            return element
         }
         
         if element.caretIsAtTheEnd, element.lastCharacterIsNotLinefeed {
@@ -49,9 +51,36 @@ extension AccessibilityStrategy {
         
         if element.caretIsAtTheEnd, element.lastCharacterIsLinefeed {
             element.selectedText = NSPasteboard.general.string(forType: .string)
+            
+            return element
         }
         
         
+        if VimEngine.shared.lastYankStyle == .characterwise {
+            element.caretLocation += 1
+            element.selectedText = NSPasteboard.general.string(forType: .string)
+            
+            return element
+        }
+        
+        if VimEngine.shared.lastYankStyle == .linewise {
+            element.caretLocation = element.currentLine.end!
+            
+            if element.currentLine.isReallyLastLine {
+                element.selectedLength = 0
+                element.selectedText = "\n" + NSPasteboard.general.string(forType: .string)!
+            } else {
+                element.selectedLength = 0
+                element.selectedText = NSPasteboard.general.string(forType: .string)
+            }
+
+            _ = AccessibilityTextElementAdaptor.toAXfocusedElement(from: element)
+            
+            element.caretLocation += 1
+            element.selectedText = nil
+
+            return element
+        }
         
         return element
     }

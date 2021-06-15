@@ -61,6 +61,10 @@ struct AccessibilityTextElementLine {
     var isLastLine: Bool {
         return start == nil && end == nil
     }
+    
+    var isReallyLastLine: Bool {
+        return !value.hasSuffix("\n")
+    }
 
     var isOnlyALinefeedCharacter: Bool {
         // if start and end are nil, then the insertion point is after the last character of the TextField

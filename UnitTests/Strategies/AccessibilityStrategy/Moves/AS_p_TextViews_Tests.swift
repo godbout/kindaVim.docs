@@ -2,7 +2,10 @@
 import XCTest
 
 
-// see AS_p_TextFields_Tests for the blah blah
+// ok so p for TextViews is more complex. because of the last yanking style (characterwise or linewise)
+// we need, like O, to call the ATEAdaptor.toAXfocusedElement within the move to reposition correctly
+// the caret after the move was done (remember, filling selectedText will move the caret).
+// so we test here what we can, but most of the testing will have to be done through UI Tests
 class AS_p_TextViews_Tests: AS_BaseTests {
     
     private func applyMove(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
@@ -94,7 +97,35 @@ line
     
 }
 
+
 // TextViews
 extension AS_p_TextViews_Tests {
+    
+    func test_that_in_normal_setting_if_the_last_yanking_style_was_characterwise_it_pastes_the_content_inline() {        
+        let text = """
+gonna paste
+some shit
+down there
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            caretLocation: 18,
+            currentLine: AccessibilityTextElementLine(
+                fullValue: text,
+                number: 1,
+                start: 12,
+                end: 22
+            )
+        )
+        
+        NSPasteboard.general.clearContents()
+        NSPasteboard.general.setString("paste paste paste", forType: .string)
+        
+        let returnedElement = applyMove(on: element)
+        
+        XCTAssertEqual(returnedElement?.caretLocation, 19)
+        XCTAssertEqual(returnedElement?.selectedText, "paste paste paste")
+    }    
     
 }
