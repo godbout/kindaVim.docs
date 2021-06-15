@@ -261,6 +261,13 @@ extension VimEngine {
             } else {
                 post(keyboardStrategy.O())
             }
+        case .p:
+            if var element = accessibilityStrategy.p(on: focusedElement()) {
+                element.selectedLength = 1
+                _ = push(element: element)
+            } else {
+//                post(keyboardStrategy.p())
+            }
         case .r:
             enterOperatorPendingMode(with: keyCombination)
         case .controlR:

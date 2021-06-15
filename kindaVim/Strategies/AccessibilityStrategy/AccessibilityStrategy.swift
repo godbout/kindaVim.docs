@@ -30,6 +30,7 @@ protocol AccessibilityStrategyProtocol {
     func l(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func o(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func O(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
+    func p(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func r(with replacement: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func t(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func T(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement?
