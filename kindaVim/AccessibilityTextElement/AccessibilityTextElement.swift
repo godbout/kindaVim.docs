@@ -47,6 +47,10 @@ struct AccessibilityTextElementLine {
 
         return value.hasSuffix("\n") ? end - 2 : end - 1
     }
+    
+    var isNotAnEmptyLine: Bool {
+        return !isOnlyALinefeedCharacter
+    }
 
     var startLimit: Int? {
         guard let start = start else { return nil }
