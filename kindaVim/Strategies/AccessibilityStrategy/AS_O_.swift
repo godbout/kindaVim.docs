@@ -4,7 +4,7 @@ extension AccessibilityStrategy {
         guard var element = element else { return nil }
         guard element.role == .textArea else { return element }
         
-        if element.currentLine.isFirstLine {
+        if element.currentLine.isTheFirstLine {
             let lineText = element.currentLine.value
             let firstNonBlankOfCurrentLineLocation = textEngine.firstNonBlank(in: lineText)
             let firstNonBlankOfCurrentLineText = lineText[lineText.startIndex..<lineText.index(lineText.startIndex, offsetBy: firstNonBlankOfCurrentLineLocation)]
@@ -22,7 +22,7 @@ extension AccessibilityStrategy {
             return element            
         }
         
-        if element.currentLine.isLastLine {
+        if element.currentLine.isTheLastLine {
             element.selectedText = "\n"
             
             _ = AccessibilityTextElementAdaptor.toAXfocusedElement(from: element)

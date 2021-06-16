@@ -18,7 +18,7 @@ extension AccessibilityStrategy {
         
         
         if let currentLineNumber = element.currentLine.number, let nextLine = AccessibilityTextElementAdaptor.lineFor(lineNumber: currentLineNumber + 1) {
-            if nextLine.isLastLine, nextLine.isAnEmptyLine {
+            if nextLine.isTheLastLine, nextLine.isAnEmptyLine {
                 let globalColumNumber = AccessibilityTextElement.globalColumnNumber
                 element.caretLocation = element.value.count
                 AccessibilityTextElement.globalColumnNumber = globalColumNumber

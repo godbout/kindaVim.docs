@@ -66,7 +66,7 @@ extension AccessibilityStrategy {
         if VimEngine.shared.lastYankStyle == .linewise {
             element.caretLocation = element.currentLine.end!
             
-            if element.currentLine.isLastLine {
+            if element.currentLine.isTheLastLine {
                 element.selectedLength = 0
                 element.selectedText = "\n" + NSPasteboard.general.string(forType: .string)!
             } else {

@@ -58,11 +58,11 @@ struct AccessibilityTextElementLine {
         return start
     }
     
-    var isFirstLine: Bool {
+    var isTheFirstLine: Bool {
         return start == 0
     }
     
-    var isLastLine: Bool {
+    var isTheLastLine: Bool {
         return !value.hasSuffix("\n")
     }
 
