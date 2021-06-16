@@ -57,12 +57,8 @@ struct AccessibilityTextElementLine {
     var isFirstLine: Bool {
         return start == 0
     }
-
-    var isLastLine: Bool {
-        return start == nil && end == nil
-    }
     
-    var isReallyLastLine: Bool {
+    var isLastLine: Bool {
         return !value.hasSuffix("\n")
     }
 

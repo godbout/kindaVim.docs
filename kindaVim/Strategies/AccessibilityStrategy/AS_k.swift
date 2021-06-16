@@ -11,7 +11,7 @@ extension AccessibilityStrategy {
         
         var previousLine: AccessibilityTextElementLine?
         
-        if element.currentLine.isLastLine {
+        if element.caretIsAtTheEnd {
             previousLine = AccessibilityTextElementAdaptor.lineFor(location: element.caretLocation - 1)
         } else {
             previousLine = AccessibilityTextElementAdaptor.lineFor(lineNumber: element.currentLine.number! - 1)
