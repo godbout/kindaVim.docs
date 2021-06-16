@@ -78,7 +78,7 @@ extension AS_p_TextFields_Tests {
     func test_that_in_normal_setting_it_pastes_the_content_inline() {
         let text = "some beautiful untouched text"
         let element = AccessibilityTextElement(
-            role: .textArea,
+            role: .textField,
             value: text,
             caretLocation: 19,
             currentLine: AccessibilityTextElementLine(

@@ -122,6 +122,7 @@ down there
         NSPasteboard.general.clearContents()
         NSPasteboard.general.setString("paste paste paste", forType: .string)
         
+        VimEngine.shared.lastYankStyle = .characterwise
         let returnedElement = applyMove(on: element)
         
         XCTAssertEqual(returnedElement?.caretLocation, 19)
