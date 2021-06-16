@@ -16,7 +16,7 @@ extension AccessibilityStrategy {
         }
         
         
-        guard element.currentLine.isOnlyALinefeedCharacter == false else { return element }
+        guard element.currentLine.isNotAnEmptyLine else { return element }
         
         element.caretLocation += 1
         

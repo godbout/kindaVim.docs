@@ -16,9 +16,7 @@ extension AccessibilityStrategy {
         }
         
         
-        if element.currentLine.isOnlyALinefeedCharacter {
-            return element
-        }        
+        guard element.currentLine.isNotAnEmptyLine else { return element }        
         
         element.selectedLength = 1
         element.selectedText = ""

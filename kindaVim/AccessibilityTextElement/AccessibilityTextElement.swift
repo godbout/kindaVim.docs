@@ -49,7 +49,7 @@ struct AccessibilityTextElementLine {
     }
     
     var isNotAnEmptyLine: Bool {
-        return !isOnlyALinefeedCharacter
+        return !isAnEmptyLine
     }
 
     var startLimit: Int? {
@@ -66,7 +66,7 @@ struct AccessibilityTextElementLine {
         return !value.hasSuffix("\n")
     }
 
-    var isOnlyALinefeedCharacter: Bool {
+    var isAnEmptyLine: Bool {
         // if start and end are nil, then the insertion point is after the last character of the TextField
         // this is not possible to reach without clicking there, but still
         // because Apple's AX API returns nil for everything, we can't grab the line range for that line

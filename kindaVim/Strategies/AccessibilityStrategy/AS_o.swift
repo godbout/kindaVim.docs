@@ -4,7 +4,7 @@ extension AccessibilityStrategy {
         guard var element = element else { return nil }
         guard element.role == .textArea else { return element }
         
-        if element.caretIsAtTheEnd || element.currentLine.isOnlyALinefeedCharacter {
+        if element.caretIsAtTheEnd || element.currentLine.isAnEmptyLine {
             element.selectedLength = 0
             element.selectedText = "\n" 
         } else {
