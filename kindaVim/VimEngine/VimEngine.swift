@@ -182,7 +182,11 @@ extension VimEngine {
         case .C:
             enterInsertMode()
             
-            post(keyboardStrategy.C())
+            if var element = accessibilityStrategy.C(on: focusedElement()) {
+                _ = push(element: element)
+            } else {
+                post(keyboardStrategy.C())
+            }
         case .d:
             enterOperatorPendingMode(with: keyCombination)
         case .controlD:
