@@ -19,4 +19,16 @@ extension String {
         return distance(from: startIndex, to: characterBeforeLastIndex)        
     }
     
+    mutating func removeTrailingLinefeedIfAny() {
+        if hasSuffix("\n") {
+            removeLast()
+        }    
+    }
+    
+    mutating func addTrailingLinefeedIfNone() {
+        if !hasSuffix("\n") {
+            append("\n")
+        }
+    }
+    
 }

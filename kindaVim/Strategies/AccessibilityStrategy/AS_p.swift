@@ -31,11 +31,7 @@ extension AccessibilityStrategy {
         
                 
         var textToPaste = NSPasteboard.general.string(forType: .string) ?? ""
-
-        if textToPaste.hasSuffix("\n") {
-            textToPaste.removeLast()
-        }
-
+        textToPaste.removeTrailingLinefeedIfAny()
         element.caretLocation += 1        
         element.selectedText = textToPaste
                     
@@ -100,11 +96,7 @@ extension AccessibilityStrategy {
         
         if element.caretIsAtTheEnd, element.lastCharacterIsLinefeed {
             var textToPaste = NSPasteboard.general.string(forType: .string) ?? ""
-            
-            if textToPaste.hasSuffix("\n") {
-                textToPaste.removeLast()
-            }
-            
+            textToPaste.removeTrailingLinefeedIfAny()
             element.selectedText = "\n" + textToPaste
             
             return element
@@ -115,18 +107,11 @@ extension AccessibilityStrategy {
            
         if element.currentLine.isTheLastLine {
             textToPaste = "\n" + (NSPasteboard.general.string(forType: .string) ?? "")
-            
-            if textToPaste.hasSuffix("\n") {
-                textToPaste.removeLast()
-            }            
+            textToPaste.removeTrailingLinefeedIfAny()
         } else {
             textToPaste = NSPasteboard.general.string(forType: .string) ?? ""
-            
-            if !textToPaste.hasSuffix("\n") {
-                textToPaste.append("\n")
-            }
+            textToPaste.addTrailingLinefeedIfNone()            
         }
-        
         
         element.caretLocation = element.currentLine.end!
         element.selectedLength = 0
