@@ -9,7 +9,7 @@ class AppComponent {
     func setUp() {
         setUpWindowsState()
         setUpStatusBar()
-        #if !TESTING
+        #if !CITESTING
         setUpEventTap()
         #endif
         setUpVimEngine()
