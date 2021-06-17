@@ -284,7 +284,7 @@ if we are not pasting on the last line
         
     }
     
-    func test_that_if_on_last_line_and_the_last_yanking_style_was_linewise_it_pastes_the_content_on_a_new_line_below_without_an_ending_linefeed() {
+    func test_that_if_on_the_last_line_and_the_last_yanking_style_was_linewise_it_pastes_the_content_on_a_new_line_below_without_an_ending_linefeed() {
         let textInAXFocusedElement = """
 now we gonna linewise paste
 after the last line
@@ -312,8 +312,30 @@ new line to paste after last line
         XCTAssertEqual(finalElement?.caretLocation, 89)
     }
     
-    func test_that_if_on_the_last_line_and_the_last_yanking_style_was_linewise_it_pastes_the_content_on_a_new_line_below_without_an_ending_linefeed() {
+    func test_that_when_pasting_the_new_line_the_block_cursor_goes_to_the_first_non_blank_of_the_new_line() {
+        let textInAXFocusedElement = """
+so now we gonna
+have to move the caret
+to the first non blank of the copied line
+"""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
         
+        NSPasteboard.general.clearContents()
+        NSPasteboard.general.setString("   the copied line has non blanks\n", forType: .string)
+        
+        VimEngine.shared.lastYankStyle = .linewise
+        let finalElement = sendMoveThroughVimEngineAndGetBackUpdatedFocusedElement()
+        
+        XCTAssertEqual(finalElement?.value, """
+so now we gonna
+have to move the caret
+   the copied line has non blanks
+to the first non blank of the copied line
+"""
+        )
+        XCTAssertEqual(finalElement?.caretLocation, 42)
     }
     
 }

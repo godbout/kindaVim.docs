@@ -127,13 +127,14 @@ extension AccessibilityStrategy {
             }
         }
         
+        
         element.caretLocation = element.currentLine.end!
         element.selectedLength = 0
         element.selectedText = textToPaste
         
         _ = AccessibilityTextElementAdaptor.toAXfocusedElement(from: element)
         
-        element.caretLocation += 1
+        element.caretLocation += 1 + textEngine.firstNonBlank(in: textToPaste)
         element.selectedText = nil
         
         return element    
