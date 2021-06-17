@@ -19,10 +19,13 @@ class UIAS_p_TextFields_Tests: UIAS_BaseTests {
 }
 
 
-// the 3 special cases, but only 2 for TextFields
-// as the last one doesn't apply
+// the 3 special cases, but only 2 for TextFields as the last one doesn't apply
 // - empty TextElement
 // - caret at the end of TextElement but not on empty line
+// also the tests are valid for characterwise and linewise, as we actually don't even check
+// p should behave the same for both linewise or characterwise last yanked style. it will
+// always behave characterwise because no linefeed in TextFields. (still having some tests
+// below to sleep better at night :D)
 extension UIAS_p_TextFields_Tests {
     
     func test_that_if_the_TextField_is_empty_it_still_pastes() {
@@ -33,6 +36,7 @@ extension UIAS_p_TextFields_Tests {
         NSPasteboard.general.clearContents()
         NSPasteboard.general.setString("test 1 of The 3 Cases", forType: .string)
                 
+        VimEngine.shared.lastYankStyle = .characterwise
         let finalElement = sendMoveThroughVimEngineAndGetBackUpdatedFocusedElement() 
         
         XCTAssertEqual(finalElement?.value, "test 1 of The 3 Cases")
@@ -47,6 +51,7 @@ extension UIAS_p_TextFields_Tests {
         NSPasteboard.general.clearContents()
         NSPasteboard.general.setString("test 2 of The 3 Cases", forType: .string)
         
+        VimEngine.shared.lastYankStyle = .characterwise
         let finalElement = sendMoveThroughVimEngineAndGetBackUpdatedFocusedElement()
         
         XCTAssertEqual(finalElement?.value, "the user has clicked out of the boundaries!")

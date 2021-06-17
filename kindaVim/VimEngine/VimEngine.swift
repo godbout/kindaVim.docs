@@ -182,7 +182,7 @@ extension VimEngine {
         case .C:
             enterInsertMode()
             
-            if var element = accessibilityStrategy.C(on: focusedElement()) {
+            if let element = accessibilityStrategy.C(on: focusedElement()) {
                 _ = push(element: element)
             } else {
                 post(keyboardStrategy.C())
