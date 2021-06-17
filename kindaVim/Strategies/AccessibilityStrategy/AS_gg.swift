@@ -13,12 +13,12 @@ extension AccessibilityStrategy {
         
         
         let firstLine = textEngine.firstLine(in: element.value)
-        let characterFoundLocation = textEngine.firstNonBlank(in: firstLine)        
+        let firstNonBlankLocation = textEngine.firstNonBlank(in: firstLine)        
         
-        if characterFoundLocation >= firstLine.endLimit { 
+        if firstNonBlankLocation >= firstLine.endLimit { 
             element.caretLocation = firstLine.endLimit
         } else {
-            element.caretLocation = characterFoundLocation
+            element.caretLocation = firstNonBlankLocation
         }            
         
         return element

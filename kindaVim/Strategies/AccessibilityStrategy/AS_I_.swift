@@ -17,9 +17,9 @@ extension AccessibilityStrategy {
         
         
         let lineText = element.currentLine.value        
-        let characterFoundLocation = textEngine.firstNonBlank(in: lineText)        
+        let firstNonBlankLocation = textEngine.firstNonBlank(in: lineText)        
         
-        element.caretLocation = element.currentLine.start! + characterFoundLocation 
+        element.caretLocation = element.currentLine.start! + firstNonBlankLocation 
         
         return element
     }

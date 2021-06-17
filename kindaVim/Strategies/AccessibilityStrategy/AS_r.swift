@@ -16,8 +16,8 @@ extension AccessibilityStrategy {
         }
         
         
-        let characterUndeCaretIndex = element.value.index(element.value.startIndex, offsetBy: element.caretLocation)
-        let characterUnderCaretText = element.value[characterUndeCaretIndex]
+        let characterUnderCaretIndex = element.value.index(element.value.startIndex, offsetBy: element.caretLocation)
+        let characterUnderCaretText = element.value[characterUnderCaretIndex]
         guard characterUnderCaretText != "\n" else { return element }
         
         guard replacement != "\u{1b}" else { return element }            
