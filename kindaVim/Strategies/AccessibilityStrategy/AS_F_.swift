@@ -16,8 +16,7 @@ extension AccessibilityStrategy {
         }
         
         
-        let lineStart = element.currentLine.start!
-        
+        let lineStart = element.currentLine.start!        
         let lineText = element.currentLine.value
         let lineCaretLocation = element.caretLocation - lineStart
         
