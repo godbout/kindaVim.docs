@@ -29,10 +29,16 @@ extension AccessibilityStrategy {
             return element
         }
         
-        
-        element.caretLocation += 1
-        element.selectedText = NSPasteboard.general.string(forType: .string)
-            
+                
+        var textToPaste = NSPasteboard.general.string(forType: .string)
+
+        if textToPaste != nil, textToPaste!.hasSuffix("\n") {
+            textToPaste!.removeLast()
+        }
+
+        element.caretLocation += 1        
+        element.selectedText = textToPaste
+                    
         return element
     }
     

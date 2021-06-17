@@ -95,4 +95,20 @@ extension UIAS_p_TextFields_Tests {
         XCTAssertEqual(finalElement?.value, "ltext to pastainewise for TF is still pasted characterwise!")
         XCTAssertEqual(finalElement?.caretLocation, 13)
     }
+    
+    func test_that_when_the_last_yank_was_linewise_and_the_line_was_ending_with_a_linefeed_the_linfeed_is_not_pasted_in_the_TextField() {
+        let textInAXFocusedElement = "we should not paste linefeeds in the TF"
+        app.textFields.firstMatch.tap()
+        app.textFields.firstMatch.typeText(textInAXFocusedElement)
+        app.textFields.firstMatch.typeKey(.leftArrow, modifierFlags: [.option])
+        app.textFields.firstMatch.typeKey(.leftArrow, modifierFlags: [])
+        
+        NSPasteboard.general.clearContents()
+        NSPasteboard.general.setString("yanked with the linefeed\n", forType: .string)
+        
+        let finalElement = sendMoveThroughVimEngineAndGetBackUpdatedFocusedElement()
+        
+        XCTAssertEqual(finalElement?.value, "we should not paste linefeeds in the yanked with the linefeedTF")
+        XCTAssertEqual(finalElement?.caretLocation, 60)
+    }
 }
