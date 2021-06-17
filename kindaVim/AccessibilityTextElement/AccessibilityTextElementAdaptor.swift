@@ -10,7 +10,6 @@ struct AccessibilityTextElementAdaptor {
     // harder to understand, as you need to reset the static variable in between.
     // not sure how to handle this yet. without a static variable, we have to requery,
     // which seems actually very fast. so maybe it's safer this way.
-
     static func fromAXFocusedElement() -> AccessibilityTextElement? {
         guard let axFocusedElement = AXEngine.axFocusedElement() else { return nil }
 
@@ -19,10 +18,12 @@ struct AccessibilityTextElementAdaptor {
 
         guard error == .success, let elementValues = values as NSArray? else { return nil }
 
+        let axRole = role(for: elementValues[0] as! String)
+        guard axRole != .someOtherShit else { return nil }
+        
         var selectedTextRange = CFRange()
         AXValueGetValue(elementValues[2] as! AXValue, .cfRange, &selectedTextRange)
 
-        let axRole = role(for: elementValues[0] as! String)
         let axValue = elementValues[1] as! String
         let axCaretLocation = selectedTextRange.location
         var currentLine: AccessibilityTextElementLine!
