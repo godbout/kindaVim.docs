@@ -69,6 +69,7 @@ extension UIAS_p_TextFields_Tests {
         NSPasteboard.general.clearContents()
         NSPasteboard.general.setString("text to paste!!!", forType: .string)
         
+        VimEngine.shared.lastYankStyle = .characterwise
         let finalElement = sendMoveThroughVimEngineAndGetBackUpdatedFocusedElement()
         
         XCTAssertEqual(finalElement?.value, "we gonna paste some text to paste!!!shit")
@@ -90,6 +91,7 @@ extension UIAS_p_TextFields_Tests {
         NSPasteboard.general.clearContents()
         NSPasteboard.general.setString("text to pasta", forType: .string)
         
+        VimEngine.shared.lastYankStyle = .linewise
         let finalElement = sendMoveThroughVimEngineAndGetBackUpdatedFocusedElement()
         
         XCTAssertEqual(finalElement?.value, "ltext to pastainewise for TF is still pasted characterwise!")
@@ -106,6 +108,7 @@ extension UIAS_p_TextFields_Tests {
         NSPasteboard.general.clearContents()
         NSPasteboard.general.setString("yanked with the linefeed\n", forType: .string)
         
+        VimEngine.shared.lastYankStyle = .linewise
         let finalElement = sendMoveThroughVimEngineAndGetBackUpdatedFocusedElement()
         
         XCTAssertEqual(finalElement?.value, "we should not paste linefeeds in the yanked with the linefeedTF")
