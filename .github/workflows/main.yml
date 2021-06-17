@@ -1,8 +1,9 @@
 name: tests and coverage
 
 on:
-  schedule:
-    - cron:  '28 2 * * *'
+  push:
+    branches:
+      - master
 
 jobs:
   swift:
@@ -35,9 +36,9 @@ jobs:
         security import $CERTIFICATE_PATH -P $P12_PASSWORD -A -t cert -f pkcs12 -k $KEYCHAIN_PATH
         security list-keychain -d user -s $KEYCHAIN_PATH
     - name: build
-      run: xcodebuild clean -scheme "Unit Tests" build
-    - name: run tests (non-UI)
-      run: xcodebuild clean -scheme "Unit Tests" -configuration Testing test
+      run: xcodebuild clean -scheme "All Tests CI" build
+    - name: run all tests (unit and UI)
+      run: xcodebuild clean -scheme "All Tests CI" -configuration "CI Testing" test
     - name: upload coverage to codecov
       run: bash <(curl -s https://codecov.io/bash)
       env:
