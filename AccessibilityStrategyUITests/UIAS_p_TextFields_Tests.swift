@@ -2,8 +2,8 @@
 import XCTest
 
 
-// so p is a special one too because it sets the selectedText, and maybe
-// move back the block cursor after. so we need to do a lot of tests through UI.
+// so p is a special one too because it sets the selectedText,
+// and moves back the block cursor after. so we need to do a lot of tests through UI.
 // some other tests that can do before hitting the ATEAdaptor are tested in the
 // normal Unit Tests for p. this should cover it all.
 // also we need to separate TextFields from TextViews tests because they will
@@ -56,10 +56,10 @@ extension UIAS_p_TextFields_Tests {
 }
 
 
-// TextFields
+// characterwise
 extension UIAS_p_TextFields_Tests {
     
-    func test_that_in_normal_setting_it_pastes_the_text_after_the_cursor_and_the_cursor_ends_up_at_the_end_of_the_pasted_text() {
+    func test_that_in_normal_setting_it_pastes_the_text_after_the_block_cursor_and_the_block_cursor_ends_up_at_the_end_of_the_pasted_text() {
         let textInAXFocusedElement = "we gonna paste some shit"
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
@@ -75,4 +75,24 @@ extension UIAS_p_TextFields_Tests {
         XCTAssertEqual(finalElement?.caretLocation, 35)
     }
     
+}
+
+
+// linewise
+extension UIAS_p_TextFields_Tests {
+    
+    func test_that_even_if_the_last_yank_was_linewise_it_still_pastes_as_characterwise_after_the_block_cursor_and_the_block_cursor_ends_up_at_the_end_of_the_pasted_text() {
+        let textInAXFocusedElement = "linewise for TF is still pasted characterwise!"
+        app.textFields.firstMatch.tap()
+        app.textFields.firstMatch.typeText(textInAXFocusedElement)
+        app.textFields.firstMatch.typeKey(.leftArrow, modifierFlags: [.command])
+        
+        NSPasteboard.general.clearContents()
+        NSPasteboard.general.setString("text to pasta", forType: .string)
+        
+        let finalElement = sendMoveThroughVimEngineAndGetBackUpdatedFocusedElement()
+        
+        XCTAssertEqual(finalElement?.value, "ltext to pastainewise for TF is still pasted characterwise!")
+        XCTAssertEqual(finalElement?.caretLocation, 13)
+    }
 }

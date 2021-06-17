@@ -6,8 +6,10 @@ import XCTest
 //    this is because TextFields are supposed to have only one line, so even
 //    if we paste something that has been copied in a linewise way, we will
 //    still paste it characterwise. so mega tests for both, including The 3 Cases.
-// 2. because i think of the selectedText that we fill and the NSPasteboard, it's
-//    better to cover a bit more through UI Tests, so there's a couple of them.
+// 2. we have complementary UI Tests to check that the correct text is pasted in the correct
+//    place and the cursor is positioned properly after (caret is before the last character of the pasted content)
+// the truth is that those following tests are not necessary, as they will be covered inherently in the
+// UI Tests also. but Unit Tests are cheap so here you go. more tests more better.
 class AS_p_TextFields_Tests: AS_BaseTests {
     
     private func applyMove(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
@@ -72,10 +74,10 @@ extension AS_p_TextFields_Tests {
 }
 
 
-// TextFields
+// characterwise
 extension AS_p_TextFields_Tests {
     
-    func test_that_in_normal_setting_it_pastes_the_content_inline() {
+    func test_that_in_normal_setting_it_pastes_the_content_inline_after_the_block_cursor() {
         let text = "some beautiful untouched text"
         let element = AccessibilityTextElement(
             role: .textField,
@@ -92,10 +94,41 @@ extension AS_p_TextFields_Tests {
         NSPasteboard.general.clearContents()
         NSPasteboard.general.setString("gonna paste that", forType: .string)
         
+        VimEngine.shared.lastYankStyle = .characterwise
         let returnedElement = applyMove(on: element)
         
         XCTAssertEqual(returnedElement?.caretLocation, 20)     
         XCTAssertEqual(returnedElement?.selectedText, "gonna paste that")
     }
     
+}
+
+
+// linewise
+extension AS_p_TextFields_Tests {
+
+    func test_that_even_if_the_last_yanking_was_linewise_it_still_pastes_the_content_inline_after_the_block_cursor() {
+        let text = "linewise in TF still pastes as characterwise of course!"
+        let element = AccessibilityTextElement(
+            role: .textField,
+            value: text,
+            caretLocation: 30,
+            currentLine: AccessibilityTextElementLine(
+                fullValue: text,
+                number: 0,
+                start: 0,
+                end: 55
+            )
+        )
+
+        NSPasteboard.general.clearContents()
+        NSPasteboard.general.setString("should be pasted linewise", forType: .string)
+
+        VimEngine.shared.lastYankStyle = .characterwise
+        let returnedElement = applyMove(on: element)
+
+        XCTAssertEqual(returnedElement?.caretLocation, 31)
+        XCTAssertEqual(returnedElement?.selectedText, "should be pasted linewise")
+    }
+
 }
