@@ -44,6 +44,7 @@ protocol AccessibilityStrategyProtocol {
     
     func caret(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func dollarSign(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
+    func leftBracketLeftBrace(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func underscore(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func zero(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     

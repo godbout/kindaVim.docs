@@ -167,6 +167,10 @@ struct FailingAccessibilityStrategyStub: AccessibilityStrategyProtocol {
         return nil
     }
     
+    func leftBracketLeftBrace(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        return nil
+    }
+    
     func underscore(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return nil
     }

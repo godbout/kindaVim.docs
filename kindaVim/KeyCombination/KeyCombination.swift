@@ -88,6 +88,9 @@ enum VimKey {
     case j
     case k
     case l
+    
+    case leftBrace
+    case leftBracket    
 
     case o, O
     case p, P
@@ -242,7 +245,11 @@ struct KeyCombination {
         case .enter where control == false && option == false && shift == false && command == false:
             return .enter
         case .four where control == false && option == false && shift == true && command == false:
-            return .dollarSign
+            return .dollarSign 
+        case .leftBracket where control == false && option == false && shift == false && command == false:
+            return .leftBracket
+        case .leftBracket where control == false && option == false && shift == true && command == false:
+            return .leftBrace
         case .minus where control == false && option == false && shift == true && command == false:
             return .underscore
         case .singleQuote where control == false && option == false && shift == true && command == false:

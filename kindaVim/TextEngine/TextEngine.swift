@@ -11,6 +11,7 @@ protocol TextEngineProtocol {
     func findFirst(_ character: Character, in text: String) -> Int?
     func findNext(_ character: Character, after location: Int, in text: String) -> Int?
     func findPrevious(_ character: Character, before location: Int, in text: String) -> Int?
+    func findPreviousUnmatched(_ character: Character, before location: Int, in text: String) -> Int?
     func findSecond(_ character: Character, in text: String) -> Int?
     func firstNonBlank(in text: String) -> Int
     func innerQuotedString(using character: Character, startingAt location: Int, in text: String) -> Range<Int>?
@@ -394,6 +395,10 @@ extension TextEngine {
 // or the AccessibilityStrategy moves themselves.
 // they may return nil when they cannot find what is being looking for
 extension TextEngine {
+    
+    func findPreviousUnmatched(_ character: Character, before location: Int, in text: String) -> Int? {
+        return nil 
+    }
     
     func findFirst(_ character: Character, in text: String) -> Int? {
         guard let characterIndex = text.firstIndex(of: character) else { return nil }

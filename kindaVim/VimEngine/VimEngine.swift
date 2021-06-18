@@ -133,6 +133,8 @@ extension VimEngine {
             } else {
                 post(keyboardStrategy.dollarSign())
             }
+        case .leftBracket:
+            enterOperatorPendingMode(with: KeyCombination(key: .leftBracket))
         case .underscore:
             if var element = accessibilityStrategy.underscore(on: focusedElement()) {
                 element.selectedLength = 1                    
@@ -497,7 +499,14 @@ extension VimEngine {
             if var element = accessibilityStrategy.gE(on: focusedElement()) {
                 element.selectedLength = 1                
                 push(element: element)
-            }                 
+            }
+        case [.leftBracket, .leftBrace]:
+            enterNormalMode()
+            
+            if var element = accessibilityStrategy.leftBracketLeftBrace(on: focusedElement()) {
+                element.selectedLength = 1
+                push(element: element)
+            }
         case [.y, .i]:
             ()
         case [.y, .i, .doubleQuote]:
