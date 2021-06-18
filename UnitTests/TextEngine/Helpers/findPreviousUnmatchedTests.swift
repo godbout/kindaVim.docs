@@ -27,12 +27,12 @@ extension findPreviousUnmatchedTests {
     func test_that_it_returns_nil_if_there_are_only_matched_left_braces() {
         let text = "full of ( ) matched ( braces )"
         
-        let location = textEngine.findPreviousUnmatched("{", before: 30, in: text)
+        let location = textEngine.findPreviousUnmatched("(", before: 30, in: text)
 
         XCTAssertNil(location)
     }
     
-    func test_that_if_the_caret_is_at_the_left_brace_it_will_find_the_previous_one() {
+    func test_that_if_the_caret_is_right_before_a_bracket_it_will_find_the_previous_one() {
         let text = """
 caret just ( before
 the second brace ( yes
@@ -43,7 +43,7 @@ the second brace ( yes
         XCTAssertEqual(location, 11)    
     }
     
-    func test_that_if_the_caret_is_right_after_the_left_brace_then_it_finds_that_brace() {
+    func test_that_if_the_caret_is_right_after_the_left_bracket_then_it_finds_that_bracket() {
         let text = """
 caret
 is right after
