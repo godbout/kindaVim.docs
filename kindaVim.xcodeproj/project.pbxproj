@@ -262,6 +262,8 @@
 		91CBBB962669FA450006BCA8 /* AS_dd_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CBBB952669FA450006BCA8 /* AS_dd_Tests.swift */; };
 		91CC3382267C8A6F00E3145C /* UsingAS_P__.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CC3381267C8A6F00E3145C /* UsingAS_P__.swift */; };
 		91CC3388267C8B0000E3145C /* AS_P_.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CC3387267C8B0000E3145C /* AS_P_.swift */; };
+		91CC338E267C8BC600E3145C /* UIAS_P__TextFields_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CC338D267C8BC600E3145C /* UIAS_P__TextFields_Tests.swift */; };
+		91CC3397267C8D3C00E3145C /* AS_P_.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CC3387267C8B0000E3145C /* AS_P_.swift */; };
 		91CDCDA92673C97100D18B86 /* UsingAS___Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CDCDA82673C97100D18B86 /* UsingAS___Tests.swift */; };
 		91CDCDB32673CA6A00D18B86 /* AS___Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CDCDB22673CA6A00D18B86 /* AS___Tests.swift */; };
 		91CE734E265CD06300248D18 /* KS_^_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CE734D265CD06300248D18 /* KS_^_Tests.swift */; };
@@ -612,6 +614,7 @@
 		91CBBB952669FA450006BCA8 /* AS_dd_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AS_dd_Tests.swift; sourceTree = "<group>"; };
 		91CC3381267C8A6F00E3145C /* UsingAS_P__.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsingAS_P__.swift; sourceTree = "<group>"; };
 		91CC3387267C8B0000E3145C /* AS_P_.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AS_P_.swift; sourceTree = "<group>"; };
+		91CC338D267C8BC600E3145C /* UIAS_P__TextFields_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAS_P__TextFields_Tests.swift; sourceTree = "<group>"; };
 		91CDCDA82673C97100D18B86 /* UsingAS___Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UsingAS___Tests.swift"; sourceTree = "<group>"; };
 		91CDCDB22673CA6A00D18B86 /* AS___Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AS___Tests.swift"; sourceTree = "<group>"; };
 		91CE734D265CD06300248D18 /* KS_^_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KS_^_Tests.swift"; sourceTree = "<group>"; };
@@ -855,8 +858,8 @@
 				9128B0EB26380AB0007DC80B /* Events */,
 				91BCB6B326624F5500CDCA98 /* TextEngine */,
 				912687242640634D002E3FB0 /* KeyCombination */,
-				91482E41263DBF3100F10ADC /* Strategies */,
 				9128B0F2263820C5007DC80B /* VimEngine */,
+				91482E41263DBF3100F10ADC /* Strategies */,
 				9128F2C7262AA90D00625B42 /* Info.plist */,
 			);
 			path = UnitTests;
@@ -1068,6 +1071,7 @@
 				91D9A053266E6C6900D850F5 /* UIAS_O__Tests.swift */,
 				91A832DF2678D4CE001482CD /* UIAS_p_TextFields_Tests.swift */,
 				91E210942678E06F00EA88EB /* UIAS_p_TextViews_Tests.swift */,
+				91CC338D267C8BC600E3145C /* UIAS_P__TextFields_Tests.swift */,
 				91ACB29E267619D8000B3CE7 /* UIAS_r_Tests.swift */,
 				9152D91C2663EA9000DF2FB7 /* UIAS_w_Tests.swift */,
 				916E86832676806500E2A807 /* UIAS_W__Tests.swift */,
@@ -1816,6 +1820,7 @@
 				91E210952678E06F00EA88EB /* UIAS_p_TextViews_Tests.swift in Sources */,
 				91A14810266123C200D160AD /* Display.swift in Sources */,
 				9193CC802674C6F300F30608 /* UIAS_x_Tests.swift in Sources */,
+				91CC3397267C8D3C00E3145C /* AS_P_.swift in Sources */,
 				91A832E02678D4CE001482CD /* UIAS_p_TextFields_Tests.swift in Sources */,
 				91AB99102674D812007682CA /* AS_^.swift in Sources */,
 				91AB990D2674D812007682CA /* AS_b.swift in Sources */,
@@ -1831,6 +1836,7 @@
 				91AB990E2674D812007682CA /* AS_h.swift in Sources */,
 				91F9A62A267A5C3100A4F807 /* AS_C_.swift in Sources */,
 				91AB991A2674D812007682CA /* AS_A_.swift in Sources */,
+				91CC338E267C8BC600E3145C /* UIAS_P__TextFields_Tests.swift in Sources */,
 				91ACB2AE26761BF0000B3CE7 /* AS_ci`.swift in Sources */,
 				91AB99232674D812007682CA /* AS_I_.swift in Sources */,
 				914B4A332676882500E53817 /* UIAS_E__Tests.swift in Sources */,
