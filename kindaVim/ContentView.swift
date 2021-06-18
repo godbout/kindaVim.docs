@@ -6,7 +6,12 @@ struct TextView: NSViewRepresentable {
     typealias NSViewType = NSTextView
 
     func makeNSView(context: Context) -> NSTextView {
-        NSTextView()
+        let nsTextView = NSTextView()
+        
+        nsTextView.font = NSFont.userFixedPitchFont(ofSize: 16)
+        nsTextView.isAutomaticQuoteSubstitutionEnabled = false
+        
+        return nsTextView
     }
 
     func updateNSView(_ nsView: NSTextView, context: Context) {
@@ -22,17 +27,18 @@ struct ContentView: View {
 
     var body: some View {
         VStack {
-            TextField("single line text field for test", text: $textFieldValue)
+            TextField("single line text field for test", text: $textFieldValue)                
                 
             if #available(macOS 11.0, *) {
                 TextEditor(text: $textViewValue)
             } else {
                 TextView(text: $textViewValue)
-                    .frame(minWidth: 0, maxWidth: .infinity, minHeight: 100, maxHeight: .infinity)
+                    .frame(minWidth: 0, maxWidth: .infinity, minHeight: 200, maxHeight: .infinity)
             }
 
             Button("wo'hevah", action: {})
         }
+        .font(.system(size: 16, weight: .regular, design: .monospaced))
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .padding()
     }
