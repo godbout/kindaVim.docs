@@ -90,12 +90,18 @@ enum VimKey {
     case l
     
     case leftBrace
-    case leftBracket    
+    case leftBracket   
+    case leftParenthesis
 
     case o, O
     case p, P
 
     case r, controlR
+    
+    case rightBrace
+    case rightBracket
+    case rightParenthesis
+    
     case s
     case t, T
 
@@ -252,6 +258,12 @@ struct KeyCombination {
             return .leftBrace
         case .minus where control == false && option == false && shift == true && command == false:
             return .underscore
+        case .nine where control == false && option == false && shift == true && command == false:
+            return .leftParenthesis
+        case .rightBracket where control == false && option == false && shift == false && command == false:
+            return .rightBracket
+        case .rightBracket where control == false && option == false && shift == true && command == false:
+            return .rightBrace
         case .singleQuote where control == false && option == false && shift == true && command == false:
             return .doubleQuote
         case .singleQuote where control == false && option == false && shift == false && command == false:
@@ -260,6 +272,8 @@ struct KeyCombination {
             return .caret
         case .zero where control == false && option == false && shift == false && command == false:
             return .zero
+        case .zero where control == false && option == false && shift == true && command == false:
+            return .rightParenthesis
         default:
             return nil
         }

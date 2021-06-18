@@ -135,6 +135,8 @@ extension VimEngine {
             }
         case .leftBracket:
             enterOperatorPendingMode(with: KeyCombination(key: .leftBracket))
+        case .rightBracket:
+            enterOperatorPendingMode(with: KeyCombination(key: .rightBracket))
         case .underscore:
             if var element = accessibilityStrategy.underscore(on: focusedElement()) {
                 element.selectedLength = 1                    
@@ -504,6 +506,27 @@ extension VimEngine {
             enterNormalMode()
             
             if var element = accessibilityStrategy.leftBracketLeftBrace(on: focusedElement()) {
+                element.selectedLength = 1
+                push(element: element)
+            }
+        case [.leftBracket, .leftParenthesis]:
+            enterNormalMode()
+            
+            if var element = accessibilityStrategy.leftBracketLeftParenthesis(on: focusedElement()) {
+                element.selectedLength = 1
+                push(element: element)
+            }
+        case [.rightBracket, .rightBrace]:
+            enterNormalMode()
+            
+            if var element = accessibilityStrategy.rightBracketRightBrace(on: focusedElement()) {
+                element.selectedLength = 1
+                push(element: element)
+            }
+        case [.rightBracket, .rightParenthesis]:
+            enterNormalMode()
+            
+            if var element = accessibilityStrategy.rightBracketRightParenthesis(on: focusedElement()) {
                 element.selectedLength = 1
                 push(element: element)
             }

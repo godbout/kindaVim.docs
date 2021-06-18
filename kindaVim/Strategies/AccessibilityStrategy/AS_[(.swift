@@ -1,8 +1,16 @@
-//
-//  AS_[(.swift
-//  kindaVim
-//
-//  Created by Guillaume Leclerc on 18/06/2021.
-//
-
-import Foundation
+extension AccessibilityStrategy {
+    
+    func leftBracketLeftParenthesis(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        guard var element = element else { return nil }
+        
+        if element.isEmpty {
+            return element
+        }
+        
+        
+        element.caretLocation = textEngine.previousUnmatched("(", before: element.caretLocation, in: element.value)
+        
+        return element
+    }
+    
+}

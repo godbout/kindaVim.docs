@@ -1,9 +1,11 @@
 @testable import kindaVim
 import Foundation
 
+
 class TextEngineMock: TextEngineProtocol {
     
     var functionCalled = ""
+    
     
     func beginningOfWordBackward(startingAt location: Int, in text: String) -> Int {
         functionCalled = #function
@@ -70,17 +72,17 @@ class TextEngineMock: TextEngineProtocol {
         
         return nil 
     }
-    
-    func findPreviousUnmatchedLeftBrace(before location: Int, in text: String) -> Int? {
+        
+    func findSecond(_ character: Character, in text: String) -> Int? {
         functionCalled = #function
         
         return nil 
     }
     
-    func findSecond(_ character: Character, in text: String) -> Int? {
+    func firstLine(in text: String) -> String {
         functionCalled = #function
         
-        return nil 
+        return ""
     }
     
     func firstNonBlank(in text: String) -> Int {
@@ -98,13 +100,7 @@ class TextEngineMock: TextEngineProtocol {
     func innerWord(startingAt location: Int, in text: String) -> Range<Int> {
         functionCalled = #function
         
-        return 0..<0
-    }
-    
-    func firstLine(in text: String) -> String {
-        functionCalled = #function
-        
-        return ""
+        return 0..<0 
     }
     
     func lastLine(in text: String) -> TextEngineLine {
@@ -119,10 +115,22 @@ class TextEngineMock: TextEngineProtocol {
         return nil
     }
     
+    func nextUnmatched(_ bracket: Character, after location: Int, in text: String) -> Int {
+        functionCalled = #function
+        
+        return 0
+    }
+    
     func previousLine(before location: Int, in text: String) -> String? {
         functionCalled = #function
         
         return nil
+    }
+
+    func previousUnmatched(_ bracket: Character, before location: Int, in text: String) -> Int {
+        functionCalled = #function
+        
+        return 0 
     }    
     
 }

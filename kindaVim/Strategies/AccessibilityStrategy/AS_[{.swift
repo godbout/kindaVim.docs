@@ -8,10 +8,7 @@ extension AccessibilityStrategy {
         }
         
         
-        
-        if let unmatchedLeftBraceFoundLocation = textEngine.findPreviousUnmatchedLeftBrace(before: element.caretLocation, in: element.value) {
-            element.caretLocation = unmatchedLeftBraceFoundLocation
-        }
+        element.caretLocation = textEngine.previousUnmatched("{", before: element.caretLocation, in: element.value)
         
         return element
     }
