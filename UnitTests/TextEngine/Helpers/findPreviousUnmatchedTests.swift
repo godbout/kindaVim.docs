@@ -9,7 +9,7 @@ class findPreviousUnmatchedTests: TextEngineBaseTests {}
 extension findPreviousUnmatchedTests {
     
     func test_that_in_normal_setting_it_finds_the_previous_unmatched_bracket_type() {
-        let text = "that one's { gonna sting { lol }"
+        let text = "that one's { gonna sting { lo"
         
         let location = textEngine.findPreviousUnmatched("{", before: 29, in: text)
         
@@ -55,6 +55,14 @@ again
         let location = textEngine.findPreviousUnmatched("{", before: 41, in: text)
         
         XCTAssertEqual(location, 40)    
+    }
+    
+    func test_that_it_works_with_a_lot_of_brackets() {
+        let text = "(   (    (   )   )     "
+        
+        let location = textEngine.findPreviousUnmatched("(", before: 23, in: text)
+        
+        XCTAssertEqual(location, 0)    
     }
     
 }

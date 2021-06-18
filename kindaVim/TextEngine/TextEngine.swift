@@ -389,7 +389,9 @@ extension TextEngine {
     }    
     
     func previousUnmatched(_ bracket: Character, before location: Int, in text: String) -> Int {
-        if let leftBracketFoundLocation = findPreviousUnmatched(bracket, before: location, in: text) {
+        let searchText = String(text[text.startIndex..<text.index(text.startIndex, offsetBy: location)])
+        
+        if let leftBracketFoundLocation = findPreviousUnmatched(bracket, before: location, in: searchText) {
             return leftBracketFoundLocation
         }
         
@@ -430,13 +432,16 @@ extension TextEngine {
         
         guard let leftBracketFoundIndex = text[searchStartIndex..<searchEndIndex].lastIndex(of: bracket) else { return nil }
         
-        if text[leftBracketFoundIndex..<searchEndIndex].lastIndex(of: pairingBracket) != nil {
+        if let rightBracketFoundIndex = text[searchStartIndex..<text.endIndex].lastIndex(of: pairingBracket) {
             let leftBracketFoundLocation = text.distance(from: searchStartIndex, to: leftBracketFoundIndex)
             
-            return findPreviousUnmatched(bracket, before: leftBracketFoundLocation, in: String(text[searchStartIndex..<leftBracketFoundIndex]))
+            return findPreviousUnmatched(bracket, before: leftBracketFoundLocation, in: String(text[searchStartIndex..<text.index(before: rightBracketFoundIndex)]))
         }
         
-        return text.distance(from: text.startIndex, to: leftBracketFoundIndex)
+        return text.distance(from: searchStartIndex, to: leftBracketFoundIndex)
+        
+        
+        
     }
     
     func findNextUnmatched(_ bracket: Character, after location: Int, in text: String) -> Int? {

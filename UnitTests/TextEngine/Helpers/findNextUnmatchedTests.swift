@@ -42,4 +42,12 @@ and another ) here
         XCTAssertEqual(location, 32)                
     }
     
+    func test_that_it_works_with_a_lot_of_brackets() {
+        let text = "(   (    (   )   )     )"
+        
+        let location = textEngine.findNextUnmatched(")", after: 0, in: text)
+        
+        XCTAssertEqual(location, 23)    
+    }
+    
 }
