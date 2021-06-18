@@ -25,4 +25,3 @@ extension UsingAS_leftBrackerLeftBrace_Tests {
     }
     
 }
-

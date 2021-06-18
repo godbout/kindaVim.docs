@@ -7,13 +7,6 @@ extension AccessibilityStrategy {
             return element
         }
         
-        if element.caretIsAtTheEnd, element.lastCharacterIsNotLinefeed {
-            return element
-        }
-        
-        if element.caretIsAtTheEnd, element.lastCharacterIsLinefeed {
-            return element
-        }
         
         
         if let unmatchedLeftBraceFoundLocation = textEngine.findPreviousUnmatched("{", before: element.caretLocation, in: element.value) {
