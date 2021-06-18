@@ -84,8 +84,16 @@ extension AccessibilityStrategy {
     private func pForTextAreasLinewise(on element: AccessibilityTextElement) -> AccessibilityTextElement {
         var element = element
         
-        if element.isEmpty {
-            element.selectedText = "\n" + (NSPasteboard.general.string(forType: .string) ?? "")
+        if element.isEmpty {        
+            var textToPaste = "\n" + (NSPasteboard.general.string(forType: .string) ?? "")
+            textToPaste.removeTrailingLinefeedIfAny()
+            
+            element.selectedText = textToPaste 
+            
+            _ = AccessibilityTextElementAdaptor.toAXfocusedElement(from: element)
+            
+            element.caretLocation += 1 + textEngine.firstNonBlank(in: textToPaste)
+            element.selectedText = nil
             
             return element
         }
@@ -95,9 +103,15 @@ extension AccessibilityStrategy {
         }
         
         if element.caretIsAtTheEnd, element.lastCharacterIsLinefeed {
-            var textToPaste = NSPasteboard.general.string(forType: .string) ?? ""
+            var textToPaste = "\n" + (NSPasteboard.general.string(forType: .string) ?? "")
             textToPaste.removeTrailingLinefeedIfAny()
-            element.selectedText = "\n" + textToPaste
+            
+            element.selectedText = textToPaste
+            
+            _ = AccessibilityTextElementAdaptor.toAXfocusedElement(from: element)
+            
+            element.caretLocation += 1 + textEngine.firstNonBlank(in: textToPaste)
+            element.selectedText = nil
             
             return element
         }

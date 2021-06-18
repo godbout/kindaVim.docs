@@ -120,6 +120,7 @@
 		917BE836266FB2DE0072D0A7 /* UsingAS_e_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917BE835266FB2DE0072D0A7 /* UsingAS_e_Tests.swift */; };
 		917BE83C266FB59B0072D0A7 /* AS_e_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917BE83B266FB59B0072D0A7 /* AS_e_Tests.swift */; };
 		917BE842266FB6620072D0A7 /* UIAS_e_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917BE841266FB6620072D0A7 /* UIAS_e_Tests.swift */; };
+		917C0002267C90970041E5F3 /* UIAS_P__TextViews_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917C0001267C90970041E5F3 /* UIAS_P__TextViews_Tests.swift */; };
 		918024B926386E95004FD719 /* AppComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918024B826386E95004FD719 /* AppComponent.swift */; };
 		9180FB6F266FD1EA00E12818 /* innerWordTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9180FB6E266FD1EA00E12818 /* innerWordTests.swift */; };
 		91819F4D2674F73E00D48EEB /* UsingAS_Y__Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91819F4C2674F73E00D48EEB /* UsingAS_Y__Tests.swift */; };
@@ -504,6 +505,7 @@
 		917BE835266FB2DE0072D0A7 /* UsingAS_e_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsingAS_e_Tests.swift; sourceTree = "<group>"; };
 		917BE83B266FB59B0072D0A7 /* AS_e_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AS_e_Tests.swift; sourceTree = "<group>"; };
 		917BE841266FB6620072D0A7 /* UIAS_e_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAS_e_Tests.swift; sourceTree = "<group>"; };
+		917C0001267C90970041E5F3 /* UIAS_P__TextViews_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAS_P__TextViews_Tests.swift; sourceTree = "<group>"; };
 		918024B826386E95004FD719 /* AppComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppComponent.swift; sourceTree = "<group>"; };
 		9180FB6E266FD1EA00E12818 /* innerWordTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = innerWordTests.swift; sourceTree = "<group>"; };
 		91819F4C2674F73E00D48EEB /* UsingAS_Y__Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsingAS_Y__Tests.swift; sourceTree = "<group>"; };
@@ -1072,6 +1074,7 @@
 				91A832DF2678D4CE001482CD /* UIAS_p_TextFields_Tests.swift */,
 				91E210942678E06F00EA88EB /* UIAS_p_TextViews_Tests.swift */,
 				91CC338D267C8BC600E3145C /* UIAS_P__TextFields_Tests.swift */,
+				917C0001267C90970041E5F3 /* UIAS_P__TextViews_Tests.swift */,
 				91ACB29E267619D8000B3CE7 /* UIAS_r_Tests.swift */,
 				9152D91C2663EA9000DF2FB7 /* UIAS_w_Tests.swift */,
 				916E86832676806500E2A807 /* UIAS_W__Tests.swift */,
@@ -1828,6 +1831,7 @@
 				91A14816266123CF00D160AD /* KeyCombination.swift in Sources */,
 				91AB99112674D812007682CA /* AS_f.swift in Sources */,
 				91AB991C2674D812007682CA /* AS_j.swift in Sources */,
+				917C0002267C90970041E5F3 /* UIAS_P__TextViews_Tests.swift in Sources */,
 				912DD6A5267505BB00E22EE4 /* AS_yi".swift in Sources */,
 				914B4A21267686B600E53817 /* AS_E_.swift in Sources */,
 				91DC7549266E8EAF00C09653 /* UIAS_dd_Tests.swift in Sources */,

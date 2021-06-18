@@ -165,7 +165,7 @@ extension UIAS_p_TextViews_Tests {
 test 1 of The 3 Cases for TextArea linewise
 """
         )
-        XCTAssertEqual(finalElement?.caretLocation, 43)
+        XCTAssertEqual(finalElement?.caretLocation, 1)
     }
     
     func test_that_if_the_caret_is_at_the_last_character_of_the_TextArea_it_does_nothing_and_does_not_crash_even_for_linewise() {
@@ -214,7 +214,7 @@ not add a linefeed
 test 3 of The 3 Cases for TextArea linewise
 """
         )
-        XCTAssertEqual(finalElement?.caretLocation, 101)
+        XCTAssertEqual(finalElement?.caretLocation, 59)
     }
     
 }
