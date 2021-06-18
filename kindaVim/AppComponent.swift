@@ -20,6 +20,7 @@ class AppComponent {
 
         #if UITESTING
         NSApplication.shared.setActivationPolicy(.regular)
+        NSApplication.shared.activate(ignoringOtherApps: true)
         
         let contentView = ContentView()
 
