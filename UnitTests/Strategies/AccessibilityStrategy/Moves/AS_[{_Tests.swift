@@ -42,7 +42,7 @@ the TextEngineTests
         
         _ = accessibilityStrategy.leftBracketLeftBrace(on: element)
         
-        XCTAssertEqual(textEngineMock.functionCalled, "findPreviousUnmatched(_:before:in:)")        
+        XCTAssertEqual(textEngineMock.functionCalled, "previousUnmatched(_:before:in:)")        
     }
     
 }
