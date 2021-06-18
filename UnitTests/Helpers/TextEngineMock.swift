@@ -71,7 +71,7 @@ class TextEngineMock: TextEngineProtocol {
         return nil 
     }
     
-    func findPreviousUnmatched(_ character: Character, before location: Int, in text: String) -> Int? {
+    func findPreviousUnmatchedLeftBrace(before location: Int, in text: String) -> Int? {
         functionCalled = #function
         
         return nil 

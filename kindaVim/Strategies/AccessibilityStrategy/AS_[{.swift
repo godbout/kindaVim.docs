@@ -9,11 +9,9 @@ extension AccessibilityStrategy {
         
         
         
-        if let unmatchedLeftBraceFoundLocation = textEngine.findPreviousUnmatched("{", before: element.caretLocation, in: element.value) {
+        if let unmatchedLeftBraceFoundLocation = textEngine.findPreviousUnmatchedLeftBrace(before: element.caretLocation, in: element.value) {
             element.caretLocation = unmatchedLeftBraceFoundLocation
         }
-        
-        print("searched for unmatched {")
         
         return element
     }

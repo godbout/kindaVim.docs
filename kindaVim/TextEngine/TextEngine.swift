@@ -11,7 +11,7 @@ protocol TextEngineProtocol {
     func findFirst(_ character: Character, in text: String) -> Int?
     func findNext(_ character: Character, after location: Int, in text: String) -> Int?
     func findPrevious(_ character: Character, before location: Int, in text: String) -> Int?
-    func findPreviousUnmatched(_ character: Character, before location: Int, in text: String) -> Int?
+    func findPreviousUnmatchedLeftBrace(before location: Int, in text: String) -> Int?
     func findSecond(_ character: Character, in text: String) -> Int?
     func firstNonBlank(in text: String) -> Int
     func innerQuotedString(using character: Character, startingAt location: Int, in text: String) -> Range<Int>?
@@ -396,8 +396,19 @@ extension TextEngine {
 // they may return nil when they cannot find what is being looking for
 extension TextEngine {
     
-    func findPreviousUnmatched(_ character: Character, before location: Int, in text: String) -> Int? {
-        return nil 
+    func findPreviousUnmatchedLeftBrace(before location: Int, in text: String) -> Int? {
+        let searchStartIndex = text.startIndex
+        let searchEndIndex = text.index(text.startIndex, offsetBy: location)
+        
+        guard let leftBraceFoundIndex = text[searchStartIndex..<searchEndIndex].lastIndex(of: "{") else { return nil }
+        
+        if text[leftBraceFoundIndex..<searchEndIndex].lastIndex(of: "}") != nil {
+            let leftBraceFoundLocation = text.distance(from: searchStartIndex, to: leftBraceFoundIndex)
+            
+            return findPreviousUnmatchedLeftBrace(before: leftBraceFoundLocation, in: String(text[searchStartIndex..<leftBraceFoundIndex]))
+        }
+        
+        return text.distance(from: text.startIndex, to: leftBraceFoundIndex)
     }
     
     func findFirst(_ character: Character, in text: String) -> Int? {
