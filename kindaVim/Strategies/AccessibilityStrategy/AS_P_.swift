@@ -8,6 +8,10 @@ extension AccessibilityStrategy {
         if element.role == .textField {
             return PForTextFields(on: element)
         }
+        
+        if element.role == .textArea {
+            return PForTextAreas(on: element)
+        }
                 
         return element         
     }
@@ -31,6 +35,97 @@ extension AccessibilityStrategy {
         element.selectedText = textToPaste
         
         return element
+    }
+    
+    private func PForTextAreas(on element: AccessibilityTextElement) -> AccessibilityTextElement {
+        let element = element
+        
+        if VimEngine.shared.lastYankStyle == .characterwise {
+            return PForTextAreasCharacterwise(on: element)
+        }
+        
+        if VimEngine.shared.lastYankStyle == .linewise {
+            return PForTextAreasLinewise(on: element)
+        }
+        
+        return element
+    }
+    
+    private func PForTextAreasCharacterwise(on element: AccessibilityTextElement) -> AccessibilityTextElement {
+        var element = element
+        
+        if element.isEmpty {
+            element.selectedText = NSPasteboard.general.string(forType: .string)
+            
+            return element
+        }
+        
+        if element.caretIsAtTheEnd, element.lastCharacterIsNotLinefeed {
+            return element
+        }
+        
+        if element.caretIsAtTheEnd, element.lastCharacterIsLinefeed {
+            element.selectedText = NSPasteboard.general.string(forType: .string)
+            
+            return element
+        }
+        
+                
+        element.selectedText = NSPasteboard.general.string(forType: .string)
+        
+        return element
+    }
+    
+    private func PForTextAreasLinewise(on element: AccessibilityTextElement) -> AccessibilityTextElement {
+        var element = element
+        
+        if element.isEmpty {
+            var textToPaste = NSPasteboard.general.string(forType: .string) ?? ""
+            textToPaste.addTrailingLinefeedIfNone()
+            
+            element.selectedText = textToPaste
+            
+            _ = AccessibilityTextElementAdaptor.toAXfocusedElement(from: element)
+            
+            element.caretLocation += 1 + textEngine.firstNonBlank(in: textToPaste)
+            element.selectedText = nil
+            
+            return element
+        }
+        
+        if element.caretIsAtTheEnd, element.lastCharacterIsNotLinefeed {
+            return element
+        }
+        
+        if element.caretIsAtTheEnd, element.lastCharacterIsLinefeed {
+            var textToPaste = NSPasteboard.general.string(forType: .string) ?? ""
+            textToPaste.addTrailingLinefeedIfNone()
+            
+            element.selectedText = textToPaste
+            
+            _ = AccessibilityTextElementAdaptor.toAXfocusedElement(from: element)
+            
+            element.caretLocation += 1 + textEngine.firstNonBlank(in: textToPaste)
+            element.selectedText = nil
+            
+            return element
+        }
+        
+        
+        var textToPaste: String
+        textToPaste = NSPasteboard.general.string(forType: .string) ?? ""
+        textToPaste.addTrailingLinefeedIfNone()            
+        
+        element.caretLocation = element.currentLine.start!
+        element.selectedLength = 0
+        element.selectedText = textToPaste
+        
+        _ = AccessibilityTextElementAdaptor.toAXfocusedElement(from: element)
+        
+        element.caretLocation = element.currentLine.start! + 1 + textEngine.firstNonBlank(in: textToPaste)
+        element.selectedText = nil
+        
+        return element    
     }
     
 }
