@@ -285,6 +285,12 @@ extension VimEngine {
             } else {
 //                post(keyboardStrategy.p())
             }
+        case .P:
+            if let element = accessibilityStrategy.P(on: focusedElement()) {
+                _ = push(element: element)
+            } else {
+                //                post(keyboardStrategy.P())
+            }
         case .r:
             enterOperatorPendingMode(with: keyCombination)
         case .controlR:
