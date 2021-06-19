@@ -479,6 +479,8 @@ extension VimEngine {
             enterNormalMode()
             
             post(keyboardStrategy.dG())
+        case [.d, .t]:
+            ()
         case [.g, .e]:
             enterNormalMode()
             
@@ -562,6 +564,17 @@ extension VimEngine {
                     enterInsertMode()
                     
                     return
+                }
+            }
+            
+            if operatorPendingBuffer.first?.vimKey == .d, operatorPendingBuffer[1].vimKey == .t, let character = operatorPendingBuffer.last {
+                if let element = accessibilityStrategy.dt(to: character.character, on: focusedElement()) {                    
+                    push(element: element)
+                    
+                    if var element = focusedElement() {
+                        element.selectedLength = 1
+                        _ = push(element: element)
+                    }
                 }
             }
             
