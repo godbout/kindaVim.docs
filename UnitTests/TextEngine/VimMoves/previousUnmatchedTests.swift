@@ -8,12 +8,28 @@ class previousUnmatchedTests: TextEngineBaseTests {}
 // Both
 extension previousUnmatchedTests {
         
+    func test_that_it_can_move_to_a_lonely_bracket() {
+        let text = "that's a lonely { right here "
+        
+        let location = textEngine.previousUnmatched("{", before: 26, in: text)
+        
+        XCTAssertEqual(location, 16)
+    }
+    
     func test_that_in_normal_setting_it_goes_to_the_previous_unmatched_bracket() {
         let text = "that one's { gonna sting { lo"
         
         let location = textEngine.previousUnmatched("{", before: 29, in: text)
         
         XCTAssertEqual(location, 25)
+    }
+    
+    func test_that_it_skips_matched_brackets() {
+        let text = "a { tougher { one } i believe"
+        
+        let location = textEngine.previousUnmatched("{", before: 26, in: text)
+        
+        XCTAssertEqual(location, 2)
     }
     
     func test_that_it_does_not_move_if_it_cannot_find_a_previous_unmatched_bracket() {
@@ -65,7 +81,7 @@ again
         XCTAssertEqual(location, 0)
     }
     
-    func test_that_it_does_not_explore_with_string_out_of_bounds_like_before() {
+    func test_that_it_does_not_explode_with_string_out_of_bounds_like_before() {
         let text = "that one's { gonna s}ting { lo"
         
         let location = textEngine.previousUnmatched("{", before: 30, in: text)
@@ -81,7 +97,7 @@ again
         XCTAssertEqual(location, 13)
     }
     
-    func test_that_in_normal_cases_it_works_hehe() {
+    func test_again_that_in_normal_cases_it_works_hehe_because_of_multiple_past_failures() {
         let text = "a couple of ( (( ))))  ) O_o"
         
         let location = textEngine.previousUnmatched("(", before: 19, in: text)
