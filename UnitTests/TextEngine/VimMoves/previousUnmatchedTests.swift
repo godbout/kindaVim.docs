@@ -105,4 +105,12 @@ again
         XCTAssertEqual(location, 12)
     }
     
+    func test_another_complicated_one_to_see_if_the_algorithm_works() {
+        let text = "{{{          }         {{{{ }}}}}}}}"
+        
+        let location = textEngine.previousUnmatched("{", before: 17, in: text)
+        
+        XCTAssertEqual(location, 1)
+    }
+    
 }

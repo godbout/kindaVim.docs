@@ -17,11 +17,11 @@ extension nextUnmatchedTests {
     }
     
     func test_that_in_normal_setting_it_goes_to_the_next_unmatched_bracket() {
-        let text = "here we go { again } ho ho ho ho }"
+        let text = "hello{h}ell}"
         
-        let location = textEngine.nextUnmatched("}", after: 4, in: text)
+        let location = textEngine.nextUnmatched("}", after: 2, in: text)
         
-        XCTAssertEqual(location, 33)
+        XCTAssertEqual(location, 11)
     }
     
     func test_that_it_does_not_move_if_there_is_no_right_bracket() {
@@ -64,6 +64,14 @@ and another ) here
         let location = textEngine.nextUnmatched(")", after: 14, in: text)
         
         XCTAssertEqual(location, 18)
+    }
+    
+    func test_another_complicated_one_to_see_if_the_algorithm_works() {
+        let text = "{{{          }}         {{{{ }}}}}}}}"
+        
+        let location = textEngine.nextUnmatched("}", after: 20, in: text)
+        
+        XCTAssertEqual(location, 33)
     }
     
 }
