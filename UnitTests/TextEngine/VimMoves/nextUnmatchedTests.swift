@@ -2,31 +2,68 @@
 import XCTest
 
 
-// nextUnmatched is like a wrapper around TE.findNextUnmatched
-// that will return the same location it was give if a next
-// unmatched can't be found (and therefore findNextUnmatched returns
-// nil). here we just test this. the rest of findNextUnmatched
-// is tested in its own place
 class nextUnmatchedTests: TextEngineBaseTests {}
 
 
 // Both
 extension nextUnmatchedTests {
     
-    func test_that_if_it_cannot_find_an_unmatched_bracket_it_returns_the_location_it_was_given() {
-        let text = "ok we're gonna try to get the inner word here"
+    func test_that_it_goes_to_the_next_unmatched_bracket_where_there_is_only_one() {
+        let text = "ok so an easy test because i can't wrap } my head around the recursive func lol"
+        
+        let location = textEngine.nextUnmatched("}", after: 11, in: text)
+        
+        XCTAssertEqual(location, 40)
+    }
+    
+    func test_that_in_normal_setting_it_goes_to_the_next_unmatched_bracket() {
+        let text = "here we go { again } ho ho ho ho }"
         
         let location = textEngine.nextUnmatched("}", after: 4, in: text)
         
-        XCTAssertEqual(location, 4) 
+        XCTAssertEqual(location, 33)
+    }
+    
+    func test_that_it_does_not_move_if_there_is_no_right_bracket() {
+        let text = "no left brace in here move along"
+        
+        let location = textEngine.nextUnmatched("(", after: 19, in: text)
+        
+        XCTAssertEqual(location, 19)
+    }
+    
+    func test_that_it_does_not_move_if_there_are_only_matched_brackets() {
+        let text = "full of ( ) matched ( braces )"
+        
+        let location = textEngine.nextUnmatched("(", after: 30, in: text)
+        
+        XCTAssertEqual(location, 30)
+    }
+      
+    func test_that_if_the_caret_is_right_before_a_bracket_it_will_still_go_to_the_next_unmatched_one() {
+        let text = """
+so there's a ) here
+and another ) here
+"""
+        let location = textEngine.nextUnmatched(")", after: 13, in: text)
+        
+        XCTAssertEqual(location, 32)
+    }
+    
+    func test_that_it_works_with_a_lot_of_brackets() {
+        let text = "(   (    (   )   )     )"
+        
+        let location = textEngine.nextUnmatched(")", after: 0, in: text)
+        
+        XCTAssertEqual(location, 23)
     }
     
     func test_that_in_normal_cases_it_works_hehe() {
-        let text = " a couple of ( (( ))))  ) O_o"
+        let text = "a couple of ( (( ))))  ) O_o"
         
-        let location = textEngine.nextUnmatched(")", after: 15, in: text)
+        let location = textEngine.nextUnmatched(")", after: 14, in: text)
         
-        XCTAssertEqual(location, 20)
+        XCTAssertEqual(location, 18)
     }
     
 }

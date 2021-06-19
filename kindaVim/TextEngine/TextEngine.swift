@@ -4,14 +4,12 @@ protocol TextEngineProtocol {
     func beginningOfWORDBackward(startingAt location: Int, in text: String) -> Int
     func beginningOfWordForward(startingAt location: Int, in text: String) -> Int
     func beginningOfWORDForward(startingAt location: Int, in text: String) -> Int
-    func endOfWordBackward(startingAt location: Int, in text: String) -> Int    
-    func endOfWORDBackward(startingAt location: Int, in text: String) -> Int    
-    func endOfWordForward(startingAt location: Int, in text: String) -> Int    
-    func endOfWORDForward(startingAt location: Int, in text: String) -> Int    
-    func findFirst(_ character: Character, in text: String) -> Int?
+    func endOfWordBackward(startingAt location: Int, in text: String) -> Int
+    func endOfWORDBackward(startingAt location: Int, in text: String) -> Int
+    func endOfWordForward(startingAt location: Int, in text: String) -> Int
+    func endOfWORDForward(startingAt location: Int, in text: String) -> Int
     func findNext(_ character: Character, after location: Int, in text: String) -> Int?
     func findPrevious(_ character: Character, before location: Int, in text: String) -> Int?
-    func findSecond(_ character: Character, in text: String) -> Int?
     func firstNonBlank(in text: String) -> Int
     func innerQuotedString(using character: Character, startingAt location: Int, in text: String) -> Range<Int>?
     func innerWord(startingAt location: Int, in text: String) -> Range<Int>
@@ -389,7 +387,8 @@ extension TextEngine {
     }    
     
     func previousUnmatched(_ bracket: Character, before location: Int, in text: String) -> Int {
-        let searchText = String(text[text.startIndex..<text.index(text.startIndex, offsetBy: location)])
+        let locationIndex = text.index(text.startIndex, offsetBy: location)
+        let searchText = String(text[text.startIndex..<locationIndex])
         
         if let leftBracketFoundLocation = findPreviousUnmatched(bracket, before: location, in: searchText) {
             return leftBracketFoundLocation
@@ -399,8 +398,11 @@ extension TextEngine {
     }
     
     func nextUnmatched(_ bracket: Character, after location: Int, in text: String) -> Int {
-        if let rightBracketFoundLocation = findNextUnmatched(bracket, after: location, in: text) {
-            return rightBracketFoundLocation
+        let locationIndex = text.index(text.startIndex, offsetBy: location)
+        let searchText = String(text[locationIndex..<text.endIndex])
+                                    
+        if let rightBracketFoundLocation = findNextUnmatched(bracket, after: 0, in: searchText) {
+            return location + rightBracketFoundLocation
         }
         
         return location
@@ -415,7 +417,7 @@ extension TextEngine {
 // they may return nil when they cannot find what is being looking for
 extension TextEngine {
     
-    func findPreviousUnmatched(_ bracket: Character, before location: Int, in text: String) -> Int? {
+    private func findPreviousUnmatched(_ bracket: Character, before location: Int, in text: String) -> Int? {
         var pairingBracket: Character
         
         switch bracket {
@@ -432,19 +434,16 @@ extension TextEngine {
         
         guard let leftBracketFoundIndex = text[searchStartIndex..<searchEndIndex].lastIndex(of: bracket) else { return nil }
         
-        if let rightBracketFoundIndex = text[searchStartIndex..<text.endIndex].lastIndex(of: pairingBracket) {
+        if let rightBracketFoundIndex = text[leftBracketFoundIndex..<text.endIndex].lastIndex(of: pairingBracket) {
             let leftBracketFoundLocation = text.distance(from: searchStartIndex, to: leftBracketFoundIndex)
             
             return findPreviousUnmatched(bracket, before: leftBracketFoundLocation, in: String(text[searchStartIndex..<text.index(before: rightBracketFoundIndex)]))
         }
         
         return text.distance(from: searchStartIndex, to: leftBracketFoundIndex)
-        
-        
-        
     }
     
-    func findNextUnmatched(_ bracket: Character, after location: Int, in text: String) -> Int? {
+    private func findNextUnmatched(_ bracket: Character, after location: Int, in text: String) -> Int? {
         var pairingBracket: Character
         
         switch bracket {
@@ -456,21 +455,22 @@ extension TextEngine {
             return nil
         }
         
-        guard let searchStartIndex = text.index(text.startIndex, offsetBy: location + 1, limitedBy: text.endIndex) else { return nil }
+        let searchStartIndex = text.index(text.startIndex, offsetBy: location)
         let searchEndIndex = text.endIndex
         
-        guard let rightBracketFoundIndex = text[searchStartIndex..<searchEndIndex].firstIndex(of: bracket) else { return nil }
+        guard let rightBracketFoundIndex = text[text.index(after: searchStartIndex)..<searchEndIndex].firstIndex(of: bracket) else { return nil }
         
-        if text[searchStartIndex..<rightBracketFoundIndex].lastIndex(of: pairingBracket) != nil {
-            let rightBracketFoundLocation = text.distance(from: text.startIndex, to: rightBracketFoundIndex)
+        if let leftBracketFoundIndex = text[text.index(after: searchStartIndex)..<rightBracketFoundIndex].firstIndex(of: pairingBracket) {
+            let rightBracketFoundLocation = text.distance(from: searchStartIndex, to: rightBracketFoundIndex)
+            let leftBracketFoundLocation = text.distance(from: searchStartIndex, to: leftBracketFoundIndex)
             
-            return rightBracketFoundLocation + (findNextUnmatched(bracket, after: 1, in: String(text[rightBracketFoundIndex..<searchEndIndex])) ?? 0)
+            return leftBracketFoundLocation + (findNextUnmatched(bracket, after: rightBracketFoundLocation, in: String(text[leftBracketFoundIndex..<searchEndIndex])) ?? 0)
         }
         
-        return text.distance(from: text.startIndex, to: rightBracketFoundIndex)        
+        return location + text.distance(from: searchStartIndex, to: rightBracketFoundIndex)
     }
     
-    func findFirst(_ character: Character, in text: String) -> Int? {
+    private func findFirst(_ character: Character, in text: String) -> Int? {
         guard let characterIndex = text.firstIndex(of: character) else { return nil }
         
         return text.distance(from: text.startIndex, to: characterIndex)
@@ -536,7 +536,7 @@ extension TextEngine {
         return nil
     }
     
-    func findSecond(_ character: Character, in text: String) -> Int? {
+    private func findSecond(_ character: Character, in text: String) -> Int? {
         guard let firstCharacterIndex = text.firstIndex(of: character) else { return nil }
         let nextToFirstCharacterIndex = text.index(after: firstCharacterIndex)
         guard let secondCharacterLocation = findFirst(character, in: String(text[nextToFirstCharacterIndex..<text.endIndex])) else { return nil }
