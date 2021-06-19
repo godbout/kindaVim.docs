@@ -14,6 +14,7 @@ protocol AccessibilityStrategyProtocol {
     func ciSingleQuote(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func ciw(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func ct(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement?
+    func cT(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func dd(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func dt(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func e(on element: AccessibilityTextElement?) -> AccessibilityTextElement?

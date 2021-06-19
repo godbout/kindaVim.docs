@@ -440,6 +440,8 @@ extension VimEngine {
             }           
         case [.c, .t]:
             ()
+        case [.c, .T]:
+            ()
         case [.d, .a]:
             ()
         case [.d, .a, .w]:
@@ -560,6 +562,17 @@ extension VimEngine {
                 let axFocusedElement = focusedElement()
                 
                 if let element = accessibilityStrategy.ct(to: character.character, on: axFocusedElement), element != axFocusedElement {
+                    push(element: element)                    
+                    enterInsertMode()
+                    
+                    return
+                }
+            }
+            
+            if operatorPendingBuffer.first?.vimKey == .c, operatorPendingBuffer[1].vimKey == .T, let character = operatorPendingBuffer.last {
+                let axFocusedElement = focusedElement()
+                
+                if let element = accessibilityStrategy.cT(to: character.character, on: axFocusedElement), element != axFocusedElement {
                     push(element: element)                    
                     enterInsertMode()
                     
