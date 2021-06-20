@@ -469,6 +469,8 @@ extension VimEngine {
             }
         case [.d, .f]:
             ()
+        case [.d, .F]:
+            ()
         case [.d, .g]:
             ()
         case [.d, .g, .g]:
@@ -612,6 +614,17 @@ extension VimEngine {
             
             if operatorPendingBuffer.first?.vimKey == .d, operatorPendingBuffer[1].vimKey == .f, let character = operatorPendingBuffer.last {
                 if let element = accessibilityStrategy.df(to: character.character, on: focusedElement()) {                    
+                    push(element: element)
+                    
+                    if var element = focusedElement() {
+                        element.selectedLength = 1
+                        _ = push(element: element)
+                    }
+                }
+            }
+            
+            if operatorPendingBuffer.first?.vimKey == .d, operatorPendingBuffer[1].vimKey == .F, let character = operatorPendingBuffer.last {
+                if let element = accessibilityStrategy.dF(to: character.character, on: focusedElement()) {                    
                     push(element: element)
                     
                     if var element = focusedElement() {
