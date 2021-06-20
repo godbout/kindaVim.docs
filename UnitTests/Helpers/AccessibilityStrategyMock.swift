@@ -291,6 +291,12 @@ class AccessibilityStrategyMock: AccessibilityStrategyProtocol {
         return nil
     }
     
+    func yT(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        functionCalled = #function
+        
+        return nil
+    }
+    
     func yy(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         

@@ -18,6 +18,7 @@ extension AccessibilityStrategy {
         }
         
         
+        
         if let elementFound = t(to: character, on: element), element != elementFound {
             let text = element.value
             let caretLocationIndex = text.index(text.startIndex, offsetBy: element.caretLocation)

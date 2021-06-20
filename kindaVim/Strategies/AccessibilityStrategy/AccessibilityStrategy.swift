@@ -50,6 +50,7 @@ protocol AccessibilityStrategyProtocol {
     func yF(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func yiDoubleQuote(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func yt(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement?
+    func yT(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func yy(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     
     func caret(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
