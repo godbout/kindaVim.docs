@@ -139,6 +139,11 @@ extension VimEngine {
             }
         case .leftBracket:
             enterOperatorPendingMode(with: KeyCombination(key: .leftBracket))
+        case .rightBrace:
+            if var element = accessibilityStrategy.rightBrace(on: focusedElement()) {
+                element.selectedLength = 1                    
+                push(element: element)
+            }
         case .rightBracket:
             enterOperatorPendingMode(with: KeyCombination(key: .rightBracket))
         case .underscore:
