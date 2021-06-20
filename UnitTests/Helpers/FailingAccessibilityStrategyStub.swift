@@ -179,6 +179,10 @@ struct FailingAccessibilityStrategyStub: AccessibilityStrategyProtocol {
         return nil
     }
     
+    func yf(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        return nil
+    }
+    
     func yiDoubleQuote(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return nil
     }

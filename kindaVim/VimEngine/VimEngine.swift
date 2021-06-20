@@ -544,6 +544,8 @@ extension VimEngine {
                 element.selectedLength = 1
                 push(element: element)
             }
+        case [.y, .f]:
+            ()
         case [.y, .i]:
             ()
         case [.y, .i, .doubleQuote]:
@@ -559,6 +561,7 @@ extension VimEngine {
             post(keyboardStrategy.yiw())
         case [.y, .t]:
             ()
+        
         case [.y, .y]:
             enterNormalMode()
             lastYankStyle = .linewise
@@ -705,6 +708,17 @@ extension VimEngine {
             
             if operatorPendingBuffer.first?.vimKey == .y, operatorPendingBuffer[1].vimKey == .t, let character = operatorPendingBuffer.last {
                 if let element = accessibilityStrategy.yt(to: character.character, on: focusedElement()) {                    
+                    push(element: element)
+                    
+                    if var element = focusedElement() {
+                        element.selectedLength = 1
+                        _ = push(element: element)
+                    }
+                }
+            }
+            
+            if operatorPendingBuffer.first?.vimKey == .y, operatorPendingBuffer[1].vimKey == .f, let character = operatorPendingBuffer.last {
+                if let element = accessibilityStrategy.yf(to: character.character, on: focusedElement()) {                    
                     push(element: element)
                     
                     if var element = focusedElement() {
