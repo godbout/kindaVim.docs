@@ -391,6 +391,8 @@ extension VimEngine {
             } else {
                 post(keyboardStrategy.cc())
             }
+        case [.c, .f]:
+            ()
         case [.c, .g]:
             ()
         case [.c, .g, .g]:
@@ -560,6 +562,17 @@ extension VimEngine {
                 post(keyboardStrategy.yy())
             }
         default:
+            if operatorPendingBuffer.first?.vimKey == .c, operatorPendingBuffer[1].vimKey == .f, let character = operatorPendingBuffer.last {
+                let axFocusedElement = focusedElement()
+                
+                if let element = accessibilityStrategy.cf(to: character.character, on: axFocusedElement), element != axFocusedElement {
+                    push(element: element)                    
+                    enterInsertMode()
+                    
+                    return
+                }
+            }
+            
             if operatorPendingBuffer.first?.vimKey == .c, operatorPendingBuffer[1].vimKey == .t, let character = operatorPendingBuffer.last {
                 let axFocusedElement = focusedElement()
                 

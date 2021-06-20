@@ -45,6 +45,12 @@ class AccessibilityStrategyMock: AccessibilityStrategyProtocol {
         return nil
     }
     
+    func cf(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        functionCalled = #function
+        
+        return nil
+    }
+    
     func ciw(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         
