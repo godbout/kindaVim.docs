@@ -4,6 +4,7 @@ protocol TextEngineProtocol {
     func beginningOfWORDBackward(startingAt location: Int, in text: String) -> Int
     func beginningOfWordForward(startingAt location: Int, in text: String) -> Int
     func beginningOfWORDForward(startingAt location: Int, in text: String) -> Int
+    func endOfParagraphForward(startingAt location: Int, in text: String) -> Int
     func endOfWordBackward(startingAt location: Int, in text: String) -> Int
     func endOfWORDBackward(startingAt location: Int, in text: String) -> Int
     func endOfWordForward(startingAt location: Int, in text: String) -> Int
@@ -187,6 +188,10 @@ extension TextEngine {
             return text.distance(from: text.startIndex, to: nextIndex)
         }
         
+        return location
+    }
+    
+    func endOfParagraphForward(startingAt location: Int, in text: String) -> Int {
         return location
     }
     
