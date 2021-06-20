@@ -109,9 +109,13 @@ extension VimEngine {
         // temporary for escape to enter Command Mode
         // and escape again to send escape key to macOS
         case .escape:
-            enterInsertMode()
-            
+            enterInsertMode()            
             post(keyboardStrategy.escape())
+            
+            if var element = focusedElement() {
+                element.selectedLength = 0
+                _ = push(element: element)
+            }
         // temporary for pressing enter in Command Mode
         // to act like an enter in Insert Mode
         // checking if it feels better (like in Alfred)
@@ -736,10 +740,6 @@ extension VimEngine {
                     push(element: element)
                 }
             }
-            
-            
-            
-            
             
             // if we don't recognize any operator move
             // then we go back to normal mode
