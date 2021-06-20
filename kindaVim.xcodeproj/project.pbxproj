@@ -372,6 +372,10 @@
 		91EA3B6B26693BE6009801AD /* UsingAS_i_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91EA3B6A26693BE6009801AD /* UsingAS_i_Tests.swift */; };
 		91EA3B7526693CA3009801AD /* AS_i_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91EA3B7426693CA3009801AD /* AS_i_Tests.swift */; };
 		91EC166B2666706500A577D8 /* AS_t_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91EC166A2666706500A577D8 /* AS_t_Tests.swift */; };
+		91F67A46267F4532007C8517 /* UsingAS_df_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F67A45267F4532007C8517 /* UsingAS_df_Tests.swift */; };
+		91F67A4C267F4592007C8517 /* AS_df.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F67A4B267F4592007C8517 /* AS_df.swift */; };
+		91F67A51267F45B1007C8517 /* AS_df.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F67A4B267F4592007C8517 /* AS_df.swift */; };
+		91F67A57267F4609007C8517 /* AS_df_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F67A56267F4609007C8517 /* AS_df_Tests.swift */; };
 		91F7A005264FC70500B609FF /* UsingAS_BaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F7A004264FC70500B609FF /* UsingAS_BaseTests.swift */; };
 		91F7A007264FC75F00B609FF /* UsingAS_h_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F7A006264FC75F00B609FF /* UsingAS_h_Tests.swift */; };
 		91F7A009264FC81000B609FF /* AccessibilityStrategyMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F7A008264FC81000B609FF /* AccessibilityStrategyMock.swift */; };
@@ -729,6 +733,9 @@
 		91EC166A2666706500A577D8 /* AS_t_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AS_t_Tests.swift; sourceTree = "<group>"; };
 		91F2EC14265A2DF1003F038B /* to_TF_caretLocationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = to_TF_caretLocationTests.swift; sourceTree = "<group>"; };
 		91F2EC16265A2E11003F038B /* to_TV_caretLocationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = to_TV_caretLocationTests.swift; sourceTree = "<group>"; };
+		91F67A45267F4532007C8517 /* UsingAS_df_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsingAS_df_Tests.swift; sourceTree = "<group>"; };
+		91F67A4B267F4592007C8517 /* AS_df.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AS_df.swift; sourceTree = "<group>"; };
+		91F67A56267F4609007C8517 /* AS_df_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AS_df_Tests.swift; sourceTree = "<group>"; };
 		91F7A004264FC70500B609FF /* UsingAS_BaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsingAS_BaseTests.swift; sourceTree = "<group>"; };
 		91F7A006264FC75F00B609FF /* UsingAS_h_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsingAS_h_Tests.swift; sourceTree = "<group>"; };
 		91F7A008264FC81000B609FF /* AccessibilityStrategyMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilityStrategyMock.swift; sourceTree = "<group>"; };
@@ -1021,6 +1028,7 @@
 				91A9439C267662B30004B80C /* AS_ct_Tests.swift */,
 				91B59808267E74C90034B3A0 /* AS_cT__Tests.swift */,
 				91CBBB952669FA450006BCA8 /* AS_dd_Tests.swift */,
+				91F67A56267F4609007C8517 /* AS_df_Tests.swift */,
 				91FE24F4267E6ECA0073F891 /* AS_dt_Tests.swift */,
 				91761DFA267F408F000ED024 /* AS_dT__Tests.swift */,
 				917BE83B266FB59B0072D0A7 /* AS_e_Tests.swift */,
@@ -1174,6 +1182,7 @@
 				91DC92EB26765D45004E74B6 /* AS_ct.swift */,
 				91B59802267E74810034B3A0 /* AS_cT_.swift */,
 				91AB98812674D594007682CA /* AS_dd.swift */,
+				91F67A4B267F4592007C8517 /* AS_df.swift */,
 				91608B30267E6D5700C753B0 /* AS_dt.swift */,
 				91761DEF267F402E000ED024 /* AS_dT_.swift */,
 				91AB98872674D5AA007682CA /* AS_e.swift */,
@@ -1384,6 +1393,7 @@
 				91DC92E526765B47004E74B6 /* UsingAS_ct_Tests.swift */,
 				91B597FC267E74100034B3A0 /* UsingAS_cT__Tests.swift */,
 				91D8FE172669F81B00FBE896 /* UsingAS_dd_Tests.swift */,
+				91F67A45267F4532007C8517 /* UsingAS_df_Tests.swift */,
 				91608B2A267E6CA400C753B0 /* UsingAS_dt_Tests.swift */,
 				91761DE9267F3FB4000ED024 /* UsingAS_dT__Tests.swift */,
 				917BE835266FB2DE0072D0A7 /* UsingAS_e_Tests.swift */,
@@ -1621,6 +1631,7 @@
 				91AB98A42674D5FD007682CA /* AS_G_.swift in Sources */,
 				913D5C7726760B5300253DDC /* AS_ci`.swift in Sources */,
 				91ACB29326760D15000B3CE7 /* AS_r.swift in Sources */,
+				91F67A4C267F4592007C8517 /* AS_df.swift in Sources */,
 				91AB98F62674D73A007682CA /* AS_^.swift in Sources */,
 				91842081267CF72C0085711E /* AS_]).swift in Sources */,
 				91AB98822674D594007682CA /* AS_dd.swift in Sources */,
@@ -1761,6 +1772,7 @@
 				91B9CBCF267683290040C49B /* beginningOfWORDBackward_Tests.swift in Sources */,
 				91EC166B2666706500A577D8 /* AS_t_Tests.swift in Sources */,
 				91A54EF12643B8BA00400677 /* KS_j_Tests.swift in Sources */,
+				91F67A57267F4609007C8517 /* AS_df_Tests.swift in Sources */,
 				91DA6EEB26455A0D00CF7504 /* KS_dgg_Tests.swift in Sources */,
 				918C26512646D29000C39ADA /* KS_s_Tests.swift in Sources */,
 				912DD6962675041900E22EE4 /* UsingAS_yi"_Tests.swift in Sources */,
@@ -1804,6 +1816,7 @@
 				9172261C2677AC80008B8FB0 /* endOfWORDBackward_Tests.swift in Sources */,
 				9153E8512662792F00064761 /* UsingAS_b_Tests.swift in Sources */,
 				91A54EDD2643B58500400677 /* KS_A__Tests.swift in Sources */,
+				91F67A46267F4532007C8517 /* UsingAS_df_Tests.swift in Sources */,
 				91EA3B7526693CA3009801AD /* AS_i_Tests.swift in Sources */,
 				91A54EF32643B95500400677 /* KS_k_Tests.swift in Sources */,
 				91C2788B264570900049436F /* UsingKS_dj_Tests.swift in Sources */,
@@ -1976,6 +1989,7 @@
 				91AB99162674D812007682CA /* AS_ci".swift in Sources */,
 				91D73C262676897D004EF8E9 /* AS_ge.swift in Sources */,
 				916E86892676809C00E2A807 /* AS_W_.swift in Sources */,
+				91F67A51267F45B1007C8517 /* AS_df.swift in Sources */,
 				91FB0580267F42DC00581F63 /* AS_cf.swift in Sources */,
 				91AB99242674D812007682CA /* AS_O_.swift in Sources */,
 				91AB99212674D812007682CA /* AS_o.swift in Sources */,
