@@ -546,6 +546,8 @@ extension VimEngine {
             }
         case [.y, .f]:
             ()
+        case [.y, .F]:
+            ()
         case [.y, .i]:
             ()
         case [.y, .i, .doubleQuote]:
@@ -706,27 +708,30 @@ extension VimEngine {
                 }
             }
             
-            if operatorPendingBuffer.first?.vimKey == .y, operatorPendingBuffer[1].vimKey == .t, let character = operatorPendingBuffer.last {
-                if let element = accessibilityStrategy.yt(to: character.character, on: focusedElement()) {                    
+            if operatorPendingBuffer.first?.vimKey == .y, operatorPendingBuffer[1].vimKey == .f, let character = operatorPendingBuffer.last {
+                if var element = accessibilityStrategy.yf(to: character.character, on: focusedElement()) {
+                    element.selectedLength = 1                    
                     push(element: element)
-                    
-                    if var element = focusedElement() {
-                        element.selectedLength = 1
-                        _ = push(element: element)
-                    }
                 }
             }
             
-            if operatorPendingBuffer.first?.vimKey == .y, operatorPendingBuffer[1].vimKey == .f, let character = operatorPendingBuffer.last {
-                if let element = accessibilityStrategy.yf(to: character.character, on: focusedElement()) {                    
+            if operatorPendingBuffer.first?.vimKey == .y, operatorPendingBuffer[1].vimKey == .F, let character = operatorPendingBuffer.last {
+                if var element = accessibilityStrategy.yF(to: character.character, on: focusedElement()) {                    
+                    element.selectedLength = 1
                     push(element: element)
-                    
-                    if var element = focusedElement() {
-                        element.selectedLength = 1
-                        _ = push(element: element)
-                    }
                 }
             }
+            
+            if operatorPendingBuffer.first?.vimKey == .y, operatorPendingBuffer[1].vimKey == .t, let character = operatorPendingBuffer.last {
+                if var element = accessibilityStrategy.yt(to: character.character, on: focusedElement()) {                    
+                    element.selectedLength = 1
+                    push(element: element)
+                }
+            }
+            
+            
+            
+            
             
             // if we don't recognize any operator move
             // then we go back to normal mode
