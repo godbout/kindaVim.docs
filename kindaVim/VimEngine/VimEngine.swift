@@ -580,94 +580,96 @@ extension VimEngine {
                 post(keyboardStrategy.yy())
             }
         default:
-            if operatorPendingBuffer.first?.vimKey == .c, operatorPendingBuffer[1].vimKey == .f, let character = operatorPendingBuffer.last {
+            // cf, cF, ct, cT
+            if operatorPendingBuffer.first?.vimKey == .c {
                 let axFocusedElement = focusedElement()
                 
-                if let element = accessibilityStrategy.cf(to: character.character, on: axFocusedElement), element != axFocusedElement {
-                    push(element: element)                    
-                    enterInsertMode()
-                    
-                    return
+                if operatorPendingBuffer[1].vimKey == .f, let character = operatorPendingBuffer.last {
+                    if let element = accessibilityStrategy.cf(to: character.character, on: axFocusedElement), element != axFocusedElement {
+                        push(element: element)                    
+                        enterInsertMode()
+                        
+                        return
+                    }
                 }
-            }
-            
-            if operatorPendingBuffer.first?.vimKey == .c, operatorPendingBuffer[1].vimKey == .F, let character = operatorPendingBuffer.last {
-                let axFocusedElement = focusedElement()
                 
-                if let element = accessibilityStrategy.cF(to: character.character, on: axFocusedElement), element != axFocusedElement {
-                    push(element: element)                    
-                    enterInsertMode()
-                    
-                    return
+                if operatorPendingBuffer[1].vimKey == .F, let character = operatorPendingBuffer.last {
+                    if let element = accessibilityStrategy.cF(to: character.character, on: axFocusedElement), element != axFocusedElement {
+                        push(element: element)                    
+                        enterInsertMode()
+                        
+                        return
+                    }                    
                 }
-            }
-            
-            if operatorPendingBuffer.first?.vimKey == .c, operatorPendingBuffer[1].vimKey == .t, let character = operatorPendingBuffer.last {
-                let axFocusedElement = focusedElement()
                 
-                if let element = accessibilityStrategy.ct(to: character.character, on: axFocusedElement), element != axFocusedElement {
-                    push(element: element)                    
-                    enterInsertMode()
-                    
-                    return
+                if operatorPendingBuffer[1].vimKey == .t, let character = operatorPendingBuffer.last {
+                    if let element = accessibilityStrategy.ct(to: character.character, on: axFocusedElement), element != axFocusedElement {
+                        push(element: element)                    
+                        enterInsertMode()
+                        
+                        return
+                    }
                 }
-            }
-            
-            if operatorPendingBuffer.first?.vimKey == .c, operatorPendingBuffer[1].vimKey == .T, let character = operatorPendingBuffer.last {
-                let axFocusedElement = focusedElement()
                 
-                if let element = accessibilityStrategy.cT(to: character.character, on: axFocusedElement), element != axFocusedElement {
-                    push(element: element)                    
-                    enterInsertMode()
-                    
-                    return
-                }
-            }
-            
-            if operatorPendingBuffer.first?.vimKey == .d, operatorPendingBuffer[1].vimKey == .f, let character = operatorPendingBuffer.last {
-                if let element = accessibilityStrategy.df(to: character.character, on: focusedElement()) {                    
-                    push(element: element)
-                    
-                    if var element = focusedElement() {
-                        element.selectedLength = 1
-                        _ = push(element: element)
+                if operatorPendingBuffer[1].vimKey == .T, let character = operatorPendingBuffer.last {
+                    if let element = accessibilityStrategy.cT(to: character.character, on: axFocusedElement), element != axFocusedElement {
+                        push(element: element)                    
+                        enterInsertMode()
+                        
+                        return
                     }
                 }
             }
             
-            if operatorPendingBuffer.first?.vimKey == .d, operatorPendingBuffer[1].vimKey == .F, let character = operatorPendingBuffer.last {
-                if let element = accessibilityStrategy.dF(to: character.character, on: focusedElement()) {                    
-                    push(element: element)
-                    
-                    if var element = focusedElement() {
-                        element.selectedLength = 1
-                        _ = push(element: element)
+            // df, dF, dt, dT
+            if operatorPendingBuffer.first?.vimKey == .d {
+                if operatorPendingBuffer[1].vimKey == .f, let character = operatorPendingBuffer.last {
+                    if let element = accessibilityStrategy.df(to: character.character, on: focusedElement()) {                    
+                        push(element: element)
+                        
+                        if var element = focusedElement() {
+                            element.selectedLength = 1
+                            _ = push(element: element)
+                        }
                     }
                 }
-            }
-            
-            if operatorPendingBuffer.first?.vimKey == .d, operatorPendingBuffer[1].vimKey == .t, let character = operatorPendingBuffer.last {
-                if let element = accessibilityStrategy.dt(to: character.character, on: focusedElement()) {                    
-                    push(element: element)
-                    
-                    if var element = focusedElement() {
-                        element.selectedLength = 1
-                        _ = push(element: element)
+                
+                if operatorPendingBuffer[1].vimKey == .F, let character = operatorPendingBuffer.last {
+                    if let element = accessibilityStrategy.dF(to: character.character, on: focusedElement()) {                    
+                        push(element: element)
+                        
+                        if var element = focusedElement() {
+                            element.selectedLength = 1
+                            _ = push(element: element)
+                        }
                     }
                 }
-            }
-            
-            if operatorPendingBuffer.first?.vimKey == .d, operatorPendingBuffer[1].vimKey == .T, let character = operatorPendingBuffer.last {
-                if let element = accessibilityStrategy.dT(to: character.character, on: focusedElement()) {                    
-                    push(element: element)
-                    
-                    if var element = focusedElement() {
-                        element.selectedLength = 1
-                        _ = push(element: element)
+                
+                if operatorPendingBuffer[1].vimKey == .t, let character = operatorPendingBuffer.last {
+                    if let element = accessibilityStrategy.dt(to: character.character, on: focusedElement()) {                    
+                        push(element: element)
+                        
+                        if var element = focusedElement() {
+                            element.selectedLength = 1
+                            _ = push(element: element)
+                        }
                     }
                 }
+                
+                if operatorPendingBuffer[1].vimKey == .T, let character = operatorPendingBuffer.last {
+                    if let element = accessibilityStrategy.dT(to: character.character, on: focusedElement()) {                    
+                        push(element: element)
+                        
+                        if var element = focusedElement() {
+                            element.selectedLength = 1
+                            _ = push(element: element)
+                        }
+                    }
+                }
+                
+                
             }
-            
+                            
             if operatorPendingBuffer.first?.vimKey == .f, let character = operatorPendingBuffer.last {
                 if var element = accessibilityStrategy.f(to: character.character, on: focusedElement()) {
                     element.selectedLength = 1
@@ -713,34 +715,37 @@ extension VimEngine {
                 }
             }
             
-            if operatorPendingBuffer.first?.vimKey == .y, operatorPendingBuffer[1].vimKey == .f, let character = operatorPendingBuffer.last {
-                if var element = accessibilityStrategy.yf(to: character.character, on: focusedElement()) {
-                    element.selectedLength = 1                    
-                    push(element: element)
+            // yf, yF, yt, yT
+            if operatorPendingBuffer.first?.vimKey == .y {
+                if operatorPendingBuffer[1].vimKey == .f, let character = operatorPendingBuffer.last {
+                    if var element = accessibilityStrategy.yf(to: character.character, on: focusedElement()) {
+                        element.selectedLength = 1                    
+                        push(element: element)
+                    }
+                }
+                
+                if operatorPendingBuffer[1].vimKey == .F, let character = operatorPendingBuffer.last {
+                    if var element = accessibilityStrategy.yF(to: character.character, on: focusedElement()) {                    
+                        element.selectedLength = 1
+                        push(element: element)
+                    }
+                }
+                
+                if operatorPendingBuffer[1].vimKey == .t, let character = operatorPendingBuffer.last {
+                    if var element = accessibilityStrategy.yt(to: character.character, on: focusedElement()) {                    
+                        element.selectedLength = 1
+                        push(element: element)
+                    }
+                }
+                
+                if operatorPendingBuffer[1].vimKey == .T, let character = operatorPendingBuffer.last {
+                    if var element = accessibilityStrategy.yT(to: character.character, on: focusedElement()) {                    
+                        element.selectedLength = 1
+                        push(element: element)
+                    }
                 }
             }
-            
-            if operatorPendingBuffer.first?.vimKey == .y, operatorPendingBuffer[1].vimKey == .F, let character = operatorPendingBuffer.last {
-                if var element = accessibilityStrategy.yF(to: character.character, on: focusedElement()) {                    
-                    element.selectedLength = 1
-                    push(element: element)
-                }
-            }
-            
-            if operatorPendingBuffer.first?.vimKey == .y, operatorPendingBuffer[1].vimKey == .t, let character = operatorPendingBuffer.last {
-                if var element = accessibilityStrategy.yt(to: character.character, on: focusedElement()) {                    
-                    element.selectedLength = 1
-                    push(element: element)
-                }
-            }
-            
-            if operatorPendingBuffer.first?.vimKey == .y, operatorPendingBuffer[1].vimKey == .T, let character = operatorPendingBuffer.last {
-                if var element = accessibilityStrategy.yT(to: character.character, on: focusedElement()) {                    
-                    element.selectedLength = 1
-                    push(element: element)
-                }
-            }
-            
+                        
             // if we don't recognize any operator move
             // then we go back to normal mode
             // and the operator pending buffer will be resetted
