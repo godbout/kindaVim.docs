@@ -557,6 +557,8 @@ extension VimEngine {
             enterNormalMode()
             
             post(keyboardStrategy.yiw())
+        case [.y, .t]:
+            ()
         case [.y, .y]:
             enterNormalMode()
             lastYankStyle = .linewise
@@ -698,6 +700,17 @@ extension VimEngine {
                 if var element = accessibilityStrategy.T(to: character.character, on: focusedElement()) {
                     element.selectedLength = 1
                     _ = push(element: element)
+                }
+            }
+            
+            if operatorPendingBuffer.first?.vimKey == .y, operatorPendingBuffer[1].vimKey == .t, let character = operatorPendingBuffer.last {
+                if let element = accessibilityStrategy.yt(to: character.character, on: focusedElement()) {                    
+                    push(element: element)
+                    
+                    if var element = focusedElement() {
+                        element.selectedLength = 1
+                        _ = push(element: element)
+                    }
                 }
             }
             
