@@ -10,6 +10,7 @@ protocol AccessibilityStrategyProtocol {
     func C(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func cc(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func cf(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement?
+    func cF(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func ciBacktick(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func ciDoubleQuote(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func ciSingleQuote(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
