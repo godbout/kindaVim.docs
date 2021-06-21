@@ -137,6 +137,12 @@ extension VimEngine {
             } else {
                 post(keyboardStrategy.dollarSign())
             }
+        case .leftBrace:
+            if var element = accessibilityStrategy.leftBrace(on: focusedElement()) {
+                // move can go to the last empty line, but in that case we can't select the character as there is none
+                element.selectedLength = (element.caretLocation == element.value.count) ? 0 : 1                  
+                push(element: element)
+            }
         case .leftBracket:
             enterOperatorPendingMode(with: KeyCombination(key: .leftBracket))
         case .rightBrace:

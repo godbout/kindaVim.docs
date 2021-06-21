@@ -1,5 +1,6 @@
 protocol TextEngineProtocol {
     
+    func beginningOfParagraphBackward(startingAt location: Int, in text: String) -> Int
     func beginningOfWordBackward(startingAt location: Int, in text: String) -> Int
     func beginningOfWORDBackward(startingAt location: Int, in text: String) -> Int
     func beginningOfWordForward(startingAt location: Int, in text: String) -> Int
@@ -42,6 +43,10 @@ struct TextEngine: TextEngineProtocol {}
 // rather than nil. so those funcs are not pure search funcs, they're more related
 // to Vim ways of working.
 extension TextEngine {
+    
+    func beginningOfParagraphBackward(startingAt location: Int, in text: String) -> Int {
+        return location
+    }
     
     func beginningOfWordBackward(startingAt location: Int, in text: String) -> Int {
         let anchorIndex = text.index(text.startIndex, offsetBy: location)

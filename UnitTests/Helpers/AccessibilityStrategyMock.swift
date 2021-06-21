@@ -315,6 +315,12 @@ class AccessibilityStrategyMock: AccessibilityStrategyProtocol {
         return nil
     }
     
+    func leftBrace(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        functionCalled = #function
+        
+        return nil
+    }
+    
     func leftBracketLeftBrace(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         

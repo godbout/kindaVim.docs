@@ -7,6 +7,12 @@ class TextEngineMock: TextEngineProtocol {
     var functionCalled = ""
     
     
+    func beginningOfParagraphBackward(startingAt location: Int, in text: String) -> Int {
+        functionCalled = #function
+        
+        return location
+    }
+    
     func beginningOfWordBackward(startingAt location: Int, in text: String) -> Int {
         functionCalled = #function
         
