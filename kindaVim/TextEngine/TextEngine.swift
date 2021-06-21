@@ -45,7 +45,17 @@ struct TextEngine: TextEngineProtocol {}
 extension TextEngine {
     
     func beginningOfParagraphBackward(startingAt location: Int, in text: String) -> Int {
-        return location
+        var searchEndIndex = text.index(text.startIndex, offsetBy: location)
+        
+        while searchEndIndex != text.startIndex, searchEndIndex != text.endIndex, text[searchEndIndex].isNewline {
+            searchEndIndex = text.index(before: searchEndIndex)
+        }        
+        
+        if let previousEmptyLineRange = text.range(of: "\n\n", options: [.backwards], range: text.startIndex..<searchEndIndex) {
+            return text.distance(from: text.startIndex, to: previousEmptyLineRange.lowerBound) + 1
+        }
+        
+        return 0
     }
     
     func beginningOfWordBackward(startingAt location: Int, in text: String) -> Int {
