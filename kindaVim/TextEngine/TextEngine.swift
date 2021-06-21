@@ -192,7 +192,19 @@ extension TextEngine {
     }
     
     func endOfParagraphForward(startingAt location: Int, in text: String) -> Int {
-        return location
+        guard !text.isEmpty else { return 0 }
+        
+        var searchStartIndex = text.index(text.startIndex, offsetBy: location)
+        
+        while searchStartIndex != text.endIndex, text[searchStartIndex].isNewline {
+            searchStartIndex = text.index(after: searchStartIndex)
+        }        
+        
+        if let nextEmptyLineRange = text.range(of: "\n\n", options: [], range: searchStartIndex..<text.endIndex) {
+            return text.distance(from: text.startIndex, to: nextEmptyLineRange.lowerBound) + 1
+        }
+        
+        return text.count - 1
     }
     
     func endOfWordBackward(startingAt location: Int, in text: String) -> Int {

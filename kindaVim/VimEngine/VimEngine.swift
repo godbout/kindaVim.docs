@@ -141,7 +141,8 @@ extension VimEngine {
             enterOperatorPendingMode(with: KeyCombination(key: .leftBracket))
         case .rightBrace:
             if var element = accessibilityStrategy.rightBrace(on: focusedElement()) {
-                element.selectedLength = 1                    
+                // move can go to the last empty line, but in that case we can't select the character as there is none
+                element.selectedLength = (element.caretLocation == element.value.count) ? 0 : 1                  
                 push(element: element)
             }
         case .rightBracket:
@@ -206,7 +207,8 @@ extension VimEngine {
             post(keyboardStrategy.controlD())
         case .e:
             if var element = accessibilityStrategy.e(on: focusedElement()) {
-                element.selectedLength = 1                    
+                // move can go to the last empty line, but in that case we can't select the character as there is none
+                element.selectedLength = (element.caretLocation == element.value.count) ? 0 : 1                    
                 _ = push(element: element)
             }
         case .E:
