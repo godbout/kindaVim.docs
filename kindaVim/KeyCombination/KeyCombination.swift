@@ -95,6 +95,8 @@ enum VimKey {
 
     case o, O
     case p, P
+    
+    case percent
 
     case r, controlR
     
@@ -250,6 +252,8 @@ struct KeyCombination {
         // checking if it feels better (like in Alfred)
         case .enter where control == false && option == false && shift == false && command == false:
             return .enter
+        case .five where control == false && option == false && shift == true && command == false:
+            return .percent
         case .four where control == false && option == false && shift == true && command == false:
             return .dollarSign 
         case .leftBracket where control == false && option == false && shift == false && command == false:

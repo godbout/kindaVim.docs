@@ -144,6 +144,11 @@ extension VimEngine {
             }
         case .leftBracket:
             enterOperatorPendingMode(with: KeyCombination(key: .leftBracket))
+        case .percent:
+            if var element = accessibilityStrategy.percent(on: focusedElement()) {
+                element.selectedLength = 1                  
+                push(element: element)
+            }
         case .rightBrace:
             if var element = accessibilityStrategy.rightBrace(on: focusedElement()) {
                 // move can go to the last empty line, but in that case we can't select the character as there is none
