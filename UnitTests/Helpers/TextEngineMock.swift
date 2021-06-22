@@ -91,10 +91,10 @@ class TextEngineMock: TextEngineProtocol {
         return nil 
     }
     
-    func firstLine(in text: String) -> String {
+    func firstLine(in text: String) -> TextEngineLine {
         functionCalled = #function
         
-        return ""
+        return TextEngineLine(start: 0, end: 0, value: "")
     }
     
     func firstNonBlank(in text: String) -> Int {

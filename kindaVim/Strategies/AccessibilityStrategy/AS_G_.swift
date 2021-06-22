@@ -19,8 +19,8 @@ extension AccessibilityStrategy {
         let lastLine = textEngine.lastLine(in: element.value)
         let firstNonBlankLocation = textEngine.firstNonBlank(in: lastLine.value)        
         
-        if firstNonBlankLocation >= lastLine.value.endLimit { 
-            element.caretLocation = lastLine.start + lastLine.value.endLimit
+        if firstNonBlankLocation >= lastLine.endLimit { 
+            element.caretLocation = lastLine.start + lastLine.endLimit
         } else {
             element.caretLocation = lastLine.start + firstNonBlankLocation
         }            

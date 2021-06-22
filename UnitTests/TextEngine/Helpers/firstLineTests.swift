@@ -13,7 +13,7 @@ extension firstLineTests {
         
         let firstLine = textEngine.firstLine(in: text)
         
-        XCTAssertEqual(firstLine, text)  
+        XCTAssertEqual(firstLine.value, text)  
     }
     
     func test_that_if_the_text_is_an_empty_line_it_returns_an_empty_string() {
@@ -21,7 +21,7 @@ extension firstLineTests {
         
         let firstLine = textEngine.firstLine(in: text)
         
-        XCTAssertEqual(firstLine, "")
+        XCTAssertEqual(firstLine.value, "")
     }
     
 }
@@ -38,7 +38,7 @@ again
 """
         let firstLine = textEngine.firstLine(in: text)
         
-        XCTAssertEqual(firstLine, "of course\n")
+        XCTAssertEqual(firstLine.value, "of course\n")
     }
     
     func test_that_if_the_first_line_is_empty_but_with_a_linefeed_it_returns_the_correct_line() {
@@ -49,7 +49,7 @@ empty
 """
         let firstLine = textEngine.firstLine(in: text)
         
-        XCTAssertEqual(firstLine, "\n")
+        XCTAssertEqual(firstLine.value, "\n")
     }
     
     func test_that_if_the_first_line_only_contains_spaces_it_returns_the_correct_line() {
@@ -60,7 +60,7 @@ has spaces
 """
         let firstLine = textEngine.firstLine(in: text)
         
-        XCTAssertEqual(firstLine, "       \n")
+        XCTAssertEqual(firstLine.value, "       \n")
     }
  
 }

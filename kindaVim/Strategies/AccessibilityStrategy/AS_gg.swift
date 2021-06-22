@@ -13,7 +13,7 @@ extension AccessibilityStrategy {
         
         
         let firstLine = textEngine.firstLine(in: element.value)
-        let firstNonBlankLocation = textEngine.firstNonBlank(in: firstLine)        
+        let firstNonBlankLocation = textEngine.firstNonBlank(in: firstLine.value)        
         
         if firstNonBlankLocation >= firstLine.endLimit { 
             element.caretLocation = firstLine.endLimit

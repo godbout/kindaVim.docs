@@ -16,7 +16,7 @@ protocol TextEngineProtocol {
     func innerQuotedString(using character: Character, startingAt location: Int, in text: String) -> Range<Int>?
     func innerWord(startingAt location: Int, in text: String) -> Range<Int>
     func lastLine(in text: String) -> TextEngineLine
-    func firstLine(in text: String) -> String
+    func firstLine(in text: String) -> TextEngineLine
     func nextLine(after location: Int, in text: String) -> String?
     func nextUnmatched(_ bracket: Character, after location: Int, in text: String) -> Int
     func previousLine(before location: Int, in text: String) -> String?
@@ -62,6 +62,26 @@ struct TextEngineLine {
     var start: Int
     var end: Int
     var value: String
+    
+    var isEmpty: Bool {
+        return value.isEmpty
+    }
+    
+    var isNotEmpty: Bool {
+        return !isEmpty
+    }
+    
+    var isOnlyALinefeedCharacter: Bool {
+        return value == "\n"
+    }
+    
+    var endLimit: Int {
+        guard isNotEmpty else { return 0 }
+        guard !isOnlyALinefeedCharacter else { return 0 }
+        guard value.hasSuffix("\n") else { return value.distance(from: value.startIndex, to: value.index(before: value.endIndex)) }
+            
+        return value.distance(from: value.startIndex, to: value.index(value.endIndex, offsetBy: -2))                    
+    }
     
 }
 
@@ -271,12 +291,16 @@ extension TextEngine {
         return text.distance(from: text.startIndex, to: nextToFirstCharacterIndex) + secondCharacterLocation
     }
     
-    func firstLine(in text: String) -> String {
-        guard let nextLineStartLocation = findNext("\n", after: -1, in: text) else { return text }
+    func firstLine(in text: String) -> TextEngineLine {
+        guard let nextLineStartLocation = findNext("\n", after: -1, in: text) else { return TextEngineLine(start: 0, end: text.count, value: text) }
                     
         let nextLineStartIndex = text.index(text.startIndex, offsetBy: nextLineStartLocation + 1)
         
-        return String(text[text.startIndex..<nextLineStartIndex])
+        return TextEngineLine(
+            start: 0,
+            end: text.distance(from: text.startIndex, to: nextLineStartIndex),
+            value: String(text[text.startIndex..<nextLineStartIndex])
+        )
     }
     
     func lastLine(in text: String) -> TextEngineLine {
