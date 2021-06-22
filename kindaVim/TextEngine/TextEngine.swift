@@ -6,9 +6,9 @@ protocol TextEngineProtocol {
     func beginningOfWordForward(startingAt location: Int, in text: TextEngineText) -> Int
     func beginningOfWORDForward(startingAt location: Int, in text: TextEngineText) -> Int
     func endOfParagraphForward(startingAt location: Int, in text: String) -> Int
-    func endOfWordBackward(startingAt location: Int, in text: String) -> Int
+    func endOfWordBackward(startingAt location: Int, in text: TextEngineText) -> Int
     func endOfWORDBackward(startingAt location: Int, in text: String) -> Int
-    func endOfWordForward(startingAt location: Int, in text: String) -> Int
+    func endOfWordForward(startingAt location: Int, in text: TextEngineText) -> Int
     func endOfWORDForward(startingAt location: Int, in text: String) -> Int
     func findNext(_ character: Character, after location: Int, in text: String) -> Int?
     func findPrevious(_ character: Character, before location: Int, in text: String) -> Int?
@@ -110,55 +110,7 @@ extension TextEngine {
         return text.count - 1
     }
     
-    func endOfWordBackward(startingAt location: Int, in text: String) -> Int {
-        let anchorIndex = text.index(text.startIndex, offsetBy: location)
-        let startIndex = text.startIndex
-        
-        for index in text [startIndex..<anchorIndex].indices.reversed() {
-            guard index != startIndex else { return 0 }
-            guard index != text.index(before: text.endIndex) else { return text.count - 1 }
-            let nextIndex = text.index(after: index)
-            
-            if text[index].isCharacterThatConstitutesAVimWord {
-                if text[nextIndex].isCharacterThatConstitutesAVimWord {
-                    continue
-                }
-            }
-            
-            if text[index].isPunctuationButNotUnderscore {
-                if text[nextIndex].isPunctuationButNotUnderscore || text[nextIndex].isSymbol {
-                    continue
-                }
-            }
-            
-            if text[index].isSymbol {
-                if text[nextIndex].isSymbol || text[nextIndex].isPunctuationButNotUnderscore {
-                    continue
-                }
-            }
-            
-            if text[index].isWhitespaceButNotNewline {
-                if text[nextIndex].isWhitespace || text[nextIndex].isCharacterThatConstitutesAVimWord || text[nextIndex].isPunctuationButNotUnderscore || text[nextIndex].isSymbol {
-                    continue
-                }
-            }
-            
-            // weird, special case, but can't find another
-            // way to make this work after two full days of
-            // head banging on that shit
-            if text[index].isNewline {
-                let previousIndex = text.index(before: index)
-                
-                if !text[previousIndex].isNewline {
-                    continue
-                }                
-            }
     
-            return text.distance(from: startIndex, to: index)
-        }
-        
-        return location
-    }
     
     func endOfWORDBackward(startingAt location: Int, in text: String) -> Int {
         let anchorIndex = text.index(text.startIndex, offsetBy: location)
@@ -195,47 +147,7 @@ extension TextEngine {
         return location
     }
     
-    func endOfWordForward(startingAt location: Int, in text: String) -> Int {
-        guard let anchorIndex = text.index(text.startIndex, offsetBy: location + 1, limitedBy: text.endIndex) else { return text.count - 1 }
-        let endIndex = text.endIndex
-        
-        for index in text[anchorIndex..<endIndex].indices {
-            guard index != text.index(before: endIndex) else { return text.count - 1 }
-            let nextIndex = text.index(after: index)
-            
-            if text[index].isCharacterThatConstitutesAVimWord {
-                if text[nextIndex].isCharacterThatConstitutesAVimWord {
-                    continue
-                }
-            }
-            
-            if text[index].isPunctuationButNotUnderscore {
-                if text[nextIndex].isPunctuationButNotUnderscore || text[nextIndex].isSymbol {
-                    continue
-                }
-            }
-            
-            if text[index].isSymbol {
-                if text[nextIndex].isSymbol {
-                    continue
-                }
-            }
-            
-            if text[index].isWhitespaceButNotNewline {
-                if text[nextIndex].isWhitespace || text[nextIndex].isCharacterThatConstitutesAVimWord || text[nextIndex].isPunctuationButNotUnderscore || text[nextIndex].isSymbol {
-                    continue
-                }
-            }
-            
-            if text[index].isNewline {
-                continue
-            }
-            
-            return text.distance(from: text.startIndex, to: index)
-        }
-        
-        return location
-    }
+    
     
     func endOfWORDForward(startingAt location: Int, in text: String) -> Int {
         guard let anchorIndex = text.index(text.startIndex, offsetBy: location + 1, limitedBy: text.endIndex) else { return text.count - 1 }
@@ -301,7 +213,7 @@ extension TextEngine {
         }
 
         let beginningOfWordLocation = beginningOfWordBackward(startingAt: location + 1, in: TextEngineText(from: text))
-        let endOfWordLocation = endOfWordForward(startingAt: location - 1, in: text)
+        let endOfWordLocation = endOfWordForward(startingAt: location - 1, in: TextEngineText(from: text))
 
         return beginningOfWordLocation..<(endOfWordLocation + 1)
     }
