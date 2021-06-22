@@ -2,7 +2,7 @@ protocol TextEngineProtocol {
     
     func beginningOfParagraphBackward(startingAt location: Int, in text: String) -> Int
     func beginningOfWordBackward(startingAt location: Int, in text: TextEngineText) -> Int
-    func beginningOfWORDBackward(startingAt location: Int, in text: String) -> Int
+    func beginningOfWORDBackward(startingAt location: Int, in text: TextEngineText) -> Int
     func beginningOfWordForward(startingAt location: Int, in text: TextEngineText) -> Int
     func beginningOfWORDForward(startingAt location: Int, in text: TextEngineText) -> Int
     func endOfParagraphForward(startingAt location: Int, in text: String) -> Int
@@ -92,35 +92,7 @@ extension TextEngine {
     
     
     
-    func beginningOfWORDBackward(startingAt location: Int, in text: String) -> Int {
-        let anchorIndex = text.index(text.startIndex, offsetBy: location)
-        let startIndex = text.startIndex
-        
-        for index in text[startIndex..<anchorIndex].indices.reversed() {
-            guard index != startIndex else { return 0 }
-            let previousIndex = text.index(before: index)
-            
-            if text[index].isCharacterThatConstitutesAVimWORD {
-                if text[previousIndex].isCharacterThatConstitutesAVimWORD {
-                    continue
-                }
-            }
-            
-            if text[index].isWhitespaceButNotNewline {
-                continue
-            }
-            
-            if text[index].isNewline {
-                if !text[previousIndex].isNewline {
-                    continue
-                }
-            }
-            
-            return text.distance(from: startIndex, to: index)
-        }        
-        
-        return location
-    }
+    
     
     func endOfParagraphForward(startingAt location: Int, in text: String) -> Int {
         guard !text.isEmpty else { return 0 }
