@@ -3,7 +3,7 @@ protocol TextEngineProtocol {
     func beginningOfParagraphBackward(startingAt location: Int, in text: String) -> Int
     func beginningOfWordBackward(startingAt location: Int, in text: String) -> Int
     func beginningOfWORDBackward(startingAt location: Int, in text: String) -> Int
-    func beginningOfWordForward(startingAt location: Int, in text: String) -> Int
+    func beginningOfWordForward(startingAt location: Int, in text: TextEngineText) -> Int
     func beginningOfWORDForward(startingAt location: Int, in text: String) -> Int
     func endOfParagraphForward(startingAt location: Int, in text: String) -> Int
     func endOfWordBackward(startingAt location: Int, in text: String) -> Int
@@ -21,6 +21,38 @@ protocol TextEngineProtocol {
     func nextUnmatched(_ bracket: Character, after location: Int, in text: String) -> Int
     func previousLine(before location: Int, in text: String) -> String?
     func previousUnmatched(_ bracket: Character, before location: Int, in text: String) -> Int
+
+}
+
+
+struct TextEngineText {
+
+    let value: String
+
+    var isEmpty: Bool {
+        return value.isEmpty
+    }
+
+    var isNotEmpty: Bool {
+        return !isEmpty
+    }
+
+    var isOnlyALinefeedCharacter: Bool {
+        return value == "\n"
+    }
+
+    var endLimit: Int {
+        guard isNotEmpty else { return 0 }
+        guard !isOnlyALinefeedCharacter else { return 0 }
+        guard value.hasSuffix("\n") else { return value.distance(from: value.startIndex, to: value.index(before: value.endIndex)) }
+
+        return value.distance(from: value.startIndex, to: value.endIndex)
+    }
+
+
+    init(from text: String) {
+        value = text
+    }
 
 }
 
@@ -126,50 +158,6 @@ extension TextEngine {
             
             return text.distance(from: startIndex, to: index)
         }        
-        
-        return location
-    }
-    
-    func beginningOfWordForward(startingAt location: Int, in text: String) -> Int {
-        let anchorIndex = text.index(text.startIndex, offsetBy: location)
-        let endIndex = text.endIndex
-        
-        for index in text[anchorIndex..<endIndex].indices {
-            guard index != text.index(before: endIndex) else { return text.count - 1 }
-            let nextIndex = text.index(after: index)
-
-            if text[index].isCharacterThatConstitutesAVimWord {
-                if text[nextIndex].isCharacterThatConstitutesAVimWord || text[nextIndex].isWhitespace {
-                    continue
-                }
-            }
-            
-            if text[index].isPunctuationButNotUnderscore {
-                if text[nextIndex].isPunctuationButNotUnderscore || text[nextIndex].isSymbol || text[nextIndex].isWhitespace {
-                    continue
-                }
-            }
-            
-            if text[index].isSymbol {
-                if text[nextIndex].isSymbol || text[nextIndex].isWhitespace {
-                    continue
-                }
-            }
-            
-            if text[index].isWhitespaceButNotNewline {
-                if text[nextIndex].isWhitespace {
-                    continue
-                }
-            }
-            
-            if text[index].isNewline {
-                if text[nextIndex].isWhitespaceButNotNewline {
-                    continue
-                }
-            }
-            
-            return text.distance(from: text.startIndex, to: nextIndex)
-        }
         
         return location
     }

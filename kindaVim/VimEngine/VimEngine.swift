@@ -334,8 +334,9 @@ extension VimEngine {
             post(keyboardStrategy.controlU())
         case .w:
             if var element = accessibilityStrategy.w(on: focusedElement()) {
-                element.selectedLength = 1
-                _ = push(element: element)
+                // move can go to the last empty line, but in that case we can't select the character as there is none
+                element.selectedLength = (element.caretLocation == element.value.count) ? 0 : 1
+                push(element: element)
             } else {
                 post(keyboardStrategy.w())
             }
