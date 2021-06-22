@@ -37,7 +37,7 @@ class TextEngineMock: TextEngineProtocol {
         return location
     }
     
-    func endOfParagraphForward(startingAt location: Int, in text: String) -> Int {
+    func endOfParagraphForward(startingAt location: Int, in text: TextEngineText) -> Int {
         functionCalled = #function
         
         return location

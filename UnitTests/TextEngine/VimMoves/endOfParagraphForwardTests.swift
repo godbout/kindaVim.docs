@@ -5,6 +5,48 @@ import XCTest
 class endOfParagraphForwardTests: TextEngineBaseTests {}
 
 
+// the 3 special cases:
+// - empty TextElement
+// - caret at the end of TextElement but not on empty line
+// - caret at the end of TextElement on own empty line
+extension endOfParagraphForwardTests {
+    
+    func test_that_if_the_text_is_empty_then_it_returns_0() {
+        let text = ""
+        
+        let newCaretPosition = textEngine.endOfParagraphForward(startingAt: 0, in: TextEngineText(from: text))
+        
+        XCTAssertEqual(newCaretPosition, 0)
+    }
+    
+    func test_that_if_the_caret_is_after_the_last_character_on_a_non_empty_line_then_it_goes_before_the_last_character() {
+        let text = """
+a couple of
+lines but not
+coke haha
+"""
+        
+        let newCaretPosition = textEngine.endOfParagraphForward(startingAt: 35, in: TextEngineText(from: text))
+        
+        XCTAssertEqual(newCaretPosition, 34)
+    }
+    
+    func test_that_if_the_caret_is_after_the_last_character_on_an_empty_line_then_it_does_not_move() {
+        let text = """
+a couple of
+lines but not
+coke haha but
+with linefeed
+
+"""
+        
+        let newCaretPosition = textEngine.endOfParagraphForward(startingAt: 54, in: TextEngineText(from: text))
+        
+        XCTAssertEqual(newCaretPosition, 54)
+    }
+    
+}
+
 
 // Both
 extension endOfParagraphForwardTests {
@@ -12,7 +54,7 @@ extension endOfParagraphForwardTests {
     func test_that_it_returns_0_if_the_text_is_empty() {
         let text = ""
         
-        let newCaretPosition = textEngine.endOfParagraphForward(startingAt: 0, in: text)
+        let newCaretPosition = textEngine.endOfParagraphForward(startingAt: 0, in: TextEngineText(from: text))
         
         XCTAssertEqual(newCaretPosition, 0)
     }
@@ -20,7 +62,7 @@ extension endOfParagraphForwardTests {
     func test_that_if_the_text_does_not_have_linefeed_then_it_stops_before_the_last_character() {
         let text = "like a TextField really"
         
-        let newCaretPosition = textEngine.endOfParagraphForward(startingAt: 2, in: text)
+        let newCaretPosition = textEngine.endOfParagraphForward(startingAt: 2, in: TextEngineText(from: text))
         
         XCTAssertEqual(newCaretPosition, 22)
     }
@@ -38,7 +80,7 @@ that is beautiful
 and some more blah blah
 """
         
-        let newCaretPosition = textEngine.endOfParagraphForward(startingAt: 6, in: text)
+        let newCaretPosition = textEngine.endOfParagraphForward(startingAt: 6, in: TextEngineText(from: text))
         
         XCTAssertEqual(newCaretPosition, 30)
     }
@@ -52,22 +94,9 @@ hello
 some more
 """
         
-        let newCaretPosition = textEngine.endOfParagraphForward(startingAt: 6, in: text)
+        let newCaretPosition = textEngine.endOfParagraphForward(startingAt: 6, in: TextEngineText(from: text))
         
         XCTAssertEqual(newCaretPosition, 17)
-    }
-    
-    func test_that_if_it_does_not_find_an_empty_line_it_stops_before_the_last_character() {
-        let text = """
-this
-text
-does not have
-an empty line!
-"""
-        
-        let newCaretPosition = textEngine.endOfParagraphForward(startingAt: 3, in: text)
-        
-        XCTAssertEqual(newCaretPosition, 37)
     }
     
 }

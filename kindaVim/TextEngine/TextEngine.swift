@@ -5,7 +5,7 @@ protocol TextEngineProtocol {
     func beginningOfWORDBackward(startingAt location: Int, in text: TextEngineText) -> Int
     func beginningOfWordForward(startingAt location: Int, in text: TextEngineText) -> Int
     func beginningOfWORDForward(startingAt location: Int, in text: TextEngineText) -> Int
-    func endOfParagraphForward(startingAt location: Int, in text: String) -> Int
+    func endOfParagraphForward(startingAt location: Int, in text: TextEngineText) -> Int
     func endOfWordBackward(startingAt location: Int, in text: TextEngineText) -> Int
     func endOfWORDBackward(startingAt location: Int, in text: String) -> Int
     func endOfWordForward(startingAt location: Int, in text: TextEngineText) -> Int
@@ -88,22 +88,6 @@ extension TextEngine {
         }
         
         return 0
-    }
-    
-    func endOfParagraphForward(startingAt location: Int, in text: String) -> Int {
-        guard !text.isEmpty else { return 0 }
-        
-        var searchStartIndex = text.index(text.startIndex, offsetBy: location)
-        
-        while searchStartIndex != text.endIndex, text[searchStartIndex].isNewline {
-            searchStartIndex = text.index(after: searchStartIndex)
-        }        
-        
-        if let nextEmptyLineRange = text.range(of: "\n\n", options: [], range: searchStartIndex..<text.endIndex) {
-            return text.distance(from: text.startIndex, to: nextEmptyLineRange.lowerBound) + 1
-        }
-        
-        return text.count - 1
     }
     
     func endOfWORDBackward(startingAt location: Int, in text: String) -> Int {
