@@ -25,21 +25,35 @@ protocol TextEngineProtocol {
 }
 
 
-struct TextEngineText {
+protocol TextEngineTextObjectProtocol {
+    
+    var value: String { get }        
+    var isEmpty: Bool { get }    
+    var isNotEmpty: Bool { get }    
+    var isOnlyALinefeedCharacter: Bool { get }        
+    
+}
 
-    let value: String
+extension TextEngineTextObjectProtocol {
 
     var isEmpty: Bool {
         return value.isEmpty
     }
-
+    
     var isNotEmpty: Bool {
         return !isEmpty
     }
-
+    
     var isOnlyALinefeedCharacter: Bool {
         return value == "\n"
     }
+    
+}
+
+
+struct TextEngineText: TextEngineTextObjectProtocol {
+
+    let value: String
 
     var endLimit: Int {
         guard isNotEmpty else { return 0 }
@@ -48,8 +62,8 @@ struct TextEngineText {
 
         return value.distance(from: value.startIndex, to: value.endIndex)
     }
-
-
+    
+    
     init(from text: String) {
         value = text
     }
@@ -57,23 +71,11 @@ struct TextEngineText {
 }
 
 
-struct TextEngineLine {
+struct TextEngineLine: TextEngineTextObjectProtocol {
     
-    var start: Int
-    var end: Int
     var value: String
-    
-    var isEmpty: Bool {
-        return value.isEmpty
-    }
-    
-    var isNotEmpty: Bool {
-        return !isEmpty
-    }
-    
-    var isOnlyALinefeedCharacter: Bool {
-        return value == "\n"
-    }
+    let start: Int
+    let end: Int
     
     var endLimit: Int {
         guard isNotEmpty else { return 0 }
@@ -81,6 +83,31 @@ struct TextEngineLine {
         guard value.hasSuffix("\n") else { return value.distance(from: value.startIndex, to: value.index(before: value.endIndex)) }
             
         return value.distance(from: value.startIndex, to: value.index(value.endIndex, offsetBy: -2))                    
+    }
+    
+    mutating func removeTrailingLinefeedIfAny() {
+        if value.hasSuffix("\n") {
+            value.removeLast()
+        }    
+    }
+    
+    mutating func addTrailingLinefeedIfNone() {
+        if !value.hasSuffix("\n") {
+            value.append("\n")
+        }
+    }
+    
+    
+    init(from text: String) {
+        start = 0
+        end = text.count
+        value = text
+    }
+    
+    init(start: Int, end: Int, value: String) {
+        self.start = start
+        self.end = end
+        self.value = value
     }
     
 }

@@ -30,10 +30,10 @@ extension AccessibilityStrategy {
         }
         
                 
-        var textToPaste = NSPasteboard.general.string(forType: .string) ?? ""
+        var textToPaste = TextEngineLine(from: NSPasteboard.general.string(forType: .string) ?? "")
         textToPaste.removeTrailingLinefeedIfAny()
         element.caretLocation += 1        
-        element.selectedText = textToPaste
+        element.selectedText = textToPaste.value
                     
         return element
     }
@@ -85,14 +85,14 @@ extension AccessibilityStrategy {
         var element = element
         
         if element.isEmpty {        
-            var textToPaste = "\n" + (NSPasteboard.general.string(forType: .string) ?? "")
+            var textToPaste = TextEngineLine(from: "\n" + (NSPasteboard.general.string(forType: .string) ?? ""))
             textToPaste.removeTrailingLinefeedIfAny()
             
-            element.selectedText = textToPaste 
+            element.selectedText = textToPaste.value 
             
             _ = AccessibilityTextElementAdaptor.toAXfocusedElement(from: element)
             
-            element.caretLocation += 1 + textEngine.firstNonBlank(in: textToPaste)
+            element.caretLocation += 1 + textEngine.firstNonBlank(in: textToPaste.value)
             element.selectedText = nil
             
             return element
@@ -103,37 +103,37 @@ extension AccessibilityStrategy {
         }
         
         if element.caretIsAtTheEnd, element.lastCharacterIsLinefeed {
-            var textToPaste = "\n" + (NSPasteboard.general.string(forType: .string) ?? "")
+            var textToPaste = TextEngineLine(from: "\n" + (NSPasteboard.general.string(forType: .string) ?? ""))
             textToPaste.removeTrailingLinefeedIfAny()
             
-            element.selectedText = textToPaste
+            element.selectedText = textToPaste.value
             
             _ = AccessibilityTextElementAdaptor.toAXfocusedElement(from: element)
             
-            element.caretLocation += 1 + textEngine.firstNonBlank(in: textToPaste)
+            element.caretLocation += 1 + textEngine.firstNonBlank(in: textToPaste.value)
             element.selectedText = nil
             
             return element
         }
         
         
-        var textToPaste: String
+        var textToPaste: TextEngineLine
            
         if element.currentLine.isTheLastLine {
-            textToPaste = "\n" + (NSPasteboard.general.string(forType: .string) ?? "")
+            textToPaste = TextEngineLine(from: "\n" + (NSPasteboard.general.string(forType: .string) ?? ""))
             textToPaste.removeTrailingLinefeedIfAny()
         } else {
-            textToPaste = NSPasteboard.general.string(forType: .string) ?? ""
+            textToPaste = TextEngineLine(from: NSPasteboard.general.string(forType: .string) ?? "")
             textToPaste.addTrailingLinefeedIfNone()            
         }
         
         element.caretLocation = element.currentLine.end!
         element.selectedLength = 0
-        element.selectedText = textToPaste
+        element.selectedText = textToPaste.value
         
         _ = AccessibilityTextElementAdaptor.toAXfocusedElement(from: element)
         
-        element.caretLocation += 1 + textEngine.firstNonBlank(in: textToPaste)
+        element.caretLocation += 1 + textEngine.firstNonBlank(in: textToPaste.value)
         element.selectedText = nil
         
         return element    
