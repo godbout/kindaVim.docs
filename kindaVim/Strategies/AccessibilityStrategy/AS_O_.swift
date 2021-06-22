@@ -7,7 +7,7 @@ extension AccessibilityStrategy {
         if element.currentLine.isTheFirstLine {
             let lineText = element.currentLine.value
             let firstNonBlankOfCurrentLineLocation = textEngine.firstNonBlank(in: lineText)
-            let firstNonBlankOfCurrentLineText = lineText[lineText.startIndex..<lineText.index(lineText.startIndex, offsetBy: firstNonBlankOfCurrentLineLocation)]
+            let firstNonBlankOfCurrentLineText = lineText[..<lineText.index(lineText.startIndex, offsetBy: firstNonBlankOfCurrentLineLocation)]
             
             element.caretLocation = 0
             element.selectedLength = 0
@@ -36,7 +36,7 @@ extension AccessibilityStrategy {
         let lineText = element.currentLine.value
         let lineStart = element.currentLine.start!
         let firstNonBlankOfCurrentLineLocation = textEngine.firstNonBlank(in: lineText)
-        let firstNonBlankOfCurrentLineText = lineText[lineText.startIndex..<lineText.index(lineText.startIndex, offsetBy: firstNonBlankOfCurrentLineLocation)]
+        let firstNonBlankOfCurrentLineText = lineText[..<lineText.index(lineText.startIndex, offsetBy: firstNonBlankOfCurrentLineLocation)]
         
         element.caretLocation = lineStart - previousLine.count
         element.selectedLength = previousLine.count - 1

@@ -6,7 +6,7 @@ extension AccessibilityStrategy {
         
         if let nextLine = textEngine.nextLine(after: element.caretLocation, in: element.value) {
             let firstNonBlankOfNextLineLocation = textEngine.firstNonBlank(in: nextLine)
-            let firstNonBlankOfNextLineText = nextLine[nextLine.startIndex..<nextLine.index(nextLine.startIndex, offsetBy: firstNonBlankOfNextLineLocation)]
+            let firstNonBlankOfNextLineText = nextLine[..<nextLine.index(nextLine.startIndex, offsetBy: firstNonBlankOfNextLineLocation)]
             
             element.caretLocation = lineStart
             element.selectedLength = element.currentLine.length! + firstNonBlankOfNextLineText.count

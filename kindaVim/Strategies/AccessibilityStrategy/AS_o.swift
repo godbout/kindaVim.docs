@@ -15,7 +15,7 @@ extension AccessibilityStrategy {
             let textFromCaretToLimitForCopyingText = lineText[lineCaretLocationIndex..<limitForCopyingTextIndex]
             
             let firstNonBlankOfCurrentLineLocation = textEngine.firstNonBlank(in: lineText)
-            let firstNonBlankOfCurrentLineText = lineText[lineText.startIndex..<lineText.index(lineText.startIndex, offsetBy: firstNonBlankOfCurrentLineLocation)]      
+            let firstNonBlankOfCurrentLineText = lineText[..<lineText.index(lineText.startIndex, offsetBy: firstNonBlankOfCurrentLineLocation)]      
             
             element.selectedLength = textFromCaretToLimitForCopyingText.count
             element.selectedText = String(textFromCaretToLimitForCopyingText + "\n" + firstNonBlankOfCurrentLineText)                            
