@@ -342,8 +342,8 @@ extension VimEngine {
             }
         case .W:
             if var element = accessibilityStrategy.W(on: focusedElement()) {
-                element.selectedLength = 1
-                _ = push(element: element)
+                element.selectedLength = (element.caretLocation == element.value.count) ? 0 : 1
+                push(element: element)
             } else {
                 post(keyboardStrategy.w())
             }            

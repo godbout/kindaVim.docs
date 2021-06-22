@@ -4,7 +4,7 @@ protocol TextEngineProtocol {
     func beginningOfWordBackward(startingAt location: Int, in text: String) -> Int
     func beginningOfWORDBackward(startingAt location: Int, in text: String) -> Int
     func beginningOfWordForward(startingAt location: Int, in text: TextEngineText) -> Int
-    func beginningOfWORDForward(startingAt location: Int, in text: String) -> Int
+    func beginningOfWORDForward(startingAt location: Int, in text: TextEngineText) -> Int
     func endOfParagraphForward(startingAt location: Int, in text: String) -> Int
     func endOfWordBackward(startingAt location: Int, in text: String) -> Int
     func endOfWORDBackward(startingAt location: Int, in text: String) -> Int
@@ -158,38 +158,6 @@ extension TextEngine {
             
             return text.distance(from: startIndex, to: index)
         }        
-        
-        return location
-    }
-    
-    func beginningOfWORDForward(startingAt location: Int, in text: String) -> Int {
-        let anchorIndex = text.index(text.startIndex, offsetBy: location)
-        let endIndex = text.endIndex
-        
-        for index in text[anchorIndex..<endIndex].indices {
-            guard index != text.index(before: endIndex) else { return text.count - 1 }
-            let nextIndex = text.index(after: index)
-
-            if text[index].isCharacterThatConstitutesAVimWORD {
-                if text[nextIndex].isCharacterThatConstitutesAVimWORD || text[nextIndex].isWhitespace {
-                    continue
-                }
-            }
-            
-            if text[index].isWhitespaceButNotNewline {
-                if text[nextIndex].isWhitespace {
-                    continue
-                }
-            }
-            
-            if text[index].isNewline {
-                if text[nextIndex].isWhitespaceButNotNewline {
-                    continue
-                }
-            }
-            
-            return text.distance(from: text.startIndex, to: nextIndex)
-        }
         
         return location
     }
