@@ -49,7 +49,7 @@ class TextEngineMock: TextEngineProtocol {
         return location
     }
     
-    func endOfWORDBackward(startingAt location: Int, in text: String) -> Int {
+    func endOfWORDBackward(startingAt location: Int, in text: TextEngineText) -> Int {
         functionCalled = #function
         
         return location
