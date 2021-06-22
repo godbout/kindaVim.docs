@@ -9,7 +9,7 @@ protocol TextEngineProtocol {
     func endOfWordBackward(startingAt location: Int, in text: TextEngineText) -> Int
     func endOfWORDBackward(startingAt location: Int, in text: String) -> Int
     func endOfWordForward(startingAt location: Int, in text: TextEngineText) -> Int
-    func endOfWORDForward(startingAt location: Int, in text: String) -> Int
+    func endOfWORDForward(startingAt location: Int, in text: TextEngineText) -> Int
     func findNext(_ character: Character, after location: Int, in text: String) -> Int?
     func findPrevious(_ character: Character, before location: Int, in text: String) -> Int?
     func firstNonBlank(in text: String) -> Int
@@ -90,10 +90,6 @@ extension TextEngine {
         return 0
     }
     
-    
-    
-    
-    
     func endOfParagraphForward(startingAt location: Int, in text: String) -> Int {
         guard !text.isEmpty else { return 0 }
         
@@ -109,8 +105,6 @@ extension TextEngine {
         
         return text.count - 1
     }
-    
-    
     
     func endOfWORDBackward(startingAt location: Int, in text: String) -> Int {
         let anchorIndex = text.index(text.startIndex, offsetBy: location)
@@ -146,39 +140,7 @@ extension TextEngine {
         
         return location
     }
-    
-    
-    
-    func endOfWORDForward(startingAt location: Int, in text: String) -> Int {
-        guard let anchorIndex = text.index(text.startIndex, offsetBy: location + 1, limitedBy: text.endIndex) else { return text.count - 1 }
-        let endIndex = text.endIndex
         
-        for index in text[anchorIndex..<endIndex].indices {
-            guard index != text.index(before: endIndex) else { return text.count - 1 }
-            let nextIndex = text.index(after: index)
-            
-            if text[index].isCharacterThatConstitutesAVimWORD {
-                if text[nextIndex].isCharacterThatConstitutesAVimWORD {
-                    continue
-                }
-            }
-            
-            if text[index].isWhitespaceButNotNewline {
-                if text[nextIndex].isWhitespace || text[nextIndex].isCharacterThatConstitutesAVimWord || text[nextIndex].isPunctuationButNotUnderscore || text[nextIndex].isSymbol {
-                    continue
-                }
-            }
-            
-            if text[index].isNewline {
-                continue
-            }
-            
-            return text.distance(from: text.startIndex, to: index)
-        }
-        
-        return location
-    }
-    
     func firstNonBlank(in text: String) -> Int {
         guard let characterIndex = text.firstIndex(where: { !$0.isWhitespaceButNotNewline }) else { return text.count }
         

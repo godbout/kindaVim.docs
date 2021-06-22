@@ -306,6 +306,7 @@
 		91C47DA226668435008E55AA /* findLastTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C47DA126668435008E55AA /* findLastTests.swift */; };
 		91C486052641C0D30003D9D7 /* KeyboardStrategyMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C486042641C0D30003D9D7 /* KeyboardStrategyMock.swift */; };
 		91CA37DC265E8F47004869EA /* UsingAS_j_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CA37DB265E8F47004869EA /* UsingAS_j_Tests.swift */; };
+		91CB8A922681DB2200F53B4E /* endOfWORDForward_.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CB8A912681DB2200F53B4E /* endOfWORDForward_.swift */; };
 		91CBBB962669FA450006BCA8 /* AS_dd_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CBBB952669FA450006BCA8 /* AS_dd_Tests.swift */; };
 		91CC3382267C8A6F00E3145C /* UsingAS_P__.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CC3381267C8A6F00E3145C /* UsingAS_P__.swift */; };
 		91CC3388267C8B0000E3145C /* AS_P_.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CC3387267C8B0000E3145C /* AS_P_.swift */; };
@@ -725,6 +726,7 @@
 		91CA37D6265E8B44004869EA /* from_TV_currentLineNumberTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = from_TV_currentLineNumberTests.swift; sourceTree = "<group>"; };
 		91CA37DB265E8F47004869EA /* UsingAS_j_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsingAS_j_Tests.swift; sourceTree = "<group>"; };
 		91CA37E0265E9288004869EA /* UIAS_j_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAS_j_Tests.swift; sourceTree = "<group>"; };
+		91CB8A912681DB2200F53B4E /* endOfWORDForward_.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = endOfWORDForward_.swift; sourceTree = "<group>"; };
 		91CBBB952669FA450006BCA8 /* AS_dd_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AS_dd_Tests.swift; sourceTree = "<group>"; };
 		91CC3381267C8A6F00E3145C /* UsingAS_P__.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsingAS_P__.swift; sourceTree = "<group>"; };
 		91CC3387267C8B0000E3145C /* AS_P_.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AS_P_.swift; sourceTree = "<group>"; };
@@ -1160,6 +1162,7 @@
 			isa = PBXGroup;
 			children = (
 				918F4DEE265C070D0006CC2E /* TextEngine.swift */,
+				91CB8A912681DB2200F53B4E /* endOfWORDForward_.swift */,
 				91B100D82681D96100AFBE26 /* endOfWordForward.swift */,
 				91B100D22681D31B00AFBE26 /* endOfWordBackward.swift */,
 				915F17962681D1AB005CDA50 /* beginningOfWORDBackward_.swift */,
@@ -1718,6 +1721,7 @@
 				9195C6C42681CE4800CC4EAF /* beginningOfWORDForward_.swift in Sources */,
 				91AB98982674D5CF007682CA /* AS_F_.swift in Sources */,
 				91F9A625267A5C1000A4F807 /* AS_C_.swift in Sources */,
+				91CB8A922681DB2200F53B4E /* endOfWORDForward_.swift in Sources */,
 				91B9CBBE267681D30040C49B /* AS_B_.swift in Sources */,
 				91AB98E42674D6ED007682CA /* AS_T_.swift in Sources */,
 				911F64F0267F4A460033B4D4 /* AS_dF__.swift in Sources */,
