@@ -2,12 +2,10 @@
 import XCTest
 
 
-// yy doesn't touch the caret position or anything else, it just copies
-// the line into the NSPasteBoard, so i guess we need to check this here
-class AS_yy_Tests: AS_BaseTests {
+class AS_percent_Tests: AS_BaseTests {
     
     private func applyMove(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
-        return accessibilityStrategy.yy(on: element) 
+        return accessibilityStrategy.percent(on: element) 
     }
     
 }
@@ -17,9 +15,7 @@ class AS_yy_Tests: AS_BaseTests {
 // - empty TextElement
 // - caret at the end of TextElement but not on empty line
 // - caret at the end of TextElement on own empty line
-//
-// for yy, we check that in those 3 cases the Pasteboard hasn't been touched
-extension AS_yy_Tests {
+extension AS_percent_Tests {
     
     func test_that_if_the_TextElement_is_empty_it_does_nothing_and_does_not_crash() {
         let text = ""
@@ -35,12 +31,9 @@ extension AS_yy_Tests {
             )
         )
         
-        NSPasteboard.general.clearContents()
-        NSPasteboard.general.setString("test 1 of The 3 Cases", forType: .string)
+        let returnedElement = applyMove(on: element)
         
-        _ = applyMove(on: element)
-        
-        XCTAssertEqual(NSPasteboard.general.string(forType: .string), "test 1 of The 3 Cases")
+        XCTAssertEqual(returnedElement?.caretLocation, 0)
     }
     
     func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_but_not_on_an_empty_line_it_does_nothing_and_does_not_crash() {
@@ -60,15 +53,12 @@ gonna be at the end
             )
         )
         
-        NSPasteboard.general.clearContents()
-        NSPasteboard.general.setString("test 2 of The 3 Cases", forType: .string)
+        let returnedElement = applyMove(on: element)
         
-        _ = applyMove(on: element)
-        
-        XCTAssertEqual(NSPasteboard.general.string(forType: .string), "test 2 of The 3 Cases")
+        XCTAssertEqual(returnedElement?.caretLocation, 28)        
     }
     
-    func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_and_on_an_empty_line_on_its_own_it_does_nothing_and_does_not_crash() {
+    func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_and_on_an_empty_line_it_does_nothing_and_does_not_crash() {
         let text = """
 caret is on its
 own empty
@@ -87,84 +77,104 @@ line
             )
         )
         
-        NSPasteboard.general.clearContents()
-        NSPasteboard.general.setString("test 3 of The 3 Cases", forType: .string)
+        let returnedElement = applyMove(on: element)
         
-        _ = applyMove(on: element)
-        
-        XCTAssertEqual(NSPasteboard.general.string(forType: .string), "test 3 of The 3 Cases")
+        XCTAssertEqual(returnedElement?.caretLocation, 31)
     }    
     
 }
 
 
 // Both
-extension AS_yy_Tests {
+extension AS_percent_Tests {
     
-    func test_that_in_normal_setting_it_copies_the_line_into_the_buffer() {
-        let text = "is that gonna be copied?"
+    func test_that_the_caret_does_not_move_if_it_cannot_find_an_item_to_pair() {
+        let text = "no item to pair on this line"
         let element = AccessibilityTextElement(
-            role: .textField,
+            role: .textArea,
             value: text,
-            caretLocation: 12,
+            caretLocation: 4,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 0,
                 start: 0,
-                end: 24
+                end: 28
             )
         )
         
-        _ = applyMove(on: element)
+        let returnedElement = applyMove(on: element)
         
-        XCTAssertEqual(NSPasteboard.general.string(forType: .string), text)
-    }
+        XCTAssertEqual(returnedElement?.caretLocation, 4)
+    }    
     
-    func test_that_it_includes_the_end_of_the_line_linefeed() {
-        let text = 
-"""
-multiple lines
-my friend
+    func test_that_it_finds_the_next_item_to_match_and_goes_to_the_pairing_item_on_a_same_line() {
+        let text = """
+a line without shit to pair
+and a ( nice pair line ) :))
 """
         let element = AccessibilityTextElement(
             role: .textArea,
             value: text,
-            caretLocation: 3,
-            currentLine: AccessibilityTextElementLine(
-                fullValue: text,
-                number: 0,
-                start: 0,
-                end: 15
-            )
-        )
-        
-        _ = applyMove(on: element)
-        
-        XCTAssertEqual(NSPasteboard.general.string(forType: .string), "multiple lines\n")
-    }
-    
-    func test_that_it_does_not_include_the_linefeed_of_the_previous_line() {
-        let text = 
-            """
-multiple lines
-again
-my friend
-"""
-        let element = AccessibilityTextElement(
-            role: .textArea,
-            value: text,
-            caretLocation: 17,
+            caretLocation: 30,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 1,
-                start: 15,
-                end: 21
+                start: 28,
+                end: 56
             )
         )
         
-        _ = applyMove(on: element)
+        let returnedElement = applyMove(on: element)
         
-        XCTAssertEqual(NSPasteboard.general.string(forType: .string), "again\n")
+        XCTAssertEqual(returnedElement?.caretLocation, 51)
+    }
+    
+    func test_that_if_the_pair_cannot_be_matched_then_it_does_not_move() {
+        let text = "the last { will not match } because there's { no closing"
+        let element = AccessibilityTextElement(
+            role: .textField,
+            value: text,
+            caretLocation: 34,
+            currentLine: AccessibilityTextElementLine(
+                fullValue: text,
+                number: 0,
+                start: 0,
+                end: 56
+            )
+        )
+        
+        let returnedElement = applyMove(on: element)
+        
+        XCTAssertEqual(returnedElement?.caretLocation, 34)
+    }
+    
+}
+
+
+// TextViews
+extension AS_percent_Tests {
+    
+    func test_that_it_finds_the_next_item_to_match_and_goes_to_the_pairing_item_even_on_a_different_line() {
+        let text = """
+func someBull() {
+    let var = "huhu"
+}
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            caretLocation: 39,
+            currentLine: AccessibilityTextElementLine(
+                fullValue: text,
+                number: 2,
+                start: 39,
+                end: 40
+            )
+        )
+        
+        let returnedElement = applyMove(on: element)
+        
+        XCTAssertEqual(returnedElement?.caretLocation, 16)
     }
     
 }

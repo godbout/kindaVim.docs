@@ -23,22 +23,31 @@ extension AccessibilityStrategy {
         if let itemIndex = lineText[searchStartIndex...].firstIndex(where: { ["(", ")", "{", "}", "[", "]"].contains($0) }) {
             let itemCharacter = lineText[itemIndex]
             let itemLocation = element.currentLine.start! + lineText.distance(from: lineText.startIndex, to: itemIndex)
+            var matchedLocation: Int!
             
+            // next or previous unmatched, in Vim, will return the matched item if the location is at an item
+            // which is why we're using those functions here. naughty
             switch itemCharacter {
             case "(":
-                element.caretLocation = textEngine.nextUnmatched(")", after: itemLocation, in: element.value)
+                matchedLocation = textEngine.nextUnmatched(")", after: itemLocation, in: element.value)
             case "[":
-                element.caretLocation = textEngine.nextUnmatched("]", after: itemLocation, in: element.value)
+                matchedLocation = textEngine.nextUnmatched("]", after: itemLocation, in: element.value)
             case "{":
-                element.caretLocation = textEngine.nextUnmatched("}", after: itemLocation, in: element.value)
+                matchedLocation = textEngine.nextUnmatched("}", after: itemLocation, in: element.value)
             case ")":
-                element.caretLocation = textEngine.previousUnmatched("(", before: itemLocation, in: element.value)
+                matchedLocation = textEngine.previousUnmatched("(", before: itemLocation, in: element.value)
             case "]":
-                element.caretLocation = textEngine.previousUnmatched("[", before: itemLocation, in: element.value)
+                matchedLocation = textEngine.previousUnmatched("[", before: itemLocation, in: element.value)
             case "}":
-                element.caretLocation = textEngine.previousUnmatched("{", before: itemLocation, in: element.value)
+                matchedLocation = textEngine.previousUnmatched("{", before: itemLocation, in: element.value)
             default:
                 ()
+            }
+            
+            // if we got the same location than we gave that means the function couldn't find a match
+            // only if we found a match we set the new caret location 
+            if itemLocation != matchedLocation {
+                element.caretLocation = matchedLocation
             }
         }
         

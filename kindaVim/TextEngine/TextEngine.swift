@@ -12,11 +12,11 @@ protocol TextEngineProtocol {
     func endOfWORDForward(startingAt location: Int, in text: TextEngineText) -> Int
     func findNext(_ character: Character, after location: Int, in text: String) -> Int?
     func findPrevious(_ character: Character, before location: Int, in text: String) -> Int?
+    func firstLine(in text: String) -> TextEngineLine
     func firstNonBlank(in text: String) -> Int
     func innerQuotedString(using character: Character, startingAt location: Int, in text: String) -> Range<Int>?
     func innerWord(startingAt location: Int, in text: String) -> Range<Int>
     func lastLine(in text: String) -> TextEngineLine
-    func firstLine(in text: String) -> TextEngineLine
     func nextLine(after location: Int, in text: String) -> String?
     func nextUnmatched(_ bracket: Character, after location: Int, in text: String) -> Int
     func previousLine(before location: Int, in text: String) -> String?
