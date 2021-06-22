@@ -1,7 +1,7 @@
 protocol TextEngineProtocol {
     
     func beginningOfParagraphBackward(startingAt location: Int, in text: String) -> Int
-    func beginningOfWordBackward(startingAt location: Int, in text: String) -> Int
+    func beginningOfWordBackward(startingAt location: Int, in text: TextEngineText) -> Int
     func beginningOfWORDBackward(startingAt location: Int, in text: String) -> Int
     func beginningOfWordForward(startingAt location: Int, in text: TextEngineText) -> Int
     func beginningOfWORDForward(startingAt location: Int, in text: TextEngineText) -> Int
@@ -90,47 +90,7 @@ extension TextEngine {
         return 0
     }
     
-    func beginningOfWordBackward(startingAt location: Int, in text: String) -> Int {
-        let anchorIndex = text.index(text.startIndex, offsetBy: location)
-        let startIndex = text.startIndex
-        
-        for index in text[startIndex..<anchorIndex].indices.reversed() {
-            guard index != startIndex else { return 0 }
-            let previousIndex = text.index(before: index)
-            
-            if text[index].isCharacterThatConstitutesAVimWord {
-                if text[previousIndex].isCharacterThatConstitutesAVimWord {
-                    continue
-                }
-            }
-            
-            if text[index].isPunctuationButNotUnderscore {
-                if text[previousIndex].isPunctuationButNotUnderscore {
-                    continue
-                }
-            }
-            
-            if text[index].isSymbol {
-                if text[previousIndex].isSymbol || text[previousIndex].isPunctuationButNotUnderscore {
-                    continue
-                }
-            }
-            
-            if text[index].isWhitespaceButNotNewline {
-                continue
-            }
-            
-            if text[index].isNewline {
-                if !text[previousIndex].isNewline {
-                    continue
-                }
-            }
-
-            return text.distance(from: startIndex, to: index)
-        }        
-        
-        return location
-    }
+    
     
     func beginningOfWORDBackward(startingAt location: Int, in text: String) -> Int {
         let anchorIndex = text.index(text.startIndex, offsetBy: location)
@@ -368,7 +328,7 @@ extension TextEngine {
             return (previousNonBlankLocation + 1)..<nextNonBlankLocation
         }
 
-        let beginningOfWordLocation = beginningOfWordBackward(startingAt: location + 1, in: text)
+        let beginningOfWordLocation = beginningOfWordBackward(startingAt: location + 1, in: TextEngineText(from: text))
         let endOfWordLocation = endOfWordForward(startingAt: location - 1, in: text)
 
         return beginningOfWordLocation..<(endOfWordLocation + 1)

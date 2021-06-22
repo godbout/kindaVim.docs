@@ -13,7 +13,7 @@ class TextEngineMock: TextEngineProtocol {
         return location
     }
     
-    func beginningOfWordBackward(startingAt location: Int, in text: String) -> Int {
+    func beginningOfWordBackward(startingAt location: Int, in text: TextEngineText) -> Int {
         functionCalled = #function
         
         return location
