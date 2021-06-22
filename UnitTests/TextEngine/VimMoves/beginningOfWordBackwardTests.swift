@@ -31,7 +31,7 @@ coke haha
         XCTAssertEqual(newCaretPosition, 31)
     }
     
-    func test_that_if_the_caret_is_after_the_last_character_on_an_empty_line_then_it_does_not_move() {
+    func test_that_if_the_caret_is_after_the_last_character_on_an_empty_line_then_it_still_goes_to_the_beginning_of_the_last_word() {
         let text = """
 a couple of
 lines but not
