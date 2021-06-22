@@ -13,6 +13,8 @@ extension firstLineTests {
         
         let firstLine = textEngine.firstLine(in: text)
         
+        XCTAssertEqual(firstLine.start, 0)
+        XCTAssertEqual(firstLine.end, 42)
         XCTAssertEqual(firstLine.value, text)  
     }
     
@@ -21,6 +23,8 @@ extension firstLineTests {
         
         let firstLine = textEngine.firstLine(in: text)
         
+        XCTAssertEqual(firstLine.start, 0)
+        XCTAssertEqual(firstLine.end, 0)
         XCTAssertEqual(firstLine.value, "")
     }
     
@@ -38,6 +42,8 @@ again
 """
         let firstLine = textEngine.firstLine(in: text)
         
+        XCTAssertEqual(firstLine.start, 0)
+        XCTAssertEqual(firstLine.end, 10)
         XCTAssertEqual(firstLine.value, "of course\n")
     }
     
@@ -49,6 +55,8 @@ empty
 """
         let firstLine = textEngine.firstLine(in: text)
         
+        XCTAssertEqual(firstLine.start, 0)
+        XCTAssertEqual(firstLine.end, 1)
         XCTAssertEqual(firstLine.value, "\n")
     }
     
@@ -60,6 +68,8 @@ has spaces
 """
         let firstLine = textEngine.firstLine(in: text)
         
+        XCTAssertEqual(firstLine.start, 0)
+        XCTAssertEqual(firstLine.end, 8)
         XCTAssertEqual(firstLine.value, "       \n")
     }
  

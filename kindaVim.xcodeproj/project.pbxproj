@@ -343,6 +343,21 @@
 		91DC92FA26765D79004E74B6 /* AS_ct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91DC92EB26765D45004E74B6 /* AS_ct.swift */; };
 		91DC930026765F1B004E74B6 /* UIAS_ct_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91DC92FF26765F1B004E74B6 /* UIAS_ct_Tests.swift */; };
 		91DCE1B1267124BE007C7771 /* findNextNonBlankTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91DCE1B0267124BE007C7771 /* findNextNonBlankTests.swift */; };
+		91DD4D572681F0490021ABC2 /* AS_{.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914A83A52680F9C20052ADEF /* AS_{.swift */; };
+		91DD4D5C2681F05B0021ABC2 /* AS_}.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FBCE97267FA88C00305615 /* AS_}.swift */; };
+		91DD4D612681F0780021ABC2 /* AS_yt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9173D1F3267F7B4E00AC3208 /* AS_yt.swift */; };
+		91DD4D662681F07A0021ABC2 /* AS_yT_.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91EDF140267F92A400007F2C /* AS_yT_.swift */; };
+		91DD4D6B2681F07C0021ABC2 /* AS_yF_.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919D325D267F8DA7007817F2 /* AS_yF_.swift */; };
+		91DD4D802681F0960021ABC2 /* beginningOfWORDBackward_.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915F17962681D1AB005CDA50 /* beginningOfWORDBackward_.swift */; };
+		91DD4D812681F0960021ABC2 /* beginningOfWordForward.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9196860E26812DDC002BAA55 /* beginningOfWordForward.swift */; };
+		91DD4D822681F0960021ABC2 /* endOfWORDBackward_.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9162A2712681E3A300CB1AB3 /* endOfWORDBackward_.swift */; };
+		91DD4D832681F0960021ABC2 /* beginningOfWordBackward.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A155782681CFD9002D0765 /* beginningOfWordBackward.swift */; };
+		91DD4D842681F0960021ABC2 /* endOfParagraphForward.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E82F522681DCF70056C20D /* endOfParagraphForward.swift */; };
+		91DD4D852681F0960021ABC2 /* endOfWORDForward_.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CB8A912681DB2200F53B4E /* endOfWORDForward_.swift */; };
+		91DD4D862681F0960021ABC2 /* endOfWordBackward.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B100D22681D31B00AFBE26 /* endOfWordBackward.swift */; };
+		91DD4D872681F0960021ABC2 /* beginningOfParagraphBackward.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C3B2FC2681DF480053B478 /* beginningOfParagraphBackward.swift */; };
+		91DD4D882681F0960021ABC2 /* beginningOfWORDForward_.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9195C6C32681CE4800CC4EAF /* beginningOfWORDForward_.swift */; };
+		91DD4D892681F0960021ABC2 /* endOfWordForward.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B100D82681D96100AFBE26 /* endOfWordForward.swift */; };
 		91E0C150267F8B46000265EC /* UsingAS_yf_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E0C14F267F8B46000265EC /* UsingAS_yf_Tests.swift */; };
 		91E0C15E267F8BE0000265EC /* AS_yf.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E0C15D267F8BE0000265EC /* AS_yf.swift */; };
 		91E0C163267F8BF8000265EC /* AS_yf.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E0C15D267F8BE0000265EC /* AS_yf.swift */; };
@@ -2087,6 +2102,7 @@
 				91AB99122674D812007682CA /* AS_G_.swift in Sources */,
 				91A832E92678D5F4001482CD /* AS_p.swift in Sources */,
 				91E210952678E06F00EA88EB /* UIAS_p_TextViews_Tests.swift in Sources */,
+				91DD4D852681F0960021ABC2 /* endOfWORDForward_.swift in Sources */,
 				91A14810266123C200D160AD /* Display.swift in Sources */,
 				9193CC802674C6F300F30608 /* UIAS_x_Tests.swift in Sources */,
 				91CC3397267C8D3C00E3145C /* AS_P_.swift in Sources */,
@@ -2100,6 +2116,7 @@
 				91AB99112674D812007682CA /* AS_f.swift in Sources */,
 				91AB991C2674D812007682CA /* AS_j.swift in Sources */,
 				91761DE4267F3F56000ED024 /* AS_dt.swift in Sources */,
+				91DD4D892681F0960021ABC2 /* endOfWordForward.swift in Sources */,
 				917C0002267C90970041E5F3 /* UIAS_P__TextViews_Tests.swift in Sources */,
 				912DD6A5267505BB00E22EE4 /* AS_yi".swift in Sources */,
 				914B4A21267686B600E53817 /* AS_E_.swift in Sources */,
@@ -2107,15 +2124,18 @@
 				91AB990F2674D812007682CA /* AS__.swift in Sources */,
 				916E86842676806500E2A807 /* UIAS_W__Tests.swift in Sources */,
 				91AB990E2674D812007682CA /* AS_h.swift in Sources */,
+				91DD4D822681F0960021ABC2 /* endOfWORDBackward_.swift in Sources */,
 				91F9A62A267A5C3100A4F807 /* AS_C_.swift in Sources */,
 				91AB991A2674D812007682CA /* AS_A_.swift in Sources */,
 				91CC338E267C8BC600E3145C /* UIAS_P__TextFields_Tests.swift in Sources */,
 				91ACB2AE26761BF0000B3CE7 /* AS_ci`.swift in Sources */,
+				91DD4D872681F0960021ABC2 /* beginningOfParagraphBackward.swift in Sources */,
 				91AB99232674D812007682CA /* AS_I_.swift in Sources */,
 				914B4A332676882500E53817 /* UIAS_E__Tests.swift in Sources */,
 				91A147FF2661238800D160AD /* AXEngine.swift in Sources */,
 				91AB991B2674D812007682CA /* AS_gg.swift in Sources */,
 				91AB99272674D812007682CA /* AS_dd.swift in Sources */,
+				91DD4D842681F0960021ABC2 /* endOfParagraphForward.swift in Sources */,
 				9187CCEE2673E76E0031DAFA /* Character.swift in Sources */,
 				91761DDA267F3EDB000ED024 /* UIAS_cT__Tests.swift in Sources */,
 				91DC92FA26765D79004E74B6 /* AS_ct.swift in Sources */,
@@ -2123,6 +2143,7 @@
 				91AB99192674D812007682CA /* AS_F_.swift in Sources */,
 				91761DDF267F3F40000ED024 /* AS_cT_.swift in Sources */,
 				91D73C4126768B3D004EF8E9 /* AS_gE_.swift in Sources */,
+				91DD4D812681F0960021ABC2 /* beginningOfWordForward.swift in Sources */,
 				917BE842266FB6620072D0A7 /* UIAS_e_Tests.swift in Sources */,
 				91B9CBD9267685280040C49B /* UIAS_B__Tests.swift in Sources */,
 				91AB99252674D812007682CA /* AS_t.swift in Sources */,
@@ -2133,10 +2154,16 @@
 				91AB99222674D812007682CA /* AS_ciw.swift in Sources */,
 				91A147D52661224000D160AD /* UIAS_BaseTests.swift in Sources */,
 				91A1480A266123BB00D160AD /* VimEngine.swift in Sources */,
+				91DD4D572681F0490021ABC2 /* AS_{.swift in Sources */,
+				91DD4D6B2681F07C0021ABC2 /* AS_yF_.swift in Sources */,
+				91DD4D882681F0960021ABC2 /* beginningOfWORDForward_.swift in Sources */,
 				91842090267CF96A0085711E /* AS_]}.swift in Sources */,
+				91DD4D832681F0960021ABC2 /* beginningOfWordBackward.swift in Sources */,
 				9152D91D2663EA9000DF2FB7 /* UIAS_w_Tests.swift in Sources */,
 				9173F95B2674E2DD009CB9E6 /* AS_yy.swift in Sources */,
 				91FB058C267F443100581F63 /* UIAS_cf_Tests.swift in Sources */,
+				91DD4D862681F0960021ABC2 /* endOfWordBackward.swift in Sources */,
+				91DD4D5C2681F05B0021ABC2 /* AS_}.swift in Sources */,
 				91AB99142674D812007682CA /* AS_a.swift in Sources */,
 				91ACB29F267619D8000B3CE7 /* UIAS_r_Tests.swift in Sources */,
 				91AB99282674D812007682CA /* AS_w.swift in Sources */,
@@ -2144,12 +2171,14 @@
 				91DAB7A4267F49150057C567 /* UIAS_cF__Tests.swift in Sources */,
 				911F64F9267F4A830033B4D4 /* AS_dF__.swift in Sources */,
 				915477E926615DEB0084F4F9 /* TextEngine.swift in Sources */,
+				91DD4D612681F0780021ABC2 /* AS_yt.swift in Sources */,
 				91AB99162674D812007682CA /* AS_ci".swift in Sources */,
 				91E0C163267F8BF8000265EC /* AS_yf.swift in Sources */,
 				91D73C262676897D004EF8E9 /* AS_ge.swift in Sources */,
 				916E86892676809C00E2A807 /* AS_W_.swift in Sources */,
 				91F67A51267F45B1007C8517 /* AS_df.swift in Sources */,
 				91FB0580267F42DC00581F63 /* AS_cf.swift in Sources */,
+				91DD4D802681F0960021ABC2 /* beginningOfWORDBackward_.swift in Sources */,
 				91AB99242674D812007682CA /* AS_O_.swift in Sources */,
 				91AB99212674D812007682CA /* AS_o.swift in Sources */,
 				91AB991E2674D812007682CA /* AS_cc.swift in Sources */,
@@ -2159,6 +2188,7 @@
 				91AB99182674D812007682CA /* AS_l.swift in Sources */,
 				91DC930026765F1B004E74B6 /* UIAS_ct_Tests.swift in Sources */,
 				91AB99202674D812007682CA /* AS_k.swift in Sources */,
+				91DD4D662681F07A0021ABC2 /* AS_yT_.swift in Sources */,
 				91A1481C266123D100D160AD /* KeyCombinationAdaptor.swift in Sources */,
 				91AB99132674D812007682CA /* AS_i.swift in Sources */,
 				91AB99262674D812007682CA /* AS_T_.swift in Sources */,
