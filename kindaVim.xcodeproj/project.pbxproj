@@ -1168,16 +1168,16 @@
 			isa = PBXGroup;
 			children = (
 				918F4DEE265C070D0006CC2E /* TextEngine.swift */,
-				9162A2712681E3A300CB1AB3 /* endOfWORDBackward_.swift */,
 				91C3B2FC2681DF480053B478 /* beginningOfParagraphBackward.swift */,
-				91E82F522681DCF70056C20D /* endOfParagraphForward.swift */,
-				91CB8A912681DB2200F53B4E /* endOfWORDForward_.swift */,
-				91B100D82681D96100AFBE26 /* endOfWordForward.swift */,
-				91B100D22681D31B00AFBE26 /* endOfWordBackward.swift */,
-				915F17962681D1AB005CDA50 /* beginningOfWORDBackward_.swift */,
 				91A155782681CFD9002D0765 /* beginningOfWordBackward.swift */,
-				9195C6C32681CE4800CC4EAF /* beginningOfWORDForward_.swift */,
+				915F17962681D1AB005CDA50 /* beginningOfWORDBackward_.swift */,
 				9196860E26812DDC002BAA55 /* beginningOfWordForward.swift */,
+				9195C6C32681CE4800CC4EAF /* beginningOfWORDForward_.swift */,
+				91E82F522681DCF70056C20D /* endOfParagraphForward.swift */,
+				91B100D82681D96100AFBE26 /* endOfWordForward.swift */,
+				91CB8A912681DB2200F53B4E /* endOfWORDForward_.swift */,
+				91B100D22681D31B00AFBE26 /* endOfWordBackward.swift */,
+				9162A2712681E3A300CB1AB3 /* endOfWORDBackward_.swift */,
 			);
 			path = TextEngine;
 			sourceTree = "<group>";
