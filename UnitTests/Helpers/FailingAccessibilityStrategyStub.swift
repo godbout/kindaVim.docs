@@ -223,6 +223,10 @@ struct FailingAccessibilityStrategyStub: AccessibilityStrategyProtocol {
         return nil
     }
     
+    func percent(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        return nil
+    }
+    
     func rightBrace(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return nil
     }
