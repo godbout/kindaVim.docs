@@ -240,9 +240,11 @@ extension TextEngine {
         
         if let firstLeftBracketFoundIndex = text[text.index(after: text.startIndex)..<firstRightBracketFoundIndex].firstIndex(of: pairingBracket) {
             let distanceBetweenLeftAndRightBracketsFound = text.distance(from: firstLeftBracketFoundIndex, to: firstRightBracketFoundIndex)
-            let distanceFromStartToFirstLeftBracketFound = text.distance(from: text.startIndex, to: firstLeftBracketFoundIndex) 
+            let distanceFromStartToFirstLeftBracketFound = text.distance(from: text.startIndex, to: firstLeftBracketFoundIndex)
             
-            return distanceFromStartToFirstLeftBracketFound + (findNextUnmatched(bracket, after: distanceBetweenLeftAndRightBracketsFound, in: String(text[firstLeftBracketFoundIndex...])) ?? 0)
+            guard let nextRightBracketFoundLocation = findNextUnmatched(bracket, after: distanceBetweenLeftAndRightBracketsFound, in: String(text[firstLeftBracketFoundIndex...])) else { return nil } 
+            
+            return distanceFromStartToFirstLeftBracketFound + nextRightBracketFoundLocation
         }
         
         return text.distance(from: text.startIndex, to: firstRightBracketFoundIndex)               

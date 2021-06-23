@@ -27,17 +27,17 @@ extension nextUnmatchedTests {
     func test_that_it_does_not_move_if_there_is_no_right_bracket() {
         let text = "no left brace in here move along"
         
-        let location = textEngine.nextUnmatched("(", after: 19, in: text)
+        let location = textEngine.nextUnmatched(")", after: 19, in: text)
         
         XCTAssertEqual(location, 19)
     }
     
     func test_that_it_does_not_move_if_there_are_only_matched_brackets() {
-        let text = "full of ( ) matched ( braces )"
+        let text = "full of ( ) matched ( braces ) "
         
-        let location = textEngine.nextUnmatched("(", after: 30, in: text)
+        let location = textEngine.nextUnmatched(")", after: 6, in: text)
         
-        XCTAssertEqual(location, 30)
+        XCTAssertEqual(location, 6)
     }
       
     func test_that_if_the_caret_is_right_before_a_bracket_it_will_still_go_to_the_next_unmatched_one() {
