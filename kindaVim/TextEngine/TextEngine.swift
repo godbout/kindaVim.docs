@@ -201,6 +201,8 @@ extension TextEngine {
             pairingBracket = "}"
         case "(":
             pairingBracket = ")"
+        case "[":
+            pairingBracket = "]"
         default:
             return nil
         }
@@ -226,6 +228,8 @@ extension TextEngine {
             pairingBracket = "{"
         case ")":
             pairingBracket = "("
+        case "]":
+            pairingBracket = "["
         default:
             return nil
         }

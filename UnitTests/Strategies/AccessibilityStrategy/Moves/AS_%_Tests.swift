@@ -148,6 +148,25 @@ and a ( nice pair line ) :))
         XCTAssertEqual(returnedElement?.caretLocation, 34)
     }
     
+    func test_that_it_always_works_with_brackets() {
+        let text = "because by default the [ unmatched functions ] don't ] handle brackets"
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            caretLocation: 14,
+            currentLine: AccessibilityTextElementLine(
+                fullValue: text,
+                number: 0,
+                start: 0,
+                end: 55
+            )
+        )
+        
+        let returnedElement = applyMove(on: element)
+        
+        XCTAssertEqual(returnedElement?.caretLocation, 45)
+    }
+    
 }
 
 
