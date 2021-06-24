@@ -7,6 +7,12 @@ class AccessibilityStrategyVisualModeMock: AccessibilityStrategyVisualModeProtoc
     var functionCalled = ""
     
     
+    func h(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        functionCalled = #function
+        
+        return nil
+    }    
+    
     func l(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         
