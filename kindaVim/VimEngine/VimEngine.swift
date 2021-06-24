@@ -11,7 +11,7 @@ enum VimEngineMode {
 }
 
 
-enum VimEngineYankStyle {
+enum VimEngineMoveStyle {
     
     case characterwise
     case linewise
@@ -26,7 +26,8 @@ class VimEngine {
     private(set) var currentMode: VimEngineMode = .insert
     private(set) var operatorPendingBuffer = [KeyCombination]()
     
-    var lastYankStyle: VimEngineYankStyle = .characterwise
+    var lastYankStyle: VimEngineMoveStyle = .characterwise
+    var visualStyle: VimEngineMoveStyle = .characterwise
     var keyboardStrategy: KeyboardStrategyProtocol = KeyboardStrategy()
     var accessibilityStrategy: AccessibilityStrategyProtocol = AccessibilityStrategy()
 
@@ -337,6 +338,9 @@ extension VimEngine {
             post(keyboardStrategy.u())
         case .controlU:
             post(keyboardStrategy.controlU())
+        case .v:
+            enterVisualMode()
+            visualStyle = .characterwise
         case .w:
             if var element = accessibilityStrategy.w(on: focusedElement()) {
                 // move can go to the last empty line, but in that case we can't select the character as there is none
@@ -741,6 +745,13 @@ extension VimEngine {
 // visual mode
 extension VimEngine {
     
-    func handleVisualMode(with keyCombination: KeyCombination) {}
+    func handleVisualMode(with keyCombination: KeyCombination) {
+        switch keyCombination.vimKey {
+        case .v:
+            enterNormalMode()
+        default:
+            ()
+        }
+    }
     
 }
