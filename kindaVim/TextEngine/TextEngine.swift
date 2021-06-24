@@ -130,6 +130,19 @@ extension TextEngine {
     }
     
     func innerQuotedString(using quote: Character, startingAt location: Int, in text: String) -> Range<Int>? {
+        if text[text.index(text.startIndex, offsetBy: location)] == quote {
+            let searchEndIndex = text.index(text.startIndex, offsetBy: location)
+            let numberOfQuotesBeforeCurrentQuote = text[..<searchEndIndex].filter { $0 == quote }.count
+            
+            if numberOfQuotesBeforeCurrentQuote % 2 == 0 {
+                if let nextQuoteLocation = findNext(quote, after: location, in: text) {
+                    return (location + 1)..<nextQuoteLocation
+                }
+                
+                return nil
+            }
+        }
+                
         if let previousQuoteLocation = findPrevious(quote, before: location, in: text) {
             if let nextQuoteLocation = findNext(quote, after: location - 1, in: text) {
                 return (previousQuoteLocation + 1)..<nextQuoteLocation

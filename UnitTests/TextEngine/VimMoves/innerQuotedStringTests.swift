@@ -60,8 +60,24 @@ extension innerQuotedString {
     }
     
     func test_that_if_the_caret_is_on_a_quote_then_it_calculates_the_matching_pairs_and_finds_the_correct_text() throws {
-        throw XCTSkip("currently not handled. gonna wait a bit before making the brain bleed.")
-    }    
+        let text = """
+several "pairs" here and kindaVim should "know" which one to delete
+"""
+        
+        guard let quotedStringRange = textEngine.innerQuotedString(using: "\"", startingAt: 41, in: text) else { return XCTFail() }
+        
+        XCTAssertEqual(quotedStringRange.lowerBound, 42)
+        XCTAssertEqual(quotedStringRange.upperBound, 46) 
+    }
+    
+    func test_some_more_that_if_the_caret_is_on_a_quote_then_it_calculates_the_matching_pairs_and_finds_the_correct_text() throws {
+        let text = """
+several "pairs" here and kindaVim should "know which one to delete
+"""
+        XCTAssertNil(
+            textEngine.innerQuotedString(using: "\"", startingAt: 41, in: text)
+        )
+    }
     
 }
 
