@@ -56,8 +56,8 @@ gonna be at the end
         
         let returnedElement = applyMove(on: element)
         
-        XCTAssertEqual(returnedElement?.caretLocation, 28)
-        XCTAssertEqual(returnedElement?.selectedLength, 0)
+        XCTAssertEqual(returnedElement?.caretLocation, 27)
+        XCTAssertEqual(returnedElement?.selectedLength, 1)
     }
     
     func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_and_on_an_empty_line_it_does_nothing_and_does_not_crash() {
