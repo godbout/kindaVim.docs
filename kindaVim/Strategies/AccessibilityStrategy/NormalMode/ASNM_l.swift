@@ -8,6 +8,8 @@ extension AccessibilityStrategyNormalMode {
         }
         
         if element.caretIsAtTheEnd, element.lastCharacterIsNotLinefeed {
+            element.caretLocation -= 1
+            
             return element
         }
         
@@ -18,6 +20,8 @@ extension AccessibilityStrategyNormalMode {
         
         if element.caretLocation < element.currentLine.endLimit! {
             element.caretLocation += 1
+        } else {
+            element.caretLocation = element.currentLine.endLimit!
         }
         
         return element
