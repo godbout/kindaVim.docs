@@ -1,12 +1,12 @@
 @testable import kindaVim
 import XCTest
 
-class UsingASVM_BaseTests: UsingAS_BaseTests {
-    
+class UsingASNM_BaseTests: UsingAS_BaseTests {
+
     override func setUp() {
         super.setUp()
         
-        VimEngine.shared.enterVisualMode()        
+        VimEngine.shared.enterNormalMode()
     }
-    
+
 }
