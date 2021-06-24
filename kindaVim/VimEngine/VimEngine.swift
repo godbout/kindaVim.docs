@@ -764,6 +764,10 @@ extension VimEngine {
             enterNormalMode()
         case .V:
             enterNormalMode()
+            if var element = focusedElement() {
+                element.selectedLength = 1
+                push(element: element)
+            }
         case .dollarSign:
             if let element = asVisualMode.dollarSign(on: focusedElement()) {
                 push(element: element)
