@@ -342,6 +342,11 @@ extension VimEngine {
         case .v:
             enterVisualMode()
             visualStyle = .characterwise
+            
+            if var element = accessibilityStrategy.v(on: focusedElement()) {
+                element.selectedLength = (element.caretLocation == element.value.count) ? 0 : 1
+                push(element: element)
+            }
         case .V:
             enterVisualMode()
             visualStyle = .linewise
