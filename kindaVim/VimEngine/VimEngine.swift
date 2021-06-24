@@ -30,6 +30,7 @@ class VimEngine {
     var visualStyle: VimEngineMoveStyle = .characterwise
     var keyboardStrategy: KeyboardStrategyProtocol = KeyboardStrategy()
     var accessibilityStrategy: AccessibilityStrategyProtocol = AccessibilityStrategy()
+    var asVisualMode = AccessibilityStrategyVisualMode()
 
     
     private init() {
@@ -749,6 +750,10 @@ extension VimEngine {
         switch keyCombination.vimKey {
         case .v:
             enterNormalMode()
+        case .dollarSign:
+            if let element = asVisualMode.dollarSign(on: focusedElement()) {
+                push(element: element)
+            }            
         default:
             ()
         }

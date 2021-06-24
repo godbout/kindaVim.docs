@@ -178,6 +178,9 @@
 		919D325E267F8DA7007817F2 /* AS_yF_.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919D325D267F8DA7007817F2 /* AS_yF_.swift */; };
 		919D3268267F8FD0007817F2 /* AS_yF__Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919D3267267F8FD0007817F2 /* AS_yF__Tests.swift */; };
 		919DEB632632C85B0052D514 /* KeyCombination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919DEB622632C85B0052D514 /* KeyCombination.swift */; };
+		919EE8FA2684919D001DB6A4 /* AccessibilityStrategyVisualMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919EE8F92684919D001DB6A4 /* AccessibilityStrategyVisualMode.swift */; };
+		919EE90126849327001DB6A4 /* ASVM_$_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919EE90026849327001DB6A4 /* ASVM_$_Tests.swift */; };
+		919EE90B26849356001DB6A4 /* ASVM_BaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919EE90A26849356001DB6A4 /* ASVM_BaseTests.swift */; };
 		91A147D52661224000D160AD /* UIAS_BaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F83FA32656B81400199276 /* UIAS_BaseTests.swift */; };
 		91A147D62661224000D160AD /* UIAS_j_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CA37E0265E9288004869EA /* UIAS_j_Tests.swift */; };
 		91A147D72661224000D160AD /* UIAS_k_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91872E0C26609FDA001007B3 /* UIAS_k_Tests.swift */; };
@@ -650,6 +653,9 @@
 		919D325D267F8DA7007817F2 /* AS_yF_.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AS_yF_.swift; sourceTree = "<group>"; };
 		919D3267267F8FD0007817F2 /* AS_yF__Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AS_yF__Tests.swift; sourceTree = "<group>"; };
 		919DEB622632C85B0052D514 /* KeyCombination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyCombination.swift; sourceTree = "<group>"; };
+		919EE8F92684919D001DB6A4 /* AccessibilityStrategyVisualMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilityStrategyVisualMode.swift; sourceTree = "<group>"; };
+		919EE90026849327001DB6A4 /* ASVM_$_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASVM_$_Tests.swift; sourceTree = "<group>"; };
+		919EE90A26849356001DB6A4 /* ASVM_BaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASVM_BaseTests.swift; sourceTree = "<group>"; };
 		919FDCF726527AB0003DF40C /* ATEA_BaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ATEA_BaseTests.swift; sourceTree = "<group>"; };
 		919FDD0426528BA6003DF40C /* from_TF_valueTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = from_TF_valueTests.swift; sourceTree = "<group>"; };
 		919FDD0C26528E0A003DF40C /* from_TF_currentLineStartTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = from_TF_currentLineStartTests.swift; sourceTree = "<group>"; };
@@ -1210,6 +1216,23 @@
 			path = VimEngine;
 			sourceTree = "<group>";
 		};
+		919EE8F82684917C001DB6A4 /* VisualMode */ = {
+			isa = PBXGroup;
+			children = (
+				919EE8F92684919D001DB6A4 /* AccessibilityStrategyVisualMode.swift */,
+			);
+			path = VisualMode;
+			sourceTree = "<group>";
+		};
+		919EE8FF26849314001DB6A4 /* VisualMode */ = {
+			isa = PBXGroup;
+			children = (
+				919EE90A26849356001DB6A4 /* ASVM_BaseTests.swift */,
+				919EE90026849327001DB6A4 /* ASVM_$_Tests.swift */,
+			);
+			path = VisualMode;
+			sourceTree = "<group>";
+		};
 		919FDD1726529172003DF40C /* TextFields */ = {
 			isa = PBXGroup;
 			children = (
@@ -1289,6 +1312,7 @@
 		91AB98582674D4D3007682CA /* AccessibilityStrategy */ = {
 			isa = PBXGroup;
 			children = (
+				919EE8F82684917C001DB6A4 /* VisualMode */,
 				91013741263DD2430037AB6E /* AccessibilityStrategy.swift */,
 				91AB98592674D4F2007682CA /* AS_a.swift */,
 				91AB98632674D510007682CA /* AS_A_.swift */,
@@ -1581,6 +1605,7 @@
 		91FA1D902657B42C005F576E /* AccessibilityStrategy */ = {
 			isa = PBXGroup;
 			children = (
+				919EE8FF26849314001DB6A4 /* VisualMode */,
 				918AC54B267604930036EA0D /* Moves */,
 				918AC54C267604990036EA0D /* Helpers */,
 			);
@@ -1781,6 +1806,7 @@
 				918024B926386E95004FD719 /* AppComponent.swift in Sources */,
 				91AB98A42674D5FD007682CA /* AS_G_.swift in Sources */,
 				91FBCE98267FA88C00305615 /* AS_}.swift in Sources */,
+				919EE8FA2684919D001DB6A4 /* AccessibilityStrategyVisualMode.swift in Sources */,
 				913D5C7726760B5300253DDC /* AS_ci`.swift in Sources */,
 				91ACB29326760D15000B3CE7 /* AS_r.swift in Sources */,
 				91F67A4C267F4592007C8517 /* AS_df.swift in Sources */,
@@ -1866,6 +1892,7 @@
 				91712453266E45AA002F512B /* UsingAS_O__Tests.swift in Sources */,
 				9197C08A26366A3B006C696A /* KeyCombinationAdaptorTests.swift in Sources */,
 				91A54F072643BC7B00400677 /* KS_0_Tests.swift in Sources */,
+				919EE90B26849356001DB6A4 /* ASVM_BaseTests.swift in Sources */,
 				917BE83C266FB59B0072D0A7 /* AS_e_Tests.swift in Sources */,
 				912DD6AB2675061400E22EE4 /* AS_yi"_Tests.swift in Sources */,
 				912B92DC26443FF8007F44E1 /* UsingKS_yiw_Tests.swift in Sources */,
@@ -1888,6 +1915,7 @@
 				914B4A2D2676874600E53817 /* endOfWORDForward_Tests.swift in Sources */,
 				91A54EE12643B66800400677 /* KS_C__Tests.swift in Sources */,
 				91A54EF92643BA5A00400677 /* KS_O__Tests.swift in Sources */,
+				919EE90126849327001DB6A4 /* ASVM_$_Tests.swift in Sources */,
 				91CDCDA92673C97100D18B86 /* UsingAS___Tests.swift in Sources */,
 				9173D1EE267F7AA600AC3208 /* UsingAS_yt_Tests.swift in Sources */,
 				912B92D826443C8F007F44E1 /* UsingKS_yy_Tests.swift in Sources */,
