@@ -342,6 +342,13 @@ extension VimEngine {
         case .v:
             enterVisualMode()
             visualStyle = .characterwise
+        case .V:
+            enterVisualMode()
+            visualStyle = .linewise
+            
+            if let element = accessibilityStrategy.V(on: focusedElement()) {
+                push(element: element)
+            }
         case .w:
             if var element = accessibilityStrategy.w(on: focusedElement()) {
                 // move can go to the last empty line, but in that case we can't select the character as there is none
@@ -749,6 +756,8 @@ extension VimEngine {
     func handleVisualMode(with keyCombination: KeyCombination) {
         switch keyCombination.vimKey {
         case .v:
+            enterNormalMode()
+        case .V:
             enterNormalMode()
         case .dollarSign:
             if let element = asVisualMode.dollarSign(on: focusedElement()) {
