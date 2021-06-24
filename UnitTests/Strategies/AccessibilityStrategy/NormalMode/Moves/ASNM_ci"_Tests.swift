@@ -8,7 +8,7 @@ import XCTest
 class ASNM_ciDoubleQuote_Tests: ASNM_BaseTests {
     
     private func applyMove(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
-        return accessibilityStrategy.ciDoubleQuote(on: element) 
+        return asNormalMode.ciDoubleQuote(on: element) 
     }
     
 }

@@ -9,7 +9,7 @@ class ASNM_ge_Tests: ASNM_BaseTests {
     override func setUp() {
         super.setUp()
         
-        accessibilityStrategy = AccessibilityStrategy(textEngine: textEngineMock)
+        asNormalMode = AccessibilityStrategyNormalMode(textEngine: textEngineMock)
     }    
     
 }
@@ -36,7 +36,7 @@ from the TextEngine
             )
         )
         
-        _ = accessibilityStrategy.ge(on: element)
+        _ = asNormalMode.ge(on: element)
         
         XCTAssertEqual(textEngineMock.functionCalled, "endOfWordBackward(startingAt:in:)")        
     }

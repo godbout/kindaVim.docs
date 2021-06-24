@@ -25,7 +25,7 @@ extension ASNM_dd_Tests {
             )
         )
         
-        let returnedElement = accessibilityStrategy.dd(on: element)
+        let returnedElement = asNormalMode.dd(on: element)
 
         XCTAssertEqual(returnedElement?.caretLocation, 0)
     }

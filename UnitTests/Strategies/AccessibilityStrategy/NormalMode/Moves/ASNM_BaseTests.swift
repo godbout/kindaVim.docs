@@ -4,13 +4,13 @@ import XCTest
 class ASNM_BaseTests: XCTestCase {
     
     var textEngine = TextEngine()
-    var accessibilityStrategy: AccessibilityStrategy!
+    var asNormalMode: AccessibilityStrategyNormalMode!
     
     
     override func setUp() {
         super.setUp()
                        
-        accessibilityStrategy = AccessibilityStrategy(textEngine: textEngine)
+        asNormalMode = AccessibilityStrategyNormalMode(textEngine: textEngine)
     }    
     
 }

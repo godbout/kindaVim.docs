@@ -5,7 +5,7 @@ import XCTest
 class ASNM_percent_Tests: ASNM_BaseTests {
     
     private func applyMove(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
-        return accessibilityStrategy.percent(on: element) 
+        return asNormalMode.percent(on: element) 
     }
     
 }

@@ -1,4 +1,4 @@
-extension AccessibilityStrategy {
+extension AccessibilityStrategyNormalMode {
     
     func caret(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         guard var element = element else { return nil }

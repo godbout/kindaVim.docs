@@ -1,4 +1,4 @@
-extension AccessibilityStrategy {
+extension AccessibilityStrategyNormalMode {
     
     func a(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         guard var element = element else { return nil }

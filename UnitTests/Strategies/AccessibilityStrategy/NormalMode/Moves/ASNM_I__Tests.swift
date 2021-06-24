@@ -9,7 +9,7 @@ import XCTest
 class ASNM_I__Tests: ASNM_BaseTests {
     
     private func applyMove(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
-        return accessibilityStrategy.I(on: element) 
+        return asNormalMode.I(on: element) 
     }
     
 }
@@ -21,7 +21,7 @@ extension ASNM_I__Tests {
     
     func test_that_it_calls_the_TextEngine_firstNonBlank_function() {
         let textEngineMock = TextEngineMock()
-        accessibilityStrategy = AccessibilityStrategy(textEngine: textEngineMock)
+        asNormalMode = AccessibilityStrategyNormalMode(textEngine: textEngineMock)
         
         let text = """
 just testing call to firstNonBlank

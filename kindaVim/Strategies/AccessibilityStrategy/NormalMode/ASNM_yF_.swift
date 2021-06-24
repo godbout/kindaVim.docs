@@ -1,6 +1,6 @@
 import AppKit
 
-extension AccessibilityStrategy {
+extension AccessibilityStrategyNormalMode {
     
     func yF(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         guard var element = element else { return nil }

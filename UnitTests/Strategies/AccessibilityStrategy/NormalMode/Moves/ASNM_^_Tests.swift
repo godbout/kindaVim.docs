@@ -10,7 +10,7 @@ import XCTest
 class ASNM_caret_Tests: ASNM_BaseTests {
     
     private func applyMove(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
-        return accessibilityStrategy.caret(on: element) 
+        return asNormalMode.caret(on: element) 
     }
     
 }

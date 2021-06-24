@@ -6,7 +6,7 @@ import XCTest
 class ASNM_df_Tests: ASNM_BaseTests {
     
     private func applyMove(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
-        return accessibilityStrategy.df(to: character, on: element) 
+        return asNormalMode.df(to: character, on: element) 
     }
     
 }

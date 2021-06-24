@@ -7,7 +7,7 @@ class UsingKS_BaseTests: XCTestCase {
 
     override func setUp() {
         VimEngine.shared.keyboardStrategy = keyboardStrategyMock
-        VimEngine.shared.accessibilityStrategy = FailingAccessibilityStrategyStub()
+        VimEngine.shared.asNormalMode = FailingAccessibilityStrategyNormalModeStub()
         VimEngine.shared.enterNormalMode()
     }
 

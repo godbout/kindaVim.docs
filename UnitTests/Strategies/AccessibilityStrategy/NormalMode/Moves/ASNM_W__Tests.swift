@@ -13,7 +13,7 @@ class ASNM_W_Tests: ASNM_BaseTests {
     override func setUp() {
         super.setUp()
         
-        accessibilityStrategy = AccessibilityStrategy(textEngine: textEngineMock)
+        asNormalMode = AccessibilityStrategyNormalMode(textEngine: textEngineMock)
     }    
     
 }
@@ -36,7 +36,7 @@ extension ASNM_W_Tests {
             )
         )
         
-        _ = accessibilityStrategy.W(on: element)
+        _ = asNormalMode.W(on: element)
         
         XCTAssertEqual(textEngineMock.functionCalled, "beginningOfWORDForward(startingAt:in:)")        
     }

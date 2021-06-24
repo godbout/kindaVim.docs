@@ -12,7 +12,7 @@ class ASNM_B__Tests: ASNM_BaseTests {
     override func setUp() {
         super.setUp()
         
-        accessibilityStrategy = AccessibilityStrategy(textEngine: textEngineMock)
+        asNormalMode = AccessibilityStrategyNormalMode(textEngine: textEngineMock)
     }    
     
 }
@@ -39,7 +39,7 @@ the TextEngineTests
             )
         )
         
-        _ = accessibilityStrategy.B(on: element)
+        _ = asNormalMode.B(on: element)
         
         XCTAssertEqual(textEngineMock.functionCalled, "beginningOfWORDBackward(startingAt:in:)")        
     }

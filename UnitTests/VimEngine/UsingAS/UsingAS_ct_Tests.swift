@@ -21,7 +21,7 @@ class UsingAS_ct_Tests: UsingAS_BaseTests {
 extension UsingAS_ct_Tests {
     
     func test_that_it_calls_the_correct_function_on_accessibility_strategy() {
-        XCTAssertEqual(accessibilityStrategyMock.functionCalled, "ct(to:on:)")
+        XCTAssertEqual(asNormalModeMock.functionCalled, "ct(to:on:)")
     }
     
 }

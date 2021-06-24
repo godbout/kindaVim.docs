@@ -1,7 +1,7 @@
 @testable import kindaVim
 import Foundation
 
-class AccessibilityStrategyMock: AccessibilityStrategyProtocol {
+class AccessibilityStrategyNormalModeMock: AccessibilityStrategyNormalModeProtocol {
     
     var functionCalled = ""
     
@@ -244,18 +244,6 @@ class AccessibilityStrategyMock: AccessibilityStrategyProtocol {
     }
     
     func T(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
-        functionCalled = #function
-        
-        return nil
-    }
-    
-    func v(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
-        functionCalled = #function
-        
-        return nil
-    }
-    
-    func V(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         
         return nil

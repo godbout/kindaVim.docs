@@ -10,7 +10,7 @@ class ASNM_rightBrace_Tests: ASNM_BaseTests {
     override func setUp() {
         super.setUp()
         
-        accessibilityStrategy = AccessibilityStrategy(textEngine: textEngineMock)
+        asNormalMode = AccessibilityStrategyNormalMode(textEngine: textEngineMock)
     }    
     
 }
@@ -37,7 +37,7 @@ the TextEngineTests
             )
         )
         
-        _ = accessibilityStrategy.rightBrace(on: element)
+        _ = asNormalMode.rightBrace(on: element)
         
         XCTAssertEqual(textEngineMock.functionCalled, "endOfParagraphForward(startingAt:in:)")        
     }

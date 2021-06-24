@@ -18,7 +18,7 @@ class UsingAS_ciSingleQuote_Tests: UsingAS_BaseTests {
 extension UsingAS_ciSingleQuote_Tests {
     
     func test_that_it_calls_the_correct_function_on_accessibility_strategy() {
-        XCTAssertEqual(accessibilityStrategyMock.functionCalled, "ciSingleQuote(on:)")
+        XCTAssertEqual(asNormalModeMock.functionCalled, "ciSingleQuote(on:)")
     }
     
 }

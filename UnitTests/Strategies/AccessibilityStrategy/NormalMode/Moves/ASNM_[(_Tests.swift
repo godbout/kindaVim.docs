@@ -11,7 +11,7 @@ class ASNM_leftBracketLeftParenthesis_Tests: ASNM_BaseTests {
     override func setUp() {
         super.setUp()
         
-        accessibilityStrategy = AccessibilityStrategy(textEngine: textEngineMock)
+        asNormalMode = AccessibilityStrategyNormalMode(textEngine: textEngineMock)
     }    
     
 }
@@ -38,7 +38,7 @@ the TextEngineTests
             )
         )
         
-        _ = accessibilityStrategy.leftBracketLeftParenthesis(on: element)
+        _ = asNormalMode.leftBracketLeftParenthesis(on: element)
         
         XCTAssertEqual(textEngineMock.functionCalled, "previousUnmatched(_:before:in:)")        
     }

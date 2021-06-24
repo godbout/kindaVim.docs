@@ -17,7 +17,7 @@ class UsingAS_Y__Tests: UsingAS_BaseTests {
 extension UsingAS_Y__Tests {
     
     func test_that_it_calls_the_correct_function_on_accessibility_strategy() {
-        XCTAssertEqual(accessibilityStrategyMock.functionCalled, "yy(on:)")
+        XCTAssertEqual(asNormalModeMock.functionCalled, "yy(on:)")
     }
     
     func test_that_it_keeps_Vim_in_normal_mode() {

@@ -27,7 +27,7 @@ extension ASNM_O__Tests {
             )
         )
         
-        let returnedElement = accessibilityStrategy.O(on: element)
+        let returnedElement = asNormalMode.O(on: element)
         
         XCTAssertNil(returnedElement?.selectedText)
     }

@@ -29,8 +29,8 @@ class VimEngine {
     var lastYankStyle: VimEngineMoveStyle = .characterwise
     var visualStyle: VimEngineMoveStyle = .characterwise
     var keyboardStrategy: KeyboardStrategyProtocol = KeyboardStrategy()
-    var accessibilityStrategy: AccessibilityStrategyProtocol = AccessibilityStrategy()
-    var asVisualMode = AccessibilityStrategyVisualMode()
+    var asNormalMode: AccessibilityStrategyNormalModeProtocol = AccessibilityStrategyNormalMode()
+    var asVisualMode: AccessibilityStrategyVisualModeProtocol = AccessibilityStrategyVisualMode()
 
     
     private init() {
@@ -58,7 +58,7 @@ class VimEngine {
     }
     
     func enterNormalMode() {
-        if currentMode == .insert, var element = accessibilityStrategy.h(on: focusedElement()) {
+        if currentMode == .insert, var element = asNormalMode.h(on: focusedElement()) {
             element.selectedLength = 1
             _ = push(element: element)
         }
@@ -105,7 +105,7 @@ extension VimEngine {
         switch keyCombination.vimKey {
         // to test (can dump info to console, send stuff to AX etc.)
         case .commandD:
-            if let element = AccessibilityStrategy.test(element: focusedElement()) {
+            if let element = AccessibilityStrategyNormalMode.test(element: focusedElement()) {
                 _ = push(element: element)
             }
         // temporary for escape to enter Command Mode
@@ -126,33 +126,33 @@ extension VimEngine {
             
             post(keyboardStrategy.enter())
         case .caret:
-            if var element = accessibilityStrategy.caret(on: focusedElement()) {
+            if var element = asNormalMode.caret(on: focusedElement()) {
                 element.selectedLength = 1                    
                 _ = push(element: element)
             } else {
                 post(keyboardStrategy.caret())
             }
         case .dollarSign:
-            if var element = accessibilityStrategy.dollarSign(on: focusedElement()) {
+            if var element = asNormalMode.dollarSign(on: focusedElement()) {
                 element.selectedLength = 1
                 _ = push(element: element)
             } else {
                 post(keyboardStrategy.dollarSign())
             }
         case .leftBrace:
-            if var element = accessibilityStrategy.leftBrace(on: focusedElement()) {
+            if var element = asNormalMode.leftBrace(on: focusedElement()) {
                 element.selectedLength = 1
                 push(element: element)
             }
         case .leftBracket:
             enterOperatorPendingMode(with: KeyCombination(key: .leftBracket))
         case .percent:
-            if var element = accessibilityStrategy.percent(on: focusedElement()) {
+            if var element = asNormalMode.percent(on: focusedElement()) {
                 element.selectedLength = 1                  
                 push(element: element)
             }
         case .rightBrace:
-            if var element = accessibilityStrategy.rightBrace(on: focusedElement()) {
+            if var element = asNormalMode.rightBrace(on: focusedElement()) {
                 // move can go to the last empty line, but in that case we can't select the character as there is none
                 element.selectedLength = (element.caretLocation == element.value.count) ? 0 : 1                  
                 push(element: element)
@@ -160,14 +160,14 @@ extension VimEngine {
         case .rightBracket:
             enterOperatorPendingMode(with: KeyCombination(key: .rightBracket))
         case .underscore:
-            if var element = accessibilityStrategy.underscore(on: focusedElement()) {
+            if var element = asNormalMode.underscore(on: focusedElement()) {
                 element.selectedLength = 1                    
                 _ = push(element: element)
             } else {
                 post(keyboardStrategy.underscore())
             }
         case .zero:
-            if var element = accessibilityStrategy.zero(on: focusedElement()) {
+            if var element = asNormalMode.zero(on: focusedElement()) {
                 element.selectedLength = 1
                 _ = push(element: element)
             } else {
@@ -176,7 +176,7 @@ extension VimEngine {
         case .a:
             enterInsertMode()
             
-            if let element = accessibilityStrategy.a(on: focusedElement()) {
+            if let element = asNormalMode.a(on: focusedElement()) {
                 _ = push(element: element)
             } else {
                 post(keyboardStrategy.a())
@@ -184,20 +184,20 @@ extension VimEngine {
         case .A:
             enterInsertMode()
             
-            if let element = accessibilityStrategy.A(on: focusedElement()) {
+            if let element = asNormalMode.A(on: focusedElement()) {
                 _ = push(element: element)
             } else {
                 post(keyboardStrategy.A())
             }
         case .b:
-            if var element = accessibilityStrategy.b(on: focusedElement()) {
+            if var element = asNormalMode.b(on: focusedElement()) {
                 element.selectedLength = 1
                 _ = push(element: element)
             } else {
                 post(keyboardStrategy.b())
             }
         case .B:
-            if var element = accessibilityStrategy.B(on: focusedElement()) {
+            if var element = asNormalMode.B(on: focusedElement()) {
                 element.selectedLength = 1
                 _ = push(element: element)
             } else {
@@ -208,7 +208,7 @@ extension VimEngine {
         case .C:
             enterInsertMode()
             
-            if let element = accessibilityStrategy.C(on: focusedElement()) {
+            if let element = asNormalMode.C(on: focusedElement()) {
                 _ = push(element: element)
             } else {
                 post(keyboardStrategy.C())
@@ -218,13 +218,13 @@ extension VimEngine {
         case .controlD:
             post(keyboardStrategy.controlD())
         case .e:
-            if var element = accessibilityStrategy.e(on: focusedElement()) {
+            if var element = asNormalMode.e(on: focusedElement()) {
                 // move can go to the last empty line, but in that case we can't select the character as there is none
                 element.selectedLength = (element.caretLocation == element.value.count) ? 0 : 1                    
                 push(element: element)
             }
         case .E:
-            if var element = accessibilityStrategy.E(on: focusedElement()) {
+            if var element = asNormalMode.E(on: focusedElement()) {
                 element.selectedLength = (element.caretLocation == element.value.count) ? 0 : 1                   
                 push(element: element)
             }
@@ -235,7 +235,7 @@ extension VimEngine {
         case .g:
             enterOperatorPendingMode(with: keyCombination)
         case .G:
-            if var element = accessibilityStrategy.G(on: focusedElement()) {
+            if var element = asNormalMode.G(on: focusedElement()) {
                 // move can go to the last empty line, but in that case we can't select the character as there is none
                 element.selectedLength = (element.caretLocation == element.value.count) ? 0 : 1
                 push(element: element)
@@ -243,14 +243,14 @@ extension VimEngine {
                 post(keyboardStrategy.G())
             }
         case .h:
-            if var element = accessibilityStrategy.h(on: focusedElement()) {
+            if var element = asNormalMode.h(on: focusedElement()) {
                 element.selectedLength = 1
                 _ = push(element: element)
             } else {
                 post(keyboardStrategy.h())
             }
         case .i:
-            if let element = accessibilityStrategy.i(on: focusedElement()) {
+            if let element = asNormalMode.i(on: focusedElement()) {
                 _ = push(element: element)
             }
             
@@ -258,13 +258,13 @@ extension VimEngine {
         case .I:
             enterInsertMode()
             
-            if let element = accessibilityStrategy.I(on: focusedElement()) {
+            if let element = asNormalMode.I(on: focusedElement()) {
                 _ = push(element: element)
             } else {
                 post(keyboardStrategy.I())
             }
         case .j:
-            if var element = accessibilityStrategy.j(on: focusedElement()) {
+            if var element = asNormalMode.j(on: focusedElement()) {
                 // move can go to the last empty line, but in that case we can't select the character as there is none
                 element.selectedLength = (element.caretLocation == element.value.count) ? 0 : 1
                 _ = push(element: element)
@@ -272,14 +272,14 @@ extension VimEngine {
                 post(keyboardStrategy.j())
             }
         case .k:
-            if var element = accessibilityStrategy.k(on: focusedElement()) {
+            if var element = asNormalMode.k(on: focusedElement()) {
                 element.selectedLength = 1
                 _ = push(element: element)
             } else {
                 post(keyboardStrategy.k())
             }
         case .l:
-            if var element = accessibilityStrategy.l(on: focusedElement()) {
+            if var element = asNormalMode.l(on: focusedElement()) {
                 element.selectedLength = 1
                 _ = push(element: element)
             } else {
@@ -288,7 +288,7 @@ extension VimEngine {
         case .o:
             enterInsertMode()
             
-            if let element = accessibilityStrategy.o(on: focusedElement()) {
+            if let element = asNormalMode.o(on: focusedElement()) {
                 _ = push(element: element)
             } else {
                 post(keyboardStrategy.o())
@@ -296,16 +296,16 @@ extension VimEngine {
         case .O:
             enterInsertMode()
             
-            if let element = accessibilityStrategy.O(on: focusedElement()) {
+            if let element = asNormalMode.O(on: focusedElement()) {
                 _ = push(element: element)
             } else {
                 post(keyboardStrategy.O())
             }
         case .p:
-            if let element = accessibilityStrategy.p(on: focusedElement()) {
+            if let element = asNormalMode.p(on: focusedElement()) {
                 _ = push(element: element)
                 
-                if var element = accessibilityStrategy.h(on: focusedElement()) {                        
+                if var element = asNormalMode.h(on: focusedElement()) {                        
                     element.selectedLength = 1
                     _ = push(element: element)
                 }   
@@ -313,10 +313,10 @@ extension VimEngine {
 //                post(keyboardStrategy.p())
             }
         case .P:
-            if let element = accessibilityStrategy.P(on: focusedElement()) {
+            if let element = asNormalMode.P(on: focusedElement()) {
                 _ = push(element: element)
                 
-                if var element = accessibilityStrategy.h(on: focusedElement()) {                        
+                if var element = asNormalMode.h(on: focusedElement()) {                        
                     element.selectedLength = 1
                     _ = push(element: element)
                 }   
@@ -343,7 +343,7 @@ extension VimEngine {
             enterVisualMode()
             visualStyle = .characterwise
             
-            if var element = accessibilityStrategy.v(on: focusedElement()) {
+            if var element = asVisualMode.v(on: focusedElement()) {
                 element.selectedLength = (element.caretLocation == element.value.count) ? 0 : 1
                 push(element: element)
             }
@@ -351,11 +351,11 @@ extension VimEngine {
             enterVisualMode()
             visualStyle = .linewise
             
-            if let element = accessibilityStrategy.V(on: focusedElement()) {
+            if let element = asVisualMode.V(on: focusedElement()) {
                 push(element: element)
             }
         case .w:
-            if var element = accessibilityStrategy.w(on: focusedElement()) {
+            if var element = asNormalMode.w(on: focusedElement()) {
                 // move can go to the last empty line, but in that case we can't select the character as there is none
                 element.selectedLength = (element.caretLocation == element.value.count) ? 0 : 1
                 push(element: element)
@@ -363,14 +363,14 @@ extension VimEngine {
                 post(keyboardStrategy.w())
             }
         case .W:
-            if var element = accessibilityStrategy.W(on: focusedElement()) {
+            if var element = asNormalMode.W(on: focusedElement()) {
                 element.selectedLength = (element.caretLocation == element.value.count) ? 0 : 1
                 push(element: element)
             } else {
                 post(keyboardStrategy.w())
             }            
         case .x:
-            if let element = accessibilityStrategy.x(on: focusedElement()) {
+            if let element = asNormalMode.x(on: focusedElement()) {
                 _ = push(element: element)
                 
                 if var element = focusedElement() {
@@ -385,7 +385,7 @@ extension VimEngine {
         case .y:
             enterOperatorPendingMode(with: keyCombination)
         case .Y:
-            if var element = accessibilityStrategy.yy(on: focusedElement()) {
+            if var element = asNormalMode.yy(on: focusedElement()) {
                 element.selectedLength = 1
                 _ = push(element: element)
             } else {
@@ -425,7 +425,7 @@ extension VimEngine {
         case [.c, .c]:
             enterInsertMode()
             
-            if let element = accessibilityStrategy.cc(on: focusedElement()) {
+            if let element = asNormalMode.cc(on: focusedElement()) {
                 _ = push(element: element)
             } else {
                 post(keyboardStrategy.cc())
@@ -451,7 +451,7 @@ extension VimEngine {
             
             let axFocusedElement = focusedElement()
             
-            if let element = accessibilityStrategy.ciDoubleQuote(on: axFocusedElement), element != axFocusedElement {
+            if let element = asNormalMode.ciDoubleQuote(on: axFocusedElement), element != axFocusedElement {
                 _ = push(element: element)
                 enterInsertMode()
             }
@@ -460,7 +460,7 @@ extension VimEngine {
             
             let axFocusedElement = focusedElement()
             
-            if let element = accessibilityStrategy.ciSingleQuote(on: axFocusedElement), element != axFocusedElement {
+            if let element = asNormalMode.ciSingleQuote(on: axFocusedElement), element != axFocusedElement {
                 _ = push(element: element)
                 enterInsertMode()
             }            
@@ -469,14 +469,14 @@ extension VimEngine {
             
             let axFocusedElement = focusedElement()
             
-            if let element = accessibilityStrategy.ciBacktick(on: axFocusedElement), element != axFocusedElement {
+            if let element = asNormalMode.ciBacktick(on: axFocusedElement), element != axFocusedElement {
                 _ = push(element: element)
                 enterInsertMode()
             }
         case [.c, .i, .w]:
             enterInsertMode()
             
-            if let element = accessibilityStrategy.ciw(on: focusedElement()) {
+            if let element = asNormalMode.ciw(on: focusedElement()) {
                 _ = push(element: element)
             } else {
                 post(keyboardStrategy.ciw())
@@ -496,7 +496,7 @@ extension VimEngine {
         case [.d, .d]:
             enterNormalMode()
             
-            if let element = accessibilityStrategy.dd(on: focusedElement()) {
+            if let element = asNormalMode.dd(on: focusedElement()) {
                 _ = push(element: element)
                 
                 if var element = focusedElement() {
@@ -535,14 +535,14 @@ extension VimEngine {
         case [.g, .e]:
             enterNormalMode()
             
-            if var element = accessibilityStrategy.ge(on: focusedElement()) {
+            if var element = asNormalMode.ge(on: focusedElement()) {
                 element.selectedLength = 1                
                 push(element: element)
             }     
         case [.g, .g]:
             enterNormalMode()
             
-            if var element = accessibilityStrategy.gg(on: focusedElement()) {
+            if var element = asNormalMode.gg(on: focusedElement()) {
                 element.selectedLength = 1                
                 push(element: element)
             } else {
@@ -551,35 +551,35 @@ extension VimEngine {
         case [.g, .E]:
             enterNormalMode()
             
-            if var element = accessibilityStrategy.gE(on: focusedElement()) {
+            if var element = asNormalMode.gE(on: focusedElement()) {
                 element.selectedLength = 1                
                 push(element: element)
             }
         case [.leftBracket, .leftBrace]:
             enterNormalMode()
             
-            if var element = accessibilityStrategy.leftBracketLeftBrace(on: focusedElement()) {
+            if var element = asNormalMode.leftBracketLeftBrace(on: focusedElement()) {
                 element.selectedLength = 1
                 push(element: element)
             }
         case [.leftBracket, .leftParenthesis]:
             enterNormalMode()
             
-            if var element = accessibilityStrategy.leftBracketLeftParenthesis(on: focusedElement()) {
+            if var element = asNormalMode.leftBracketLeftParenthesis(on: focusedElement()) {
                 element.selectedLength = 1
                 push(element: element)
             }
         case [.rightBracket, .rightBrace]:
             enterNormalMode()
             
-            if var element = accessibilityStrategy.rightBracketRightBrace(on: focusedElement()) {
+            if var element = asNormalMode.rightBracketRightBrace(on: focusedElement()) {
                 element.selectedLength = 1
                 push(element: element)
             }
         case [.rightBracket, .rightParenthesis]:
             enterNormalMode()
             
-            if var element = accessibilityStrategy.rightBracketRightParenthesis(on: focusedElement()) {
+            if var element = asNormalMode.rightBracketRightParenthesis(on: focusedElement()) {
                 element.selectedLength = 1
                 push(element: element)
             }
@@ -592,7 +592,7 @@ extension VimEngine {
         case [.y, .i, .doubleQuote]:
             enterNormalMode()
             
-            if var element = accessibilityStrategy.yiDoubleQuote(on: focusedElement()) {
+            if var element = asNormalMode.yiDoubleQuote(on: focusedElement()) {
                 element.selectedLength = 1
                 _ = push(element: element)
             }
@@ -608,7 +608,7 @@ extension VimEngine {
             enterNormalMode()
             lastYankStyle = .linewise
             
-            if var element = accessibilityStrategy.yy(on: focusedElement()) {
+            if var element = asNormalMode.yy(on: focusedElement()) {
                 element.selectedLength = 1
                 _ = push(element: element)
             } else {
@@ -621,19 +621,19 @@ extension VimEngine {
                 var element: AccessibilityTextElement?
                 
                 if operatorPendingBuffer[1].vimKey == .f, let character = operatorPendingBuffer.last {
-                    element = accessibilityStrategy.cf(to: character.character, on: axFocusedElement)
+                    element = asNormalMode.cf(to: character.character, on: axFocusedElement)
                 }
                 
                 if operatorPendingBuffer[1].vimKey == .F, let character = operatorPendingBuffer.last {
-                    element = accessibilityStrategy.cF(to: character.character, on: axFocusedElement)
+                    element = asNormalMode.cF(to: character.character, on: axFocusedElement)
                 }
                 
                 if operatorPendingBuffer[1].vimKey == .t, let character = operatorPendingBuffer.last {
-                    element = accessibilityStrategy.ct(to: character.character, on: axFocusedElement)
+                    element = asNormalMode.ct(to: character.character, on: axFocusedElement)
                 }
                 
                 if operatorPendingBuffer[1].vimKey == .T, let character = operatorPendingBuffer.last {
-                    element = accessibilityStrategy.cT(to: character.character, on: axFocusedElement)
+                    element = asNormalMode.cT(to: character.character, on: axFocusedElement)
                 }
                 
                 if let element = element, element != axFocusedElement {
@@ -649,19 +649,19 @@ extension VimEngine {
                 var element: AccessibilityTextElement?
                 
                 if operatorPendingBuffer[1].vimKey == .f, let character = operatorPendingBuffer.last {
-                    element = accessibilityStrategy.df(to: character.character, on: focusedElement())                    
+                    element = asNormalMode.df(to: character.character, on: focusedElement())                    
                 }
                 
                 if operatorPendingBuffer[1].vimKey == .F, let character = operatorPendingBuffer.last {
-                    element = accessibilityStrategy.dF(to: character.character, on: focusedElement())                    
+                    element = asNormalMode.dF(to: character.character, on: focusedElement())                    
                 }
                 
                 if operatorPendingBuffer[1].vimKey == .t, let character = operatorPendingBuffer.last {
-                    element = accessibilityStrategy.dt(to: character.character, on: focusedElement())                                           
+                    element = asNormalMode.dt(to: character.character, on: focusedElement())                                           
                 }
                 
                 if operatorPendingBuffer[1].vimKey == .T, let character = operatorPendingBuffer.last {
-                    element = accessibilityStrategy.dT(to: character.character, on: focusedElement())               
+                    element = asNormalMode.dT(to: character.character, on: focusedElement())               
                 }
                 
                 if let element = element {
@@ -675,14 +675,14 @@ extension VimEngine {
             }
                             
             if operatorPendingBuffer.first?.vimKey == .f, let character = operatorPendingBuffer.last {
-                if var element = accessibilityStrategy.f(to: character.character, on: focusedElement()) {
+                if var element = asNormalMode.f(to: character.character, on: focusedElement()) {
                     element.selectedLength = 1
                     _ = push(element: element)
                 }
             }
             
             if operatorPendingBuffer.first?.vimKey == .F, let character = operatorPendingBuffer.last {
-                if var element = accessibilityStrategy.F(to: character.character, on: focusedElement()) {
+                if var element = asNormalMode.F(to: character.character, on: focusedElement()) {
                     element.selectedLength = 1
                     _ = push(element: element)
                 }
@@ -691,11 +691,11 @@ extension VimEngine {
             if operatorPendingBuffer.first?.vimKey == .r, let replacement = operatorPendingBuffer.last {
                 let axFocusedElement = focusedElement()
                 
-                if let element = accessibilityStrategy.r(with: replacement.character, on: axFocusedElement) {
+                if let element = asNormalMode.r(with: replacement.character, on: axFocusedElement) {
                     if element != axFocusedElement {
                         _ = push(element: element)
                         
-                        if var element = accessibilityStrategy.h(on: focusedElement()) {                        
+                        if var element = asNormalMode.h(on: focusedElement()) {                        
                             element.selectedLength = 1
                             _ = push(element: element)
                         }                        
@@ -706,14 +706,14 @@ extension VimEngine {
             }
             
             if operatorPendingBuffer.first?.vimKey == .t, let character = operatorPendingBuffer.last {
-                if var element = accessibilityStrategy.t(to: character.character, on: focusedElement()) {
+                if var element = asNormalMode.t(to: character.character, on: focusedElement()) {
                     element.selectedLength = 1
                     _ = push(element: element)
                 }
             }
             
             if operatorPendingBuffer.first?.vimKey == .T, let character = operatorPendingBuffer.last {
-                if var element = accessibilityStrategy.T(to: character.character, on: focusedElement()) {
+                if var element = asNormalMode.T(to: character.character, on: focusedElement()) {
                     element.selectedLength = 1
                     _ = push(element: element)
                 }
@@ -724,19 +724,19 @@ extension VimEngine {
                 var element: AccessibilityTextElement?
                 
                 if operatorPendingBuffer[1].vimKey == .f, let character = operatorPendingBuffer.last {
-                    element = accessibilityStrategy.yf(to: character.character, on: focusedElement())
+                    element = asNormalMode.yf(to: character.character, on: focusedElement())
                 }
                 
                 if operatorPendingBuffer[1].vimKey == .F, let character = operatorPendingBuffer.last {
-                    element = accessibilityStrategy.yF(to: character.character, on: focusedElement())                    
+                    element = asNormalMode.yF(to: character.character, on: focusedElement())                    
                 }
                 
                 if operatorPendingBuffer[1].vimKey == .t, let character = operatorPendingBuffer.last {
-                    element = accessibilityStrategy.yt(to: character.character, on: focusedElement())                    
+                    element = asNormalMode.yt(to: character.character, on: focusedElement())                    
                 }
                 
                 if operatorPendingBuffer[1].vimKey == .T, let character = operatorPendingBuffer.last {
-                    element = accessibilityStrategy.yT(to: character.character, on: focusedElement())                    
+                    element = asNormalMode.yT(to: character.character, on: focusedElement())                    
                 }
                 
                 if var element = element {

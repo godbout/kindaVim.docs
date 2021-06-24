@@ -1,7 +1,7 @@
 @testable import kindaVim
 import Foundation
 
-struct FailingAccessibilityStrategyStub: AccessibilityStrategyProtocol {
+struct FailingAccessibilityStrategyNormalModeStub: AccessibilityStrategyNormalModeProtocol {
     
     static func test(element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return nil

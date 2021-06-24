@@ -9,7 +9,7 @@ class ASNM_leftBrace_Tests: ASNM_BaseTests {
     override func setUp() {
         super.setUp()
         
-        accessibilityStrategy = AccessibilityStrategy(textEngine: textEngineMock)
+        asNormalMode = AccessibilityStrategyNormalMode(textEngine: textEngineMock)
     }    
     
 }
@@ -36,7 +36,7 @@ the TextEngineTests
             )
         )
         
-        _ = accessibilityStrategy.leftBrace(on: element)
+        _ = asNormalMode.leftBrace(on: element)
         
         XCTAssertEqual(textEngineMock.functionCalled, "beginningOfParagraphBackward(startingAt:in:)")        
     }

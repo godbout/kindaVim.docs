@@ -2,10 +2,10 @@
 import XCTest
 
 
-class ASNM_V_Tests: ASNM_BaseTests {
+class ASVM_v_Tests: ASVM_BaseTests {
     
     private func applyMove(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
-        return accessibilityStrategy.V(on: element) 
+        return asVisualMode.v(on: element) 
     }
     
 }
@@ -15,7 +15,7 @@ class ASNM_V_Tests: ASNM_BaseTests {
 // - empty TextElement
 // - caret at the end of TextElement but not on empty line
 // - caret at the end of TextElement on own empty line
-extension ASNM_V_Tests {
+extension ASVM_v_Tests {
     
     func test_that_if_the_TextElement_is_empty_it_does_nothing_and_does_not_crash() {
         let text = ""
@@ -91,51 +91,27 @@ line
 }
 
 
-// TextFields
-extension ASNM_V_Tests {
+// Both
+extension ASVM_v_Tests {
     
-    func test_that_it_selects_the_whole_line_even_if_it_does_not_end_with_a_linefeed() {
-        let text = "a sentence without a linefeed"
+    func test_that_it_does_not_do_anything_actually() {
+        let text = "a sentence with a word, or more..."
         let element = AccessibilityTextElement(
             role: .textField,
             value: text,
-            caretLocation: 17,
+            caretLocation: 12,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 0,
                 start: 0,
-                end: 29
+                end: 34
             )
         )
         
         let returnedElement = applyMove(on: element)
         
-        XCTAssertEqual(returnedElement?.caretLocation, 0)
-        XCTAssertEqual(returnedElement?.selectedLength, 29)  
-    }
-    
-    func test_that_it_selects_the_whole_line_even_if_it_does_end_with_a_linefeed() {
-        let text = """
-now that's one with
-a linefeed at the end
-!
-"""
-        let element = AccessibilityTextElement(
-            role: .textArea,
-            value: text,
-            caretLocation: 27,
-            currentLine: AccessibilityTextElementLine(
-                fullValue: text,
-                number: 1,
-                start: 20,
-                end: 42
-            )
-        )
-        
-        let returnedElement = applyMove(on: element)
-        
-        XCTAssertEqual(returnedElement?.caretLocation, 20)
-        XCTAssertEqual(returnedElement?.selectedLength, 22)  
+        XCTAssertEqual(returnedElement?.caretLocation, 12)
+        XCTAssertEqual(returnedElement?.selectedLength, 0)  
     }
     
 }

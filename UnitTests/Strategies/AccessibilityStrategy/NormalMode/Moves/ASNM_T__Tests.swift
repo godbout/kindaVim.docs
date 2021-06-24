@@ -11,7 +11,7 @@ import XCTest
 class ASNM_T__Tests: ASNM_BaseTests {
     
     private func applyMove(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
-        return accessibilityStrategy.T(to: character, on: element) 
+        return asNormalMode.T(to: character, on: element) 
     }
     
 }

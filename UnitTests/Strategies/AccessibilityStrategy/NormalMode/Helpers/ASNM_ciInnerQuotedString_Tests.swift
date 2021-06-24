@@ -21,7 +21,7 @@ finally dealing with the "real stuff"!
             )
         )
         
-        let returnedElement = accessibilityStrategy.ciInnerQuotedString(using: "\"", on: element)
+        let returnedElement = asNormalMode.ciInnerQuotedString(using: "\"", on: element)
         
         XCTAssertEqual(returnedElement?.caretLocation, 26)
         XCTAssertEqual(returnedElement?.selectedLength, 10)
@@ -45,7 +45,7 @@ a text with only one quote ' lol
             )
         )
         
-        let returnedElement = accessibilityStrategy.ciInnerQuotedString(using: "'", on: element)
+        let returnedElement = asNormalMode.ciInnerQuotedString(using: "'", on: element)
         
         XCTAssertEqual(returnedElement, element)
     }
@@ -64,7 +64,7 @@ a text with only one quote ' lol
             )
         )
         
-        let returnedElement = accessibilityStrategy.ciInnerQuotedString(using: "'", on: element)
+        let returnedElement = asNormalMode.ciInnerQuotedString(using: "'", on: element)
         
         XCTAssertEqual(returnedElement, element)
     }
@@ -85,7 +85,7 @@ now the caret is before the ` shit with ` backtick quotes
             )
         )
         
-        let returnedElement = accessibilityStrategy.ciInnerQuotedString(using: "`", on: element)
+        let returnedElement = asNormalMode.ciInnerQuotedString(using: "`", on: element)
         
         XCTAssertEqual(returnedElement?.caretLocation, 29)
         XCTAssertEqual(returnedElement?.selectedLength, 11)
@@ -110,7 +110,7 @@ now the "caret" is after the quotes
             )
         )
         
-        let returnedElement = accessibilityStrategy.ciInnerQuotedString(using: "\"", on: element)
+        let returnedElement = asNormalMode.ciInnerQuotedString(using: "\"", on: element)
         
         XCTAssertEqual(returnedElement, element)
     }
@@ -131,7 +131,7 @@ that's ' three quotes ' in there
             )
         )
         
-        let returnedElement = accessibilityStrategy.ciInnerQuotedString(using: "'", on: element)
+        let returnedElement = asNormalMode.ciInnerQuotedString(using: "'", on: element)
         
         XCTAssertEqual(returnedElement?.caretLocation, 8)
         XCTAssertEqual(returnedElement?.selectedLength, 14)
@@ -154,7 +154,7 @@ that's " four quotes " in " there "
             )
         )
         
-        let returnedElement = accessibilityStrategy.ciInnerQuotedString(using: "\"", on: element)
+        let returnedElement = asNormalMode.ciInnerQuotedString(using: "\"", on: element)
         
         XCTAssertEqual(returnedElement?.caretLocation, 27)
         XCTAssertEqual(returnedElement?.selectedLength, 7)

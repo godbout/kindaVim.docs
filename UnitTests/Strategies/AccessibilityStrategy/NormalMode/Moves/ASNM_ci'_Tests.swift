@@ -5,7 +5,7 @@ import XCTest
 class ASNM_ciSingleQuote_Tests: ASNM_BaseTests {
     
     private func applyMove(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
-        return accessibilityStrategy.ciSingleQuote(on: element) 
+        return asNormalMode.ciSingleQuote(on: element) 
     }
     
 }

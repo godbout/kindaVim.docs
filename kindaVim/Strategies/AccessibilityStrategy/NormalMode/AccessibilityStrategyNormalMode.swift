@@ -1,7 +1,7 @@
 import Foundation
 
 
-protocol AccessibilityStrategyProtocol {
+protocol AccessibilityStrategyNormalModeProtocol {
 
     func a(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func A(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
@@ -43,8 +43,6 @@ protocol AccessibilityStrategyProtocol {
     func r(with replacement: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func t(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func T(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement?
-    func v(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
-    func V(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func w(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func W(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func x(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
@@ -71,7 +69,7 @@ protocol AccessibilityStrategyProtocol {
 }
 
 
-struct AccessibilityStrategy: AccessibilityStrategyProtocol {    
+struct AccessibilityStrategyNormalMode: AccessibilityStrategyNormalModeProtocol {    
     
     var textEngine: TextEngineProtocol = TextEngine()
         
@@ -112,16 +110,6 @@ struct AccessibilityStrategy: AccessibilityStrategyProtocol {
         print("line start: \(String(describing: element?.currentLine.start))", "line end: \(String(describing: element?.currentLine.end))")
         
         return nil
-    }
-
-    static func focusedElement() -> AccessibilityTextElement? {
-        return AccessibilityTextElementAdaptor.fromAXFocusedElement()
-    }
-    
-    static func push(element: AccessibilityTextElement) -> Bool {
-        print("move using Accessibility Stragety")
-
-        return AccessibilityTextElementAdaptor.toAXfocusedElement(from: element)
     }
 
 }

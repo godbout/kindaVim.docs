@@ -5,7 +5,7 @@ import XCTest
 class ASNM_ciBacktick_Tests: ASNM_BaseTests {
     
     private func applyMove(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
-        return accessibilityStrategy.ciBacktick(on: element) 
+        return asNormalMode.ciBacktick(on: element) 
     }
     
 }

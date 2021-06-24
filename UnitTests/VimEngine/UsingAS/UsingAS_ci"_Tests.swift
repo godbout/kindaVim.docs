@@ -21,7 +21,7 @@ class UsingAS_ciDoubleQuote_Tests: UsingAS_BaseTests {
 extension UsingAS_ciDoubleQuote_Tests {
     
     func test_that_it_calls_the_correct_function_on_accessibility_strategy() {
-        XCTAssertEqual(accessibilityStrategyMock.functionCalled, "ciDoubleQuote(on:)")
+        XCTAssertEqual(asNormalModeMock.functionCalled, "ciDoubleQuote(on:)")
     }
         
 }

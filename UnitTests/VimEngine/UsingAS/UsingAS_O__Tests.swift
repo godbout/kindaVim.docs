@@ -16,7 +16,7 @@ class UsingAS_O__Tests: UsingAS_BaseTests {
 extension UsingAS_O__Tests {
     
     func test_that_it_calls_the_correct_function_on_accessibility_strategy() {
-        XCTAssertEqual(accessibilityStrategyMock.functionCalled, "O(on:)")
+        XCTAssertEqual(asNormalModeMock.functionCalled, "O(on:)")
     }
     
     func test_that_it_switches_Vim_into_insert_mode() {

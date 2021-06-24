@@ -14,7 +14,7 @@ class UsingAS_j_Tests: UsingAS_BaseTests {
 extension UsingAS_j_Tests {
 
     func test_that_it_calls_the_correct_function_on_accessibility_strategy() {
-        XCTAssertEqual(accessibilityStrategyMock.functionCalled, "j(on:)")
+        XCTAssertEqual(asNormalModeMock.functionCalled, "j(on:)")
     }
 
     func test_that_it_keeps_Vim_in_normal_mode() {

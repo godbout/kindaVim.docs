@@ -10,7 +10,7 @@ import XCTest
 class ASNM_yiDoubleQuote_Tests: ASNM_BaseTests {
 
     private func applyMove(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
-        return accessibilityStrategy.yiDoubleQuote(on: element)
+        return asNormalMode.yiDoubleQuote(on: element)
     }
 
 }

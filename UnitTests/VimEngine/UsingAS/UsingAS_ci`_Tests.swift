@@ -18,7 +18,7 @@ class UsingAS_ciBacktick_Tests: UsingAS_BaseTests {
 extension UsingAS_ciBacktick_Tests {
     
     func test_that_it_calls_the_correct_function_on_accessibility_strategy() {
-        XCTAssertEqual(accessibilityStrategyMock.functionCalled, "ciBacktick(on:)")
+        XCTAssertEqual(asNormalModeMock.functionCalled, "ciBacktick(on:)")
     }
     
 }

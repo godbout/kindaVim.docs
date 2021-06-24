@@ -22,7 +22,7 @@ extension ASNM_i_Tests {
             )
         )
         
-        let returnedElement = accessibilityStrategy.i(on: element)
+        let returnedElement = asNormalMode.i(on: element)
         
         XCTAssertEqual(returnedElement?.caretLocation, 24)     
     }    
