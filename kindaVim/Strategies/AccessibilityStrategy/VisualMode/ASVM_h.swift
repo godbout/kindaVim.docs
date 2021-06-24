@@ -16,8 +16,8 @@ extension AccessibilityStrategyVisualMode {
         }
         
         
-        if element.caretLocation + element.selectedLength < element.currentLine.end! {
-            element.selectedLength += 1
+        if element.caretLocation > element.currentLine.startLimit! {
+            element.selectedLength -= 1
         }
         
         return element
