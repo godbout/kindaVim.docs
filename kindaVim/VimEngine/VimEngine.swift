@@ -245,21 +245,23 @@ extension VimEngine {
         case .h:
             if var element = asNormalMode.h(on: focusedElement()) {
                 element.selectedLength = 1
-                _ = push(element: element)
+                push(element: element)
             } else {
                 post(keyboardStrategy.h())
             }
         case .i:
-            if let element = asNormalMode.i(on: focusedElement()) {
-                _ = push(element: element)
+            if var element = asNormalMode.i(on: focusedElement()) {
+                element.selectedLength = 0
+                push(element: element)
             }
             
             enterInsertMode()
         case .I:
             enterInsertMode()
             
-            if let element = asNormalMode.I(on: focusedElement()) {
-                _ = push(element: element)
+            if var element = asNormalMode.I(on: focusedElement()) {
+                element.selectedLength = 0
+                push(element: element)
             } else {
                 post(keyboardStrategy.I())
             }
@@ -267,21 +269,21 @@ extension VimEngine {
             if var element = asNormalMode.j(on: focusedElement()) {
                 // move can go to the last empty line, but in that case we can't select the character as there is none
                 element.selectedLength = (element.caretLocation == element.value.count) ? 0 : 1
-                _ = push(element: element)
+                push(element: element)
             } else {
                 post(keyboardStrategy.j())
             }
         case .k:
             if var element = asNormalMode.k(on: focusedElement()) {
                 element.selectedLength = 1
-                _ = push(element: element)
+                push(element: element)
             } else {
                 post(keyboardStrategy.k())
             }
         case .l:
             if var element = asNormalMode.l(on: focusedElement()) {
                 element.selectedLength = 1
-                _ = push(element: element)
+                push(element: element)
             } else {
                 post(keyboardStrategy.l())
             }
@@ -289,7 +291,7 @@ extension VimEngine {
             enterInsertMode()
             
             if let element = asNormalMode.o(on: focusedElement()) {
-                _ = push(element: element)
+                push(element: element)
             } else {
                 post(keyboardStrategy.o())
             }
@@ -297,13 +299,13 @@ extension VimEngine {
             enterInsertMode()
             
             if let element = asNormalMode.O(on: focusedElement()) {
-                _ = push(element: element)
+                push(element: element)
             } else {
                 post(keyboardStrategy.O())
             }
         case .p:
             if let element = asNormalMode.p(on: focusedElement()) {
-                _ = push(element: element)
+                push(element: element)
                 
                 if var element = asNormalMode.h(on: focusedElement()) {                        
                     element.selectedLength = 1
@@ -314,7 +316,7 @@ extension VimEngine {
             }
         case .P:
             if let element = asNormalMode.P(on: focusedElement()) {
-                _ = push(element: element)
+                push(element: element)
                 
                 if var element = asNormalMode.h(on: focusedElement()) {                        
                     element.selectedLength = 1
@@ -426,7 +428,7 @@ extension VimEngine {
             enterInsertMode()
             
             if let element = asNormalMode.cc(on: focusedElement()) {
-                _ = push(element: element)
+                push(element: element)
             } else {
                 post(keyboardStrategy.cc())
             }
@@ -452,7 +454,7 @@ extension VimEngine {
             let axFocusedElement = focusedElement()
             
             if let element = asNormalMode.ciDoubleQuote(on: axFocusedElement), element != axFocusedElement {
-                _ = push(element: element)
+                push(element: element)
                 enterInsertMode()
             }
         case [.c, .i, .singleQuote]:
@@ -461,7 +463,7 @@ extension VimEngine {
             let axFocusedElement = focusedElement()
             
             if let element = asNormalMode.ciSingleQuote(on: axFocusedElement), element != axFocusedElement {
-                _ = push(element: element)
+                push(element: element)
                 enterInsertMode()
             }            
         case [.c, .i, .backtick]:
@@ -470,14 +472,14 @@ extension VimEngine {
             let axFocusedElement = focusedElement()
             
             if let element = asNormalMode.ciBacktick(on: axFocusedElement), element != axFocusedElement {
-                _ = push(element: element)
+                push(element: element)
                 enterInsertMode()
             }
         case [.c, .i, .w]:
             enterInsertMode()
             
             if let element = asNormalMode.ciw(on: focusedElement()) {
-                _ = push(element: element)
+                push(element: element)
             } else {
                 post(keyboardStrategy.ciw())
             }           
@@ -497,11 +499,11 @@ extension VimEngine {
             enterNormalMode()
             
             if let element = asNormalMode.dd(on: focusedElement()) {
-                _ = push(element: element)
+                push(element: element)
                 
                 if var element = focusedElement() {
                     element.selectedLength = 1
-                    _ = push(element: element)
+                    push(element: element)
                 }
             } else {
                 post(keyboardStrategy.dd())
