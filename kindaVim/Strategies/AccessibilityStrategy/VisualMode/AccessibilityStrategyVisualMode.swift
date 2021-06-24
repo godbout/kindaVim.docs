@@ -3,6 +3,7 @@ import Foundation
 
 protocol AccessibilityStrategyVisualModeProtocol {
     
+    func l(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func v(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func V(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     
@@ -11,4 +12,10 @@ protocol AccessibilityStrategyVisualModeProtocol {
 }
 
 
-struct AccessibilityStrategyVisualMode: AccessibilityStrategyVisualModeProtocol {}
+struct AccessibilityStrategyVisualMode: AccessibilityStrategyVisualModeProtocol {
+    
+    func l(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        return element
+    }
+    
+}
