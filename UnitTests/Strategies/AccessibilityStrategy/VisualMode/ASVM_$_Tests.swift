@@ -105,6 +105,9 @@ extension ASVM_$_Tests {
             )
         )
         
+        AccessibilityStrategyVisualMode.anchor = 3
+        AccessibilityStrategyVisualMode.head = 3
+        
         let returnedElement = applyMove(on: element)
         
         XCTAssertEqual(returnedElement?.caretLocation, 3)
@@ -161,6 +164,9 @@ multiline
             )
         )
         
+        AccessibilityStrategyVisualMode.anchor = 13
+        AccessibilityStrategyVisualMode.head = 13
+        
         let returnedElement = applyMove(on: element)
         
         XCTAssertEqual(returnedElement?.caretLocation, 13)
@@ -183,6 +189,9 @@ my friend
                 end: nil
             )
         )
+        
+        AccessibilityStrategyVisualMode.anchor = 24
+        AccessibilityStrategyVisualMode.head = 24
         
         let returnedElement = applyMove(on: element)
         
