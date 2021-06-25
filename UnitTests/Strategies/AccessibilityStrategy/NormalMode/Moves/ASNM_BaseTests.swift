@@ -11,6 +11,7 @@ class ASNM_BaseTests: XCTestCase {
         super.setUp()
                        
         asNormalMode = AccessibilityStrategyNormalMode(textEngine: textEngine)
+        VimEngine.shared.enterNormalMode()
     }    
     
 }
