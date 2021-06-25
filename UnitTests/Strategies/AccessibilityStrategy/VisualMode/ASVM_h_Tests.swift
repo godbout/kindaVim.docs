@@ -152,6 +152,7 @@ it bugs
             role: .textArea,
             value: text,
             caretLocation: 5,
+            selectedLength: 5,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 1,
@@ -160,9 +161,10 @@ it bugs
             )
         )
                    
-        var elementAfterVisualModeCharacterwiseOn = asVisualMode.v(on: element)
-        elementAfterVisualModeCharacterwiseOn?.selectedLength = 5
-        let returnedElement = applyMove(on: elementAfterVisualModeCharacterwiseOn)        
+        AccessibilityStrategyVisualMode.anchor = 5
+        AccessibilityStrategyVisualMode.head = 10
+        
+        let returnedElement = applyMove(on: element)        
         
         XCTAssertEqual(returnedElement?.caretLocation, 5)
         XCTAssertEqual(returnedElement?.selectedLength, 4)
