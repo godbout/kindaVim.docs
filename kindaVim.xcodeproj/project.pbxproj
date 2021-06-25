@@ -416,6 +416,7 @@
 		91E29DC32685D6A500F8D0DA /* ASVM_o.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E29DC22685D6A500F8D0DA /* ASVM_o.swift */; };
 		91E29DCD2685EF3100F8D0DA /* UsingASVM_o_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E29DCC2685EF3100F8D0DA /* UsingASVM_o_Tests.swift */; };
 		91E29DD22685EF5800F8D0DA /* ASVM_o.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E29DC22685D6A500F8D0DA /* ASVM_o.swift */; };
+		91E29DD82685EFE000F8D0DA /* ASVM_o_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E29DD72685EFE000F8D0DA /* ASVM_o_Tests.swift */; };
 		91E304BD2643E77A004D9933 /* UsingKS_a_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E304BC2643E77A004D9933 /* UsingKS_a_Tests.swift */; };
 		91E304BF2643E843004D9933 /* KS_BaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E304BE2643E843004D9933 /* KS_BaseTests.swift */; };
 		91E304C32643EC48004D9933 /* UsingKS_BaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E304C22643EC48004D9933 /* UsingKS_BaseTests.swift */; };
@@ -845,6 +846,7 @@
 		91E266942660AB8C00C4A4B5 /* UsingASNM_k_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsingASNM_k_Tests.swift; sourceTree = "<group>"; };
 		91E29DC22685D6A500F8D0DA /* ASVM_o.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASVM_o.swift; sourceTree = "<group>"; };
 		91E29DCC2685EF3100F8D0DA /* UsingASVM_o_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsingASVM_o_Tests.swift; sourceTree = "<group>"; };
+		91E29DD72685EFE000F8D0DA /* ASVM_o_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASVM_o_Tests.swift; sourceTree = "<group>"; };
 		91E304BC2643E77A004D9933 /* UsingKS_a_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsingKS_a_Tests.swift; sourceTree = "<group>"; };
 		91E304BE2643E843004D9933 /* KS_BaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KS_BaseTests.swift; sourceTree = "<group>"; };
 		91E304C22643EC48004D9933 /* UsingKS_BaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsingKS_BaseTests.swift; sourceTree = "<group>"; };
@@ -1371,6 +1373,7 @@
 				919EE90A26849356001DB6A4 /* ASVM_BaseTests.swift */,
 				9143FDAD2684EE5500485E21 /* ASVM_h_Tests.swift */,
 				91C1E4932684E918007ABEAA /* ASVM_l_Tests.swift */,
+				91E29DD72685EFE000F8D0DA /* ASVM_o_Tests.swift */,
 				915A61D226849CBA00C04AC6 /* ASVM_v_Tests.swift */,
 				91DA295F26849F3C009E39AE /* ASVM_V__Tests.swift */,
 				919EE90026849327001DB6A4 /* ASVM_$_Tests.swift */,
@@ -2067,6 +2070,7 @@
 				91F90BFC2669249700176433 /* firstNonBlankTests.swift in Sources */,
 				91C1E4882684DE13007ABEAA /* UsingASVM_v_Tests.swift in Sources */,
 				916A40E2267D0082004FDA12 /* ASNM_[(_Tests.swift in Sources */,
+				91E29DD82685EFE000F8D0DA /* ASVM_o_Tests.swift in Sources */,
 				9143FDAE2684EE5500485E21 /* ASVM_h_Tests.swift in Sources */,
 				9170AD6326662149000651D5 /* UsingASNM_f_Tests.swift in Sources */,
 				91473C7E2647009000AA52D5 /* KS_r_Tests.swift in Sources */,
