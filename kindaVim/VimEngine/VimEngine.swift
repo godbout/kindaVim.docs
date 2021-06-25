@@ -347,14 +347,9 @@ extension VimEngine {
             enterVisualMode()
             visualStyle = .characterwise
             
-            if let axFocusedElement = focusedElement() {
-                AccessibilityStrategyVisualMode.anchor = axFocusedElement.caretLocation
-                AccessibilityStrategyVisualMode.head = axFocusedElement.caretLocation
-            
-                if var element = asVisualMode.v(on: axFocusedElement) {
-                    element.selectedLength = (element.caretLocation == element.value.count) ? 0 : 1
-                    push(element: element)
-                }
+            if var element = asVisualMode.v(on: focusedElement()) {
+                element.selectedLength = (element.caretLocation == element.value.count) ? 0 : 1
+                push(element: element)
             }
         case .V:
             enterVisualMode()
