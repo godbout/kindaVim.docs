@@ -94,7 +94,7 @@ line
 // Both
 extension ASVM_o_Tests {
     
-    func test_that_it_moves_the_VM_head_to_the_end_of_the_selection_if_it_was_at_the_beginning() {
+    func test_that_if_the_anchor_is_the_caret_location_and_the_head_is_the_end_of_the_selection_then_it_switches_them() {
         let text = "a sentence with a word, or more..."
         let element = AccessibilityTextElement(
             role: .textField,
@@ -109,14 +109,16 @@ extension ASVM_o_Tests {
             )
         )
         
-        AccessibilityStrategyVisualMode.head = 10
+        AccessibilityStrategyVisualMode.anchor = 10
+        AccessibilityStrategyVisualMode.head = 14
         
         _ = applyMove(on: element)
         
-        XCTAssertEqual(AccessibilityStrategyVisualMode.head, 14)  
+        XCTAssertEqual(AccessibilityStrategyVisualMode.anchor, 14)
+        XCTAssertEqual(AccessibilityStrategyVisualMode.head, 10)        
     }
     
-    func test_that_it_moves_the_VM_head_to_the_beginning_of_the_selection_if_it_was_at_the_end() {
+    func test_that_if_the_anchor_is_the_end_of_the_selection_and_the_head_is_the_caret_location_then_it_switches_them() {
         let text = """
 now we gonna use
 some like a little
@@ -136,14 +138,16 @@ tricky
             )
         )
         
-        AccessibilityStrategyVisualMode.head = 40
+        AccessibilityStrategyVisualMode.anchor = 40
+        AccessibilityStrategyVisualMode.head = 19
         
         _ = applyMove(on: element)
         
-        XCTAssertEqual(AccessibilityStrategyVisualMode.head, 19)  
+        XCTAssertEqual(AccessibilityStrategyVisualMode.anchor, 19)
+        XCTAssertEqual(AccessibilityStrategyVisualMode.head, 40)  
     }
     
-    func test_that_it_does_not_move_the_VM_head_if_both_the_beginning_and_the_end_are_the_same() {
+    func test_that_it_does_not_move_the_VM_head_and_anchor_if_they_are_both_the_same() {
         let text = """
 another one
 my friend
@@ -161,10 +165,12 @@ my friend
             )
         )
         
+        AccessibilityStrategyVisualMode.anchor = 15
         AccessibilityStrategyVisualMode.head = 15
         
         _ = applyMove(on: element)
         
+        XCTAssertEqual(AccessibilityStrategyVisualMode.anchor, 15)
         XCTAssertEqual(AccessibilityStrategyVisualMode.head, 15)  
     }
     

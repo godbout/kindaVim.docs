@@ -14,13 +14,15 @@ extension AccessibilityStrategyVisualMode {
         if element.caretIsAtTheEnd, element.lastCharacterIsLinefeed {
             return element
         }
+
         
-        
-        if Self.head == element.caretLocation {
-            Self.head = element.caretLocation + element.selectedLength - 1
-        } else {
+        if Self.anchor == element.caretLocation {
+            Self.anchor = Self.head
             Self.head = element.caretLocation
-        }        
+        } else {
+            Self.head = Self.anchor
+            Self.anchor = element.caretLocation
+        }
         
         return element
     }
