@@ -109,10 +109,42 @@ extension ASVM_h_Tests {
             )
         )
         
-        let returnedElement = applyMove(on: element)
+        // first we need to call v in order to set VM head and anchor, like in real life
+        // then we need to update the selectLength so that head and anchor get updated with
+        // correct values through the didSet.
+        // may be better to run this through UI Tests but too slow already :p
+        var elementAfterVisualModeCharacterwiseOn = asVisualMode.v(on: element)
+        elementAfterVisualModeCharacterwiseOn?.selectedLength = 4
+        let returnedElement = applyMove(on: elementAfterVisualModeCharacterwiseOn) 
         
         XCTAssertEqual(returnedElement?.caretLocation, 22)
         XCTAssertEqual(returnedElement?.selectedLength, 3)        
+    }
+    
+    func test_that_if_the_caret_is_at_the_start_of_the_line_and_the_selection_is_more_than_one_it_can_still_moves_and_reduce_the_selection() {
+        let text = """
+yeah
+that's kinda weird when
+it bugs
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            caretLocation: 5,
+            currentLine: AccessibilityTextElementLine(
+                fullValue: text,
+                number: 1,
+                start: 5,
+                end: 29
+            )
+        )
+                   
+        var elementAfterVisualModeCharacterwiseOn = asVisualMode.v(on: element)
+        elementAfterVisualModeCharacterwiseOn?.selectedLength = 5
+        let returnedElement = applyMove(on: elementAfterVisualModeCharacterwiseOn)        
+        
+        XCTAssertEqual(returnedElement?.caretLocation, 5)
+        XCTAssertEqual(returnedElement?.selectedLength, 4)
     }
     
 }
