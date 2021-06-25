@@ -91,6 +91,32 @@ line
 }
 
 
+// anchor and head
+extension ASVM_v_Tests {
+    
+    func test_that_it_sets_the_anchor_and_the_head_to_the_caret_location() {
+        let text = "this is gonna be some testing yoyoyo"
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            caretLocation: 12,
+            currentLine: AccessibilityTextElementLine(
+                fullValue: text,
+                number: 0,
+                start: 0,
+                end: 36
+            )
+        )
+        
+        _ = applyMove(on: element)
+        
+        XCTAssertEqual(AccessibilityStrategyVisualMode.anchor, 12)
+        XCTAssertEqual(AccessibilityStrategyVisualMode.head, 12)
+    }
+    
+}
+
+
 // Both
 extension ASVM_v_Tests {
     

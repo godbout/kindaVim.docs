@@ -107,7 +107,17 @@ struct AccessibilityTextElement {
             }
         }
     }
-    var selectedLength = 0
+    var selectedLength = 0 {
+        didSet {
+            if VimEngine.shared.currentMode == .visual {
+                if caretLocation < AccessibilityStrategyVisualMode.anchor {
+                    AccessibilityStrategyVisualMode.head = caretLocation
+                } else {
+                    AccessibilityStrategyVisualMode.head = caretLocation + selectedLength - 1
+                }
+            }
+        }
+    }
     var selectedText: String?
     
     var currentLine: AccessibilityTextElementLine!
