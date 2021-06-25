@@ -14,7 +14,7 @@ extension UIAS_k_Tests {
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
         app.textFields.firstMatch.typeKey(.leftArrow, modifierFlags: [.option])
         
-        let accessibilityElement = accessibilityStrategy.k(on: AccessibilityTextElementAdaptor.fromAXFocusedElement())
+        let accessibilityElement = asNormalMode.k(on: AccessibilityTextElementAdaptor.fromAXFocusedElement())
 
         XCTAssertNil(accessibilityElement)
     }
@@ -40,7 +40,7 @@ to the same column
         // need to move the caretLocation to have a proper AccessibilityTextElement.globalColumnNumber
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .h))
 
-        let accessibilityElement = accessibilityStrategy.k(on: AccessibilityTextElementAdaptor.fromAXFocusedElement())
+        let accessibilityElement = asNormalMode.k(on: AccessibilityTextElementAdaptor.fromAXFocusedElement())
 
         XCTAssertEqual(accessibilityElement?.caretLocation, 38)
     }
@@ -60,7 +60,7 @@ than the previous shorter than...
         // need to move the caretLocation to have a proper AccessibilityTextElement.globalColumnNumber
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .h))
         
-        let accessibilityElement = accessibilityStrategy.k(on: AccessibilityTextElementAdaptor.fromAXFocusedElement())
+        let accessibilityElement = asNormalMode.k(on: AccessibilityTextElementAdaptor.fromAXFocusedElement())
 
         XCTAssertEqual(accessibilityElement?.caretLocation, 39)
     }
@@ -79,17 +79,17 @@ another quite long line
         // need to move the caretLocation to have a proper AccessibilityTextElement.globalColumnNumber
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .h))
         
-        let firstK = accessibilityStrategy.k(on: AccessibilityTextElementAdaptor.fromAXFocusedElement())
+        let firstK = asNormalMode.k(on: AccessibilityTextElementAdaptor.fromAXFocusedElement())
         _ = AccessibilityTextElementAdaptor.toAXfocusedElement(from: firstK!)
         
         XCTAssertEqual(firstK?.caretLocation, 81)
         
-        let secondK = accessibilityStrategy.k(on: AccessibilityTextElementAdaptor.fromAXFocusedElement())
+        let secondK = asNormalMode.k(on: AccessibilityTextElementAdaptor.fromAXFocusedElement())
         _ = AccessibilityTextElementAdaptor.toAXfocusedElement(from: secondK!)
         
         XCTAssertEqual(secondK?.caretLocation, 51)
 
-        let thirdK = accessibilityStrategy.k(on: AccessibilityTextElementAdaptor.fromAXFocusedElement())
+        let thirdK = asNormalMode.k(on: AccessibilityTextElementAdaptor.fromAXFocusedElement())
 
         XCTAssertEqual(thirdK?.caretLocation, 18)
     }
@@ -107,7 +107,7 @@ nothing ankulay
         // need to move the caretLocation to have a proper AccessibilityTextElement.globalColumnNumber
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .l))
         
-        let accessibilityElement = accessibilityStrategy.k(on: AccessibilityTextElementAdaptor.fromAXFocusedElement())
+        let accessibilityElement = asNormalMode.k(on: AccessibilityTextElementAdaptor.fromAXFocusedElement())
 
         XCTAssertEqual(accessibilityElement?.caretLocation, 1)
     }
@@ -129,7 +129,7 @@ to previous line length
         // need to move the caretLocation to have a proper AccessibilityTextElement.globalColumnNumber
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .l))
         
-        let accessibilityElement = accessibilityStrategy.k(on: AccessibilityTextElementAdaptor.fromAXFocusedElement())
+        let accessibilityElement = asNormalMode.k(on: AccessibilityTextElementAdaptor.fromAXFocusedElement())
 
         XCTAssertEqual(accessibilityElement?.caretLocation, 42)
     }
@@ -150,12 +150,12 @@ empty
         // need to move the caretLocation to have a proper AccessibilityTextElement.globalColumnNumber
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .l))
 
-        let jFirst = accessibilityStrategy.j(on: AccessibilityTextElementAdaptor.fromAXFocusedElement())
+        let jFirst = asNormalMode.j(on: AccessibilityTextElementAdaptor.fromAXFocusedElement())
         _ = AccessibilityTextElementAdaptor.toAXfocusedElement(from: jFirst!)
 
         XCTAssertEqual(jFirst?.caretLocation, 38)
 
-        let thenK = accessibilityStrategy.k(on: AccessibilityTextElementAdaptor.fromAXFocusedElement())
+        let thenK = asNormalMode.k(on: AccessibilityTextElementAdaptor.fromAXFocusedElement())
 
         XCTAssertEqual(thenK?.caretLocation, 35)
     }

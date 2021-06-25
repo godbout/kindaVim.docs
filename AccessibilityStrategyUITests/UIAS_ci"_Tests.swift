@@ -11,7 +11,7 @@ class UIAS_ciDoubleQuote_Tests: UIAS_BaseTests {
     
     private func applyMoveAndGetBackUpdatedElement() -> AccessibilityTextElement? {
         return applyMoveAndGetBackUpdatedElement { focusedElement in 
-            accessibilityStrategy.ciDoubleQuote(on: focusedElement)
+            asNormalMode.ciDoubleQuote(on: focusedElement)
         }
     }
     

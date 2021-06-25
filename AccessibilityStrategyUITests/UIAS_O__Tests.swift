@@ -6,7 +6,7 @@ class UIAS_O__Tests: UIAS_BaseTests {
     
     private func applyMoveAndGetBackUpdatedElement() -> AccessibilityTextElement? {
         return applyMoveAndGetBackUpdatedElement { focusedElement in
-            accessibilityStrategy.O(on: focusedElement)
+            asNormalMode.O(on: focusedElement)
         }
     }
     

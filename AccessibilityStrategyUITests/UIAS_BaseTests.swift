@@ -4,7 +4,7 @@ import XCTest
 class UIAS_BaseTests: XCTestCase {
 
     var app: XCUIApplication!
-    let accessibilityStrategy = AccessibilityStrategy()
+    let asNormalMode = AccessibilityStrategyNormalMode()
 
     override func setUpWithError() throws {
         continueAfterFailure = false
