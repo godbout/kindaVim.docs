@@ -176,16 +176,18 @@ extension VimEngine {
         case .a:
             enterInsertMode()
             
-            if let element = asNormalMode.a(on: focusedElement()) {
-                _ = push(element: element)
+            if var element = asNormalMode.a(on: focusedElement()) {
+                element.selectedLength = 0
+                push(element: element)
             } else {
                 post(keyboardStrategy.a())
             }
         case .A:
             enterInsertMode()
             
-            if let element = asNormalMode.A(on: focusedElement()) {
-                _ = push(element: element)
+            if var element = asNormalMode.A(on: focusedElement()) {
+                element.selectedLength = 0
+                push(element: element)
             } else {
                 post(keyboardStrategy.A())
             }
@@ -209,7 +211,7 @@ extension VimEngine {
             enterInsertMode()
             
             if let element = asNormalMode.C(on: focusedElement()) {
-                _ = push(element: element)
+                push(element: element)
             } else {
                 post(keyboardStrategy.C())
             }
@@ -345,9 +347,14 @@ extension VimEngine {
             enterVisualMode()
             visualStyle = .characterwise
             
-            if var element = asVisualMode.v(on: focusedElement()) {
-                element.selectedLength = (element.caretLocation == element.value.count) ? 0 : 1
-                push(element: element)
+            if let axFocusedElement = focusedElement() {
+                AccessibilityStrategyVisualMode.anchor = axFocusedElement.caretLocation
+                AccessibilityStrategyVisualMode.head = axFocusedElement.caretLocation
+            
+                if var element = asVisualMode.v(on: axFocusedElement) {
+                    element.selectedLength = (element.caretLocation == element.value.count) ? 0 : 1
+                    push(element: element)
+                }
             }
         case .V:
             enterVisualMode()
