@@ -55,6 +55,9 @@ gonna be at the end
             )
         )
         
+        AccessibilityStrategyVisualMode.anchor = 28
+        AccessibilityStrategyVisualMode.head = 28
+        
         let returnedElement = applyMove(on: element)
         
         XCTAssertEqual(returnedElement?.caretLocation, 27)
@@ -94,7 +97,7 @@ line
 // Both
 extension ASVM_l_Tests {
     
-    func test_that_in_normal_setting_it_selects_one_more_character_to_the_right() {
+    func test_that_if_the_anchor_is_before_the_head_it_selects_one_more_character_to_the_right_by_augmenting_the_selected_length() {
         let text = "well how can we test the selectedLength?..."
         let element = AccessibilityTextElement(
             role: .textField,
@@ -109,10 +112,37 @@ extension ASVM_l_Tests {
             )
         )
         
-        let returnedElement = applyMove(on: element)
+        AccessibilityStrategyVisualMode.anchor = 22
+        AccessibilityStrategyVisualMode.head = 26
+        
+        let returnedElement = applyMove(on: element) 
         
         XCTAssertEqual(returnedElement?.caretLocation, 22)
         XCTAssertEqual(returnedElement?.selectedLength, 5)        
+    }
+    
+    func test_that_if_the_head_is_before_the_anchor_it_unselects_one_character_to_the_right_by_moving_the_caret() {
+        let text = "well how can we test the selectedLength?..."
+        let element = AccessibilityTextElement(
+            role: .textField,
+            value: text,
+            caretLocation: 22,
+            selectedLength: 4,
+            currentLine: AccessibilityTextElementLine(
+                fullValue: text,
+                number: 0,
+                start: 0,
+                end: 43
+            )
+        )
+        
+        AccessibilityStrategyVisualMode.anchor = 26
+        AccessibilityStrategyVisualMode.head = 22
+        
+        let returnedElement = applyMove(on: element) 
+        
+        XCTAssertEqual(returnedElement?.caretLocation, 23)
+        XCTAssertEqual(returnedElement?.selectedLength, 3)    
     }
     
 }

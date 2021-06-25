@@ -94,7 +94,7 @@ line
 // Both
 extension ASVM_h_Tests {
     
-    func test_that_in_normal_setting_it_unselects_one_more_character_to_the_left() {
+    func test_that_if_the_anchor_is_before_the_head_it_unselects_one_character_to_the_left_by_reducing_the_selected_length() {
         let text = "well how can we test the selectedLength?..."
         let element = AccessibilityTextElement(
             role: .textField,
@@ -109,16 +109,37 @@ extension ASVM_h_Tests {
             )
         )
         
-        // first we need to call v in order to set VM head and anchor, like in real life
-        // then we need to update the selectLength so that head and anchor get updated with
-        // correct values through the didSet.
-        // may be better to run this through UI Tests but too slow already :p
-        var elementAfterVisualModeCharacterwiseOn = asVisualMode.v(on: element)
-        elementAfterVisualModeCharacterwiseOn?.selectedLength = 4
-        let returnedElement = applyMove(on: elementAfterVisualModeCharacterwiseOn) 
+        AccessibilityStrategyVisualMode.anchor = 22
+        AccessibilityStrategyVisualMode.head = 26
+        
+        let returnedElement = applyMove(on: element) 
         
         XCTAssertEqual(returnedElement?.caretLocation, 22)
         XCTAssertEqual(returnedElement?.selectedLength, 3)        
+    }
+    
+    func test_that_if_the_head_is_before_the_anchor_it_selects_one_more_character_to_the_left_by_moving_the_caret() {
+        let text = "well how can we test the selectedLength?..."
+        let element = AccessibilityTextElement(
+            role: .textField,
+            value: text,
+            caretLocation: 22,
+            selectedLength: 4,
+            currentLine: AccessibilityTextElementLine(
+                fullValue: text,
+                number: 0,
+                start: 0,
+                end: 43
+            )
+        )
+        
+        AccessibilityStrategyVisualMode.anchor = 26
+        AccessibilityStrategyVisualMode.head = 22
+        
+        let returnedElement = applyMove(on: element) 
+        
+        XCTAssertEqual(returnedElement?.caretLocation, 21)
+        XCTAssertEqual(returnedElement?.selectedLength, 5)    
     }
     
     func test_that_if_the_caret_is_at_the_start_of_the_line_and_the_selection_is_more_than_one_it_can_still_moves_and_reduce_the_selection() {

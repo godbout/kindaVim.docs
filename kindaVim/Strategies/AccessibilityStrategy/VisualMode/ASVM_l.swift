@@ -18,9 +18,16 @@ extension AccessibilityStrategyVisualMode {
             return element
         }
         
-        
-        if element.caretLocation + element.selectedLength < element.currentLine.end! {
-            element.selectedLength += 1
+                
+        if element.caretLocation < Self.anchor {
+            if element.caretLocation + element.selectedLength < element.currentLine.end! {
+                element.caretLocation += 1
+                element.selectedLength -= 1
+            }
+        } else {
+            if element.caretLocation + element.selectedLength < element.currentLine.end! {
+                element.selectedLength += 1
+            }            
         }
         
         return element
