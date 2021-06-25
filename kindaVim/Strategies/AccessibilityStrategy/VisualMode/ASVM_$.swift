@@ -18,8 +18,9 @@ extension AccessibilityStrategyVisualMode {
             return element
         }
         
-        
-        element.selectedLength += element.currentLine.end! - element.caretLocation
+                
+        element.caretLocation = Self.anchor
+        element.selectedLength = element.currentLine.end! - element.caretLocation
         
         return element
     }

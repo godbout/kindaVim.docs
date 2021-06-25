@@ -111,6 +111,32 @@ extension ASVM_$_Tests {
         XCTAssertEqual(returnedElement?.selectedLength, 8)
     }
     
+    func test_that_it_starts_the_selection_at_the_anchor_and_not_at_the_current_caret_location() {
+        let text = """
+$ for visual mode starts
+at the anchor, not at the caret location
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            caretLocation: 28,
+            currentLine: AccessibilityTextElementLine(
+                fullValue: text,
+                number: 1,
+                start: 25,
+                end: 65
+            )
+        )
+        
+        AccessibilityStrategyVisualMode.anchor = 32
+        AccessibilityStrategyVisualMode.head = 28
+        
+        let returnedElement = applyMove(on: element)
+        
+        XCTAssertEqual(returnedElement?.caretLocation, 32)
+        XCTAssertEqual(returnedElement?.selectedLength, 33)        
+    }
+    
 }
 
 
