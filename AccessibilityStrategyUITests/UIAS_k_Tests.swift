@@ -150,10 +150,13 @@ empty
         // need to move the caretLocation to have a proper AccessibilityTextElement.globalColumnNumber
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .l))
 
-        let jFirst = asNormalMode.j(on: AccessibilityTextElementAdaptor.fromAXFocusedElement())
-        _ = AccessibilityTextElementAdaptor.toAXfocusedElement(from: jFirst!)
-
+        var jFirst = asNormalMode.j(on: AccessibilityTextElementAdaptor.fromAXFocusedElement())
         XCTAssertEqual(jFirst?.caretLocation, 38)
+        
+        // we need to set the selectedLength to 0 in order to go to the last empty line
+        // as we can't cursor block there
+        jFirst!.selectedLength = 0
+        _ = AccessibilityTextElementAdaptor.toAXfocusedElement(from: jFirst!)
 
         let thenK = asNormalMode.k(on: AccessibilityTextElementAdaptor.fromAXFocusedElement())
 
