@@ -88,6 +88,37 @@ line
 }
 
 
+// linewise
+extension ASVM_$_Tests {
+    
+    func test_that_in_visual_linewise_it_does_nothing() {
+        let text = "$ will only move stuff in VM characterwise"
+        let element = AccessibilityTextElement(
+            role: .textField,
+            value: text,
+            caretLocation: 21,
+            selectedLength: 2,
+            currentLine: AccessibilityTextElementLine(
+                fullValue: text,
+                number: 0,
+                start: 0,
+                end: 42
+            )
+        )
+        
+        VimEngine.shared.visualStyle = .linewise
+        
+        AccessibilityStrategyVisualMode.anchor = 21
+        AccessibilityStrategyVisualMode.head = 23
+        
+        let returnedElement = applyMove(on: element)
+        
+        XCTAssertEqual(returnedElement?.caretLocation, 21)
+        XCTAssertEqual(returnedElement?.selectedLength, 2)        
+    }
+}
+
+
 // Both
 extension ASVM_$_Tests {
     

@@ -18,9 +18,11 @@ extension AccessibilityStrategyVisualMode {
             return element
         }
         
-                
-        element.caretLocation = Self.anchor
-        element.selectedLength = element.currentLine.end! - element.caretLocation
+            
+        if VimEngine.shared.visualStyle == .characterwise {
+            element.caretLocation = Self.anchor
+            element.selectedLength = element.currentLine.end! - element.caretLocation
+        }
         
         return element
     }
