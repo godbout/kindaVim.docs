@@ -783,7 +783,7 @@ extension VimEngine {
             }
         case .v:
             if var element = asVisualMode.v(on: focusedElement()) {
-                element.selectedLength = 1
+                element.selectedLength = (element.caretLocation == element.value.count) ? 0 : 1
                 push(element: element)
             }
             
@@ -795,7 +795,7 @@ extension VimEngine {
         case .V:
             if var element = asVisualMode.V(on: focusedElement()) {
                 if visualStyle == .linewise {
-                    element.selectedLength = 1
+                    element.selectedLength = (element.caretLocation == element.value.count) ? 0 : 1
                 }
                 
                 push(element: element)

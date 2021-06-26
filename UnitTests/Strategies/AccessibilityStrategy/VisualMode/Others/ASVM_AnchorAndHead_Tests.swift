@@ -25,7 +25,7 @@ extension ASVM_AnchorAndHead_Tests {
 // head
 extension ASVM_AnchorAndHead_Tests {
     
-    func test_that_when_setting_the_selectedLength_the_head_gets_updated() {
+    func test_that_when_setting_the_selected_length_the_head_gets_updated() {
         let text = "hello"
         var element = AccessibilityTextElement(
             role: .textField,
@@ -39,7 +39,7 @@ extension ASVM_AnchorAndHead_Tests {
                 end: 2
             )
         )
-        
+
         AccessibilityStrategyVisualMode.anchor = 0
         AccessibilityStrategyVisualMode.head = 69
         
