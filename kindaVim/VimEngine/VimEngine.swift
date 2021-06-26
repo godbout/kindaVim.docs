@@ -772,8 +772,13 @@ extension VimEngine {
         case .d:
             enterNormalMode()
             
-            if let element = asVisualMode.d(on: focusedElement()) {
+            if let element = asVisualMode.d(on: focusedElement()) {                
                 push(element: element)
+                
+                if var element = focusedElement() {
+                    element.selectedLength = 1
+                    push(element: element)
+                }
             }
         case .h:
             if let element = asVisualMode.h(on: focusedElement()) {
