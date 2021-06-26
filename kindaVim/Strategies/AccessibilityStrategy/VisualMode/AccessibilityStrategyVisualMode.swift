@@ -17,6 +17,8 @@ protocol AccessibilityStrategyVisualModeProtocol {
 
 struct AccessibilityStrategyVisualMode: AccessibilityStrategyVisualModeProtocol {
     
+    var textEngine: TextEngineProtocol = TextEngine()
+    
     static var anchor: Int!
     static var head: Int!
     
