@@ -183,4 +183,31 @@ extension ASVM_l_Tests {
         XCTAssertEqual(returnedElement?.selectedLength, 3)    
     }
     
+    func test_that_when_the_anchor_is_at_the_end_of_a_line_l_can_still_move_to_the_right() {
+        let text = """
+that was a bug
+so we do a test
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            caretLocation: 11,
+            selectedLength: 4,
+            currentLine: AccessibilityTextElementLine(
+                fullValue: text,
+                number: 0,
+                start: 0,
+                end: 15
+            )
+        )
+        
+        AccessibilityStrategyVisualMode.anchor = 14
+        AccessibilityStrategyVisualMode.head = 11
+        
+        let returnedElement = applyMove(on: element) 
+        
+        XCTAssertEqual(returnedElement?.caretLocation, 12)
+        XCTAssertEqual(returnedElement?.selectedLength, 3)    
+    }
+    
 }
