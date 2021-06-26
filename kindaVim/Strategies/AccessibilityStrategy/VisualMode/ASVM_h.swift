@@ -19,15 +19,17 @@ extension AccessibilityStrategyVisualMode {
         }
         
         
-        if element.caretLocation + element.selectedLength - 1 <= Self.anchor {
-            if element.caretLocation > element.currentLine.startLimit! {
-                element.caretLocation -= 1
-                element.selectedLength += 1
-            }
-        } else {
-            if Self.head > element.currentLine.startLimit! {
-                if element.selectedLength > 1 {
-                    element.selectedLength -= 1
+        if VimEngine.shared.visualStyle == .characterwise {
+            if element.caretLocation + element.selectedLength - 1 <= Self.anchor {
+                if element.caretLocation > element.currentLine.startLimit! {
+                    element.caretLocation -= 1
+                    element.selectedLength += 1
+                }
+            } else {
+                if Self.head > element.currentLine.startLimit! {
+                    if element.selectedLength > 1 {
+                        element.selectedLength -= 1
+                    }
                 }
             }
         }
