@@ -15,6 +15,8 @@ class ASVM_V_Tests: ASVM_BaseTests {
 // - empty TextElement
 // - caret at the end of TextElement but not on empty line
 // - caret at the end of TextElement on own empty line
+//
+// the second case has to be tested through UI Tests because it's calling the ATEAdaptor.lineFor
 extension ASVM_V_Tests {
     
     func test_that_if_the_TextElement_is_empty_it_does_not_move_the_caret_but_set_the_anchor_and_head_to_0() {
