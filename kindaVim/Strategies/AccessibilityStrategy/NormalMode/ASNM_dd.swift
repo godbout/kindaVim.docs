@@ -2,13 +2,25 @@ extension AccessibilityStrategyNormalMode {
     
     func dd(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         guard var element = element else { return nil }
-        guard let lineStart = element.currentLine.start else { return element }
         
+        if element.isEmpty {
+            return element
+        }
+        
+        if element.caretIsAtTheEnd, element.lastCharacterIsNotLinefeed {
+            return element
+        }
+        
+        if element.caretIsAtTheEnd, element.lastCharacterIsLinefeed {
+            return element
+        }
+        
+                
         if let nextLine = textEngine.nextLine(after: element.caretLocation, in: element.value) {
             let firstNonBlankOfNextLineLocation = textEngine.firstNonBlank(in: nextLine)
             let firstNonBlankOfNextLineText = nextLine[..<nextLine.index(nextLine.startIndex, offsetBy: firstNonBlankOfNextLineLocation)]
             
-            element.caretLocation = lineStart
+            element.caretLocation = element.currentLine.start!
             element.selectedLength = element.currentLine.length! + firstNonBlankOfNextLineText.count
             element.selectedText = String(firstNonBlankOfNextLineText)
         } else {
@@ -20,7 +32,7 @@ extension AccessibilityStrategyNormalMode {
                 let previousLine = textEngine.previousLine(before: element.caretLocation, in: element.value)!
                 let firstNonBlankOfPreviousLineLocation = textEngine.firstNonBlank(in: previousLine)
                     
-                element.caretLocation = lineStart - 1
+                element.caretLocation = element.currentLine.start! - 1
                 element.selectedLength = element.currentLine.length! + 1
                 element.selectedText = ""
                 
