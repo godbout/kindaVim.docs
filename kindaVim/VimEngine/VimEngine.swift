@@ -65,6 +65,7 @@ class VimEngine {
         
         currentMode = .normal
         resetOperatorPendingBuffer()
+        resetVisualMode()
 
         Display.tint()
     }
@@ -80,6 +81,10 @@ class VimEngine {
     
     private func resetOperatorPendingBuffer() {
         operatorPendingBuffer = []
+    }
+    
+    private func resetVisualMode() {
+        AccessibilityStrategyVisualMode.reset()
     }
 
     private func post(_ keyCombinations: [KeyCombination]) {

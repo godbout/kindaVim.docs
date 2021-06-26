@@ -19,4 +19,9 @@ struct AccessibilityStrategyVisualMode: AccessibilityStrategyVisualModeProtocol 
     static var anchor: Int!
     static var head: Int!
     
+    static func reset() {
+        anchor = nil
+        head = nil
+    }
+    
 }
