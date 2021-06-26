@@ -4,6 +4,12 @@ import XCTest
 
 class ASVM_h_Tests: ASVM_BaseTests {
     
+    override func setUp() {
+        super.setUp()
+        
+        VimEngine.shared.visualStyle = .characterwise
+    }
+    
     private func applyMove(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return asVisualMode.h(on: element) 
     }

@@ -8,7 +8,7 @@ import XCTest
 // normal Unit Tests for p. this should cover it all.
 // also we need to separate TextFields from TextViews tests because they will
 // indeed behave differently: we will never paste linewise in TextFields
-class UIAS_p_TextFields_Tests: UIAS_BaseTests {
+class UIASNM_p_TextFields_Tests: UIAS_BaseTests {
     
     private func sendMoveThroughVimEngineAndGetBackUpdatedFocusedElement() -> AccessibilityTextElement? {
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .p))
@@ -26,7 +26,7 @@ class UIAS_p_TextFields_Tests: UIAS_BaseTests {
 // p should behave the same for both linewise or characterwise last yanked style. it will
 // always behave characterwise because no linefeed in TextFields. (still having some tests
 // below to sleep better at night :D)
-extension UIAS_p_TextFields_Tests {
+extension UIASNM_p_TextFields_Tests {
     
     func test_that_if_the_TextField_is_empty_it_still_pastes() {
         let textInAXFocusedElement = ""
@@ -62,7 +62,7 @@ extension UIAS_p_TextFields_Tests {
 
 
 // characterwise
-extension UIAS_p_TextFields_Tests {
+extension UIASNM_p_TextFields_Tests {
     
     func test_that_in_normal_setting_it_pastes_the_text_after_the_block_cursor_and_the_block_cursor_ends_up_at_the_end_of_the_pasted_text() {
         let textInAXFocusedElement = "we gonna paste some shit"
@@ -85,7 +85,7 @@ extension UIAS_p_TextFields_Tests {
 
 
 // linewise
-extension UIAS_p_TextFields_Tests {
+extension UIASNM_p_TextFields_Tests {
     
     func test_that_even_if_the_last_yank_was_linewise_it_still_pastes_as_characterwise_after_the_block_cursor_and_the_block_cursor_ends_up_at_the_end_of_the_pasted_text() {
         let textInAXFocusedElement = "linewise for TF is still pasted characterwise!"
