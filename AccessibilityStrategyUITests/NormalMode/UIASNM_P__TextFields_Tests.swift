@@ -3,7 +3,7 @@ import XCTest
 
 
 // read p for more blah blah
-class UIAS_P__TextFields_Tests: UIAS_BaseTests {
+class UIASNM_P__TextFields_Tests: UIAS_BaseTests {
     
     private func sendMoveThroughVimEngineAndGetBackUpdatedFocusedElement() -> AccessibilityTextElement? {
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .p, shift: true))
@@ -17,7 +17,7 @@ class UIAS_P__TextFields_Tests: UIAS_BaseTests {
 // same as p. The 3 Cases but only 2 because no empty line for TextFields
 // - empty TextElement
 // - caret at the end of TextElement but not on empty line
-extension UIAS_P__TextFields_Tests {
+extension UIASNM_P__TextFields_Tests {
     
     func test_that_if_the_TextField_is_empty_it_still_pastes() {
         let textInAXFocusedElement = ""
@@ -53,7 +53,7 @@ extension UIAS_P__TextFields_Tests {
 
 
 // characterwise
-extension UIAS_P__TextFields_Tests {
+extension UIASNM_P__TextFields_Tests {
     
     func test_that_in_normal_setting_it_pastes_the_text_at_the_caret_position_and_the_block_cursor_ends_up_at_the_end_of_the_pasted_text() {
         let textInAXFocusedElement = "pasta pizza"
@@ -75,7 +75,7 @@ extension UIAS_P__TextFields_Tests {
 
 
 // linewise
-extension UIAS_P__TextFields_Tests {
+extension UIASNM_P__TextFields_Tests {
     
     func test_that_even_if_the_last_yank_was_linewise_it_still_pastes_as_characterwise_at_the_caret_location_and_the_block_cursor_ends_up_at_the_end_of_the_pasted_text() {
         let textInAXFocusedElement = "P linewise for TF is still pasted characterwise!"

@@ -2,7 +2,7 @@
 import XCTest
 
 
-class UIAS_O__Tests: UIAS_BaseTests {
+class UIASNM_O__Tests: UIAS_BaseTests {
     
     private func applyMoveAndGetBackUpdatedElement() -> AccessibilityTextElement? {
         return applyMoveAndGetBackUpdatedElement { focusedElement in
@@ -14,7 +14,7 @@ class UIAS_O__Tests: UIAS_BaseTests {
 
 
 // TextViews
-extension UIAS_O__Tests {
+extension UIASNM_O__Tests {
     
     func test_that_in_normal_setting_it_creates_a_new_line_above_the_current_one() {
         let textInAXFocusedElement = """

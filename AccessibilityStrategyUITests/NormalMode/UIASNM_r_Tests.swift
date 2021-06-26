@@ -2,7 +2,7 @@
 import XCTest
 
 
-class UIAS_r_Tests: UIAS_BaseTests {
+class UIASNM_r_Tests: UIAS_BaseTests {
     
     private func applyMoveAndGetBackUpdatedElement(with replacement: Character) -> AccessibilityTextElement? {
         return applyMoveAndGetBackUpdatedElement { focusedElement in 
@@ -14,7 +14,7 @@ class UIAS_r_Tests: UIAS_BaseTests {
 
 
 // TextViews
-extension UIAS_r_Tests {
+extension UIASNM_r_Tests {
     
     func test_that_replacing_a_character_by_a_linefeed_sets_the_cursor_at_the_first_column_of_the_new_created_line() {
         let textInAXFocusedElement = """

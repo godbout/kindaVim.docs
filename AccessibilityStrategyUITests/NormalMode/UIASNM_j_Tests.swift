@@ -2,11 +2,11 @@
 import XCTest
 
 
-class UIAS_j_Tests: UIAS_BaseTests {}
+class UIASNM_j_Tests: UIAS_BaseTests {}
 
 
 // TextFields
-extension UIAS_j_Tests {
+extension UIASNM_j_Tests {
 
     func test_that_for_TextFields_j_returns_nil_coz_we_want_the_KS_to_take_over() {
         let textInAXFocusedElement = "j on a TextField shouldn't use the AS! think Alfred"
@@ -22,7 +22,7 @@ extension UIAS_j_Tests {
 }
 
 // TextViews
-extension UIAS_j_Tests {
+extension UIASNM_j_Tests {
 
     func test_that_in_normal_setting_j_goes_to_the_next_line_at_the_same_column() {
         let textInAXFocusedElement = """

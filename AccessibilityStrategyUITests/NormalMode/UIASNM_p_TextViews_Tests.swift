@@ -6,7 +6,7 @@ import XCTest
 // the pasting style will depend on how the last yanking was made
 // if it was characterwise, pasting paste in line
 // if it was linewise, pasting paste on a new line below
-class UIAS_p_TextViews_Tests: UIAS_BaseTests {
+class UIASNM_p_TextViews_Tests: UIAS_BaseTests {
     
     private func sendMoveThroughVimEngineAndGetBackUpdatedFocusedElement() -> AccessibilityTextElement? {
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .p))
@@ -22,7 +22,7 @@ class UIAS_p_TextViews_Tests: UIAS_BaseTests {
 // - empty TextElement
 // - caret at the end of TextElement but not on empty line
 // - caret at the end of TextElement on own empty line
-extension UIAS_p_TextViews_Tests {    
+extension UIASNM_p_TextViews_Tests {    
     
     func test_that_if_the_TextArea_is_empty_it_still_pastes() {
         let textInAXFocusedElement = ""
@@ -85,7 +85,7 @@ test 3 of The 3 Cases for TextArea
 
 // characterwise
 // other cases
-extension UIAS_p_TextViews_Tests {
+extension UIASNM_p_TextViews_Tests {
     
     func test_that_in_normal_setting_it_pastes_the_text_after_the_block_cursor_and_the_block_cursor_ends_up_at_the_end_of_the_pasted_text() {
         let textInAXFocusedElement = """
@@ -147,7 +147,7 @@ here's the last one
 // - empty TextElement
 // - caret at the end of TextElement but not on empty line
 // - caret at the end of TextElement on own empty line
-extension UIAS_p_TextViews_Tests {
+extension UIASNM_p_TextViews_Tests {
     
     func test_that_if_the_TextArea_is_empty_it_still_pastes_on_a_line_below() {
         let textInAXFocusedElement = ""
@@ -222,7 +222,7 @@ test 3 of The 3 Cases for TextArea linewise
 
 // linewise
 // other cases
-extension UIAS_p_TextViews_Tests {
+extension UIASNM_p_TextViews_Tests {
     
     func test_that_in_normal_setting_it_pasts_the_content_on_a_new_line_below() {
         let textInAXFocusedElement = """

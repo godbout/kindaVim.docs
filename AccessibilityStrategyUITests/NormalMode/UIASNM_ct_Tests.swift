@@ -2,11 +2,11 @@
 import XCTest
 
 
-class UIAS_ct_Tests: UIAS_BaseTests {}
+class UIASNM_ct_Tests: UIAS_BaseTests {}
 
 
 // Both
-extension UIAS_ct_Tests {
+extension UIASNM_ct_Tests {
     
     func test_that_in_normal_setting_it_succeeds_and_switches_to_insert_mode() {
         let textInAXFocusedElement = """

@@ -2,7 +2,7 @@
 import XCTest
 
 
-class UIAS_dd_tests: UIAS_BaseTests {
+class UIASNM_dd_tests: UIAS_BaseTests {
     
     private func applyMoveAndGetBackUpdatedElement() -> AccessibilityTextElement? {
         return applyMoveAndGetBackUpdatedElement { focusedElement in
@@ -14,7 +14,7 @@ class UIAS_dd_tests: UIAS_BaseTests {
 
 
 // TextFields
-extension UIAS_dd_tests {
+extension UIASNM_dd_tests {
     
     func test_that_in_normal_setting_it_deletes_the_whole_line() {
         let textInAXFocusedElement = "this is a line to be deleted"
@@ -44,7 +44,7 @@ extension UIAS_dd_tests {
 
 
 // TextViews
-extension UIAS_dd_tests {
+extension UIASNM_dd_tests {
     
     func test_that_it_normal_setting_it_deletes_the_whole_line() {
         let textInAXFocusedElement = """
