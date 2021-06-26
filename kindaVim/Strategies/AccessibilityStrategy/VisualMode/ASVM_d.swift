@@ -20,9 +20,11 @@ extension AccessibilityStrategyVisualMode {
         
         
         if VimEngine.shared.visualStyle == .linewise {
-            if let nextLine = textEngine.nextLine(after: element.caretLocation, in: element.value) {
-                let firstNonBlankOfNextLineLocation = textEngine.firstNonBlank(in: nextLine)
-                let firstNonBlankOfNextLineText = nextLine[..<nextLine.index(nextLine.startIndex, offsetBy: firstNonBlankOfNextLineLocation)]
+            if let axNextLine = AXEngine.axLineRangeFor(lineNumber: element.currentLine.number! + 1) {
+                let value = element.value
+                let axNextLineText = String(value[value.index(value.startIndex, offsetBy: axNextLine.location)..<value.index(value.startIndex, offsetBy: axNextLine.location + axNextLine.length)])
+                let firstNonBlankOfNextLineLocation = textEngine.firstNonBlank(in: axNextLineText)
+                let firstNonBlankOfNextLineText = axNextLineText[..<axNextLineText.index(axNextLineText.startIndex, offsetBy: firstNonBlankOfNextLineLocation)]
             
                 _ = AccessibilityTextElementAdaptor.toAXfocusedElement(from: element)
                 
