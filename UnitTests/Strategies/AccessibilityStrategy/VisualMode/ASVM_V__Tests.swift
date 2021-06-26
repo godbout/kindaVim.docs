@@ -38,32 +38,8 @@ extension ASVM_V_Tests {
         XCTAssertNil(returnedElement?.selectedText)
     }
     
-    // it would be nice to do like other moves and still make it even when out of boundaries but in moves like
-    // this one we need the currentLine info, which is nil. a way could be to check if it's not an empty line
-    // and if not then grab the previous caret location. a pain. so for now it just does nothing.
-    func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_but_not_on_an_empty_line_it_does_nothing_and_does_not_crash() {
-        let text = """
-caret is
-gonna be at the end
-"""
-        let element = AccessibilityTextElement(
-            role: .textArea,
-            value: text,
-            caretLocation: 28,
-            currentLine: AccessibilityTextElementLine(
-                fullValue: text,
-                number: nil,
-                start: nil,
-                end: nil
-            )
-        )
-        
-        let returnedElement = applyMove(on: element)
-        
-        XCTAssertEqual(returnedElement?.caretLocation, 28)
-        XCTAssertEqual(returnedElement?.selectedLength, 0)
-        XCTAssertNil(returnedElement?.selectedText)
-    }
+    // for V this case requires UI testing as we have to call lineFor in order to get the line info of the caretLocation - 1
+    func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_but_not_on_an_empty_line_it_selects_the_whole_line() {}
     
     func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_and_on_an_empty_line_it_does_nothing_and_does_not_crash() {
         let text = """
@@ -111,6 +87,8 @@ extension ASVM_V_Tests {
             )
         )
         
+        VimEngine.shared.visualStyle = .characterwise
+        
         let returnedElement = applyMove(on: element)
         
         XCTAssertEqual(returnedElement?.caretLocation, 0)
@@ -134,6 +112,8 @@ a linefeed at the end
                 end: 42
             )
         )
+        
+        VimEngine.shared.visualStyle = .characterwise
         
         let returnedElement = applyMove(on: element)
         

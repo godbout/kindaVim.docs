@@ -7,7 +7,7 @@ import XCTest
 // normal mode when it cannot apply the change. this need to be done here because the way
 // to test whether it needs to get back to insert mode or stay in normal mode requires the
 // AXUIElement. if it can't get the AXUIElement, for sure it would stay in normal mode
-class UIAS_ciDoubleQuote_Tests: UIAS_BaseTests {
+class UIASNM_ciDoubleQuote_Tests: UIAS_BaseTests {
     
     private func applyMoveAndGetBackUpdatedElement() -> AccessibilityTextElement? {
         return applyMoveAndGetBackUpdatedElement { focusedElement in 
@@ -19,7 +19,7 @@ class UIAS_ciDoubleQuote_Tests: UIAS_BaseTests {
 
 
 // Both
-extension UIAS_ciDoubleQuote_Tests {
+extension UIASNM_ciDoubleQuote_Tests {
     
     func test_that_in_normal_setting_it_can_delete_the_content_between_double_quotes() {
         let textInAXFocusedElement = """
