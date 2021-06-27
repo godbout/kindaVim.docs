@@ -82,4 +82,22 @@ d here and we suppose
         XCTAssertEqual(finalElement?.caretLocation, 46)    
     }
     
+    func test_that_removing_the_last_line_puts_the_caret_at_the_first_non_blank_of_the_previous_line() {
+        let textInAXFocusedElement = """
+   we gonna remove the last
+line and caret should go up
+"""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        app.textViews.firstMatch.typeKey(.leftArrow, modifierFlags: [])
+        
+        let finalElement = applyMovesAndGetBackUpdatedElement()
+        
+        XCTAssertEqual(finalElement?.value, """
+   we gonna remove the last
+"""
+        )
+        XCTAssertEqual(finalElement?.caretLocation, 3)    
+    }
+    
 }
