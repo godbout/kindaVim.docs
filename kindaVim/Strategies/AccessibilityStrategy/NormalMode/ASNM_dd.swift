@@ -16,13 +16,15 @@ extension AccessibilityStrategyNormalMode {
         }
         
                 
-        if let nextLine = textEngine.nextLine(after: element.caretLocation, in: element.value) {
-            let firstNonBlankOfNextLineLocation = textEngine.firstNonBlank(in: nextLine)
-            let firstNonBlankOfNextLineText = nextLine[..<nextLine.index(nextLine.startIndex, offsetBy: firstNonBlankOfNextLineLocation)]
+        if let axNextLine = AXEngine.axLineRangeFor(lineNumber: element.currentLine.number! + 1) {
+            let value = element.value
+            let axNextLineText = String(value[value.index(value.startIndex, offsetBy: axNextLine.location)..<value.index(value.startIndex, offsetBy: axNextLine.location + axNextLine.length)])
+            let firstNonBlankWithinLineLimitOfNextLineLocation = textEngine.firstNonBlankWithinLineLimit(in: TextEngineLine(from: axNextLineText))
+            let firstNonBlankWithinLineLimitOfNextLineText = axNextLineText[..<axNextLineText.index(axNextLineText.startIndex, offsetBy: firstNonBlankWithinLineLimitOfNextLineLocation)]
             
             element.caretLocation = element.currentLine.start!
-            element.selectedLength = element.currentLine.length! + firstNonBlankOfNextLineText.count
-            element.selectedText = String(firstNonBlankOfNextLineText)
+            element.selectedLength = element.currentLine.length! + firstNonBlankWithinLineLimitOfNextLineLocation
+            element.selectedText = String(firstNonBlankWithinLineLimitOfNextLineText)
         } else {
             if element.currentLine.isTheFirstLine {
                 element.caretLocation = 0
