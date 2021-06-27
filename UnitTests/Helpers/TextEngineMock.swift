@@ -133,12 +133,6 @@ class TextEngineMock: TextEngineProtocol {
         return 0
     }
     
-    func previousLine(before location: Int, in text: String) -> String? {
-        functionCalled = #function
-        
-        return nil
-    }
-
     func previousUnmatched(_ bracket: Character, before location: Int, in text: String) -> Int {
         functionCalled = #function
         
