@@ -13,13 +13,7 @@ extension AccessibilityStrategyNormalMode {
         
         
         let firstLine = textEngine.firstLine(in: element.value)
-        let firstNonBlankLocation = textEngine.firstNonBlank(in: firstLine.value)        
-        
-        if firstNonBlankLocation >= firstLine.endLimit { 
-            element.caretLocation = firstLine.endLimit
-        } else {
-            element.caretLocation = firstNonBlankLocation
-        }            
+        element.caretLocation = textEngine.firstNonBlankWithinLineLimit(in: TextEngineLine(from: firstLine.value))        
         
         return element
     }
