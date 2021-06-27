@@ -14,6 +14,7 @@ protocol TextEngineProtocol {
     func findPrevious(_ character: Character, before location: Int, in text: String) -> Int?
     func firstLine(in text: String) -> TextEngineLine
     func firstNonBlank(in text: String) -> Int
+    func firstNonBlankWithinLineLimit(in line: TextEngineLine) -> Int
     func innerQuotedString(using character: Character, startingAt location: Int, in text: String) -> Range<Int>?
     func innerWord(startingAt location: Int, in text: String) -> Range<Int>
     func lastLine(in text: String) -> TextEngineLine
@@ -127,6 +128,13 @@ extension TextEngine {
         guard let characterIndex = text.firstIndex(where: { !$0.isWhitespaceButNotNewline }) else { return text.count }
         
         return text.distance(from: text.startIndex, to: characterIndex)
+    }
+    
+    func firstNonBlankWithinLineLimit(in line: TextEngineLine) -> Int {
+        let value = line.value
+        guard let characterIndex = value.firstIndex(where: { !$0.isWhitespace }) else { return line.endLimit }
+        
+        return value.distance(from: value.startIndex, to: characterIndex)
     }
     
     func innerQuotedString(using quote: Character, startingAt location: Int, in text: String) -> Range<Int>? {
