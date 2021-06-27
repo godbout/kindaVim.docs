@@ -32,15 +32,18 @@ extension AccessibilityStrategyNormalMode {
             return element
         }
         
-        let previousLine = textEngine.previousLine(before: element.caretLocation, in: element.value)!
-        let lineText = element.currentLine.value
-        let lineStart = element.currentLine.start!
-        let firstNonBlankOfCurrentLineLocation = textEngine.firstNonBlank(in: lineText)
-        let firstNonBlankOfCurrentLineText = lineText[..<lineText.index(lineText.startIndex, offsetBy: firstNonBlankOfCurrentLineLocation)]
-        
-        element.caretLocation = lineStart - previousLine.count
-        element.selectedLength = previousLine.count - 1
-        element.selectedText = previousLine + firstNonBlankOfCurrentLineText
+        if let axPreviousLine = AXEngine.axLineRangeFor(lineNumber: element.currentLine.number! - 1) {
+            let value = element.value
+            let previousLineText = value[value.index(value.startIndex, offsetBy: axPreviousLine.location)..<value.index(value.startIndex, offsetBy: axPreviousLine.location + axPreviousLine.length)]
+            let currentLineText = element.currentLine.value
+            let currentLineStart = element.currentLine.start!
+            let firstNonBlankOfCurrentLineLocation = textEngine.firstNonBlank(in: currentLineText)
+            let firstNonBlankOfCurrentLineText = currentLineText[..<currentLineText.index(currentLineText.startIndex, offsetBy: firstNonBlankOfCurrentLineLocation)]
+            
+            element.caretLocation = currentLineStart - previousLineText.count
+            element.selectedLength = previousLineText.count - 1
+            element.selectedText = String(previousLineText) + firstNonBlankOfCurrentLineText
+        }
         
         return element         
     }
