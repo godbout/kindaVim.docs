@@ -23,12 +23,11 @@ extension AccessibilityStrategyVisualMode {
             if let axNextLine = AXEngine.axLineRangeFor(lineNumber: element.currentLine.number! + 1) {
                 let value = element.value
                 let axNextLineText = String(value[value.index(value.startIndex, offsetBy: axNextLine.location)..<value.index(value.startIndex, offsetBy: axNextLine.location + axNextLine.length)])
-                let firstNonBlankOfNextLineLocation = textEngine.firstNonBlank(in: axNextLineText)
-                let firstNonBlankOfNextLineText = axNextLineText[..<axNextLineText.index(axNextLineText.startIndex, offsetBy: firstNonBlankOfNextLineLocation)]
+                let firstNonBlankWithinLineLimitOfNextLineLocation = textEngine.firstNonBlankWithinLineLimit(in: TextEngineLine(from: axNextLineText))
             
                 _ = AccessibilityTextElementAdaptor.toAXfocusedElement(from: element)
                 
-                element.caretLocation += firstNonBlankOfNextLineText.count
+                element.caretLocation += firstNonBlankWithinLineLimitOfNextLineLocation
                 element.selectedLength = 0
                 element.selectedText = nil
             }                
