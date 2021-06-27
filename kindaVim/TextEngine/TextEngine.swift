@@ -18,7 +18,6 @@ protocol TextEngineProtocol {
     func innerQuotedString(using character: Character, startingAt location: Int, in text: String) -> Range<Int>?
     func innerWord(startingAt location: Int, in text: String) -> Range<Int>
     func lastLine(in text: String) -> TextEngineLine
-    func nextLine(after location: Int, in text: String) -> String?
     func nextUnmatched(_ bracket: Character, after location: Int, in text: String) -> Int
     func previousLine(before location: Int, in text: String) -> String?
     func previousUnmatched(_ bracket: Character, before location: Int, in text: String) -> Int
@@ -368,17 +367,7 @@ extension TextEngine {
             value: String(text[previousLineStartIndex...]) 
         )
     }
-    
-    func nextLine(after location: Int, in text: String) -> String? {
-        guard let nextLineStartLocation = findNext("\n", after: location - 1, in: text) else { return nil }
-        let nextLineEndLocation = findNext("\n", after: nextLineStartLocation, in: text) ?? text.count - 1
         
-        let nextLineStartIndex = text.index(text.startIndex, offsetBy: nextLineStartLocation + 1)
-        let nextLineEndIndex = text.index(text.startIndex, offsetBy: nextLineEndLocation + 1)
-        
-        return String(text[nextLineStartIndex..<nextLineEndIndex])
-    }
-    
     func previousLine(before location: Int, in text: String) -> String? {
         guard let previousLineEndLocation = findPrevious("\n", before: location, in: text) else { return nil }
         let previousLineStartLocation = findPrevious("\n", before: previousLineEndLocation, in: text) ?? -1

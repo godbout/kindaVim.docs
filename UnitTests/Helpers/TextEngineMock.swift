@@ -126,13 +126,7 @@ class TextEngineMock: TextEngineProtocol {
         
         return TextEngineLine(start: 0, end: 0, value: "")
     }
-    
-    func nextLine(after location: Int, in text: String) -> String? {
-        functionCalled = #function
         
-        return nil
-    }
-    
     func nextUnmatched(_ bracket: Character, after location: Int, in text: String) -> Int {
         functionCalled = #function
         
