@@ -128,5 +128,28 @@ one
         XCTAssertEqual(finalElement?.caretLocation, 13)   
     }
     
+    func test_that_the_caret_ends_up_at_the_next_line_end_limit_if_the_next_line_is_just_made_out_of_non_blank_characters() {
+        let textInAXFocusedElement = """
+if the next line is just blank characters
+then there is no firstNonBlank so we need
+          
+to stop at the end limit of the line
+"""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
+        app.textViews.firstMatch.typeKey(.upArrow , modifierFlags: [])
+        
+        let finalElement = applyMoveAndGetBackUpdatedElement()
+        
+        XCTAssertEqual(finalElement?.value, """
+if the next line is just blank characters
+          
+to stop at the end limit of the line
+"""
+        )        
+        XCTAssertEqual(finalElement?.caretLocation, 51)
+    }
+    
 }
 
