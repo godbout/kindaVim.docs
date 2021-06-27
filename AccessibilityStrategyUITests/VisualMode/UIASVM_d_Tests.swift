@@ -60,4 +60,26 @@ some more
         XCTAssertEqual(finalElement?.caretLocation, 23)    
     }
     
+    func test_that_if_the_next_line_is_only_blanks_the_caret_goes_to_the_limit_of_the_line_before_the_linefeed() {
+        let textInAXFocusedElement = """
+we gonna use VM
+d here and we suppose
+      to go to non blank of the line
+         
+"""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
+        
+        let finalElement = applyMovesAndGetBackUpdatedElement()
+        
+        XCTAssertEqual(finalElement?.value, """
+we gonna use VM
+d here and we suppose
+         
+"""
+        )
+        XCTAssertEqual(finalElement?.caretLocation, 46)    
+    }
+    
 }
