@@ -16,15 +16,8 @@ extension AccessibilityStrategyNormalMode {
         }
         
         
-        let lineText = element.currentLine.value        
-        let firstNonBlankLocation = textEngine.firstNonBlank(in: lineText)
-        let newCaretLocation = element.currentLine.start! + firstNonBlankLocation
-        
-        if newCaretLocation >= element.currentLine.endLimit! { 
-            element.caretLocation = element.currentLine.endLimit!
-        } else {
-            element.caretLocation = newCaretLocation
-        }         
+        let lineText = element.currentLine.value                
+        element.caretLocation = element.currentLine.start! + textEngine.firstNonBlankWithinLineLimit(in: TextEngineLine(from: lineText))
         
         return element
     }
