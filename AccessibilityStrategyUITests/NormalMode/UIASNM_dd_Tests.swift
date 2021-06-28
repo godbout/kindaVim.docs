@@ -13,6 +13,63 @@ class UIASNM_dd_tests: UIAS_BaseTests {
 }
 
 
+// the 3 special cases:
+// - empty TextElement
+// - caret at the end of TextElement but not on empty line
+// - caret at the end of TextElement on own empty line
+extension UIASNM_dd_tests {    
+    
+    func test_that_if_the_TextElement_is_empty_it_does_nothing_and_does_not_crash() {
+        let textInAXFocusedElement = ""
+        app.textFields.firstMatch.tap()
+        app.textFields.firstMatch.typeText(textInAXFocusedElement)
+        
+        let finalElement = applyMoveAndGetBackUpdatedElement()        
+        
+        XCTAssertEqual(finalElement?.caretLocation, 0)
+    }
+    
+    func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_but_not_on_an_empty_line_it_works_and_the_caret_goes_to_the_relevant_position() {
+        let textInAXFocusedElement = """
+   caret is
+gonna be at the end
+"""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        
+        let finalElement = applyMoveAndGetBackUpdatedElement()
+        
+        XCTAssertEqual(finalElement?.value, """
+   caret is
+"""
+        )
+        XCTAssertEqual(finalElement?.caretLocation, 3)
+    }
+    
+    func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_and_on_an_empty_line_it_works_and_the_caret_goes_to_the_relevant_position() {
+        let textInAXFocusedElement = """
+caret is on its
+own empty
+    line
+
+"""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        
+        let finalElement = applyMoveAndGetBackUpdatedElement()
+        
+        XCTAssertEqual(finalElement?.value, """
+caret is on its
+own empty
+    line
+"""
+        )
+        XCTAssertEqual(finalElement?.caretLocation, 30)
+    }
+    
+}
+
+
 // TextFields
 extension UIASNM_dd_tests {
     
