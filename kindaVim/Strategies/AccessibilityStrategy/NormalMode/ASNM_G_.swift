@@ -16,9 +16,17 @@ extension AccessibilityStrategyNormalMode {
         }
         
         
-        let lastLine = textEngine.lastLine(in: element.value)
-        element.caretLocation = lastLine.start + textEngine.firstNonBlankWithinLineLimit(in: TextEngineLine(from: lastLine.value))
+        let valueCount = element.value.count
         
+        if let axLineNumber = AXEngine.axLineNumberFor(location: valueCount), let axLastLine = AXEngine.axLineRangeFor(lineNumber: axLineNumber) {
+            let value = element.value
+            let lastLineText = value[value.index(value.startIndex, offsetBy: axLastLine.location)..<value.index(value.startIndex, offsetBy: axLastLine.location + axLastLine.length)]
+            
+            element.caretLocation = axLastLine.location + textEngine.firstNonBlankWithinLineLimit(in: TextEngineLine(from: String(lastLineText)))
+        } else {
+            element.caretLocation = valueCount
+        }
+                
         return element
     }
     
