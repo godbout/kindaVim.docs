@@ -12,12 +12,10 @@ protocol TextEngineProtocol {
     func endOfWORDForward(startingAt location: Int, in text: TextEngineText) -> Int
     func findNext(_ character: Character, after location: Int, in text: String) -> Int?
     func findPrevious(_ character: Character, before location: Int, in text: String) -> Int?
-    func firstLine(in text: String) -> TextEngineLine
     func firstNonBlank(in text: String) -> Int
     func firstNonBlankWithinLineLimit(in line: TextEngineLine) -> Int
     func innerQuotedString(using character: Character, startingAt location: Int, in text: String) -> Range<Int>?
     func innerWord(startingAt location: Int, in text: String) -> Range<Int>
-    func lastLine(in text: String) -> TextEngineLine
     func nextUnmatched(_ bracket: Character, after location: Int, in text: String) -> Int
     func previousUnmatched(_ bracket: Character, before location: Int, in text: String) -> Int
 
@@ -341,30 +339,6 @@ extension TextEngine {
         guard let secondCharacterLocation = findFirst(character, in: String(text[nextToFirstCharacterIndex...])) else { return nil }
         
         return text.distance(from: text.startIndex, to: nextToFirstCharacterIndex) + secondCharacterLocation
-    }
-    
-    func firstLine(in text: String) -> TextEngineLine {
-        guard let nextLineStartLocation = findNext("\n", after: -1, in: text) else { return TextEngineLine(start: 0, end: text.count, value: text) }
-                    
-        let nextLineStartIndex = text.index(text.startIndex, offsetBy: nextLineStartLocation + 1)
-        
-        return TextEngineLine(
-            start: 0,
-            end: text.distance(from: text.startIndex, to: nextLineStartIndex),
-            value: String(text[..<nextLineStartIndex])
-        )
-    }
-    
-    func lastLine(in text: String) -> TextEngineLine {
-        guard let previousLineStartLocation = findPrevious("\n", before: text.count, in: text) else { return TextEngineLine(start: 0, end: text.count, value: text) }
-        
-        let previousLineStartIndex = text.index(text.startIndex, offsetBy: previousLineStartLocation + 1)
-        
-        return TextEngineLine(
-            start: text.distance(from: text.startIndex, to: previousLineStartIndex),
-            end: text.distance(from: text.startIndex, to: text.endIndex),
-            value: String(text[previousLineStartIndex...]) 
-        )
     }
             
 }
