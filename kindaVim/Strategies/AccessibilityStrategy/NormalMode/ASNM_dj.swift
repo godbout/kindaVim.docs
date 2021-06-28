@@ -16,6 +16,22 @@ extension AccessibilityStrategyNormalMode {
         }
         
         
+        if let axNextLine = AXEngine.axLineRangeFor(lineNumber: element.currentLine.number! + 1) {
+            element.caretLocation = element.currentLine.start!
+            element.selectedLength = element.currentLine.length! + axNextLine.length
+            element.selectedText = ""
+            
+            _ = AccessibilityTextElementAdaptor.toAXfocusedElement(from: element)
+            
+            if let updatedElement = AccessibilityTextElementAdaptor.fromAXFocusedElement() {            
+                let firstNonBlankWithinLineLimitOfUpdatedElementLocation = textEngine.firstNonBlankWithinLineLimit(in: TextEngineLine(from: updatedElement.currentLine.value))
+                
+                element.caretLocation += firstNonBlankWithinLineLimitOfUpdatedElementLocation
+                element.selectedLength = 0
+                element.selectedText = nil
+            }
+        }        
+        
         return element
     }
     
