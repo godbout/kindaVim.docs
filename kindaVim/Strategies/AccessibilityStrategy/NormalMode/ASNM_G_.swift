@@ -18,11 +18,8 @@ extension AccessibilityStrategyNormalMode {
         
         if element.lastCharacterIsLinefeed {
             element.caretLocation = element.value.count
-        } else if let axLineNumber = AXEngine.axLineNumberFor(location: element.value.count - 1), let axLastLine = AXEngine.axLineRangeFor(lineNumber: axLineNumber) {
-            let value = element.value
-            let lastLineText = value[value.index(value.startIndex, offsetBy: axLastLine.location)..<value.index(value.startIndex, offsetBy: axLastLine.location + axLastLine.length)]
-            
-            element.caretLocation = axLastLine.location + textEngine.firstNonBlankWithinLineLimit(in: TextEngineLine(from: String(lastLineText)))
+        } else if let lastLine = AccessibilityTextElementAdaptor.lineFor(location: element.caretLocation) {            
+            element.caretLocation = lastLine.start + textEngine.firstNonBlankWithinLineLimit(in: TextEngineLine(from: lastLine.value))
         }
                 
         return element

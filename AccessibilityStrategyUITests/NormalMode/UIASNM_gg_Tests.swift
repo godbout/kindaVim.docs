@@ -29,7 +29,7 @@ extension UIASNM_gg_tests {
         XCTAssertEqual(finalElement?.caretLocation, 0)
     }
     
-    func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_but_not_on_an_empty_line_it_does_nothing_and_does_not_crash() {
+    func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_but_not_on_an_empty_line_it_works_and_the_caret_goes_to_the_relevant_position() {
         let textInAXFocusedElement = """
 caret is
 gonna be at the end
@@ -39,7 +39,7 @@ gonna be at the end
         
         let finalElement = applyMoveAndGetBackUpdatedElement()
         
-        XCTAssertEqual(finalElement?.caretLocation, 28)
+        XCTAssertEqual(finalElement?.caretLocation, 0)
     }
     
     func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_and_on_an_empty_line_it_works_and_the_caret_goes_to_the_relevant_position() {

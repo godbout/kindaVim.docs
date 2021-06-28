@@ -14,24 +14,24 @@ class ASNM_A__Tests: ASNM_BaseTests {
 // Both
 extension ASNM_A__Tests {
     
-    func test_that_if_the_TextElement_is_empty_it_does_not_crash() {
-        let text = ""
-        let element = AccessibilityTextElement(
-            role: .textField,
-            value: text,
-            caretLocation: 0,
-            currentLine: AccessibilityTextElementLine(
-                fullValue: text,
-                number: nil,
-                start: nil,
-                end: nil
-            )
-        )
-        
-        let returnedElement = applyMove(on: element)
-        
-        XCTAssertEqual(returnedElement?.caretLocation, 0)
-    }
+//    func test_that_if_the_TextElement_is_empty_it_does_not_crash() {
+//        let text = ""
+//        let element = AccessibilityTextElement(
+//            role: .textField,
+//            value: text,
+//            caretLocation: 0,
+//            currentLine: AccessibilityTextElementLine(
+//                fullValue: text,
+//                number: nil,
+//                start: nil,
+//                end: nil
+//            )
+//        )
+//        
+//        let returnedElement = applyMove(on: element)
+//        
+//        XCTAssertEqual(returnedElement?.caretLocation, 0)
+//    }
     
 }
 
@@ -135,26 +135,26 @@ not go down
         XCTAssertEqual(returnedElement?.caretLocation, 20)        
     }
     
-    func test_that_if_the_caret_is_at_the_end_of_the_TextView_it_does_not_crash() {
-        let text = """
-at the end
-of a TextView
-"""
-        let element = AccessibilityTextElement(
-            role: .textArea,
-            value: text,
-            caretLocation: 24,
-            currentLine: AccessibilityTextElementLine(
-                fullValue: text,
-                number: nil,
-                start: nil,
-                end: nil
-            )
-        )
-        
-        let returnedElement = applyMove(on: element)
-        
-        XCTAssertEqual(returnedElement?.caretLocation, 24)    
-    }
+//    func test_that_if_the_caret_is_at_the_end_of_the_TextView_it_does_not_crash() {
+//        let text = """
+//at the end
+//of a TextView
+//"""
+//        let element = AccessibilityTextElement(
+//            role: .textArea,
+//            value: text,
+//            caretLocation: 24,
+//            currentLine: AccessibilityTextElementLine(
+//                fullValue: text,
+//                number: nil,
+//                start: nil,
+//                end: nil
+//            )
+//        )
+//        
+//        let returnedElement = applyMove(on: element)
+//        
+//        XCTAssertEqual(returnedElement?.caretLocation, 24)    
+//    }
      
 }

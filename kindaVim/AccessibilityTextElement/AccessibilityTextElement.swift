@@ -19,66 +19,28 @@ enum AccessibilityTextElementRole {
 struct AccessibilityTextElementLine {
     
     var fullValue: String
-    var value: String {
-        guard let start = start, let end = end else { return "" }
-        
+    var value: String {        
         let lineStartIndex = fullValue.index(fullValue.startIndex, offsetBy: start)
         let lineEndIndex = fullValue.index(lineStartIndex, offsetBy: end - start)
         
         return String(fullValue[lineStartIndex..<lineEndIndex])
     }
-    let number: Int?
-    let start: Int?
-    let end: Int?
-    var length: Int? {
-        guard let start = start, let end = end else { return nil }
-        
-        return end - start        
-    }
-    var lengthWithoutLinefeed: Int? {
-        guard let length = length else { return nil }
-        
-        return value.hasSuffix("\n") ? length - 1 : length
-    }
     
+    let number: Int
+    let start: Int
+    let end: Int
+    var length: Int { end - start }
+    var lengthWithoutLinefeed: Int { value.hasSuffix("\n") ? length - 1 : length }
     var endLimit: Int? {
-        guard let start = start, let end = end else { return nil }
         guard end - start > 1 else { return start }
 
         return value.hasSuffix("\n") ? end - 2 : end - 1
     }
     
-    var isNotAnEmptyLine: Bool {
-        return !isAnEmptyLine
-    }
-
-    var startLimit: Int? {
-        guard let start = start else { return nil }
-
-        return start
-    }
-    
-    var isTheFirstLine: Bool {
-        return start == 0
-    }
-    
-    var isTheLastLine: Bool {
-        return !value.hasSuffix("\n")
-    }
-
-    var isAnEmptyLine: Bool {
-        // if start and end are nil, then the insertion point is after the last character of the TextField
-        // this is not possible to reach without clicking there, but still
-        // because Apple's AX API returns nil for everything, we can't grab the line range for that line
-        // therefore the line.value is "", therefore we need to check against the fullValue coming from the
-        // element.
-        // probably later we need to refactor the line.value so that if start and end are nil then
-        // we grab the last sentence of the fullValue, like from last index until we fine a linefeed, rolling
-        // backwards
-        guard let _ = start, let _ = end else { return fullValue.last == "\n" }
-
-        return value == "\n"
-    }
+    var isNotAnEmptyLine: Bool { !isAnEmptyLine }
+    var isTheFirstLine: Bool { start == 0 }    
+    var isTheLastLine: Bool { !value.hasSuffix("\n") }
+    var isAnEmptyLine: Bool { value == "\n" || value == "" }
     
 }
 
@@ -102,8 +64,8 @@ struct AccessibilityTextElement {
     
     var caretLocation = 0 {
         didSet {
-            if let lineForLocation = AccessibilityTextElementAdaptor.lineFor(location: caretLocation), let lineStart = lineForLocation.start {
-                Self.globalColumnNumber = caretLocation - lineStart + 1
+            if let lineForLocation = AccessibilityTextElementAdaptor.lineFor(location: caretLocation), lineForLocation.isNotAnEmptyLine {
+                Self.globalColumnNumber = caretLocation - lineForLocation.start + 1
             }
         }
     }
@@ -122,25 +84,11 @@ struct AccessibilityTextElement {
     
     var currentLine: AccessibilityTextElementLine!
     
-    var isEmpty: Bool {
-        return value.isEmpty
-    }
-    
-    var isNotEmpty: Bool {
-        return !isEmpty
-    }
-
-    var caretIsAtTheEnd: Bool {
-        return currentLine.start == nil && currentLine.end == nil
-    }
-    
-    var lastCharacterIsLinefeed: Bool {
-        return value.last == "\n"
-    }
-
-    var lastCharacterIsNotLinefeed: Bool {
-        return !lastCharacterIsLinefeed
-    }
+    var isEmpty: Bool { value.isEmpty }    
+    var isNotEmpty: Bool { !isEmpty }
+    var caretIsAtTheEnd: Bool { caretLocation == value.count }    
+    var lastCharacterIsLinefeed: Bool { value.last == "\n" }
+    var lastCharacterIsNotLinefeed: Bool { !lastCharacterIsLinefeed }
 
 }
 

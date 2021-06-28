@@ -34,7 +34,7 @@ extension UIASNM_P__TextFields_Tests {
         XCTAssertEqual(finalElement?.caretLocation, 25)
     }
     
-    func test_that_if_the_caret_is_at_the_last_character_of_the_TextField_it_does_nothing_and_does_not_crash() {
+    func test_that_if_the_caret_is_at_the_last_character_of_the_TextField_it_still_pastes() {
         let textInAXFocusedElement = "oh oh you're out of the boundaries!"
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
@@ -45,8 +45,8 @@ extension UIASNM_P__TextFields_Tests {
         VimEngine.shared.lastYankStyle = .characterwise
         let finalElement = sendMoveThroughVimEngineAndGetBackUpdatedFocusedElement()
         
-        XCTAssertEqual(finalElement?.value, "oh oh you're out of the boundaries!")
-        XCTAssertEqual(finalElement?.caretLocation, 34)
+        XCTAssertEqual(finalElement?.value, "oh oh you're out of the boundaries!test 2 of The 3 Cases P TF")
+        XCTAssertEqual(finalElement?.caretLocation, 60)
     }
     
 }

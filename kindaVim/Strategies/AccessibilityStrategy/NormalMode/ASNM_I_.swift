@@ -17,7 +17,7 @@ extension AccessibilityStrategyNormalMode {
         
         
         let lineText = element.currentLine.value  
-        element.caretLocation = element.currentLine.start! + textEngine.firstNonBlank(in: lineText)
+        element.caretLocation = element.currentLine.start + textEngine.firstNonBlank(in: lineText)
         
         return element
     }

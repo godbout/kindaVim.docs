@@ -12,11 +12,8 @@ extension AccessibilityStrategyNormalMode {
         }
         
         
-        if let firstLine = AXEngine.axLineRangeFor(lineNumber: 0) {
-            let value = element.value
-            let firstLineText = value[..<value.index(value.startIndex, offsetBy: firstLine.length)]
-            
-            element.caretLocation = textEngine.firstNonBlankWithinLineLimit(in: TextEngineLine(from: String(firstLineText)))
+        if let firstLine = AccessibilityTextElementAdaptor.lineFor(lineNumber: 1) {            
+            element.caretLocation = textEngine.firstNonBlankWithinLineLimit(in: TextEngineLine(from: firstLine.value))
         }
         
         return element

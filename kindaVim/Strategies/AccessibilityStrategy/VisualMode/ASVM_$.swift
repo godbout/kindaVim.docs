@@ -21,7 +21,7 @@ extension AccessibilityStrategyVisualMode {
             
         if VimEngine.shared.visualStyle == .characterwise {
             element.caretLocation = Self.anchor
-            element.selectedLength = element.currentLine.end! - element.caretLocation
+            element.selectedLength = element.currentLine.end - element.caretLocation
         }
         
         return element

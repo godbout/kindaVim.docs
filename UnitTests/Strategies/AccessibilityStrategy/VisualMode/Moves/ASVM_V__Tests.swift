@@ -17,65 +17,65 @@ class ASVM_V__Tests: ASVM_BaseTests {
 // - caret at the end of TextElement on own empty line
 //
 // the second case has to be tested through UI Tests because it's calling the ATEAdaptor.lineFor
-extension ASVM_V__Tests {
-    
-    func test_that_if_the_TextElement_is_empty_it_does_not_move_the_caret_but_set_the_anchor_and_head_to_0() {
-        let text = ""
-        let element = AccessibilityTextElement(
-            role: .textField,
-            value: text,
-            caretLocation: 0,
-            currentLine: AccessibilityTextElementLine(
-                fullValue: text,
-                number: nil,
-                start: nil,
-                end: nil
-            )
-        )
-        
-        let returnedElement = applyMove(on: element)
-        
-        XCTAssertEqual(returnedElement?.caretLocation, 0)
-        XCTAssertEqual(returnedElement?.selectedLength, 0)
-        XCTAssertNil(returnedElement?.selectedText)
-        
-        XCTAssertEqual(AccessibilityStrategyVisualMode.anchor, 0)
-        XCTAssertEqual(AccessibilityStrategyVisualMode.head, 0)
-    }
-    
-    // for V this case requires UI testing as we have to call lineFor in order to get the line info of the caretLocation - 1
-    func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_but_not_on_an_empty_line_it_selects_the_whole_line() {}
-    
-    func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_and_on_an_empty_line_it_does_not_move_but_sets_the_anchor_and_head_to_caret_location() {
-        let text = """
-caret is on its
-own empty
-line
-
-"""
-        let element = AccessibilityTextElement(
-            role: .textArea,
-            value: text,
-            caretLocation: 31,
-            currentLine: AccessibilityTextElementLine(
-                fullValue: text,
-                number: nil,
-                start: nil,
-                end: nil
-            )
-        )
-        
-        let returnedElement = applyMove(on: element)
-        
-        XCTAssertEqual(returnedElement?.caretLocation, 31)
-        XCTAssertEqual(returnedElement?.selectedLength, 0)
-        XCTAssertNil(returnedElement?.selectedText)
-        
-        XCTAssertEqual(AccessibilityStrategyVisualMode.anchor, 31)
-        XCTAssertEqual(AccessibilityStrategyVisualMode.head, 31)
-    }
-    
-}
+//extension ASVM_V__Tests {
+//    
+//    func test_that_if_the_TextElement_is_empty_it_does_not_move_the_caret_but_set_the_anchor_and_head_to_0() {
+//        let text = ""
+//        let element = AccessibilityTextElement(
+//            role: .textField,
+//            value: text,
+//            caretLocation: 0,
+//            currentLine: AccessibilityTextElementLine(
+//                fullValue: text,
+//                number: nil,
+//                start: nil,
+//                end: nil
+//            )
+//        )
+//        
+//        let returnedElement = applyMove(on: element)
+//        
+//        XCTAssertEqual(returnedElement?.caretLocation, 0)
+//        XCTAssertEqual(returnedElement?.selectedLength, 0)
+//        XCTAssertNil(returnedElement?.selectedText)
+//        
+//        XCTAssertEqual(AccessibilityStrategyVisualMode.anchor, 0)
+//        XCTAssertEqual(AccessibilityStrategyVisualMode.head, 0)
+//    }
+//    
+//    // for V this case requires UI testing as we have to call lineFor in order to get the line info of the caretLocation - 1
+//    func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_but_not_on_an_empty_line_it_selects_the_whole_line() {}
+//    
+//    func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_and_on_an_empty_line_it_does_not_move_but_sets_the_anchor_and_head_to_caret_location() {
+//        let text = """
+//caret is on its
+//own empty
+//line
+//
+//"""
+//        let element = AccessibilityTextElement(
+//            role: .textArea,
+//            value: text,
+//            caretLocation: 31,
+//            currentLine: AccessibilityTextElementLine(
+//                fullValue: text,
+//                number: nil,
+//                start: nil,
+//                end: nil
+//            )
+//        )
+//        
+//        let returnedElement = applyMove(on: element)
+//        
+//        XCTAssertEqual(returnedElement?.caretLocation, 31)
+//        XCTAssertEqual(returnedElement?.selectedLength, 0)
+//        XCTAssertNil(returnedElement?.selectedText)
+//        
+//        XCTAssertEqual(AccessibilityStrategyVisualMode.anchor, 31)
+//        XCTAssertEqual(AccessibilityStrategyVisualMode.head, 31)
+//    }
+//    
+//}
 
 
 // Both

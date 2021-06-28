@@ -127,7 +127,7 @@ extension AccessibilityStrategyNormalMode {
             textToPaste.addTrailingLinefeedIfNone()            
         }
         
-        element.caretLocation = element.currentLine.end!
+        element.caretLocation = element.currentLine.end
         element.selectedLength = 0
         element.selectedText = textToPaste.value
         

@@ -91,7 +91,7 @@ struct AccessibilityStrategyNormalMode: AccessibilityStrategyNormalModeProtocol 
         }
         
         
-        let lineStart = element.currentLine.start!                
+        let lineStart = element.currentLine.start             
         let lineText = element.currentLine.value
         let lineCaretLocation = element.caretLocation - lineStart
         

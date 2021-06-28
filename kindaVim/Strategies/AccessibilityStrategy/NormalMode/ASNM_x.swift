@@ -26,7 +26,7 @@ extension AccessibilityStrategyNormalMode {
         if element.caretLocation >= element.currentLine.endLimit! {
             _ = AccessibilityTextElementAdaptor.toAXfocusedElement(from: element)
             
-            if element.caretLocation > element.currentLine.startLimit! {
+            if element.caretLocation > element.currentLine.start {
                 element.caretLocation -= 1                                
             }
             

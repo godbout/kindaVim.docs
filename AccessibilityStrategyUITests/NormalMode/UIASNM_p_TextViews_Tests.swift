@@ -168,7 +168,7 @@ test 1 of The 3 Cases for TextArea linewise
         XCTAssertEqual(finalElement?.caretLocation, 1)
     }
     
-    func test_that_if_the_caret_is_at_the_last_character_of_the_TextArea_it_does_nothing_and_does_not_crash_even_for_linewise() {
+    func test_that_if_the_caret_is_at_the_last_character_of_the_TextArea_and_on_a_non_empty_line_it_still_pastes_but_without_an_ending_linefeed() {        
         let textInAXFocusedElement = """
 end of boundaries
 cannot
@@ -185,9 +185,10 @@ cannot
         XCTAssertEqual(finalElement?.value, """
 end of boundaries
 cannot
+test 2 of The 3 Cases for TextArea linewise
 """
         )
-        XCTAssertEqual(finalElement?.caretLocation, 23)
+        XCTAssertEqual(finalElement?.caretLocation, 25)
     }
     
     func test_that_if_the_caret_is_at_the_last_character_of_the_TextArea_and_on_an_empty_line_it_still_pastes_but_without_an_ending_linefeed() {

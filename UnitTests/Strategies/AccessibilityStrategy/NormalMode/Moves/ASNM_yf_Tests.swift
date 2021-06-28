@@ -16,83 +16,83 @@ class ASNM_yf_Tests: ASNM_BaseTests {
 // - empty TextElement
 // - caret at the end of TextElement but not on empty line
 // - caret at the end of TextElement on own empty line
-extension ASNM_yf_Tests {
-    
-    func test_that_if_the_TextElement_is_empty_it_does_nothing_and_does_not_crash() {
-        let text = ""
-        let element = AccessibilityTextElement(
-            role: .textField,
-            value: text,
-            caretLocation: 0,
-            currentLine: AccessibilityTextElementLine(
-                fullValue: text,
-                number: nil,
-                start: nil,
-                end: nil
-            )
-        )
-        
-        NSPasteboard.general.clearContents()
-        NSPasteboard.general.setString("test 1 of The 3 Cases yf", forType: .string)
-        
-        _ = applyMove(to: "a", on: element)
-        
-        XCTAssertEqual(NSPasteboard.general.string(forType: .string), "test 1 of The 3 Cases yf")
-    }
-    
-    func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_but_not_on_an_empty_line_it_does_nothing_and_does_not_crash() {
-        let text = """
-caret is
-gonna be at the end
-"""
-        let element = AccessibilityTextElement(
-            role: .textArea,
-            value: text,
-            caretLocation: 28,
-            currentLine: AccessibilityTextElementLine(
-                fullValue: text,
-                number: nil,
-                start: nil,
-                end: nil
-            )
-        )
-        
-        NSPasteboard.general.clearContents()
-        NSPasteboard.general.setString("test 2 of The 3 Cases yf", forType: .string)
-        
-        _ = applyMove(to: "a", on: element)
-        
-        XCTAssertEqual(NSPasteboard.general.string(forType: .string), "test 2 of The 3 Cases yf")
-    }
-    
-    func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_and_on_an_empty_line_on_its_own_it_does_nothing_and_does_not_crash() {
-        let text = """
-caret is on its
-own empty
-line
-
-"""
-        let element = AccessibilityTextElement(
-            role: .textArea,
-            value: text,
-            caretLocation: 31,
-            currentLine: AccessibilityTextElementLine(
-                fullValue: text,
-                number: nil,
-                start: nil,
-                end: nil
-            )
-        )
-        
-        NSPasteboard.general.clearContents()
-        NSPasteboard.general.setString("test 3 of The 3 Cases yf", forType: .string)
-        
-        _ = applyMove(to: "a", on: element)
-        
-        XCTAssertEqual(NSPasteboard.general.string(forType: .string), "test 3 of The 3 Cases yf")
-    }    
-    
-}
+//extension ASNM_yf_Tests {
+//    
+//    func test_that_if_the_TextElement_is_empty_it_does_nothing_and_does_not_crash() {
+//        let text = ""
+//        let element = AccessibilityTextElement(
+//            role: .textField,
+//            value: text,
+//            caretLocation: 0,
+//            currentLine: AccessibilityTextElementLine(
+//                fullValue: text,
+//                number: nil,
+//                start: nil,
+//                end: nil
+//            )
+//        )
+//        
+//        NSPasteboard.general.clearContents()
+//        NSPasteboard.general.setString("test 1 of The 3 Cases yf", forType: .string)
+//        
+//        _ = applyMove(to: "a", on: element)
+//        
+//        XCTAssertEqual(NSPasteboard.general.string(forType: .string), "test 1 of The 3 Cases yf")
+//    }
+//    
+//    func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_but_not_on_an_empty_line_it_does_nothing_and_does_not_crash() {
+//        let text = """
+//caret is
+//gonna be at the end
+//"""
+//        let element = AccessibilityTextElement(
+//            role: .textArea,
+//            value: text,
+//            caretLocation: 28,
+//            currentLine: AccessibilityTextElementLine(
+//                fullValue: text,
+//                number: nil,
+//                start: nil,
+//                end: nil
+//            )
+//        )
+//        
+//        NSPasteboard.general.clearContents()
+//        NSPasteboard.general.setString("test 2 of The 3 Cases yf", forType: .string)
+//        
+//        _ = applyMove(to: "a", on: element)
+//        
+//        XCTAssertEqual(NSPasteboard.general.string(forType: .string), "test 2 of The 3 Cases yf")
+//    }
+//    
+//    func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_and_on_an_empty_line_on_its_own_it_does_nothing_and_does_not_crash() {
+//        let text = """
+//caret is on its
+//own empty
+//line
+//
+//"""
+//        let element = AccessibilityTextElement(
+//            role: .textArea,
+//            value: text,
+//            caretLocation: 31,
+//            currentLine: AccessibilityTextElementLine(
+//                fullValue: text,
+//                number: nil,
+//                start: nil,
+//                end: nil
+//            )
+//        )
+//        
+//        NSPasteboard.general.clearContents()
+//        NSPasteboard.general.setString("test 3 of The 3 Cases yf", forType: .string)
+//        
+//        _ = applyMove(to: "a", on: element)
+//        
+//        XCTAssertEqual(NSPasteboard.general.string(forType: .string), "test 3 of The 3 Cases yf")
+//    }    
+//    
+//}
 
 
 // Both

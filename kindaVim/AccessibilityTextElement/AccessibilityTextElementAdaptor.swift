@@ -27,13 +27,8 @@ struct AccessibilityTextElementAdaptor {
         let axValue = elementValues[1] as! String
         let axCaretLocation = selectedTextRange.location
         let axSelectedLength = selectedTextRange.length
-        var currentLine: AccessibilityTextElementLine!
 
-        if let line = lineFor(location: axCaretLocation, on: axFocusedElement) {
-            currentLine = line
-        } else {
-            currentLine = AccessibilityTextElementLine(fullValue: axValue, number: nil, start: nil, end: nil)
-        }
+        guard let currentLine = lineFor(location: axCaretLocation, on: axFocusedElement) else { return nil }
 
         return AccessibilityTextElement(
             role: axRole,
@@ -46,32 +41,89 @@ struct AccessibilityTextElementAdaptor {
 
     static func lineFor(location: Int, on axFocusedElement: AXUIElement? = AXEngine.axFocusedElement()) -> AccessibilityTextElementLine? {
         guard let axFocusedElement = axFocusedElement else { return nil }
-        guard let axLineNumber = AXEngine.axLineNumberFor(location: location, on: axFocusedElement) else { return nil }
 
-        return lineFor(lineNumber: axLineNumber, on: axFocusedElement)
+        guard let elementValue = AXEngine.axValue(of: axFocusedElement) else { return nil }
+
+        if elementValue.isEmpty {
+            return AccessibilityTextElementLine(
+                fullValue: "",
+                number: 1,
+                start: 0,
+                end: 0
+            )
+        }
+
+        if caretIsAtTheEnd(for: location, in: elementValue), lastCharacterIsNotLinefeed(in: elementValue) {
+            guard let axLineNumber = AXEngine.axLineNumberFor(location: location - 1, on: axFocusedElement) else { return nil }
+            guard let axLineRange = AXEngine.axLineRangeFor(lineNumber: axLineNumber, on: axFocusedElement) else { return nil }
+
+            return AccessibilityTextElementLine(
+                fullValue: elementValue,
+                number: axLineNumber + 1,
+                start: axLineRange.location,
+                end: axLineRange.location + axLineRange.length
+            )
+        }
+
+        if caretIsAtTheEnd(for: location, in: elementValue), lastCharacterIsLinefeed(in: elementValue) {
+            guard let axLineNumber = AXEngine.axLineNumberFor(location: location - 1, on: axFocusedElement) else { return nil }
+
+            let elementCount = elementValue.count
+
+            return AccessibilityTextElementLine(
+                fullValue: elementValue,
+                number: axLineNumber + 2,
+                start: elementCount,
+                end: elementCount
+            )
+        }
+
+
+        guard let axLineNumber = AXEngine.axLineNumberFor(location: location, on: axFocusedElement) else { return nil }
+        guard let axLineRange = AXEngine.axLineRangeFor(lineNumber: axLineNumber, on: axFocusedElement) else { return nil }
+
+        return AccessibilityTextElementLine(
+            fullValue: elementValue,
+            number: axLineNumber + 1,
+            start: axLineRange.location,
+            end: axLineRange.location + axLineRange.length
+        )
+    }
+
+    private static func caretIsAtTheEnd(for location: Int, in text: String) -> Bool {
+        return location == text.count
+    }
+
+    private static func lastCharacterIsLinefeed(in text: String) -> Bool {
+        return text.last == "\n"
+    }
+
+    private static func lastCharacterIsNotLinefeed(in text: String) -> Bool {
+        return !lastCharacterIsLinefeed(in: text)
     }
     
     static func lineFor(lineNumber: Int, on axFocusedElement: AXUIElement? = AXEngine.axFocusedElement()) -> AccessibilityTextElementLine? {
         guard let axFocusedElement = axFocusedElement else { return nil }
 
-        var axValue = ""
-        var start: Int?
-        var end: Int?
+        guard let elementValue = AXEngine.axValue(of: axFocusedElement) else { return nil }
 
-        if let axLineRange = AXEngine.axLineRangeFor(lineNumber: lineNumber, on: axFocusedElement) {
-            start = axLineRange.location
-            end = start! + axLineRange.length
+        if elementValue.isEmpty {
+            return AccessibilityTextElementLine(
+                fullValue: "",
+                number: 1,
+                start: 0,
+                end: 0
+            )
         }
 
-        if let elementValue = AXEngine.axValue(of: axFocusedElement) {
-            axValue = elementValue
-        }
+
+        guard let axLineRange = AXEngine.axLineRangeFor(lineNumber: lineNumber - 1, on: axFocusedElement) else { return nil }
 
         return AccessibilityTextElementLine(
-            fullValue: axValue,
+            fullValue: elementValue,
             number: lineNumber,
-            start: start,
-            end: end
+            start: axLineRange.location,
+            end: axLineRange.location + axLineRange.length
         )
     }
 

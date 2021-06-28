@@ -2,14 +2,14 @@ import XCTest
 
 class from_TF_currentLineStartTests: ATEA_BaseTests {
     
-    func test_that_the_line_start_is_nil_for_an_empty_TextField() {
+    func test_that_the_line_start_is_0_for_an_empty_TextField() {
         let textInAXFocusedElement = ""
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
 
         let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
 
-        XCTAssertNil(accessibilityElement?.currentLine.start)
+        XCTAssertEqual(accessibilityElement?.currentLine.start, 0)
     }
     
     func test_that_the_line_start_is_equal_to_0_if_the_caret_is_at_the_beginning_of_a_non_empty_line() {
@@ -23,14 +23,14 @@ class from_TF_currentLineStartTests: ATEA_BaseTests {
         XCTAssertEqual(accessibilityElement?.currentLine.start, 0)
     }
     
-    func test_that_the_line_start_is_nil_if_the_caret_is_at_the_end_of_the_line() {
+    func test_that_the_line_start_is_0_if_the_caret_is_at_the_end_of_the_line() {
         let textInAXFocusedElement = "line start is nil if caret at end of line"
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
 
         let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
 
-        XCTAssertNil(accessibilityElement?.currentLine.start)
+        XCTAssertEqual(accessibilityElement?.currentLine.start, 0)
     }
     
     func test_that_the_line_start_is_equal_to_0_for_anything_in_between() {

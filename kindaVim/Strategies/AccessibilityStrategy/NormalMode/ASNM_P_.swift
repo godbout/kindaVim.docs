@@ -116,13 +116,13 @@ extension AccessibilityStrategyNormalMode {
         textToPaste = TextEngineLine(from: NSPasteboard.general.string(forType: .string) ?? "")
         textToPaste.addTrailingLinefeedIfNone()            
         
-        element.caretLocation = element.currentLine.start!
+        element.caretLocation = element.currentLine.start
         element.selectedLength = 0
         element.selectedText = textToPaste.value
         
         _ = AccessibilityTextElementAdaptor.toAXfocusedElement(from: element)
         
-        element.caretLocation = element.currentLine.start! + 1 + textEngine.firstNonBlank(in: textToPaste.value)
+        element.caretLocation = element.currentLine.start + 1 + textEngine.firstNonBlank(in: textToPaste.value)
         element.selectedText = nil
         
         return element    

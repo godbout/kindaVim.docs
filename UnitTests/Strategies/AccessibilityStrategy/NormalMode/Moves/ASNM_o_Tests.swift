@@ -142,28 +142,28 @@ it should not cut the last character
         
     }
     
-    func test_that_if_on_the_last_empty_line_it_does_create_a_new_line() {
-        let text = """
-caret on empty last line
-
-"""
-        let element = AccessibilityTextElement(
-            role: .textArea,
-            value: text,
-            caretLocation: 25,
-            currentLine: AccessibilityTextElementLine(
-                fullValue: text,
-                number: nil,
-                start: nil,
-                end: nil
-            )
-        )
-        
-        let returnedElement = applyMove(on: element)
-        
-        XCTAssertEqual(returnedElement?.selectedLength, 0)
-        XCTAssertEqual(returnedElement?.selectedText, "\n")   
-    }
+//    func test_that_if_on_the_last_empty_line_it_does_create_a_new_line() {
+//        let text = """
+//caret on empty last line
+//
+//"""
+//        let element = AccessibilityTextElement(
+//            role: .textArea,
+//            value: text,
+//            caretLocation: 25,
+//            currentLine: AccessibilityTextElementLine(
+//                fullValue: text,
+//                number: nil,
+//                start: nil,
+//                end: nil
+//            )
+//        )
+//        
+//        let returnedElement = applyMove(on: element)
+//        
+//        XCTAssertEqual(returnedElement?.selectedLength, 0)
+//        XCTAssertEqual(returnedElement?.selectedText, "\n")   
+//    }
     
     func test_that_if_on_a_line_that_is_just_a_linefeed_it_does_create_one_line_and_goes_to_that_line_not_two_lines_below() {
         let text = """

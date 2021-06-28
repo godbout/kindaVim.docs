@@ -17,14 +17,14 @@ extension AccessibilityStrategyNormalMode {
         }
         
         
-        if let currentLineNumber = element.currentLine.number, let nextLine = AccessibilityTextElementAdaptor.lineFor(lineNumber: currentLineNumber + 1) {
+        if let nextLine = AccessibilityTextElementAdaptor.lineFor(lineNumber: element.currentLine.number + 1) {
             if nextLine.isTheLastLine, nextLine.isAnEmptyLine {
                 let globalColumNumber = AccessibilityTextElement.globalColumnNumber
                 element.caretLocation = element.value.count
                 AccessibilityTextElement.globalColumnNumber = globalColumNumber
             } else {
-                if let nextLineLength = nextLine.length, nextLineLength > AccessibilityTextElement.globalColumnNumber {
-                    element.caretLocation = nextLine.start! + AccessibilityTextElement.globalColumnNumber - 1
+                if nextLine.length > AccessibilityTextElement.globalColumnNumber {
+                    element.caretLocation = nextLine.start + AccessibilityTextElement.globalColumnNumber - 1
                 } else {
                     if let endLimit = nextLine.endLimit {
                         let globalColumNumber = AccessibilityTextElement.globalColumnNumber
@@ -33,6 +33,8 @@ extension AccessibilityStrategyNormalMode {
                     }
                 }
             }
+        } else {
+            element.caretLocation = element.value.count
         }
         
         return element

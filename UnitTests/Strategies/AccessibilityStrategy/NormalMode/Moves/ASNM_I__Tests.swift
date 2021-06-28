@@ -45,23 +45,23 @@ the TextEngineTests
         XCTAssertEqual(textEngineMock.functionCalled, "firstNonBlank(in:)")        
     }
     
-    func test_that_if_the_caret_is_at_the_end_of_the_TextField_it_does_not_crash() {
-        let text = "    if caret is at the end it should not crash!"
-        let element = AccessibilityTextElement(
-            role: .textField,
-            value: text,
-            caretLocation: 47,
-            currentLine: AccessibilityTextElementLine(
-                fullValue: text,
-                number: nil,
-                start: nil,
-                end: nil
-            )
-        )
-        
-        let returnedElement = applyMove(on: element)
-        
-        XCTAssertEqual(returnedElement?.caretLocation, 47)
-    }
+//    func test_that_if_the_caret_is_at_the_end_of_the_TextField_it_does_not_crash() {
+//        let text = "    if caret is at the end it should not crash!"
+//        let element = AccessibilityTextElement(
+//            role: .textField,
+//            value: text,
+//            caretLocation: 47,
+//            currentLine: AccessibilityTextElementLine(
+//                fullValue: text,
+//                number: nil,
+//                start: nil,
+//                end: nil
+//            )
+//        )
+//        
+//        let returnedElement = applyMove(on: element)
+//        
+//        XCTAssertEqual(returnedElement?.caretLocation, 47)
+//    }
             
 }

@@ -18,11 +18,11 @@ extension AccessibilityStrategyNormalMode {
         
     
         let lineText = element.currentLine.value
-        let searchStartIndex = lineText.index(lineText.startIndex, offsetBy: (element.caretLocation - element.currentLine.start!))
+        let searchStartIndex = lineText.index(lineText.startIndex, offsetBy: (element.caretLocation - element.currentLine.start))
         
         if let itemIndex = lineText[searchStartIndex...].firstIndex(where: { ["(", ")", "{", "}", "[", "]"].contains($0) }) {
             let itemCharacter = lineText[itemIndex]
-            let itemLocation = element.currentLine.start! + lineText.distance(from: lineText.startIndex, to: itemIndex)
+            let itemLocation = element.currentLine.start + lineText.distance(from: lineText.startIndex, to: itemIndex)
             var matchedLocation: Int!
             
             // next or previous unmatched, in Vim, will return the matched item if the location is at an item

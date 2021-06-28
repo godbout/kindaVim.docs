@@ -15,74 +15,74 @@ class ASNM_percent_Tests: ASNM_BaseTests {
 // - empty TextElement
 // - caret at the end of TextElement but not on empty line
 // - caret at the end of TextElement on own empty line
-extension ASNM_percent_Tests {
-    
-    func test_that_if_the_TextElement_is_empty_it_does_nothing_and_does_not_crash() {
-        let text = ""
-        let element = AccessibilityTextElement(
-            role: .textField,
-            value: text,
-            caretLocation: 0,
-            currentLine: AccessibilityTextElementLine(
-                fullValue: text,
-                number: nil,
-                start: nil,
-                end: nil
-            )
-        )
-        
-        let returnedElement = applyMove(on: element)
-        
-        XCTAssertEqual(returnedElement?.caretLocation, 0)
-    }
-    
-    func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_but_not_on_an_empty_line_it_does_nothing_and_does_not_crash() {
-        let text = """
-caret is
-gonna be at the end
-"""
-        let element = AccessibilityTextElement(
-            role: .textArea,
-            value: text,
-            caretLocation: 28,
-            currentLine: AccessibilityTextElementLine(
-                fullValue: text,
-                number: nil,
-                start: nil,
-                end: nil
-            )
-        )
-        
-        let returnedElement = applyMove(on: element)
-        
-        XCTAssertEqual(returnedElement?.caretLocation, 28)        
-    }
-    
-    func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_and_on_an_empty_line_it_does_nothing_and_does_not_crash() {
-        let text = """
-caret is on its
-own empty
-line
-
-"""
-        let element = AccessibilityTextElement(
-            role: .textArea,
-            value: text,
-            caretLocation: 31,
-            currentLine: AccessibilityTextElementLine(
-                fullValue: text,
-                number: nil,
-                start: nil,
-                end: nil
-            )
-        )
-        
-        let returnedElement = applyMove(on: element)
-        
-        XCTAssertEqual(returnedElement?.caretLocation, 31)
-    }    
-    
-}
+//extension ASNM_percent_Tests {
+//    
+//    func test_that_if_the_TextElement_is_empty_it_does_nothing_and_does_not_crash() {
+//        let text = ""
+//        let element = AccessibilityTextElement(
+//            role: .textField,
+//            value: text,
+//            caretLocation: 0,
+//            currentLine: AccessibilityTextElementLine(
+//                fullValue: text,
+//                number: nil,
+//                start: nil,
+//                end: nil
+//            )
+//        )
+//        
+//        let returnedElement = applyMove(on: element)
+//        
+//        XCTAssertEqual(returnedElement?.caretLocation, 0)
+//    }
+//    
+//    func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_but_not_on_an_empty_line_it_does_nothing_and_does_not_crash() {
+//        let text = """
+//caret is
+//gonna be at the end
+//"""
+//        let element = AccessibilityTextElement(
+//            role: .textArea,
+//            value: text,
+//            caretLocation: 28,
+//            currentLine: AccessibilityTextElementLine(
+//                fullValue: text,
+//                number: nil,
+//                start: nil,
+//                end: nil
+//            )
+//        )
+//        
+//        let returnedElement = applyMove(on: element)
+//        
+//        XCTAssertEqual(returnedElement?.caretLocation, 28)        
+//    }
+//    
+//    func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_and_on_an_empty_line_it_does_nothing_and_does_not_crash() {
+//        let text = """
+//caret is on its
+//own empty
+//line
+//
+//"""
+//        let element = AccessibilityTextElement(
+//            role: .textArea,
+//            value: text,
+//            caretLocation: 31,
+//            currentLine: AccessibilityTextElementLine(
+//                fullValue: text,
+//                number: nil,
+//                start: nil,
+//                end: nil
+//            )
+//        )
+//        
+//        let returnedElement = applyMove(on: element)
+//        
+//        XCTAssertEqual(returnedElement?.caretLocation, 31)
+//    }    
+//    
+//}
 
 
 // Both

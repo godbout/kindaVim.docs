@@ -17,8 +17,8 @@ extension AccessibilityStrategyVisualMode {
         
         
         if VimEngine.shared.visualStyle == .linewise {
-            element.caretLocation = element.currentLine.start!
-            element.selectedLength = element.currentLine.lengthWithoutLinefeed!
+            element.caretLocation = element.currentLine.start
+            element.selectedLength = element.currentLine.lengthWithoutLinefeed
             element.selectedText = ""
         } else {
             element.selectedText = ""

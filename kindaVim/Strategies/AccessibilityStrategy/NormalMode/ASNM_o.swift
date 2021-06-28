@@ -9,8 +9,8 @@ extension AccessibilityStrategyNormalMode {
             element.selectedText = "\n" 
         } else {
             let lineText = element.currentLine.value         
-            let lineCaretLocationIndex = lineText.index(lineText.startIndex, offsetBy: element.caretLocation - element.currentLine.start!)            
-            let limitForCopyingTextIndex = lineText.index(lineText.startIndex, offsetBy: element.currentLine.endLimit! - element.currentLine.start! + 1)        
+            let lineCaretLocationIndex = lineText.index(lineText.startIndex, offsetBy: element.caretLocation - element.currentLine.start)            
+            let limitForCopyingTextIndex = lineText.index(lineText.startIndex, offsetBy: element.currentLine.endLimit! - element.currentLine.start + 1)        
             
             let textFromCaretToLimitForCopyingText = lineText[lineCaretLocationIndex..<limitForCopyingTextIndex]
             

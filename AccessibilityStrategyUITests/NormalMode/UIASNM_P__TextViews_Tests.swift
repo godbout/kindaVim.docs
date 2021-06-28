@@ -36,7 +36,7 @@ extension UIASNM_P__TextViews_Tests {
         XCTAssertEqual(finalElement?.caretLocation, 35)
     }
 
-    func test_that_if_the_caret_is_at_the_last_character_of_the_TextArea_it_does_nothing_and_does_not_crash() {
+    func test_that_if_the_caret_is_at_the_last_character_of_the_TextArea_it_still_pastes() {
         let textInAXFocusedElement = "you're out of the boundaries buddy"
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
@@ -47,8 +47,8 @@ extension UIASNM_P__TextViews_Tests {
         VimEngine.shared.lastYankStyle = .characterwise
         let finalElement = sendMoveThroughVimEngineAndGetBackUpdatedFocusedElement()
 
-        XCTAssertEqual(finalElement?.value, "you're out of the boundaries buddy")
-        XCTAssertEqual(finalElement?.caretLocation, 33)
+        XCTAssertEqual(finalElement?.value, "you're out of the boundaries buddytest 2 of The 3 Cases for TextArea P")
+        XCTAssertEqual(finalElement?.caretLocation, 69)
     }
 
     func test_that_if_the_caret_is_at_the_last_character_of_the_TextArea_and_on_an_empty_line_it_still_pastes() {
@@ -165,7 +165,7 @@ test 1 of The 3 Cases for TextArea linewise P
         XCTAssertEqual(finalElement?.caretLocation, 0)
     }
 
-    func test_that_if_the_caret_is_at_the_last_character_of_the_TextArea_it_does_nothing_and_does_not_crash_even_for_linewise() {
+    func test_that_if_the_caret_is_at_the_last_character_of_the_TextArea_and_on_a_non_empty_line_it_still_pastes_and_will_enforce_a_trailing_linefeed() {
         let textInAXFocusedElement = """
 end of boundaries
 cannot
@@ -181,10 +181,11 @@ cannot
 
         XCTAssertEqual(finalElement?.value, """
 end of boundaries
+test 2 of The 3 Cases for TextArea linewise P
 cannot
 """
         )
-        XCTAssertEqual(finalElement?.caretLocation, 23)
+        XCTAssertEqual(finalElement?.caretLocation, 18)
     }
 
     func test_that_if_the_caret_is_at_the_last_character_of_the_TextArea_and_on_an_empty_line_it_still_pastes_and_will_enforce_a_trailing_linefeed() {

@@ -23,7 +23,7 @@ extension AccessibilityStrategyVisualMode {
             if element.caretLocation < Self.anchor {
                 element.caretLocation += 1
                 element.selectedLength -= 1
-            } else if element.caretLocation + element.selectedLength < element.currentLine.end! {
+            } else if element.caretLocation + element.selectedLength < element.currentLine.end {
                 element.selectedLength += 1            
             }            
         }        

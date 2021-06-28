@@ -16,8 +16,9 @@ extension AccessibilityStrategyNormalMode {
         }
         
         
-        if let axNextLine = AXEngine.axLineRangeFor(lineNumber: element.currentLine.number! + 1) {
-            element.selectedLength = element.currentLine.length! + axNextLine.length
+        if let nextLine = AccessibilityTextElementAdaptor.lineFor(lineNumber: element.currentLine.number + 1) {
+            element.caretLocation = element.currentLine.start
+            element.selectedLength = element.currentLine.length + nextLine.length
             element.selectedText = ""
             
             _ = AccessibilityTextElementAdaptor.toAXfocusedElement(from: element)

@@ -16,12 +16,12 @@ extension AccessibilityStrategyNormalMode {
         }
         
         
-        let lineStart = element.currentLine.start!        
+        let lineStart = element.currentLine.start      
         let lineText = element.currentLine.value
         let lineCaretLocation = element.caretLocation - lineStart
         
         if let characterFoundLocation = textEngine.findPrevious(character, before: lineCaretLocation, in: lineText) {
-            element.caretLocation = element.currentLine.start! + characterFoundLocation            
+            element.caretLocation = element.currentLine.start + characterFoundLocation            
         }
         
         return element

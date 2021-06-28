@@ -2,14 +2,14 @@ import XCTest
 
 class from_TV_currentLineStartTests: ATEA_BaseTests {
     
-    func test_that_the_line_start_is_nil_for_an_empty_TextView() {
+    func test_that_the_line_start_is_0_for_an_empty_TextView() {
         let textInAXFocusedElement = ""
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
 
         let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
 
-        XCTAssertNil(accessibilityElement?.currentLine.start)
+        XCTAssertEqual(accessibilityElement?.currentLine.start, 0)
     }
 
     func test_that_the_line_start_is_equal_to_0_if_caret_is_at_the_beginning_of_a_non_empty_TextView() {
@@ -27,7 +27,7 @@ start is supposed to
         XCTAssertEqual(accessibilityElement?.currentLine.start, 0)
     }
     
-    func test_that_the_line_start_is_nil_if_caret_is_at_the_end_of_a_TextView() {
+    func test_that_the_line_start_is_correct_if_caret_is_at_the_end_of_a_TextView() {
         let textInAXFocusedElement = """
 so we gonna position
 that shit (the caret)
@@ -39,7 +39,7 @@ and see if we can again blow up that whole shit!
 
         let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
 
-        XCTAssertNil(accessibilityElement?.currentLine.start)
+        XCTAssertEqual(accessibilityElement?.currentLine.start, 54)
     }
 
     func test_that_the_line_start_is_correct_if_caret_is_anywhere_in_between() {
