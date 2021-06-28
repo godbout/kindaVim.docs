@@ -22,7 +22,7 @@ extension AccessibilityStrategyNormalMode {
             return element            
         }
         
-        if element.currentLine.isTheLastLine {
+        if element.currentLine.isTheLastLine, element.lastCharacterIsLinefeed {
             element.selectedText = "\n"
             
             _ = AccessibilityTextElementAdaptor.toAXfocusedElement(from: element)

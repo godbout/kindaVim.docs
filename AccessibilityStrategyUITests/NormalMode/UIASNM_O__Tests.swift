@@ -128,7 +128,7 @@ will be on
 the last empty line
 """
         )
-        XCTAssertEqual(finalElement?.caretLocation, 45)
+        XCTAssertEqual(finalElement?.caretLocation, 25)
     }
     
     func test_that_it_creates_a_line_above_and_goes_to_the_same_indentation_as_the_current_line() {
