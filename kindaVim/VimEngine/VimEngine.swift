@@ -532,7 +532,16 @@ extension VimEngine {
         case [.d, .j]:
             enterNormalMode()
             
-            post(keyboardStrategy.dj())
+            if let element = asNormalMode.dj(on: focusedElement()) {
+                push(element: element)
+                
+                if var element = focusedElement() {
+                    element.selectedLength = 1
+                    push(element: element)
+                }
+            } else {
+                post(keyboardStrategy.dj())
+            }
         case [.d, .G]:
             enterNormalMode()
             
