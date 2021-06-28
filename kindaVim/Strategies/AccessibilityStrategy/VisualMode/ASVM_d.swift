@@ -7,12 +7,31 @@ extension AccessibilityStrategyVisualMode {
             return element
         }
         
+        // this case is handled by v and V. before being able to use VM d
+        // we need to enter Visual Mode with v or V, and those two moves
+        // will move back one character if in the 2nd case of The 3 Cases
         if element.caretIsAtTheEnd, element.lastCharacterIsNotLinefeed {
             return element
         }
         
         if element.caretIsAtTheEnd, element.lastCharacterIsLinefeed {
-            return element
+            element.caretLocation -= 1
+            element.selectedLength = 1
+            element.selectedText = ""
+            
+            _ = AccessibilityTextElementAdaptor.toAXfocusedElement(from: element)            
+            guard var updatedElement = AccessibilityTextElementAdaptor.fromAXFocusedElement() else { return nil }
+            
+            updatedElement.caretLocation -= 1
+            
+            _ = AccessibilityTextElementAdaptor.toAXfocusedElement(from: updatedElement)
+            guard var finalElement = AccessibilityTextElementAdaptor.fromAXFocusedElement() else { return nil }
+            
+            let firstNonBlankWithinLimitOfLastLineLocation = textEngine.firstNonBlankWithinLineLimit(in: TextEngineLine(from: finalElement.currentLine.value))            
+            finalElement.caretLocation = finalElement.currentLine.start! + firstNonBlankWithinLimitOfLastLineLocation
+            finalElement.selectedLength = 0
+            
+            return finalElement
         }
         
         
