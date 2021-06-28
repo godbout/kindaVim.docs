@@ -16,15 +16,14 @@ extension AccessibilityStrategyVisualMode {
         }
         
         
-        element.selectedText = ""
-        
-        
         if VimEngine.shared.visualStyle == .linewise {
             if let axNextLine = AXEngine.axLineRangeFor(lineNumber: element.currentLine.number! + 1) {
                 let value = element.value
                 let axNextLineText = String(value[value.index(value.startIndex, offsetBy: axNextLine.location)..<value.index(value.startIndex, offsetBy: axNextLine.location + axNextLine.length)])
                 let firstNonBlankWithinLineLimitOfNextLineLocation = textEngine.firstNonBlankWithinLineLimit(in: TextEngineLine(from: axNextLineText))
             
+                element.selectedText = ""
+                
                 _ = AccessibilityTextElementAdaptor.toAXfocusedElement(from: element)
                 
                 element.caretLocation += firstNonBlankWithinLineLimitOfNextLineLocation
@@ -45,6 +44,8 @@ extension AccessibilityStrategyVisualMode {
                 element.selectedLength = 0
                 element.selectedText = ""
             }
+        } else {
+            element.selectedText = ""
         }
         
         return element
