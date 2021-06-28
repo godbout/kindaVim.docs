@@ -31,7 +31,7 @@ struct AccessibilityTextElementLine {
     let end: Int
     var length: Int { end - start }
     var lengthWithoutLinefeed: Int { value.hasSuffix("\n") ? length - 1 : length }
-    var endLimit: Int? {
+    var endLimit: Int {
         guard end - start > 1 else { return start }
 
         return value.hasSuffix("\n") ? end - 2 : end - 1

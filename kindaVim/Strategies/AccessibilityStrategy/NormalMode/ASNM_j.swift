@@ -26,11 +26,9 @@ extension AccessibilityStrategyNormalMode {
                 if nextLine.length > AccessibilityTextElement.globalColumnNumber {
                     element.caretLocation = nextLine.start + AccessibilityTextElement.globalColumnNumber - 1
                 } else {
-                    if let endLimit = nextLine.endLimit {
-                        let globalColumNumber = AccessibilityTextElement.globalColumnNumber
-                        element.caretLocation = endLimit
-                        AccessibilityTextElement.globalColumnNumber = globalColumNumber
-                    }
+                    let globalColumNumber = AccessibilityTextElement.globalColumnNumber
+                    element.caretLocation = nextLine.endLimit
+                    AccessibilityTextElement.globalColumnNumber = globalColumNumber
                 }
             }
         } else {

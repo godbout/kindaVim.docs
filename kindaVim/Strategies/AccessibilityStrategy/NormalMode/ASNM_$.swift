@@ -18,7 +18,7 @@ extension AccessibilityStrategyNormalMode {
         }
         
         
-        element.caretLocation = element.currentLine.endLimit!
+        element.caretLocation = element.currentLine.endLimit
         
         return element
     }

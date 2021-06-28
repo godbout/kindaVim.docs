@@ -43,8 +43,8 @@ extension AccessibilityStrategyVisualMode {
             element.caretLocation = Self.anchor
             element.selectedLength = Self.head - Self.anchor
         } else {
-            if Self.head > element.currentLine.endLimit! {
-                element.caretLocation = element.currentLine.endLimit!
+            if Self.head > element.currentLine.endLimit {
+                element.caretLocation = element.currentLine.endLimit
             } else {
                 element.caretLocation = Self.head                
             }

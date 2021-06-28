@@ -38,8 +38,8 @@ extension AccessibilityStrategyVisualMode {
             Self.anchor = element.caretLocation
             Self.head = element.caretLocation
         } else if VimEngine.shared.visualStyle == .linewise {
-            if Self.head > element.currentLine.endLimit! {
-                element.caretLocation = element.currentLine.endLimit!
+            if Self.head > element.currentLine.endLimit {
+                element.caretLocation = element.currentLine.endLimit
             } else {
                 element.caretLocation = Self.head
             }
