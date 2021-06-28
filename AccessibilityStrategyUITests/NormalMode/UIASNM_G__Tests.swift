@@ -42,7 +42,7 @@ gonna be at the end
         XCTAssertEqual(finalElement?.caretLocation, 28)
     }
     
-    func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_and_on_an_empty_line_it_works_and_the_caret_goes_to_the_relevant_position() {
+    func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_and_on_an_empty_line_it_does_nothing_and_does_not_crash() {
         let textInAXFocusedElement = """
 caret is on its
 own empty
@@ -54,7 +54,7 @@ line
         
         let finalElement = applyMoveAndGetBackUpdatedElement()
         
-        XCTAssertEqual(finalElement?.caretLocation, 0)
+        XCTAssertEqual(finalElement?.caretLocation, 31)
     }
     
 }
