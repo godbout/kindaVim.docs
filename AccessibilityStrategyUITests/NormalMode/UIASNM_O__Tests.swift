@@ -86,7 +86,7 @@ an empty line
         XCTAssertEqual(finalElement?.caretLocation, 13)
     }
     
-    func test_that_if_on_the_last_line_it_creates_a_line_below_and_the_caret_stays_on_the_current_line() {
+    func test_that_if_on_the_last_empty_line_it_creates_a_line_below_and_the_caret_stays_on_the_current_line() {
         let textInAXFocusedElement = """
 now the caret
 will be on
@@ -104,6 +104,28 @@ will be on
 the last empty line
 
 
+"""
+        )
+        XCTAssertEqual(finalElement?.caretLocation, 45)
+    }
+    
+    func test_that_if_on_the_last_non_empty_line_it_creates_a_line_below_and_the_caret_stays_on_the_current_line() {
+        let textInAXFocusedElement = """
+now the caret
+will be on
+the last empty line
+"""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        app.textViews.firstMatch.typeKey(.leftArrow, modifierFlags: [])
+        
+        let finalElement = applyMoveAndGetBackUpdatedElement()        
+        
+        XCTAssertEqual(finalElement?.value, """
+now the caret
+will be on
+
+the last empty line
 """
         )
         XCTAssertEqual(finalElement?.caretLocation, 45)
