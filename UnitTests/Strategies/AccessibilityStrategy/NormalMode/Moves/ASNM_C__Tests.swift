@@ -11,13 +11,13 @@ class ASNM_C__Tests: ASNM_BaseTests {
 }
 
 
-// the 3 special cases:
+// The 3 Cases:
 // - empty TextElement
 // - caret at the end of TextElement but not on empty line
 // - caret at the end of TextElement on own empty line
 extension ASNM_C__Tests {
     
-    func test_that_if_the_TextElement_is_empty_it_does_nothing() {
+    func test_that_if_the_TextElement_is_empty_it_does_not_move() {
         let text = ""
         let element = AccessibilityTextElement(
             role: .textField,
@@ -38,7 +38,7 @@ extension ASNM_C__Tests {
         XCTAssertNil(returnedElement?.selectedText)
     }
     
-    func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_but_not_on_an_empty_line_it_works_and_tries_to_delete_nothing_LOL() {
+    func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_but_not_on_an_empty_line_it_does_not_move() {
         let text = """
 caret is
 gonna be at the end
@@ -59,10 +59,10 @@ gonna be at the end
         
         XCTAssertEqual(returnedElement?.caretLocation, 28)
         XCTAssertEqual(returnedElement?.selectedLength, 0)
-        XCTAssertEqual(returnedElement?.selectedText, "")
+        XCTAssertNil(returnedElement?.selectedText)
     }
     
-    func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_and_on_an_empty_line_it_does_nothing() {
+    func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_and_on_an_empty_line_on_its_own_it_does_not_move() {
         let text = """
 caret is on its
 own empty
