@@ -20,7 +20,7 @@ class UIASVM_d_Tests: UIAS_BaseTests {
 // - caret at the end of TextElement on own empty line
 extension UIASVM_d_Tests {    
     
-    func test_that_if_the_TextElement_is_empty_it_does_nothing_and_does_not_crash() {
+    func test_that_if_the_TextElement_is_empty_it_works_and_deletes_NOTHING() {
         let textInAXFocusedElement = ""
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)

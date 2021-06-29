@@ -19,7 +19,7 @@ class UIASNM_G__tests: UIAS_BaseTests {
 // - caret at the end of TextElement on own empty line
 extension UIASNM_G__tests {    
     
-    func test_that_if_the_TextElement_is_empty_it_does_nothing_and_does_not_crash() {
+    func test_that_if_the_TextElement_is_empty_it_works_and_does_not_move() {
         let textInAXFocusedElement = ""
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
@@ -42,7 +42,7 @@ gonna be at the end
         XCTAssertEqual(finalElement?.caretLocation, 9)
     }
     
-    func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_and_on_an_empty_line_it_does_nothing_and_does_not_crash() {
+    func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_and_on_an_empty_line_it_works_and_does_not_move() {
         let textInAXFocusedElement = """
 caret is on its
 own empty

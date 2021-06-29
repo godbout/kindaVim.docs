@@ -19,7 +19,7 @@ class UIASNM_dd_tests: UIAS_BaseTests {
 // - caret at the end of TextElement on own empty line
 extension UIASNM_dd_tests {    
     
-    func test_that_if_the_TextElement_is_empty_it_does_nothing_and_does_not_crash() {
+    func test_that_if_the_TextElement_is_empty_it_works_and_deletes_dark_emptiness() {
         let textInAXFocusedElement = ""
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
