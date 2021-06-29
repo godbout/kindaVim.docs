@@ -7,9 +7,9 @@ extension AccessibilityStrategyNormalMode {
             return element
         }
         
-        if element.caretIsAtTheEnd, element.lastCharacterIsNotLinefeed {
-            return element
-        }
+        if element.caretIsAtTheEnd, element.lastCharacterIsNotLinefeed {}
+        
+        if element.caretIsAtTheEnd, element.lastCharacterIsLinefeed {}
         
         
         if let firstLine = AccessibilityTextElementAdaptor.lineFor(lineNumber: 1) {            

@@ -19,7 +19,7 @@ class UIASNM_gg_tests: UIAS_BaseTests {
 // - caret at the end of TextElement on own empty line
 extension UIASNM_gg_tests {    
     
-    func test_that_if_the_TextElement_is_empty_it_does_nothing_and_does_not_crash() {
+    func test_that_if_the_TextElement_is_empty_it_does_not_move() {
         let textInAXFocusedElement = ""
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
