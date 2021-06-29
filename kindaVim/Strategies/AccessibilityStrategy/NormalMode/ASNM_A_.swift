@@ -18,7 +18,7 @@ extension AccessibilityStrategyNormalMode {
         
         guard element.currentLine.isNotAnEmptyLine else { return element }
         
-        element.caretLocation = element.currentLine.endLimit! + 1
+        element.caretLocation = element.currentLine.endLimit + 1
         
         return element
     }

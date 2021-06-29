@@ -33,24 +33,24 @@ extension ASNM_a_Tests {
         XCTAssertEqual(returnedElement?.caretLocation, 17)
     }
 
-//    func test_that_a_does_not_move_if_Text_AXUIElement_is_empty() {
-//        let text = ""
-//        let element = AccessibilityTextElement(
-//            role: .textField,
-//            value: text,
-//            caretLocation: 0,
-//            currentLine: AccessibilityTextElementLine(
-//                fullValue: text,
-//                number: nil,
-//                start: nil,
-//                end: nil
-//            )
-//        )
-//
-//        let returnedElement = applyMove(on: element)
-//
-//        XCTAssertEqual(returnedElement?.caretLocation, 0)
-//    }
+    func test_that_a_does_not_move_if_Text_AXUIElement_is_empty() {
+        let text = ""
+        let element = AccessibilityTextElement(
+            role: .textField,
+            value: text,
+            caretLocation: 0,
+            currentLine: AccessibilityTextElementLine(
+                fullValue: text,
+                number: 1,
+                start: 0,
+                end: 0
+            )
+        )
+
+        let returnedElement = applyMove(on: element)
+
+        XCTAssertEqual(returnedElement?.caretLocation, 0)
+    }
     
 }
 
