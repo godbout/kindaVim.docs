@@ -33,6 +33,7 @@ extension The3CasesTests {
         
         let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
         
+        XCTAssertEqual(accessibilityElement?.role, .textField)
         XCTAssertEqual(accessibilityElement?.value, "it's four O two and i'm having so much fun :D")
         XCTAssertEqual(accessibilityElement?.caretLocation, 45)
         XCTAssertEqual(accessibilityElement?.selectedLength, 0)
@@ -78,6 +79,7 @@ and i'm having so much fun
         
         let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
         
+        XCTAssertEqual(accessibilityElement?.role, .textArea)
         XCTAssertEqual(accessibilityElement?.value, """
 it's four O four
 and i'm having so much fun
@@ -105,6 +107,7 @@ and i'm still having fun
         
         let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
         
+        XCTAssertEqual(accessibilityElement?.role, .textArea)
         XCTAssertEqual(accessibilityElement?.value, """
 it's four O eight
 and i'm still having fun
