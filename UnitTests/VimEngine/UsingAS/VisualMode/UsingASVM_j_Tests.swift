@@ -1,6 +1,7 @@
 @testable import kindaVim
 import XCTest
 
+
 class UsingASVM_j_Tests: UsingASVM_BaseTests {
     
     override func setUp() {
@@ -10,6 +11,7 @@ class UsingASVM_j_Tests: UsingASVM_BaseTests {
     }
     
 }
+
 
 extension UsingASVM_j_Tests {
     
