@@ -18,10 +18,11 @@ extension ASNM_ciSingleQuote_Tests {
         let element = AccessibilityTextElement(
             role: .textField,
             value: text,
+            length: 63,
             caretLocation: 21,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
-                number: 0,
+                number: 1,
                 start: 0,
                 end: 63
             )
@@ -38,10 +39,11 @@ extension ASNM_ciSingleQuote_Tests {
         let element = AccessibilityTextElement(
             role: .textField,
             value: text,
+            length: 35,
             caretLocation: 28,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
-                number: 0,
+                number: 1,
                 start: 0,
                 end: 35
             )

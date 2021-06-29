@@ -26,6 +26,7 @@ extension ASNM_r_Tests {
         let element = AccessibilityTextElement(
             role: .textField,
             value: text,
+            length: 0,
             caretLocation: 0,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
@@ -50,6 +51,7 @@ gonna be at the end
         let element = AccessibilityTextElement(
             role: .textArea,
             value: text,
+            length: 28,
             caretLocation: 28,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
@@ -76,6 +78,7 @@ line
         let element = AccessibilityTextElement(
             role: .textArea,
             value: text,
+            length: 31,
             caretLocation: 31,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
@@ -103,12 +106,13 @@ extension ASNM_r_Tests {
         let element = AccessibilityTextElement(
             role: .textField,
             value: text,
+            length: 43,
             caretLocation: 23,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
-                number: 0,
+                number: 1,
                 start: 0,
-                end: 37
+                end: 43
             )
         )
         
@@ -124,10 +128,11 @@ extension ASNM_r_Tests {
         let element = AccessibilityTextElement(
             role: .textField,
             value: text,
+            length: 18,
             caretLocation: 12,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
-                number: 0,
+                number: 1,
                 start: 0,
                 end: 18
             )
@@ -145,10 +150,11 @@ extension ASNM_r_Tests {
         let element = AccessibilityTextElement(
             role: .textField,
             value: text,
+            length: 41,
             caretLocation: 15,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
-                number: 0,
+                number: 1,
                 start: 0,
                 end: 41
             )
@@ -174,10 +180,11 @@ linefeed
         let element = AccessibilityTextElement(
             role: .textArea,
             value: text,
+            length: 24,
             caretLocation: 15,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
-                number: 1,
+                number: 2,
                 start: 15,
                 end: 16
             )

@@ -103,10 +103,11 @@ extension ASNM_yf_Tests {
         let element = AccessibilityTextElement(
             role: .textField,
             value: text,
+            length: 29,
             caretLocation: 8,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
-                number: 0,
+                number: 1,
                 start: 0,
                 end: 29
             )
@@ -126,10 +127,11 @@ that is not there
         let element = AccessibilityTextElement(
             role: .textArea,
             value: text,
+            length: 44,
             caretLocation: 14,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
-                number: 1,
+                number: 2,
                 start: 11,
                 end: 27
             )
@@ -158,10 +160,11 @@ on a line
         let element = AccessibilityTextElement(
             role: .textArea,
             value: text,
+            length: 40,
             caretLocation: 4,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
-                number: 0,
+                number: 1,
                 start: 0,
                 end: 18
             )

@@ -106,10 +106,11 @@ extension ASNM_yy_Tests {
         let element = AccessibilityTextElement(
             role: .textField,
             value: text,
+            length: 24,
             caretLocation: 12,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
-                number: 0,
+                number: 1,
                 start: 0,
                 end: 24
             )
@@ -129,10 +130,11 @@ my friend
         let element = AccessibilityTextElement(
             role: .textArea,
             value: text,
+            length: 24,
             caretLocation: 3,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
-                number: 0,
+                number: 1,
                 start: 0,
                 end: 15
             )
@@ -153,10 +155,11 @@ my friend
         let element = AccessibilityTextElement(
             role: .textArea,
             value: text,
+            length: 30,
             caretLocation: 17,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
-                number: 1,
+                number: 2,
                 start: 15,
                 end: 21
             )

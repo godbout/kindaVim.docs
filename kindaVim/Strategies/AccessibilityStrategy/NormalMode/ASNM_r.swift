@@ -20,7 +20,7 @@ extension AccessibilityStrategyNormalMode {
         let characterUnderCaretText = element.value[characterUnderCaretIndex]
         guard characterUnderCaretText != "\n" else { return element }
         
-        guard replacement != "\u{1b}" else { return element }            
+    guard replacement != "\u{1b}" else { return element }            
         
         element.selectedLength = 1
         element.selectedText = replacement.isNewline ? "\n" : String(replacement)

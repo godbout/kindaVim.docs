@@ -27,6 +27,7 @@ extension ASNM_caret_Tests {
         let element = AccessibilityTextElement(
             role: .textField,
             value: text,
+            length: 0,
             caretLocation: 0,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
@@ -51,6 +52,7 @@ gonna be at the end
         let element = AccessibilityTextElement(
             role: .textArea,
             value: text,
+            length: 28,
             caretLocation: 28,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
@@ -77,6 +79,7 @@ line
         let element = AccessibilityTextElement(
             role: .textArea,
             value: text,
+            length: 31,
             caretLocation: 31,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
@@ -105,10 +108,11 @@ extension ASNM_caret_Tests {
         let element = AccessibilityTextElement(
             role: .textField,
             value: text,
+            length: 16,
             caretLocation: 2,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
-                number: 0,
+                number: 1,
                 start: 0,
                 end: 16
             )
@@ -130,10 +134,11 @@ without a linefeed but with spaces
         let element = AccessibilityTextElement(
             role: .textArea,
             value: text,
+            length: 86,
             caretLocation: 71,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
-                number: 3,
+                number: 4,
                 start: 64,
                 end: 86
             )
@@ -161,10 +166,11 @@ empty line has a linefeed
         let element = AccessibilityTextElement(
             role: .textArea,
             value: text,
+            length: 67,
             caretLocation: 44,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
-                number: 2,
+                number: 3,
                 start: 40,
                 end: 63
             )

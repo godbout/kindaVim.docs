@@ -112,10 +112,11 @@ and head are nil
         let element = AccessibilityTextElement(
             role: .textArea,
             value: text,
+            length: 62,
             caretLocation: 31,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
-                number: 1,
+                number: 2,
                 start: 21,
                 end: 46
             )
@@ -142,10 +143,11 @@ if the head is not after the line end limit
         let element = AccessibilityTextElement(
             role: .textArea,
             value: text,
+            length: 107,
             caretLocation: 42,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
-                number: 2,
+                number: 3,
                 start: 42,
                 end: 64
             )
@@ -171,10 +173,11 @@ if the head is not after the line end limit
         let element = AccessibilityTextElement(
             role: .textArea,
             value: text,
+            length: 107,
             caretLocation: 46,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
-                number: 2,
+                number: 3,
                 start: 42,
                 end: 64
             )
@@ -200,12 +203,13 @@ if the head is not after the line end limit
         let element = AccessibilityTextElement(
             role: .textArea,
             value: text,
+            length: 107,
             caretLocation: 55,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
-                number: 2,
-                start: 47,
-                end: 69
+                number: 3,
+                start: 42,
+                end: 64
             )
         )
         

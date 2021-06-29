@@ -12,10 +12,11 @@ finally dealing with the "real stuff"!
         let element = AccessibilityTextElement(
             role: .textArea,
             value: text,
+            length: 38,
             caretLocation: 30,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
-                number: 0,
+                number: 1,
                 start: 0,
                 end: 38
             )
@@ -36,10 +37,11 @@ a text with only one quote ' lol
         let element = AccessibilityTextElement(
             role: .textArea,
             value: text,
+            length: 32,
             caretLocation: 17,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
-                number: 0,
+                number: 1,
                 start: 0,
                 end: 32
             )
@@ -55,10 +57,11 @@ a text with only one quote ' lol
         let element = AccessibilityTextElement(
             role: .textArea,
             value: text,
+            length: 26,
             caretLocation: 8,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
-                number: 0,
+                number: 1,
                 start: 0,
                 end: 26
             )
@@ -76,12 +79,13 @@ now the caret is before the ` shit with ` backtick quotes
         let element = AccessibilityTextElement(
             role: .textArea,
             value: text,
+            length: 57,
             caretLocation: 20,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
-                number: 0,
+                number: 1,
                 start: 0,
-                end: 42
+                end: 57
             )
         )
         
@@ -101,10 +105,11 @@ now the "caret" is after the quotes
         let element = AccessibilityTextElement(
             role: .textArea,
             value: text,
+            length: 98,
             caretLocation: 85,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
-                number: 2,
+                number: 3,
                 start: 63,
                 end: 98
             )
@@ -122,10 +127,11 @@ that's ' three quotes ' in there
         let element = AccessibilityTextElement(
             role: .textArea,
             value: text,
+            length: 32,
             caretLocation: 17,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
-                number: 0,
+                number: 1,
                 start: 0,
                 end: 32
             )
@@ -145,10 +151,11 @@ that's " four quotes " in " there "
         let element = AccessibilityTextElement(
             role: .textArea,
             value: text,
+            length: 35,
             caretLocation: 26,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
-                number: 0,
+                number: 1,
                 start: 0,
                 end: 35
             )

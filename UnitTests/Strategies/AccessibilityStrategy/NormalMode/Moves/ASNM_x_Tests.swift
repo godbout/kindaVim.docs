@@ -27,6 +27,7 @@ extension ASNM_x_Tests {
         let element = AccessibilityTextElement(
             role: .textField,
             value: text,
+            length: 0,
             caretLocation: 0,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
@@ -56,6 +57,7 @@ line
         let element = AccessibilityTextElement(
             role: .textArea,
             value: text,
+            length: 31,
             caretLocation: 31,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
@@ -84,10 +86,11 @@ extension ASNM_x_Tests {
         let element = AccessibilityTextElement(
             role: .textField,
             value: text,
+            length: 35,
             caretLocation: 11,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
-                number: 0,
+                number: 1,
                 start: 0,
                 end: 35
             )

@@ -60,10 +60,10 @@ struct AccessibilityTextElement {
     static var globalColumnNumber = 1
 
     private(set) var role: AccessibilityTextElementRole = .someOtherShit
-    private(set) var value = ""
-    private(set) var length = 0
+    private(set) var value: String
+    private(set) var length: Int
     
-    var caretLocation = 0 {
+    var caretLocation: Int {
         didSet {
             if let lineForLocation = AccessibilityTextElementAdaptor.lineFor(location: caretLocation), lineForLocation.isNotAnEmptyLine {
                 Self.globalColumnNumber = caretLocation - lineForLocation.start + 1

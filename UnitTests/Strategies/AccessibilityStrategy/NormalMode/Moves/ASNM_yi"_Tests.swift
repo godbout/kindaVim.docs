@@ -110,10 +110,11 @@ extension ASNM_yiDoubleQuote_Tests {
         let element = AccessibilityTextElement(
             role: .textField,
             value: text,
+            length: 34,
             caretLocation: 23,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
-                number: 0,
+                number: 1,
                 start: 0,
                 end: 34
             )
@@ -135,10 +136,11 @@ now there's one " double quote
         let element = AccessibilityTextElement(
             role: .textField,
             value: text,
+            length: 30,
             caretLocation: 12,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
-                number: 0,
+                number: 1,
                 start: 0,
                 end: 30
             )
@@ -161,10 +163,11 @@ two "double quotes" on the second line
         let element = AccessibilityTextElement(
             role: .textArea,
             value: text,
+            length: 50,
             caretLocation: 14,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
-                number: 1,
+                number: 2,
                 start: 12,
                 end: 50
             )
@@ -185,10 +188,11 @@ and now "hohohohoho"
         let element = AccessibilityTextElement(
             role: .textArea,
             value: text,
+            length: 42,
             caretLocation: 37,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
-                number: 2,
+                number: 3,
                 start: 22,
                 end: 42
             )
@@ -207,10 +211,11 @@ double "quotes" before the caret
         let element = AccessibilityTextElement(
             role: .textField,
             value: text,
+            length: 32,
             caretLocation: 26,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
-                number: 0,
+                number: 1,
                 start: 0,
                 end: 32
             )
@@ -233,10 +238,11 @@ heheheheh
         let element = AccessibilityTextElement(
             role: .textArea,
             value: text,
+            length: 41,
             caretLocation: 30,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
-                number: 1,
+                number: 2,
                 start: 10,
                 end: 41
             )

@@ -31,10 +31,11 @@ the TextEngineTests
         let element = AccessibilityTextElement(
             role: .textArea,
             value: text,
+            length: 90,
             caretLocation: 88,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
-                number: 2,
+                number: 3,
                 start: 71,
                 end: 90
             )

@@ -52,21 +52,5 @@ struct AXEngine {
 
         return nil
     }
-    
-//    static func axLineRangeFor(location: Int, on axFocusedElement: AXUIElement? = axFocusedElement()) -> CFRange? {
-//        if let axFocusedElement = axFocusedElement {
-//            var lineRangeValue: AnyObject?
-//            let error = AXUIElementCopyParameterizedAttributeValue(axFocusedElement, kAXRangeForIndexParameterizedAttribute as CFString, location as CFTypeRef, &lineRangeValue)
-//            
-//            if error == .success {
-//                var lineRange = CFRange()
-//                AXValueGetValue(lineRangeValue as! AXValue, .cfRange, &lineRange)
-//                
-//                return lineRange
-//            }
-//        }
-//        
-//        return nil
-//    }
 
 }

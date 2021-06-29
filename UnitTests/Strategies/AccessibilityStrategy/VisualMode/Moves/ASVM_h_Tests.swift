@@ -105,11 +105,11 @@ extension ASVM_h_Tests {
         let element = AccessibilityTextElement(
             role: .textField,
             value: text,
+            length: 42,
             caretLocation: 21,
-            selectedLength: 2,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
-                number: 0,
+                number: 1,
                 start: 0,
                 end: 42
             )
@@ -137,11 +137,11 @@ extension ASVM_h_Tests {
         let element = AccessibilityTextElement(
             role: .textField,
             value: text,
+            length: 43,
             caretLocation: 22,
-            selectedLength: 4,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
-                number: 0,
+                number: 1,
                 start: 0,
                 end: 43
             )
@@ -161,11 +161,11 @@ extension ASVM_h_Tests {
         let element = AccessibilityTextElement(
             role: .textField,
             value: text,
+            length: 43,
             caretLocation: 22,
-            selectedLength: 4,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
-                number: 0,
+                number: 1,
                 start: 0,
                 end: 43
             )
@@ -189,11 +189,11 @@ it bugs
         let element = AccessibilityTextElement(
             role: .textArea,
             value: text,
+            length: 36,
             caretLocation: 5,
-            selectedLength: 5,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
-                number: 1,
+                number: 2,
                 start: 5,
                 end: 29
             )

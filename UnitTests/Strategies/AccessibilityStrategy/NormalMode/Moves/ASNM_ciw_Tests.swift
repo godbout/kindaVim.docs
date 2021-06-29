@@ -104,10 +104,11 @@ extension ASNM_ciw_Tests {
         let element = AccessibilityTextElement(
             role: .textField,
             value: text,
+            length: 34,
             caretLocation: 12,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
-                number: 0,
+                number: 1,
                 start: 0,
                 end: 34
             )
@@ -125,10 +126,11 @@ extension ASNM_ciw_Tests {
         let element = AccessibilityTextElement(
             role: .textField,
             value: text,
+            length: 34,
             caretLocation: 15,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
-                number: 0,
+                number: 1,
                 start: 0,
                 end: 34
             )
@@ -146,10 +148,11 @@ extension ASNM_ciw_Tests {
         let element = AccessibilityTextElement(
             role: .textArea,
             value: text,
+            length: 17,
             caretLocation: 6,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
-                number: 0,
+                number: 1,
                 start: 0,
                 end: 17
             )
@@ -178,10 +181,11 @@ one line to
         let element = AccessibilityTextElement(
             role: .textArea,
             value: text,
+            length: 45,
             caretLocation: 27,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
-                number: 1,
+                number: 2,
                 start: 14,
                 end: 32
             )

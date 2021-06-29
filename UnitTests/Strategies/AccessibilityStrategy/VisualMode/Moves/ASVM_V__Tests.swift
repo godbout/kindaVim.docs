@@ -86,10 +86,11 @@ extension ASVM_V__Tests {
         let element = AccessibilityTextElement(
             role: .textField,
             value: text,
+            length: 29,
             caretLocation: 17,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
-                number: 0,
+                number: 1,
                 start: 0,
                 end: 29
             )
@@ -118,10 +119,11 @@ a linefeed at the end
         let element = AccessibilityTextElement(
             role: .textArea,
             value: text,
+            length: 43,
             caretLocation: 27,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
-                number: 1,
+                number: 2,
                 start: 20,
                 end: 42
             )
@@ -150,10 +152,11 @@ and head are nil
         let element = AccessibilityTextElement(
             role: .textArea,
             value: text,
+            length: 62,
             caretLocation: 25,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
-                number: 1,
+                number: 2,
                 start: 21,
                 end: 46
             )
@@ -180,11 +183,11 @@ and head are nil
         let element = AccessibilityTextElement(
             role: .textArea,
             value: text,
+            length: 62,
             caretLocation: 0,
-            selectedLength: 4,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
-                number: 0,
+                number: 1,
                 start: 0,
                 end: 21
             )
@@ -214,10 +217,11 @@ if the head is not after the line end limit
         let element = AccessibilityTextElement(
             role: .textArea,
             value: text,
+            length: 107,
             caretLocation: 46,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
-                number: 2,
+                number: 3,
                 start: 42,
                 end: 64
             )
@@ -243,10 +247,11 @@ if the head is not after the line end limit
         let element = AccessibilityTextElement(
             role: .textArea,
             value: text,
+            length: 107,
             caretLocation: 46,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
-                number: 2,
+                number: 3,
                 start: 42,
                 end: 64
             )

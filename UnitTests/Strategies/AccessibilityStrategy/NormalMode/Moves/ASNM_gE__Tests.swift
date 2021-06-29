@@ -27,10 +27,11 @@ from the TextEngine
         let element = AccessibilityTextElement(
             role: .textArea,
             value: text,
+            length: 63,
             caretLocation: 36,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
-                number: 1,
+                number: 2,
                 start: 21,
                 end: 44
             )

@@ -30,13 +30,13 @@ extension ASVM_AnchorAndHead_Tests {
         var element = AccessibilityTextElement(
             role: .textField,
             value: text,
+            length: 5,
             caretLocation: 0,
-            selectedLength: 2,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
-                number: 0,
+                number: 1,
                 start: 0,
-                end: 2
+                end: 5
             )
         )
 
@@ -57,11 +57,11 @@ and head
         var element = AccessibilityTextElement(
             role: .textArea,
             value: text,
+            length: 49,
             caretLocation: 27,
-            selectedLength: 3,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
-                number: 1,
+                number: 2,
                 start: 18,
                 end: 41
             )
@@ -85,11 +85,11 @@ and head
         var element = AccessibilityTextElement(
             role: .textArea,
             value: text,
+            length: 49,
             caretLocation: 27,
-            selectedLength: 3,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
-                number: 1,
+                number: 2,
                 start: 18,
                 end: 41
             )

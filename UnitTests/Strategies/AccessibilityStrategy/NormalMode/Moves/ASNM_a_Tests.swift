@@ -22,6 +22,7 @@ extension ASNM_a_Tests {
         let element = AccessibilityTextElement(
             role: .textField,
             value: text,
+            length: 0,
             caretLocation: 0,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
@@ -46,6 +47,7 @@ gonna be at the end
         let element = AccessibilityTextElement(
             role: .textArea,
             value: text,
+            length: 28,
             caretLocation: 28,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
@@ -72,6 +74,7 @@ line
         let element = AccessibilityTextElement(
             role: .textArea,
             value: text,
+            length: 31,
             caretLocation: 31,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
@@ -99,10 +102,11 @@ extension ASNM_a_Tests {
         let element = AccessibilityTextElement(
             role: .textField,
             value: text,
+            length: 38,
             caretLocation: 16,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
-                number: 0,
+                number: 1,
                 start: 0,
                 end: 38
             )
@@ -128,10 +132,11 @@ a should not move
         let element = AccessibilityTextElement(
             role: .textArea,
             value: text,
+            length: 35,
             caretLocation: 17,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
-                number: 1,
+                number: 2,
                 start: 17,
                 end: 18
             )

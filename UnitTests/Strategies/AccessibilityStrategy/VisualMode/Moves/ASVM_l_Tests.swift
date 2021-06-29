@@ -108,11 +108,11 @@ extension ASVM_l_Tests {
         let element = AccessibilityTextElement(
             role: .textField,
             value: text,
+            length: 42,
             caretLocation: 21,
-            selectedLength: 2,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
-                number: 0,
+                number: 1,
                 start: 0,
                 end: 42
             )
@@ -140,11 +140,11 @@ extension ASVM_l_Tests {
         let element = AccessibilityTextElement(
             role: .textField,
             value: text,
+            length: 43,
             caretLocation: 22,
-            selectedLength: 4,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
-                number: 0,
+                number: 1,
                 start: 0,
                 end: 43
             )
@@ -164,11 +164,11 @@ extension ASVM_l_Tests {
         let element = AccessibilityTextElement(
             role: .textField,
             value: text,
+            length: 43,
             caretLocation: 22,
-            selectedLength: 4,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
-                number: 0,
+                number: 1,
                 start: 0,
                 end: 43
             )
@@ -191,11 +191,11 @@ so we do a test
         let element = AccessibilityTextElement(
             role: .textArea,
             value: text,
+            length: 30,
             caretLocation: 11,
-            selectedLength: 4,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
-                number: 0,
+                number: 1,
                 start: 0,
                 end: 15
             )

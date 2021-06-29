@@ -22,6 +22,7 @@ extension ASNM_C__Tests {
         let element = AccessibilityTextElement(
             role: .textField,
             value: text,
+            length: 0,
             caretLocation: 0,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
@@ -46,6 +47,7 @@ gonna be at the end
         let element = AccessibilityTextElement(
             role: .textArea,
             value: text,
+            length: 28,
             caretLocation: 28,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
@@ -72,6 +74,7 @@ line
         let element = AccessibilityTextElement(
             role: .textArea,
             value: text,
+            length: 31,
             caretLocation: 31,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
@@ -99,10 +102,11 @@ extension ASNM_C__Tests {
         let element = AccessibilityTextElement(
             role: .textField,
             value: text,
+            length: 53,
             caretLocation: 28,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
-                number: 0,
+                number: 1,
                 start: 0,
                 end: 53
             )
@@ -130,10 +134,11 @@ else everything gonna stuck
         let element = AccessibilityTextElement(
             role: .textArea,
             value: text,
+            length: 85,
             caretLocation: 40,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
-                number: 1,
+                number: 2,
                 start: 32,
                 end: 58
             )
@@ -155,10 +160,11 @@ and that shouldn't be deleted by C
         let element = AccessibilityTextElement(
             role: .textArea,
             value: text,
+            length: 61,
             caretLocation: 26,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
-                number: 1,
+                number: 2,
                 start: 26,
                 end: 27
             )

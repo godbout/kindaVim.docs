@@ -19,10 +19,11 @@ extension ASNM_percent_Tests {
         let element = AccessibilityTextElement(
             role: .textArea,
             value: text,
+            length: 28,
             caretLocation: 4,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
-                number: 0,
+                number: 1,
                 start: 0,
                 end: 28
             )
@@ -41,10 +42,11 @@ and a ( nice pair line ) :))
         let element = AccessibilityTextElement(
             role: .textArea,
             value: text,
+            length: 56,
             caretLocation: 30,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
-                number: 1,
+                number: 2,
                 start: 28,
                 end: 56
             )
@@ -60,10 +62,11 @@ and a ( nice pair line ) :))
         let element = AccessibilityTextElement(
             role: .textField,
             value: text,
+            length: 56,
             caretLocation: 34,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
-                number: 0,
+                number: 1,
                 start: 0,
                 end: 56
             )
@@ -79,12 +82,13 @@ and a ( nice pair line ) :))
         let element = AccessibilityTextElement(
             role: .textArea,
             value: text,
+            length: 70,
             caretLocation: 14,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
-                number: 0,
+                number: 1,
                 start: 0,
-                end: 55
+                end: 62
             )
         )
         
@@ -108,10 +112,11 @@ func someBull() {
         let element = AccessibilityTextElement(
             role: .textArea,
             value: text,
+            length: 40,
             caretLocation: 39,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
-                number: 2,
+                number: 3,
                 start: 39,
                 end: 40
             )

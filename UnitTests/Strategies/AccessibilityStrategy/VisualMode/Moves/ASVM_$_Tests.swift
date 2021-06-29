@@ -102,11 +102,11 @@ extension ASVM_$_Tests {
         let element = AccessibilityTextElement(
             role: .textField,
             value: text,
+            length: 42,
             caretLocation: 21,
-            selectedLength: 2,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
-                number: 0,
+                number: 1,
                 start: 0,
                 end: 42
             )
@@ -134,10 +134,11 @@ extension ASVM_$_Tests {
         let element = AccessibilityTextElement(
             role: .textField,
             value: text,
+            length: 11,
             caretLocation: 3,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
-                number: 0,
+                number: 1,
                 start: 0,
                 end: 11
             )
@@ -160,10 +161,11 @@ at the anchor, not at the caret location
         let element = AccessibilityTextElement(
             role: .textArea,
             value: text,
+            length: 65,
             caretLocation: 28,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
-                number: 1,
+                number: 2,
                 start: 25,
                 end: 65
             )
@@ -193,10 +195,11 @@ multiline
         let element = AccessibilityTextElement(
             role: .textArea,
             value: text,
+            length: 24,
             caretLocation: 13,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
-                number: 1,
+                number: 2,
                 start: 7,
                 end: 15
             )

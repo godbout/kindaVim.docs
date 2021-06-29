@@ -19,10 +19,11 @@ extension ASNM_o_Tests {
         let element = AccessibilityTextElement(
             role: .textField,
             value: text,
+            length: 39,
             caretLocation: 15,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
-                number: 0,
+                number: 1,
                 start: 0,
                 end: 39
             )
@@ -47,6 +48,7 @@ extension ASNM_o_Tests {
         let element = AccessibilityTextElement(
             role: .textArea,
             value: text,
+            length: 0,
             caretLocation: 0,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
@@ -71,6 +73,7 @@ gonna be at the end
         let element = AccessibilityTextElement(
             role: .textArea,
             value: text,
+            length: 28,
             caretLocation: 28,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
@@ -97,6 +100,7 @@ line
         let element = AccessibilityTextElement(
             role: .textArea,
             value: text,
+            length: 31,
             caretLocation: 31,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
@@ -129,10 +133,11 @@ below
         let element = AccessibilityTextElement(
             role: .textArea,
             value: text,
+            length: 53,
             caretLocation: 38,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
-                number: 2,
+                number: 3,
                 start: 30,
                 end: 48
             )
@@ -153,10 +158,11 @@ so the new line follows that
         let element = AccessibilityTextElement(
             role: .textArea,
             value: text,
+            length: 56,
             caretLocation: 21,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
-                number: 1,
+                number: 2,
                 start: 5,
                 end: 28
             )
@@ -184,12 +190,13 @@ so the new line follows that
         let element = AccessibilityTextElement(
             role: .textArea,
             value: text,
+            length: 54,
             caretLocation: 18,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
-                number: 1,
+                number: 2,
                 start: 5,
-                end: 28
+                end: 26
             )
         )
         
@@ -206,10 +213,11 @@ it should not cut the last character
         let element = AccessibilityTextElement(
             role: .textArea,
             value: text,
+            length: 36,
             caretLocation: 25,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
-                number: 0,
+                number: 1,
                 start: 0,
                 end: 36
             )
@@ -230,6 +238,7 @@ caret on empty last line
         let element = AccessibilityTextElement(
             role: .textArea,
             value: text,
+            length: 25,
             caretLocation: 25,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
@@ -254,10 +263,11 @@ two lines empty below
         let element = AccessibilityTextElement(
             role: .textArea,
             value: text,
+            length: 23,
             caretLocation: 22,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
-                number: 1,
+                number: 2,
                 start: 22,
                 end: 23
             )

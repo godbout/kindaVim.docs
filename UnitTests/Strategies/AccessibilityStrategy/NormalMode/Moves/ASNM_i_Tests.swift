@@ -13,10 +13,11 @@ extension ASNM_i_Tests {
         let element = AccessibilityTextElement(
             role: .textField,
             value: text,
+            length: 35,
             caretLocation: 24,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
-                number: 0,
+                number: 1,
                 start: 0,
                 end: 35
             )

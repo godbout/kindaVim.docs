@@ -99,13 +99,13 @@ extension ASVM_o_Tests {
         let element = AccessibilityTextElement(
             role: .textField,
             value: text,
+            length: 34,
             caretLocation: 10,
-            selectedLength: 5,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
-                number: 0,
+                number: 1,
                 start: 0,
-                end: 37
+                end: 34
             )
         )
         
@@ -128,11 +128,11 @@ tricky
         let element = AccessibilityTextElement(
             role: .textArea,
             value: text,
+            length: 59,
             caretLocation: 19,
-            selectedLength: 22,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
-                number: 1,
+                number: 2,
                 start: 17,
                 end: 36
             )
@@ -155,11 +155,11 @@ my friend
         let element = AccessibilityTextElement(
             role: .textArea,
             value: text,
+            length: 21,
             caretLocation: 15,
-            selectedLength: 1,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
-                number: 1,
+                number: 2,
                 start: 12,
                 end: 21
             )

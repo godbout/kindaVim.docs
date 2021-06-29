@@ -22,6 +22,7 @@ extension ASNM_dT__Tests {
         let element = AccessibilityTextElement(
             role: .textField,
             value: text,
+            length: 0,
             caretLocation: 0,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
@@ -46,6 +47,7 @@ gonna be at the end
         let element = AccessibilityTextElement(
             role: .textArea,
             value: text,
+            length: 28,
             caretLocation: 28,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
@@ -72,6 +74,7 @@ line
         let element = AccessibilityTextElement(
             role: .textArea,
             value: text,
+            length: 31,
             caretLocation: 31,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
@@ -99,10 +102,11 @@ extension ASNM_dT__Tests {
         let element = AccessibilityTextElement(
             role: .textArea,
             value: text,
+            length: 29,
             caretLocation: 25,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
-                number: 0,
+                number: 1,
                 start: 0,
                 end: 29
             )
@@ -124,10 +128,11 @@ that is not there
         let element = AccessibilityTextElement(
             role: .textArea,
             value: text,
+            length: 44,
             caretLocation: 14,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
-                number: 1,
+                number: 2,
                 start: 11,
                 end: 27
             )
@@ -156,10 +161,11 @@ on a line
         let element = AccessibilityTextElement(
             role: .textArea,
             value: text,
+            length: 40,
             caretLocation: 28,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
-                number: 1,
+                number: 2,
                 start: 18,
                 end: 31
             )
