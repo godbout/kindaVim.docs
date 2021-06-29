@@ -31,7 +31,7 @@ extension AccessibilityStrategyNormalMode {
                     AccessibilityTextElement.globalColumnNumber = globalColumNumber
                 }
             }
-        } else {
+        } else if element.currentLine.isNotTheLastLine {
             element.caretLocation = element.length
         }
         
