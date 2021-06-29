@@ -3,6 +3,7 @@ extension AccessibilityStrategyVisualMode {
     func h(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         guard var element = element else { return nil }
         
+        
         if element.isEmpty {
             return element
         }
