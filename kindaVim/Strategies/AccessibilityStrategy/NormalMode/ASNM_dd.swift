@@ -59,7 +59,7 @@ extension AccessibilityStrategyNormalMode {
             element.selectedText = ""
         } else {          
             element.caretLocation = 0
-            element.selectedLength = element.value.count
+            element.selectedLength = element.length
             element.selectedText = ""          
         }        
         

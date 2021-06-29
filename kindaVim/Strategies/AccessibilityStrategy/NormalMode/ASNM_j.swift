@@ -20,7 +20,7 @@ extension AccessibilityStrategyNormalMode {
         if let nextLine = AccessibilityTextElementAdaptor.lineFor(lineNumber: element.currentLine.number + 1) {
             if nextLine.isTheLastLine, nextLine.isAnEmptyLine {
                 let globalColumNumber = AccessibilityTextElement.globalColumnNumber
-                element.caretLocation = element.value.count
+                element.caretLocation = element.length
                 AccessibilityTextElement.globalColumnNumber = globalColumNumber
             } else {
                 if nextLine.length > AccessibilityTextElement.globalColumnNumber {
@@ -32,7 +32,7 @@ extension AccessibilityStrategyNormalMode {
                 }
             }
         } else {
-            element.caretLocation = element.value.count
+            element.caretLocation = element.length
         }
         
         return element

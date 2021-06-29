@@ -11,6 +11,7 @@ class UsingASVM_v_Tests: UsingASVM_BaseTests {
     }
         
     func test_that_if_Vim_was_in_visual_mode_characterwise_it_switches_into_normal_mode() {
+        VimEngine.shared.visualStyle = .characterwise
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .v))
         
         XCTAssertEqual(VimEngine.shared.currentMode, .normal)

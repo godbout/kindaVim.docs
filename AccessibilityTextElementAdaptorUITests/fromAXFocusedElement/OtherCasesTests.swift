@@ -21,7 +21,6 @@ extension OtherCasesTests {
         XCTAssertEqual(accessibilityElement?.length, 30)
         XCTAssertEqual(accessibilityElement?.caretLocation, 23)
         XCTAssertEqual(accessibilityElement?.selectedLength, 4)
-        XCTAssertEqual(accessibilityElement?.selectedText, "for ")
         XCTAssertEqual(accessibilityElement?.currentLine.value, "here's some nice words for you")
         XCTAssertEqual(accessibilityElement?.currentLine.number, 1)
         XCTAssertEqual(accessibilityElement?.currentLine.start, 0)
