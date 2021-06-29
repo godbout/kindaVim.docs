@@ -59,7 +59,7 @@ extension innerQuotedString {
         XCTAssertEqual(quotedStringRange.upperBound, 33) 
     }
     
-    func test_that_if_the_caret_is_on_a_quote_then_it_calculates_the_matching_pairs_and_finds_the_correct_text() throws {
+    func test_that_if_the_caret_is_on_a_quote_then_it_calculates_the_matching_pairs_and_finds_the_correct_text() {
         let text = """
 several "pairs" here and kindaVim should "know" which one to delete
 """
@@ -70,12 +70,20 @@ several "pairs" here and kindaVim should "know" which one to delete
         XCTAssertEqual(quotedStringRange.upperBound, 46) 
     }
     
-    func test_some_more_that_if_the_caret_is_on_a_quote_then_it_calculates_the_matching_pairs_and_finds_the_correct_text() throws {
+    func test_some_more_that_if_the_caret_is_on_a_quote_then_it_calculates_the_matching_pairs_and_finds_the_correct_text() {
         let text = """
 several "pairs" here and kindaVim should "know which one to delete
 """
         XCTAssertNil(
             textEngine.innerQuotedString(using: "\"", startingAt: 41, in: text)
+        )
+    }
+    
+    func test_that_if_the_string_is_empty_it_returns_nil() {
+        let text = ""
+        
+        XCTAssertNil(
+            textEngine.innerQuotedString(using: "\"", startingAt: 0, in: text)
         )
     }
     

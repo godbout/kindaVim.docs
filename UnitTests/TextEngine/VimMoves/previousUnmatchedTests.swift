@@ -113,4 +113,12 @@ again
         XCTAssertEqual(location, 1)
     }
     
+    func test_that_if_the_text_is_empty_it_returns_0() {
+        let text = ""
+        
+        let location = textEngine.previousUnmatched("{", before: 0, in: text)
+        
+        XCTAssertEqual(location, 0)
+    }
+    
 }

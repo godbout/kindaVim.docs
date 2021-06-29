@@ -58,6 +58,15 @@ extension innerWordTests {
         XCTAssertEqual(wordRange.upperBound, 34) 
     }
     
+    func test_that_if_the_text_is_empty_it_returns_a_range_of_0_to_0() {
+        let text = ""
+        
+        let wordRange = textEngine.innerWord(startingAt: 0, in: text)
+        
+        XCTAssertEqual(wordRange.lowerBound, 0)
+        XCTAssertEqual(wordRange.upperBound, 0) 
+    }
+    
 }
 
 

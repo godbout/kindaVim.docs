@@ -134,6 +134,8 @@ extension TextEngine {
     }
     
     func innerQuotedString(using quote: Character, startingAt location: Int, in text: String) -> Range<Int>? {
+        guard !text.isEmpty else { return nil }
+        
         if text[text.index(text.startIndex, offsetBy: location)] == quote {
             let searchEndIndex = text.index(text.startIndex, offsetBy: location)
             let numberOfQuotesBeforeCurrentQuote = text[..<searchEndIndex].filter { $0 == quote }.count
@@ -163,6 +165,8 @@ extension TextEngine {
     }    
 
     func innerWord(startingAt location: Int, in text: String) -> Range<Int> {
+        guard !text.isEmpty else { return 0..<0 }
+        
         let characterAtLocationIndex = text.index(text.startIndex, offsetBy: location)
         let characterAtLocationText = text[characterAtLocationIndex]
 
