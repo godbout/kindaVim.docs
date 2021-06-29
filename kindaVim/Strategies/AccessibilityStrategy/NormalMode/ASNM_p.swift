@@ -26,13 +26,21 @@ extension AccessibilityStrategyNormalMode {
         }
         
         if element.caretIsAtTheEnd, element.lastCharacterIsNotLinefeed {
-            return element
+            var textToPaste = TextEngineLine(from: NSPasteboard.general.string(forType: .string) ?? "")
+            textToPaste.removeTrailingLinefeedIfAny()     
+            element.selectedLength = 0
+            element.selectedText = textToPaste.value
+            
+            return element            
         }
+        
+        if element.caretIsAtTheEnd, element.lastCharacterIsLinefeed {}
         
                 
         var textToPaste = TextEngineLine(from: NSPasteboard.general.string(forType: .string) ?? "")
         textToPaste.removeTrailingLinefeedIfAny()
-        element.caretLocation += 1        
+        element.caretLocation += 1     
+        element.selectedLength = 0
         element.selectedText = textToPaste.value
                     
         return element
@@ -62,7 +70,10 @@ extension AccessibilityStrategyNormalMode {
         }
         
         if element.caretIsAtTheEnd, element.lastCharacterIsNotLinefeed {
-            return element
+            element.selectedLength = 0
+            element.selectedText = NSPasteboard.general.string(forType: .string)
+            
+            return element            
         }
         
         if element.caretIsAtTheEnd, element.lastCharacterIsLinefeed {
@@ -98,9 +109,7 @@ extension AccessibilityStrategyNormalMode {
             return element
         }
         
-        if element.caretIsAtTheEnd, element.lastCharacterIsNotLinefeed {
-            return element
-        }
+        if element.caretIsAtTheEnd, element.lastCharacterIsNotLinefeed {}
         
         if element.caretIsAtTheEnd, element.lastCharacterIsLinefeed {
             var textToPaste = TextEngineLine(from: "\n" + (NSPasteboard.general.string(forType: .string) ?? ""))
