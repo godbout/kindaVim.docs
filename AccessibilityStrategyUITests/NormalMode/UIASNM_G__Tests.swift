@@ -162,4 +162,20 @@ again at the last line
         XCTAssertEqual(finalElement?.caretLocation, 59)
     }
     
+    func test_that_if_the_last_line_is_not_empty_and_the_caret_is_not_on_that_line_then_the_caret_still_goes_to_the_last_line_and_does_not_get_stuck_on_the_current_line() {
+        let textInAXFocusedElement = """
+caret seems stuck
+to the line it is
+why
+"""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [.command])
+        app.textViews.firstMatch.typeKey(.rightArrow, modifierFlags: [.option])
+        
+        let finalElement = applyMoveAndGetBackUpdatedElement()
+        
+        XCTAssertEqual(finalElement?.caretLocation, 36)
+    }
+    
 }
