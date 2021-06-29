@@ -56,7 +56,7 @@ extension from_TF_valueTests {
         
         let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
         
-        XCTAssertEqual(accessibilityElement?.role, .textField)
+        XCTAssertEqual(accessibilityElement?.role, .textArea)
         XCTAssertEqual(accessibilityElement?.value, "")
         XCTAssertEqual(accessibilityElement?.caretLocation, 0)
         XCTAssertEqual(accessibilityElement?.selectedLength, 0)
