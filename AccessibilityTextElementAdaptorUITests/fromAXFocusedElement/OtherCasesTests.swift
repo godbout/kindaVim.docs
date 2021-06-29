@@ -17,6 +17,7 @@ extension OtherCasesTests {
         
         XCTAssertEqual(accessibilityElement?.role, .textField)
         XCTAssertEqual(accessibilityElement?.value, "here's some nice words for you")
+        XCTAssertEqual(accessibilityElement?.length, 30)
         XCTAssertEqual(accessibilityElement?.caretLocation, 27)
         XCTAssertEqual(accessibilityElement?.selectedLength, 0)
         XCTAssertNil(accessibilityElement?.selectedText)
@@ -56,6 +57,7 @@ because that's its
 life
 """
         )
+        XCTAssertEqual(accessibilityElement?.length, 72)
         XCTAssertEqual(accessibilityElement?.caretLocation, 43)
         XCTAssertEqual(accessibilityElement?.selectedLength, 0)
         XCTAssertNil(accessibilityElement?.selectedText)

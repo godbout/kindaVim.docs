@@ -61,6 +61,7 @@ struct AccessibilityTextElement {
 
     private(set) var role: AccessibilityTextElementRole = .someOtherShit
     private(set) var value = ""
+    private(set) var length = 0
     
     var caretLocation = 0 {
         didSet {
@@ -86,7 +87,7 @@ struct AccessibilityTextElement {
     
     var isEmpty: Bool { value.isEmpty }    
     var isNotEmpty: Bool { !isEmpty }
-    var caretIsAtTheEnd: Bool { caretLocation == value.count }    
+    var caretIsAtTheEnd: Bool { caretLocation == length }    
     var lastCharacterIsLinefeed: Bool { value.last == "\n" }
     var lastCharacterIsNotLinefeed: Bool { !lastCharacterIsLinefeed }
 

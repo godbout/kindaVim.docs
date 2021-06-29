@@ -17,6 +17,7 @@ extension The3CasesTests {
         
         XCTAssertEqual(accessibilityElement?.role, .textField)
         XCTAssertEqual(accessibilityElement?.value, "")
+        XCTAssertEqual(accessibilityElement?.length, 0)
         XCTAssertEqual(accessibilityElement?.caretLocation, 0)
         XCTAssertEqual(accessibilityElement?.selectedLength, 0)
         XCTAssertNil(accessibilityElement?.selectedText)
@@ -35,6 +36,7 @@ extension The3CasesTests {
         
         XCTAssertEqual(accessibilityElement?.role, .textField)
         XCTAssertEqual(accessibilityElement?.value, "it's four O two and i'm having so much fun :D")
+        XCTAssertEqual(accessibilityElement?.length, 45)
         XCTAssertEqual(accessibilityElement?.caretLocation, 45)
         XCTAssertEqual(accessibilityElement?.selectedLength, 0)
         XCTAssertNil(accessibilityElement?.selectedText)
@@ -48,7 +50,7 @@ extension The3CasesTests {
 
 
 // TextViews
-extension from_TF_valueTests {
+extension The3CasesTests {
     
     func test_that_we_grab_a_correct_AccessibilityTextElement_when_the_TextView_is_empty() {
         let textInAXFocusedElement = ""
@@ -59,6 +61,7 @@ extension from_TF_valueTests {
         
         XCTAssertEqual(accessibilityElement?.role, .textArea)
         XCTAssertEqual(accessibilityElement?.value, "")
+        XCTAssertEqual(accessibilityElement?.length, 0)
         XCTAssertEqual(accessibilityElement?.caretLocation, 0)
         XCTAssertEqual(accessibilityElement?.selectedLength, 0)
         XCTAssertNil(accessibilityElement?.selectedText)
@@ -86,6 +89,7 @@ and i'm having so much fun
 :D
 """
         )
+        XCTAssertEqual(accessibilityElement?.length, 46)
         XCTAssertEqual(accessibilityElement?.caretLocation, 46)
         XCTAssertEqual(accessibilityElement?.selectedLength, 0)
         XCTAssertNil(accessibilityElement?.selectedText)
@@ -115,6 +119,7 @@ and i'm still having fun
 
 """
         )
+        XCTAssertEqual(accessibilityElement?.length, 46)
         XCTAssertEqual(accessibilityElement?.caretLocation, 46)
         XCTAssertEqual(accessibilityElement?.selectedLength, 0)
         XCTAssertNil(accessibilityElement?.selectedText)
