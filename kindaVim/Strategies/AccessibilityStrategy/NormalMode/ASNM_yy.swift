@@ -3,19 +3,17 @@ import AppKit
 extension AccessibilityStrategyNormalMode {
     
     func yy(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
-        guard let element = element else { return nil }
+        guard var element = element else { return nil }
         
-        if element.isEmpty {
-            return element
-        }
+        element.selectedLength = 0
+        element.selectedText = nil
         
-        if element.caretIsAtTheEnd, element.lastCharacterIsNotLinefeed {
-            return element
-        }
         
-        if element.caretIsAtTheEnd, element.lastCharacterIsLinefeed {
-            return element
-        }
+        if element.isEmpty {}
+        
+        if element.caretIsAtTheEnd, element.lastCharacterIsNotLinefeed {}
+        
+        if element.caretIsAtTheEnd, element.lastCharacterIsLinefeed {}
 
         
         NSPasteboard.general.clearContents()

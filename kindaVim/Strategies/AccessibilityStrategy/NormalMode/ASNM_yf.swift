@@ -3,7 +3,11 @@ import AppKit
 extension AccessibilityStrategyNormalMode {
     
     func yf(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
-        guard let element = element else { return nil }
+        guard var element = element else { return nil }
+        
+        element.selectedLength = 0
+        element.selectedText = nil
+        
         
         if element.isEmpty {
             return element

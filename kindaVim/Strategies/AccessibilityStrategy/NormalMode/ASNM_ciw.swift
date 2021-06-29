@@ -12,7 +12,7 @@ extension AccessibilityStrategyNormalMode {
         }
         
         if element.caretIsAtTheEnd, element.lastCharacterIsNotLinefeed {
-            return element
+            element.caretLocation -= 1
         }
         
         if element.caretIsAtTheEnd, element.lastCharacterIsLinefeed {
