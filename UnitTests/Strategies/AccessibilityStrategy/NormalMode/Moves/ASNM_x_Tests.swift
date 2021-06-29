@@ -43,29 +43,8 @@ extension ASNM_x_Tests {
         XCTAssertNil(returnedElement?.selectedText)
     }
     
-    func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_but_not_on_an_empty_line_it_does_not_move() {
-        let text = """
-caret is
-gonna be at the end
-"""
-        let element = AccessibilityTextElement(
-            role: .textArea,
-            value: text,
-            caretLocation: 28,
-            currentLine: AccessibilityTextElementLine(
-                fullValue: text,
-                number: 2,
-                start: 9,
-                end: 28
-            )
-        )
-        
-        let returnedElement = applyMove(on: element)
-        
-        XCTAssertEqual(returnedElement?.caretLocation, 28)
-        XCTAssertEqual(returnedElement?.selectedLength, 0)
-        XCTAssertNil(returnedElement?.selectedText)
-    }
+    // this case will call the ATEAdaptor, so it is tested through UI Tests
+    func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_but_not_on_an_empty_line_it_moves_one_character_to_the_left() {}
     
     func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_and_on_an_empty_line_on_its_own_it_does_not_move() {
         let text = """

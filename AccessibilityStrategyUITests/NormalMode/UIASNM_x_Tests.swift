@@ -15,7 +15,7 @@ class UIASNM_x_Tests: UIAS_BaseTests {
 
 // TextViews
 extension UIASNM_x_Tests {
-    
+        
     func test_that_if_the_caret_is_at_the_last_character_of_a_line_that_does_not_end_with_a_linefeed_it_deletes_the_last_character_and_goes_back_one_character() {
         let textInAXFocusedElement = """
 so we're on the last
