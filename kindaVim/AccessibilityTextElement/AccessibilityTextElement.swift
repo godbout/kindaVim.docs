@@ -92,17 +92,3 @@ struct AccessibilityTextElement {
     var lastCharacterIsNotLinefeed: Bool { !lastCharacterIsLinefeed }
 
 }
-
-
-extension AccessibilityTextElement: Equatable {
-    
-    public static func == (lhs: AccessibilityTextElement, rhs: AccessibilityTextElement) -> Bool {
-        lhs.role == rhs.role
-            && lhs.value == rhs.value
-            && lhs.caretLocation == rhs.caretLocation
-            && lhs.selectedLength == rhs.selectedLength
-            && lhs.selectedText == rhs.selectedText
-            && lhs.currentLine == rhs.currentLine
-    }
-    
-}

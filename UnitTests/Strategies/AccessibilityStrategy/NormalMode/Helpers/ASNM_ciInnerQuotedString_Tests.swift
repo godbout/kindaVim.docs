@@ -51,7 +51,7 @@ a text with only one quote ' lol
         
         let returnedElement = asNormalMode.ciInnerQuotedString(using: "'", on: element)
         
-        XCTAssertEqual(returnedElement, element)
+        XCTAssertNil(returnedElement?.selectedText)
     }
     
     func test_that_if_there_are_no_quote_no_content_is_deleted_and_the_caret_does_not_move() {
@@ -72,7 +72,7 @@ a text with only one quote ' lol
         
         let returnedElement = asNormalMode.ciInnerQuotedString(using: "'", on: element)
         
-        XCTAssertEqual(returnedElement, element)
+        XCTAssertNil(returnedElement?.selectedText)
     }
     
     func test_that_if_the_caret_is_before_the_quotes_then_the_content_within_is_deleted_and_the_caret_moves() {
@@ -122,7 +122,7 @@ now the "caret" is after the quotes
         
         let returnedElement = asNormalMode.ciInnerQuotedString(using: "\"", on: element)
         
-        XCTAssertEqual(returnedElement, element)
+        XCTAssertNil(returnedElement?.selectedText)
     }
     
     func test_that_if_there_are_three_quotes_then_the_correct_content_is_deleted_and_the_caret_moves() {

@@ -19,7 +19,7 @@ extension AccessibilityStrategyNormalMode {
         
         
         
-        if let elementFound = T(to: character, on: element), element != elementFound {
+        if let elementFound = T(to: character, on: element), elementFound.selectedText != nil {
             let text = element.value
             let caretLocationIndex = text.index(text.startIndex, offsetBy: element.caretLocation)
             let elementFoundCaretLocationIndex = text.index(text.startIndex, offsetBy: elementFound.caretLocation)

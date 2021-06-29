@@ -56,9 +56,7 @@ extension ASNM_ciDoubleQuote_Tests {
         
         let returnedElement = applyMove(on: element)
         
-        // the way to check it keeps the block cursor is that the returned element is the same as
-        // the passed element
-        XCTAssertEqual(returnedElement, element)
+        XCTAssertNil(returnedElement?.selectedText)
     }
   
 }

@@ -58,10 +58,9 @@ huhu only one " in there...
         app.textFields.firstMatch.typeText(textInAXFocusedElement)                
         app.textFields.firstMatch.typeKey(.leftArrow, modifierFlags: [.option])
         
-        let originalElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
         let finalElement = applyMoveAndGetBackUpdatedElement()
         
-        XCTAssertEqual(finalElement, originalElement)
+        XCTAssertNil(finalElement?.selectedText)
     }
     
     func test_a_case_where_it_should_not_delete_the_content_stays_in_normal_mode() {

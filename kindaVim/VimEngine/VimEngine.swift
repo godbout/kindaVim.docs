@@ -457,28 +457,23 @@ extension VimEngine {
             ()
         case [.c, .i, .doubleQuote]:
             enterNormalMode()
-            
-            let axFocusedElement = focusedElement()
-            
-            if let element = asNormalMode.ciDoubleQuote(on: axFocusedElement), element != axFocusedElement {
+                        
+            // if element.selectedText is nil that means that ci" didn't find a pair of " to empty
+            if let element = asNormalMode.ciDoubleQuote(on: focusedElement()), element.selectedText != nil {
                 push(element: element)
                 enterInsertMode()
             }
         case [.c, .i, .singleQuote]:
             enterNormalMode()
             
-            let axFocusedElement = focusedElement()
-            
-            if let element = asNormalMode.ciSingleQuote(on: axFocusedElement), element != axFocusedElement {
+            if let element = asNormalMode.ciSingleQuote(on: focusedElement()), element.selectedText != nil {
                 push(element: element)
                 enterInsertMode()
             }            
         case [.c, .i, .backtick]:
             enterNormalMode()
             
-            let axFocusedElement = focusedElement()
-            
-            if let element = asNormalMode.ciBacktick(on: axFocusedElement), element != axFocusedElement {
+            if let element = asNormalMode.ciBacktick(on: focusedElement()), element.selectedText != nil {
                 push(element: element)
                 enterInsertMode()
             }
@@ -635,26 +630,25 @@ extension VimEngine {
         default:
             // cf, cF, ct, cT
             if operatorPendingBuffer.first?.vimKey == .c {
-                let axFocusedElement = focusedElement()
                 var element: AccessibilityTextElement?
                 
                 if operatorPendingBuffer[1].vimKey == .f, let character = operatorPendingBuffer.last {
-                    element = asNormalMode.cf(to: character.character, on: axFocusedElement)
+                    element = asNormalMode.cf(to: character.character, on: focusedElement())
                 }
                 
                 if operatorPendingBuffer[1].vimKey == .F, let character = operatorPendingBuffer.last {
-                    element = asNormalMode.cF(to: character.character, on: axFocusedElement)
+                    element = asNormalMode.cF(to: character.character, on: focusedElement())
                 }
                 
                 if operatorPendingBuffer[1].vimKey == .t, let character = operatorPendingBuffer.last {
-                    element = asNormalMode.ct(to: character.character, on: axFocusedElement)
+                    element = asNormalMode.ct(to: character.character, on: focusedElement())
                 }
                 
                 if operatorPendingBuffer[1].vimKey == .T, let character = operatorPendingBuffer.last {
-                    element = asNormalMode.cT(to: character.character, on: axFocusedElement)
+                    element = asNormalMode.cT(to: character.character, on: focusedElement())
                 }
                 
-                if let element = element, element != axFocusedElement {
+                if let element = element, element.selectedText != nil {
                     push(element: element)
                     enterInsertMode()
                     
@@ -706,11 +700,9 @@ extension VimEngine {
                 }
             }
             
-            if operatorPendingBuffer.first?.vimKey == .r, let replacement = operatorPendingBuffer.last {
-                let axFocusedElement = focusedElement()
-                
-                if let element = asNormalMode.r(with: replacement.character, on: axFocusedElement) {
-                    if element != axFocusedElement {
+            if operatorPendingBuffer.first?.vimKey == .r, let replacement = operatorPendingBuffer.last {                
+                if let element = asNormalMode.r(with: replacement.character, on: focusedElement()) {
+                    if element.selectedText != nil {
                         _ = push(element: element)
                         
                         if var element = asNormalMode.h(on: focusedElement()) {                        
