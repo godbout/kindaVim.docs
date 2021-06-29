@@ -29,7 +29,9 @@ extension NonTextElementsTests {
     func test_that_trying_to_convert_an_AccessibilityTextElement_to_an_AXUIElement_button_returns_false() {
         let accessibilityElement = AccessibilityTextElement(
             value: "hi i'm a button",
-            caretLocation: 5
+            length: 25,
+            caretLocation: 5,
+            selectedLength: 1
         )
 
         app.buttons.firstMatch.tap()

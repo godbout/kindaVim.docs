@@ -6,7 +6,9 @@ class to_TF_selectedTextTests: ATEA_BaseTests {
         let text = "gonna try to set the selected text"
         let accessibilityElement = AccessibilityTextElement(
             value: text,
+            length: 34,
             caretLocation: 6,
+            selectedLength: 0, 
             selectedText: "banana "
         )
         

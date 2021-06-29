@@ -10,7 +10,9 @@ this time
 """
         let accessibilityElement = AccessibilityTextElement(
             value: text,
+            length: 31,
             caretLocation: 21,
+            selectedLength: 0,
             selectedText: "\nbanana banana banana"
         )
         

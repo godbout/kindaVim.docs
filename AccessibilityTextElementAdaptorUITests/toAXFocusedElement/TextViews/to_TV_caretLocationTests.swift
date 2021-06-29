@@ -10,7 +10,9 @@ coz like come on there's so me shits inside.
 """
         let accessibilityElement = AccessibilityTextElement(
             value: text,
-            caretLocation: 0
+            length: 93,
+            caretLocation: 0,
+            selectedLength: 1
         )
 
         app.textViews.firstMatch.tap()
@@ -33,7 +35,9 @@ friend...
 """
         let accessibilityElement = AccessibilityTextElement(
             value: text,
-            caretLocation: 0
+            length: 46,
+            caretLocation: 0,
+            selectedLength: 1
         )
 
         app.textViews.firstMatch.tap()
@@ -55,7 +59,9 @@ hallelujah
 """
         let accessibilityElement = AccessibilityTextElement(
             value: text,
-            caretLocation: 25
+            length: 68,
+            caretLocation: 25,
+            selectedLength: 1
         )
 
         app.textViews.firstMatch.tap()
@@ -76,7 +82,9 @@ that long.
 """
         let accessibilityElement = AccessibilityTextElement(
             value: text,
-            caretLocation: 1993
+            length: 38,            
+            caretLocation: 1993,
+            selectedLength: 1
         )
 
         app.textViews.firstMatch.tap()

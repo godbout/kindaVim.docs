@@ -6,7 +6,9 @@ class to_TF_caretLocationTests: ATEA_BaseTests {
         let text = "hello you dear"
         let accessibilityElement = AccessibilityTextElement(
             value: text,
-            caretLocation: 0
+            length: 14,
+            caretLocation: 0,
+            selectedLength: 1
         )
 
         let textInAXFocusedElement = text
@@ -24,7 +26,9 @@ class to_TF_caretLocationTests: ATEA_BaseTests {
         let text = "hello"
         let accessibilityElement = AccessibilityTextElement(
             value: text,
-            caretLocation: 4
+            length: 5,
+            caretLocation: 4,
+            selectedLength: 1
         )
 
         let textInAXFocusedElement = text
@@ -42,7 +46,9 @@ class to_TF_caretLocationTests: ATEA_BaseTests {
         let text = "deifnitely not 19"
         let accessibilityElement = AccessibilityTextElement(
             value: text,
-            caretLocation: 19
+            length: 17,
+            caretLocation: 19,
+            selectedLength: 1
         )
 
         let textInAXFocusedElement = text
