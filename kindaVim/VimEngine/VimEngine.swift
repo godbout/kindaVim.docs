@@ -795,6 +795,10 @@ extension VimEngine {
             if let element = asVisualMode.j(on: focusedElement()) {
                 push(element: element)
             }
+        case .k:
+            if let element = asVisualMode.k(on: focusedElement()) {
+                push(element: element)
+            }
         case .l:
             if let element = asVisualMode.l(on: focusedElement()) {
                 push(element: element)
