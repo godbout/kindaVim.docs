@@ -20,7 +20,7 @@ extension AccessibilityStrategyNormalMode {
         }
         
         
-        if let elementFound = T(to: character, on: element), elementFound.selectedText != nil {
+        if let elementFound = T(to: character, on: element), elementFound.caretLocation != element.caretLocation {
             element.selectedLength = element.caretLocation - elementFound.caretLocation
             element.caretLocation = elementFound.caretLocation
             element.selectedText = ""
