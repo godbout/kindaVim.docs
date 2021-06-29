@@ -11,6 +11,86 @@ class ASNM_$_Tests: ASNM_BaseTests {
 }
 
 
+// The 3 Cases:
+// - empty TextElement
+// - caret at the end of TextElement but not on empty line
+// - caret at the end of TextElement on own empty line
+extension ASNM_$_Tests {
+    
+    func test_that_if_the_TextElement_is_empty_it_does_not_move() {
+        let text = ""
+        let element = AccessibilityTextElement(
+            role: .textField,
+            value: text,
+            caretLocation: 0,
+            currentLine: AccessibilityTextElementLine(
+                fullValue: text,
+                number: 1,
+                start: 0,
+                end: 0
+            )
+        )
+        
+        let returnedElement = applyMove(on: element)
+        
+        XCTAssertEqual(returnedElement?.caretLocation, 0)
+        XCTAssertEqual(returnedElement?.selectedLength, 0)
+        XCTAssertNil(returnedElement?.selectedText)
+    }
+    
+    func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_but_not_on_an_empty_line_it_works_and_moves_one_character_to_the_left() {
+        let text = """
+caret is
+gonna be at the end
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            caretLocation: 28,
+            currentLine: AccessibilityTextElementLine(
+                fullValue: text,
+                number: 2,
+                start: 9,
+                end: 28
+            )
+        )
+        
+        let returnedElement = applyMove(on: element)
+        
+        XCTAssertEqual(returnedElement?.caretLocation, 27)
+        XCTAssertEqual(returnedElement?.selectedLength, 0)
+        XCTAssertNil(returnedElement?.selectedText)
+    }
+    
+    func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_and_on_an_empty_line_on_its_own_it_does_not_move() {
+        let text = """
+caret is on its
+own empty
+line
+
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            caretLocation: 31,
+            currentLine: AccessibilityTextElementLine(
+                fullValue: text,
+                number: 4,
+                start: 31,
+                end: 31
+            )
+        )
+        
+        let returnedElement = applyMove(on: element)
+        
+        XCTAssertEqual(returnedElement?.caretLocation, 31)
+        XCTAssertEqual(returnedElement?.selectedLength, 0)
+        XCTAssertNil(returnedElement?.selectedText)
+    }
+    
+}
+
+
 // Both
 extension ASNM_$_Tests {
     
@@ -85,52 +165,5 @@ it's a bug!
 
         XCTAssertEqual(returnedElement?.caretLocation, 27)
     }
-
-//    func test_that_if_the_caret_is_at_the_last_position_of_the_TextView_$_goes_back_one_character() {
-//        let text = """
-//some more text
-//my friend
-//"""
-//        let element = AccessibilityTextElement(
-//            role: .textArea,
-//            value: text,
-//            caretLocation: 24,
-//            currentLine: AccessibilityTextElementLine(
-//                fullValue: text,
-//                number: nil,
-//                start: nil,
-//                end: nil
-//            )
-//        )
-//
-//        let returnedElement = applyMove(on: element)
-//
-//        XCTAssertEqual(returnedElement?.caretLocation, 23)
-//    }
-
-//    func test_that_if_the_caret_is_on_the_last_empty_line_of_the_TextView_$_does_not_go_up_to_the_end_of_the_previous_line() {
-//        let text = """
-//$ should not go
-//up a line when
-//caret is on empty last
-//line
-//
-//"""
-//        let element = AccessibilityTextElement(
-//            role: .textArea,
-//            value: text,
-//            caretLocation: 59,
-//            currentLine: AccessibilityTextElementLine(
-//                fullValue: text,
-//                number: nil,
-//                start: nil,
-//                end: nil
-//            )
-//        )
-//
-//        let returnedElement = applyMove(on: element)
-//
-//        XCTAssertEqual(returnedElement?.caretLocation, 59)
-//    }
 
 }
