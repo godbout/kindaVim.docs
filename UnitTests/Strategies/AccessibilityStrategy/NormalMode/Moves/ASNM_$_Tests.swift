@@ -24,6 +24,7 @@ extension ASNM_$_Tests {
             value: text,
             length: 0,
             caretLocation: 0,
+            selectedLength: 1,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 1,
@@ -49,6 +50,7 @@ gonna be at the end
             value: text,
             length: 28,
             caretLocation: 28,
+            selectedLength: 1,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 2,
@@ -76,6 +78,7 @@ line
             value: text,
             length: 31,
             caretLocation: 31,
+            selectedLength: 1,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 4,
@@ -104,6 +107,7 @@ extension ASNM_$_Tests {
             value: text,
             length: 11,
             caretLocation: 4,
+            selectedLength: 1,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 1,
@@ -134,6 +138,7 @@ multiline
             value: text,
             length: 24,
             caretLocation: 13,
+            selectedLength: 1,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 2,
@@ -159,6 +164,7 @@ it's a bug!
             value: text,
             length: 39,
             caretLocation: 27,
+            selectedLength: 1,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 3,

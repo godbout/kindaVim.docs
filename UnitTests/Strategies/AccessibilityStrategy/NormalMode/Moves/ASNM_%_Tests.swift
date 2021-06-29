@@ -21,6 +21,7 @@ extension ASNM_percent_Tests {
             value: text,
             length: 28,
             caretLocation: 4,
+            selectedLength: 1,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 1,
@@ -44,6 +45,7 @@ and a ( nice pair line ) :))
             value: text,
             length: 56,
             caretLocation: 30,
+            selectedLength: 1,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 2,
@@ -64,6 +66,7 @@ and a ( nice pair line ) :))
             value: text,
             length: 56,
             caretLocation: 34,
+            selectedLength: 1,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 1,
@@ -84,6 +87,7 @@ and a ( nice pair line ) :))
             value: text,
             length: 70,
             caretLocation: 14,
+            selectedLength: 1,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 1,
@@ -114,6 +118,7 @@ func someBull() {
             value: text,
             length: 40,
             caretLocation: 39,
+            selectedLength: 1,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 3,

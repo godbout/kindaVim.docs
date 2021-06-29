@@ -14,6 +14,7 @@ finally dealing with the "real stuff"!
             value: text,
             length: 38,
             caretLocation: 30,
+            selectedLength: 1,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 1,
@@ -39,6 +40,7 @@ a text with only one quote ' lol
             value: text,
             length: 32,
             caretLocation: 17,
+            selectedLength: 1,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 1,
@@ -59,6 +61,7 @@ a text with only one quote ' lol
             value: text,
             length: 26,
             caretLocation: 8,
+            selectedLength: 1,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 1,
@@ -81,6 +84,7 @@ now the caret is before the ` shit with ` backtick quotes
             value: text,
             length: 57,
             caretLocation: 20,
+            selectedLength: 1,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 1,
@@ -107,6 +111,7 @@ now the "caret" is after the quotes
             value: text,
             length: 98,
             caretLocation: 85,
+            selectedLength: 1,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 3,
@@ -129,6 +134,7 @@ that's ' three quotes ' in there
             value: text,
             length: 32,
             caretLocation: 17,
+            selectedLength: 1,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 1,
@@ -153,6 +159,7 @@ that's " four quotes " in " there "
             value: text,
             length: 35,
             caretLocation: 26,
+            selectedLength: 1,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 1,

@@ -3,6 +3,10 @@ extension AccessibilityStrategyNormalMode {
     func underscore(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         guard var element = element else { return nil }
         
+        element.selectedLength = 0
+        element.selectedText = nil
+        
+        
         if element.isEmpty {
             return element
         }
@@ -16,6 +20,8 @@ extension AccessibilityStrategyNormalMode {
         
         let lineText = element.currentLine.value                
         element.caretLocation = element.currentLine.start + textEngine.firstNonBlankWithinLineLimit(in: TextEngineLine(from: lineText))
+        element.selectedLength = 0
+        element.selectedText = nil
         
         return element
     }

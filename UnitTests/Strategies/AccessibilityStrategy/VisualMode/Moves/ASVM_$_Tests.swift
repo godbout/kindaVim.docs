@@ -104,6 +104,7 @@ extension ASVM_$_Tests {
             value: text,
             length: 42,
             caretLocation: 21,
+            selectedLength: 4,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 1,
@@ -120,7 +121,7 @@ extension ASVM_$_Tests {
         let returnedElement = applyMove(on: element)
         
         XCTAssertEqual(returnedElement?.caretLocation, 21)
-        XCTAssertEqual(returnedElement?.selectedLength, 2)        
+        XCTAssertEqual(returnedElement?.selectedLength, 4)        
     }
     
 }
@@ -136,6 +137,7 @@ extension ASVM_$_Tests {
             value: text,
             length: 11,
             caretLocation: 3,
+            selectedLength: 1,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 1,
@@ -163,6 +165,7 @@ at the anchor, not at the caret location
             value: text,
             length: 65,
             caretLocation: 28,
+            selectedLength: 1,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 2,
@@ -197,6 +200,7 @@ multiline
             value: text,
             length: 24,
             caretLocation: 13,
+            selectedLength: 1,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 2,

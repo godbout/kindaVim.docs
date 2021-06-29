@@ -311,7 +311,7 @@ extension VimEngine {
                 post(keyboardStrategy.O())
             }
         case .p:
-            if var element = asNormalMode.p(on: focusedElement()) {
+            if let element = asNormalMode.p(on: focusedElement()) {
                 push(element: element)
                 
                 if var element = asNormalMode.h(on: focusedElement()) {                        

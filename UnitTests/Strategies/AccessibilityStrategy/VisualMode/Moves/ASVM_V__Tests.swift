@@ -88,6 +88,7 @@ extension ASVM_V__Tests {
             value: text,
             length: 29,
             caretLocation: 17,
+            selectedLength: 1,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 1,
@@ -121,6 +122,7 @@ a linefeed at the end
             value: text,
             length: 43,
             caretLocation: 27,
+            selectedLength: 1,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 2,
@@ -154,6 +156,7 @@ and head are nil
             value: text,
             length: 62,
             caretLocation: 25,
+            selectedLength: 1,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 2,
@@ -185,6 +188,7 @@ and head are nil
             value: text,
             length: 62,
             caretLocation: 0,
+            selectedLength: 1,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 1,
@@ -219,6 +223,7 @@ if the head is not after the line end limit
             value: text,
             length: 107,
             caretLocation: 46,
+            selectedLength: 1,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 3,
@@ -249,6 +254,7 @@ if the head is not after the line end limit
             value: text,
             length: 107,
             caretLocation: 46,
+            selectedLength: 1,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 3,

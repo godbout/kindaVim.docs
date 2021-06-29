@@ -28,6 +28,7 @@ extension ASNM_r_Tests {
             value: text,
             length: 0,
             caretLocation: 0,
+            selectedLength: 1,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 1,
@@ -53,6 +54,7 @@ gonna be at the end
             value: text,
             length: 28,
             caretLocation: 28,
+            selectedLength: 1,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 2,
@@ -80,6 +82,7 @@ line
             value: text,
             length: 31,
             caretLocation: 31,
+            selectedLength: 1,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 4,
@@ -108,6 +111,7 @@ extension ASNM_r_Tests {
             value: text,
             length: 43,
             caretLocation: 23,
+            selectedLength: 1,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 1,
@@ -130,6 +134,7 @@ extension ASNM_r_Tests {
             value: text,
             length: 18,
             caretLocation: 12,
+            selectedLength: 1,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 1,
@@ -152,6 +157,7 @@ extension ASNM_r_Tests {
             value: text,
             length: 41,
             caretLocation: 15,
+            selectedLength: 1,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 1,
@@ -162,7 +168,7 @@ extension ASNM_r_Tests {
         
         let returnedElement = applyMove(with: "\u{1b}", on: element)
         
-        XCTAssertEqual(returnedElement, element)
+        XCTAssertNil(returnedElement?.selectedText)
     }
     
 }
@@ -182,6 +188,7 @@ linefeed
             value: text,
             length: 24,
             caretLocation: 15,
+            selectedLength: 1,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 2,

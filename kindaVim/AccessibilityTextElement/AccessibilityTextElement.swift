@@ -70,7 +70,7 @@ struct AccessibilityTextElement {
             }
         }
     }
-    var selectedLength = 0 {
+    var selectedLength: Int {
         didSet {
             if VimEngine.shared.currentMode == .visual, AccessibilityStrategyVisualMode.anchor != nil {
                 if caretLocation < AccessibilityStrategyVisualMode.anchor {

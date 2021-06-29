@@ -26,6 +26,7 @@ extension ASNM_F__Tests {
             value: text,
             length: 25,
             caretLocation: 10,
+            selectedLength: 1,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 1,
@@ -51,6 +52,7 @@ that is not there
             value: text,
             length: 44,
             caretLocation: 22,
+            selectedLength: 1,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 2,
@@ -83,6 +85,7 @@ yeah
             value: text,
             length: 52,
             caretLocation: 51,
+            selectedLength: 1,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 4,

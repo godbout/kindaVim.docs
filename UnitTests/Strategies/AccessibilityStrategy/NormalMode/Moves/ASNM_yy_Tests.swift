@@ -108,6 +108,7 @@ extension ASNM_yy_Tests {
             value: text,
             length: 24,
             caretLocation: 12,
+            selectedLength: 1,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 1,
@@ -132,6 +133,7 @@ my friend
             value: text,
             length: 24,
             caretLocation: 3,
+            selectedLength: 1,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 1,
@@ -157,6 +159,7 @@ my friend
             value: text,
             length: 30,
             caretLocation: 17,
+            selectedLength: 1,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 2,

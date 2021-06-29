@@ -32,6 +32,7 @@ the TextEngineTests
             value: text,
             length: 81,
             caretLocation: 49,
+            selectedLength: 1,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 2,

@@ -20,6 +20,7 @@ extension ASNM_ciSingleQuote_Tests {
             value: text,
             length: 63,
             caretLocation: 21,
+            selectedLength: 1,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 1,
@@ -41,6 +42,7 @@ extension ASNM_ciSingleQuote_Tests {
             value: text,
             length: 35,
             caretLocation: 28,
+            selectedLength: 1,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 1,

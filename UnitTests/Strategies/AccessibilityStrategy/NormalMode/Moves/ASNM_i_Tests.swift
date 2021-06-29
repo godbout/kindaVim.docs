@@ -15,6 +15,7 @@ extension ASNM_i_Tests {
             value: text,
             length: 35,
             caretLocation: 24,
+            selectedLength: 1,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 1,

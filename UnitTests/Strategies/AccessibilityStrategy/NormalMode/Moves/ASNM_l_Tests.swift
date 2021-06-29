@@ -24,6 +24,7 @@ extension ASNM_l_Tests {
             value: text,
             length: 0,
             caretLocation: 0,
+            selectedLength: 1,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 1,
@@ -49,6 +50,7 @@ gonna be at the end
             value: text,
             length: 28,
             caretLocation: 28,
+            selectedLength: 1,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 2,
@@ -76,6 +78,7 @@ line
             value: text,
             length: 31,
             caretLocation: 31,
+            selectedLength: 1,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 4,
@@ -104,6 +107,7 @@ extension ASNM_l_Tests {
             value: text,
             length: 38,
             caretLocation: 16,
+            selectedLength: 1,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 1,
@@ -128,6 +132,7 @@ hehe
             value: text,
             length: 30,
             caretLocation: 29,
+            selectedLength: 1,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 3,
@@ -158,6 +163,7 @@ it's two thirty
             value: text,
             length: 46,
             caretLocation: 30,
+            selectedLength: 1,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 2,

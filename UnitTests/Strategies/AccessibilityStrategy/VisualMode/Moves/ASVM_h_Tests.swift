@@ -64,7 +64,7 @@ class ASVM_h_Tests: ASVM_BaseTests {
 //        let returnedElement = applyMove(on: element)
 //        
 //        XCTAssertEqual(returnedElement?.caretLocation, 27)
-//        XCTAssertEqual(returnedElement?.selectedLength, 1)
+//        XCTAssertEqual(returnedElement?.selectedLength, 0)
 //        XCTAssertNil(returnedElement?.selectedText)
 //    }
 //    
@@ -107,6 +107,7 @@ extension ASVM_h_Tests {
             value: text,
             length: 42,
             caretLocation: 21,
+            selectedLength: 3,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 1,
@@ -123,7 +124,7 @@ extension ASVM_h_Tests {
         let returnedElement = applyMove(on: element)
         
         XCTAssertEqual(returnedElement?.caretLocation, 21)
-        XCTAssertEqual(returnedElement?.selectedLength, 2)        
+        XCTAssertEqual(returnedElement?.selectedLength, 3)        
     }
     
 }
@@ -139,6 +140,7 @@ extension ASVM_h_Tests {
             value: text,
             length: 43,
             caretLocation: 22,
+            selectedLength: 4,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 1,
@@ -163,6 +165,7 @@ extension ASVM_h_Tests {
             value: text,
             length: 43,
             caretLocation: 22,
+            selectedLength: 4,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 1,
@@ -191,6 +194,7 @@ it bugs
             value: text,
             length: 36,
             caretLocation: 5,
+            selectedLength: 5,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 2,

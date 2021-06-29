@@ -67,7 +67,7 @@ class ASVM_l_Tests: ASVM_BaseTests {
 //        let returnedElement = applyMove(on: element)
 //        
 //        XCTAssertEqual(returnedElement?.caretLocation, 27)
-//        XCTAssertEqual(returnedElement?.selectedLength, 1)
+//        XCTAssertEqual(returnedElement?.selectedLength, 0)
 //        XCTAssertNil(returnedElement?.selectedText)
 //    }
 //    
@@ -110,6 +110,7 @@ extension ASVM_l_Tests {
             value: text,
             length: 42,
             caretLocation: 21,
+            selectedLength: 2,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 1,
@@ -142,6 +143,7 @@ extension ASVM_l_Tests {
             value: text,
             length: 43,
             caretLocation: 22,
+            selectedLength: 4,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 1,
@@ -166,6 +168,7 @@ extension ASVM_l_Tests {
             value: text,
             length: 43,
             caretLocation: 22,
+            selectedLength: 4,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 1,
@@ -193,6 +196,7 @@ so we do a test
             value: text,
             length: 30,
             caretLocation: 11,
+            selectedLength: 4,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 1,

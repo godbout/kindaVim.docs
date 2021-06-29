@@ -34,6 +34,7 @@ from the TextEngine
             value: text,
             length: 62,
             caretLocation: 32,
+            selectedLength: 1,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 2,

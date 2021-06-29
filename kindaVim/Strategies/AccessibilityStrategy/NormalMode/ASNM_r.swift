@@ -3,6 +3,10 @@ extension AccessibilityStrategyNormalMode {
     func r(with replacement: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         guard var element = element else { return nil }
         
+        element.selectedLength = 0
+        element.selectedText = nil
+        
+        
         if element.isEmpty {
             return element
         }
@@ -20,7 +24,7 @@ extension AccessibilityStrategyNormalMode {
         let characterUnderCaretText = element.value[characterUnderCaretIndex]
         guard characterUnderCaretText != "\n" else { return element }
         
-    guard replacement != "\u{1b}" else { return element }            
+        guard replacement != "\u{1b}" else { return element }            
         
         element.selectedLength = 1
         element.selectedText = replacement.isNewline ? "\n" : String(replacement)

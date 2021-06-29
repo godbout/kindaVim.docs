@@ -101,6 +101,7 @@ extension ASVM_o_Tests {
             value: text,
             length: 34,
             caretLocation: 10,
+            selectedLength: 1,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 1,
@@ -130,6 +131,7 @@ tricky
             value: text,
             length: 59,
             caretLocation: 19,
+            selectedLength: 1,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 2,
@@ -157,6 +159,7 @@ my friend
             value: text,
             length: 21,
             caretLocation: 15,
+            selectedLength: 1,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 2,

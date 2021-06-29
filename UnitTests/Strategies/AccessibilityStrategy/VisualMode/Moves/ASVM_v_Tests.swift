@@ -61,7 +61,7 @@ class ASVM_v_Tests: ASVM_BaseTests {
 //        let returnedElement = applyMove(on: element)
 //        
 //        XCTAssertEqual(returnedElement?.caretLocation, 27)
-//        XCTAssertEqual(returnedElement?.selectedLength, 1)
+//        XCTAssertEqual(returnedElement?.selectedLength, 0)
 //        XCTAssertNil(returnedElement?.selectedText)
 //        
 //        XCTAssertEqual(AccessibilityStrategyVisualMode.anchor, 27)
@@ -114,6 +114,7 @@ and head are nil
             value: text,
             length: 62,
             caretLocation: 31,
+            selectedLength: 1,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 2,
@@ -145,6 +146,7 @@ if the head is not after the line end limit
             value: text,
             length: 107,
             caretLocation: 42,
+            selectedLength: 1,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 3,
@@ -175,6 +177,7 @@ if the head is not after the line end limit
             value: text,
             length: 107,
             caretLocation: 46,
+            selectedLength: 1,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 3,
@@ -205,6 +208,7 @@ if the head is not after the line end limit
             value: text,
             length: 107,
             caretLocation: 55,
+            selectedLength: 1,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 3,

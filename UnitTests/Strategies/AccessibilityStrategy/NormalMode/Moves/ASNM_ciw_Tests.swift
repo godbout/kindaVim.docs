@@ -106,6 +106,7 @@ extension ASNM_ciw_Tests {
             value: text,
             length: 34,
             caretLocation: 12,
+            selectedLength: 1,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 1,
@@ -128,6 +129,7 @@ extension ASNM_ciw_Tests {
             value: text,
             length: 34,
             caretLocation: 15,
+            selectedLength: 1,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 1,
@@ -150,6 +152,7 @@ extension ASNM_ciw_Tests {
             value: text,
             length: 17,
             caretLocation: 6,
+            selectedLength: 1,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 1,
@@ -183,6 +186,7 @@ one line to
             value: text,
             length: 45,
             caretLocation: 27,
+            selectedLength: 1,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 2,

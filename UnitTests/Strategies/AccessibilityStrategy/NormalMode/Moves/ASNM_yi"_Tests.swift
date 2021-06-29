@@ -112,6 +112,7 @@ extension ASNM_yiDoubleQuote_Tests {
             value: text,
             length: 34,
             caretLocation: 23,
+            selectedLength: 1,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 1,
@@ -138,6 +139,7 @@ now there's one " double quote
             value: text,
             length: 30,
             caretLocation: 12,
+            selectedLength: 1,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 1,
@@ -165,6 +167,7 @@ two "double quotes" on the second line
             value: text,
             length: 50,
             caretLocation: 14,
+            selectedLength: 1,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 2,
@@ -190,6 +193,7 @@ and now "hohohohoho"
             value: text,
             length: 42,
             caretLocation: 37,
+            selectedLength: 1,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 3,
@@ -213,6 +217,7 @@ double "quotes" before the caret
             value: text,
             length: 32,
             caretLocation: 26,
+            selectedLength: 1,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 1,
@@ -240,6 +245,7 @@ heheheheh
             value: text,
             length: 41,
             caretLocation: 30,
+            selectedLength: 1,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 2,

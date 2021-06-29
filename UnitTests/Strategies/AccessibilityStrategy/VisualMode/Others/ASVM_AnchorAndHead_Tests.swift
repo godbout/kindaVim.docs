@@ -32,6 +32,7 @@ extension ASVM_AnchorAndHead_Tests {
             value: text,
             length: 5,
             caretLocation: 0,
+            selectedLength: 1,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 1,
@@ -59,6 +60,7 @@ and head
             value: text,
             length: 49,
             caretLocation: 27,
+            selectedLength: 1,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 2,
@@ -87,6 +89,7 @@ and head
             value: text,
             length: 49,
             caretLocation: 27,
+            selectedLength: 1,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 2,

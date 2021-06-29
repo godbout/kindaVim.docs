@@ -109,6 +109,7 @@ extension ASNM_yt_Tests {
             value: text,
             length: 29,
             caretLocation: 8,
+            selectedLength: 1,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 1,
@@ -133,6 +134,7 @@ that is not there
             value: text,
             length: 44,
             caretLocation: 14,
+            selectedLength: 1,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 2,
@@ -166,6 +168,7 @@ on a line
             value: text,
             length: 40,
             caretLocation: 4,
+            selectedLength: 1,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 1,
