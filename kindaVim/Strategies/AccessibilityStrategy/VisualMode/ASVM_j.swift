@@ -1,7 +1,17 @@
 extension AccessibilityStrategyVisualMode {
     
     func j(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
-        guard var element = element else { return nil }
+        guard let element = element else { return nil }
+        
+        if VimEngine.shared.visualStyle == .linewise {
+            return jForVisualModeLinewise(on: element)
+        }
+        
+        return element
+    }
+    
+    private func jForVisualModeLinewise(on element: AccessibilityTextElement) -> AccessibilityTextElement {
+        var element = element
         
         
         if element.isEmpty {
@@ -20,11 +30,19 @@ extension AccessibilityStrategyVisualMode {
         }
         
         
-        guard let lineNumberAtHead = AccessibilityTextElementAdaptor.lineFor(location: element.caretLocation + element.selectedLength - 1) else { return element }
+        guard let lineNumberAtAnchor = AccessibilityTextElementAdaptor.lineFor(location: AccessibilityStrategyVisualMode.anchor) else { return element }
+        guard let lineNumberAtHead = AccessibilityTextElementAdaptor.lineFor(location: AccessibilityStrategyVisualMode.head) else { return element }
         
-        if let lineAfterTheHead = AccessibilityTextElementAdaptor.lineFor(lineNumber: lineNumberAtHead.number + 1) {
-            element.selectedLength += lineAfterTheHead.length
-        }        
+        if let lineAtHead = AccessibilityTextElementAdaptor.lineFor(lineNumber: lineNumberAtHead.number) {
+            if lineNumberAtHead.number >= lineNumberAtAnchor.number {
+                if let lineAfterHead = AccessibilityTextElementAdaptor.lineFor(lineNumber: lineNumberAtHead.number + 1) {
+                    element.selectedLength += lineAfterHead.length
+                }
+            } else {
+                element.caretLocation += lineAtHead.length
+                element.selectedLength -= lineAtHead.length
+            }
+        }      
         
         return element
     }
