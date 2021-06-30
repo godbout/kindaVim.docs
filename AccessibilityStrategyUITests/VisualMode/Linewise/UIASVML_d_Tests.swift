@@ -1,7 +1,7 @@
 import XCTest
 
 
-class UIASVM_d_Tests: UIAS_BaseTests {
+class UIASVML_d_Tests: UIAS_BaseTests {
         
     private func applyMovesAndGetBackUpdatedElement() -> AccessibilityTextElement? {
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .v, shift: true))
@@ -18,7 +18,7 @@ class UIASVM_d_Tests: UIAS_BaseTests {
 // - empty TextElement
 // - caret at the end of TextElement but not on empty line
 // - caret at the end of TextElement on own empty line
-extension UIASVM_d_Tests {    
+extension UIASVML_d_Tests {    
     
     func test_that_if_the_TextElement_is_empty_it_works_and_deletes_NOTHING() {
         let textInAXFocusedElement = ""
@@ -72,7 +72,7 @@ own empty
 
 
 // linewise
-extension UIASVM_d_Tests {
+extension UIASVML_d_Tests {
     
     func test_that_the_caret_will_go_to_the_first_non_blank_of_the_next_line_that_is_taking_over() {
         let textInAXFocusedElement = """

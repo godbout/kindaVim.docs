@@ -1,7 +1,7 @@
 import XCTest
 
 
-class UIASVM_c_Tests: UIAS_BaseTests {
+class UIASVML_c_Tests: UIAS_BaseTests {
     
     private func applyMovesAndGetBackUpdatedElement() -> AccessibilityTextElement? {
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .v, shift: true))
@@ -15,7 +15,7 @@ class UIASVM_c_Tests: UIAS_BaseTests {
 
 
 // linewise
-extension UIASVM_c_Tests {
+extension UIASVML_c_Tests {
     
     func test_that_the_line_gets_deleted_until_the_linefeed_and_the_caret_ends_up_at_the_beginning_of_that_line() {    
         let textInAXFocusedElement = """

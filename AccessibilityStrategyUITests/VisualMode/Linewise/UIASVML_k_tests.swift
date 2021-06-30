@@ -1,13 +1,13 @@
 import XCTest
 
 
-class UIASVM_j_Linewise_Tests: UIAS_BaseTests {
+class UIASVML_k_Tests: UIAS_BaseTests {
     
     private func applyMovesAndGetBackUpdatedElement() -> AccessibilityTextElement? {
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .v, shift: true))
         
         return applyMoveAndGetBackUpdatedElement { focusedElement in
-            asVisualMode.j(on: focusedElement)
+            asVisualMode.k(on: focusedElement)
         }
     }
     
@@ -18,7 +18,7 @@ class UIASVM_j_Linewise_Tests: UIAS_BaseTests {
 // - empty TextElement
 // - caret at the end of TextElement but not on empty line
 // - caret at the end of TextElement on own empty line
-extension UIASVM_j_Linewise_Tests {    
+extension UIASVML_k_Tests {    
     
     func test_that_if_the_TextElement_is_empty_it_works_and_does_not_move() {
         let textInAXFocusedElement = ""
@@ -38,11 +38,11 @@ gonna be at the end
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         
-        // enter Visual Mode Linewise and push the selection to the end
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .v, shift: true))                
+        VimEngine.shared.handle(keyCombination: KeyCombination(key: .v, shift: true))        
+        
         app.textViews.firstMatch.typeKey(.rightArrow, modifierFlags: [.command])
-                
-        let finalElement = asVisualMode.j(on: AccessibilityTextElementAdaptor.fromAXFocusedElement())
+        
+        let finalElement = asVisualMode.k(on: AccessibilityTextElementAdaptor.fromAXFocusedElement())
         
         XCTAssertEqual(finalElement?.caretLocation, 12)
         XCTAssertEqual(finalElement?.selectedLength, 19)
@@ -59,7 +59,7 @@ own empty
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         
         let finalElement = applyMovesAndGetBackUpdatedElement()
-              
+        
         XCTAssertEqual(finalElement?.caretLocation, 35)
     }
     
@@ -67,7 +67,7 @@ own empty
 
 
 // TextFields
-extension UIASVM_j_Linewise_Tests {
+extension UIASVML_k_Tests {
     
     func test_that_in_TextFields_basically_it_does_nothing() {
         let textInAXFocusedElement = "hehe you little fucker"
@@ -85,58 +85,55 @@ extension UIASVM_j_Linewise_Tests {
 
 
 // TextViews
-extension UIASVM_j_Linewise_Tests {
-    
-    // we go down twice coz once worked but twice didn't hehe :))
-    func test_that_if_the_head_is_after_the_anchor_then_it_extends_the_selection_by_one_line_below_at_a_time() {
+extension UIASVML_k_Tests {
+
+    func test_that_if_the_head_is_before_the_anchor_then_it_extends_the_selection_by_one_line_above_at_a_time() {
         let textInAXFocusedElement = """
-so pressing j in
-Visual Mode is gonna be
-cool because it will extend
-the selection
-when the head is after the anchor
+so pressing k if the head
+is before the anchor will
+extend the selection to
+the line above nice
+"""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        
+        let finalElement = applyMovesAndGetBackUpdatedElement()
+        
+        XCTAssertEqual(finalElement?.caretLocation, 52)
+        XCTAssertEqual(finalElement?.selectedLength, 43)
+        
+        let finalFinalElementHehe = asVisualMode.k(on: finalElement)
+        
+        XCTAssertEqual(finalFinalElementHehe?.caretLocation, 26)
+        XCTAssertEqual(finalFinalElementHehe?.selectedLength, 69)        
+    }
+    
+    func test_that_if_the_head_is_after_the_anchor_then_it_reduces_the_selection_by_one_line_above_at_a_time() {
+        let textInAXFocusedElement = """
+so pressing k if the head
+is after the anchor will
+reduce the selection to
+the line above nice
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [.command])
         
-        let finalElement = applyMovesAndGetBackUpdatedElement()
+        // need to call j so that the anchor and head get updated properly
+        VimEngine.shared.handle(keyCombination: KeyCombination(key: .v, shift: true))        
+        VimEngine.shared.handle(keyCombination: KeyCombination(key: .j))
+        VimEngine.shared.handle(keyCombination: KeyCombination(key: .j))
+        VimEngine.shared.handle(keyCombination: KeyCombination(key: .j))
+        
+        let finalElement = asVisualMode.k(on: AccessibilityTextElementAdaptor.fromAXFocusedElement())
         
         XCTAssertEqual(finalElement?.caretLocation, 0)
-        XCTAssertEqual(finalElement?.selectedLength, 41)
+        XCTAssertEqual(finalElement?.selectedLength, 75)
         
-        let finalFinalElementHehe = asVisualMode.j(on: finalElement)
+        let finalFinalElementHehe = asVisualMode.k(on: finalElement)
         
         XCTAssertEqual(finalFinalElementHehe?.caretLocation, 0)
-        XCTAssertEqual(finalFinalElementHehe?.selectedLength, 69)        
-    }
-    
-    func test_that_if_the_head_is_before_the_anchor_then_it_reduces_the_selection_by_one_line_below_at_a_time() {
-        let textInAXFocusedElement = """
-so pressing j in
-Visual Mode is gonna be
-cool because it will reduce
-the selection when the
-head if before the anchor
-"""
-        app.textViews.firstMatch.tap()
-        app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
-        // need to call k so that the anchor and head get updated properly
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .v, shift: true))        
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .k))
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .k))
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .k))
-        
-        let finalElement = asVisualMode.j(on: AccessibilityTextElementAdaptor.fromAXFocusedElement())
-                
-        XCTAssertEqual(finalElement?.caretLocation, 41)
-        XCTAssertEqual(finalElement?.selectedLength, 76)
-        
-        let finalFinalElementHehe = asVisualMode.j(on: finalElement)
-        
-        XCTAssertEqual(finalFinalElementHehe?.caretLocation, 69)
-        XCTAssertEqual(finalFinalElementHehe?.selectedLength, 48)        
+        XCTAssertEqual(finalFinalElementHehe?.selectedLength, 51)      
     }
     
 }
