@@ -82,17 +82,14 @@ another long line longer than all the other ones!!!
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .h))
         
         let firstJ = asNormalMode.j(on: AccessibilityTextElementAdaptor.fromAXFocusedElement())
-        _ = AccessibilityTextElementAdaptor.toAXfocusedElement(from: firstJ!)
-        
         XCTAssertEqual(firstJ?.caretLocation, 33)
         
+        _ = AccessibilityTextElementAdaptor.toAXfocusedElement(from: firstJ!)
         let secondJ = asNormalMode.j(on: AccessibilityTextElementAdaptor.fromAXFocusedElement())
-        _ = AccessibilityTextElementAdaptor.toAXfocusedElement(from: secondJ!)
-        
         XCTAssertEqual(secondJ?.caretLocation, 53)
-
+        
+        _ = AccessibilityTextElementAdaptor.toAXfocusedElement(from: secondJ!)
         let thirdJ = asNormalMode.j(on: AccessibilityTextElementAdaptor.fromAXFocusedElement())
-
         XCTAssertEqual(thirdJ?.caretLocation, 93)
     }
     
