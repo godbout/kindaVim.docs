@@ -282,7 +282,7 @@ extension VimEngine {
             }
         case .k:
             if var element = asNormalMode.k(on: focusedElement()) {
-                element.selectedLength = 1
+                element.selectedLength = (element.caretLocation == element.length) ? 0 : 1
                 push(element: element)
             } else {
                 post(keyboardStrategy.k())
