@@ -2,7 +2,15 @@
 import XCTest
 
 
-class UIASNM_j_Tests: UIAS_BaseTests {}
+class UIASNM_j_Tests: UIAS_BaseTests {
+    
+    private func applyMoveAndGetBackAccessibilityElement() -> AccessibilityTextElement? {
+        return applyMoveAndGetBackAccessibilityElement { focusedElement in
+            asNormalMode.j(on: focusedElement)
+        }
+    }
+    
+}
 
 
 // TextFields
@@ -14,7 +22,7 @@ extension UIASNM_j_Tests {
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
         app.textFields.firstMatch.typeKey(.leftArrow, modifierFlags: [.option])
         
-        let accessibilityElement = asNormalMode.j(on: AccessibilityTextElementAdaptor.fromAXFocusedElement())
+        let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
 
         XCTAssertNil(accessibilityElement)
     }
@@ -40,7 +48,7 @@ column shit
         // need to move the caretLocation to have a proper AccessibilityTextElement.globalColumnNumber
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .l))
 
-        let accessibilityElement = asNormalMode.j(on: AccessibilityTextElementAdaptor.fromAXFocusedElement())
+        let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
 
         XCTAssertEqual(accessibilityElement?.caretLocation, 16)
     }
@@ -61,7 +69,7 @@ let's see
         // need to move the caretLocation to have a proper AccessibilityTextElement.globalColumnNumber
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .l))
         
-        let accessibilityElement = asNormalMode.j(on: AccessibilityTextElementAdaptor.fromAXFocusedElement())
+        let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
 
         XCTAssertEqual(accessibilityElement?.caretLocation, 64)
     }
@@ -81,15 +89,13 @@ another long line longer than all the other ones!!!
         // need to move the caretLocation to have a proper AccessibilityTextElement.globalColumnNumber
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .h))
         
-        let firstJ = asNormalMode.j(on: AccessibilityTextElementAdaptor.fromAXFocusedElement())
+        let firstJ = applyMoveAndGetBackAccessibilityElement()
         XCTAssertEqual(firstJ?.caretLocation, 33)
         
-        _ = AccessibilityTextElementAdaptor.toAXfocusedElement(from: firstJ!)
-        let secondJ = asNormalMode.j(on: AccessibilityTextElementAdaptor.fromAXFocusedElement())
+        let secondJ = applyMoveAndGetBackAccessibilityElement()
         XCTAssertEqual(secondJ?.caretLocation, 53)
         
-        _ = AccessibilityTextElementAdaptor.toAXfocusedElement(from: secondJ!)
-        let thirdJ = asNormalMode.j(on: AccessibilityTextElementAdaptor.fromAXFocusedElement())
+        let thirdJ = applyMoveAndGetBackAccessibilityElement()
         XCTAssertEqual(thirdJ?.caretLocation, 93)
     }
     
@@ -105,7 +111,7 @@ shut up
         // need to move the caretLocation to have a proper AccessibilityTextElement.globalColumnNumber
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .h))
         
-        let accessibilityElement = asNormalMode.j(on: AccessibilityTextElementAdaptor.fromAXFocusedElement())
+        let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
 
         XCTAssertEqual(accessibilityElement?.caretLocation, 32)
     }
@@ -127,7 +133,7 @@ hehe
         // need to move the caretLocation to have a proper AccessibilityTextElement.globalColumnNumber
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .l))
         
-        let accessibilityElement = asNormalMode.j(on: AccessibilityTextElementAdaptor.fromAXFocusedElement())
+        let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
 
         XCTAssertEqual(accessibilityElement?.caretLocation, 28)
     }
@@ -147,7 +153,7 @@ edge case
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .l))
         let globalColumnNumber = AccessibilityTextElement.globalColumnNumber
 
-        let accessibilityElement = asNormalMode.j(on: AccessibilityTextElementAdaptor.fromAXFocusedElement())
+        let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
 
         XCTAssertEqual(accessibilityElement?.caretLocation, 26)
         XCTAssertEqual(globalColumnNumber, AccessibilityTextElement.globalColumnNumber)
