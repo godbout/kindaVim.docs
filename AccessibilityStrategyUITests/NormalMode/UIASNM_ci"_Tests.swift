@@ -9,8 +9,8 @@ import XCTest
 // AXUIElement. if it can't get the AXUIElement, for sure it would stay in normal mode
 class UIASNM_ciDoubleQuote_Tests: UIAS_BaseTests {
     
-    private func applyMoveAndGetBackUpdatedElement() -> AccessibilityTextElement? {
-        return applyMoveAndGetBackUpdatedElement { focusedElement in 
+    private func applyMoveAndGetBackAccessibilityElement() -> AccessibilityTextElement? {
+        return applyMoveAndGetBackAccessibilityElement { focusedElement in 
             asNormalMode.ciDoubleQuote(on: focusedElement)
         }
     }
@@ -29,7 +29,7 @@ hehe there's gonna be some "double quotes" in that shit
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
         app.textFields.firstMatch.typeKey(.leftArrow, modifierFlags: [.command])
         
-        let finalElement = applyMoveAndGetBackUpdatedElement()
+        let finalElement = applyMoveAndGetBackAccessibilityElement()
         
         XCTAssertEqual(finalElement?.value, "hehe there's gonna be some \"\" in that shit")
     }
@@ -58,7 +58,7 @@ huhu only one " in there...
         app.textFields.firstMatch.typeText(textInAXFocusedElement)                
         app.textFields.firstMatch.typeKey(.leftArrow, modifierFlags: [.option])
         
-        let finalElement = applyMoveAndGetBackUpdatedElement()
+        let finalElement = applyMoveAndGetBackAccessibilityElement()
         
         XCTAssertNil(finalElement?.selectedText)
     }
