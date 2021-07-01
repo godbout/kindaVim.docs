@@ -80,17 +80,14 @@ another quite long line
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .h))
         
         let firstK = asNormalMode.k(on: AccessibilityTextElementAdaptor.fromAXFocusedElement())
-        _ = AccessibilityTextElementAdaptor.toAXfocusedElement(from: firstK!)
-        
         XCTAssertEqual(firstK?.caretLocation, 81)
         
+        _ = AccessibilityTextElementAdaptor.toAXfocusedElement(from: firstK!)                
         let secondK = asNormalMode.k(on: AccessibilityTextElementAdaptor.fromAXFocusedElement())
-        _ = AccessibilityTextElementAdaptor.toAXfocusedElement(from: secondK!)
-        
         XCTAssertEqual(secondK?.caretLocation, 51)
-
+        
+        _ = AccessibilityTextElementAdaptor.toAXfocusedElement(from: secondK!)
         let thirdK = asNormalMode.k(on: AccessibilityTextElementAdaptor.fromAXFocusedElement())
-
         XCTAssertEqual(thirdK?.caretLocation, 18)
     }
     
