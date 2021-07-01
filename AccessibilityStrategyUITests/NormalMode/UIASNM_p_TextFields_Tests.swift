@@ -10,7 +10,7 @@ import XCTest
 // indeed behave differently: we will never paste linewise in TextFields
 class UIASNM_p_TextFields_Tests: UIAS_BaseTests {
     
-    private func sendMoveThroughVimEngineAndGetBackUpdatedFocusedElement() -> AccessibilityTextElement? {
+    private func sendMoveThroughVimEngineAndGetBackAccessibilityElement() -> AccessibilityTextElement? {
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .p))
         
         return AccessibilityTextElementAdaptor.fromAXFocusedElement()        
@@ -37,7 +37,7 @@ extension UIASNM_p_TextFields_Tests {
         NSPasteboard.general.setString("test 1 of The 3 Cases", forType: .string)
                 
         VimEngine.shared.lastYankStyle = .characterwise
-        let finalElement = sendMoveThroughVimEngineAndGetBackUpdatedFocusedElement() 
+        let finalElement = sendMoveThroughVimEngineAndGetBackAccessibilityElement() 
         
         XCTAssertEqual(finalElement?.value, "test 1 of The 3 Cases")
         XCTAssertEqual(finalElement?.caretLocation, 20)
@@ -52,7 +52,7 @@ extension UIASNM_p_TextFields_Tests {
         NSPasteboard.general.setString("test 2 of The 3 Cases", forType: .string)
         
         VimEngine.shared.lastYankStyle = .characterwise
-        let finalElement = sendMoveThroughVimEngineAndGetBackUpdatedFocusedElement()
+        let finalElement = sendMoveThroughVimEngineAndGetBackAccessibilityElement()
         
         XCTAssertEqual(finalElement?.value, "the user has clicked out of the boundaries!test 2 of The 3 Cases")
         XCTAssertEqual(finalElement?.caretLocation, 63)
@@ -75,7 +75,7 @@ extension UIASNM_p_TextFields_Tests {
         NSPasteboard.general.setString("text to paste!!!", forType: .string)
         
         VimEngine.shared.lastYankStyle = .characterwise
-        let finalElement = sendMoveThroughVimEngineAndGetBackUpdatedFocusedElement()
+        let finalElement = sendMoveThroughVimEngineAndGetBackAccessibilityElement()
         
         XCTAssertEqual(finalElement?.value, "we gonna paste some text to paste!!!shit")
         XCTAssertEqual(finalElement?.caretLocation, 35)
@@ -97,7 +97,7 @@ extension UIASNM_p_TextFields_Tests {
         NSPasteboard.general.setString("text to pasta", forType: .string)
         
         VimEngine.shared.lastYankStyle = .linewise
-        let finalElement = sendMoveThroughVimEngineAndGetBackUpdatedFocusedElement()
+        let finalElement = sendMoveThroughVimEngineAndGetBackAccessibilityElement()
         
         XCTAssertEqual(finalElement?.value, "ltext to pastainewise for TF is still pasted characterwise!")
         XCTAssertEqual(finalElement?.caretLocation, 13)
@@ -114,7 +114,7 @@ extension UIASNM_p_TextFields_Tests {
         NSPasteboard.general.setString("yanked with the linefeed\n", forType: .string)
         
         VimEngine.shared.lastYankStyle = .linewise
-        let finalElement = sendMoveThroughVimEngineAndGetBackUpdatedFocusedElement()
+        let finalElement = sendMoveThroughVimEngineAndGetBackAccessibilityElement()
         
         XCTAssertEqual(finalElement?.value, "we should not paste linefeeds in the yanked with the linefeedTF")
         XCTAssertEqual(finalElement?.caretLocation, 60)
