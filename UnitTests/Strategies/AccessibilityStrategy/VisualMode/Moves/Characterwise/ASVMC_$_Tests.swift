@@ -2,7 +2,7 @@
 import XCTest
 
 
-class ASVM_$_Tests: ASVM_BaseTests {
+class ASVMC_$_Tests: ASVM_BaseTests {
     
     override func setUp() {
         super.setUp()
@@ -21,7 +21,7 @@ class ASVM_$_Tests: ASVM_BaseTests {
 // - empty TextElement
 // - caret at the end of TextElement but not on empty line
 // - caret at the end of TextElement on own empty line
-extension ASVM_$_Tests {
+extension ASVMC_$_Tests {
     
     func test_that_if_the_TextElement_is_empty_it_works_and_does_not_move() {
         let text = ""
@@ -100,41 +100,8 @@ line
 }
 
 
-// linewise
-extension ASVM_$_Tests {
-    
-    func test_that_in_visual_linewise_it_does_nothing() {
-        let text = "$ will only move stuff in VM characterwise"
-        let element = AccessibilityTextElement(
-            role: .textField,
-            value: text,
-            length: 42,
-            caretLocation: 21,
-            selectedLength: 4,
-            currentLine: AccessibilityTextElementLine(
-                fullValue: text,
-                number: 1,
-                start: 0,
-                end: 42
-            )
-        )
-        
-        VimEngine.shared.visualStyle = .linewise
-        
-        AccessibilityStrategyVisualMode.anchor = 21
-        AccessibilityStrategyVisualMode.head = 23
-        
-        let returnedElement = applyMove(on: element)
-        
-        XCTAssertEqual(returnedElement?.caretLocation, 21)
-        XCTAssertEqual(returnedElement?.selectedLength, 4)        
-    }
-    
-}
-
-
 // Both
-extension ASVM_$_Tests {
+extension ASVMC_$_Tests {
     
     func test_that_if_the_line_ends_with_a_visible_character_it_goes_to_that_last_character() {
         let text = "hello world"
@@ -193,7 +160,7 @@ at the anchor, not at the caret location
 
 
 // TextViews
-extension ASVM_$_Tests {
+extension ASVMC_$_Tests {
     
     func test_that_if_line_ends_with_linefeed_it_goes_to_the_end_of_the_line_still() {
         let text = """
@@ -224,30 +191,30 @@ multiline
         XCTAssertEqual(returnedElement?.selectedLength, 2)
     }
     
-//    func test_that_if_the_caret_is_at_the_last_position_of_the_TextView_it_goes_back_one_character_and_selects_it() {
-//        let text = """
-//some more text
-//my friend
-//"""
-//        let element = AccessibilityTextElement(
-//            role: .textArea,
-//            value: text,
-//            caretLocation: 24,
-//            currentLine: AccessibilityTextElementLine(
-//                fullValue: text,
-//                number: nil,
-//                start: nil,
-//                end: nil
-//            )
-//        )
-//        
-//        AccessibilityStrategyVisualMode.anchor = 24
-//        AccessibilityStrategyVisualMode.head = 24
-//        
-//        let returnedElement = applyMove(on: element)
-//        
-//        XCTAssertEqual(returnedElement?.caretLocation, 23)
-//        XCTAssertEqual(returnedElement?.selectedLength, 1)
-//    }
+    //    func test_that_if_the_caret_is_at_the_last_position_of_the_TextView_it_goes_back_one_character_and_selects_it() {
+    //        let text = """
+    //some more text
+    //my friend
+    //"""
+    //        let element = AccessibilityTextElement(
+    //            role: .textArea,
+    //            value: text,
+    //            caretLocation: 24,
+    //            currentLine: AccessibilityTextElementLine(
+    //                fullValue: text,
+    //                number: nil,
+    //                start: nil,
+    //                end: nil
+    //            )
+    //        )
+    //        
+    //        AccessibilityStrategyVisualMode.anchor = 24
+    //        AccessibilityStrategyVisualMode.head = 24
+    //        
+    //        let returnedElement = applyMove(on: element)
+    //        
+    //        XCTAssertEqual(returnedElement?.caretLocation, 23)
+    //        XCTAssertEqual(returnedElement?.selectedLength, 1)
+    //    }
     
 }
