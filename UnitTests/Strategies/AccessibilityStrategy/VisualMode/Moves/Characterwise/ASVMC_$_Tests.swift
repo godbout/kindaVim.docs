@@ -191,30 +191,32 @@ multiline
         XCTAssertEqual(returnedElement?.selectedLength, 2)
     }
     
-    //    func test_that_if_the_caret_is_at_the_last_position_of_the_TextView_it_goes_back_one_character_and_selects_it() {
-    //        let text = """
-    //some more text
-    //my friend
-    //"""
-    //        let element = AccessibilityTextElement(
-    //            role: .textArea,
-    //            value: text,
-    //            caretLocation: 24,
-    //            currentLine: AccessibilityTextElementLine(
-    //                fullValue: text,
-    //                number: nil,
-    //                start: nil,
-    //                end: nil
-    //            )
-    //        )
-    //        
-    //        AccessibilityStrategyVisualMode.anchor = 24
-    //        AccessibilityStrategyVisualMode.head = 24
-    //        
-    //        let returnedElement = applyMove(on: element)
-    //        
-    //        XCTAssertEqual(returnedElement?.caretLocation, 23)
-    //        XCTAssertEqual(returnedElement?.selectedLength, 1)
-    //    }
+    func test_that_if_the_caret_is_at_the_last_position_of_the_TextView_it_goes_back_one_character_and_selects_it() {
+        let text = """
+some more text
+my friend
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 24,
+            caretLocation: 24,
+            selectedLength: 0,
+            currentLine: AccessibilityTextElementLine(
+                fullValue: text,
+                number: 2,
+                start: 15,
+                end: 24
+            )
+        )
+        
+        AccessibilityStrategyVisualMode.anchor = 24
+        AccessibilityStrategyVisualMode.head = 24
+        
+        let returnedElement = applyMove(on: element)
+        
+        XCTAssertEqual(returnedElement?.caretLocation, 23)
+        XCTAssertEqual(returnedElement?.selectedLength, 1)
+    }
     
 }

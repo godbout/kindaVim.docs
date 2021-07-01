@@ -65,9 +65,6 @@ gonna be at the end
             )
         )
         
-        AccessibilityStrategyVisualMode.anchor = 28
-        AccessibilityStrategyVisualMode.head = 28
-        
         let returnedElement = applyMove(on: element)
         
         XCTAssertEqual(returnedElement?.caretLocation, 27)
