@@ -4,8 +4,8 @@ import XCTest
 
 class UIASNM_O__Tests: UIAS_BaseTests {
     
-    private func applyMoveAndGetBackUpdatedElement() -> AccessibilityTextElement? {
-        return applyMoveAndGetBackUpdatedElement { focusedElement in
+    private func applyMoveAndGetBackAccessibilityElement() -> AccessibilityTextElement? {
+        return applyMoveAndGetBackAccessibilityElement { focusedElement in
             asNormalMode.O(on: focusedElement)
         }
     }
@@ -28,7 +28,7 @@ above!
         app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
         app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
                 
-        let finalElement = applyMoveAndGetBackUpdatedElement()        
+        let finalElement = applyMoveAndGetBackAccessibilityElement()        
         
         XCTAssertEqual(finalElement?.value, """
 that's a multiline
@@ -52,7 +52,7 @@ still create a line above
         app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
         app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
         
-        let finalElement = applyMoveAndGetBackUpdatedElement()        
+        let finalElement = applyMoveAndGetBackAccessibilityElement()        
         
         XCTAssertEqual(finalElement?.value, """
 
@@ -74,7 +74,7 @@ an empty line
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
         
-        let finalElement = applyMoveAndGetBackUpdatedElement()        
+        let finalElement = applyMoveAndGetBackAccessibilityElement()        
         
         XCTAssertEqual(finalElement?.value, """
 there is now
@@ -96,7 +96,7 @@ the last empty line
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
 
-        let finalElement = applyMoveAndGetBackUpdatedElement()        
+        let finalElement = applyMoveAndGetBackAccessibilityElement()        
         
         XCTAssertEqual(finalElement?.value, """
 now the caret
@@ -119,7 +119,7 @@ the last empty line
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         app.textViews.firstMatch.typeKey(.leftArrow, modifierFlags: [])
         
-        let finalElement = applyMoveAndGetBackUpdatedElement()        
+        let finalElement = applyMoveAndGetBackAccessibilityElement()        
         
         XCTAssertEqual(finalElement?.value, """
 now the caret
@@ -141,7 +141,7 @@ but it should work
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
         
-        let finalElement = applyMoveAndGetBackUpdatedElement()        
+        let finalElement = applyMoveAndGetBackAccessibilityElement()        
         
         XCTAssertEqual(finalElement?.value, """
 now there's
@@ -161,7 +161,7 @@ but it should work
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         app.textViews.firstMatch.typeKey(.leftArrow, modifierFlags: [])
         
-        let finalElement = applyMoveAndGetBackUpdatedElement()        
+        let finalElement = applyMoveAndGetBackAccessibilityElement()        
         
         XCTAssertEqual(finalElement?.value, """
    

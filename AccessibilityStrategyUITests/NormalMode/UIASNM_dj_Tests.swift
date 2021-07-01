@@ -4,8 +4,8 @@ import XCTest
 
 class UIASNM_dj_tests: UIAS_BaseTests {
     
-    private func applyMoveAndGetBackUpdatedElement() -> AccessibilityTextElement? {
-        return applyMoveAndGetBackUpdatedElement { focusedElement in
+    private func applyMoveAndGetBackAccessibilityElement() -> AccessibilityTextElement? {
+        return applyMoveAndGetBackAccessibilityElement { focusedElement in
             asNormalMode.dj(on: focusedElement)
         }
     }
@@ -22,7 +22,7 @@ extension UIASNM_dj_tests {
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
         app.textFields.firstMatch.typeKey(.leftArrow, modifierFlags: [])        
         
-        let finalElement = applyMoveAndGetBackUpdatedElement()
+        let finalElement = applyMoveAndGetBackAccessibilityElement()
         
         XCTAssertEqual(finalElement?.value, "one line is not enough for dj")        
         XCTAssertEqual(finalElement?.caretLocation, 28)
@@ -43,7 +43,7 @@ one should disappear
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])        
         
-        let finalElement = applyMoveAndGetBackUpdatedElement()
+        let finalElement = applyMoveAndGetBackAccessibilityElement()
         
         XCTAssertEqual(finalElement?.value, "")        
         XCTAssertEqual(finalElement?.caretLocation, 0)
@@ -59,7 +59,7 @@ because it will go to the next
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [.command])
         
-        let finalElement = applyMoveAndGetBackUpdatedElement()
+        let finalElement = applyMoveAndGetBackAccessibilityElement()
         
         XCTAssertEqual(finalElement?.value, """
      non blank of this line

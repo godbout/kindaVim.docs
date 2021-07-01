@@ -3,10 +3,10 @@ import XCTest
 
 class UIASVMC_d_Tests: UIAS_BaseTests {
     
-    private func applyMovesAndGetBackUpdatedElement() -> AccessibilityTextElement? {
+    private func applyMoveAndGetBackAccessibilityElement() -> AccessibilityTextElement? {
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .v))
         
-        return applyMoveAndGetBackUpdatedElement { focusedElement in
+        return applyMoveAndGetBackAccessibilityElement { focusedElement in
             asVisualMode.d(on: focusedElement)
         }
     }
@@ -25,7 +25,7 @@ extension UIASVMC_d_Tests {
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
         
-        let finalElement = applyMovesAndGetBackUpdatedElement()        
+        let finalElement = applyMoveAndGetBackAccessibilityElement()        
         
         XCTAssertEqual(finalElement?.caretLocation, 0)
     }
@@ -38,7 +38,7 @@ gonna be at the end
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         
-        let finalElement = applyMovesAndGetBackUpdatedElement()
+        let finalElement = applyMoveAndGetBackAccessibilityElement()
         
         XCTAssertEqual(finalElement?.value, """
    caret is
@@ -57,7 +57,7 @@ own empty
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         
-        let finalElement = applyMovesAndGetBackUpdatedElement()
+        let finalElement = applyMoveAndGetBackAccessibilityElement()
         
         XCTAssertEqual(finalElement?.value, """
 caret is on its

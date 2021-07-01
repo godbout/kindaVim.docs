@@ -4,8 +4,8 @@ import XCTest
 
 class UIASNM_dd_tests: UIAS_BaseTests {
     
-    private func applyMoveAndGetBackUpdatedElement() -> AccessibilityTextElement? {
-        return applyMoveAndGetBackUpdatedElement { focusedElement in
+    private func applyMoveAndGetBackAccessibilityElement() -> AccessibilityTextElement? {
+        return applyMoveAndGetBackAccessibilityElement { focusedElement in
             asNormalMode.dd(on: focusedElement)
         }
     }
@@ -24,7 +24,7 @@ extension UIASNM_dd_tests {
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
         
-        let finalElement = applyMoveAndGetBackUpdatedElement()        
+        let finalElement = applyMoveAndGetBackAccessibilityElement()        
         
         XCTAssertEqual(finalElement?.caretLocation, 0)
     }
@@ -37,7 +37,7 @@ gonna be at the end
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         
-        let finalElement = applyMoveAndGetBackUpdatedElement()
+        let finalElement = applyMoveAndGetBackAccessibilityElement()
         
         XCTAssertEqual(finalElement?.value, """
    caret is
@@ -56,7 +56,7 @@ own empty
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         
-        let finalElement = applyMoveAndGetBackUpdatedElement()
+        let finalElement = applyMoveAndGetBackAccessibilityElement()
         
         XCTAssertEqual(finalElement?.value, """
 caret is on its
@@ -79,7 +79,7 @@ extension UIASNM_dd_tests {
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
         app.textFields.firstMatch.typeKey(.leftArrow, modifierFlags: [])        
         
-        let finalElement = applyMoveAndGetBackUpdatedElement()
+        let finalElement = applyMoveAndGetBackAccessibilityElement()
         
         XCTAssertEqual(finalElement?.value, "")        
         XCTAssertEqual(finalElement?.caretLocation, 0)
@@ -91,7 +91,7 @@ extension UIASNM_dd_tests {
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
         app.textFields.firstMatch.typeKey(.leftArrow, modifierFlags: [])
         
-        let finalElement = applyMoveAndGetBackUpdatedElement()
+        let finalElement = applyMoveAndGetBackAccessibilityElement()
         
         XCTAssertEqual(finalElement?.value, "")        
         XCTAssertEqual(finalElement?.caretLocation, 0)
@@ -113,7 +113,7 @@ somehow
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [.command])
         
-        let finalElement = applyMoveAndGetBackUpdatedElement()
+        let finalElement = applyMoveAndGetBackAccessibilityElement()
         
         XCTAssertEqual(finalElement?.value, "to the next line\nsomehow")        
         XCTAssertEqual(finalElement?.caretLocation, 0)
@@ -130,7 +130,7 @@ if someBullshit == true {
         app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [.command])
         app.textViews.firstMatch.typeKey(.rightArrow, modifierFlags: [.option])
         
-        let finalElement = applyMoveAndGetBackUpdatedElement()
+        let finalElement = applyMoveAndGetBackAccessibilityElement()
         
         XCTAssertEqual(finalElement?.value, "    bs = yeah\n}")        
         XCTAssertEqual(finalElement?.caretLocation, 4)
@@ -147,7 +147,7 @@ if someBullshit == true {
         app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [.command])
         app.textViews.firstMatch.typeKey(.rightArrow, modifierFlags: [.option])
         
-        let finalElement = applyMoveAndGetBackUpdatedElement()
+        let finalElement = applyMoveAndGetBackAccessibilityElement()
         
         XCTAssertEqual(finalElement?.value, "\tbs = yeah\n}")        
         XCTAssertEqual(finalElement?.caretLocation, 1)
@@ -163,7 +163,7 @@ after the two spaces
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [.command])
         
-        let finalElement = applyMoveAndGetBackUpdatedElement()
+        let finalElement = applyMoveAndGetBackAccessibilityElement()
         
         XCTAssertEqual(finalElement?.value, "  it should stop\nafter the two spaces")        
         XCTAssertEqual(finalElement?.caretLocation, 2)            
@@ -179,7 +179,7 @@ one
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         app.textViews.firstMatch.typeKey(.leftArrow, modifierFlags: [])
         
-        let finalElement = applyMoveAndGetBackUpdatedElement()
+        let finalElement = applyMoveAndGetBackAccessibilityElement()
         
         XCTAssertEqual(finalElement?.value, "this one\n    is a tough")        
         XCTAssertEqual(finalElement?.caretLocation, 13)   
@@ -197,7 +197,7 @@ to stop at the end limit of the line
         app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
         app.textViews.firstMatch.typeKey(.upArrow , modifierFlags: [])
         
-        let finalElement = applyMoveAndGetBackUpdatedElement()
+        let finalElement = applyMoveAndGetBackAccessibilityElement()
         
         XCTAssertEqual(finalElement?.value, """
 if the next line is just blank characters
@@ -219,7 +219,7 @@ dd here and we suppose
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
         
-        let finalElement = applyMoveAndGetBackUpdatedElement()
+        let finalElement = applyMoveAndGetBackAccessibilityElement()
         
         XCTAssertEqual(finalElement?.value, """
 we gonna use VM

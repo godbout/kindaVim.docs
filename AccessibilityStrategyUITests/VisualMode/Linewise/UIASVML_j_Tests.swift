@@ -3,10 +3,10 @@ import XCTest
 
 class UIASVML_j_Tests: UIAS_BaseTests {
     
-    private func applyMovesAndGetBackUpdatedElement() -> AccessibilityTextElement? {
+    private func applyMoveAndGetBackAccessibilityElement() -> AccessibilityTextElement? {
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .v, shift: true))
         
-        return applyMoveAndGetBackUpdatedElement { focusedElement in
+        return applyMoveAndGetBackAccessibilityElement { focusedElement in
             asVisualMode.j(on: focusedElement)
         }
     }
@@ -25,7 +25,7 @@ extension UIASVML_j_Tests {
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
         
-        let finalElement = applyMovesAndGetBackUpdatedElement()        
+        let finalElement = applyMoveAndGetBackAccessibilityElement()        
         
         XCTAssertEqual(finalElement?.caretLocation, 0)
     }
@@ -58,7 +58,7 @@ own empty
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         
-        let finalElement = applyMovesAndGetBackUpdatedElement()
+        let finalElement = applyMoveAndGetBackAccessibilityElement()
               
         XCTAssertEqual(finalElement?.caretLocation, 35)
     }
@@ -75,7 +75,7 @@ extension UIASVML_j_Tests {
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
         app.textFields.firstMatch.typeKey(.leftArrow, modifierFlags: [.option])
         
-        let finalElement = applyMovesAndGetBackUpdatedElement()        
+        let finalElement = applyMoveAndGetBackAccessibilityElement()        
         
         XCTAssertEqual(finalElement?.caretLocation, 0)
         XCTAssertEqual(finalElement?.selectedLength, 22)
@@ -100,7 +100,7 @@ when the head is after the anchor
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [.command])
         
-        let finalElement = applyMovesAndGetBackUpdatedElement()
+        let finalElement = applyMoveAndGetBackAccessibilityElement()
         
         XCTAssertEqual(finalElement?.caretLocation, 0)
         XCTAssertEqual(finalElement?.selectedLength, 41)

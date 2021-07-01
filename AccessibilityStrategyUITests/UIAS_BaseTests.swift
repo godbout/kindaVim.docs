@@ -16,7 +16,7 @@ class UIAS_BaseTests: XCTestCase {
         VimEngine.shared.enterNormalMode()
     }
     
-    func applyMoveAndGetBackUpdatedElement(_ move: (AccessibilityTextElement?) -> AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func applyMoveAndGetBackAccessibilityElement(_ move: (AccessibilityTextElement?) -> AccessibilityTextElement?) -> AccessibilityTextElement? {
         let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
         
         guard let transformedElement = move(accessibilityElement) else { return nil }

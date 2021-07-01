@@ -4,8 +4,8 @@ import XCTest
 
 class UIASNM_x_Tests: UIAS_BaseTests {
     
-    private func applyMoveAndGetBackUpdatedElement() -> AccessibilityTextElement? {
-        return applyMoveAndGetBackUpdatedElement { focusedElement in
+    private func applyMoveAndGetBackAccessibilityElement() -> AccessibilityTextElement? {
+        return applyMoveAndGetBackAccessibilityElement { focusedElement in
             asNormalMode.x(on: focusedElement)
         }
     }
@@ -26,7 +26,7 @@ that is not an empty line
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         app.textViews.firstMatch.typeKey(.leftArrow, modifierFlags: [])
         
-        let finalElement = applyMoveAndGetBackUpdatedElement()        
+        let finalElement = applyMoveAndGetBackAccessibilityElement()        
         
         XCTAssertEqual(finalElement?.value, """
 so we're on the last
@@ -47,7 +47,7 @@ but shouldn't be deleted
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
         
-        let finalElement = applyMoveAndGetBackUpdatedElement()        
+        let finalElement = applyMoveAndGetBackAccessibilityElement()        
         
         XCTAssertEqual(finalElement?.value, """
 next line is gonna be empty!
@@ -67,7 +67,7 @@ x
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         app.textViews.firstMatch.typeKey(.leftArrow, modifierFlags: [])
         
-        let finalElement = applyMoveAndGetBackUpdatedElement()        
+        let finalElement = applyMoveAndGetBackAccessibilityElement()        
         
         XCTAssertEqual(finalElement?.value, """
 shouldn't jump up on this line!
@@ -86,7 +86,7 @@ x
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [.command])
         
-        let finalElement = applyMoveAndGetBackUpdatedElement()        
+        let finalElement = applyMoveAndGetBackAccessibilityElement()        
         
         XCTAssertEqual(finalElement?.value, """
 

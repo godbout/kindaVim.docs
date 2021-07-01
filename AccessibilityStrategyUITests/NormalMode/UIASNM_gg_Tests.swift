@@ -4,8 +4,8 @@ import XCTest
 
 class UIASNM_gg_tests: UIAS_BaseTests {
     
-    private func applyMoveAndGetBackUpdatedElement() -> AccessibilityTextElement? {
-        return applyMoveAndGetBackUpdatedElement { focusedElement in
+    private func applyMoveAndGetBackAccessibilityElement() -> AccessibilityTextElement? {
+        return applyMoveAndGetBackAccessibilityElement { focusedElement in
             asNormalMode.gg(on: focusedElement)
         }
     }
@@ -24,7 +24,7 @@ extension UIASNM_gg_tests {
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
         
-        let finalElement = applyMoveAndGetBackUpdatedElement()        
+        let finalElement = applyMoveAndGetBackAccessibilityElement()        
         
         XCTAssertEqual(finalElement?.caretLocation, 0)
     }
@@ -37,7 +37,7 @@ gonna be at the end
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         
-        let finalElement = applyMoveAndGetBackUpdatedElement()
+        let finalElement = applyMoveAndGetBackAccessibilityElement()
         
         XCTAssertEqual(finalElement?.caretLocation, 0)
     }
@@ -52,7 +52,7 @@ line
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         
-        let finalElement = applyMoveAndGetBackUpdatedElement()
+        let finalElement = applyMoveAndGetBackAccessibilityElement()
         
         XCTAssertEqual(finalElement?.caretLocation, 0)
     }
@@ -69,7 +69,7 @@ extension UIASNM_gg_tests {
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         app.textViews.firstMatch.typeKey(.leftArrow, modifierFlags: [])
         
-        let finalElement = applyMoveAndGetBackUpdatedElement()
+        let finalElement = applyMoveAndGetBackAccessibilityElement()
         
         XCTAssertEqual(finalElement?.caretLocation, 0)
     }
@@ -80,7 +80,7 @@ extension UIASNM_gg_tests {
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         app.textViews.firstMatch.typeKey(.leftArrow, modifierFlags: [])
         
-        let finalElement = applyMoveAndGetBackUpdatedElement()
+        let finalElement = applyMoveAndGetBackAccessibilityElement()
         
         XCTAssertEqual(finalElement?.caretLocation, 6)
     }
@@ -91,7 +91,7 @@ extension UIASNM_gg_tests {
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         app.textViews.firstMatch.typeKey(.leftArrow, modifierFlags: [])
         
-        let finalElement = applyMoveAndGetBackUpdatedElement()
+        let finalElement = applyMoveAndGetBackAccessibilityElement()
         
         XCTAssertEqual(finalElement?.caretLocation, 8)
     }
@@ -112,7 +112,7 @@ here
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         app.textViews.firstMatch.typeKey(.leftArrow, modifierFlags: [])
         
-        let finalElement = applyMoveAndGetBackUpdatedElement()
+        let finalElement = applyMoveAndGetBackAccessibilityElement()
         
         XCTAssertEqual(finalElement?.caretLocation, 0)
     }
@@ -128,7 +128,7 @@ bullshit
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         app.textViews.firstMatch.typeKey(.leftArrow, modifierFlags: [])
         
-        let finalElement = applyMoveAndGetBackUpdatedElement()
+        let finalElement = applyMoveAndGetBackAccessibilityElement()
         
         XCTAssertEqual(finalElement?.caretLocation, 3)
     }
@@ -143,7 +143,7 @@ completely empty
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         app.textViews.firstMatch.typeKey(.leftArrow, modifierFlags: [])
         
-        let finalElement = applyMoveAndGetBackUpdatedElement()
+        let finalElement = applyMoveAndGetBackAccessibilityElement()
         
         XCTAssertEqual(finalElement?.caretLocation, 0)
     }
@@ -158,7 +158,7 @@ again only
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         app.textViews.firstMatch.typeKey(.leftArrow, modifierFlags: [])
         
-        let finalElement = applyMoveAndGetBackUpdatedElement()
+        let finalElement = applyMoveAndGetBackAccessibilityElement()
         
         XCTAssertEqual(finalElement?.caretLocation, 7)
     }

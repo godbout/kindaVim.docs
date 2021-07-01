@@ -4,8 +4,8 @@ import XCTest
 
 class UIASNM_r_Tests: UIAS_BaseTests {
     
-    private func applyMoveAndGetBackUpdatedElement(with replacement: Character) -> AccessibilityTextElement? {
-        return applyMoveAndGetBackUpdatedElement { focusedElement in 
+    private func applyMoveAndGetBackAccessibilityElement(with replacement: Character) -> AccessibilityTextElement? {
+        return applyMoveAndGetBackAccessibilityElement { focusedElement in 
             asNormalMode.r(with: replacement, on: focusedElement)
         }
     }
@@ -27,7 +27,7 @@ a new line
         app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
         app.textViews.firstMatch.typeKey(.leftArrow, modifierFlags: [])
         
-        let finalElement = applyMoveAndGetBackUpdatedElement(with: "\n")
+        let finalElement = applyMoveAndGetBackAccessibilityElement(with: "\n")
         
         XCTAssertEqual(finalElement?.value, """
 gonna replace something

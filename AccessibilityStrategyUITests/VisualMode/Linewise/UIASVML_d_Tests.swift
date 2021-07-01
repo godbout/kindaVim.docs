@@ -3,10 +3,10 @@ import XCTest
 
 class UIASVML_d_Tests: UIAS_BaseTests {
         
-    private func applyMovesAndGetBackUpdatedElement() -> AccessibilityTextElement? {
+    private func applyMoveAndGetBackAccessibilityElement() -> AccessibilityTextElement? {
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .v, shift: true))
         
-        return applyMoveAndGetBackUpdatedElement { focusedElement in
+        return applyMoveAndGetBackAccessibilityElement { focusedElement in
             asVisualMode.d(on: focusedElement)
         }
     }
@@ -25,7 +25,7 @@ extension UIASVML_d_Tests {
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
         
-        let finalElement = applyMovesAndGetBackUpdatedElement()        
+        let finalElement = applyMoveAndGetBackAccessibilityElement()        
         
         XCTAssertEqual(finalElement?.caretLocation, 0)
     }
@@ -38,7 +38,7 @@ gonna be at the end
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         
-        let finalElement = applyMovesAndGetBackUpdatedElement()
+        let finalElement = applyMoveAndGetBackAccessibilityElement()
         
         XCTAssertEqual(finalElement?.value, """
    caret is
@@ -57,7 +57,7 @@ own empty
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         
-        let finalElement = applyMovesAndGetBackUpdatedElement()
+        let finalElement = applyMoveAndGetBackAccessibilityElement()
         
         XCTAssertEqual(finalElement?.value, """
 caret is on its
@@ -84,7 +84,7 @@ d here and we suppose
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])  
                 
-        let finalElement = applyMovesAndGetBackUpdatedElement()
+        let finalElement = applyMoveAndGetBackAccessibilityElement()
         
         XCTAssertEqual(finalElement?.value, """
 we gonna use VM
@@ -106,7 +106,7 @@ some more
         app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
         app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
         
-        let finalElement = applyMovesAndGetBackUpdatedElement()
+        let finalElement = applyMoveAndGetBackAccessibilityElement()
         
         XCTAssertEqual(finalElement?.value, """
 we gonna use VM
@@ -128,7 +128,7 @@ d here and we suppose
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
         
-        let finalElement = applyMovesAndGetBackUpdatedElement()
+        let finalElement = applyMoveAndGetBackAccessibilityElement()
         
         XCTAssertEqual(finalElement?.value, """
 we gonna use VM
@@ -148,7 +148,7 @@ line and caret should go up
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         app.textViews.firstMatch.typeKey(.leftArrow, modifierFlags: [])
         
-        let finalElement = applyMovesAndGetBackUpdatedElement()
+        let finalElement = applyMoveAndGetBackAccessibilityElement()
         
         XCTAssertEqual(finalElement?.value, """
    we gonna remove the last
