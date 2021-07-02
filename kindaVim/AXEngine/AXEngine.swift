@@ -56,17 +56,18 @@ struct AXEngine {
         return nil
     }
     
-    static func axValue(of axFocusedElement: AXUIElement?) -> String? {
-        if let axFocusedElement = axFocusedElement {
-            var axValue: AnyObject?
-            let error = AXUIElementCopyAttributeValue(axFocusedElement, kAXValueAttribute as CFString, &axValue)
+    static func axValueAndNumberOfCharacters(of axFocusedElement: AXUIElement? = axFocusedElement()) -> (String, Int)? {
+        guard let axFocusedElement = axFocusedElement else { return nil }
             
-            if error == .success {
-                return (axValue as! String)
-            }
-        }
+        var values: CFArray?
+        let error = AXUIElementCopyMultipleAttributeValues(axFocusedElement, [kAXValueAttribute, kAXNumberOfCharactersAttribute] as CFArray, .stopOnError, &values)
         
-        return nil
+        guard error == .success, let elementValues = values as NSArray? else { return nil }
+        
+        let axValue = elementValues[0] as! String
+        let axLength = elementValues[1] as! Int
+    
+        return (axValue, axLength)
     }
 
 }
