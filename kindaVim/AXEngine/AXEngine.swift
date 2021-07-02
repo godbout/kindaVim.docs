@@ -11,19 +11,6 @@ struct AXEngine {
         return axFocusedElement as! AXUIElement?
     }
 
-    static func axValue(of axFocusedElement: AXUIElement?) -> String? {
-        if let axFocusedElement = axFocusedElement {
-            var axValue: AnyObject?
-            let error = AXUIElementCopyAttributeValue(axFocusedElement, kAXValueAttribute as CFString, &axValue)
-
-            if error == .success {
-                return (axValue as! String)
-            }
-        }
-
-        return nil
-    }
-
     static func axLineNumberFor(location: Int, on axFocusedElement: AXUIElement? = axFocusedElement()) -> Int? {
         if let axFocusedElement = axFocusedElement {
             var currentLine: AnyObject?
@@ -50,6 +37,35 @@ struct AXEngine {
             }
         }
 
+        return nil
+    }
+    
+    static func axSelectedTextRange(on axFocusedElement: AXUIElement? = axFocusedElement()) -> CFRange? {
+        if let axFocusedElement = axFocusedElement {
+            var axSelectedTextRange: AnyObject?
+            let error = AXUIElementCopyAttributeValue(axFocusedElement, kAXSelectedTextRangeAttribute as CFString, &axSelectedTextRange)
+            
+            if error == .success {
+                var selectedTextRange = CFRange()
+                AXValueGetValue(axSelectedTextRange as! AXValue, .cfRange, &selectedTextRange)
+                
+                return selectedTextRange
+            }
+        }
+        
+        return nil
+    }
+    
+    static func axValue(of axFocusedElement: AXUIElement?) -> String? {
+        if let axFocusedElement = axFocusedElement {
+            var axValue: AnyObject?
+            let error = AXUIElementCopyAttributeValue(axFocusedElement, kAXValueAttribute as CFString, &axValue)
+            
+            if error == .success {
+                return (axValue as! String)
+            }
+        }
+        
         return nil
     }
 

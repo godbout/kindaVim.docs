@@ -79,16 +79,39 @@ struct AccessibilityTextElementAdaptor {
                 end: elementCount
             )
         }
-
-
-        guard let axLineNumber = AXEngine.axLineNumberFor(location: location, on: axFocusedElement) else { return nil }
-        guard let axLineRange = AXEngine.axLineRangeFor(lineNumber: axLineNumber, on: axFocusedElement) else { return nil }
+        
+        
+        var lineNumber: Int
+        var lineRange: CFRange
+                
+        if #available(macOS 11.0, *) {
+            guard let axLineNumber = AXEngine.axLineNumberFor(location: location, on: axFocusedElement) else { return nil }
+            guard let axLineRange = AXEngine.axLineRangeFor(lineNumber: axLineNumber, on: axFocusedElement) else { return nil }
+            guard let axSelectedTextRange = AXEngine.axSelectedTextRange(on: axFocusedElement) else { return nil }
+            
+            if location == axLineRange.location + axLineRange.length, axSelectedTextRange.length == 1 {
+                guard let axLineNumber = AXEngine.axLineNumberFor(location: location + 1, on: axFocusedElement) else { return nil }
+                guard let axLineRange = AXEngine.axLineRangeFor(lineNumber: axLineNumber, on: axFocusedElement) else { return nil }
+                
+                lineNumber = axLineNumber
+                lineRange = axLineRange
+            } else {
+                lineNumber = axLineNumber
+                lineRange = axLineRange
+            }
+        } else {
+            guard let axLineNumber = AXEngine.axLineNumberFor(location: location, on: axFocusedElement) else { return nil }
+            guard let axLineRange = AXEngine.axLineRangeFor(lineNumber: axLineNumber, on: axFocusedElement) else { return nil }
+            
+            lineNumber = axLineNumber
+            lineRange = axLineRange
+        }
 
         return AccessibilityTextElementLine(
             fullValue: elementValue,
-            number: axLineNumber + 1,
-            start: axLineRange.location,
-            end: axLineRange.location + axLineRange.length
+            number: lineNumber + 1,
+            start: lineRange.location,
+            end: lineRange.location + lineRange.length
         )
     }
 
