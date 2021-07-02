@@ -60,9 +60,11 @@ struct AXEngine {
         guard let axFocusedElement = axFocusedElement else { return nil }
             
         var values: CFArray?
-        let error = AXUIElementCopyMultipleAttributeValues(axFocusedElement, [kAXValueAttribute, kAXNumberOfCharactersAttribute] as CFArray, .stopOnError, &values)
+        let error = AXUIElementCopyMultipleAttributeValues(axFocusedElement, [kAXRoleAttribute, kAXValueAttribute, kAXNumberOfCharactersAttribute] as CFArray, .stopOnError, &values)
         
         guard error == .success, let elementValues = values as NSArray? else { return nil }
+        
+        guard elementValues[0] as! String == "AXTextArea" || elementValues[0] as! String == "AXTextField" else { return nil }
         
         let axValue = elementValues[0] as! String
         let axLength = elementValues[1] as! Int
