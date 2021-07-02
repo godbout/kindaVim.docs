@@ -2,7 +2,8 @@ import XCTest
 
 
 // bug in Big Sur and Monterey where the character right after
-// the start of a line, if selected, will return data from the previous line
+// the start of a line, if selected through mouse or AX (but not keyboard),
+// will return data from the previous line.
 // reported as FB9114768 but as usual, i should just put it up my asshole
 class BigSurBugTests: ATEA_BaseTests {
     
@@ -16,7 +17,12 @@ shit
         app.textViews.firstMatch.typeKey(.leftArrow, modifierFlags: [.command])
         app.textViews.firstMatch.typeKey(.rightArrow, modifierFlags: [.shift])
         
-        let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
+        // the bug happens only when setting the selection through mouse or AX
+        // which is why we have to grab the element, push it back to AX to make it fail
+        // and grabbing it again for testing
+        var accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
+        _ = AccessibilityTextElementAdaptor.toAXfocusedElement(from: accessibilityElement!)
+        accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
         
         XCTAssertEqual(accessibilityElement?.role, .textArea)
         XCTAssertEqual(accessibilityElement?.value, """
@@ -44,7 +50,9 @@ shit
         app.textViews.firstMatch.typeKey(.rightArrow, modifierFlags: [.command])
         app.textViews.firstMatch.typeKey(.rightArrow, modifierFlags: [.shift])
         
-        let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
+        var accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
+        _ = AccessibilityTextElementAdaptor.toAXfocusedElement(from: accessibilityElement!)
+        accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
         
         XCTAssertEqual(accessibilityElement?.role, .textArea)
         XCTAssertEqual(accessibilityElement?.value, """
