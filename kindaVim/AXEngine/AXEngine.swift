@@ -66,8 +66,8 @@ struct AXEngine {
         
         guard elementValues[0] as! String == "AXTextArea" || elementValues[0] as! String == "AXTextField" else { return nil }
         
-        let axValue = elementValues[0] as! String
-        let axLength = elementValues[1] as! Int
+        let axValue = elementValues[1] as! String
+        let axLength = elementValues[2] as! Int
     
         return (axValue, axLength)
     }
