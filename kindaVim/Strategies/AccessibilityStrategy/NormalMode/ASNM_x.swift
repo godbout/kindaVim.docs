@@ -28,7 +28,7 @@ extension AccessibilityStrategyNormalMode {
         // if we're at the last character of the line we need to move the caret back
         // one position, in certain cases
         if element.caretLocation >= element.currentLine.endLimit {
-            _ = AccessibilityTextElementAdaptor.toAXfocusedElement(from: element)
+            _ = AccessibilityTextElementAdaptor.toAXFocusedElement(from: element)
             
             if element.caretLocation > element.currentLine.start {
                 element.caretLocation -= 1                                

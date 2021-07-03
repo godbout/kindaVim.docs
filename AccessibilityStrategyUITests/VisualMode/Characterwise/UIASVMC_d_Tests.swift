@@ -89,7 +89,7 @@ the selection!
         app.textViews.firstMatch.typeKey(.leftArrow, modifierFlags: [.option, .shift])
         
         let finalElement = asVisualMode.d(on: AccessibilityTextElementAdaptor.fromAXFocusedElement())
-        _ = AccessibilityTextElementAdaptor.toAXfocusedElement(from: finalElement!)
+        _ = AccessibilityTextElementAdaptor.toAXFocusedElement(from: finalElement!)
         
         let finalFinalElementHehe = AccessibilityTextElementAdaptor.fromAXFocusedElement()
         

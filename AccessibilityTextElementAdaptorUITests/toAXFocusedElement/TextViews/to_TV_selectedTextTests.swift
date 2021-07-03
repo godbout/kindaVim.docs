@@ -20,7 +20,7 @@ this time
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         
-        let conversionSucceeded = AccessibilityTextElementAdaptor.toAXfocusedElement(from: accessibilityElement)
+        let conversionSucceeded = AccessibilityTextElementAdaptor.toAXFocusedElement(from: accessibilityElement)
         XCTAssertTrue(conversionSucceeded)
         
         let reconvertedAccessibilityTextElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()

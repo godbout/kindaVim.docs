@@ -18,7 +18,7 @@ coz like come on there's so me shits inside.
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(text)
 
-        let conversionSucceeded = AccessibilityTextElementAdaptor.toAXfocusedElement(from: accessibilityElement)
+        let conversionSucceeded = AccessibilityTextElementAdaptor.toAXFocusedElement(from: accessibilityElement)
         XCTAssertTrue(conversionSucceeded)
 
         let reconvertedAccessibilityTextElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
@@ -43,7 +43,7 @@ friend...
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(text)
 
-        let conversionSucceeded = AccessibilityTextElementAdaptor.toAXfocusedElement(from: accessibilityElement)
+        let conversionSucceeded = AccessibilityTextElementAdaptor.toAXFocusedElement(from: accessibilityElement)
         XCTAssertTrue(conversionSucceeded)
 
         let reconvertedAccessibilityTextElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
@@ -67,7 +67,7 @@ hallelujah
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(text)
 
-        let conversionSucceeded = AccessibilityTextElementAdaptor.toAXfocusedElement(from: accessibilityElement)
+        let conversionSucceeded = AccessibilityTextElementAdaptor.toAXFocusedElement(from: accessibilityElement)
         XCTAssertTrue(conversionSucceeded)
 
         let reconvertedAccessibilityTextElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
@@ -90,7 +90,7 @@ that long.
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(text)
 
-        let conversionSucceeded = AccessibilityTextElementAdaptor.toAXfocusedElement(from: accessibilityElement)
+        let conversionSucceeded = AccessibilityTextElementAdaptor.toAXFocusedElement(from: accessibilityElement)
         XCTAssertFalse(conversionSucceeded)
     }
 

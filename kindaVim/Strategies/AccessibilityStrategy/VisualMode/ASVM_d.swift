@@ -19,12 +19,12 @@ extension AccessibilityStrategyVisualMode {
             element.selectedLength = 1
             element.selectedText = ""
             
-            _ = AccessibilityTextElementAdaptor.toAXfocusedElement(from: element)            
+            _ = AccessibilityTextElementAdaptor.toAXFocusedElement(from: element)            
             guard var updatedElement = AccessibilityTextElementAdaptor.fromAXFocusedElement() else { return nil }
             
             updatedElement.caretLocation -= 1
             
-            _ = AccessibilityTextElementAdaptor.toAXfocusedElement(from: updatedElement)
+            _ = AccessibilityTextElementAdaptor.toAXFocusedElement(from: updatedElement)
             guard var finalElement = AccessibilityTextElementAdaptor.fromAXFocusedElement() else { return nil }
             
             let firstNonBlankWithinLimitOfLastLineLocation = textEngine.firstNonBlankWithinLineLimit(in: TextEngineLine(from: finalElement.currentLine.value))            
@@ -41,7 +41,7 @@ extension AccessibilityStrategyVisualMode {
             
                 element.selectedText = ""
                 
-                _ = AccessibilityTextElementAdaptor.toAXfocusedElement(from: element)
+                _ = AccessibilityTextElementAdaptor.toAXFocusedElement(from: element)
                 
                 element.caretLocation += firstNonBlankWithinLineLimitOfNextLineLocation
                 element.selectedLength = 0
@@ -53,7 +53,7 @@ extension AccessibilityStrategyVisualMode {
                 element.selectedLength = element.currentLine.length + 1
                 element.selectedText = ""
                 
-                _ = AccessibilityTextElementAdaptor.toAXfocusedElement(from: element)
+                _ = AccessibilityTextElementAdaptor.toAXFocusedElement(from: element)
                 
                 element.caretLocation -= previousLine.length - firstNonBlankWithinLineLimitOfPreviousLineLocation - 1                
                 element.selectedLength = 0

@@ -13,7 +13,7 @@ extension AccessibilityStrategyNormalMode {
             element.selectedLength = 0
             element.selectedText = "\n"            
             
-            _ = AccessibilityTextElementAdaptor.toAXfocusedElement(from: element)
+            _ = AccessibilityTextElementAdaptor.toAXFocusedElement(from: element)
             
             element.caretLocation = 0
             element.selectedLength = 0
@@ -25,7 +25,7 @@ extension AccessibilityStrategyNormalMode {
         if element.currentLine.isTheLastLine, element.lastCharacterIsLinefeed {
             element.selectedText = "\n"
             
-            _ = AccessibilityTextElementAdaptor.toAXfocusedElement(from: element)
+            _ = AccessibilityTextElementAdaptor.toAXFocusedElement(from: element)
             
             element.selectedText = ""
             

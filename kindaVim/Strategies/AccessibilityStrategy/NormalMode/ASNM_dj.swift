@@ -21,7 +21,7 @@ extension AccessibilityStrategyNormalMode {
             element.selectedLength = element.currentLine.length + nextLine.length
             element.selectedText = ""
             
-            _ = AccessibilityTextElementAdaptor.toAXfocusedElement(from: element)
+            _ = AccessibilityTextElementAdaptor.toAXFocusedElement(from: element)
             
             if let updatedElement = AccessibilityTextElementAdaptor.fromAXFocusedElement() {            
                 let firstNonBlankWithinLineLimitOfUpdatedElementLocation = textEngine.firstNonBlankWithinLineLimit(in: TextEngineLine(from: updatedElement.currentLine.value))

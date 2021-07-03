@@ -7,7 +7,7 @@ struct AccessibilityStrategy {
     static func push(element: AccessibilityTextElement) -> Bool {
         print("move using Accessibility Stragety")
         
-        return AccessibilityTextElementAdaptor.toAXfocusedElement(from: element)
+        return AccessibilityTextElementAdaptor.toAXFocusedElement(from: element)
     }
     
 }

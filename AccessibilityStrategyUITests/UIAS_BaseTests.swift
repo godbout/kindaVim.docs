@@ -21,7 +21,7 @@ class UIAS_BaseTests: XCTestCase {
         
         guard let transformedElement = move(accessibilityElement) else { return nil }
         
-        _ = AccessibilityTextElementAdaptor.toAXfocusedElement(from: transformedElement)
+        _ = AccessibilityTextElementAdaptor.toAXFocusedElement(from: transformedElement)
         
         return  AccessibilityTextElementAdaptor.fromAXFocusedElement()        
     }

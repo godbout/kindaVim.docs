@@ -83,7 +83,7 @@ extension AccessibilityStrategyNormalMode {
             
             element.selectedText = textToPaste.value
             
-            _ = AccessibilityTextElementAdaptor.toAXfocusedElement(from: element)
+            _ = AccessibilityTextElementAdaptor.toAXFocusedElement(from: element)
             
             element.caretLocation += 1 + textEngine.firstNonBlank(in: textToPaste.value)
             element.selectedText = nil
@@ -99,7 +99,7 @@ extension AccessibilityStrategyNormalMode {
             
             element.selectedText = textToPaste.value
             
-            _ = AccessibilityTextElementAdaptor.toAXfocusedElement(from: element)
+            _ = AccessibilityTextElementAdaptor.toAXFocusedElement(from: element)
             
             element.caretLocation += 1 + textEngine.firstNonBlank(in: textToPaste.value)
             element.selectedText = nil
@@ -116,7 +116,7 @@ extension AccessibilityStrategyNormalMode {
         element.selectedLength = 0
         element.selectedText = textToPaste.value
         
-        _ = AccessibilityTextElementAdaptor.toAXfocusedElement(from: element)
+        _ = AccessibilityTextElementAdaptor.toAXFocusedElement(from: element)
         
         element.caretLocation = element.currentLine.start + 1 + textEngine.firstNonBlank(in: textToPaste.value)
         element.selectedText = nil

@@ -15,7 +15,7 @@ class to_TF_caretLocationTests: ATEA_BaseTests {
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
 
-        let conversionSucceeded = AccessibilityTextElementAdaptor.toAXfocusedElement(from: accessibilityElement)
+        let conversionSucceeded = AccessibilityTextElementAdaptor.toAXFocusedElement(from: accessibilityElement)
         XCTAssertTrue(conversionSucceeded)
 
         let reconvertedAccessibilityTextElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
@@ -35,7 +35,7 @@ class to_TF_caretLocationTests: ATEA_BaseTests {
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
 
-        let conversionSucceeded = AccessibilityTextElementAdaptor.toAXfocusedElement(from: accessibilityElement)
+        let conversionSucceeded = AccessibilityTextElementAdaptor.toAXFocusedElement(from: accessibilityElement)
         XCTAssertTrue(conversionSucceeded)
 
         let reconvertedAccessibilityTextElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
@@ -55,7 +55,7 @@ class to_TF_caretLocationTests: ATEA_BaseTests {
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
 
-        let conversionSucceeded = AccessibilityTextElementAdaptor.toAXfocusedElement(from: accessibilityElement)
+        let conversionSucceeded = AccessibilityTextElementAdaptor.toAXFocusedElement(from: accessibilityElement)
         XCTAssertFalse(conversionSucceeded)
     }
 

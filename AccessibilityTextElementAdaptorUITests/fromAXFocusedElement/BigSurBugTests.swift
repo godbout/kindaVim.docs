@@ -21,7 +21,7 @@ shit
         // which is why we have to grab the element, push it back to AX to make it fail
         // and grabbing it again for testing
         var accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
-        _ = AccessibilityTextElementAdaptor.toAXfocusedElement(from: accessibilityElement!)
+        _ = AccessibilityTextElementAdaptor.toAXFocusedElement(from: accessibilityElement!)
         accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
         
         XCTAssertEqual(accessibilityElement?.role, .textArea)
@@ -51,7 +51,7 @@ shit
         app.textViews.firstMatch.typeKey(.rightArrow, modifierFlags: [.shift])
         
         var accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
-        _ = AccessibilityTextElementAdaptor.toAXfocusedElement(from: accessibilityElement!)
+        _ = AccessibilityTextElementAdaptor.toAXFocusedElement(from: accessibilityElement!)
         accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
         
         XCTAssertEqual(accessibilityElement?.role, .textArea)

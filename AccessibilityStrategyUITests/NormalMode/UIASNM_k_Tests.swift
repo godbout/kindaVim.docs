@@ -154,7 +154,7 @@ empty
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .l))
 
         let jFirst = asNormalMode.j(on: AccessibilityTextElementAdaptor.fromAXFocusedElement())
-        _ = AccessibilityTextElementAdaptor.toAXfocusedElement(from: jFirst!)
+        _ = AccessibilityTextElementAdaptor.toAXFocusedElement(from: jFirst!)
 
         let thenK = applyMoveAndGetBackAccessibilityElement()
 

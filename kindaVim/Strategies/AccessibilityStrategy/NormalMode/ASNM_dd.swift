@@ -10,7 +10,7 @@ extension AccessibilityStrategyNormalMode {
         if element.caretIsAtTheEnd, element.lastCharacterIsNotLinefeed {
             element.caretLocation -= 1
             
-            _ = AccessibilityTextElementAdaptor.toAXfocusedElement(from: element)
+            _ = AccessibilityTextElementAdaptor.toAXFocusedElement(from: element)
             guard let updatedElement = AccessibilityTextElementAdaptor.fromAXFocusedElement() else { return nil }
             
             element = updatedElement
@@ -21,12 +21,12 @@ extension AccessibilityStrategyNormalMode {
             element.selectedLength = 1
             element.selectedText = ""
             
-            _ = AccessibilityTextElementAdaptor.toAXfocusedElement(from: element)            
+            _ = AccessibilityTextElementAdaptor.toAXFocusedElement(from: element)            
             guard var updatedElement = AccessibilityTextElementAdaptor.fromAXFocusedElement() else { return nil }
 
             updatedElement.caretLocation -= 1
             
-            _ = AccessibilityTextElementAdaptor.toAXfocusedElement(from: updatedElement)
+            _ = AccessibilityTextElementAdaptor.toAXFocusedElement(from: updatedElement)
             guard var finalElement = AccessibilityTextElementAdaptor.fromAXFocusedElement() else { return nil }
             
             let firstNonBlankWithinLimitOfLastLineLocation = textEngine.firstNonBlankWithinLineLimit(in: TextEngineLine(from: finalElement.currentLine.value))            
@@ -52,7 +52,7 @@ extension AccessibilityStrategyNormalMode {
             element.selectedLength = element.currentLine.length + 1
             element.selectedText = ""
             
-            _ = AccessibilityTextElementAdaptor.toAXfocusedElement(from: element)
+            _ = AccessibilityTextElementAdaptor.toAXFocusedElement(from: element)
             
             element.caretLocation -= previousLine.length - firstNonBlankWithinLineLimitOfPreviousLineLocation - 1                
             element.selectedLength = 0
