@@ -59,8 +59,16 @@ extension AccessibilityStrategyVisualMode {
                 element.selectedLength = 0
                 element.selectedText = ""
             }
-        } else {
+        } else if VimEngine.shared.visualStyle == .characterwise {
             element.selectedText = ""
+            
+            if Self.head >= element.currentLine.endLimit, element.caretLocation > element.currentLine.start {
+                _ = AccessibilityTextElementAdaptor.toAXFocusedElement(from: element)
+                
+                element.caretLocation = element.currentLine.endLimit - 1
+                element.selectedLength = 0
+                element.selectedText = nil
+            }            
         }
         
         return element

@@ -777,8 +777,6 @@ extension VimEngine {
                 push(element: element)
             }
         case .d:
-            enterNormalMode()
-            
             if let element = asVisualMode.d(on: focusedElement()) {                
                 push(element: element)
                 
@@ -787,6 +785,8 @@ extension VimEngine {
                     push(element: element)
                 }
             }
+            
+            enterNormalMode()
         case .h:
             if let element = asVisualMode.h(on: focusedElement()) {
                 push(element: element)

@@ -101,4 +101,54 @@ the selection!
         XCTAssertEqual(finalFinalElementHehe?.caretLocation, 14)        
     }
     
+    func test_that_if_the_head_is_at_the_last_character_before_a_linefeed_when_deleted_then_the_caret_goes_to_the_new_line_end_limit_and_not_the_linefeed() {
+        let textInAXFocusedElement = """
+if deleting the last character of
+a line before the linefeed the caret
+should go back to line end limit
+"""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
+        
+        VimEngine.shared.handle(keyCombination: KeyCombination(key: .e))
+        VimEngine.shared.handle(keyCombination: KeyCombination(key: .v))
+        VimEngine.shared.handle(keyCombination: KeyCombination(key: .d))
+        
+        let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
+        
+        XCTAssertEqual(accessibilityElement?.value, """
+if deleting the last character of
+a line before the linefeed the care
+should go back to line end limit
+"""
+        )
+        XCTAssertEqual(accessibilityElement?.caretLocation, 68)       
+    }
+    
+    func test_that_if_there_is_only_one_character_on_a_line_deleting_it_stays_on_the_line_and_does_not_go_to_the_linefeed_of_the_above_line() {
+        let textInAXFocusedElement = """
+if deleting the last character of
+x
+should go back to line end limit
+"""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
+        
+        VimEngine.shared.handle(keyCombination: KeyCombination(key: .zero))
+        VimEngine.shared.handle(keyCombination: KeyCombination(key: .v))
+        VimEngine.shared.handle(keyCombination: KeyCombination(key: .d))
+        
+        let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
+        
+        XCTAssertEqual(accessibilityElement?.value, """
+if deleting the last character of
+
+should go back to line end limit
+"""
+        )
+        XCTAssertEqual(accessibilityElement?.caretLocation, 34)         
+    }
+    
 }
