@@ -25,12 +25,15 @@ extension UIASVMC_d_Tests {
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
         
-        let finalElement = applyMoveAndGetBackAccessibilityElement()        
+        VimEngine.shared.handle(keyCombination: KeyCombination(key: .v))
+        VimEngine.shared.handle(keyCombination: KeyCombination(key: .d))
         
-        XCTAssertEqual(finalElement?.caretLocation, 0)
+        let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
+        
+        XCTAssertEqual(accessibilityElement?.caretLocation, 0)
     }
     
-    func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_but_not_on_an_empty_line_it_works_and_the_caret_goes_to_the_relevant_position() {
+    func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_but_not_on_an_empty_line_it_works_and_goes_back_one_character_to_the_left() {
         let textInAXFocusedElement = """
    caret is
 gonna be at the end
@@ -38,13 +41,18 @@ gonna be at the end
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         
-        let finalElement = applyMoveAndGetBackAccessibilityElement()
+        VimEngine.shared.handle(keyCombination: KeyCombination(key: .v))
+        app.textViews.firstMatch.typeKey(.rightArrow, modifierFlags: [])
+        VimEngine.shared.handle(keyCombination: KeyCombination(key: .d))
         
-        XCTAssertEqual(finalElement?.value, """
+        let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
+        
+        XCTAssertEqual(accessibilityElement?.value, """
    caret is
+gonna be at the end
 """
         )
-        XCTAssertEqual(finalElement?.caretLocation, 3)
+        XCTAssertEqual(accessibilityElement?.caretLocation, 30)
     }
     
     func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_and_on_an_empty_line_it_works_and_the_caret_goes_to_the_relevant_position() {
@@ -57,15 +65,19 @@ own empty
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         
-        let finalElement = applyMoveAndGetBackAccessibilityElement()
+        VimEngine.shared.handle(keyCombination: KeyCombination(key: .v))
+        app.textViews.firstMatch.typeKey(.rightArrow, modifierFlags: [])
+        VimEngine.shared.handle(keyCombination: KeyCombination(key: .d))
         
-        XCTAssertEqual(finalElement?.value, """
+        let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
+        
+        XCTAssertEqual(accessibilityElement?.value, """
 caret is on its
 own empty
     line
 """
         )
-        XCTAssertEqual(finalElement?.caretLocation, 30)
+        XCTAssertEqual(accessibilityElement?.caretLocation, 30)
     }
     
 }

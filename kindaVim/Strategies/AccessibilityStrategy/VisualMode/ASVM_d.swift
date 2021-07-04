@@ -3,14 +3,15 @@ extension AccessibilityStrategyVisualMode {
     func d(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         guard var element = element else { return nil }
         
+        
         if element.isEmpty {
             return element
         }
         
-        // this case is handled by v and V. before being able to use VM d
-        // we need to enter Visual Mode with v or V, and those two moves
-        // will move back one character if in the 2nd case of The 3 Cases
         if element.caretIsAtTheEnd, element.lastCharacterIsNotLinefeed {
+            element.caretLocation -= 1
+            element.selectedLength = 0
+            
             return element
         }
         
