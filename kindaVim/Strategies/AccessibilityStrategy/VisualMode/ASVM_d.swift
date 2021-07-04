@@ -37,28 +37,54 @@ extension AccessibilityStrategyVisualMode {
         
         
         if VimEngine.shared.visualStyle == .linewise {
-            if let nextLine = AccessibilityTextElementAdaptor.lineFor(lineNumber: element.currentLine.number + 1) {
-                let firstNonBlankWithinLineLimitOfNextLineLocation = textEngine.firstNonBlankWithinLineLimit(in: TextEngineLine(from: nextLine.value))
-            
-                element.selectedText = ""
+            if Self.head > Self.anchor {
+                if let lineAtHead = AccessibilityTextElementAdaptor.lineFor(location: AccessibilityStrategyVisualMode.head), let lineAfterSelection = AccessibilityTextElementAdaptor.lineFor(lineNumber: lineAtHead.number + 1) {
+                    let firstNonBlankWithinLineLimitOflineAfterSelectionLocation = textEngine.firstNonBlankWithinLineLimit(in: TextEngineLine(from: lineAfterSelection.value))
                 
-                _ = AccessibilityTextElementAdaptor.toAXFocusedElement(from: element)
-                
-                element.caretLocation += firstNonBlankWithinLineLimitOfNextLineLocation
-                element.selectedLength = 0
-                element.selectedText = nil
-            } else if let previousLine = AccessibilityTextElementAdaptor.lineFor(lineNumber: element.currentLine.number - 1) {
-                let firstNonBlankWithinLineLimitOfPreviousLineLocation = textEngine.firstNonBlankWithinLineLimit(in: TextEngineLine(from: previousLine.value))
-                
-                element.caretLocation = element.currentLine.start - 1
-                element.selectedLength = element.currentLine.length + 1
-                element.selectedText = ""
-                
-                _ = AccessibilityTextElementAdaptor.toAXFocusedElement(from: element)
-                
-                element.caretLocation -= previousLine.length - firstNonBlankWithinLineLimitOfPreviousLineLocation - 1                
-                element.selectedLength = 0
-                element.selectedText = ""
+                    element.selectedText = ""
+                    
+                    _ = AccessibilityTextElementAdaptor.toAXFocusedElement(from: element)
+                    
+                    element.caretLocation += firstNonBlankWithinLineLimitOflineAfterSelectionLocation
+                    element.selectedLength = 0
+                    element.selectedText = nil
+                } else if let lineAtAnchor = AccessibilityTextElementAdaptor.lineFor(location: AccessibilityStrategyVisualMode.anchor), let lineBeforeSelection = AccessibilityTextElementAdaptor.lineFor(lineNumber: lineAtAnchor.number - 1) {
+                    let firstNonBlankWithinLineLimitOflineBeforeSelectionLocation = textEngine.firstNonBlankWithinLineLimit(in: TextEngineLine(from: lineBeforeSelection.value))
+                    
+                    element.caretLocation -= 1
+                    element.selectedLength += 1
+                    element.selectedText = ""
+                    
+                    _ = AccessibilityTextElementAdaptor.toAXFocusedElement(from: element)
+                    
+                    element.caretLocation -= lineBeforeSelection.length - firstNonBlankWithinLineLimitOflineBeforeSelectionLocation - 1                
+                    element.selectedLength = 0
+                    element.selectedText = ""
+                }
+            } else if Self.anchor > Self.head {
+                if let lineAtAnchor = AccessibilityTextElementAdaptor.lineFor(location: AccessibilityStrategyVisualMode.anchor), let lineAfterSelection = AccessibilityTextElementAdaptor.lineFor(lineNumber: lineAtAnchor.number + 1) {
+                    let firstNonBlankWithinLineLimitOflineAfterSelectionLocation = textEngine.firstNonBlankWithinLineLimit(in: TextEngineLine(from: lineAfterSelection.value))
+                    
+                    element.selectedText = ""
+                    
+                    _ = AccessibilityTextElementAdaptor.toAXFocusedElement(from: element)
+                    
+                    element.caretLocation += firstNonBlankWithinLineLimitOflineAfterSelectionLocation
+                    element.selectedLength = 0
+                    element.selectedText = nil
+                } else if let lineAtHead = AccessibilityTextElementAdaptor.lineFor(location: AccessibilityStrategyVisualMode.head), let lineBeforeSelection = AccessibilityTextElementAdaptor.lineFor(lineNumber: lineAtHead.number - 1) {
+                    let firstNonBlankWithinLineLimitOflineBeforeSelectionLocation = textEngine.firstNonBlankWithinLineLimit(in: TextEngineLine(from: lineBeforeSelection.value))
+                    
+                    element.caretLocation -= 1
+                    element.selectedLength += 1
+                    element.selectedText = ""
+                    
+                    _ = AccessibilityTextElementAdaptor.toAXFocusedElement(from: element)
+                    
+                    element.caretLocation -= lineBeforeSelection.length - firstNonBlankWithinLineLimitOflineBeforeSelectionLocation - 1                
+                    element.selectedLength = 0
+                    element.selectedText = ""
+                }
             }
         } else if VimEngine.shared.visualStyle == .characterwise {
             element.selectedText = ""
