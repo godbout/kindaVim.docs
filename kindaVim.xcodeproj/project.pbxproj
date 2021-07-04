@@ -206,6 +206,8 @@
 		919E5A3126922C86003E724A /* ASVM_b.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919E5A3026922C86003E724A /* ASVM_b.swift */; };
 		919E5A3626922C93003E724A /* ASVM_b.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919E5A3026922C86003E724A /* ASVM_b.swift */; };
 		919E5A3B26922C93003E724A /* ASVM_b.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919E5A3026922C86003E724A /* ASVM_b.swift */; };
+		919E5A4126922D2D003E724A /* ASVMC_b_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919E5A4026922D2D003E724A /* ASVMC_b_Tests.swift */; };
+		919E5A4B26923D57003E724A /* UIASVMC_b_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919E5A4A26923D57003E724A /* UIASVMC_b_Tests.swift */; };
 		919EE8FA2684919D001DB6A4 /* AccessibilityStrategyVisualMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919EE8F92684919D001DB6A4 /* AccessibilityStrategyVisualMode.swift */; };
 		919EE90126849327001DB6A4 /* ASVML_$_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919EE90026849327001DB6A4 /* ASVML_$_Tests.swift */; };
 		919EE90B26849356001DB6A4 /* ASVM_BaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919EE90A26849356001DB6A4 /* ASVM_BaseTests.swift */; };
@@ -809,6 +811,8 @@
 		919DEB622632C85B0052D514 /* KeyCombination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyCombination.swift; sourceTree = "<group>"; };
 		919E5A2A26922C3F003E724A /* UsingASVM_b_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsingASVM_b_Tests.swift; sourceTree = "<group>"; };
 		919E5A3026922C86003E724A /* ASVM_b.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASVM_b.swift; sourceTree = "<group>"; };
+		919E5A4026922D2D003E724A /* ASVMC_b_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASVMC_b_Tests.swift; sourceTree = "<group>"; };
+		919E5A4A26923D57003E724A /* UIASVMC_b_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIASVMC_b_Tests.swift; sourceTree = "<group>"; };
 		919EE8F92684919D001DB6A4 /* AccessibilityStrategyVisualMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilityStrategyVisualMode.swift; sourceTree = "<group>"; };
 		919EE90026849327001DB6A4 /* ASVML_$_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASVML_$_Tests.swift; sourceTree = "<group>"; };
 		919EE90A26849356001DB6A4 /* ASVM_BaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASVM_BaseTests.swift; sourceTree = "<group>"; };
@@ -1077,6 +1081,7 @@
 		9101995A268E1273001AD9D7 /* Characterwise */ = {
 			isa = PBXGroup;
 			children = (
+				919E5A4A26923D57003E724A /* UIASVMC_b_Tests.swift */,
 				91C544EE268E1DDE0010659A /* UIASVMC_d_Tests.swift */,
 			);
 			path = Characterwise;
@@ -1098,6 +1103,7 @@
 		91019966268E1599001AD9D7 /* Characterwise */ = {
 			isa = PBXGroup;
 			children = (
+				919E5A4026922D2D003E724A /* ASVMC_b_Tests.swift */,
 				91C544F4268E24AA0010659A /* ASVMC_c_Tests.swift */,
 				91019967268E15B7001AD9D7 /* ASVMC_h_Tests.swift */,
 				91019971268E16B0001AD9D7 /* ASVMC_l_Tests.swift */,
@@ -2198,6 +2204,7 @@
 				91A54F072643BC7B00400677 /* KS_0_Tests.swift in Sources */,
 				919EE90B26849356001DB6A4 /* ASVM_BaseTests.swift in Sources */,
 				917BE83C266FB59B0072D0A7 /* ASNM_e_Tests.swift in Sources */,
+				919E5A4126922D2D003E724A /* ASVMC_b_Tests.swift in Sources */,
 				912DD6AB2675061400E22EE4 /* ASNM_yi"_Tests.swift in Sources */,
 				912B92DC26443FF8007F44E1 /* UsingKS_yiw_Tests.swift in Sources */,
 				9188BFED2684C09A006AFBE9 /* UsingAS_BaseTests.swift in Sources */,
@@ -2638,6 +2645,7 @@
 				91DD4D612681F0780021ABC2 /* ASNM_yt.swift in Sources */,
 				91FB92782689CF86006EB82D /* ASVM_c.swift in Sources */,
 				9114BA622682451C003CD818 /* ASNM_%.swift in Sources */,
+				919E5A4B26923D57003E724A /* UIASVMC_b_Tests.swift in Sources */,
 				91AB99162674D812007682CA /* ASNM_ci".swift in Sources */,
 				91E0C163267F8BF8000265EC /* ASNM_yf.swift in Sources */,
 				91D73C262676897D004EF8E9 /* ASNM_ge.swift in Sources */,
