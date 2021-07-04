@@ -67,4 +67,10 @@ class AccessibilityStrategyVisualModeMock: AccessibilityStrategyVisualModeProtoc
         return nil
     }
     
+    func zero(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        functionCalled = #function
+        
+        return nil
+    }
+    
 }

@@ -836,6 +836,10 @@ extension VimEngine {
             if let element = asVisualMode.dollarSign(on: focusedElement()) {
                 push(element: element)
             }            
+        case .zero:
+            if let element = asVisualMode.zero(on: focusedElement()) {
+                push(element: element)
+            }  
         default:
             ()
         }
