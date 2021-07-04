@@ -1,17 +1,7 @@
 import XCTest
 
 
-class UIASVMC_d_Tests: UIAS_BaseTests {
-    
-    private func applyMoveAndGetBackAccessibilityElement() -> AccessibilityTextElement? {
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .v))
-        
-        return applyMoveAndGetBackAccessibilityElement { focusedElement in
-            asVisualMode.d(on: focusedElement)
-        }
-    }
-    
-}
+class UIASVMC_d_Tests: UIAS_BaseTests {}
 
 
 // the 3 special cases:
@@ -24,13 +14,12 @@ extension UIASVMC_d_Tests {
         let textInAXFocusedElement = ""
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
+        VimEngine.shared.handle(keyCombination: KeyCombination(key: .v))        
         
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .v))
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .d))
+        let finalElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
         
-        let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
-        
-        XCTAssertEqual(accessibilityElement?.caretLocation, 0)
+        XCTAssertEqual(finalElement?.caretLocation, 0)
     }
     
     func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_but_not_on_an_empty_line_it_works_and_goes_back_one_character_to_the_left() {
@@ -39,20 +28,19 @@ extension UIASVMC_d_Tests {
 gonna be at the end
 """
         app.textViews.firstMatch.tap()
-        app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)        
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .v))
         app.textViews.firstMatch.typeKey(.rightArrow, modifierFlags: [])
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .d))
         
-        let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
+        VimEngine.shared.handle(keyCombination: KeyCombination(key: .d))        
+        let finalElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
         
-        XCTAssertEqual(accessibilityElement?.value, """
+        XCTAssertEqual(finalElement?.value, """
    caret is
 gonna be at the end
 """
         )
-        XCTAssertEqual(accessibilityElement?.caretLocation, 30)
+        XCTAssertEqual(finalElement?.caretLocation, 30)
     }
     
     func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_and_on_an_empty_line_it_works_and_the_caret_goes_to_the_relevant_position() {
@@ -64,20 +52,19 @@ own empty
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .v))
         app.textViews.firstMatch.typeKey(.rightArrow, modifierFlags: [])
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .d))
         
-        let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
+        VimEngine.shared.handle(keyCombination: KeyCombination(key: .d))                
+        let finalElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
         
-        XCTAssertEqual(accessibilityElement?.value, """
+        XCTAssertEqual(finalElement?.value, """
 caret is on its
 own empty
     line
 """
         )
-        XCTAssertEqual(accessibilityElement?.caretLocation, 30)
+        XCTAssertEqual(finalElement?.caretLocation, 30)
     }
     
 }
@@ -92,25 +79,25 @@ in characterwise is deleting
 the selection!
 """
         app.textViews.firstMatch.tap()
-        app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)        
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .v))
-        
+        // to replace by VM b/B once implemented
         app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
         app.textViews.firstMatch.typeKey(.leftArrow, modifierFlags: [.shift, .command])
         app.textViews.firstMatch.typeKey(.leftArrow, modifierFlags: [.option, .shift])
         
-        let finalElement = asVisualMode.d(on: AccessibilityTextElementAdaptor.fromAXFocusedElement())
-        _ = AccessibilityTextElementAdaptor.toAXFocusedElement(from: finalElement!)
+        // to remove once VM b/B are implemented and used
+        AccessibilityStrategyVisualMode.head = 14
         
-        let finalFinalElementHehe = AccessibilityTextElementAdaptor.fromAXFocusedElement()
+        VimEngine.shared.handle(keyCombination: KeyCombination(key: .d))
+        let finalElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
         
-        XCTAssertEqual(finalFinalElementHehe?.value, """
+        XCTAssertEqual(finalElement?.value, """
 all that VM d ise is deleting
 the selection!
 """
         )
-        XCTAssertEqual(finalFinalElementHehe?.caretLocation, 14)        
+        XCTAssertEqual(finalElement?.caretLocation, 14)        
     }
     
     func test_that_if_the_head_is_at_the_last_character_before_a_linefeed_when_deleted_then_the_caret_goes_to_the_new_line_end_limit_and_not_the_linefeed() {
