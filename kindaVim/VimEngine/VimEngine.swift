@@ -770,6 +770,10 @@ extension VimEngine {
     
     func handleVisualMode(with keyCombination: KeyCombination) {
         switch keyCombination.vimKey {
+        case .b:
+            if let element = asVisualMode.b(on: focusedElement()) {
+                push(element: element)
+            }
         case .c:
             enterInsertMode()
             
