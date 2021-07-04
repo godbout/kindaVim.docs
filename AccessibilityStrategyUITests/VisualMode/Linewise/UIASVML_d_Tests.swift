@@ -1,17 +1,7 @@
 import XCTest
 
 
-class UIASVML_d_Tests: UIAS_BaseTests {
-        
-    private func applyMoveAndGetBackAccessibilityElement() -> AccessibilityTextElement? {
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .v, shift: true))
-        
-        return applyMoveAndGetBackAccessibilityElement { focusedElement in
-            asVisualMode.d(on: focusedElement)
-        }
-    }
-    
-}
+class UIASVML_d_Tests: UIAS_BaseTests {}
 
 
 // the 3 special cases:
@@ -183,6 +173,48 @@ and it would be beautiful
 """
         )
         XCTAssertEqual(finalElement?.caretLocation, 3)    
+    }
+    
+    func test_that_if_the_head_is_before_the_anchor_it_works() {
+        let textInAXFocusedElement = """
+   we gonna remove the last
+line and caret should go up
+and it would be beautiful
+"""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)        
+        VimEngine.shared.handle(keyCombination: KeyCombination(key: .v, shift: true))
+        VimEngine.shared.handle(keyCombination: KeyCombination(key: .k))
+        
+        VimEngine.shared.handle(keyCombination: KeyCombination(key: .d))
+        let finalElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
+        
+        XCTAssertEqual(finalElement?.value, """
+   we gonna remove the last
+"""
+        )
+        XCTAssertEqual(finalElement?.caretLocation, 3)    
+    }
+    
+    func test_that_if_the_whole_text_is_to_be_deleted_well_it_gets_deleted_LOL() {
+        let textInAXFocusedElement = """
+blah blah blah
+blah blah
+blah
+t
+"""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)        
+        VimEngine.shared.handle(keyCombination: KeyCombination(key: .v, shift: true))
+        VimEngine.shared.handle(keyCombination: KeyCombination(key: .k))
+        VimEngine.shared.handle(keyCombination: KeyCombination(key: .k))
+        VimEngine.shared.handle(keyCombination: KeyCombination(key: .k))
+        
+        VimEngine.shared.handle(keyCombination: KeyCombination(key: .d))
+        let finalElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
+        
+        XCTAssertEqual(finalElement?.value, "")
+        XCTAssertEqual(finalElement?.caretLocation, 0)    
     }
     
 }
