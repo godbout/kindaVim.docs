@@ -224,13 +224,13 @@ if the head is not after the line end limit
         )
         
         AccessibilityStrategyVisualMode.anchor = 55
-        AccessibilityStrategyVisualMode.head = 58
+        AccessibilityStrategyVisualMode.head = 63
         
-        VimEngine.shared.visualStyle = .linewise
+        VimEngine.shared.visualStyle = .characterwise
         
         let returnedElement = applyMove(on: element)
         
-        XCTAssertEqual(returnedElement?.caretLocation, 58)      
+        XCTAssertEqual(returnedElement?.caretLocation, 62)      
     }
     
 }

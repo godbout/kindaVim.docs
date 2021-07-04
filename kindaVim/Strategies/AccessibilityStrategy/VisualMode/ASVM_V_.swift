@@ -9,6 +9,7 @@ extension AccessibilityStrategyVisualMode {
     private func handleAnchorHeadAndCaretLocation(with element: AccessibilityTextElement) -> AccessibilityTextElement {
         var element = element
         
+        
         if element.isEmpty {
             Self.anchor = 0
             Self.head = 0

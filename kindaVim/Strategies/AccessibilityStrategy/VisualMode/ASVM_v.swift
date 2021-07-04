@@ -9,6 +9,7 @@ extension AccessibilityStrategyVisualMode {
     private func handleAnchorHeadAndCaretLocation(with element: AccessibilityTextElement) -> AccessibilityTextElement {
         var element = element
         
+        
         if element.isEmpty {
             Self.anchor = 0
             Self.head = 0
@@ -46,8 +47,12 @@ extension AccessibilityStrategyVisualMode {
             
             Self.anchor = element.caretLocation
             Self.head = element.caretLocation
-        } else {
-            element.caretLocation = Self.head
+        } else if VimEngine.shared.visualStyle == .characterwise {
+            if Self.head > element.currentLine.endLimit {
+                element.caretLocation = element.currentLine.endLimit
+            } else {
+                element.caretLocation = Self.head
+            }
         }
         
         return element        
