@@ -2,7 +2,7 @@
 import XCTest
 
 
-class ASVML_b_Tests: ASVM_BaseTests {
+class ASVML_e_Tests: ASVM_BaseTests {
     
     override func setUp() {
         super.setUp()
@@ -11,7 +11,7 @@ class ASVML_b_Tests: ASVM_BaseTests {
     }
     
     private func applyMove(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
-        return asVisualMode.b(on: element) 
+        return asVisualMode.e(on: element) 
     }
     
 }
@@ -21,7 +21,7 @@ class ASVML_b_Tests: ASVM_BaseTests {
 // - empty TextElement
 // - caret at the end of TextElement but not on empty line
 // - caret at the end of TextElement on own empty line
-extension ASVML_b_Tests {
+extension ASVML_e_Tests {
     
     func test_that_if_the_TextElement_is_empty_it_works_and_does_not_move() {
         let text = ""
@@ -107,10 +107,10 @@ line
 
 
 // Both
-extension ASVML_b_Tests {
+extension ASVML_e_Tests {
     
     func test_that_in_visual_linewise_it_does_nothing() {
-        let text = "b will only move stuff in VM characterwise"
+        let text = "e will only move stuff in VM characterwise"
         let element = AccessibilityTextElement(
             role: .textField,
             value: text,
