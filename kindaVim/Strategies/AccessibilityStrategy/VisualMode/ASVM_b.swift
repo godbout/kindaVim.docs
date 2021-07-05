@@ -25,18 +25,16 @@ extension AccessibilityStrategyVisualMode {
                 let beginningOfWordLocation = textEngine.beginningOfWordBackward(startingAt: element.caretLocation + element.selectedLength - 1, in: TextEngineText(from: element.value))
                 
                 if beginningOfWordLocation <= Self.anchor {
-                    element.selectedLength = Self.anchor - beginningOfWordLocation + 1
                     element.caretLocation = beginningOfWordLocation         
-                    
-                    Self.head = element.caretLocation
+                    element.selectedLength = Self.anchor - element.caretLocation + 1
                 } else {
                     element.selectedLength -= Self.head - beginningOfWordLocation
                 }
-            } else if Self.anchor > Self.head {
+            } else if Self.head < Self.anchor {
                 let beginningOfWordLocation = textEngine.beginningOfWordBackward(startingAt: element.caretLocation, in: TextEngineText(from: element.value))
-                            
-                element.selectedLength += element.caretLocation - beginningOfWordLocation
+                
                 element.caretLocation = beginningOfWordLocation 
+                element.selectedLength = Self.anchor - element.caretLocation + 1
             }
         }
         

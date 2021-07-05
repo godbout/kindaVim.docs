@@ -33,4 +33,19 @@ from the caret location
         XCTAssertEqual(accessibilityElement?.selectedLength, 6)        
     }  
     
+    func test_that_the_head_is_getting_updated_properly() {
+        let textInAXFocusedElement = "we have to updated caretLocation before selectedLength!"
+        app.textFields.firstMatch.tap()
+        app.textFields.firstMatch.typeText(textInAXFocusedElement)        
+        VimEngine.shared.enterNormalMode()
+        VimEngine.shared.handle(keyCombination: KeyCombination(key: .v))
+        
+        // it used to fail after the second move
+        VimEngine.shared.handle(keyCombination: KeyCombination(key: .b))
+        VimEngine.shared.handle(keyCombination: KeyCombination(key: .b))        
+        
+        XCTAssertEqual(AccessibilityStrategyVisualMode.head, 33)
+        
+    }
+    
 }
