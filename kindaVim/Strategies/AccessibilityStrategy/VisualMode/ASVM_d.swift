@@ -52,13 +52,15 @@ extension AccessibilityStrategyVisualMode {
         
         element.selectedText = ""
         
-        if Self.head >= element.currentLine.endLimit, element.caretLocation > element.currentLine.start {
-            _ = AccessibilityTextElementAdaptor.toAXFocusedElement(from: element)
-            
-            element.caretLocation = element.currentLine.endLimit - 1
-            element.selectedLength = 0
-            element.selectedText = nil
+        _ = AccessibilityTextElementAdaptor.toAXFocusedElement(from: element)
+        guard let updatedElement = AccessibilityTextElementAdaptor.fromAXFocusedElement() else { return nil }
+        
+        if updatedElement.caretLocation > updatedElement.currentLine.endLimit {            
+            element.caretLocation -= 1             
         }
+
+        element.selectedLength = 0
+        element.selectedText = nil        
         
         return element
     }

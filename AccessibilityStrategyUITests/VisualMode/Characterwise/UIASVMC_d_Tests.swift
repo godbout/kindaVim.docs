@@ -88,7 +88,7 @@ the selection!
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .b))
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .b))
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .b))
-            
+        
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .d))
         let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
         
@@ -98,32 +98,6 @@ the selection!
 """
         )
         XCTAssertEqual(accessibilityElement?.caretLocation, 14)        
-    }
-    
-    func test_that_if_the_head_is_at_the_last_character_before_a_linefeed_when_deleted_then_the_caret_goes_to_the_new_line_end_limit_and_not_the_linefeed() {
-        let textInAXFocusedElement = """
-if deleting the last character of
-a line before the linefeed the caret
-should go back to line end limit
-"""
-        app.textViews.firstMatch.tap()
-        app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
-        VimEngine.shared.enterNormalMode()
-        
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .e))
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .v))
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .d))
-        
-        let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
-        
-        XCTAssertEqual(accessibilityElement?.value, """
-if deleting the last character of
-a line before the linefeed the care
-should go back to line end limit
-"""
-        )
-        XCTAssertEqual(accessibilityElement?.caretLocation, 68)       
     }
     
     func test_that_if_there_is_only_one_character_on_a_line_deleting_it_stays_on_the_line_and_does_not_go_to_the_linefeed_of_the_above_line() {
@@ -150,5 +124,82 @@ should go back to line end limit
         )
         XCTAssertEqual(accessibilityElement?.caretLocation, 34)         
     }
+    
+    func test_that_if_the_caret_is_on_an_empty_line_it_deletes_the_linefeed_and_stick_the_next_line_up() {
+        let textInAXFocusedElement = """
+there's gonna be an empty line
+
+right above
+"""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
+        VimEngine.shared.enterNormalMode()
+        VimEngine.shared.handle(keyCombination: KeyCombination(key: .v))
+        
+        VimEngine.shared.handle(keyCombination: KeyCombination(key: .d))        
+        let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
+        
+        XCTAssertEqual(accessibilityElement?.value, """
+there's gonna be an empty line
+right above
+"""
+        )
+        XCTAssertEqual(accessibilityElement?.caretLocation, 31)         
+    }
+    
+    func test_that_when_the_selection_spans_on_a_single_line_if_after_deletion_the_caret_ends_up_after_the_line_limit_then_it_is_moved_back_to_the_end_limit() {
+        let textInAXFocusedElement = """
+if deleting the last character of
+a line before the linefeed the caret
+should go back to line end limit
+"""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
+        VimEngine.shared.enterNormalMode()
+        VimEngine.shared.handle(keyCombination: KeyCombination(key: .e))        
+        VimEngine.shared.handle(keyCombination: KeyCombination(key: .v))
+        VimEngine.shared.handle(keyCombination: KeyCombination(key: .b))
+        
+        VimEngine.shared.handle(keyCombination: KeyCombination(key: .d))        
+        let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
+        
+        XCTAssertEqual(accessibilityElement?.value, """
+if deleting the last character of
+a line before the linefeed the 
+should go back to line end limit
+"""
+        )
+        XCTAssertEqual(accessibilityElement?.caretLocation, 64)
+    }
+    
+    func test_that_when_the_selection_spans_on_multiple_lines_if_after_deletion_the_caret_ends_up_after_the_line_limit_then_it_is_moved_back_to_the_end_limit() {
+        let textInAXFocusedElement = """
+same as above
+but on multiple
+lines this time
+"""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
+        app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
+        VimEngine.shared.enterNormalMode()
+        VimEngine.shared.handle(keyCombination: KeyCombination(key: .v))    
+        VimEngine.shared.handle(keyCombination: KeyCombination(key: .e))
+        VimEngine.shared.handle(keyCombination: KeyCombination(key: .e))
+        VimEngine.shared.handle(keyCombination: KeyCombination(key: .e))
+        
+        VimEngine.shared.handle(keyCombination: KeyCombination(key: .d))
+        
+        let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
+        
+        XCTAssertEqual(accessibilityElement?.value, """
+same as abov
+lines this time
+"""
+        )
+        XCTAssertEqual(accessibilityElement?.caretLocation, 11)
+    }    
     
 }
