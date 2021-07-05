@@ -14,6 +14,58 @@ class UIASNM_k_Tests: UIAS_BaseTests {
 }
 
 
+// the 3 special cases, same as j, no TF tests here
+// - empty TextElement
+// - caret at the end of TextElement but not on empty line
+// - caret at the end of TextElement on own empty line
+extension UIASNM_k_Tests {    
+    
+    func test_that_if_the_TextElement_is_empty_it_works_and_does_not_move() {
+        let textInAXFocusedElement = ""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        VimEngine.shared.enterNormalMode()       
+        
+        let finalElement = applyMoveAndGetBackAccessibilityElement()        
+        
+        XCTAssertEqual(finalElement?.caretLocation, 0)
+    }
+    
+    func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_but_not_on_an_empty_line_it_goes_back_one_character_to_the_left() {
+        let textInAXFocusedElement = """
+caret is
+gonna be at the end
+"""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        VimEngine.shared.enterNormalMode()        
+        app.textViews.firstMatch.typeKey(.rightArrow, modifierFlags: [])
+        
+        let finalElement = applyMoveAndGetBackAccessibilityElement()
+        
+        XCTAssertEqual(finalElement?.caretLocation, 27)
+    }
+    
+    func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_and_on_an_empty_line_it_works_and_moves_up() {
+        let textInAXFocusedElement = """
+caret is on its
+own empty
+line
+
+"""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        VimEngine.shared.enterNormalMode()        
+        app.textViews.firstMatch.typeKey(.rightArrow, modifierFlags: [])
+        
+        let finalElement = applyMoveAndGetBackAccessibilityElement()
+        
+        XCTAssertEqual(finalElement?.caretLocation, 26)
+    }
+    
+}
+
+
 // TextViews
 extension UIASNM_k_Tests {
 

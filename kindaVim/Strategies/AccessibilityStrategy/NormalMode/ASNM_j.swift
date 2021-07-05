@@ -13,6 +13,8 @@ extension AccessibilityStrategyNormalMode {
         }
         
         if element.caretIsAtTheEnd, element.lastCharacterIsNotLinefeed {
+            element.caretLocation -= 1
+            
             return element
         }
         
