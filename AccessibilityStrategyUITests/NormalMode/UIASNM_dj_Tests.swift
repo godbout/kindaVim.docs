@@ -2,7 +2,7 @@
 import XCTest
 
 
-class UIASNM_dj_tests: UIAS_BaseTests {
+class UIASNM_dj_Tests: UIAS_BaseTests {
     
     private func applyMoveAndGetBackAccessibilityElement() -> AccessibilityTextElement? {
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .d))
@@ -15,7 +15,7 @@ class UIASNM_dj_tests: UIAS_BaseTests {
 
 
 // Both
-extension UIASNM_dj_tests {
+extension UIASNM_dj_Tests {
     
     func test_that_if_there_is_only_one_line_it_does_not_do_anything() {
         let textInAXFocusedElement = "one line is not enough for dj"
@@ -33,7 +33,7 @@ extension UIASNM_dj_tests {
 
 
 // TextViews
-extension UIASNM_dj_tests {
+extension UIASNM_dj_Tests {
     
     func test_that_it_can_delete_two_lines() {
         let textInAXFocusedElement = """

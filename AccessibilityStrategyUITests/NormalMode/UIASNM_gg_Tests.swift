@@ -2,7 +2,7 @@
 import XCTest
 
 
-class UIASNM_gg_tests: UIAS_BaseTests {
+class UIASNM_gg_Tests: UIAS_BaseTests {
     
     private func applyMoveAndGetBackAccessibilityElement() -> AccessibilityTextElement? {
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .g))
@@ -18,7 +18,7 @@ class UIASNM_gg_tests: UIAS_BaseTests {
 // - empty TextElement
 // - caret at the end of TextElement but not on empty line
 // - caret at the end of TextElement on own empty line
-extension UIASNM_gg_tests {    
+extension UIASNM_gg_Tests {    
     
     func test_that_if_the_TextElement_is_empty_it_does_not_move() {
         let textInAXFocusedElement = ""
@@ -67,7 +67,7 @@ line
 
 
 // TextFields
-extension UIASNM_gg_tests {
+extension UIASNM_gg_Tests {
     
     func test_that_it_goes_to_the_beginning_of_the_line_if_it_starts_with_non_blank() {
         let textInAXFocusedElement = "a normal sentence"
@@ -106,7 +106,7 @@ extension UIASNM_gg_tests {
 
 
 // TextViews
-extension UIASNM_gg_tests {
+extension UIASNM_gg_Tests {
     
     func test_that_it_goes_to_the_first_character_of_the_TextView_if_it_starts_with_non_blank() {
         let textInAXFocusedElement = """

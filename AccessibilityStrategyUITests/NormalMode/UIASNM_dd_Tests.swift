@@ -2,7 +2,7 @@
 import XCTest
 
 
-class UIASNM_dd_tests: UIAS_BaseTests {
+class UIASNM_dd_Tests: UIAS_BaseTests {
     
     private func applyMoveAndGetBackAccessibilityElement() -> AccessibilityTextElement? {
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .d))
@@ -18,7 +18,7 @@ class UIASNM_dd_tests: UIAS_BaseTests {
 // - empty TextElement
 // - caret at the end of TextElement but not on empty line
 // - caret at the end of TextElement on own empty line
-extension UIASNM_dd_tests {    
+extension UIASNM_dd_Tests {    
     
     func test_that_if_the_TextElement_is_empty_it_works_and_deletes_dark_emptiness() {
         let textInAXFocusedElement = ""
@@ -77,7 +77,7 @@ own empty
 
 
 // TextFields
-extension UIASNM_dd_tests {
+extension UIASNM_dd_Tests {
     
     func test_that_in_normal_setting_it_deletes_the_whole_line() {
         let textInAXFocusedElement = "this is a line to be deleted"
@@ -107,7 +107,7 @@ extension UIASNM_dd_tests {
 
 
 // TextViews
-extension UIASNM_dd_tests {
+extension UIASNM_dd_Tests {
     
     func test_that_it_normal_setting_it_deletes_the_whole_line() {
         let textInAXFocusedElement = """
