@@ -16,6 +16,7 @@ does it matter
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        VimEngine.shared.enterNormalMode()
         
         let accessibilityElement = asVisualMode.V(on: AccessibilityTextElementAdaptor.fromAXFocusedElement())
                 
@@ -37,6 +38,7 @@ anchor
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
+        VimEngine.shared.enterNormalMode()
                         
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .v, shift: true))
         let accessibilityElement = asVisualMode.V(on: AccessibilityTextElementAdaptor.fromAXFocusedElement())        
@@ -53,6 +55,7 @@ anchor
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
+        VimEngine.shared.enterNormalMode()
         
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .v, shift: true))
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .o))

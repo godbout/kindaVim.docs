@@ -28,7 +28,8 @@ extension UIASVMC_d_Tests {
 gonna be at the end
 """
         app.textViews.firstMatch.tap()
-        app.textViews.firstMatch.typeText(textInAXFocusedElement)        
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)     
+        VimEngine.shared.enterNormalMode()
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .v))
         app.textViews.firstMatch.typeKey(.rightArrow, modifierFlags: [])
         
@@ -52,6 +53,7 @@ own empty
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        VimEngine.shared.enterNormalMode()
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .v))
         app.textViews.firstMatch.typeKey(.rightArrow, modifierFlags: [])
         
@@ -79,21 +81,19 @@ in characterwise is deleting
 the selection!
 """
         app.textViews.firstMatch.tap()
-        app.textViews.firstMatch.typeText(textInAXFocusedElement)        
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        VimEngine.shared.enterNormalMode()
+        VimEngine.shared.handle(keyCombination: KeyCombination(key: .k))
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .v))
-        // to replace by VM b/B once implemented
-        app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
-        app.textViews.firstMatch.typeKey(.leftArrow, modifierFlags: [.shift, .command])
-        app.textViews.firstMatch.typeKey(.leftArrow, modifierFlags: [.option, .shift])
-        
-        // to remove once VM b/B are implemented and used
-        AccessibilityStrategyVisualMode.head = 14
-        
+        VimEngine.shared.handle(keyCombination: KeyCombination(key: .b))
+        VimEngine.shared.handle(keyCombination: KeyCombination(key: .b))
+        VimEngine.shared.handle(keyCombination: KeyCombination(key: .b))
+            
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .d))
         let finalElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
         
         XCTAssertEqual(finalElement?.value, """
-all that VM d ise is deleting
+all that VM d se is deleting
 the selection!
 """
         )
@@ -109,6 +109,7 @@ should go back to line end limit
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
+        VimEngine.shared.enterNormalMode()
         
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .e))
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .v))
@@ -134,11 +135,11 @@ should go back to line end limit
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
-        
+        VimEngine.shared.enterNormalMode()
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .zero))
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .v))
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .d))
         
+        VimEngine.shared.handle(keyCombination: KeyCombination(key: .d))        
         let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
         
         XCTAssertEqual(accessibilityElement?.value, """

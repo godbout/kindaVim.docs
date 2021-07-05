@@ -21,6 +21,7 @@ extension UIASNM_k_Tests {
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
         app.textFields.firstMatch.typeKey(.leftArrow, modifierFlags: [.option])
+        VimEngine.shared.enterNormalMode()
         
         let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
 
@@ -44,13 +45,14 @@ to the same column
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         app.textViews.firstMatch.typeKey(.leftArrow, modifierFlags: [.option])
+        VimEngine.shared.enterNormalMode()
 
         // need to move the caretLocation to have a proper AccessibilityTextElement.globalColumnNumber
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .h))
 
         let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
 
-        XCTAssertEqual(accessibilityElement?.caretLocation, 38)
+        XCTAssertEqual(accessibilityElement?.caretLocation, 37)
     }
 
     func test_that_if_the_previous_line_is_shorter_k_goes_to_the_end_of_line_limit_of_that_previous_line() {
@@ -64,6 +66,7 @@ than the previous shorter than...
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         app.textViews.firstMatch.typeKey(.leftArrow, modifierFlags: [.option])
+        VimEngine.shared.enterNormalMode()
 
         // need to move the caretLocation to have a proper AccessibilityTextElement.globalColumnNumber
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .h))
@@ -83,6 +86,7 @@ another quite long line
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         app.textViews.firstMatch.typeKey(.leftArrow, modifierFlags: [.option])
+        VimEngine.shared.enterNormalMode()
 
         // need to move the caretLocation to have a proper AccessibilityTextElement.globalColumnNumber
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .h))
@@ -91,10 +95,10 @@ another quite long line
         XCTAssertEqual(firstK?.caretLocation, 81)
                         
         let secondK = applyMoveAndGetBackAccessibilityElement()
-        XCTAssertEqual(secondK?.caretLocation, 51)
+        XCTAssertEqual(secondK?.caretLocation, 50)
         
         let thirdK = applyMoveAndGetBackAccessibilityElement()
-        XCTAssertEqual(thirdK?.caretLocation, 18)
+        XCTAssertEqual(thirdK?.caretLocation, 17)
     }
     
     func test_that_when_at_the_first_line_k_does_nothing() {
@@ -106,6 +110,7 @@ nothing ankulay
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [.command])
+        VimEngine.shared.enterNormalMode()
         
         // need to move the caretLocation to have a proper AccessibilityTextElement.globalColumnNumber
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .l))
@@ -128,6 +133,7 @@ to previous line length
         for _ in 1...7 {
             app.textViews.firstMatch.typeKey(.rightArrow, modifierFlags: [])
         }
+        VimEngine.shared.enterNormalMode()
         
         // need to move the caretLocation to have a proper AccessibilityTextElement.globalColumnNumber
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .l))
@@ -149,6 +155,7 @@ empty
         app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
         app.textViews.firstMatch.typeKey(.rightArrow, modifierFlags: [])
         app.textViews.firstMatch.typeKey(.rightArrow, modifierFlags: [])
+        VimEngine.shared.enterNormalMode()
 
         // need to move the caretLocation to have a proper AccessibilityTextElement.globalColumnNumber
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .l))
@@ -158,7 +165,7 @@ empty
 
         let thenK = applyMoveAndGetBackAccessibilityElement()
 
-        XCTAssertEqual(thenK?.caretLocation, 35)
+        XCTAssertEqual(thenK?.caretLocation, 34)
     }
     
 }

@@ -24,6 +24,7 @@ extension UIASVML_j_Tests {
         let textInAXFocusedElement = ""
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
+        VimEngine.shared.enterNormalMode()
         
         let finalElement = applyMoveAndGetBackAccessibilityElement()        
         
@@ -37,6 +38,8 @@ gonna be at the end
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        VimEngine.shared.enterNormalMode()
+        app.textViews.firstMatch.typeKey(.rightArrow, modifierFlags: [])
         
         // enter Visual Mode Linewise and push the selection to the end
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .v, shift: true))                
@@ -57,6 +60,8 @@ own empty
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        VimEngine.shared.enterNormalMode()
+        app.textViews.firstMatch.typeKey(.rightArrow, modifierFlags: [])
         
         let finalElement = applyMoveAndGetBackAccessibilityElement()
               
@@ -74,6 +79,7 @@ extension UIASVML_j_Tests {
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
         app.textFields.firstMatch.typeKey(.leftArrow, modifierFlags: [.option])
+        VimEngine.shared.enterNormalMode()
         
         let finalElement = applyMoveAndGetBackAccessibilityElement()        
         
@@ -99,6 +105,7 @@ when the head is after the anchor
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [.command])
+        VimEngine.shared.enterNormalMode()
         
         let finalElement = applyMoveAndGetBackAccessibilityElement()
         
@@ -121,6 +128,7 @@ head if before the anchor
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        VimEngine.shared.enterNormalMode()
         
         // need to call k so that the anchor and head get updated properly
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .v, shift: true))        

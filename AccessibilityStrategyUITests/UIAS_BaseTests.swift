@@ -13,14 +13,13 @@ class UIAS_BaseTests: XCTestCase {
         app = XCUIApplication()
         app.launch()
         
-        VimEngine.shared.enterNormalMode()
+        VimEngine.shared.enterInsertMode()
     }
     
     func applyMoveAndGetBackAccessibilityElement(_ move: (AccessibilityTextElement?) -> AccessibilityTextElement?) -> AccessibilityTextElement? {
         let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
         
-        guard let transformedElement = move(accessibilityElement) else { return nil }
-        
+        guard let transformedElement = move(accessibilityElement) else { return nil }        
         _ = AccessibilityTextElementAdaptor.toAXFocusedElement(from: transformedElement)
         
         return  AccessibilityTextElementAdaptor.fromAXFocusedElement()        

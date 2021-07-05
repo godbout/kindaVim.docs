@@ -28,6 +28,7 @@ hehe there's gonna be some "double quotes" in that shit
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
         app.textFields.firstMatch.typeKey(.leftArrow, modifierFlags: [.command])
+        VimEngine.shared.enterNormalMode()
         
         let finalElement = applyMoveAndGetBackAccessibilityElement()
         
@@ -41,6 +42,7 @@ hehe there's gonna be some "double quotes" in that shit
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
         app.textFields.firstMatch.typeKey(.leftArrow, modifierFlags: [.command])
+        VimEngine.shared.enterNormalMode()
                         
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .c))
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .i))
@@ -49,14 +51,14 @@ hehe there's gonna be some "double quotes" in that shit
         XCTAssertEqual(VimEngine.shared.currentMode, .insert)        
     }
     
-    func test_a_case_where_it_should_not_delete_the_content() {
-        
+    func test_a_case_where_it_should_not_delete_the_content() {        
         let textInAXFocusedElement = """
 huhu only one " in there...
 """                
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)                
         app.textFields.firstMatch.typeKey(.leftArrow, modifierFlags: [.option])
+        VimEngine.shared.enterNormalMode()
         
         let finalElement = applyMoveAndGetBackAccessibilityElement()
         
@@ -70,6 +72,7 @@ huhu only one " in there...
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)                
         app.textFields.firstMatch.typeKey(.leftArrow, modifierFlags: [.option])
+        VimEngine.shared.enterNormalMode()
                         
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .c))
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .i))

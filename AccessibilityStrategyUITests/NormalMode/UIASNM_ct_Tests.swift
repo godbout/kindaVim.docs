@@ -15,6 +15,7 @@ ct is pretty cool
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
         app.textFields.firstMatch.typeKey(.leftArrow, modifierFlags: [.command])
+        VimEngine.shared.enterNormalMode()
                         
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .c))
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .t))
@@ -30,6 +31,7 @@ hehe can't use ct here with the last letter of the alphabet!
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)                
         app.textFields.firstMatch.typeKey(.leftArrow, modifierFlags: [.option])
+        VimEngine.shared.enterNormalMode()
               
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .c))
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .t))

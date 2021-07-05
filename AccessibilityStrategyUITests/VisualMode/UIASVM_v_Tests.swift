@@ -11,6 +11,7 @@ extension UIASVM_v_Tests {
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
         app.textFields.firstMatch.typeKey(.leftArrow, modifierFlags: [.option])
+        VimEngine.shared.enterNormalMode()
         
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .v, shift: true))
         let accessibilityElement = asVisualMode.v(on: AccessibilityTextElementAdaptor.fromAXFocusedElement())
@@ -23,6 +24,7 @@ extension UIASVM_v_Tests {
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
         app.textFields.firstMatch.typeKey(.leftArrow, modifierFlags: [.option])
+        VimEngine.shared.enterNormalMode()
 
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .v, shift: true))
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .o))

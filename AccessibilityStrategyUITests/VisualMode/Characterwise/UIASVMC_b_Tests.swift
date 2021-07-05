@@ -14,9 +14,9 @@ always move from the anchor, not
 from the caret location
 """
         app.textViews.firstMatch.tap()
-        app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        app.textViews.firstMatch.typeKey(.leftArrow, modifierFlags: [])        
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)        
         app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
+        VimEngine.shared.enterNormalMode()
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .v))
         
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .b))        

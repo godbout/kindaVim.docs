@@ -23,6 +23,7 @@ extension UIASNM_P__TextFields_Tests {
         let textInAXFocusedElement = ""
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
+        VimEngine.shared.enterNormalMode()
         
         NSPasteboard.general.clearContents()
         NSPasteboard.general.setString("test 1 of The 3 Cases P TF", forType: .string)
@@ -38,6 +39,8 @@ extension UIASNM_P__TextFields_Tests {
         let textInAXFocusedElement = "oh oh you're out of the boundaries!"
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
+        VimEngine.shared.enterNormalMode()        
+        app.textViews.firstMatch.typeKey(.rightArrow, modifierFlags: [])
         
         NSPasteboard.general.clearContents()
         NSPasteboard.general.setString("test 2 of The 3 Cases P TF", forType: .string)
@@ -60,6 +63,8 @@ extension UIASNM_P__TextFields_Tests {
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
         app.textFields.firstMatch.typeKey(.leftArrow, modifierFlags: [.option])
+        VimEngine.shared.enterNormalMode()
+        app.textViews.firstMatch.typeKey(.rightArrow, modifierFlags: [])
         
         NSPasteboard.general.clearContents()
         NSPasteboard.general.setString("text to pasta pizza!!!", forType: .string)
@@ -82,6 +87,7 @@ extension UIASNM_P__TextFields_Tests {
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
         app.textFields.firstMatch.typeKey(.leftArrow, modifierFlags: [.command])
+        VimEngine.shared.enterNormalMode()
         
         NSPasteboard.general.clearContents()
         NSPasteboard.general.setString("paste me daddy", forType: .string)
@@ -98,7 +104,7 @@ extension UIASNM_P__TextFields_Tests {
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
         app.textFields.firstMatch.typeKey(.leftArrow, modifierFlags: [.option])
-        app.textFields.firstMatch.typeKey(.leftArrow, modifierFlags: [])
+        VimEngine.shared.enterNormalMode()
         
         NSPasteboard.general.clearContents()
         NSPasteboard.general.setString("yanked with the linefeed hum hum\n", forType: .string)

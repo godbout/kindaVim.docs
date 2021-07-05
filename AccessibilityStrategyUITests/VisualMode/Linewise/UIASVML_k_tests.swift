@@ -24,6 +24,7 @@ extension UIASVML_k_Tests {
         let textInAXFocusedElement = ""
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
+        VimEngine.shared.enterNormalMode()
         
         let finalElement = applyMoveAndGetBackAccessibilityElement()        
         
@@ -37,6 +38,8 @@ gonna be at the end
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        VimEngine.shared.enterNormalMode()
+        app.textViews.firstMatch.typeKey(.rightArrow, modifierFlags: [])
         
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .v, shift: true))        
         
@@ -57,6 +60,8 @@ own empty
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        VimEngine.shared.enterNormalMode()
+        app.textViews.firstMatch.typeKey(.rightArrow, modifierFlags: [])
         
         let finalElement = applyMoveAndGetBackAccessibilityElement()
         
@@ -74,7 +79,9 @@ extension UIASVML_k_Tests {
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
         app.textFields.firstMatch.typeKey(.leftArrow, modifierFlags: [.option])
+        VimEngine.shared.enterNormalMode()
         
+        VimEngine.shared.enterNormalMode()        
         let finalElement = applyMoveAndGetBackAccessibilityElement()        
         
         XCTAssertEqual(finalElement?.caretLocation, 0)
@@ -96,6 +103,7 @@ the line above nice
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        VimEngine.shared.enterNormalMode()
         
         let finalElement = applyMoveAndGetBackAccessibilityElement()
         
@@ -118,6 +126,7 @@ the line above nice
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [.command])
+        VimEngine.shared.enterNormalMode()
         
         // need to call j so that the anchor and head get updated properly
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .v, shift: true))        

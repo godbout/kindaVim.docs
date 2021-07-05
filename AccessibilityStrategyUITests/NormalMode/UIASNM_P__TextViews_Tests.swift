@@ -25,6 +25,7 @@ extension UIASNM_P__TextViews_Tests {
         let textInAXFocusedElement = ""
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        VimEngine.shared.enterNormalMode()
 
         NSPasteboard.general.clearContents()
         NSPasteboard.general.setString("test 1 of The 3 Cases for TextArea P", forType: .string)
@@ -40,6 +41,8 @@ extension UIASNM_P__TextViews_Tests {
         let textInAXFocusedElement = "you're out of the boundaries buddy"
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        VimEngine.shared.enterNormalMode()
+        app.textViews.firstMatch.typeKey(.rightArrow, modifierFlags: [])
 
         NSPasteboard.general.clearContents()
         NSPasteboard.general.setString("test 2 of The 3 Cases for TextArea P", forType: .string)
@@ -60,6 +63,8 @@ line
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        VimEngine.shared.enterNormalMode()
+        app.textViews.firstMatch.typeKey(.rightArrow, modifierFlags: [])
 
         NSPasteboard.general.clearContents()
         NSPasteboard.general.setString("test 3 of The 3 Cases for TextArea P", forType: .string)
@@ -94,7 +99,7 @@ ho ho ho
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
         app.textViews.firstMatch.typeKey(.leftArrow, modifierFlags: [.option])
-        app.textViews.firstMatch.typeKey(.leftArrow, modifierFlags: [])
+        VimEngine.shared.enterNormalMode()
 
         NSPasteboard.general.clearContents()
         NSPasteboard.general.setString("pastaing", forType: .string)
@@ -120,6 +125,7 @@ here's the last one
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
+        VimEngine.shared.enterNormalMode()
 
         NSPasteboard.general.clearContents()
         NSPasteboard.general.setString("text for the new line", forType: .string)
@@ -150,6 +156,7 @@ extension UIASNM_P__TextViews_Tests {
         let textInAXFocusedElement = ""
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        VimEngine.shared.enterNormalMode()
 
         NSPasteboard.general.clearContents()
         NSPasteboard.general.setString("test 1 of The 3 Cases for TextArea linewise P", forType: .string)
@@ -172,6 +179,8 @@ cannot
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        VimEngine.shared.enterNormalMode()
+        app.textViews.firstMatch.typeKey(.rightArrow, modifierFlags: [])
 
         NSPasteboard.general.clearContents()
         NSPasteboard.general.setString("test 2 of The 3 Cases for TextArea linewise P", forType: .string)
@@ -197,6 +206,8 @@ enforce a linefeed
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        VimEngine.shared.enterNormalMode()
+        app.textViews.firstMatch.typeKey(.rightArrow, modifierFlags: [])
 
         NSPasteboard.general.clearContents()
         NSPasteboard.general.setString("test 3 of The 3 Cases for TextArea linewise P", forType: .string)
@@ -233,6 +244,7 @@ pasted at the current line place
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
         app.textViews.firstMatch.typeKey(.leftArrow, modifierFlags: [.option])
+        VimEngine.shared.enterNormalMode()
 
         NSPasteboard.general.clearContents()
         NSPasteboard.general.setString("should paste that\n", forType: .string)
@@ -261,6 +273,7 @@ to the first non blank of the copied line
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
+        VimEngine.shared.enterNormalMode()
 
         NSPasteboard.general.clearContents()
         NSPasteboard.general.setString("   the copied line has non blanks\n", forType: .string)

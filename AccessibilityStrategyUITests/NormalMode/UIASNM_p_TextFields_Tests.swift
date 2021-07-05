@@ -32,6 +32,7 @@ extension UIASNM_p_TextFields_Tests {
         let textInAXFocusedElement = ""
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
+        VimEngine.shared.enterNormalMode()
                 
         NSPasteboard.general.clearContents()
         NSPasteboard.general.setString("test 1 of The 3 Cases", forType: .string)
@@ -47,6 +48,7 @@ extension UIASNM_p_TextFields_Tests {
         let textInAXFocusedElement = "the user has clicked out of the boundaries!"
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
+        VimEngine.shared.enterNormalMode()
         
         NSPasteboard.general.clearContents()
         NSPasteboard.general.setString("test 2 of The 3 Cases", forType: .string)
@@ -69,7 +71,7 @@ extension UIASNM_p_TextFields_Tests {
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
         app.textFields.firstMatch.typeKey(.leftArrow, modifierFlags: [.option])
-        app.textFields.firstMatch.typeKey(.leftArrow, modifierFlags: [])
+        VimEngine.shared.enterNormalMode()
         
         NSPasteboard.general.clearContents()
         NSPasteboard.general.setString("text to paste!!!", forType: .string)
@@ -92,6 +94,7 @@ extension UIASNM_p_TextFields_Tests {
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
         app.textFields.firstMatch.typeKey(.leftArrow, modifierFlags: [.command])
+        VimEngine.shared.enterNormalMode()
         
         NSPasteboard.general.clearContents()
         NSPasteboard.general.setString("text to pasta", forType: .string)
@@ -108,7 +111,7 @@ extension UIASNM_p_TextFields_Tests {
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
         app.textFields.firstMatch.typeKey(.leftArrow, modifierFlags: [.option])
-        app.textFields.firstMatch.typeKey(.leftArrow, modifierFlags: [])
+        VimEngine.shared.enterNormalMode()
         
         NSPasteboard.general.clearContents()
         NSPasteboard.general.setString("yanked with the linefeed\n", forType: .string)

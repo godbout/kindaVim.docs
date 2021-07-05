@@ -29,6 +29,7 @@ gonna be at the end
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        VimEngine.shared.enterNormalMode()
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .v, shift: true))
         app.textViews.firstMatch.typeKey(.rightArrow, modifierFlags: [])
         
@@ -52,6 +53,7 @@ own empty
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        VimEngine.shared.enterNormalMode()
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .v, shift: true))
         
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .d))
@@ -83,6 +85,7 @@ one extra line in between!
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
         app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
+        VimEngine.shared.enterNormalMode()
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .v, shift: true))
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .j))
         
@@ -110,6 +113,7 @@ some more
         app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
         app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
         app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
+        VimEngine.shared.enterNormalMode()
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .v, shift: true))
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .j))
         
@@ -138,6 +142,7 @@ another line agan
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
         app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
+        VimEngine.shared.enterNormalMode()
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .v, shift: true))
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .j))
         
@@ -161,7 +166,8 @@ and it would be beautiful
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])        
+        app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])    
+        VimEngine.shared.enterNormalMode()
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .v, shift: true))
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .j))
         
@@ -182,7 +188,8 @@ line and caret should go up
 and it would be beautiful
 """
         app.textViews.firstMatch.tap()
-        app.textViews.firstMatch.typeText(textInAXFocusedElement)        
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)       
+        VimEngine.shared.enterNormalMode()
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .v, shift: true))
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .k))
         
@@ -204,7 +211,8 @@ blah
 t
 """
         app.textViews.firstMatch.tap()
-        app.textViews.firstMatch.typeText(textInAXFocusedElement)        
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)     
+        VimEngine.shared.enterNormalMode()
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .v, shift: true))
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .k))
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .k))
