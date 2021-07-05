@@ -38,14 +38,12 @@ from the caret location
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)        
         VimEngine.shared.enterNormalMode()
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .v))
-        
-        // it used to fail after the second move
+        VimEngine.shared.handle(keyCombination: KeyCombination(key: .v))                
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .b))
+        // it used to fail after the second move
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .b))        
         
         XCTAssertEqual(AccessibilityStrategyVisualMode.head, 33)
-        
     }
     
 }

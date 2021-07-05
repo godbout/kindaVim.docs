@@ -29,13 +29,11 @@ extension AccessibilityStrategyVisualMode {
                 let endOfWordForwardLocation = textEngine.endOfWordForward(startingAt: element.caretLocation, in: TextEngineText(from: element.value))
                 
                 if endOfWordForwardLocation > Self.anchor {
-                    element.selectedLength = endOfWordForwardLocation - Self.anchor + 1
                     element.caretLocation = Self.anchor
-                    
-                    Self.head = endOfWordForwardLocation
+                    element.selectedLength = endOfWordForwardLocation - Self.anchor + 1                    
                 } else {
-                    element.selectedLength -= endOfWordForwardLocation - element.caretLocation
                     element.caretLocation = endOfWordForwardLocation
+                    element.selectedLength = Self.anchor - endOfWordForwardLocation + 1
                 }
             }
         }
