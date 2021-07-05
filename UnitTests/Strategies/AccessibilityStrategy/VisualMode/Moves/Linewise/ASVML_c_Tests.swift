@@ -109,7 +109,7 @@ line
 // Both
 extension ASVML_c_Tests {
     
-    func test_that_in_normal_setting_it_deletes_the_selected_lines_but_without_the_last_linefeed() {
+    func test_that_in_normal_setting_it_deletes_the_selected_lines_but_without_the_last_linefeed_of_the_selection_if_any() {
         let text = """
 VM c in Linewise
 will delete the selected lines
@@ -132,7 +132,7 @@ at least if we're not at the end of the text
         
         let returnedElement = applyMove(on: element)
         
-        XCTAssertEqual(returnedElement?.caretLocation, 9)
+        XCTAssertEqual(returnedElement?.caretLocation, 17)
         XCTAssertEqual(returnedElement?.selectedLength, 64)
         XCTAssertEqual(returnedElement?.selectedText, "")
     }

@@ -109,30 +109,53 @@ line
 // Both
 extension ASVMC_c_Tests {
     
-    func test_that_it_deletes_the_selected_text() {
-        let text = """
-VM c deletes the
-text that is selected
-that's it
-"""
+    func test_that_when_the_selection_is_spanning_on_a_single_line_it_deletes_the_selected_text() {
+        let text = "ok so VM c (hahaha) on a single line"
         let element = AccessibilityTextElement(
-            role: .textArea,
+            role: .textField,
             value: text,
-            length: 48,
-            caretLocation: 9,
-            selectedLength: 18,
+            length: 36,
+            caretLocation: 14,
+            selectedLength: 13,
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 1,
                 start: 0,
-                end: 17
+                end: 36
             )
         )
         
         let returnedElement = applyMove(on: element)
         
-        XCTAssertEqual(returnedElement?.caretLocation, 9)
-        XCTAssertEqual(returnedElement?.selectedLength, 18)
+        XCTAssertEqual(returnedElement?.caretLocation, 14)
+        XCTAssertEqual(returnedElement?.selectedLength, 13)
+        XCTAssertEqual(returnedElement?.selectedText, "")
+    }
+    
+    func test_that_when_the_selection_is_spanning_on_multiple_linse_it_deletes_the_selected_text() {
+        let text = """
+like same as above
+but on multiple
+lines because
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 48,
+            caretLocation: 8,
+            selectedLength: 36,
+            currentLine: AccessibilityTextElementLine(
+                fullValue: text,
+                number: 1,
+                start: 0,
+                end: 19
+            )
+        )
+        
+        let returnedElement = applyMove(on: element)
+        
+        XCTAssertEqual(returnedElement?.caretLocation, 8)
+        XCTAssertEqual(returnedElement?.selectedLength, 36)
         XCTAssertEqual(returnedElement?.selectedText, "")
     }
     
