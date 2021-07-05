@@ -9,6 +9,9 @@ extension AccessibilityStrategyVisualMode {
         }
         
         if element.caretIsAtTheEnd, element.lastCharacterIsNotLinefeed {
+            element.caretLocation -= 1
+            element.selectedLength = 1
+            
             return element
         }
         
