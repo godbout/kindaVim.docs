@@ -30,12 +30,9 @@ to the same column
         app.textViews.firstMatch.typeKey(.leftArrow, modifierFlags: [.option])
         VimEngine.shared.enterNormalMode()
 
-        // need to move the caretLocation to have a proper AccessibilityTextElement.globalColumnNumber
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .h))
-
         let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
 
-        XCTAssertEqual(accessibilityElement?.caretLocation, 37)
+        XCTAssertEqual(accessibilityElement?.caretLocation, 38)
     }
 
     func test_that_if_the_previous_line_is_shorter_k_goes_to_the_end_of_line_limit_of_that_previous_line() {
@@ -50,9 +47,6 @@ than the previous shorter than...
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         app.textViews.firstMatch.typeKey(.leftArrow, modifierFlags: [.option])
         VimEngine.shared.enterNormalMode()
-
-        // need to move the caretLocation to have a proper AccessibilityTextElement.globalColumnNumber
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .h))
         
         let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
 
@@ -70,18 +64,15 @@ another quite long line
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         app.textViews.firstMatch.typeKey(.leftArrow, modifierFlags: [.option])
         VimEngine.shared.enterNormalMode()
-
-        // need to move the caretLocation to have a proper AccessibilityTextElement.globalColumnNumber
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .h))
         
         let firstK = applyMoveAndGetBackAccessibilityElement()
         XCTAssertEqual(firstK?.caretLocation, 81)
                         
         let secondK = applyMoveAndGetBackAccessibilityElement()
-        XCTAssertEqual(secondK?.caretLocation, 50)
+        XCTAssertEqual(secondK?.caretLocation, 51)
         
         let thirdK = applyMoveAndGetBackAccessibilityElement()
-        XCTAssertEqual(thirdK?.caretLocation, 17)
+        XCTAssertEqual(thirdK?.caretLocation, 18)
     }
     
     func test_that_when_at_the_first_line_k_does_nothing() {
@@ -94,13 +85,10 @@ nothing ankulay
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [.command])
         VimEngine.shared.enterNormalMode()
-        
-        // need to move the caretLocation to have a proper AccessibilityTextElement.globalColumnNumber
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .l))
-        
+                
         let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
 
-        XCTAssertEqual(accessibilityElement?.caretLocation, 1)
+        XCTAssertEqual(accessibilityElement?.caretLocation, 0)
     }
     
     func test_that_when_current_line_column_is_equal_to_previous_line_length_the_caret_ends_up_at_the_right_previous_line_end_limit() {
@@ -108,19 +96,15 @@ nothing ankulay
 weird bug when
 current line column
 is equal
-to previous line length
+to previ ous line length
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        app.textViews.firstMatch.typeKey(.leftArrow, modifierFlags: [.command])
-        for _ in 1...7 {
-            app.textViews.firstMatch.typeKey(.rightArrow, modifierFlags: [])
-        }
+        app.textViews.firstMatch.typeKey(.leftArrow, modifierFlags: [.command])        
         VimEngine.shared.enterNormalMode()
-        
-        // need to move the caretLocation to have a proper AccessibilityTextElement.globalColumnNumber
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .l))
-        
+        VimEngine.shared.handle(keyCombination: KeyCombination(key: .e))
+        VimEngine.shared.handle(keyCombination: KeyCombination(key: .e))
+                
         let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
 
         XCTAssertEqual(accessibilityElement?.caretLocation, 42)
@@ -139,16 +123,11 @@ empty
         app.textViews.firstMatch.typeKey(.rightArrow, modifierFlags: [])
         app.textViews.firstMatch.typeKey(.rightArrow, modifierFlags: [])
         VimEngine.shared.enterNormalMode()
+        VimEngine.shared.handle(keyCombination: KeyCombination(key: .j))
+        
+        let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
 
-        // need to move the caretLocation to have a proper AccessibilityTextElement.globalColumnNumber
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .l))
-
-        let jFirst = asNormalMode.j(on: AccessibilityTextElementAdaptor.fromAXFocusedElement())
-        _ = AccessibilityTextElementAdaptor.toAXFocusedElement(from: jFirst!)
-
-        let thenK = applyMoveAndGetBackAccessibilityElement()
-
-        XCTAssertEqual(thenK?.caretLocation, 34)
+        XCTAssertEqual(accessibilityElement?.caretLocation, 33)
     }
     
 }
