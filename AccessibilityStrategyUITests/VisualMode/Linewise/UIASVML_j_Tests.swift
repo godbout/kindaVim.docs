@@ -4,7 +4,7 @@ import XCTest
 class UIASVML_j_Tests: UIAS_BaseTests {
     
     private func applyMoveAndGetBackAccessibilityElement() -> AccessibilityTextElement? {
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .v, shift: true))
+        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .V))
         
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .j))
         
@@ -42,7 +42,7 @@ gonna be at the end
         app.textViews.firstMatch.typeKey(.rightArrow, modifierFlags: [])
         
         // enter Visual Mode Linewise and push the selection to the end
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .v, shift: true))                
+        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .V))                
         app.textViews.firstMatch.typeKey(.rightArrow, modifierFlags: [.command])
                 
         let accessibilityElement = asVisualMode.j(on: AccessibilityTextElementAdaptor.fromAXFocusedElement())
@@ -131,7 +131,7 @@ head if before the anchor
         VimEngine.shared.enterNormalMode()
         
         // need to call k so that the anchor and head get updated properly
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .v, shift: true))        
+        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .V))        
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .k))
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .k))
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .k))

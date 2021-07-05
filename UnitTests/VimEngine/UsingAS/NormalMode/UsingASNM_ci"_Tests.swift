@@ -8,7 +8,7 @@ class UsingASNM_ciDoubleQuote_Tests: UsingASNM_BaseTests {
         
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .c))
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .i))
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .singleQuote, shift: true))
+        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .doubleQuote))
     }
     
 }

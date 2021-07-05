@@ -8,7 +8,7 @@ class UsingASNM_rightBracketRightBrace_Tests: UsingASNM_BaseTests {
         super.setUp()
         
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .rightBracket))
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .rightBracket, shift: true))
+        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .rightBrace))
     }
     
 }

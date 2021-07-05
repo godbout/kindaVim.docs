@@ -12,7 +12,7 @@ class UIASNM_ciDoubleQuote_Tests: UIAS_BaseTests {
     private func applyMoveAndGetBackAccessibilityElement() -> AccessibilityTextElement? {
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .c))
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .i))
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .singleQuote, shift: true))
+        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .doubleQuote))
         
         return AccessibilityTextElementAdaptor.fromAXFocusedElement()
     }
@@ -48,7 +48,7 @@ hehe there's gonna be some "double quotes" in that shit
                         
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .c))
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .i))
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .singleQuote, shift: true))
+        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .doubleQuote))
         
         XCTAssertEqual(VimEngine.shared.currentMode, .insert)        
     }
@@ -78,7 +78,7 @@ huhu only one " in there...
                         
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .c))
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .i))
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .singleQuote, shift: true))
+        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .doubleQuote))
         
         XCTAssertEqual(VimEngine.shared.currentMode, .normal)      
     }

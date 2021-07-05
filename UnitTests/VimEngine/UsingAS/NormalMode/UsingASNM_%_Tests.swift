@@ -7,7 +7,7 @@ class UsingASNM_percent_Tests: UsingASNM_BaseTests {
     override func setUp() {
         super.setUp()
         
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .five, shift: true))
+        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .percent))
     }
     
 }

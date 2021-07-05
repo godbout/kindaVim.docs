@@ -18,7 +18,7 @@ cF is pretty cool
         VimEngine.shared.enterNormalMode()
         
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .c))
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .f, shift: true))
+        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .F))
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .p))
         
         XCTAssertEqual(VimEngine.shared.currentMode, .insert)        
@@ -34,7 +34,7 @@ hehe can't use cF here with the last letter of the alphabet!
         VimEngine.shared.enterNormalMode()
         
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .c))
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .f, shift: true))
+        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .F))
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .z))
         
         XCTAssertEqual(VimEngine.shared.currentMode, .normal)      

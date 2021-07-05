@@ -26,7 +26,7 @@ one extra line in between!
         app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
         app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
         VimEngine.shared.enterNormalMode()
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .v, shift: true))
+        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .V))
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .j))
         
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .d))
@@ -54,7 +54,7 @@ some more
         app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
         app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
         VimEngine.shared.enterNormalMode()
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .v, shift: true))
+        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .V))
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .j))
         
         
@@ -83,7 +83,7 @@ another line agan
         app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
         app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
         VimEngine.shared.enterNormalMode()
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .v, shift: true))
+        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .V))
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .j))
         
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .d))
@@ -108,7 +108,7 @@ and it would be beautiful
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])    
         VimEngine.shared.enterNormalMode()
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .v, shift: true))
+        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .V))
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .j))
         
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .d))
@@ -130,7 +130,7 @@ and it would be beautiful
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)       
         VimEngine.shared.enterNormalMode()
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .v, shift: true))
+        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .V))
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .k))
         
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .d))
@@ -153,7 +153,7 @@ t
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)     
         VimEngine.shared.enterNormalMode()
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .v, shift: true))
+        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .V))
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .k))
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .k))
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .k))

@@ -7,7 +7,7 @@ class UsingASNM_O__Tests: UsingASNM_BaseTests {
     override func setUp() {
         super.setUp()
         
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .o, shift: true))
+        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .O))
     }
     
 }

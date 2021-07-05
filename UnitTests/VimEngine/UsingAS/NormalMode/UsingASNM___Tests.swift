@@ -7,7 +7,7 @@ class UsingASNM___Tests: UsingASNM_BaseTests {
     override func setUp() {
         super.setUp()
         
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .minus, shift: true))
+        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .underscore))
     }
     
 }

@@ -8,7 +8,7 @@ class UsingASNM_Y__Tests: UsingASNM_BaseTests {
     override func setUp() {
         super.setUp()
         
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .y, shift: true))
+        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .Y))
     }
     
 }

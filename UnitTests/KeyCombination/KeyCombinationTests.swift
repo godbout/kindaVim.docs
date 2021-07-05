@@ -1,9 +1,11 @@
 @testable import kindaVim
 import XCTest
 
+
 class KeyCombinationTests: XCTestCase {}
 
-// test VimKeys that are implemented
+
+// test to VimKeys that are implemented
 extension KeyCombinationTests {
 
     func test_that_$_has_a_VimKey_equivalent_of_dollarSign() {
@@ -152,7 +154,7 @@ extension KeyCombinationTests {
 
 }
 
-// test VimKeys that don't exist, or exist but are not implemented
+// test to VimKeys that don't exist, or exist but are not implemented
 // this is not testing all combinations. just a few ones to show whether
 // i have been made aware of this which is  located in KeyCombination.vimKeyFrom()
 extension KeyCombinationTests {
@@ -180,6 +182,43 @@ extension KeyCombinationTests {
     }
 
 }
+
+
+// a few tests from VimKey
+extension KeyCombinationTests {
+    
+    func test_that_VimKey_u_creates_the_correct_KeyCombination() {
+        let keyCombination = KeyCombination(vimKey: .u)
+        
+        XCTAssertEqual(keyCombination.key, .u)
+        XCTAssertEqual(keyCombination.control, false)
+        XCTAssertEqual(keyCombination.option, false)
+        XCTAssertEqual(keyCombination.shift, false)
+        XCTAssertEqual(keyCombination.command, false)
+    }
+    
+    func test_that_VimKey_O_creates_the_correct_KeyCombination() {
+        let keyCombination = KeyCombination(vimKey: .O)
+        
+        XCTAssertEqual(keyCombination.key, .o)
+        XCTAssertEqual(keyCombination.control, false)
+        XCTAssertEqual(keyCombination.option, false)
+        XCTAssertEqual(keyCombination.shift, true)
+        XCTAssertEqual(keyCombination.command, false)
+    }
+    
+    func test_that_VimKey_P_creates_the_correct_KeyCombination() {
+        let keyCombination = KeyCombination(vimKey: .P)
+        
+        XCTAssertEqual(keyCombination.key, .p)
+        XCTAssertEqual(keyCombination.control, false)
+        XCTAssertEqual(keyCombination.option, false)
+        XCTAssertEqual(keyCombination.shift, true)
+        XCTAssertEqual(keyCombination.command, false)
+    }
+    
+}
+
 
 // wanted to test the character computer property
 // but cannot because we need a REAL CGEvent.

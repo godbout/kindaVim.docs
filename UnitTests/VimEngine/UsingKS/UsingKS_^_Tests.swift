@@ -6,7 +6,7 @@ class UsingKS_caret_Tests: UsingKS_BaseTests {
     override func setUp() {
         super.setUp()
 
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .six, shift: true))
+        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .caret))
     }
 
 }

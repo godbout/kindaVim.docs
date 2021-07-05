@@ -40,7 +40,7 @@ anchor
         app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
         VimEngine.shared.enterNormalMode()
                         
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .v, shift: true))
+        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .V))
         let accessibilityElement = asVisualMode.V(on: AccessibilityTextElementAdaptor.fromAXFocusedElement())        
         
         XCTAssertEqual(accessibilityElement?.caretLocation, 36)
@@ -57,7 +57,7 @@ anchor
         app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
         VimEngine.shared.enterNormalMode()
         
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .v, shift: true))
+        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .V))
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .o))
         let accessibilityElement = asVisualMode.V(on: AccessibilityTextElementAdaptor.fromAXFocusedElement())        
         

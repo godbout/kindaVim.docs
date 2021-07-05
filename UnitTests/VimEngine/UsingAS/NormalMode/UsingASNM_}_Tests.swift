@@ -7,7 +7,7 @@ class UsingASNM_rightBrace_Tests: UsingASNM_BaseTests {
     override func setUp() {
         super.setUp()
         
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .rightBracket, shift: true))
+        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .rightBrace))
     }
     
 }

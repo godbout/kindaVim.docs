@@ -6,7 +6,7 @@ class UsingASNM_P__Tests: UsingASNM_BaseTests {
     override func setUp() {
         super.setUp()
         
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .p, shift: true))
+        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .P))
     }
     
 }

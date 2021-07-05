@@ -5,7 +5,7 @@ import XCTest
 class UIASNM_O__Tests: UIAS_BaseTests {
     
     private func applyMoveAndGetBackAccessibilityElement() -> AccessibilityTextElement? {
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .o, shift: true))
+        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .O))
         
         return AccessibilityTextElementAdaptor.fromAXFocusedElement()
     }

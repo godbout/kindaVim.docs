@@ -9,7 +9,7 @@ class UsingASNM_yiDoubleQuote_Tests: UsingASNM_BaseTests {
         
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .y))
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .i))
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .singleQuote, shift: true))
+        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .doubleQuote))
     }
     
 }

@@ -7,7 +7,7 @@ class UsingKS_dG_Tests: UsingKS_BaseTests {
         super.setUp()
 
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .d))
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .g, shift: true))
+        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .G))
     }
 
 }

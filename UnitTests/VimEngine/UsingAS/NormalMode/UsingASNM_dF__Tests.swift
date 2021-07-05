@@ -8,7 +8,7 @@ class UsingASNM_dF__Tests: UsingASNM_BaseTests {
         super.setUp()
         
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .d))
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .f, shift: true))
+        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .F))
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .x))        
     }
     

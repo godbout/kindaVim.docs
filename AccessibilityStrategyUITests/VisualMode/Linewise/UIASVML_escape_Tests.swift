@@ -20,7 +20,7 @@ extension UIASVML_escape_Tests {
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
         VimEngine.shared.enterNormalMode()
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .v, shift: true))        
+        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .V))        
         
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .escape))
         let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
@@ -42,7 +42,7 @@ over multiple lines
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         VimEngine.shared.enterNormalMode()        
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .v, shift: true))        
+        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .V))        
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .k))
         
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .escape))
@@ -60,7 +60,7 @@ gonna go after
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
         VimEngine.shared.enterNormalMode()
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .v, shift: true))
+        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .V))
         // can be replaced by other moves, or even $ when fixed, later
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .j))
         

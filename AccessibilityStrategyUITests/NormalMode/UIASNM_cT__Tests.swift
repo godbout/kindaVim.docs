@@ -18,7 +18,7 @@ cT is pretty cool
         VimEngine.shared.enterNormalMode()
         
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .c))
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .t, shift: true))
+        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .T))
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .p))
         
         XCTAssertEqual(VimEngine.shared.currentMode, .insert)        
@@ -34,7 +34,7 @@ hehe can't use cT here with the last letter of the alphabet!
         VimEngine.shared.enterNormalMode()
         
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .c))
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .t, shift: true))
+        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .T))
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .z))
         
         XCTAssertEqual(VimEngine.shared.currentMode, .normal)      

@@ -6,7 +6,7 @@ class UsingKS___Tests: UsingKS_BaseTests {
     override func setUp() {
         super.setUp()
 
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .minus, shift: true))
+        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .underscore))
     }
 
 }

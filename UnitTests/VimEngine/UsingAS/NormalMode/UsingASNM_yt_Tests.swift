@@ -9,7 +9,7 @@ class UsingASNM_yt_Tests: UsingASNM_BaseTests {
         
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .y))
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .t))
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .x, shift: true))
+        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .X))
     }
     
 }

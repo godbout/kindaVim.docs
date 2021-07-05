@@ -1,6 +1,8 @@
 import Foundation
 
+
 enum KeyCode: Int64, RawRepresentable {
+    
     case a = 0
     case b = 11
     case c = 8
@@ -62,15 +64,21 @@ enum KeyCode: Int64, RawRepresentable {
     case slash = 44
     case space = 49
     case up = 126
+    
 }
 
+
 enum KeyCombinationAction {
+    
     case press
     case release
     case both
+    
 }
 
+
 enum VimKey {
+    
     // for dumping data
     case commandD
     
@@ -132,15 +140,18 @@ enum VimKey {
     
     case underscore
     case zero
+    
 }
 
+
 struct KeyCombination {
+    
     let vimKey: VimKey?
     let key: KeyCode
-    var command: Bool = false
-    var option: Bool = false
     var control: Bool = false
+    var option: Bool = false
     var shift: Bool = false
+    var command: Bool = false
     var character: Character {
         let cgEvent = KeyCombinationAdaptor.toCGEvents(from: self)
         
@@ -152,6 +163,7 @@ struct KeyCombination {
     }
     var action: KeyCombinationAction = .both
     
+    
     init(key: KeyCode, control: Bool = false, option: Bool = false, shift: Bool = false, command: Bool = false, action: KeyCombinationAction = .both) {
         self.key = key
         self.control = control
@@ -161,6 +173,157 @@ struct KeyCombination {
         self.action = action
 
         self.vimKey = Self.vimKeyFrom(key: key, control: control, option: option, shift: shift, command: command)
+    }
+    
+    init(vimKey: VimKey, action: KeyCombinationAction = .both) {
+        control = false
+        option = false
+        shift = false
+        command = false
+        self.action = action
+        self.vimKey = vimKey
+        
+        switch vimKey {
+        case .commandD:
+            key = .d
+            command = true
+        case .a:
+            key = .a
+        case .A:
+            key = .a
+            shift = true
+        case .b:
+            key = .b
+        case .B:
+            key = .b
+            shift = true
+        case .c:
+            key = .c
+        case .C:
+            key = .c
+            shift = true
+        case .d:
+            key = .d
+        case .controlD:
+            key = .d
+            control = true
+        case .e:
+            key = .e
+        case .E:
+            key = .e
+            shift = true
+        case .f:
+            key = .f
+        case .F:
+            key = .f
+            shift = true
+        case .g:
+            key = .g
+        case .G:
+            key = .g
+            shift = true
+        case .h:
+            key = .h
+        case .i:
+            key = .i
+        case .I:
+            key = .i
+            shift = true
+        case .j:
+            key = .j
+        case .k:
+            key = .k
+        case .l:
+            key = .l
+        case .leftBrace:
+            key = .leftBracket
+            shift = true
+        case .leftBracket:
+            key = .leftBracket
+        case .leftParenthesis:
+            key = .nine
+            shift = true
+        case .o:
+            key = .o
+        case .O:
+            key = .o
+            shift = true
+        case .p:
+            key = .p
+        case .P:
+            key = .p
+            shift = true
+        case .percent:
+            key = .five
+            shift = true
+        case .r:
+            key = .r
+        case .controlR:
+            key = .r
+            control = true
+        case .rightBrace:
+            key = .rightBracket
+            shift = true
+        case .rightBracket:
+            key = .rightBracket
+        case .rightParenthesis:
+            key = .zero
+            shift = true
+        case .s:
+            key = .s
+        case .t:
+            key = .t
+        case .T:
+            key = .t
+            shift = true
+        case .u:
+            key = .u
+        case .controlU:
+            key = .u
+            control = true
+        case .v:
+            key = .v
+        case .V:
+            key = .v
+            shift = true
+        case .w:
+            key = .w
+        case .W:
+            key = .w
+            shift = true
+        case .x:
+            key = .x
+        case .X:
+            key = .x
+            shift = true
+        case .y:
+            key = .y
+        case .Y:
+            key = .y
+            shift = true
+        case .backtick:
+            key = .backtick
+        case .caret:
+            key = .six
+            shift = true
+        case .doubleQuote:
+            key = .singleQuote
+            shift = true
+        case .dollarSign:
+            key = .four
+            shift = true
+        case .escape:
+            key = .escape
+        case .enter:
+            key = .enter
+        case .singleQuote:
+            key = .singleQuote
+        case .underscore:
+            key = .minus
+            shift = true
+        case .zero:
+            key = .zero
+        }
     }
 
     private static func vimKeyFrom(key: KeyCode, control: Bool, option: Bool, shift: Bool, command: Bool) -> VimKey? {

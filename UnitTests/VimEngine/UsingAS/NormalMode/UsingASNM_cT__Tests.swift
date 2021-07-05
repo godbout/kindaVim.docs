@@ -8,7 +8,7 @@ class UsingASNM_cT__Tests: UsingASNM_BaseTests {
         super.setUp()
         
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .c))
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .t, shift: true))
+        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .T))
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .a))        
     }
     

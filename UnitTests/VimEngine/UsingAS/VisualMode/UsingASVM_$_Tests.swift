@@ -7,7 +7,7 @@ class UsingASVM_$_Tests: UsingASVM_BaseTests {
     override func setUp() {
         super.setUp()
         
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .four, shift: true))
+        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .dollarSign))
     }
     
 }

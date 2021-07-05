@@ -4,7 +4,7 @@ import XCTest
 class UIASVML_k_Tests: UIAS_BaseTests {
     
     private func applyMoveAndGetBackAccessibilityElement() -> AccessibilityTextElement? {
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .v, shift: true))
+        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .V))
         
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .k))
         
@@ -41,7 +41,7 @@ gonna be at the end
         VimEngine.shared.enterNormalMode()
         app.textViews.firstMatch.typeKey(.rightArrow, modifierFlags: [])
         
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .v, shift: true))        
+        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .V))        
         
         app.textViews.firstMatch.typeKey(.rightArrow, modifierFlags: [.command])
         
@@ -129,7 +129,7 @@ the line above nice
         VimEngine.shared.enterNormalMode()
         
         // need to call j so that the anchor and head get updated properly
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .v, shift: true))        
+        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .V))        
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .j))
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .j))
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .j))
