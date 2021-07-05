@@ -26,9 +26,9 @@ extension UIASNM_dd_Tests {
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
         VimEngine.shared.enterNormalMode()
         
-        let finalElement = applyMoveAndGetBackAccessibilityElement()        
+        let accessibilityElement = applyMoveAndGetBackAccessibilityElement()        
         
-        XCTAssertEqual(finalElement?.caretLocation, 0)
+        XCTAssertEqual(accessibilityElement?.caretLocation, 0)
     }
     
     func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_but_not_on_an_empty_line_it_works_and_the_caret_goes_to_the_relevant_position() {
@@ -41,13 +41,13 @@ gonna be at the end
         VimEngine.shared.enterNormalMode()        
         app.textViews.firstMatch.typeKey(.rightArrow, modifierFlags: [])
         
-        let finalElement = applyMoveAndGetBackAccessibilityElement()
+        let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
         
-        XCTAssertEqual(finalElement?.value, """
+        XCTAssertEqual(accessibilityElement?.value, """
    caret is
 """
         )
-        XCTAssertEqual(finalElement?.caretLocation, 3)
+        XCTAssertEqual(accessibilityElement?.caretLocation, 3)
     }
     
     func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_and_on_an_empty_line_it_works_and_the_caret_goes_to_the_relevant_position() {
@@ -62,15 +62,15 @@ own empty
         VimEngine.shared.enterNormalMode()        
         app.textViews.firstMatch.typeKey(.rightArrow, modifierFlags: [])
         
-        let finalElement = applyMoveAndGetBackAccessibilityElement()
+        let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
         
-        XCTAssertEqual(finalElement?.value, """
+        XCTAssertEqual(accessibilityElement?.value, """
 caret is on its
 own empty
     line
 """
         )
-        XCTAssertEqual(finalElement?.caretLocation, 30)
+        XCTAssertEqual(accessibilityElement?.caretLocation, 30)
     }
     
 }
@@ -85,10 +85,10 @@ extension UIASNM_dd_Tests {
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
         VimEngine.shared.enterNormalMode()        
         
-        let finalElement = applyMoveAndGetBackAccessibilityElement()
+        let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
         
-        XCTAssertEqual(finalElement?.value, "")        
-        XCTAssertEqual(finalElement?.caretLocation, 0)
+        XCTAssertEqual(accessibilityElement?.value, "")        
+        XCTAssertEqual(accessibilityElement?.caretLocation, 0)
     }
     
     func test_that_if_the_line_is_empty_it_does_not_crash() {
@@ -97,10 +97,10 @@ extension UIASNM_dd_Tests {
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
         VimEngine.shared.enterNormalMode()        
         
-        let finalElement = applyMoveAndGetBackAccessibilityElement()
+        let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
         
-        XCTAssertEqual(finalElement?.value, "")        
-        XCTAssertEqual(finalElement?.caretLocation, 0)
+        XCTAssertEqual(accessibilityElement?.value, "")        
+        XCTAssertEqual(accessibilityElement?.caretLocation, 0)
     }
 
 }
@@ -120,10 +120,10 @@ somehow
         app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [.command])
         VimEngine.shared.enterNormalMode()        
         
-        let finalElement = applyMoveAndGetBackAccessibilityElement()
+        let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
         
-        XCTAssertEqual(finalElement?.value, "to the next line\nsomehow")        
-        XCTAssertEqual(finalElement?.caretLocation, 0)
+        XCTAssertEqual(accessibilityElement?.value, "to the next line\nsomehow")        
+        XCTAssertEqual(accessibilityElement?.caretLocation, 0)
     }
     
     func test_that_it_skips_the_spaces_on_the_next_line_and_that_it_therefore_keeps_the_indentation() {
@@ -138,10 +138,10 @@ if someBullshit == true {
         app.textViews.firstMatch.typeKey(.rightArrow, modifierFlags: [.option])
         VimEngine.shared.enterNormalMode()        
         
-        let finalElement = applyMoveAndGetBackAccessibilityElement()
+        let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
         
-        XCTAssertEqual(finalElement?.value, "    bs = yeah\n}")        
-        XCTAssertEqual(finalElement?.caretLocation, 4)
+        XCTAssertEqual(accessibilityElement?.value, "    bs = yeah\n}")        
+        XCTAssertEqual(accessibilityElement?.caretLocation, 4)
     }
     
     func test_that_it_skips_the_tabs_on_the_next_line_and_that_it_therefore_keeps_the_indentation() {
@@ -156,10 +156,10 @@ if someBullshit == true {
         app.textViews.firstMatch.typeKey(.rightArrow, modifierFlags: [.option])
         VimEngine.shared.enterNormalMode()        
         
-        let finalElement = applyMoveAndGetBackAccessibilityElement()
+        let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
         
-        XCTAssertEqual(finalElement?.value, "\tbs = yeah\n}")        
-        XCTAssertEqual(finalElement?.caretLocation, 1)
+        XCTAssertEqual(accessibilityElement?.value, "\tbs = yeah\n}")        
+        XCTAssertEqual(accessibilityElement?.caretLocation, 1)
     }
     
     func test_that_when_it_deletes_a_line_it_ends_up_at_the_correct_indentation_on_the_next_line() {
@@ -173,10 +173,10 @@ after the two spaces
         app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [.command])
         VimEngine.shared.enterNormalMode()        
         
-        let finalElement = applyMoveAndGetBackAccessibilityElement()
+        let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
         
-        XCTAssertEqual(finalElement?.value, "  it should stop\nafter the two spaces")        
-        XCTAssertEqual(finalElement?.caretLocation, 2)            
+        XCTAssertEqual(accessibilityElement?.value, "  it should stop\nafter the two spaces")        
+        XCTAssertEqual(accessibilityElement?.caretLocation, 2)            
     }
     
     func test_that_if_on_the_last_line_it_deletes_the_line_and_goes_up_to_the_first_non_blank_of_the_previous_line() {
@@ -189,10 +189,10 @@ one
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         VimEngine.shared.enterNormalMode()        
         
-        let finalElement = applyMoveAndGetBackAccessibilityElement()
+        let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
         
-        XCTAssertEqual(finalElement?.value, "this one\n    is a tough")        
-        XCTAssertEqual(finalElement?.caretLocation, 13)   
+        XCTAssertEqual(accessibilityElement?.value, "this one\n    is a tough")        
+        XCTAssertEqual(accessibilityElement?.caretLocation, 13)   
     }
     
     func test_that_the_caret_ends_up_at_the_next_line_end_limit_if_the_next_line_is_just_made_out_of_non_blank_characters() {
@@ -208,15 +208,15 @@ to stop at the end limit of the line
         app.textViews.firstMatch.typeKey(.upArrow , modifierFlags: [])
         VimEngine.shared.enterNormalMode()       
         
-        let finalElement = applyMoveAndGetBackAccessibilityElement()
+        let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
         
-        XCTAssertEqual(finalElement?.value, """
+        XCTAssertEqual(accessibilityElement?.value, """
 if the next line is just blank characters
           
 to stop at the end limit of the line
 """
         )        
-        XCTAssertEqual(finalElement?.caretLocation, 51)
+        XCTAssertEqual(accessibilityElement?.caretLocation, 51)
     }
     
     func test_that_if_the_next_line_is_only_blanks_the_caret_goes_to_the_limit_of_the_line_before_the_linefeed() {
@@ -231,15 +231,15 @@ dd here and we suppose
         app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
         VimEngine.shared.enterNormalMode()       
         
-        let finalElement = applyMoveAndGetBackAccessibilityElement()
+        let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
         
-        XCTAssertEqual(finalElement?.value, """
+        XCTAssertEqual(accessibilityElement?.value, """
 we gonna use VM
 dd here and we suppose
          
 """
         )
-        XCTAssertEqual(finalElement?.caretLocation, 47)    
+        XCTAssertEqual(accessibilityElement?.caretLocation, 47)    
     }
     
 }

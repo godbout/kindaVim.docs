@@ -31,10 +31,10 @@ extension UIASNM_P__TextViews_Tests {
         NSPasteboard.general.setString("test 1 of The 3 Cases for TextArea P", forType: .string)
 
         VimEngine.shared.lastYankStyle = .characterwise
-        let finalElement = sendMoveThroughVimEngineAndGetBackAccessibilityElement()
+        let accessibilityElement = sendMoveThroughVimEngineAndGetBackAccessibilityElement()
 
-        XCTAssertEqual(finalElement?.value, "test 1 of The 3 Cases for TextArea P")
-        XCTAssertEqual(finalElement?.caretLocation, 35)
+        XCTAssertEqual(accessibilityElement?.value, "test 1 of The 3 Cases for TextArea P")
+        XCTAssertEqual(accessibilityElement?.caretLocation, 35)
     }
 
     func test_that_if_the_caret_is_at_the_last_character_of_the_TextArea_it_still_pastes() {
@@ -48,10 +48,10 @@ extension UIASNM_P__TextViews_Tests {
         NSPasteboard.general.setString("test 2 of The 3 Cases for TextArea P", forType: .string)
 
         VimEngine.shared.lastYankStyle = .characterwise
-        let finalElement = sendMoveThroughVimEngineAndGetBackAccessibilityElement()
+        let accessibilityElement = sendMoveThroughVimEngineAndGetBackAccessibilityElement()
 
-        XCTAssertEqual(finalElement?.value, "you're out of the boundaries buddytest 2 of The 3 Cases for TextArea P")
-        XCTAssertEqual(finalElement?.caretLocation, 69)
+        XCTAssertEqual(accessibilityElement?.value, "you're out of the boundaries buddytest 2 of The 3 Cases for TextArea P")
+        XCTAssertEqual(accessibilityElement?.caretLocation, 69)
     }
 
     func test_that_if_the_caret_is_at_the_last_character_of_the_TextArea_and_on_an_empty_line_it_still_pastes() {
@@ -70,16 +70,16 @@ line
         NSPasteboard.general.setString("test 3 of The 3 Cases for TextArea P", forType: .string)
 
         VimEngine.shared.lastYankStyle = .characterwise
-        let finalElement = sendMoveThroughVimEngineAndGetBackAccessibilityElement()
+        let accessibilityElement = sendMoveThroughVimEngineAndGetBackAccessibilityElement()
 
-        XCTAssertEqual(finalElement?.value, """
+        XCTAssertEqual(accessibilityElement?.value, """
 caret is on its
 own empty
 line
 test 3 of The 3 Cases for TextArea P
 """
         )
-        XCTAssertEqual(finalElement?.caretLocation, 66)
+        XCTAssertEqual(accessibilityElement?.caretLocation, 66)
     }
 
 }
@@ -105,15 +105,15 @@ ho ho ho
         NSPasteboard.general.setString("pastaing", forType: .string)
 
         VimEngine.shared.lastYankStyle = .characterwise
-        let finalElement = sendMoveThroughVimEngineAndGetBackAccessibilityElement()
+        let accessibilityElement = sendMoveThroughVimEngineAndGetBackAccessibilityElement()
 
-        XCTAssertEqual(finalElement?.value, """
+        XCTAssertEqual(accessibilityElement?.value, """
 time to paste
 inpastaing TextViews
 ho ho ho
 """
         )
-        XCTAssertEqual(finalElement?.caretLocation, 23)
+        XCTAssertEqual(accessibilityElement?.caretLocation, 23)
     }
 
     func test_that_pasting_on_an_empty_line_does_not_paste_on_a_line_above_but_stays_on_the_same_line_and_does_not_stick_with_the_next_line() {
@@ -131,15 +131,15 @@ here's the last one
         NSPasteboard.general.setString("text for the new line", forType: .string)
 
         VimEngine.shared.lastYankStyle = .characterwise
-        let finalElement = sendMoveThroughVimEngineAndGetBackAccessibilityElement()
+        let accessibilityElement = sendMoveThroughVimEngineAndGetBackAccessibilityElement()
 
-        XCTAssertEqual(finalElement?.value, """
+        XCTAssertEqual(accessibilityElement?.value, """
 gonna have an empty line
 text for the new line
 here's the last one
 """
         )
-        XCTAssertEqual(finalElement?.caretLocation, 45)
+        XCTAssertEqual(accessibilityElement?.caretLocation, 45)
     }
 
 }
@@ -162,14 +162,14 @@ extension UIASNM_P__TextViews_Tests {
         NSPasteboard.general.setString("test 1 of The 3 Cases for TextArea linewise P", forType: .string)
 
         VimEngine.shared.lastYankStyle = .linewise
-        let finalElement = sendMoveThroughVimEngineAndGetBackAccessibilityElement()
+        let accessibilityElement = sendMoveThroughVimEngineAndGetBackAccessibilityElement()
 
-        XCTAssertEqual(finalElement?.value, """
+        XCTAssertEqual(accessibilityElement?.value, """
 test 1 of The 3 Cases for TextArea linewise P
 
 """
         )
-        XCTAssertEqual(finalElement?.caretLocation, 0)
+        XCTAssertEqual(accessibilityElement?.caretLocation, 0)
     }
 
     func test_that_if_the_caret_is_at_the_last_character_of_the_TextArea_and_on_a_non_empty_line_it_still_pastes_and_will_enforce_a_trailing_linefeed() {
@@ -186,15 +186,15 @@ cannot
         NSPasteboard.general.setString("test 2 of The 3 Cases for TextArea linewise P", forType: .string)
 
         VimEngine.shared.lastYankStyle = .linewise
-        let finalElement = sendMoveThroughVimEngineAndGetBackAccessibilityElement()
+        let accessibilityElement = sendMoveThroughVimEngineAndGetBackAccessibilityElement()
 
-        XCTAssertEqual(finalElement?.value, """
+        XCTAssertEqual(accessibilityElement?.value, """
 end of boundaries
 test 2 of The 3 Cases for TextArea linewise P
 cannot
 """
         )
-        XCTAssertEqual(finalElement?.caretLocation, 18)
+        XCTAssertEqual(accessibilityElement?.caretLocation, 18)
     }
 
     func test_that_if_the_caret_is_at_the_last_character_of_the_TextArea_and_on_an_empty_line_it_still_pastes_and_will_enforce_a_trailing_linefeed() {
@@ -213,9 +213,9 @@ enforce a linefeed
         NSPasteboard.general.setString("test 3 of The 3 Cases for TextArea linewise P", forType: .string)
 
         VimEngine.shared.lastYankStyle = .linewise
-        let finalElement = sendMoveThroughVimEngineAndGetBackAccessibilityElement()
+        let accessibilityElement = sendMoveThroughVimEngineAndGetBackAccessibilityElement()
 
-        XCTAssertEqual(finalElement?.value, """
+        XCTAssertEqual(accessibilityElement?.value, """
 this should paste
 on the last line and
 enforce a linefeed
@@ -223,7 +223,7 @@ test 3 of The 3 Cases for TextArea linewise P
 
 """
         )
-        XCTAssertEqual(finalElement?.caretLocation, 58)
+        XCTAssertEqual(accessibilityElement?.caretLocation, 58)
     }
 
 }
@@ -250,9 +250,9 @@ pasted at the current line place
         NSPasteboard.general.setString("should paste that\n", forType: .string)
 
         VimEngine.shared.lastYankStyle = .linewise
-        let finalElement = sendMoveThroughVimEngineAndGetBackAccessibilityElement()
+        let accessibilityElement = sendMoveThroughVimEngineAndGetBackAccessibilityElement()
 
-        XCTAssertEqual(finalElement?.value, """
+        XCTAssertEqual(accessibilityElement?.value, """
 so if we use P
 the current line is gonna
 should paste that
@@ -260,7 +260,7 @@ shift and thew new one is gonna be
 pasted at the current line place
 """
         )
-        XCTAssertEqual(finalElement?.caretLocation, 41)
+        XCTAssertEqual(accessibilityElement?.caretLocation, 41)
 
     }
 
@@ -279,16 +279,16 @@ to the first non blank of the copied line
         NSPasteboard.general.setString("   the copied line has non blanks\n", forType: .string)
 
         VimEngine.shared.lastYankStyle = .linewise
-        let finalElement = sendMoveThroughVimEngineAndGetBackAccessibilityElement()
+        let accessibilityElement = sendMoveThroughVimEngineAndGetBackAccessibilityElement()
 
-        XCTAssertEqual(finalElement?.value, """
+        XCTAssertEqual(accessibilityElement?.value, """
 so now we gonna
    the copied line has non blanks
 have to move the caret
 to the first non blank of the copied line
 """
         )
-        XCTAssertEqual(finalElement?.caretLocation, 19)
+        XCTAssertEqual(accessibilityElement?.caretLocation, 19)
     }
 
 }

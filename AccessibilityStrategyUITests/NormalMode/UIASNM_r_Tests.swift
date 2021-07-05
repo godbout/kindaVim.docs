@@ -22,16 +22,16 @@ a new line
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .r))
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .enter))
         
-        let finalElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
+        let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
         
-        XCTAssertEqual(finalElement?.value, """
+        XCTAssertEqual(accessibilityElement?.value, """
 gonna replace something
 b
 
 a new line
 """
         )
-        XCTAssertEqual(finalElement?.caretLocation, 26)
+        XCTAssertEqual(accessibilityElement?.caretLocation, 26)
     }
     
     func test_that_cancelling_the_replacement_by_giving_escape_does_not_move_the_caret_backwards() {
@@ -47,15 +47,15 @@ escape
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .r))
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .escape))
         
-        let finalElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
+        let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
         
-        XCTAssertEqual(finalElement?.value, """
+        XCTAssertEqual(accessibilityElement?.value, """
 now we gonna start the replacement
 move but cancel it with
 escape
 """
         )
-        XCTAssertEqual(finalElement?.caretLocation, 64)        
+        XCTAssertEqual(accessibilityElement?.caretLocation, 64)        
     }
     
 }

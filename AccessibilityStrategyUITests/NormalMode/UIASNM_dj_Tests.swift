@@ -23,10 +23,10 @@ extension UIASNM_dj_Tests {
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
         VimEngine.shared.enterNormalMode()       
         
-        let finalElement = applyMoveAndGetBackAccessibilityElement()
+        let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
         
-        XCTAssertEqual(finalElement?.value, "one line is not enough for dj")        
-        XCTAssertEqual(finalElement?.caretLocation, 28)
+        XCTAssertEqual(accessibilityElement?.value, "one line is not enough for dj")        
+        XCTAssertEqual(accessibilityElement?.caretLocation, 28)
     }    
     
 }
@@ -45,10 +45,10 @@ one should disappear
         app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])      
         VimEngine.shared.enterNormalMode()       
         
-        let finalElement = applyMoveAndGetBackAccessibilityElement()
+        let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
         
-        XCTAssertEqual(finalElement?.value, "")        
-        XCTAssertEqual(finalElement?.caretLocation, 0)
+        XCTAssertEqual(accessibilityElement?.value, "")        
+        XCTAssertEqual(accessibilityElement?.caretLocation, 0)
     }
     
     func test_that_if_there_are_more_than_two_lines_the_caret_goes_to_the_first_non_blank_of_the_third_line() {
@@ -62,13 +62,13 @@ because it will go to the next
         app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [.command])
         VimEngine.shared.enterNormalMode()       
         
-        let finalElement = applyMoveAndGetBackAccessibilityElement()
+        let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
         
-        XCTAssertEqual(finalElement?.value, """
+        XCTAssertEqual(accessibilityElement?.value, """
      non blank of this line
 """
         )        
-        XCTAssertEqual(finalElement?.caretLocation, 5)
+        XCTAssertEqual(accessibilityElement?.caretLocation, 5)
     }
     
 }

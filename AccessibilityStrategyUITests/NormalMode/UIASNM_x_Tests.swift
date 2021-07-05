@@ -26,15 +26,15 @@ that is not an empty line
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         VimEngine.shared.enterNormalMode()       
         
-        let finalElement = applyMoveAndGetBackAccessibilityElement()        
+        let accessibilityElement = applyMoveAndGetBackAccessibilityElement()        
         
-        XCTAssertEqual(finalElement?.value, """
+        XCTAssertEqual(accessibilityElement?.value, """
 so we're on the last
 character of the last line
 that is not an empty lin
 """
         )
-        XCTAssertEqual(finalElement?.caretLocation, 71)
+        XCTAssertEqual(accessibilityElement?.caretLocation, 71)
     }
     
     func test_that_if_the_caret_is_on_an_empty_line_it_does_not_delete_the_linefeed() {
@@ -48,15 +48,15 @@ but shouldn't be deleted
         app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
         VimEngine.shared.enterNormalMode()       
         
-        let finalElement = applyMoveAndGetBackAccessibilityElement()        
+        let accessibilityElement = applyMoveAndGetBackAccessibilityElement()        
         
-        XCTAssertEqual(finalElement?.value, """
+        XCTAssertEqual(accessibilityElement?.value, """
 next line is gonna be empty!
 
 but shouldn't be deleted
 """
         )
-        XCTAssertEqual(finalElement?.caretLocation, 29)
+        XCTAssertEqual(accessibilityElement?.caretLocation, 29)
     }
     
     func test_that_if_it_deletes_the_last_standing_character_of_a_line_it_does_not_jump_to_the_previous_line() {
@@ -68,14 +68,14 @@ x
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         VimEngine.shared.enterNormalMode()       
         
-        let finalElement = applyMoveAndGetBackAccessibilityElement()        
+        let accessibilityElement = applyMoveAndGetBackAccessibilityElement()        
         
-        XCTAssertEqual(finalElement?.value, """
+        XCTAssertEqual(accessibilityElement?.value, """
 shouldn't jump up on this line!
 
 """
         )
-        XCTAssertEqual(finalElement?.caretLocation, 32)
+        XCTAssertEqual(accessibilityElement?.caretLocation, 32)
     }
     
     func test_that_it_should_not_suck_the_next_line() {
@@ -88,14 +88,14 @@ x
         app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [.command])
         VimEngine.shared.enterNormalMode()       
         
-        let finalElement = applyMoveAndGetBackAccessibilityElement()        
+        let accessibilityElement = applyMoveAndGetBackAccessibilityElement()        
         
-        XCTAssertEqual(finalElement?.value, """
+        XCTAssertEqual(accessibilityElement?.value, """
 
 x
 """
         )
-        XCTAssertEqual(finalElement?.caretLocation, 0)
+        XCTAssertEqual(accessibilityElement?.caretLocation, 0)
     }
     
 }

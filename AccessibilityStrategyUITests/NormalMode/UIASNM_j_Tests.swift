@@ -27,9 +27,9 @@ extension UIASNM_j_Tests {
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         VimEngine.shared.enterNormalMode()       
         
-        let finalElement = applyMoveAndGetBackAccessibilityElement()        
+        let accessibilityElement = applyMoveAndGetBackAccessibilityElement()        
         
-        XCTAssertEqual(finalElement?.caretLocation, 0)
+        XCTAssertEqual(accessibilityElement?.caretLocation, 0)
     }
     
     func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_but_not_on_an_empty_line_it_goes_back_one_character_to_the_left() {
@@ -42,9 +42,9 @@ gonna be at the end
         VimEngine.shared.enterNormalMode()        
         app.textViews.firstMatch.typeKey(.rightArrow, modifierFlags: [])
         
-        let finalElement = applyMoveAndGetBackAccessibilityElement()
+        let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
         
-        XCTAssertEqual(finalElement?.caretLocation, 27)
+        XCTAssertEqual(accessibilityElement?.caretLocation, 27)
     }
     
     func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_and_on_an_empty_line_it_works_and_does_not_move() {
@@ -59,9 +59,9 @@ line
         VimEngine.shared.enterNormalMode()        
         app.textViews.firstMatch.typeKey(.rightArrow, modifierFlags: [])
         
-        let finalElement = applyMoveAndGetBackAccessibilityElement()
+        let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
         
-        XCTAssertEqual(finalElement?.caretLocation, 31)
+        XCTAssertEqual(accessibilityElement?.caretLocation, 31)
     }
     
 }

@@ -26,9 +26,9 @@ extension UIASVML_k_Tests {
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
         VimEngine.shared.enterNormalMode()
         
-        let finalElement = applyMoveAndGetBackAccessibilityElement()        
+        let accessibilityElement = applyMoveAndGetBackAccessibilityElement()        
         
-        XCTAssertEqual(finalElement?.caretLocation, 0)
+        XCTAssertEqual(accessibilityElement?.caretLocation, 0)
     }
     
     func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_but_not_on_an_empty_line_it_works_and_selects_the_whole_last_line() {
@@ -45,10 +45,10 @@ gonna be at the end
         
         app.textViews.firstMatch.typeKey(.rightArrow, modifierFlags: [.command])
         
-        let finalElement = asVisualMode.k(on: AccessibilityTextElementAdaptor.fromAXFocusedElement())
+        let accessibilityElement = asVisualMode.k(on: AccessibilityTextElementAdaptor.fromAXFocusedElement())
         
-        XCTAssertEqual(finalElement?.caretLocation, 12)
-        XCTAssertEqual(finalElement?.selectedLength, 19)
+        XCTAssertEqual(accessibilityElement?.caretLocation, 12)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 19)
     }
     
     func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_and_on_an_empty_line_it_works_and_does_not_move() {
@@ -63,9 +63,9 @@ own empty
         VimEngine.shared.enterNormalMode()
         app.textViews.firstMatch.typeKey(.rightArrow, modifierFlags: [])
         
-        let finalElement = applyMoveAndGetBackAccessibilityElement()
+        let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
         
-        XCTAssertEqual(finalElement?.caretLocation, 35)
+        XCTAssertEqual(accessibilityElement?.caretLocation, 35)
     }
     
 }
@@ -82,10 +82,10 @@ extension UIASVML_k_Tests {
         VimEngine.shared.enterNormalMode()
         
         VimEngine.shared.enterNormalMode()        
-        let finalElement = applyMoveAndGetBackAccessibilityElement()        
+        let accessibilityElement = applyMoveAndGetBackAccessibilityElement()        
         
-        XCTAssertEqual(finalElement?.caretLocation, 0)
-        XCTAssertEqual(finalElement?.selectedLength, 22)
+        XCTAssertEqual(accessibilityElement?.caretLocation, 0)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 22)
     }
     
 }
@@ -105,15 +105,15 @@ the line above nice
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         VimEngine.shared.enterNormalMode()
         
-        let finalElement = applyMoveAndGetBackAccessibilityElement()
+        let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
         
-        XCTAssertEqual(finalElement?.caretLocation, 52)
-        XCTAssertEqual(finalElement?.selectedLength, 43)
+        XCTAssertEqual(accessibilityElement?.caretLocation, 52)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 43)
         
-        let finalFinalElementHehe = asVisualMode.k(on: finalElement)
+        let finalaccessibilityElementHehe = asVisualMode.k(on: accessibilityElement)
         
-        XCTAssertEqual(finalFinalElementHehe?.caretLocation, 26)
-        XCTAssertEqual(finalFinalElementHehe?.selectedLength, 69)        
+        XCTAssertEqual(finalaccessibilityElementHehe?.caretLocation, 26)
+        XCTAssertEqual(finalaccessibilityElementHehe?.selectedLength, 69)        
     }
     
     func test_that_if_the_head_is_after_the_anchor_then_it_reduces_the_selection_by_one_line_above_at_a_time() {
@@ -134,15 +134,15 @@ the line above nice
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .j))
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .j))
         
-        let finalElement = asVisualMode.k(on: AccessibilityTextElementAdaptor.fromAXFocusedElement())
+        let accessibilityElement = asVisualMode.k(on: AccessibilityTextElementAdaptor.fromAXFocusedElement())
         
-        XCTAssertEqual(finalElement?.caretLocation, 0)
-        XCTAssertEqual(finalElement?.selectedLength, 75)
+        XCTAssertEqual(accessibilityElement?.caretLocation, 0)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 75)
         
-        let finalFinalElementHehe = asVisualMode.k(on: finalElement)
+        let finalaccessibilityElementHehe = asVisualMode.k(on: accessibilityElement)
         
-        XCTAssertEqual(finalFinalElementHehe?.caretLocation, 0)
-        XCTAssertEqual(finalFinalElementHehe?.selectedLength, 51)      
+        XCTAssertEqual(finalaccessibilityElementHehe?.caretLocation, 0)
+        XCTAssertEqual(finalaccessibilityElementHehe?.selectedLength, 51)      
     }
     
 }

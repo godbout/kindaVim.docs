@@ -17,9 +17,9 @@ extension UIASVMC_d_Tests {
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .v))        
         
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .d))
-        let finalElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
+        let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
         
-        XCTAssertEqual(finalElement?.caretLocation, 0)
+        XCTAssertEqual(accessibilityElement?.caretLocation, 0)
     }
     
     func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_but_not_on_an_empty_line_it_works_and_goes_back_one_character_to_the_left() {
@@ -34,14 +34,14 @@ gonna be at the end
         app.textViews.firstMatch.typeKey(.rightArrow, modifierFlags: [])
         
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .d))        
-        let finalElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
+        let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
         
-        XCTAssertEqual(finalElement?.value, """
+        XCTAssertEqual(accessibilityElement?.value, """
    caret is
 gonna be at the end
 """
         )
-        XCTAssertEqual(finalElement?.caretLocation, 30)
+        XCTAssertEqual(accessibilityElement?.caretLocation, 30)
     }
     
     func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_and_on_an_empty_line_it_works_and_the_caret_goes_to_the_relevant_position() {
@@ -58,15 +58,15 @@ own empty
         app.textViews.firstMatch.typeKey(.rightArrow, modifierFlags: [])
         
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .d))                
-        let finalElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
+        let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
         
-        XCTAssertEqual(finalElement?.value, """
+        XCTAssertEqual(accessibilityElement?.value, """
 caret is on its
 own empty
     line
 """
         )
-        XCTAssertEqual(finalElement?.caretLocation, 30)
+        XCTAssertEqual(accessibilityElement?.caretLocation, 30)
     }
     
 }
@@ -90,14 +90,14 @@ the selection!
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .b))
             
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .d))
-        let finalElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
+        let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
         
-        XCTAssertEqual(finalElement?.value, """
+        XCTAssertEqual(accessibilityElement?.value, """
 all that VM d se is deleting
 the selection!
 """
         )
-        XCTAssertEqual(finalElement?.caretLocation, 14)        
+        XCTAssertEqual(accessibilityElement?.caretLocation, 14)        
     }
     
     func test_that_if_the_head_is_at_the_last_character_before_a_linefeed_when_deleted_then_the_caret_goes_to_the_new_line_end_limit_and_not_the_linefeed() {

@@ -32,9 +32,9 @@ hehe there's gonna be some "double quotes" in that shit
         app.textFields.firstMatch.typeKey(.leftArrow, modifierFlags: [.command])
         VimEngine.shared.enterNormalMode()
         
-        let finalElement = applyMoveAndGetBackAccessibilityElement()
+        let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
         
-        XCTAssertEqual(finalElement?.value, "hehe there's gonna be some \"\" in that shit")
+        XCTAssertEqual(accessibilityElement?.value, "hehe there's gonna be some \"\" in that shit")
     }
     
     func test_that_in_normal_setting_it_succeeds_and_switches_to_insert_mode() {
@@ -62,9 +62,9 @@ huhu only one " in there...
         app.textFields.firstMatch.typeKey(.leftArrow, modifierFlags: [.option])
         VimEngine.shared.enterNormalMode()
         
-        let finalElement = applyMoveAndGetBackAccessibilityElement()
+        let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
         
-        XCTAssertNil(finalElement?.selectedText)
+        XCTAssertNil(accessibilityElement?.selectedText)
     }
     
     func test_a_case_where_it_should_not_delete_the_content_stays_in_normal_mode() {

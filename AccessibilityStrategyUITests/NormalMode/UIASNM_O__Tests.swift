@@ -29,9 +29,9 @@ above!
         app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
         VimEngine.shared.enterNormalMode()       
                 
-        let finalElement = applyMoveAndGetBackAccessibilityElement()        
+        let accessibilityElement = applyMoveAndGetBackAccessibilityElement()        
         
-        XCTAssertEqual(finalElement?.value, """
+        XCTAssertEqual(accessibilityElement?.value, """
 that's a multiline
 
 and O will
@@ -39,7 +39,7 @@ create a new line
 above!
 """
         )
-        XCTAssertEqual(finalElement?.caretLocation, 19)
+        XCTAssertEqual(accessibilityElement?.caretLocation, 19)
     }
     
     func test_that_if_at_the_first_line_it_will_create_a_new_line_above() {
@@ -54,16 +54,16 @@ still create a line above
         app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
         VimEngine.shared.enterNormalMode()       
         
-        let finalElement = applyMoveAndGetBackAccessibilityElement()        
+        let accessibilityElement = applyMoveAndGetBackAccessibilityElement()        
         
-        XCTAssertEqual(finalElement?.value, """
+        XCTAssertEqual(accessibilityElement?.value, """
 
 caret on the first
 line and it should
 still create a line above
 """
         )
-        XCTAssertEqual(finalElement?.caretLocation, 0)
+        XCTAssertEqual(accessibilityElement?.caretLocation, 0)
     }
     
     func test_that_if_on_an_empty_line_it_will_still_create_a_line_above() {
@@ -77,16 +77,16 @@ an empty line
         app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
         VimEngine.shared.enterNormalMode()       
         
-        let finalElement = applyMoveAndGetBackAccessibilityElement()        
+        let accessibilityElement = applyMoveAndGetBackAccessibilityElement()        
         
-        XCTAssertEqual(finalElement?.value, """
+        XCTAssertEqual(accessibilityElement?.value, """
 there is now
 
 
 an empty line
 """
         )
-        XCTAssertEqual(finalElement?.caretLocation, 13)
+        XCTAssertEqual(accessibilityElement?.caretLocation, 13)
     }
     
     func test_that_if_on_the_last_empty_line_it_creates_a_line_below_and_the_caret_stays_on_the_current_line() {
@@ -100,9 +100,9 @@ the last empty line
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         VimEngine.shared.enterNormalMode()       
 
-        let finalElement = applyMoveAndGetBackAccessibilityElement()        
+        let accessibilityElement = applyMoveAndGetBackAccessibilityElement()        
         
-        XCTAssertEqual(finalElement?.value, """
+        XCTAssertEqual(accessibilityElement?.value, """
 now the caret
 will be on
 the last empty line
@@ -110,7 +110,7 @@ the last empty line
 
 """
         )
-        XCTAssertEqual(finalElement?.caretLocation, 45)
+        XCTAssertEqual(accessibilityElement?.caretLocation, 45)
     }
     
     func test_that_if_on_the_last_non_empty_line_it_creates_a_line_below_and_the_caret_stays_on_the_current_line() {
@@ -123,16 +123,16 @@ the last empty line
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         VimEngine.shared.enterNormalMode()       
         
-        let finalElement = applyMoveAndGetBackAccessibilityElement()        
+        let accessibilityElement = applyMoveAndGetBackAccessibilityElement()        
         
-        XCTAssertEqual(finalElement?.value, """
+        XCTAssertEqual(accessibilityElement?.value, """
 now the caret
 will be on
 
 the last empty line
 """
         )
-        XCTAssertEqual(finalElement?.caretLocation, 25)
+        XCTAssertEqual(accessibilityElement?.caretLocation, 25)
     }
     
     func test_that_it_creates_a_line_above_and_goes_to_the_same_indentation_as_the_current_line() {
@@ -146,16 +146,16 @@ but it should work
         app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
         VimEngine.shared.enterNormalMode()       
         
-        let finalElement = applyMoveAndGetBackAccessibilityElement()        
+        let accessibilityElement = applyMoveAndGetBackAccessibilityElement()        
         
-        XCTAssertEqual(finalElement?.value, """
+        XCTAssertEqual(accessibilityElement?.value, """
 now there's
     
     some indent
 but it should work
 """
         )
-        XCTAssertEqual(finalElement?.caretLocation, 16)
+        XCTAssertEqual(accessibilityElement?.caretLocation, 16)
     }
     
     func test_that_if_keeps_the_indentation_even_if_it_is_on_the_first_line() {
@@ -166,14 +166,14 @@ but it should work
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         VimEngine.shared.enterNormalMode()       
         
-        let finalElement = applyMoveAndGetBackAccessibilityElement()        
+        let accessibilityElement = applyMoveAndGetBackAccessibilityElement()        
         
-        XCTAssertEqual(finalElement?.value, """
+        XCTAssertEqual(accessibilityElement?.value, """
    
    now indent on the first line
 """
         )
-        XCTAssertEqual(finalElement?.caretLocation, 3)
+        XCTAssertEqual(accessibilityElement?.caretLocation, 3)
     }
     
 }
