@@ -19,6 +19,9 @@ extension AccessibilityStrategyNormalMode {
     private func PForTextFields(on element: AccessibilityTextElement) -> AccessibilityTextElement {
         var element = element
         
+        element.selectedLength = 0
+        
+        
         if element.isEmpty {
             element.selectedText = NSPasteboard.general.string(forType: .string)
             
@@ -54,6 +57,9 @@ extension AccessibilityStrategyNormalMode {
     private func PForTextAreasCharacterwise(on element: AccessibilityTextElement) -> AccessibilityTextElement {
         var element = element
         
+        element.selectedLength = 0
+        
+        
         if element.isEmpty {
             element.selectedText = NSPasteboard.general.string(forType: .string)
             
@@ -77,6 +83,9 @@ extension AccessibilityStrategyNormalMode {
     private func PForTextAreasLinewise(on element: AccessibilityTextElement) -> AccessibilityTextElement {
         var element = element
         
+        element.selectedLength = 0
+        
+        
         if element.isEmpty {
             var textToPaste = TextEngineLine(from: NSPasteboard.general.string(forType: .string) ?? "")
             textToPaste.addTrailingLinefeedIfNone()
@@ -86,6 +95,7 @@ extension AccessibilityStrategyNormalMode {
             _ = AccessibilityTextElementAdaptor.toAXFocusedElement(from: element)
             
             element.caretLocation += 1 + textEngine.firstNonBlank(in: textToPaste.value)
+            element.selectedLength = 0
             element.selectedText = nil
             
             return element
@@ -102,6 +112,7 @@ extension AccessibilityStrategyNormalMode {
             _ = AccessibilityTextElementAdaptor.toAXFocusedElement(from: element)
             
             element.caretLocation += 1 + textEngine.firstNonBlank(in: textToPaste.value)
+            element.selectedLength = 0
             element.selectedText = nil
             
             return element
@@ -113,12 +124,12 @@ extension AccessibilityStrategyNormalMode {
         textToPaste.addTrailingLinefeedIfNone()            
         
         element.caretLocation = element.currentLine.start
-        element.selectedLength = 0
         element.selectedText = textToPaste.value
         
         _ = AccessibilityTextElementAdaptor.toAXFocusedElement(from: element)
         
         element.caretLocation = element.currentLine.start + 1 + textEngine.firstNonBlank(in: textToPaste.value)
+        element.selectedLength = 0
         element.selectedText = nil
         
         return element    
