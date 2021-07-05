@@ -63,5 +63,24 @@ anchor
         
         XCTAssertEqual(accessibilityElement?.caretLocation, 14)
     }
+    
+    func test_that_the_caret_goes_to_the_head_location_even_the_head_is_on_a_different_line_than_the_caret() {
+        let textInAXFocusedElement = """
+now we gonna have
+the selection spread over
+multiple lines
+"""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)        
+        VimEngine.shared.enterNormalMode()
+        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .k))
+        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .k))
+        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .V))
+        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .j))
+        
+        let accessibilityElement = asVisualMode.V(on: AccessibilityTextElementAdaptor.fromAXFocusedElement())
+        
+        XCTAssertEqual(accessibilityElement?.caretLocation, 42)
+    }
      
 }
