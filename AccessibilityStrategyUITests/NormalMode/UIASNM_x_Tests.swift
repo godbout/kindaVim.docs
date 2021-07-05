@@ -5,9 +5,9 @@ import XCTest
 class UIASNM_x_Tests: UIAS_BaseTests {
     
     private func applyMoveAndGetBackAccessibilityElement() -> AccessibilityTextElement? {
-        return applyMoveAndGetBackAccessibilityElement { focusedElement in
-            asNormalMode.x(on: focusedElement)
-        }
+        VimEngine.shared.handle(keyCombination: KeyCombination(key: .x))
+        
+        return AccessibilityTextElementAdaptor.fromAXFocusedElement()
     }
     
 }
@@ -24,7 +24,7 @@ that is not an empty line
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        app.textViews.firstMatch.typeKey(.leftArrow, modifierFlags: [])
+        VimEngine.shared.enterNormalMode()       
         
         let finalElement = applyMoveAndGetBackAccessibilityElement()        
         
@@ -46,6 +46,7 @@ but shouldn't be deleted
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
+        VimEngine.shared.enterNormalMode()       
         
         let finalElement = applyMoveAndGetBackAccessibilityElement()        
         
@@ -65,7 +66,7 @@ x
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        app.textViews.firstMatch.typeKey(.leftArrow, modifierFlags: [])
+        VimEngine.shared.enterNormalMode()       
         
         let finalElement = applyMoveAndGetBackAccessibilityElement()        
         
@@ -85,6 +86,7 @@ x
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [.command])
+        VimEngine.shared.enterNormalMode()       
         
         let finalElement = applyMoveAndGetBackAccessibilityElement()        
         

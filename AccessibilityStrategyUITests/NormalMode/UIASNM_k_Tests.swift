@@ -2,32 +2,15 @@
 import XCTest
 
 
+// check j for why no TextFields tests here
 class UIASNM_k_Tests: UIAS_BaseTests {
     
     private func applyMoveAndGetBackAccessibilityElement() -> AccessibilityTextElement? {
-        return applyMoveAndGetBackAccessibilityElement { focusedElement in
-            asNormalMode.k(on: focusedElement)
-        }
+        VimEngine.shared.handle(keyCombination: KeyCombination(key: .k))
+        
+        return AccessibilityTextElementAdaptor.fromAXFocusedElement()
     }
     
-}
-
-
-// TextFields
-extension UIASNM_k_Tests {
-
-    func test_that_for_TextFields_k_returns_nil_coz_we_want_the_KS_to_take_over() {
-        let textInAXFocusedElement = "k on a TextField shouldn't use the AS! think Alfred"
-        app.textFields.firstMatch.tap()
-        app.textFields.firstMatch.typeText(textInAXFocusedElement)
-        app.textFields.firstMatch.typeKey(.leftArrow, modifierFlags: [.option])
-        VimEngine.shared.enterNormalMode()
-        
-        let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
-
-        XCTAssertNil(accessibilityElement)
-    }
-
 }
 
 

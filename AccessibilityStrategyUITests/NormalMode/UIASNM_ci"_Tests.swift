@@ -10,9 +10,11 @@ import XCTest
 class UIASNM_ciDoubleQuote_Tests: UIAS_BaseTests {
     
     private func applyMoveAndGetBackAccessibilityElement() -> AccessibilityTextElement? {
-        return applyMoveAndGetBackAccessibilityElement { focusedElement in 
-            asNormalMode.ciDoubleQuote(on: focusedElement)
-        }
+        VimEngine.shared.handle(keyCombination: KeyCombination(key: .c))
+        VimEngine.shared.handle(keyCombination: KeyCombination(key: .i))
+        VimEngine.shared.handle(keyCombination: KeyCombination(key: .singleQuote, shift: true))
+        
+        return AccessibilityTextElementAdaptor.fromAXFocusedElement()
     }
     
 }

@@ -2,15 +2,7 @@
 import XCTest
 
 
-class UIASNM_r_Tests: UIAS_BaseTests {
-    
-    private func applyMoveAndGetBackAccessibilityElement(with replacement: Character) -> AccessibilityTextElement? {
-        return applyMoveAndGetBackAccessibilityElement { focusedElement in 
-            asNormalMode.r(with: replacement, on: focusedElement)
-        }
-    }
-    
-}
+class UIASNM_r_Tests: UIAS_BaseTests {}
 
 
 // TextViews
@@ -25,9 +17,12 @@ a new line
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
-        app.textViews.firstMatch.typeKey(.leftArrow, modifierFlags: [])
+        VimEngine.shared.enterNormalMode()       
         
-        let finalElement = applyMoveAndGetBackAccessibilityElement(with: "\n")
+        VimEngine.shared.handle(keyCombination: KeyCombination(key: .r))
+        VimEngine.shared.handle(keyCombination: KeyCombination(key: .enter))
+        
+        let finalElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
         
         XCTAssertEqual(finalElement?.value, """
 gonna replace something
@@ -47,7 +42,7 @@ escape
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        app.textViews.firstMatch.typeKey(.leftArrow, modifierFlags: [])
+        VimEngine.shared.enterNormalMode()       
         
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .r))
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .escape))

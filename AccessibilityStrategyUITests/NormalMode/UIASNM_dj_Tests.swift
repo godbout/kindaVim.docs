@@ -5,9 +5,10 @@ import XCTest
 class UIASNM_dj_tests: UIAS_BaseTests {
     
     private func applyMoveAndGetBackAccessibilityElement() -> AccessibilityTextElement? {
-        return applyMoveAndGetBackAccessibilityElement { focusedElement in
-            asNormalMode.dj(on: focusedElement)
-        }
+        VimEngine.shared.handle(keyCombination: KeyCombination(key: .d))
+        VimEngine.shared.handle(keyCombination: KeyCombination(key: .j))
+        
+        return AccessibilityTextElementAdaptor.fromAXFocusedElement()
     }
     
 }
@@ -20,7 +21,7 @@ extension UIASNM_dj_tests {
         let textInAXFocusedElement = "one line is not enough for dj"
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
-        app.textFields.firstMatch.typeKey(.leftArrow, modifierFlags: [])        
+        VimEngine.shared.enterNormalMode()       
         
         let finalElement = applyMoveAndGetBackAccessibilityElement()
         
@@ -41,7 +42,8 @@ one should disappear
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])        
+        app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])      
+        VimEngine.shared.enterNormalMode()       
         
         let finalElement = applyMoveAndGetBackAccessibilityElement()
         
@@ -58,6 +60,7 @@ because it will go to the next
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [.command])
+        VimEngine.shared.enterNormalMode()       
         
         let finalElement = applyMoveAndGetBackAccessibilityElement()
         

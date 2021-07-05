@@ -6,9 +6,9 @@ class UIASVML_j_Tests: UIAS_BaseTests {
     private func applyMoveAndGetBackAccessibilityElement() -> AccessibilityTextElement? {
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .v, shift: true))
         
-        return applyMoveAndGetBackAccessibilityElement { focusedElement in
-            asVisualMode.j(on: focusedElement)
-        }
+        VimEngine.shared.handle(keyCombination: KeyCombination(key: .j))
+        
+        return AccessibilityTextElementAdaptor.fromAXFocusedElement()
     }
     
 }
