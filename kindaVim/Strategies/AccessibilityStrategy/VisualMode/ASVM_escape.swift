@@ -24,10 +24,12 @@ extension AccessibilityStrategyVisualMode {
         }
         
         
-        if Self.head > element.currentLine.endLimit {
-            element.caretLocation = element.currentLine.endLimit
-        } else {
-            element.caretLocation = Self.head
+        if let lineAtHead = AccessibilityTextElementAdaptor.lineFor(location: AccessibilityStrategyVisualMode.head) {
+            if Self.head > lineAtHead.endLimit {
+                element.caretLocation = lineAtHead.endLimit
+            } else {
+                element.caretLocation = Self.head
+            }
         }
         
         element.selectedLength = 0
