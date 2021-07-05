@@ -844,6 +844,13 @@ extension VimEngine {
             if let element = asVisualMode.dollarSign(on: focusedElement()) {
                 push(element: element)
             }            
+        case .escape:
+            if var element = asVisualMode.escape(on: focusedElement()) {
+                element.selectedLength = (element.caretLocation == element.length) ? 0 : 1
+                push(element: element)
+            }      
+            
+            enterNormalMode()
         case .zero:
             if let element = asVisualMode.zero(on: focusedElement()) {
                 push(element: element)
