@@ -23,7 +23,13 @@ class AccessibilityStrategyVisualModeMock: AccessibilityStrategyVisualModeProtoc
         functionCalled = #function
         
         return nil
-    }        
+    }    
+
+    func e(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        functionCalled = #function
+        
+        return nil
+    }      
     
     func h(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
