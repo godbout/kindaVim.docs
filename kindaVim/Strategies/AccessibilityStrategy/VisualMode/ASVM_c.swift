@@ -1,7 +1,7 @@
 extension AccessibilityStrategyVisualMode {
     
     func c(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
-        guard var element = element else { return nil }
+        guard let element = element else { return nil }
         
         
         if element.isEmpty {
