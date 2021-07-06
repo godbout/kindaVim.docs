@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		91003D132694CDA000CEE86E /* UIASVMC_0_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91003D122694CDA000CEE86E /* UIASVMC_0_Tests.swift */; };
 		91013742263DD2430037AB6E /* AccessibilityStrategyNormalMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91013741263DD2430037AB6E /* AccessibilityStrategyNormalMode.swift */; };
 		91019968268E15B7001AD9D7 /* ASVMC_h_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91019967268E15B7001AD9D7 /* ASVMC_h_Tests.swift */; };
 		91019972268E16B0001AD9D7 /* ASVMC_l_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91019971268E16B0001AD9D7 /* ASVMC_l_Tests.swift */; };
@@ -645,6 +646,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		91003D122694CDA000CEE86E /* UIASVMC_0_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIASVMC_0_Tests.swift; sourceTree = "<group>"; };
 		91013741263DD2430037AB6E /* AccessibilityStrategyNormalMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilityStrategyNormalMode.swift; sourceTree = "<group>"; };
 		91019967268E15B7001AD9D7 /* ASVMC_h_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASVMC_h_Tests.swift; sourceTree = "<group>"; };
 		91019971268E16B0001AD9D7 /* ASVMC_l_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASVMC_l_Tests.swift; sourceTree = "<group>"; };
@@ -1110,6 +1112,7 @@
 				91C7009026930FA20013C11E /* UIASVMC_e_Tests.swift */,
 				91FB2DC126936984004EA231 /* UIASVMC_escape_Tests.swift */,
 				9199469C2694BFB5005D7E89 /* UIASVMC_$_Tests.swift */,
+				91003D122694CDA000CEE86E /* UIASVMC_0_Tests.swift */,
 			);
 			path = Characterwise;
 			sourceTree = "<group>";
@@ -2604,6 +2607,7 @@
 				9126DDDB2689B12D00A147B1 /* UIASNM_gg_Tests.swift in Sources */,
 				91A14822266123DC00D160AD /* KeyboardStrategy.swift in Sources */,
 				91AB99122674D812007682CA /* ASNM_G_.swift in Sources */,
+				91003D132694CDA000CEE86E /* UIASVMC_0_Tests.swift in Sources */,
 				91A832E92678D5F4001482CD /* ASNM_p.swift in Sources */,
 				919946932694BF23005D7E89 /* UIASVML_$_Tests.swift in Sources */,
 				91E210952678E06F00EA88EB /* UIASNM_p_TextViews_Tests.swift in Sources */,
