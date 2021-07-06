@@ -150,10 +150,11 @@ if the head is not after the line end limit
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
         app.textFields.firstMatch.typeKey(.leftArrow, modifierFlags: [.option])
         VimEngine.shared.enterNormalMode()
-
         VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .V))
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .o))
-        let accessibilityElement = asVisualMode.v(on: AccessibilityTextElementAdaptor.fromAXFocusedElement())
+        
+        VimEngine.shared.handle(keyCombination: KeyCombination(key: .v))
+        let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
 
         XCTAssertEqual(accessibilityElement?.caretLocation, 0)
     }
@@ -175,7 +176,8 @@ multiple lines
         VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .e))
         VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .e))
         
-        let accessibilityElement = asVisualMode.v(on: AccessibilityTextElementAdaptor.fromAXFocusedElement())
+        VimEngine.shared.handle(keyCombination: KeyCombination(key: .v))
+        let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
         
         XCTAssertEqual(accessibilityElement?.caretLocation, 20)
     }
