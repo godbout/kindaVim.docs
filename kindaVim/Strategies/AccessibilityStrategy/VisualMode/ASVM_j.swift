@@ -30,19 +30,17 @@ extension AccessibilityStrategyVisualMode {
         }
         
         
-        guard let lineNumberAtAnchor = AccessibilityTextElementAdaptor.lineFor(location: AccessibilityStrategyVisualMode.anchor) else { return element }
-        guard let lineNumberAtHead = AccessibilityTextElementAdaptor.lineFor(location: AccessibilityStrategyVisualMode.head) else { return element }
+        guard let lineAtAnchor = AccessibilityTextElementAdaptor.lineFor(location: AccessibilityStrategyVisualMode.anchor) else { return element }
+        guard let lineAtHead = AccessibilityTextElementAdaptor.lineFor(location: AccessibilityStrategyVisualMode.head) else { return element }
         
-        if let lineAtHead = AccessibilityTextElementAdaptor.lineFor(lineNumber: lineNumberAtHead.number) {
-            if lineNumberAtHead.number >= lineNumberAtAnchor.number {
-                if let lineAfterHead = AccessibilityTextElementAdaptor.lineFor(lineNumber: lineNumberAtHead.number + 1) {
-                    element.selectedLength += lineAfterHead.length
-                }
-            } else {
-                element.caretLocation += lineAtHead.length
-                element.selectedLength -= lineAtHead.length
+        if lineAtHead.number >= lineAtAnchor.number {
+            if let lineBelowHead = AccessibilityTextElementAdaptor.lineFor(lineNumber: lineAtHead.number + 1) {
+                element.selectedLength += lineBelowHead.length
             }
-        }      
+        } else {
+            element.caretLocation += lineAtHead.length
+            element.selectedLength -= lineAtHead.length 
+        }
         
         return element
     }
