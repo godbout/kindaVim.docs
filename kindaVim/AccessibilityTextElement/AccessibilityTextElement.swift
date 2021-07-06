@@ -76,8 +76,10 @@ struct AccessibilityTextElement {
             if VimEngine.shared.currentMode == .visual, AccessibilityStrategyVisualMode.anchor != nil {
                 if caretLocation < AccessibilityStrategyVisualMode.anchor {
                     AccessibilityStrategyVisualMode.head = caretLocation
-                } else {
+                } else if selectedLength > 0 {
                     AccessibilityStrategyVisualMode.head = caretLocation + selectedLength - 1
+                } else {
+                    AccessibilityStrategyVisualMode.head = caretLocation
                 }
             }
         }
