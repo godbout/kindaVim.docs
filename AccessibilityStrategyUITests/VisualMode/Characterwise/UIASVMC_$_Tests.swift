@@ -4,7 +4,7 @@ import XCTest
 class UIASVMC_$_Tests: UIAS_BaseTests {}
 
 
-/// the 3 special cases:
+// the 3 special cases:
 // - empty TextElement
 // - caret at the end of TextElement but not on empty line
 // - caret at the end of TextElement on own empty line
@@ -77,7 +77,7 @@ own empty
 // Both
 extension UIASVMC_$_Tests {
             
-    func test_that_if_the_line_ends_with_a_visible_character_the_selection_goes_to_that_last_character() {
+    func test_that_if_the_selection_spans_over_a_single_line_and_the_head_is_after_the_anchor_then_it_goes_to_the_end_of_the_line_where_the_head_is_located_and_extends_the_selection() {
         let textInAXFocusedElement = "hello world"
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
@@ -92,7 +92,7 @@ extension UIASVMC_$_Tests {
         XCTAssertEqual(accessibilityElement?.selectedLength, 6)
     }
     
-    func test_that_it_starts_the_selection_at_the_anchor_and_not_at_the_current_caret_location() {
+    func test_that_if_the_selection_spans_over_a_single_line_and_the_head_is_before_the_anchor_then_it_goes_to_the_end_of_the_line_where_the_head_is_located_and_reduces_the_selection_until_the_anchor_and_then_extends_it_after() {
         let textInAXFocusedElement = """
 $ for visual mode starts
 at the anchor, not at the caret location
@@ -137,7 +137,7 @@ multiline
         XCTAssertEqual(accessibilityElement?.selectedLength, 3)
     }
     
-    func test_that_if_the_selection_spans_over_multiple_lines_it_goes_to_the_end_of_the_line_where_the_head_is_located() {
+    func test_that_if_the_selection_spans_over_multiple_lines_and_the_head_is_after_the_anchor_then_it_goes_to_the_end_of_the_line_where_the_head_is_located_and_extends_the_selection() {
         let textInAXFocusedElement = """
 we gonna select
 over multiple lines coz
@@ -156,6 +156,28 @@ $ doesn't work LOOOLL
         
         XCTAssertEqual(accessibilityElement?.caretLocation, 36)
         XCTAssertEqual(accessibilityElement?.selectedLength, 25)
+    }
+    
+    func test_that_if_the_selection_spans_over_multiple_lines_and_the_head_is_before_the_anchor_then_it_goes_to_the_end_of_the_line_where_the_head_is_located_and_reduces_the_selection() {
+        let textInAXFocusedElement = """
+we gonna select
+over multiple lines coz
+$ doesn't work LOOOLL
+"""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        VimEngine.shared.enterNormalMode()
+        VimEngine.shared.handle(keyCombination: KeyCombination(key: .v))
+        // can be replaced later on by better moves once implemented
+        VimEngine.shared.handle(keyCombination: KeyCombination(key: .zero))
+        VimEngine.shared.handle(keyCombination: KeyCombination(key: .b))
+        VimEngine.shared.handle(keyCombination: KeyCombination(key: .b))
+                
+        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .dollarSign))
+        let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
+        
+        XCTAssertEqual(accessibilityElement?.caretLocation, 39)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 22)        
     }
     
 }
