@@ -25,9 +25,7 @@ extension AccessibilityStrategyVisualMode {
             return element
         }
         
-        if element.caretIsAtTheEnd, element.lastCharacterIsLinefeed {
-            return element
-        }
+        if element.caretIsAtTheEnd, element.lastCharacterIsLinefeed {}
         
         
         guard let lineAtAnchor = AccessibilityTextElementAdaptor.lineFor(location: AccessibilityStrategyVisualMode.anchor) else { return element }
@@ -36,7 +34,7 @@ extension AccessibilityStrategyVisualMode {
         if lineAtHead.number > lineAtAnchor.number {
             element.selectedLength -= lineAtHead.length
         } else {
-            if let lineAboveHead = AccessibilityTextElementAdaptor.lineFor(lineNumber: lineAtHead.number - 1) {
+            if let lineAboveHead = AccessibilityTextElementAdaptor.lineFor(location: lineAtHead.start - 1) {
                 element.caretLocation -= lineAboveHead.length
                 element.selectedLength += lineAboveHead.length
             }

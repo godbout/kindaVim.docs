@@ -145,4 +145,24 @@ the line above nice
         XCTAssertEqual(finalaccessibilityElementHehe?.selectedLength, 51)      
     }
     
+    func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_and_on_an_empty_line_it_does_not_get_stuck_when_trying_to_move_up_and_selects_the_line_above() {
+        let textInAXFocusedElement = """
+we gonna place the
+caret at the last empty line
+
+"""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        VimEngine.shared.enterNormalMode()
+        
+        // need to call j so that the anchor and head get updated properly
+        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .V))        
+        VimEngine.shared.handle(keyCombination: KeyCombination(key: .k))
+        
+        let accessibilityElement = asVisualMode.k(on: AccessibilityTextElementAdaptor.fromAXFocusedElement())
+        
+        XCTAssertEqual(accessibilityElement?.caretLocation, 19)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 29)
+    }
+    
 }
