@@ -18,19 +18,13 @@ from the caret location
         app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
         VimEngine.shared.enterNormalMode()
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .v))
+        VimEngine.shared.handle(keyCombination: KeyCombination(key: .e))
         
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .b))        
-        var accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
-        
+        let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
+                
         XCTAssertEqual(accessibilityElement?.caretLocation, 53)
         XCTAssertEqual(accessibilityElement?.selectedLength, 2)
-        
-        // the second pass is where it would block if we don't update Self.anchor manually
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .b))        
-        accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
-        
-        XCTAssertEqual(accessibilityElement?.caretLocation, 49)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 6)        
     }  
     
     func test_that_the_head_is_getting_updated_properly() {
