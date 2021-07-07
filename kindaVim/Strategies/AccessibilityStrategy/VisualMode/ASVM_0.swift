@@ -22,7 +22,8 @@ extension AccessibilityStrategyVisualMode {
         
         if VimEngine.shared.visualStyle == .characterwise {
             if let lineAtHead = AccessibilityTextElementAdaptor.lineFor(location: AccessibilityStrategyVisualMode.head) {
-                element.selectedLength = (lineAtHead.start + 1) - element.caretLocation
+                element.caretLocation = lineAtHead.start
+                element.selectedLength = (Self.anchor + 1) - lineAtHead.start
             }
         }
         

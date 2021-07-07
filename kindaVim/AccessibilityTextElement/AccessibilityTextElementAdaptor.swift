@@ -115,32 +115,6 @@ struct AccessibilityTextElementAdaptor {
     private static func lastCharacterIsNotLinefeed(in text: String) -> Bool {
         return !lastCharacterIsLinefeed(in: text)
     }
-    
-    static func lineFor(lineNumber: Int, on axFocusedElement: AXUIElement? = AXEngine.axFocusedElement()) -> AccessibilityTextElementLine? {
-        guard let axFocusedElement = axFocusedElement else { return nil }
-
-        guard let (elementValue, _) = AXEngine.axValueAndNumberOfCharacters(of: axFocusedElement) else { return nil }
-        
-
-        if elementValue.isEmpty {
-            return AccessibilityTextElementLine(
-                fullValue: "",
-                number: 1,
-                start: 0,
-                end: 0
-            )
-        }
-
-
-        guard let axLineRange = AXEngine.axLineRangeFor(lineNumber: lineNumber - 1, on: axFocusedElement) else { return nil }
-
-        return AccessibilityTextElementLine(
-            fullValue: elementValue,
-            number: lineNumber,
-            start: axLineRange.location,
-            end: axLineRange.location + axLineRange.length
-        )
-    }
 
     static func toAXFocusedElement(from accessibilityElement: AccessibilityTextElement) -> Bool {
         return AXEngine.toAXFocusedElement(from: accessibilityElement)        

@@ -12,7 +12,7 @@ extension AccessibilityStrategyNormalMode {
         if element.caretIsAtTheEnd, element.lastCharacterIsLinefeed {}
         
         
-        if let firstLine = AccessibilityTextElementAdaptor.lineFor(lineNumber: 1) {            
+        if let firstLine = AccessibilityTextElementAdaptor.lineFor(location: 0) {
             element.caretLocation = textEngine.firstNonBlankWithinLineLimit(in: TextEngineLine(from: firstLine.value))
         }
         

@@ -34,7 +34,7 @@ extension AccessibilityStrategyVisualMode {
         guard let lineAtHead = AccessibilityTextElementAdaptor.lineFor(location: AccessibilityStrategyVisualMode.head) else { return element }
         
         if lineAtHead.number >= lineAtAnchor.number {
-            if let lineBelowHead = AccessibilityTextElementAdaptor.lineFor(lineNumber: lineAtHead.number + 1) {
+            if let lineBelowHead = AccessibilityTextElementAdaptor.lineFor(location: lineAtHead.end + 1) {
                 element.selectedLength += lineBelowHead.length
             }
         } else {

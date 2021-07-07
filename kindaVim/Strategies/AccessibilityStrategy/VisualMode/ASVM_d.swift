@@ -79,7 +79,7 @@ extension AccessibilityStrategyVisualMode {
             lineAtBeginningOfSelection = AccessibilityTextElementAdaptor.lineFor(location: AccessibilityStrategyVisualMode.head)
         }
         
-        if let lineAtEndOfSelection = lineAtEndOfSelection, let lineAfterSelection = AccessibilityTextElementAdaptor.lineFor(lineNumber: lineAtEndOfSelection.number + 1) {
+        if let lineAtEndOfSelection = lineAtEndOfSelection, let lineAfterSelection = AccessibilityTextElementAdaptor.lineFor(location: lineAtEndOfSelection.end + 1) {
             let firstNonBlankWithinLineLimitOflineAfterSelectionLocation = textEngine.firstNonBlankWithinLineLimit(in: TextEngineLine(from: lineAfterSelection.value))
             
             element.selectedText = ""
@@ -89,7 +89,7 @@ extension AccessibilityStrategyVisualMode {
             element.caretLocation += firstNonBlankWithinLineLimitOflineAfterSelectionLocation
             element.selectedLength = 0
             element.selectedText = nil
-        } else if let lineAtBeginningOfSelection = lineAtBeginningOfSelection, let lineBeforeSelection = AccessibilityTextElementAdaptor.lineFor(lineNumber: lineAtBeginningOfSelection.number - 1) {
+        } else if let lineAtBeginningOfSelection = lineAtBeginningOfSelection, let lineBeforeSelection = AccessibilityTextElementAdaptor.lineFor(location: lineAtBeginningOfSelection.start - 1) {
             let firstNonBlankWithinLineLimitOflineBeforeSelectionLocation = textEngine.firstNonBlankWithinLineLimit(in: TextEngineLine(from: lineBeforeSelection.value))
             
             element.caretLocation -= 1

@@ -18,7 +18,7 @@ extension AccessibilityStrategyNormalMode {
         if element.caretIsAtTheEnd {
             previousLine = AccessibilityTextElementAdaptor.lineFor(location: element.caretLocation - 1)
         } else {
-            previousLine = AccessibilityTextElementAdaptor.lineFor(lineNumber: element.currentLine.number - 1)
+            previousLine = AccessibilityTextElementAdaptor.lineFor(location: element.currentLine.start - 1)
         }
         
         if let previousLine = previousLine {

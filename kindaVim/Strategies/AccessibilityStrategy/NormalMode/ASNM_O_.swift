@@ -32,7 +32,7 @@ extension AccessibilityStrategyNormalMode {
             return element
         }
         
-        if let previousLine = AccessibilityTextElementAdaptor.lineFor(lineNumber: element.currentLine.number - 1) {
+        if let previousLine = AccessibilityTextElementAdaptor.lineFor(location: element.currentLine.start - 1) {
             let currentLineText = element.currentLine.value
             let currentLineStart = element.currentLine.start
             let firstNonBlankOfCurrentLineLocation = textEngine.firstNonBlank(in: currentLineText)

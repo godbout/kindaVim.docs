@@ -25,8 +25,10 @@ extension UIASVML_k_Tests {
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
         VimEngine.shared.enterNormalMode()
+        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .V))
         
-        let accessibilityElement = applyMoveAndGetBackAccessibilityElement()        
+        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .k))
+        let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
         
         XCTAssertEqual(accessibilityElement?.caretLocation, 0)
     }
@@ -39,19 +41,18 @@ gonna be at the end
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         VimEngine.shared.enterNormalMode()
-        app.textViews.firstMatch.typeKey(.rightArrow, modifierFlags: [])
-        
-        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .V))        
-        
+        app.textViews.firstMatch.typeKey(.rightArrow, modifierFlags: [])        
+        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .V))                
         app.textViews.firstMatch.typeKey(.rightArrow, modifierFlags: [.command])
         
-        let accessibilityElement = asVisualMode.k(on: AccessibilityTextElementAdaptor.fromAXFocusedElement())
+        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .k))
+        let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
         
         XCTAssertEqual(accessibilityElement?.caretLocation, 12)
         XCTAssertEqual(accessibilityElement?.selectedLength, 19)
     }
     
-    func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_and_on_an_empty_line_it_works_and_does_not_move() {
+    func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_and_on_an_empty_line_it_works_selects_the_line_above() {
         let textInAXFocusedElement = """
 caret is on its
 own empty
@@ -62,10 +63,13 @@ own empty
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         VimEngine.shared.enterNormalMode()
         app.textViews.firstMatch.typeKey(.rightArrow, modifierFlags: [])
+        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .V)) 
         
-        let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
+        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .k))
+        let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
         
-        XCTAssertEqual(accessibilityElement?.caretLocation, 35)
+        XCTAssertEqual(accessibilityElement?.caretLocation, 26)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 9)
     }
     
 }
@@ -80,9 +84,10 @@ extension UIASVML_k_Tests {
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
         app.textFields.firstMatch.typeKey(.leftArrow, modifierFlags: [.option])
         VimEngine.shared.enterNormalMode()
+        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .V)) 
         
-        VimEngine.shared.enterNormalMode()        
-        let accessibilityElement = applyMoveAndGetBackAccessibilityElement()        
+        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .k))
+        let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()   
         
         XCTAssertEqual(accessibilityElement?.caretLocation, 0)
         XCTAssertEqual(accessibilityElement?.selectedLength, 22)
@@ -104,16 +109,19 @@ the line above nice
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         VimEngine.shared.enterNormalMode()
+        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .V)) 
         
-        let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
-        
+        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .k))
+        var accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
+            
         XCTAssertEqual(accessibilityElement?.caretLocation, 52)
         XCTAssertEqual(accessibilityElement?.selectedLength, 43)
         
-        let finalaccessibilityElementHehe = asVisualMode.k(on: accessibilityElement)
+        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .k))
+        accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
         
-        XCTAssertEqual(finalaccessibilityElementHehe?.caretLocation, 26)
-        XCTAssertEqual(finalaccessibilityElementHehe?.selectedLength, 69)        
+        XCTAssertEqual(accessibilityElement?.caretLocation, 26)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 69)        
     }
     
     func test_that_if_the_head_is_after_the_anchor_then_it_reduces_the_selection_by_one_line_above_at_a_time() {
@@ -126,23 +134,23 @@ the line above nice
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [.command])
-        VimEngine.shared.enterNormalMode()
-        
-        // need to call j so that the anchor and head get updated properly
+        VimEngine.shared.enterNormalMode()        
         VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .V))        
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .j))
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .j))
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .j))
         
-        let accessibilityElement = asVisualMode.k(on: AccessibilityTextElementAdaptor.fromAXFocusedElement())
+        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .k))
+        var accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
         
         XCTAssertEqual(accessibilityElement?.caretLocation, 0)
         XCTAssertEqual(accessibilityElement?.selectedLength, 75)
         
-        let finalaccessibilityElementHehe = asVisualMode.k(on: accessibilityElement)
+        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .k))
+        accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
         
-        XCTAssertEqual(finalaccessibilityElementHehe?.caretLocation, 0)
-        XCTAssertEqual(finalaccessibilityElementHehe?.selectedLength, 51)      
+        XCTAssertEqual(accessibilityElement?.caretLocation, 0)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 51)      
     }
     
     func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_and_on_an_empty_line_it_does_not_get_stuck_when_trying_to_move_up_and_selects_the_line_above() {
@@ -154,12 +162,10 @@ caret at the last empty line
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         VimEngine.shared.enterNormalMode()
-        
-        // need to call j so that the anchor and head get updated properly
         VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .V))        
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .k))
         
-        let accessibilityElement = asVisualMode.k(on: AccessibilityTextElementAdaptor.fromAXFocusedElement())
+        VimEngine.shared.handle(keyCombination: KeyCombination(key: .k))
+        let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
         
         XCTAssertEqual(accessibilityElement?.caretLocation, 19)
         XCTAssertEqual(accessibilityElement?.selectedLength, 29)
