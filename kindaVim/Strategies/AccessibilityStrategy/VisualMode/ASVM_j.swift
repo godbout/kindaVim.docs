@@ -2,9 +2,53 @@ extension AccessibilityStrategyVisualMode {
     
     func j(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         guard let element = element else { return nil }
+   
+        if VimEngine.shared.visualStyle == .characterwise {
+            return jForVisualModeCharacterwise(on: element)
+        }
         
         if VimEngine.shared.visualStyle == .linewise {
             return jForVisualModeLinewise(on: element)
+        }
+        
+        return element
+    }
+    
+    private func jForVisualModeCharacterwise(on element: AccessibilityTextElement) -> AccessibilityTextElement {
+        var element = element
+        
+        
+        if element.isEmpty {
+            return element
+        }
+        
+        if element.caretIsAtTheEnd, element.lastCharacterIsNotLinefeed {
+            element.caretLocation -= 1
+            element.selectedLength = 1
+            
+            return element
+        }
+        
+        if element.caretIsAtTheEnd, element.lastCharacterIsLinefeed {
+            return element
+        }
+        
+        
+        if let lineAtHead = AccessibilityTextElementAdaptor.lineFor(location: Self.head), let lineBelowHead = AccessibilityTextElementAdaptor.lineFor(location: lineAtHead.end + 1) {
+            let columnNumber = (Self.head - lineAtHead.start) + 1
+            var newHeadLocation = lineBelowHead.start + (columnNumber - 1)
+            
+            if newHeadLocation >= lineBelowHead.end {
+                newHeadLocation = lineBelowHead.end - 1
+            }
+            
+            if Self.head >= Self.anchor || (Self.head < Self.anchor && newHeadLocation >= Self.anchor) {
+                element.caretLocation = Self.anchor
+                element.selectedLength = (newHeadLocation - Self.anchor) + 1
+            } else {
+                element.caretLocation = newHeadLocation
+                element.selectedLength = (Self.anchor - element.caretLocation) + 1
+            }
         }
         
         return element
@@ -29,7 +73,7 @@ extension AccessibilityStrategyVisualMode {
             return element
         }
         
-        
+                
         guard let lineAtAnchor = AccessibilityTextElementAdaptor.lineFor(location: AccessibilityStrategyVisualMode.anchor) else { return element }
         guard let lineAtHead = AccessibilityTextElementAdaptor.lineFor(location: AccessibilityStrategyVisualMode.head) else { return element }
         
