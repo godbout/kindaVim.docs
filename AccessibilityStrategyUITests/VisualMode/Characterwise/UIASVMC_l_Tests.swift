@@ -2,14 +2,14 @@
 import XCTest
 
 
-class UIASSVMC_h_Tests: UIAS_BaseTests {}
-    
+class UIASSVMC_l_Tests: UIAS_BaseTests {}
+
 
 // the 3 special cases:
 // - empty TextElement
 // - caret at the end of TextElement but not on empty line
 // - caret at the end of TextElement on own empty line
-extension UIASSVMC_h_Tests {
+extension UIASSVMC_l_Tests {
     
     func test_that_if_the_TextElement_is_empty_it_works_and_does_not_move() {
         let textInAXFocusedElement = ""
@@ -18,7 +18,7 @@ extension UIASSVMC_h_Tests {
         VimEngine.shared.enterNormalMode()
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .v))        
         
-        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .h))
+        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .l))
         let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
         
         XCTAssertEqual(accessibilityElement?.caretLocation, 0)
@@ -35,7 +35,7 @@ gonna be at the end
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .v))
         app.textViews.firstMatch.typeKey(.rightArrow, modifierFlags: [])
         
-        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .h))        
+        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .l))        
         let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
         
         XCTAssertEqual(accessibilityElement?.value, """
@@ -59,7 +59,7 @@ own empty
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .v))
         app.textViews.firstMatch.typeKey(.rightArrow, modifierFlags: [])
         
-        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .h))                
+        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .l))                
         let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
         
         XCTAssertEqual(accessibilityElement?.value, """
@@ -76,27 +76,27 @@ own empty
 
 
 // Both
-extension UIASSVMC_h_Tests {
+extension UIASSVMC_l_Tests {
     
-    func test_that_if_the_selection_spans_over_a_single_line_and_the_head_is_after_the_anchor_then_reduces_the_selection_by_one() {
+    func test_that_if_the_selection_spans_over_a_single_line_and_the_head_is_after_the_anchor_then_it_goes_towards_the_end_of_the_line_and_extends_the_selection_by_one() {
         let textInAXFocusedElement = "hello world"
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
-        app.textFields.firstMatch.typeKey(.leftArrow, modifierFlags: [.option])
+        app.textFields.firstMatch.typeKey(.leftArrow, modifierFlags: [.command])
         VimEngine.shared.enterNormalMode()
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .v))
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .e))        
         
-        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .h))
+        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .l))
         let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
         
-        XCTAssertEqual(accessibilityElement?.caretLocation, 5)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 5)
+        XCTAssertEqual(accessibilityElement?.caretLocation, 0)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 6)
     }
     
-    func test_that_if_the_selection_spans_over_a_single_line_and_the_head_is_before_the_anchor_then_it_goes_towards_the_beginning_of_the_line_and_extends_the_selection_by_one() {
+    func test_that_if_the_selection_spans_over_a_single_line_and_the_head_is_before_the_anchor_then_it_goes_towards_the_end_of_the_line_and_extends_the_selection_by_one() {
         let textInAXFocusedElement = """
-here is some text for VM h
+here is some text for VM l
 with head before anchor
 """
         app.textViews.firstMatch.tap()
@@ -106,79 +106,79 @@ with head before anchor
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .v))
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .b))
         
-        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .h))
+        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .l))
         let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
         
-        XCTAssertEqual(accessibilityElement?.caretLocation, 36)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 9)
+        XCTAssertEqual(accessibilityElement?.caretLocation, 38)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 7)
     }
     
 }
 
 
 // TextViews
-extension UIASSVMC_h_Tests {
+extension UIASSVMC_l_Tests {
     
-    func test_that_if_the_selection_spans_over_multiple_lines_and_the_head_is_before_the_anchor_then_it_goes_towards_the_beginning_of_the_line_and_extends_the_selection() {
+    func test_that_if_the_selection_spans_over_multiple_lines_and_the_head_is_after_the_anchor_then_it_goes_towards_the_end_of_the_line_and_extends_the_selection() {
+        let textInAXFocusedElement = """
+span over multiple lines
+with head after anchor
+for VM l
+"""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [.command])
+        VimEngine.shared.enterNormalMode()
+        VimEngine.shared.handle(keyCombination: KeyCombination(key: .v))
+        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .dollarSign))
+        VimEngine.shared.handle(keyCombination: KeyCombination(key: .e))
+        
+        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .l))
+        let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
+        
+        XCTAssertEqual(accessibilityElement?.caretLocation, 0)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 30)
+    }
+    
+    func test_that_if_the_selection_spans_over_multiple_lines_and_the_head_is_before_the_anchor_then_it_goes_towards_the_end_of_the_line_and_reduces_the_selection() {
         let textInAXFocusedElement = """
 span over multiple lines
 with head before anchor
-for VM h
+for VM l and that should
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
         VimEngine.shared.enterNormalMode()
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .v))
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .zero))
+        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .zero))
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .b))
         
-        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .h))
+        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .l))
         let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
         
-        XCTAssertEqual(accessibilityElement?.caretLocation, 18)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 15)
-    }
-    
-    func test_that_if_the_selection_spans_over_multiple_lines_and_the_head_is_after_the_anchor_then_it_goes_towards_the_beginning_of_the_line_and_reduces_the_selection() {
-        let textInAXFocusedElement = """
-span over multiple lines
-with head after anchor
-for VM h and that should
-"""
-        app.textViews.firstMatch.tap()
-        app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [.command])
-        VimEngine.shared.enterNormalMode()
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .v))
-        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .dollarSign))
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .e))
-        
-        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .h))
-        let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
-        
-        XCTAssertEqual(accessibilityElement?.caretLocation, 0)
+        XCTAssertEqual(accessibilityElement?.caretLocation, 20)
         XCTAssertEqual(accessibilityElement?.selectedLength, 28)
     }  
     
-    func test_that_it_stops_at_the_beginning_of_lines_and_does_not_continue_moving_backward_on_the_previous_lines() {
+    func test_that_it_stops_at_the_end_of_lines_and_does_not_continue_moving_forward_on_the_next_lines_when_it_is_already_coming_from_a_line_above() {
         let textInAXFocusedElement = """
 span over multiple lines
 w askljaslkasdlfjak
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [.command])
         VimEngine.shared.enterNormalMode()
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .v))
+        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .zero))
+        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .b))
         VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .dollarSign))
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .e))
         
-        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .h))
+        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .l))
         let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
         
-        XCTAssertEqual(accessibilityElement?.caretLocation, 0)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 26)        
+        XCTAssertEqual(accessibilityElement?.caretLocation, 24)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 20)        
     }
     
 }
