@@ -394,6 +394,8 @@ extension VimEngine {
         case .y:
             enterOperatorPendingMode(with: keyCombination)
         case .Y:
+            lastYankStyle = .linewise
+
             if var element = asNormalMode.yy(on: focusedElement()) {
                 element.selectedLength = 1
                 _ = push(element: element)
