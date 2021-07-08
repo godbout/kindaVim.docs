@@ -17,8 +17,8 @@ extension UsingASVM_y_Tests {
         XCTAssertEqual(asVisualModeMock.functionCalled, "y(on:)")
     }
     
-    func test_that_it_keeps_Vim_in_visual_mode() {
-        XCTAssertEqual(VimEngine.shared.currentMode, .visual)
+    func test_that_it_switches_Vim_to_Normal_Mode() {
+        XCTAssertEqual(VimEngine.shared.currentMode, .normal)
     }
     
 }

@@ -841,9 +841,12 @@ extension VimEngine {
                 visualStyle = .linewise
             }
         case .y:
-            if let element = asVisualMode.y(on: focusedElement()) {                
+            if var element = asVisualMode.y(on: focusedElement()) {                
+                element.selectedLength = (element.caretLocation == element.length) ? 0 : 1
                 push(element: element)
             }
+            
+            enterNormalMode()
         case .dollarSign:
             if let element = asVisualMode.dollarSign(on: focusedElement()) {
                 push(element: element)
