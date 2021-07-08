@@ -20,11 +20,13 @@ extension AccessibilityStrategyVisualMode {
         }
         
         
-        if VimEngine.shared.visualStyle == .characterwise {
+        if VimEngine.shared.visualStyle == .characterwise, let lineAtHead = AccessibilityTextElementAdaptor.lineFor(location: AccessibilityStrategyVisualMode.head) {
             if element.caretLocation < Self.anchor {
-                element.caretLocation += 1
-                element.selectedLength -= 1
-            } else if element.caretLocation + element.selectedLength < element.currentLine.end {
+                if element.caretLocation <= lineAtHead.endLimit {
+                    element.caretLocation += 1
+                    element.selectedLength -= 1
+                }
+            } else if element.caretLocation + element.selectedLength < lineAtHead.end {
                 element.selectedLength += 1            
             }            
         }        
