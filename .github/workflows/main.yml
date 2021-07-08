@@ -2,7 +2,7 @@ name: tests and coverage
 
 on:
   schedule:
-    - cron:  '28 3 * * *'
+    - cron:  '28 3 */2 * *'
 
 jobs:
   swift:
