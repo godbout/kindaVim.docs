@@ -19,7 +19,7 @@ extension AccessibilityStrategyVisualMode {
         
         if element.caretIsAtTheEnd, element.lastCharacterIsNotLinefeed {
             element.caretLocation -= 1
-            element.selectedLength = 1
+            element.selectedLength = 0
             
             Self.anchor = element.caretLocation
             Self.head = element.caretLocation
@@ -36,8 +36,14 @@ extension AccessibilityStrategyVisualMode {
         
         
         if Self.anchor == nil {
-            Self.anchor = element.caretLocation
-            Self.head = element.caretLocation
+            if element.caretLocation >= element.currentLine.endLimit {
+                element.caretLocation = element.currentLine.endLimit
+                Self.anchor = element.currentLine.endLimit
+                Self.head = element.currentLine.endLimit
+            } else {
+                Self.anchor = element.caretLocation
+                Self.head = element.caretLocation
+            }            
         } else if VimEngine.shared.visualStyle == .linewise {
             if let lineAtHead = AccessibilityTextElementAdaptor.lineFor(location: AccessibilityStrategyVisualMode.head) { 
                 if Self.head > lineAtHead.endLimit {
