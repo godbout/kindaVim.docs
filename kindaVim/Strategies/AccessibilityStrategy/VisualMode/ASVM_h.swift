@@ -21,17 +21,11 @@ extension AccessibilityStrategyVisualMode {
         
         
         if VimEngine.shared.visualStyle == .characterwise, let lineAtHead = AccessibilityTextElementAdaptor.lineFor(location: AccessibilityStrategyVisualMode.head) {
-            if element.caretLocation + element.selectedLength - 1 <= Self.anchor {
-                if element.caretLocation > lineAtHead.start {
-                    element.caretLocation -= 1
-                    element.selectedLength += 1
-                }
-            } else {
-                if Self.head > lineAtHead.start {
-                    if element.selectedLength > 1 {
-                        element.selectedLength -= 1
-                    }
-                }
+            if element.caretLocation + (element.selectedLength - 1) <= Self.anchor, element.caretLocation > lineAtHead.start {
+                element.caretLocation -= 1
+                element.selectedLength += 1
+            } else if Self.head > lineAtHead.start, element.selectedLength > 1 {
+                element.selectedLength -= 1
             }
         }
         
