@@ -840,6 +840,10 @@ extension VimEngine {
             } else {
                 visualStyle = .linewise
             }
+        case .y:
+            if let element = asVisualMode.y(on: focusedElement()) {                
+                push(element: element)
+            }
         case .dollarSign:
             if let element = asVisualMode.dollarSign(on: focusedElement()) {
                 push(element: element)

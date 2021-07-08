@@ -14,6 +14,7 @@ protocol AccessibilityStrategyVisualModeProtocol {
     func o(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func v(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func V(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
+    func y(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     
     func dollarSign(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func escape(on element: AccessibilityTextElement?) -> AccessibilityTextElement?

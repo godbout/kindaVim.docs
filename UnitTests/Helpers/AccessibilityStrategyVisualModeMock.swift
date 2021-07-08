@@ -73,6 +73,12 @@ class AccessibilityStrategyVisualModeMock: AccessibilityStrategyVisualModeProtoc
         return nil
     }
     
+    func y(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        functionCalled = #function
+        
+        return nil
+    }
+    
     func dollarSign(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         
