@@ -77,7 +77,7 @@ own empty
 // Both
 extension UIASVMC_$_Tests {
             
-    func test_that_if_the_selection_spans_over_a_single_line_and_the_head_is_after_the_anchor_then_it_goes_to_the_end_of_the_line_where_the_head_is_located_and_extends_the_selection() {
+    func test_that_if_the_selection_spans_over_a_single_line_and_the_head_is_after_the_anchor_then_it_goes_to_the_end_of_the_line_and_extends_the_selection() {
         let textInAXFocusedElement = "hello world"
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
@@ -92,7 +92,7 @@ extension UIASVMC_$_Tests {
         XCTAssertEqual(accessibilityElement?.selectedLength, 6)
     }
     
-    func test_that_if_the_selection_spans_over_a_single_line_and_the_head_is_before_the_anchor_then_it_goes_to_the_end_of_the_line_where_the_head_is_located_and_reduces_the_selection_until_the_anchor_and_then_extends_it_after() {
+    func test_that_if_the_selection_spans_over_a_single_line_and_the_head_is_before_the_anchor_then_it_goes_to_the_end_of_the_line_and_reduces_the_selection_until_the_anchor_and_then_extends_it_after() {
         let textInAXFocusedElement = """
 $ for visual mode starts
 at the anchor, not at the caret location

@@ -119,7 +119,7 @@ at the anchor, not at the caret location
 // TextViews
 extension UIASVML_0_Tests {
 
-    func test_that_if_the_selection_spans_over_multiple_lines_it_goes_to_the_beginning_of_the_line_where_the_head_is_located() {
+    func test_that_if_the_selection_spans_over_multiple_lines_and_the_head_is_before_the_anchor_the_it_goes_to_the_beginning_of_the_line_and_extends_the_selection() {
         let textInAXFocusedElement = """
 we gonna select
 over multiple lines coz
@@ -130,15 +130,14 @@ over multiple lines coz
         app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
         VimEngine.shared.enterNormalMode()
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .v))
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .e))
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .e))
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .e))
+        VimEngine.shared.handle(keyCombination: KeyCombination(key: .zero))
+        VimEngine.shared.handle(keyCombination: KeyCombination(key: .b))
         
         VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .zero))
         let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
         
-        XCTAssertEqual(accessibilityElement?.caretLocation, 36)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 5)
+        XCTAssertEqual(accessibilityElement?.caretLocation, 0)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 37)
     }
     
     func test_that_if_the_selection_spans_over_multiple_lines_and_the_head_is_after_the_anchor_then_it_goes_to_the_beginning_of_the_line_and_reduces_the_selection() {

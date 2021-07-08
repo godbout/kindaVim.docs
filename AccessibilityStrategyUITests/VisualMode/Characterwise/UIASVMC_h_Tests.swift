@@ -78,7 +78,7 @@ own empty
 // Both
 extension UIASSVMC_h_Tests {
     
-    func test_that_if_the_selection_spans_over_a_single_line_and_the_head_is_after_the_anchor_then_reduces_the_selection_by_one() {
+    func test_that_if_the_selection_spans_over_a_single_line_and_the_head_is_after_the_anchor_then_it_goes_towards_the_beginning_of_the_line_and_reduces_the_selection_by_one() {
         let textInAXFocusedElement = "hello world"
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
