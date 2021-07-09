@@ -35,14 +35,25 @@ extension AccessibilityStrategyVisualMode {
         
         
         if let lineAtHead = AccessibilityTextElementAdaptor.lineFor(location: Self.head), let lineBelowHead = AccessibilityTextElementAdaptor.lineFor(location: lineAtHead.end + 1) {
-            let columnNumber = (Self.head - lineAtHead.start) + 1
-            var newHeadLocation = lineBelowHead.start + (columnNumber - 1)
+            var newHeadLocation = lineBelowHead.start + (AccessibilityTextElement.globalColumnNumber - 1)
+            var globalColumnNumber: Int?
             
+            // if the new head is over the line limit, we set it at the line limit,
+            // and we will override the setting of the globalColumnNumber
             if newHeadLocation >= lineBelowHead.end {
                 newHeadLocation = lineBelowHead.end - 1
+                globalColumnNumber = AccessibilityTextElement.globalColumnNumber
             }
             
-            if Self.head >= Self.anchor || (Self.head < Self.anchor && newHeadLocation >= Self.anchor) {
+            if Self.head >= Self.anchor {
+                element.selectedLength = (newHeadLocation - Self.anchor) + 1
+                
+                // so here we override the globalColumnNumber as when you reach the end
+                // of a line through jk it should let go of the update of the globalColumnNumber
+                if globalColumnNumber != nil {
+                    AccessibilityTextElement.globalColumnNumber = globalColumnNumber!
+                }
+            } else if Self.head < Self.anchor, newHeadLocation >= Self.anchor {
                 element.caretLocation = Self.anchor
                 element.selectedLength = (newHeadLocation - Self.anchor) + 1
             } else {

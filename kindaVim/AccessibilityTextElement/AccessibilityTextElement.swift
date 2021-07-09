@@ -66,20 +66,28 @@ struct AccessibilityTextElement {
     
     var caretLocation: Int {
         didSet {
-            if let lineForLocation = AccessibilityTextElementAdaptor.lineFor(location: caretLocation), lineForLocation.isNotAnEmptyLine {
-                Self.globalColumnNumber = caretLocation - lineForLocation.start + 1
+            if VimEngine.shared.currentMode == .normal || VimEngine.shared.currentMode == .insert {
+                if let lineForLocation = AccessibilityTextElementAdaptor.lineFor(location: caretLocation), lineForLocation.isNotAnEmptyLine {
+                    Self.globalColumnNumber = caretLocation - lineForLocation.start + 1
+                }
             }
         }
     }
     var selectedLength: Int {
         didSet {
-            if VimEngine.shared.currentMode == .visual, AccessibilityStrategyVisualMode.anchor != nil {
-                if caretLocation < AccessibilityStrategyVisualMode.anchor {
-                    AccessibilityStrategyVisualMode.head = caretLocation
-                } else if selectedLength > 0 {
-                    AccessibilityStrategyVisualMode.head = caretLocation + selectedLength - 1
-                } else {
-                    AccessibilityStrategyVisualMode.head = caretLocation
+            if VimEngine.shared.currentMode == .visual {
+                if AccessibilityStrategyVisualMode.anchor != nil {
+                    if caretLocation < AccessibilityStrategyVisualMode.anchor {
+                        AccessibilityStrategyVisualMode.head = caretLocation
+                    } else if selectedLength > 0 {
+                        AccessibilityStrategyVisualMode.head = caretLocation + selectedLength - 1
+                    } else {
+                        AccessibilityStrategyVisualMode.head = caretLocation
+                    }
+                }
+                
+                if AccessibilityStrategyVisualMode.head != nil, let lineAtHead = AccessibilityTextElementAdaptor.lineFor(location: AccessibilityStrategyVisualMode.head) {
+                    Self.globalColumnNumber = (AccessibilityStrategyVisualMode.head - lineAtHead.start) + 1
                 }
             }
         }
