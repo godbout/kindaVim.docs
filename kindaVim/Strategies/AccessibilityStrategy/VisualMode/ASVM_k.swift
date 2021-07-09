@@ -51,6 +51,10 @@ extension AccessibilityStrategyVisualMode {
                 element.caretLocation = newHeadLocation
                 element.selectedLength = (Self.anchor - newHeadLocation) + 1
             }
+            
+            if globalColumnNumber != nil {
+                AccessibilityTextElement.globalColumnNumber = globalColumnNumber!
+            }
         }
         
         

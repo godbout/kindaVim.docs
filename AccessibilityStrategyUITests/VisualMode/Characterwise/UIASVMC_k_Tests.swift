@@ -171,5 +171,28 @@ ass off lol
         XCTAssertEqual(accessibilityElement?.selectedLength, 9)        
     }
     
+    // see j for blah blah
+    func test_that_it_keeps_track_of_the_column_number() {
+        let textInAXFocusedElement = """
+extra long one here
+ass off lol
+gonna rip my
+wow that one is
+"""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        VimEngine.shared.enterNormalMode()
+        VimEngine.shared.handle(keyCombination: KeyCombination(key: .v))
+        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .b))
+        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .k))
+        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .k))
+        
+        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .k))                
+        let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
+        
+        XCTAssertEqual(accessibilityElement?.caretLocation, 13)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 47)           
+    }
+    
 }
 
