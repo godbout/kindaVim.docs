@@ -29,9 +29,7 @@ extension AccessibilityStrategyVisualMode {
             return element
         }
         
-        if element.caretIsAtTheEnd, element.lastCharacterIsLinefeed {
-            return element
-        }
+        if element.caretIsAtTheEnd, element.lastCharacterIsLinefeed {}
         
         
         if let lineAtHead = AccessibilityTextElementAdaptor.lineFor(location: Self.head), let lineAboveHead = AccessibilityTextElementAdaptor.lineFor(location: lineAtHead.start - 1) {
@@ -44,17 +42,23 @@ extension AccessibilityStrategyVisualMode {
                 newHeadLocation = lineAboveHead.end - 1
                 globalColumnNumber = AccessibilityTextElement.globalColumnNumber
             }
-            
+        
+            // here we use selectedLength += rather than the easier selectedLength =
+            // because for last character, we can't select the character, so it would fail
             if Self.head > Self.anchor, newHeadLocation > Self.anchor {
-                element.selectedLength = (newHeadLocation - Self.anchor) + 1
+                element.selectedLength -= Self.head - newHeadLocation
+            } else if Self.head > Self.anchor, newHeadLocation <= Self.anchor {
+                element.caretLocation = newHeadLocation
+                element.selectedLength += (Self.anchor - Self.head) + (Self.anchor - newHeadLocation)
             } else {
                 element.caretLocation = newHeadLocation
-                element.selectedLength = (Self.anchor - newHeadLocation) + 1
-            }
-            
+                element.selectedLength += Self.head - newHeadLocation
+            } 
+        
             if globalColumnNumber != nil {
                 AccessibilityTextElement.globalColumnNumber = globalColumnNumber!
             }
+            
         }
         
         

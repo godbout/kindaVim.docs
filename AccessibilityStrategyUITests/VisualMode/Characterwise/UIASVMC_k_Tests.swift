@@ -41,7 +41,7 @@ gonna be at the end
         XCTAssertEqual(accessibilityElement?.caretLocation, 30)
     }
     
-    func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_and_on_an_empty_line_it_works_and_does_nothing() {
+    func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_and_on_an_empty_line_it_works_and_selects_from_the_last_character_to_the_first_character_of_the_previous_line() {
         let textInAXFocusedElement = """
 caret is on its
 own empty
@@ -57,7 +57,8 @@ own empty
         VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .k))                
         let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
         
-        XCTAssertEqual(accessibilityElement?.caretLocation, 35)
+        XCTAssertEqual(accessibilityElement?.caretLocation, 26)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 9)
     } 
     
 }
