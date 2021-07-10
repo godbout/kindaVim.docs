@@ -149,9 +149,9 @@ if the head is not after the line end limit
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
-        app.textViews.firstMatch.typeKey(.leftArrow, modifierFlags: [.command])
         VimEngine.shared.enterNormalMode()
+        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .k))
+        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .zero))
         VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .v))
         VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .e))
         VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .e))
@@ -166,7 +166,6 @@ if the head is not after the line end limit
         let textInAXFocusedElement = "v after a V"
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
-        app.textFields.firstMatch.typeKey(.leftArrow, modifierFlags: [.option])
         VimEngine.shared.enterNormalMode()
         VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .V))
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .o))
@@ -186,12 +185,10 @@ multiple lines
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)        
         VimEngine.shared.enterNormalMode()
-        // the constellation of moves below can be replaced by better ones
-        // once better ones are implemented
         VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .k))
         VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .k))
         VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .v))
-        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .e))
+        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .dollarSign))
         VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .e))
         
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .v))

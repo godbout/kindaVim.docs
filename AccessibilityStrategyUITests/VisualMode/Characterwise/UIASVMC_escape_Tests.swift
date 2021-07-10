@@ -124,14 +124,12 @@ gonna go after
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
         VimEngine.shared.enterNormalMode()
+        VimEngine.shared.handle(keyCombination: KeyCombination(key: .k))
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .v))
-        // can be replaced by other moves, or even $ when fixed, later
+        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .dollarSign))
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .e))
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .e))
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .e))
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .e))
+        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .dollarSign))
         
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .escape))
         let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()

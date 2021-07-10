@@ -58,10 +58,9 @@ gonna go after
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
         VimEngine.shared.enterNormalMode()
+        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .k))
         VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .V))
-        // can be replaced by other moves, or even $ when fixed, later
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .j))
         
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .escape))

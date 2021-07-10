@@ -145,8 +145,8 @@ $ doesn't work LOOOLL
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
         VimEngine.shared.enterNormalMode()
+        VimEngine.shared.handle(keyCombination: KeyCombination(key: .k))
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .v))
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .e))
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .e))
@@ -168,10 +168,8 @@ $ doesn't work LOOOLL
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         VimEngine.shared.enterNormalMode()
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .v))
-        // can be replaced later on by better moves once implemented
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .zero))
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .b))
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .b))
+        VimEngine.shared.handle(keyCombination: KeyCombination(key: .k))
                 
         VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .dollarSign))
         let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
