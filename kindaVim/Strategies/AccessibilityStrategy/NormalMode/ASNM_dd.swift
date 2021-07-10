@@ -37,7 +37,7 @@ extension AccessibilityStrategyNormalMode {
         }
         
                 
-        if let nextLine = AccessibilityTextElementAdaptor.lineFor(location: element.currentLine.end + 1) {
+        if let nextLine = AccessibilityTextElementAdaptor.lineFor(location: element.currentLine.end) {
             let lineValue = nextLine.value
             let firstNonBlankWithinLineLimitOfNextLineLocation = textEngine.firstNonBlankWithinLineLimit(in: TextEngineLine(from: lineValue))
             let firstNonBlankWithinLineLimitOfNextLineText = lineValue[..<lineValue.index(lineValue.startIndex, offsetBy: firstNonBlankWithinLineLimitOfNextLineLocation)]

@@ -16,7 +16,7 @@ extension AccessibilityStrategyNormalMode {
         }
         
         
-        if let nextLine = AccessibilityTextElementAdaptor.lineFor(location: element.currentLine.end + 1) {
+        if let nextLine = AccessibilityTextElementAdaptor.lineFor(location: element.currentLine.end) {
             element.caretLocation = element.currentLine.start
             element.selectedLength = element.currentLine.length + nextLine.length
             element.selectedText = ""

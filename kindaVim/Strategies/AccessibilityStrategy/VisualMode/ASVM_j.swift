@@ -34,7 +34,7 @@ extension AccessibilityStrategyVisualMode {
         }
         
         
-        if let lineAtHead = AccessibilityTextElementAdaptor.lineFor(location: Self.head), let lineBelowHead = AccessibilityTextElementAdaptor.lineFor(location: lineAtHead.end + 1) {
+        if let lineAtHead = AccessibilityTextElementAdaptor.lineFor(location: Self.head), let lineBelowHead = AccessibilityTextElementAdaptor.lineFor(location: lineAtHead.end) {
             var newHeadLocation = lineBelowHead.start + (AccessibilityTextElement.globalColumnNumber - 1)
             var globalColumnNumber: Int?
             
@@ -87,7 +87,7 @@ extension AccessibilityStrategyVisualMode {
         guard let lineAtHead = AccessibilityTextElementAdaptor.lineFor(location: AccessibilityStrategyVisualMode.head) else { return element }
         
         if lineAtHead.number >= lineAtAnchor.number {
-            if let lineBelowHead = AccessibilityTextElementAdaptor.lineFor(location: lineAtHead.end + 1) {
+            if let lineBelowHead = AccessibilityTextElementAdaptor.lineFor(location: lineAtHead.end) {
                 element.selectedLength += lineBelowHead.length
             }
         } else {

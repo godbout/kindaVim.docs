@@ -130,7 +130,6 @@ head if before the anchor
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         VimEngine.shared.enterNormalMode()
         
-        // need to call k so that the anchor and head get updated properly
         VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .V))        
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .k))
         VimEngine.shared.handle(keyCombination: KeyCombination(key: .k))
@@ -145,6 +144,26 @@ head if before the anchor
         
         XCTAssertEqual(finalaccessibilityElementHehe?.caretLocation, 69)
         XCTAssertEqual(finalaccessibilityElementHehe?.selectedLength, 48)        
+    }
+    
+    func test_that_it_does_not_skip_empty_lines() {
+        let textInAXFocusedElement = """
+wow that one is
+
+ass off lol
+"""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        VimEngine.shared.enterNormalMode()
+        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .g))
+        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .g))        
+        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .V))         
+        
+        VimEngine.shared.handle(keyCombination: KeyCombination(key: .j))
+        let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
+        
+        XCTAssertEqual(accessibilityElement?.caretLocation, 0)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 17)
     }
     
 }
