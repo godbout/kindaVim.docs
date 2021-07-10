@@ -195,5 +195,25 @@ extra long one here
         XCTAssertEqual(accessibilityElement?.selectedLength, 42)           
     }
     
+    func test_that_it_can_go_back_to_the_last_empty_line_if_the_Visual_Mode_started_from_there_which_means_if_the_anchor_is_there() {
+        let textInAXFocusedElement = """
+caret is on its
+own empty
+    line
+
+"""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        VimEngine.shared.enterNormalMode()
+        VimEngine.shared.handle(keyCombination: KeyCombination(key: .v))
+        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .k))
+        
+        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .j))                
+        let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
+        
+        XCTAssertEqual(accessibilityElement?.caretLocation, 35)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 0)        
+    }
+    
 }
 

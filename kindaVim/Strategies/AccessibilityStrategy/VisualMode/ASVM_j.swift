@@ -45,7 +45,11 @@ extension AccessibilityStrategyVisualMode {
                 globalColumnNumber = AccessibilityTextElement.globalColumnNumber
             }
             
-            if Self.head >= Self.anchor, newHeadLocation > Self.anchor {
+            // first if is some shit to handle fucking 3rd case of The 3 Cases of the AX API
+            if Self.anchor == element.length, newHeadLocation == element.length - 1 {
+                element.caretLocation = element.length
+                element.selectedLength = 0                
+            } else if Self.head >= Self.anchor, newHeadLocation > Self.anchor {
                 element.selectedLength += newHeadLocation - Self.head
             } else if Self.head < Self.anchor, newHeadLocation >= Self.anchor {
                 element.caretLocation = Self.anchor
@@ -59,7 +63,7 @@ extension AccessibilityStrategyVisualMode {
             // of a line through jk it should let go of the update of the globalColumnNumber
             if globalColumnNumber != nil {
                 AccessibilityTextElement.globalColumnNumber = globalColumnNumber!
-            }
+            }            
         }
         
         return element
