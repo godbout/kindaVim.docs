@@ -45,12 +45,14 @@ extension AccessibilityStrategyVisualMode {
                 globalColumnNumber = AccessibilityTextElement.globalColumnNumber
             }
             
-            if Self.head >= Self.anchor || (Self.head < Self.anchor && newHeadLocation >= Self.anchor) {
-                element.caretLocation = Self.anchor
+            if Self.head >= Self.anchor, newHeadLocation > Self.anchor {
                 element.selectedLength += newHeadLocation - Self.head
-            } else {
+            } else if Self.head < Self.anchor, newHeadLocation >= Self.anchor {
+                element.caretLocation = Self.anchor
+                element.selectedLength += (Self.head - Self.anchor) + (newHeadLocation - Self.anchor)
+            } else if Self.head < Self.anchor, newHeadLocation < Self.anchor {
                 element.caretLocation = newHeadLocation
-                element.selectedLength = Self.head - element.caretLocation
+                element.selectedLength -= newHeadLocation - Self.head
             }
             
             // so here we override the globalColumnNumber as when you reach the end
