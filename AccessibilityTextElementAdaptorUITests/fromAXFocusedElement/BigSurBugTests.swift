@@ -69,6 +69,37 @@ shit
         XCTAssertEqual(accessibilityElement?.currentLine.end, 13)
     }
     
+    func test_that_we_grab_a_correct_AccessibilityTextElement_even_when_the_last_character_is_by_its_own_on_the_last_line() {
+        let textInAXFocusedElement = """
+that big sur shit
+LOL
+6
+"""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        app.textViews.firstMatch.typeKey(.leftArrow, modifierFlags: [])
+        app.textViews.firstMatch.typeKey(.rightArrow, modifierFlags: [.shift])
+        
+        var accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
+        _ = AccessibilityTextElementAdaptor.toAXFocusedElement(from: accessibilityElement!)
+        accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
+        
+        XCTAssertEqual(accessibilityElement?.role, .textArea)
+        XCTAssertEqual(accessibilityElement?.value, """
+that big sur shit
+LOL
+6
+"""
+        )
+        XCTAssertEqual(accessibilityElement?.length, 23)
+        XCTAssertEqual(accessibilityElement?.caretLocation, 22)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 1)
+        XCTAssertEqual(accessibilityElement?.currentLine.value, "6")
+        XCTAssertEqual(accessibilityElement?.currentLine.number, 3)
+        XCTAssertEqual(accessibilityElement?.currentLine.start, 22)
+        XCTAssertEqual(accessibilityElement?.currentLine.end, 23)
+    }
+    
 }
 
 

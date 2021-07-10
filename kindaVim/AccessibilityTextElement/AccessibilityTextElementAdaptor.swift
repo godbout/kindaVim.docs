@@ -1,4 +1,4 @@
-import Foundation 
+import Foundation
 
 struct AccessibilityTextElementAdaptor {
     
@@ -11,7 +11,7 @@ struct AccessibilityTextElementAdaptor {
     // not sure how to handle this yet. without a static variable, we have to requery,
     // which seems actually very fast. so maybe it's safer this way.
     static func fromAXFocusedElement() -> AccessibilityTextElement? {
-        guard let axFocusedElement = AXEngine.axFocusedElement() else { return nil }        
+        guard let axFocusedElement = AXEngine.axFocusedElement() else { return nil }
 
         guard let axTextElementData = AXEngine.axTextElementData(of: axFocusedElement) else { return nil }
         guard let currentLine = lineFor(location: axTextElementData.caretLocation, on: axFocusedElement) else { return nil }
@@ -77,7 +77,7 @@ struct AccessibilityTextElementAdaptor {
         
         
         guard let axLineNumber = AXEngine.axLineNumberFor(location: location, on: axFocusedElement) else { return nil }
-        guard let axLineRange = AXEngine.axLineRangeFor(lineNumber: axLineNumber, on: axFocusedElement) else { return nil }            
+        guard let axLineRange = AXEngine.axLineRangeFor(lineNumber: axLineNumber, on: axFocusedElement) else { return nil }
         
         return AccessibilityTextElementLine(
             fullValue: elementValue,
@@ -138,11 +138,21 @@ struct AccessibilityTextElementAdaptor {
         // if the AX API returns a location that is equal to the line end while the selectedLength is more than 0
         // then we're gonna hit the Big Sur bug and need to do some magic
         if location == axLineRange.location + axLineRange.length, axSelectedTextRange.length > 0  {
-            guard let axLineNumber = AXEngine.axLineNumberFor(location: location + 1, on: axFocusedElement) else { return nil }
-            guard let axLineRange = AXEngine.axLineRangeFor(lineNumber: axLineNumber, on: axFocusedElement) else { return nil }
-            
-            lineNumber = axLineNumber
-            lineRange = axLineRange
+            // if we're on the last character we gonna hit the 2nd of The 3 Cases LMAO
+            if location == elementLength - 1 {
+                guard var axLineNumber = AXEngine.axLineNumberFor(location: location, on: axFocusedElement) else { return nil }
+                axLineNumber += 1
+                guard let axLineRange = AXEngine.axLineRangeFor(lineNumber: axLineNumber, on: axFocusedElement) else { return nil }
+                
+                lineNumber = axLineNumber
+                lineRange = axLineRange
+            } else {
+                guard let axLineNumber = AXEngine.axLineNumberFor(location: location + 1, on: axFocusedElement) else { return nil }
+                guard let axLineRange = AXEngine.axLineRangeFor(lineNumber: axLineNumber, on: axFocusedElement) else { return nil }
+                
+                lineNumber = axLineNumber
+                lineRange = axLineRange
+            }
         } else {
             lineNumber = axLineNumber
             lineRange = axLineRange
@@ -169,7 +179,8 @@ struct AccessibilityTextElementAdaptor {
     }
 
     static func toAXFocusedElement(from accessibilityElement: AccessibilityTextElement) -> Bool {
-        return AXEngine.toAXFocusedElement(from: accessibilityElement)        
+        return AXEngine.toAXFocusedElement(from: accessibilityElement)
     }
 
 }
+
