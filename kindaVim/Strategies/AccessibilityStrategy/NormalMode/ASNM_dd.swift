@@ -37,7 +37,7 @@ extension AccessibilityStrategyNormalMode {
         }
         
                 
-        if let nextLine = AccessibilityTextElementAdaptor.lineFor(location: element.currentLine.end) {
+        if let nextLine = AccessibilityTextElementAdaptor.lineFor(lineNumber: element.currentLine.number + 1) {
             let lineValue = nextLine.value
             let firstNonBlankWithinLineLimitOfNextLineLocation = textEngine.firstNonBlankWithinLineLimit(in: TextEngineLine(from: lineValue))
             let firstNonBlankWithinLineLimitOfNextLineText = lineValue[..<lineValue.index(lineValue.startIndex, offsetBy: firstNonBlankWithinLineLimitOfNextLineLocation)]
@@ -45,7 +45,7 @@ extension AccessibilityStrategyNormalMode {
             element.caretLocation = element.currentLine.start
             element.selectedLength = element.currentLine.length + firstNonBlankWithinLineLimitOfNextLineLocation
             element.selectedText = String(firstNonBlankWithinLineLimitOfNextLineText)
-        } else if let previousLine = AccessibilityTextElementAdaptor.lineFor(location: element.currentLine.start - 1) {
+        } else if let previousLine = AccessibilityTextElementAdaptor.lineFor(lineNumber: element.currentLine.number - 1) {
             let firstNonBlankWithinLineLimitOfPreviousLineLocation = textEngine.firstNonBlankWithinLineLimit(in: TextEngineLine(from: previousLine.value))
             
             element.caretLocation = element.currentLine.start - 1

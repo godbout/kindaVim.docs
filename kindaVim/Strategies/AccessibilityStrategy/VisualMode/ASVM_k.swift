@@ -32,7 +32,7 @@ extension AccessibilityStrategyVisualMode {
         if element.caretIsAtTheEnd, element.lastCharacterIsLinefeed {}
         
         
-        if let lineAtHead = AccessibilityTextElementAdaptor.lineFor(location: Self.head), let lineAboveHead = AccessibilityTextElementAdaptor.lineFor(location: lineAtHead.start - 1) {
+        if let lineAtHead = AccessibilityTextElementAdaptor.lineFor(location: Self.head), let lineAboveHead = AccessibilityTextElementAdaptor.lineFor(lineNumber: lineAtHead.number - 1) {
             var newHeadLocation = lineAboveHead.start + (AccessibilityTextElement.globalColumnNumber - 1)
             var globalColumnNumber: Int?
             
@@ -89,7 +89,7 @@ extension AccessibilityStrategyVisualMode {
         if lineAtHead.number > lineAtAnchor.number {
             element.selectedLength -= lineAtHead.length
         } else {
-            if let lineAboveHead = AccessibilityTextElementAdaptor.lineFor(location: lineAtHead.start - 1) {
+            if let lineAboveHead = AccessibilityTextElementAdaptor.lineFor(lineNumber: lineAtHead.number - 1) {
                 element.caretLocation -= lineAboveHead.length
                 element.selectedLength += lineAboveHead.length
             }
