@@ -215,5 +215,24 @@ own empty
         XCTAssertEqual(accessibilityElement?.selectedLength, 0)        
     }
     
-}
+    func test_that_it_does_not_go_back_to_the_last_empty_line_if_the_Visual_Mode_did_not_start_from_there_and_instead_selects_till_the_end_of_the_line() {
+        let textInAXFocusedElement = """
+caret is on its
+own empty
+    line
 
+"""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        VimEngine.shared.enterNormalMode()
+        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .k))
+        VimEngine.shared.handle(keyCombination: KeyCombination(key: .v))
+        
+        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .j))                
+        let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
+        
+        XCTAssertEqual(accessibilityElement?.caretLocation, 26)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 9)        
+    } 
+    
+}
