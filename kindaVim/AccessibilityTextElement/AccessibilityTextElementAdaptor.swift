@@ -22,6 +22,7 @@ struct AccessibilityTextElementAdaptor {
             length: axTextElementData.length,
             caretLocation: axTextElementData.caretLocation,
             selectedLength: axTextElementData.selectedLength,
+            selectedText: axTextElementData.selectedText,
             currentLine: currentLine
         )
     }

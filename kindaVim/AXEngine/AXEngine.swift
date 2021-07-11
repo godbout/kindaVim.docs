@@ -8,6 +8,7 @@ struct AXTextElementData {
     let length: Int
     let caretLocation: Int
     let selectedLength: Int
+    let selectedText: String
     
 }
 
@@ -48,7 +49,7 @@ struct AXEngine {
         guard let axFocusedElement = axFocusedElement else { return nil }
         
         var values: CFArray?
-        let error = AXUIElementCopyMultipleAttributeValues(axFocusedElement, [kAXRoleAttribute, kAXValueAttribute, kAXNumberOfCharactersAttribute, kAXSelectedTextRangeAttribute] as CFArray, .stopOnError, &values)
+        let error = AXUIElementCopyMultipleAttributeValues(axFocusedElement, [kAXRoleAttribute, kAXValueAttribute, kAXNumberOfCharactersAttribute, kAXSelectedTextRangeAttribute, kAXSelectedTextAttribute] as CFArray, .stopOnError, &values)
         
         guard error == .success, let elementValues = values as NSArray? else { return nil }
         
@@ -62,13 +63,15 @@ struct AXEngine {
         let axLength = elementValues[2] as! Int
         let axCaretLocation = selectedTextRange.location
         let axSelectedLength = selectedTextRange.length
+        let axSelectedText = elementValues[4] as! String
         
         return AXTextElementData(
             role: axRole,
             value: axValue,
             length: axLength,
             caretLocation: axCaretLocation,
-            selectedLength: axSelectedLength
+            selectedLength: axSelectedLength,
+            selectedText: axSelectedText
         )
     }
     
