@@ -38,16 +38,21 @@ at least if we're not at the end of the text
         let element = AccessibilityTextElement(
             role: .textArea,
             value: text,
-            length: 127,
+            length: 126,
             caretLocation: 17,
             selectedLength: 65,
+            selectedText: """
+will delete the selected lines
+but the below line will not go up
+
+""",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
-                number: 2,
-                start: 17,
-                end: 48
+            fullValue: text,
+            number: 2,
+            start: 17,
+            end: 48
             )
-        )
+            )
         
         let returnedElement = applyMove(on: element)
         
@@ -57,3 +62,5 @@ at least if we're not at the end of the text
     }
     
 }
+
+

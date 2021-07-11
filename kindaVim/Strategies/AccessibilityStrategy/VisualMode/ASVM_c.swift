@@ -39,12 +39,7 @@ extension AccessibilityStrategyVisualMode {
     private func cForVisualModeLinewise(on element: AccessibilityTextElement) -> AccessibilityTextElement? {
         var element = element
         
-        let value = element.value
-        let beginningOfSelectionIndex = value.index(value.startIndex, offsetBy: element.caretLocation)
-        let endOfSelectionIndex = value.index(value.startIndex, offsetBy: element.caretLocation + element.selectedLength)
-        let currentSelectedText = value[beginningOfSelectionIndex..<endOfSelectionIndex]
-        
-        if currentSelectedText.last == "\n" {
+        if let selectedText = element.selectedText, selectedText.last == "\n" {
             element.selectedLength -= 1
         }
         

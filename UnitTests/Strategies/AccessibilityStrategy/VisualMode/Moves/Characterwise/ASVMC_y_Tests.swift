@@ -31,6 +31,7 @@ extension ASVMC_y_Tests {
             length: 0,
             caretLocation: 0,
             selectedLength: 0,
+            selectedText: "",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 1,
@@ -89,6 +90,7 @@ line
             length: 31,
             caretLocation: 31,
             selectedLength: 0,
+            selectedText: "",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 4,
@@ -141,11 +143,12 @@ to Characterwise
     func test_that_it_yanks_the_selection() {
         let text = "well VM v plus then VM y should copy the selected text."
         let element = AccessibilityTextElement(
-            role: .textField,
+            role: .textArea,
             value: text,
             length: 55,
             caretLocation: 15,
             selectedLength: 27,
+            selectedText: "then VM y should copy the s",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 1,

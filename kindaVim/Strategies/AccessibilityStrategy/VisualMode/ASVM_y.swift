@@ -3,28 +3,46 @@ import AppKit
 extension AccessibilityStrategyVisualMode {
     
     func y(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
-        guard var element = element else { return nil }
+        guard let element = element else { return nil }
+        
+        if let oneOfTheThreeCasesTM = handleTheThreeCasesTM(for: element) {
+            return oneOfTheThreeCasesTM
+        }
+        
+        return theMove(on: element)
+    }
+    
+    private func handleTheThreeCasesTM(for element: AccessibilityTextElement) -> AccessibilityTextElement? {
+        var element = element
         
         
-        if element.isEmpty {}
+        if element.isEmpty {
+            return theMove(on: element)
+        }
         
         if element.isNotEmpty, element.caretIsAtTheEnd, element.lastCharacterIsNotLinefeed {
             element.caretLocation -= 1
             element.selectedLength = 0
+            element.selectedText = nil
             
             return element
         }
         
-        if element.caretIsAtTheEnd, element.lastCharacterIsLinefeed {}
+        if element.caretIsAtTheEnd, element.lastCharacterIsLinefeed {
+            return theMove(on: element)
+        }
         
         
-        let value = element.value
-        let beginningOfSelectionIndex = value.index(value.startIndex, offsetBy: element.caretLocation)
-        let endOfSelectionIndex = value.index(value.startIndex, offsetBy: element.caretLocation + element.selectedLength)
-        let currentSelectedText = String(value[beginningOfSelectionIndex..<endOfSelectionIndex])
+        return nil
+    }
+    
+    private func theMove(on element: AccessibilityTextElement) -> AccessibilityTextElement {
+        var element = element
         
-        NSPasteboard.general.clearContents()
-        NSPasteboard.general.setString(currentSelectedText, forType: .string)
+        if let selectedText = element.selectedText {
+            NSPasteboard.general.clearContents()
+            NSPasteboard.general.setString(selectedText, forType: .string)
+        }
         
         if VimEngine.shared.visualStyle == .characterwise {
             VimEngine.shared.lastYankStyle = .characterwise
@@ -32,7 +50,8 @@ extension AccessibilityStrategyVisualMode {
             VimEngine.shared.lastYankStyle = .linewise
         }
         
-        element.selectedLength = 0
+        element.selectedLength = 1     
+        element.selectedText = nil
         
         return element
     }
