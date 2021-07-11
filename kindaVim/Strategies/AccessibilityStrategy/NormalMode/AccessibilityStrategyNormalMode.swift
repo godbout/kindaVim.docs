@@ -77,20 +77,26 @@ struct AccessibilityStrategyNormalMode: AccessibilityStrategyNormalModeProtocol 
     
     func ciInnerQuotedString(using quote: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         guard var element = element else { return nil }
-        
-        element.selectedLength = 0
-        element.selectedText = nil
-        
+                
         
         if element.isEmpty {
+            element.selectedLength = 0
+            element.selectedText = nil
+            
             return element
         }
         
         if element.caretIsAtTheEnd, element.lastCharacterIsNotLinefeed {
+            element.selectedLength = 0
+            element.selectedText = nil
+            
             return element
         }
         
         if element.caretIsAtTheEnd, element.lastCharacterIsLinefeed {
+            element.selectedLength = 0
+            element.selectedText = nil
+            
             return element 
         }
         
@@ -106,6 +112,9 @@ struct AccessibilityStrategyNormalMode: AccessibilityStrategyNormalModeProtocol 
             
             return element
         }
+        
+        element.selectedLength = 0
+        element.selectedText = nil
         
         return element    
     }

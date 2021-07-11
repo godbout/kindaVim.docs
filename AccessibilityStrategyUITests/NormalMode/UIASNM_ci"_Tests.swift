@@ -52,22 +52,8 @@ hehe there's gonna be some "double quotes" in that shit
         
         XCTAssertEqual(VimEngine.shared.currentMode, .insert)        
     }
-    
-    func test_a_case_where_it_should_not_delete_the_content() {        
-        let textInAXFocusedElement = """
-huhu only one " in there...
-"""                
-        app.textFields.firstMatch.tap()
-        app.textFields.firstMatch.typeText(textInAXFocusedElement)                
-        app.textFields.firstMatch.typeKey(.leftArrow, modifierFlags: [.option])
-        VimEngine.shared.enterNormalMode()
         
-        let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
-        
-        XCTAssertNil(accessibilityElement?.selectedText)
-    }
-    
-    func test_a_case_where_it_should_not_delete_the_content_stays_in_normal_mode() {
+    func test_a_case_where_it_should_not_delete_the_content_and_then_stay_in_normal_mode() {
         let textInAXFocusedElement = """
 huhu only one " in there...
 """                

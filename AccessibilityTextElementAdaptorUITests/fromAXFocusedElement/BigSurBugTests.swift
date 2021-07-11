@@ -19,8 +19,11 @@ shit
         
         // the bug happens only when setting the selection through mouse or AX
         // which is why we have to grab the element, push it back to AX to make it fail
-        // and grabbing it again for testing
+        // and grabbing it again for testing.
+        // we also need to set selectedText to nil else the AX API automatically
+        // sets the selectedLength to 0 once it sets the text
         var accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
+        accessibilityElement?.selectedText = nil
         _ = AccessibilityTextElementAdaptor.toAXFocusedElement(from: accessibilityElement!)
         accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
         
@@ -51,6 +54,7 @@ shit
         app.textViews.firstMatch.typeKey(.rightArrow, modifierFlags: [.shift])
         
         var accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
+        accessibilityElement?.selectedText = nil
         _ = AccessibilityTextElementAdaptor.toAXFocusedElement(from: accessibilityElement!)
         accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
         
@@ -81,6 +85,7 @@ LOL
         app.textViews.firstMatch.typeKey(.rightArrow, modifierFlags: [.shift])
         
         var accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
+        accessibilityElement?.selectedText = nil
         _ = AccessibilityTextElementAdaptor.toAXFocusedElement(from: accessibilityElement!)
         accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
         

@@ -15,24 +15,43 @@ extension AccessibilityStrategyVisualMode {
     }
     
     private func jForVisualModeCharacterwise(on element: AccessibilityTextElement) -> AccessibilityTextElement {
+        if let oneOfTheThreeCasesForVisualModeCharacterwiseTM = handleTheThreeCasesForVisualModeCharacterwiseTM(for: element) {
+            return oneOfTheThreeCasesForVisualModeCharacterwiseTM
+        }
+        
+        return theMoveForVisualModeCharacterwise(on: element)
+    }
+    
+    private func handleTheThreeCasesForVisualModeCharacterwiseTM(for element: AccessibilityTextElement) -> AccessibilityTextElement? {
         var element = element
         
         
         if element.isEmpty {
+            element.selectedText = nil
+            
             return element
         }
         
         if element.caretIsAtTheEnd, element.lastCharacterIsNotLinefeed {
             element.caretLocation -= 1
             element.selectedLength = 1
+            element.selectedText = nil
             
             return element
         }
         
         if element.caretIsAtTheEnd, element.lastCharacterIsLinefeed {
+            element.selectedText = nil
+            
             return element
         }
         
+        
+        return nil
+    }
+    
+    private func theMoveForVisualModeCharacterwise(on element: AccessibilityTextElement) -> AccessibilityTextElement {
+        var element = element
         
         if let lineAtHead = AccessibilityTextElementAdaptor.lineFor(location: Self.head), let lineBelowHead = AccessibilityTextElementAdaptor.lineFor(lineNumber: lineAtHead.number + 1) {
             var newHeadLocation = lineBelowHead.start + (AccessibilityTextElement.globalColumnNumber - 1)
@@ -59,43 +78,81 @@ extension AccessibilityStrategyVisualMode {
             // of a line through jk it should let go of the update of the globalColumnNumber
             if globalColumnNumber != nil {
                 AccessibilityTextElement.globalColumnNumber = globalColumnNumber!
-            }            
-        } else if Self.anchor == element.length {
+            }
+                
+            element.selectedText = nil
+            
+            return element
+        }
+        
+        if Self.anchor == element.length {
             let globalColumnNumber = AccessibilityTextElement.globalColumnNumber
             
             element.caretLocation = element.length
             element.selectedLength = 0
+            element.selectedText = nil
             
             AccessibilityTextElement.globalColumnNumber = globalColumnNumber
-        } else {
-            element.selectedLength += (element.length - Self.head) - 1
-        }
+            
+            return element
+        } 
+        
+        element.selectedLength += (element.length - Self.head) - 1
+        element.selectedText = nil
         
         return element
     }
     
     private func jForVisualModeLinewise(on element: AccessibilityTextElement) -> AccessibilityTextElement {
+        if let oneOfTheThreeCasesForVisualModeLinewiseTM = handleTheThreeCasesForVisualModeLinewiseTM(for: element) {
+            return oneOfTheThreeCasesForVisualModeLinewiseTM
+        }
+        
+        return theMoveForVisualModeLinewise(on: element)
+    }
+    
+    private func handleTheThreeCasesForVisualModeLinewiseTM(for element: AccessibilityTextElement) -> AccessibilityTextElement? {
         var element = element
         
         
         if element.isEmpty {
+            element.selectedText = nil
+            
             return element
         }
         
         if element.caretIsAtTheEnd, element.lastCharacterIsNotLinefeed {
             element.caretLocation = element.currentLine.start
             element.selectedLength = element.currentLine.length
+            element.selectedText = nil
             
             return element
         }
         
         if element.caretIsAtTheEnd, element.lastCharacterIsLinefeed {
+            element.selectedText = nil
+            
             return element
         }
         
-                
-        guard let lineAtAnchor = AccessibilityTextElementAdaptor.lineFor(location: AccessibilityStrategyVisualMode.anchor) else { return element }
-        guard let lineAtHead = AccessibilityTextElementAdaptor.lineFor(location: AccessibilityStrategyVisualMode.head) else { return element }
+        
+        return nil
+    }
+    
+    private func theMoveForVisualModeLinewise(on element: AccessibilityTextElement) -> AccessibilityTextElement {
+        var element = element
+        
+        guard let lineAtAnchor = AccessibilityTextElementAdaptor.lineFor(location: AccessibilityStrategyVisualMode.anchor) else {
+            element.selectedText = nil
+            
+            return element             
+        }
+        
+        guard let lineAtHead = AccessibilityTextElementAdaptor.lineFor(location: AccessibilityStrategyVisualMode.head) else {
+            element.selectedText = nil
+            
+            return element
+        }
         
         if lineAtHead.number >= lineAtAnchor.number {
             if let lineBelowHead = AccessibilityTextElementAdaptor.lineFor(lineNumber: lineAtHead.number + 1) {
@@ -106,7 +163,8 @@ extension AccessibilityStrategyVisualMode {
             element.selectedLength -= lineAtHead.length 
         }
         
+        element.selectedText = nil
+        
         return element
     }
-    
 }

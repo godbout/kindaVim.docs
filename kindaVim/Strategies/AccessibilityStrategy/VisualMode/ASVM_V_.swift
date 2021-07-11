@@ -7,12 +7,22 @@ extension AccessibilityStrategyVisualMode {
     }
     
     private func handleAnchorHeadAndCaretLocation(with element: AccessibilityTextElement) -> AccessibilityTextElement {
+        if let oneOfTheThreeCasesTM = handleTheThreeCasesTM(for: element) {
+            return oneOfTheThreeCasesTM
+        }
+        
+        return theMove(on: element)
+    }
+    
+    private func handleTheThreeCasesTM(for element: AccessibilityTextElement) -> AccessibilityTextElement? {
         var element = element
         
         
         if element.isEmpty {
             Self.anchor = 0
             Self.head = 0
+            
+            element.selectedText = nil
             
             return element
         }
@@ -22,6 +32,7 @@ extension AccessibilityStrategyVisualMode {
             
             element.caretLocation = elementRightBeforeElement!.start
             element.selectedLength = elementRightBeforeElement!.end - elementRightBeforeElement!.start  
+            element.selectedText = nil
             
             Self.anchor = element.caretLocation 
             Self.head = element.caretLocation + element.selectedLength
@@ -33,9 +44,17 @@ extension AccessibilityStrategyVisualMode {
             Self.anchor = element.caretLocation
             Self.head = element.caretLocation
             
+            element.selectedText = nil
+            
             return element
         }
         
+        
+        return nil
+    }
+    
+    private func theMove(on element: AccessibilityTextElement) -> AccessibilityTextElement {
+        var element = element
         
         if Self.anchor == nil || VimEngine.shared.visualStyle == .characterwise {
             Self.anchor = element.currentLine.start
@@ -53,7 +72,9 @@ extension AccessibilityStrategyVisualMode {
             }
         }
         
-        return element        
+        element.selectedText = nil
+        
+        return element   
     }
     
 }

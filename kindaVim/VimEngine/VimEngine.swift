@@ -121,7 +121,8 @@ extension VimEngine {
             
             if var element = focusedElement() {
                 element.selectedLength = 0
-                _ = push(element: element)
+                element.selectedText = nil
+                push(element: element)
             }
         // temporary for pressing enter in Command Mode
         // to act like an enter in Insert Mode
@@ -380,11 +381,12 @@ extension VimEngine {
             }            
         case .x:
             if let element = asNormalMode.x(on: focusedElement()) {
-                _ = push(element: element)
+                push(element: element)
                 
                 if var element = focusedElement() {
                     element.selectedLength = 1
-                    _ = push(element: element)
+                    element.selectedText = nil
+                    push(element: element)
                 }
             } else {
                 post(keyboardStrategy.x())
@@ -507,6 +509,7 @@ extension VimEngine {
                 
                 if var element = focusedElement() {
                     element.selectedLength = 1
+                    element.selectedText = nil
                     push(element: element)
                 }
             } else {
@@ -534,6 +537,7 @@ extension VimEngine {
                 
                 if var element = focusedElement() {
                     element.selectedLength = 1
+                    element.selectedText = nil
                     push(element: element)
                 }
             } else {
@@ -683,7 +687,8 @@ extension VimEngine {
                     
                     if var element = focusedElement() {
                         element.selectedLength = 1
-                        _ = push(element: element)
+                        element.selectedText = nil
+                        push(element: element)
                     }
                 }
             }
@@ -788,6 +793,7 @@ extension VimEngine {
                 
                 if var element = focusedElement() {
                     element.selectedLength = 1
+                    element.selectedText = nil
                     push(element: element)
                 }
             }

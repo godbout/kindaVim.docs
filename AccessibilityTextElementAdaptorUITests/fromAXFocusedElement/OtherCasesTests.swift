@@ -21,6 +21,7 @@ extension OtherCasesTests {
         XCTAssertEqual(accessibilityElement?.length, 30)
         XCTAssertEqual(accessibilityElement?.caretLocation, 23)
         XCTAssertEqual(accessibilityElement?.selectedLength, 4)
+        XCTAssertEqual(accessibilityElement?.selectedText, "for ")
         XCTAssertEqual(accessibilityElement?.currentLine.value, "here's some nice words for you")
         XCTAssertEqual(accessibilityElement?.currentLine.number, 1)
         XCTAssertEqual(accessibilityElement?.currentLine.start, 0)
@@ -44,7 +45,7 @@ life
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         app.textFields.firstMatch.typeKey(.upArrow, modifierFlags: [])
-        app.textFields.firstMatch.typeKey(.upArrow, modifierFlags: [])
+        app.textFields.firstMatch.typeKey(.upArrow, modifierFlags: [.shift])
         
         let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
         
@@ -59,8 +60,8 @@ life
         )
         XCTAssertEqual(accessibilityElement?.length, 72)
         XCTAssertEqual(accessibilityElement?.caretLocation, 43)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 0)
-        XCTAssertNil(accessibilityElement?.selectedText)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 10)
+        XCTAssertEqual(accessibilityElement?.selectedText, "ourse\nbeca")
         XCTAssertEqual(accessibilityElement?.currentLine.value, "of course\n")
         XCTAssertEqual(accessibilityElement?.currentLine.number, 3)
         XCTAssertEqual(accessibilityElement?.currentLine.start, 39)
