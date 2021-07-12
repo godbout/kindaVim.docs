@@ -36,6 +36,7 @@ extension ASVML_b_Tests {
             length: 42,
             caretLocation: 21,
             selectedLength: 2,
+            selectedText: "f ",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 1,

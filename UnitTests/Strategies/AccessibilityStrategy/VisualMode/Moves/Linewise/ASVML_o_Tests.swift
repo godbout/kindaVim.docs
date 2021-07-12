@@ -36,6 +36,7 @@ extension ASVML_o_Tests {
             length: 34,
             caretLocation: 0,
             selectedLength: 1,
+            selectedText: "a",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 1,
@@ -66,6 +67,7 @@ tricky
             length: 59,
             caretLocation: 17,
             selectedLength: 19,
+            selectedText: "some like a little\n",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 2,

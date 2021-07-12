@@ -31,6 +31,7 @@ extension ASVMC_o_Tests {
             length: 0,
             caretLocation: 0,
             selectedLength: 0,
+            selectedText: "",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 1,
@@ -57,6 +58,7 @@ gonna be at the end
             length: 28,
             caretLocation: 28,
             selectedLength: 0,
+            selectedText: "",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 2,
@@ -85,6 +87,7 @@ line
             length: 35,
             caretLocation: 35,
             selectedLength: 0,
+            selectedText: "",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 4,
@@ -114,6 +117,7 @@ extension ASVMC_o_Tests {
             length: 34,
             caretLocation: 10,
             selectedLength: 1,
+            selectedText: " ",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 1,
@@ -144,6 +148,7 @@ tricky
             length: 59,
             caretLocation: 19,
             selectedLength: 1,
+            selectedText: "m",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 2,
@@ -172,6 +177,7 @@ my friend
             length: 21,
             caretLocation: 15,
             selectedLength: 1,
+            selectedText: "f",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 2,

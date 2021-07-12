@@ -15,6 +15,7 @@ extension AccessibilityStrategyVisualMode {
         
         
         if element.isEmpty {
+            element.selectedLength = 0
             element.selectedText = nil
             
             return element
@@ -29,6 +30,7 @@ extension AccessibilityStrategyVisualMode {
         }
         
         if element.caretIsAtTheEnd, element.lastCharacterIsLinefeed {
+            element.selectedLength = 0
             element.selectedText = nil
             
             return element

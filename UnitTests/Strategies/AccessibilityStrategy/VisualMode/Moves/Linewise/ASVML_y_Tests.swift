@@ -40,6 +40,10 @@ to Linewise
             length: 54,
             caretLocation: 6,
             selectedLength: 24,
+            selectedText: """
+VM y in VM V
+should set 
+""",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 1,
@@ -50,7 +54,7 @@ to Linewise
         
         VimEngine.shared.lastYankStyle = .characterwise
         
-        _ = applyMove(on: element)
+        let returnedElement = applyMove(on: element)
         
         XCTAssertEqual(VimEngine.shared.lastYankStyle, .linewise)
     }
@@ -72,9 +76,11 @@ to Linewise
             )
         )
         
-        _ = applyMove(on: element)
+        let returnedElement = applyMove(on: element)
         
-        XCTAssertEqual(NSPasteboard.general.string(forType: .string), "a whole line entirely for VM V and VM y")        
+        XCTAssertEqual(NSPasteboard.general.string(forType: .string), "a whole line entirely for VM V and VM y")   
+        XCTAssertEqual(returnedElement?.selectedLength, 1)
+        XCTAssertNil(returnedElement?.selectedText)
     }
     
 }
@@ -109,7 +115,7 @@ i writing this?
             )
         )
         
-        _ = applyMove(on: element)
+        let returnedElement = applyMove(on: element)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), """
 with VM V over
@@ -117,6 +123,8 @@ why the fuck am
 i writing this?
 """
         )
+        XCTAssertEqual(returnedElement?.selectedLength, 1)
+        XCTAssertNil(returnedElement?.selectedText)
     }
     
     func test_that_after_yanking_it_gets_back_to_the_caret_position() {
@@ -143,6 +151,8 @@ not the anchor!
         let returnedElement = applyMove(on: element)
         
         XCTAssertEqual(returnedElement?.caretLocation, 21)
+        XCTAssertEqual(returnedElement?.selectedLength, 1)
+        XCTAssertNil(returnedElement?.selectedText)
     }
     
 }

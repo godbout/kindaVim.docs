@@ -3,32 +3,51 @@ extension AccessibilityStrategyVisualMode {
     func c(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         guard let element = element else { return nil }
         
-        
-        if element.isEmpty {
-            return element
+        if let oneOfTheThreeCasesTM = handleTheThreeCasesTM(for: element) {
+            return oneOfTheThreeCasesTM
         }
-        
-        if element.caretIsAtTheEnd, element.lastCharacterIsNotLinefeed {
-            return element
-        }
-        
-        if element.caretIsAtTheEnd, element.lastCharacterIsLinefeed {
-            return element
-        }
-        
         
         if VimEngine.shared.visualStyle == .characterwise {
-            return cForVisualModeCharacterwise(on: element)
+            return theMoveForVisualModeCharacterwise(on: element)
         }
         
         if VimEngine.shared.visualStyle == .linewise {
-            return cForVisualModeLinewise(on: element)
+            return theMoveForVisualModeLinewise(on: element)
         }
         
         return element
     }
     
-    private func cForVisualModeCharacterwise(on element: AccessibilityTextElement) -> AccessibilityTextElement? {
+    private func handleTheThreeCasesTM(for element: AccessibilityTextElement) -> AccessibilityTextElement? {
+        var element = element
+        
+        
+        if element.isEmpty {
+            element.selectedLength = 0
+            element.selectedText = nil
+            
+            return element
+        }
+        
+        if element.caretIsAtTheEnd, element.lastCharacterIsNotLinefeed {
+            element.selectedLength = 0
+            element.selectedText = nil
+            
+            return element
+        }
+        
+        if element.caretIsAtTheEnd, element.lastCharacterIsLinefeed {
+            element.selectedLength = 0
+            element.selectedText = nil
+            
+            return element
+        }
+        
+        
+        return nil
+    }
+    
+    private func theMoveForVisualModeCharacterwise(on element: AccessibilityTextElement) -> AccessibilityTextElement {
         var element = element 
         
         element.selectedText = ""
@@ -36,7 +55,7 @@ extension AccessibilityStrategyVisualMode {
         return element
     }
     
-    private func cForVisualModeLinewise(on element: AccessibilityTextElement) -> AccessibilityTextElement? {
+    private func theMoveForVisualModeLinewise(on element: AccessibilityTextElement) -> AccessibilityTextElement {
         var element = element
         
         if let selectedText = element.selectedText, selectedText.last == "\n" {

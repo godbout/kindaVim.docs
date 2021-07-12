@@ -23,6 +23,7 @@ extension AccessibilityStrategyVisualMode {
         
         
         if element.isEmpty {
+            element.selectedLength = 0
             element.selectedText = nil
             
             return element

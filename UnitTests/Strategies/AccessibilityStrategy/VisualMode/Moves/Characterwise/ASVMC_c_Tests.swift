@@ -31,6 +31,7 @@ extension ASVMC_c_Tests {
             length: 0,
             caretLocation: 0,
             selectedLength: 0,
+            selectedText: "",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 1,
@@ -57,6 +58,7 @@ gonna be at the end
             length: 28,
             caretLocation: 28,
             selectedLength: 0,
+            selectedText: "",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 2,
@@ -88,6 +90,7 @@ line
             length: 31,
             caretLocation: 31,
             selectedLength: 0,
+            selectedText: "",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 4,
@@ -117,6 +120,7 @@ extension ASVMC_c_Tests {
             length: 36,
             caretLocation: 14,
             selectedLength: 13,
+            selectedText: "haha) on a si",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 1,
@@ -144,8 +148,13 @@ lines because
             length: 48,
             caretLocation: 8,
             selectedLength: 36,
+            selectedText: """
+e as above
+but on multiple
+lines bec
+""",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+            fullValue: text,
                 number: 1,
                 start: 0,
                 end: 19

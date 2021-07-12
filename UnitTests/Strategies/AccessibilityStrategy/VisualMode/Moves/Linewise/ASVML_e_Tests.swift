@@ -36,6 +36,7 @@ extension ASVML_e_Tests {
             length: 42,
             caretLocation: 21,
             selectedLength: 2,
+            selectedText: "f ",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 1,
@@ -50,7 +51,8 @@ extension ASVML_e_Tests {
         let returnedElement = applyMove(on: element)
         
         XCTAssertEqual(returnedElement?.caretLocation, 21)
-        XCTAssertEqual(returnedElement?.selectedLength, 2)        
+        XCTAssertEqual(returnedElement?.selectedLength, 2)   
+        XCTAssertNil(returnedElement?.selectedText)  
     }
     
 }

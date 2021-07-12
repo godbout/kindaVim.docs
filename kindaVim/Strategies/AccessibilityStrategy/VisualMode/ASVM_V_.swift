@@ -19,11 +19,12 @@ extension AccessibilityStrategyVisualMode {
         
         
         if element.isEmpty {
-            Self.anchor = 0
-            Self.head = 0
-            
+            element.selectedLength = 0
             element.selectedText = nil
             
+            Self.anchor = 0
+            Self.head = 0
+                        
             return element
         }
         
@@ -41,10 +42,11 @@ extension AccessibilityStrategyVisualMode {
         }
         
         if element.caretIsAtTheEnd, element.lastCharacterIsLinefeed {
+            element.selectedLength = 0
+            element.selectedText = nil
+            
             Self.anchor = element.caretLocation
             Self.head = element.caretLocation
-            
-            element.selectedText = nil
             
             return element
         }

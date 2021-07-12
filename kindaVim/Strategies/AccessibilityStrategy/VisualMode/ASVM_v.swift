@@ -19,6 +19,7 @@ extension AccessibilityStrategyVisualMode {
         
         
         if element.isEmpty {
+            element.selectedLength = 0
             element.selectedText = nil
             
             Self.anchor = 0
@@ -39,6 +40,7 @@ extension AccessibilityStrategyVisualMode {
         }
         
         if element.caretIsAtTheEnd, element.lastCharacterIsLinefeed {
+            element.selectedLength = 0
             element.selectedText = nil
             
             Self.anchor = element.caretLocation

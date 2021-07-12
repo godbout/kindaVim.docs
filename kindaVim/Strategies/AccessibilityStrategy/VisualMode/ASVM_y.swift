@@ -22,7 +22,7 @@ extension AccessibilityStrategyVisualMode {
         
         if element.isNotEmpty, element.caretIsAtTheEnd, element.lastCharacterIsNotLinefeed {
             element.caretLocation -= 1
-            element.selectedLength = 0
+            element.selectedLength = 1
             element.selectedText = nil
             
             return element

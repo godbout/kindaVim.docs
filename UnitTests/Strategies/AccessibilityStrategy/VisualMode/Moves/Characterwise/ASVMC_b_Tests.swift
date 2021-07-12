@@ -34,6 +34,7 @@ extension ASVMC_b_Tests {
             length: 0,
             caretLocation: 0,
             selectedLength: 0,
+            selectedText: "",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 1,
@@ -60,6 +61,7 @@ gonna be at the end
             length: 28,
             caretLocation: 28,
             selectedLength: 0,
+            selectedText: "",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 2,
@@ -91,6 +93,7 @@ line
             length: 31,
             caretLocation: 31,
             selectedLength: 0,
+            selectedText: "",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 4,
@@ -120,6 +123,7 @@ extension ASVMC_b_Tests {
             length: 42,
             caretLocation: 10,
             selectedLength: 25,
+            selectedText: "t with text moves in Visu",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 1,
@@ -135,6 +139,7 @@ extension ASVMC_b_Tests {
         
         XCTAssertEqual(returnedElement?.caretLocation, 10)
         XCTAssertEqual(returnedElement?.selectedLength, 21)       
+        XCTAssertNil(returnedElement?.selectedText)
     }
     
     func test_that_if_the_anchor_is_after_the_head_it_moves_the_caret_to_the_beginning_of_the_word_backward_and_increases_the_selected_length() {
@@ -149,6 +154,10 @@ from the caret location
             length: 88,
             caretLocation: 57,
             selectedLength: 11,
+            selectedText: """
+or, not
+fro
+""",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 2,
@@ -163,7 +172,8 @@ from the caret location
         let returnedElement = applyMove(on: element)
         
         XCTAssertEqual(returnedElement?.caretLocation, 53)
-        XCTAssertEqual(returnedElement?.selectedLength, 15)        
+        XCTAssertEqual(returnedElement?.selectedLength, 15)      
+        XCTAssertNil(returnedElement?.selectedText)
     }
     
     func test_that_if_the_anchor_and_the_head_are_equal_it_does_not_get_blocked() {
@@ -174,6 +184,7 @@ from the caret location
             length: 34,
             caretLocation: 18,
             selectedLength: 1,
+            selectedText: "i",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 1,
@@ -189,6 +200,7 @@ from the caret location
         
         XCTAssertEqual(returnedElement?.caretLocation, 8)
         XCTAssertEqual(returnedElement?.selectedLength, 11)   
+        XCTAssertNil(returnedElement?.selectedText)
     }
     
 }

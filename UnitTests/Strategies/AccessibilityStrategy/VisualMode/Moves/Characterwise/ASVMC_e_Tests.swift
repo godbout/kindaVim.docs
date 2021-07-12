@@ -32,6 +32,7 @@ extension ASVMC_e_Tests {
             length: 0,
             caretLocation: 0,
             selectedLength: 0,
+            selectedText: "",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 1,
@@ -58,6 +59,7 @@ gonna be at the end
             length: 28,
             caretLocation: 28,
             selectedLength: 0,
+            selectedText: "",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 2,
@@ -89,6 +91,7 @@ line
             length: 31,
             caretLocation: 31,
             selectedLength: 0,
+            selectedText: "",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 4,
@@ -118,6 +121,7 @@ extension ASVMC_e_Tests {
             length: 42,
             caretLocation: 14,
             selectedLength: 9,
+            selectedText: "th text m",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 1,
@@ -133,6 +137,7 @@ extension ASVMC_e_Tests {
         
         XCTAssertEqual(returnedElement?.caretLocation, 14)
         XCTAssertEqual(returnedElement?.selectedLength, 13)   
+        XCTAssertNil(returnedElement?.selectedText)
     }
     
     func test_that_if_the_head_is_before_the_anchor_it_reduces_the_selected_length_to_the_end_of_the_word_forward() {
@@ -143,6 +148,7 @@ extension ASVMC_e_Tests {
             length: 42,
             caretLocation: 14,
             selectedLength: 9,
+            selectedText: "th text m",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 1,
@@ -158,6 +164,7 @@ extension ASVMC_e_Tests {
         
         XCTAssertEqual(returnedElement?.caretLocation, 15)
         XCTAssertEqual(returnedElement?.selectedLength, 8) 
+        XCTAssertNil(returnedElement?.selectedText)
     }
     
     func test_that_if_the_head_and_the_anchor_are_equal_it_does_not_get_blocked() {
@@ -168,6 +175,7 @@ extension ASVMC_e_Tests {
             length: 59,
             caretLocation: 26,
             selectedLength: 1,
+            selectedText: "o",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 1,
@@ -182,7 +190,8 @@ extension ASVMC_e_Tests {
         let returnedElement = applyMove(on: element)
         
         XCTAssertEqual(returnedElement?.caretLocation, 26)
-        XCTAssertEqual(returnedElement?.selectedLength, 3)   
+        XCTAssertEqual(returnedElement?.selectedLength, 3)  
+        XCTAssertNil(returnedElement?.selectedText)
     }
     
 }

@@ -47,12 +47,12 @@ but the below line will not go up
 
 """,
             currentLine: AccessibilityTextElementLine(
-            fullValue: text,
-            number: 2,
-            start: 17,
-            end: 48
+                fullValue: text,
+                number: 2,
+                start: 17,
+                end: 48
             )
-            )
+        )
         
         let returnedElement = applyMove(on: element)
         

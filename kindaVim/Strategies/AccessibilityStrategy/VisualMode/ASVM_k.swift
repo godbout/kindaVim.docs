@@ -27,6 +27,7 @@ extension AccessibilityStrategyVisualMode {
         
         
         if element.isEmpty {
+            element.selectedLength = 0
             element.selectedText = nil
             
             return element
@@ -101,6 +102,7 @@ extension AccessibilityStrategyVisualMode {
         
         
         if element.isEmpty {
+            element.selectedLength = 0
             element.selectedText = nil
             
             return element
@@ -126,6 +128,7 @@ extension AccessibilityStrategyVisualMode {
         var element = element
         
         guard let lineAtAnchor = AccessibilityTextElementAdaptor.lineFor(location: AccessibilityStrategyVisualMode.anchor) else {
+            element.selectedLength = 1
             element.selectedText = nil
             
             return element
@@ -133,6 +136,7 @@ extension AccessibilityStrategyVisualMode {
         }
         
         guard let lineAtHead = AccessibilityTextElementAdaptor.lineFor(location: AccessibilityStrategyVisualMode.head) else {
+            element.selectedLength = 1
             element.selectedText = nil 
             
             return element

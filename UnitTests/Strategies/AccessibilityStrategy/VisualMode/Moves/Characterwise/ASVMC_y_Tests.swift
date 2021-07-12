@@ -43,9 +43,11 @@ extension ASVMC_y_Tests {
         NSPasteboard.general.clearContents()
         NSPasteboard.general.setString("test 1 of The 3 Cases VM y", forType: .string)
         
-        _ = applyMove(on: element)
+        let returnedElement = applyMove(on: element)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "")
+        XCTAssertEqual(returnedElement?.selectedLength, 1)
+        XCTAssertNil(returnedElement?.selectedText)
     }
     
     func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_but_not_on_an_empty_line_it_works_and_just_goes_back_one_character_to_the_left_without_copying_nothing() {
@@ -59,6 +61,7 @@ gonna be at the end
             length: 28,
             caretLocation: 28,
             selectedLength: 0,
+            selectedText: "",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 2,
@@ -74,7 +77,8 @@ gonna be at the end
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "test 2 of The 3 Cases VM y")
         XCTAssertEqual(returnedElement?.caretLocation, 27)
-        XCTAssertEqual(returnedElement?.selectedLength, 0)
+        XCTAssertEqual(returnedElement?.selectedLength, 1)
+        XCTAssertNil(returnedElement?.selectedText)
     }
     
     func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_and_on_an_empty_line_on_its_own_it_works_and_copies_nothing() {
@@ -102,9 +106,11 @@ line
         NSPasteboard.general.clearContents()
         NSPasteboard.general.setString("test 3 of The 3 Cases VM y", forType: .string)
         
-        _ = applyMove(on: element)
+        let returnedElement = applyMove(on: element)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "")
+        XCTAssertEqual(returnedElement?.selectedLength, 1)
+        XCTAssertNil(returnedElement?.selectedText)
     }    
     
 }
@@ -122,11 +128,15 @@ to Characterwise
         let element = AccessibilityTextElement(
             role: .textArea,
             value: text,
-            length: 60,
+            length: 59,
             caretLocation: 5,
             selectedLength: 29,
+            selectedText: """
+ VM y in VM v
+should set Visu
+""",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
+            fullValue: text,
                 number: 1,
                 start: 0,
                 end: 19
@@ -135,15 +145,17 @@ to Characterwise
         
         VimEngine.shared.lastYankStyle = .linewise
         
-        _ = applyMove(on: element)
+        let returnedElement = applyMove(on: element)
         
         XCTAssertEqual(VimEngine.shared.lastYankStyle, .characterwise)
+        XCTAssertEqual(returnedElement?.selectedLength, 1)
+        XCTAssertNil(returnedElement?.selectedText)
     }
     
     func test_that_it_yanks_the_selection() {
         let text = "well VM v plus then VM y should copy the selected text."
         let element = AccessibilityTextElement(
-            role: .textArea,
+            role: .textField,
             value: text,
             length: 55,
             caretLocation: 15,
@@ -157,19 +169,22 @@ to Characterwise
             )
         )
         
-        _ = applyMove(on: element)
+        let returnedElement = applyMove(on: element)
         
-        XCTAssertEqual(NSPasteboard.general.string(forType: .string), "then VM y should copy the s")        
+        XCTAssertEqual(NSPasteboard.general.string(forType: .string), "then VM y should copy the s")
+        XCTAssertEqual(returnedElement?.selectedLength, 1)
+        XCTAssertNil(returnedElement?.selectedText)        
     }
     
     func test_that_after_yanking_it_gets_back_to_the_caret_position() {
         let text = "after yanking you go back to caret you bastard!"
         let element = AccessibilityTextElement(
-            role: .textArea,
+            role: .textField,
             value: text,
             length: 47,
             caretLocation: 8,
             selectedLength: 31,
+            selectedText: "nking you go back to caret you ",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 1,
@@ -181,6 +196,8 @@ to Characterwise
         let returnedElement = applyMove(on: element)
         
         XCTAssertEqual(returnedElement?.caretLocation, 8)
+        XCTAssertEqual(returnedElement?.selectedLength, 1)
+        XCTAssertNil(returnedElement?.selectedText)
     }
     
 }
