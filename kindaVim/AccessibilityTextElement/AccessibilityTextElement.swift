@@ -99,6 +99,7 @@ struct AccessibilityTextElement {
     var isEmpty: Bool { value.isEmpty }    
     var isNotEmpty: Bool { !isEmpty }
     var caretIsAtTheEnd: Bool { caretLocation == length }    
+    var caretIsNotAtTheEnd: Bool { !caretIsAtTheEnd }
     var lastCharacterIsLinefeed: Bool { value.last == "\n" }
     var lastCharacterIsNotLinefeed: Bool { !lastCharacterIsLinefeed }
 

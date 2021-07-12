@@ -15,6 +15,7 @@ extension AccessibilityStrategyNormalMode {
         
         
         if element.isEmpty {
+            element.selectedLength = 0
             element.selectedText = nil
             
             return element
@@ -40,6 +41,7 @@ extension AccessibilityStrategyNormalMode {
             element.caretLocation = textEngine.firstNonBlankWithinLineLimit(in: TextEngineLine(from: firstLine.value))
         }
         
+        element.selectedLength = 1
         element.selectedText = nil
         
         return element

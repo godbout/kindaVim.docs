@@ -26,11 +26,12 @@ extension ASNM___Tests {
     func test_that_if_the_TextElement_is_empty_it_does_not_move() {
         let text = ""
         let element = AccessibilityTextElement(
-            role: .textField,
+            role: .textArea,
             value: text,
             length: 0,
             caretLocation: 0,
-            selectedLength: 1,
+            selectedLength: 0,
+            selectedText: "",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 1,
@@ -56,7 +57,8 @@ gonna be at the end
             value: text,
             length: 28,
             caretLocation: 28,
-            selectedLength: 1,
+            selectedLength: 0,
+            selectedText: "",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 2,
@@ -68,7 +70,7 @@ gonna be at the end
         let returnedElement = applyMove(on: element)
         
         XCTAssertEqual(returnedElement?.caretLocation, 9)
-        XCTAssertEqual(returnedElement?.selectedLength, 0)
+        XCTAssertEqual(returnedElement?.selectedLength, 1)
         XCTAssertNil(returnedElement?.selectedText)
     }
     
@@ -84,7 +86,8 @@ line
             value: text,
             length: 31,
             caretLocation: 31,
-            selectedLength: 1,
+            selectedLength: 0,
+            selectedText: "",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 4,
@@ -108,13 +111,13 @@ extension ASNM___Tests {
     
     func test_that_in_normal_case_it_goes_to_the_first_non_blank_of_the_line() {
         let text = "    hehe ankulay"
-        
         let element = AccessibilityTextElement(
             role: .textField,
             value: text,
             length: 16,
             caretLocation: 2,
             selectedLength: 1,
+            selectedText: " ",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 1,
@@ -125,7 +128,9 @@ extension ASNM___Tests {
         
         let returnedElement = applyMove(on: element)
         
-        XCTAssertEqual(returnedElement?.caretLocation, 4)        
+        XCTAssertEqual(returnedElement?.caretLocation, 4)
+        XCTAssertEqual(returnedElement?.selectedLength, 1)
+        XCTAssertNil(returnedElement?.selectedText)
     }
     
     func test_that_if_the_text_is_just_spaces_and_no_linefeed_then_the___goes_at_the_end_of_the_text() {
@@ -135,13 +140,13 @@ with a last line
 without a linefeed but with spaces
                       
 """
-        
         let element = AccessibilityTextElement(
             role: .textArea,
             value: text,
             length: 86,
             caretLocation: 71,
             selectedLength: 1,
+            selectedText: " ",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 4,
@@ -153,6 +158,8 @@ without a linefeed but with spaces
         let returnedElement = applyMove(on: element)
         
         XCTAssertEqual(returnedElement?.caretLocation, 85)    
+        XCTAssertEqual(returnedElement?.selectedLength, 1)
+        XCTAssertNil(returnedElement?.selectedText)
     }
     
 }
@@ -168,13 +175,13 @@ empty line has a linefeed
                       
  yes
 """
-        
         let element = AccessibilityTextElement(
             role: .textArea,
             value: text,
             length: 67,
             caretLocation: 44,
             selectedLength: 1,
+            selectedText: " ",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 3,
@@ -185,7 +192,9 @@ empty line has a linefeed
         
         let returnedElement = applyMove(on: element)
         
-        XCTAssertEqual(returnedElement?.caretLocation, 61)   
+        XCTAssertEqual(returnedElement?.caretLocation, 61)
+        XCTAssertEqual(returnedElement?.selectedLength, 1)
+        XCTAssertNil(returnedElement?.selectedText)
     }
     
 }

@@ -17,24 +17,45 @@ extension AccessibilityStrategyNormalMode {
     }
     
     private func PForTextFields(on element: AccessibilityTextElement) -> AccessibilityTextElement {
-        var element = element
+        let element = element
         
-        element.selectedLength = 0
+        if let oneOfTheThreeCasesTMForTextFields = handleTheThreeCasesTMForTextFields(for: element) {
+            return oneOfTheThreeCasesTMForTextFields
+        }
+        
+        return theMoveForTextFields(on: element)
+    }
+    
+    private func handleTheThreeCasesTMForTextFields(for element: AccessibilityTextElement) -> AccessibilityTextElement? {
+        var element = element
         
         
         if element.isEmpty {
+            element.selectedLength = 0
             element.selectedText = NSPasteboard.general.string(forType: .string)
             
             return element
         }
         
-        if element.caretIsAtTheEnd, element.lastCharacterIsNotLinefeed {}
+        if element.caretIsAtTheEnd, element.lastCharacterIsNotLinefeed {
+            return theMoveForTextFields(on: element)
+        }
         
-        if element.caretIsAtTheEnd, element.lastCharacterIsLinefeed {}
+        if element.caretIsAtTheEnd, element.lastCharacterIsLinefeed {
+            return theMoveForTextFields(on: element)
+        }
         
         
+        return nil
+    }
+    
+    private func theMoveForTextFields(on element: AccessibilityTextElement) -> AccessibilityTextElement {
+        var element = element
+                
         var textToPaste = TextEngineLine(from: NSPasteboard.general.string(forType: .string) ?? "")        
-        textToPaste.removeTrailingLinefeedIfAny()        
+        textToPaste.removeTrailingLinefeedIfAny()
+
+        element.selectedLength = 0        
         element.selectedText = textToPaste.value
         
         return element
@@ -55,41 +76,69 @@ extension AccessibilityStrategyNormalMode {
     }
     
     private func PForTextAreasCharacterwise(on element: AccessibilityTextElement) -> AccessibilityTextElement {
-        var element = element
+        let element = element
         
-        element.selectedLength = 0
+        if let oneOfTheThreeCasesTMForTextAreasCharacterwise = handleTheThreeCasesTMForTextAreasCharacterwise(for: element) {
+            return oneOfTheThreeCasesTMForTextAreasCharacterwise
+        }
+        
+        return theMoveForTextAreasCharacterwise(on: element)
+    }
+    
+    private func handleTheThreeCasesTMForTextAreasCharacterwise(for element: AccessibilityTextElement) -> AccessibilityTextElement? {
+        var element = element
         
         
         if element.isEmpty {
+            element.selectedLength = 0
             element.selectedText = NSPasteboard.general.string(forType: .string)
             
             return element
         }
         
-        if element.caretIsAtTheEnd, element.lastCharacterIsNotLinefeed {}
+        if element.caretIsAtTheEnd, element.lastCharacterIsNotLinefeed {
+            return theMoveForTextAreasCharacterwise(on: element)
+        }
         
         if element.caretIsAtTheEnd, element.lastCharacterIsLinefeed {
+            element.selectedLength = 0
             element.selectedText = NSPasteboard.general.string(forType: .string)
             
             return element
         }
         
-                
+        
+        return nil
+    }
+    
+    private func theMoveForTextAreasCharacterwise(on element: AccessibilityTextElement) -> AccessibilityTextElement {
+        var element = element
+        
+        element.selectedLength = 0    
         element.selectedText = NSPasteboard.general.string(forType: .string)
         
         return element
-    }
+    }        
     
     private func PForTextAreasLinewise(on element: AccessibilityTextElement) -> AccessibilityTextElement {
-        var element = element
+        let element = element
         
-        element.selectedLength = 0
+        if let oneOfTheThreeCasesTMForTextAreasLinewise = handleTheThreeCasesTMForTextAreasLinewise(for: element) {
+            return oneOfTheThreeCasesTMForTextAreasLinewise
+        }
+        
+        return theMoveForTextAreasLinewise(on: element)
+    }
+    
+    private func handleTheThreeCasesTMForTextAreasLinewise(for element: AccessibilityTextElement) -> AccessibilityTextElement? {
+        var element = element
         
         
         if element.isEmpty {
             var textToPaste = TextEngineLine(from: NSPasteboard.general.string(forType: .string) ?? "")
             textToPaste.addTrailingLinefeedIfNone()
             
+            element.selectedLength = 0
             element.selectedText = textToPaste.value
             
             _ = AccessibilityTextElementAdaptor.toAXFocusedElement(from: element)
@@ -101,12 +150,15 @@ extension AccessibilityStrategyNormalMode {
             return element
         }
         
-        if element.caretIsAtTheEnd, element.lastCharacterIsNotLinefeed {}
+        if element.caretIsAtTheEnd, element.lastCharacterIsNotLinefeed {
+            return theMoveForTextAreasLinewise(on: element)
+        }
         
         if element.caretIsAtTheEnd, element.lastCharacterIsLinefeed {
             var textToPaste = TextEngineLine(from: NSPasteboard.general.string(forType: .string) ?? "")
             textToPaste.addTrailingLinefeedIfNone()
             
+            element.selectedLength = 0
             element.selectedText = textToPaste.value
             
             _ = AccessibilityTextElementAdaptor.toAXFocusedElement(from: element)
@@ -118,12 +170,19 @@ extension AccessibilityStrategyNormalMode {
             return element
         }
         
+        
+        return nil
+    }
+    
+    private func theMoveForTextAreasLinewise(on element: AccessibilityTextElement) -> AccessibilityTextElement {
+        var element = element
         
         var textToPaste: TextEngineLine
         textToPaste = TextEngineLine(from: NSPasteboard.general.string(forType: .string) ?? "")
         textToPaste.addTrailingLinefeedIfNone()            
         
         element.caretLocation = element.currentLine.start
+        element.selectedLength = 0
         element.selectedText = textToPaste.value
         
         _ = AccessibilityTextElementAdaptor.toAXFocusedElement(from: element)
@@ -132,7 +191,7 @@ extension AccessibilityStrategyNormalMode {
         element.selectedLength = 0
         element.selectedText = nil
         
-        return element    
+        return element   
     }
     
 }

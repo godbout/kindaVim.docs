@@ -41,7 +41,12 @@ extension AccessibilityStrategyNormalMode {
             element.caretLocation = currentLineStart - previousLine.length
             element.selectedLength = previousLine.length - 1
             element.selectedText = previousLine.value + firstNonBlankOfCurrentLineText
+            
+            return element
         }
+        
+        element.selectedLength = 0
+        element.selectedText = nil
         
         return element         
     }

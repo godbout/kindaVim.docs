@@ -63,6 +63,7 @@ to Linewise
             length: 39,
             caretLocation: 0,
             selectedLength: 39,
+            selectedText: "a whole line entirely for VM V and VM y",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 1,
@@ -95,6 +96,11 @@ i writing this?
             length: 63,
             caretLocation: 17,
             selectedLength: 46,
+            selectedText: """
+with VM V over
+why the fuck am
+i writing this?
+""",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 2,

@@ -1,17 +1,41 @@
 extension AccessibilityStrategyNormalMode {
     
     func k(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
-        guard var element = element else { return nil }
+        guard let element = element else { return nil }
         guard element.role == .textArea else { return nil }
         
-        element.selectedLength = 0
-        element.selectedText = nil
+        if let oneOfTheThreeCasesTM = handleTheThreeCasesTM(for: element) {
+            return oneOfTheThreeCasesTM
+        }
+        
+        return theMove(on: element)
+    }
+    
+    private func handleTheThreeCasesTM(for element: AccessibilityTextElement) -> AccessibilityTextElement? {
+        var element = element
         
         
         if element.isEmpty {
+            element.selectedLength = 1
+            element.selectedText = nil
+            
             return element
         }
         
+        if element.caretIsAtTheEnd, element.lastCharacterIsNotLinefeed {
+            return theMove(on: element)
+        }
+        
+        if element.caretIsAtTheEnd, element.lastCharacterIsLinefeed {
+            return theMove(on: element)
+        }        
+        
+        
+        return nil
+    }
+    
+    private func theMove(on element: AccessibilityTextElement) -> AccessibilityTextElement {
+        var element = element
         
         var previousLine: AccessibilityTextElementLine?
         
@@ -30,6 +54,9 @@ extension AccessibilityStrategyNormalMode {
                 AccessibilityTextElement.globalColumnNumber = globalColumnNumber
             }
         }
+        
+        element.selectedLength = 1
+        element.selectedText = nil
         
         return element
     }

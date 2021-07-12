@@ -15,18 +15,21 @@ extension AccessibilityStrategyNormalMode {
         
         
         if element.isEmpty {
+            element.selectedLength = 0
             element.selectedText = nil
             
             return element
         }
         
         if element.caretIsAtTheEnd, element.lastCharacterIsNotLinefeed {
+            element.selectedLength = 0
             element.selectedText = nil
             
             return element
         }
         
         if element.caretIsAtTheEnd, element.lastCharacterIsLinefeed {
+            element.selectedLength = 0
             element.selectedText = nil
             
             return element
@@ -50,11 +53,15 @@ extension AccessibilityStrategyNormalMode {
                 let firstNonBlankWithinLineLimitOfUpdatedElementLocation = textEngine.firstNonBlankWithinLineLimit(in: TextEngineLine(from: updatedElement.currentLine.value))
                 
                 element.caretLocation += firstNonBlankWithinLineLimitOfUpdatedElementLocation
-                element.selectedLength = 0
-                element.selectedText = nil
             }
+            
+            element.selectedLength = 1
+            element.selectedText = nil
+            
+            return element
         }    
-        
+
+        element.selectedLength = 1
         element.selectedText = nil
         
         return element

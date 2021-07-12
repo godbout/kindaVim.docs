@@ -20,11 +20,12 @@ extension ASNM_0_Tests {
     func test_that_if_the_TextElement_is_empty_it_does_not_move() {
         let text = ""
         let element = AccessibilityTextElement(
-            role: .textField,
+            role: .textArea,
             value: text,
             length: 0,
             caretLocation: 0,
-            selectedLength: 1,
+            selectedLength: 0,
+            selectedText: "",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 1,
@@ -49,8 +50,9 @@ gonna be at the end
             role: .textArea,
             value: text,
             length: 28,
-            caretLocation: 28,
+            caretLocation: 27,
             selectedLength: 1,
+            selectedText: "d",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 2,
@@ -62,7 +64,7 @@ gonna be at the end
         let returnedElement = applyMove(on: element)
         
         XCTAssertEqual(returnedElement?.caretLocation, 9)
-        XCTAssertEqual(returnedElement?.selectedLength, 0)
+        XCTAssertEqual(returnedElement?.selectedLength, 1)
         XCTAssertNil(returnedElement?.selectedText)
     }
     
@@ -78,7 +80,8 @@ line
             value: text,
             length: 31,
             caretLocation: 31,
-            selectedLength: 1,
+            selectedLength: 0,
+            selectedText: "",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 4,
@@ -108,6 +111,7 @@ extension ASNM_0_Tests {
             length: 45,
             caretLocation: 15,
             selectedLength: 1,
+            selectedText: "s",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 1,
@@ -119,6 +123,8 @@ extension ASNM_0_Tests {
         let returnedElement = applyMove(on: element)
 
         XCTAssertEqual(returnedElement?.caretLocation, 0)
+        XCTAssertEqual(returnedElement?.selectedLength, 1)
+        XCTAssertNil(returnedElement?.selectedText)
     }    
 
 }
@@ -137,6 +143,7 @@ where we gonna test 0
             length: 31,
             caretLocation: 10,
             selectedLength: 1,
+            selectedText: "w",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 2,
@@ -144,10 +151,11 @@ where we gonna test 0
                 end: 31
             )
         )
-
         let returnedElement = applyMove(on: element)
 
         XCTAssertEqual(returnedElement?.caretLocation, 10)
+        XCTAssertEqual(returnedElement?.selectedLength, 1)
+        XCTAssertNil(returnedElement?.selectedText)
     }
 
 }
