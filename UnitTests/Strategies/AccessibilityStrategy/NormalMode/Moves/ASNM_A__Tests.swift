@@ -111,6 +111,7 @@ extension ASNM_A__Tests {
             length: 36,
             caretLocation: 20,
             selectedLength: 1,
+            selectedText: "o",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 1,
@@ -122,6 +123,8 @@ extension ASNM_A__Tests {
         let returnedElement = applyMove(on: element)
         
         XCTAssertEqual(returnedElement?.caretLocation, 36)
+        XCTAssertEqual(returnedElement?.selectedLength, 0)
+        XCTAssertNil(returnedElement?.selectedText)
     }
     
 }
@@ -142,6 +145,7 @@ not of a whole TV
             length: 50,
             caretLocation: 25,
             selectedLength: 1,
+            selectedText: " ",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 2,
@@ -153,6 +157,8 @@ not of a whole TV
         let returnedElement = applyMove(on: element)
         
         XCTAssertEqual(returnedElement?.caretLocation, 32)
+        XCTAssertEqual(returnedElement?.selectedLength, 0)
+        XCTAssertNil(returnedElement?.selectedText)
     }
     
     func test_that_if_the_caret_is_at_the_end_of_a_line_it_does_not_go_down_one_line() {
@@ -168,17 +174,20 @@ below
             length: 67,
             caretLocation: 36,
             selectedLength: 1,
+            selectedText: "\n",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
-                number: 2,
-                start: 13,
-                end: 37
+            fullValue: text,
+            number: 2,
+            start: 13,
+            end: 37
             )
-        )
+            )
         
         let returnedElement = applyMove(on: element)
         
         XCTAssertEqual(returnedElement?.caretLocation, 36)
+        XCTAssertEqual(returnedElement?.selectedLength, 0)
+        XCTAssertNil(returnedElement?.selectedText)
     }
     
     func test_that_if_the_caret_is_on_an_empty_line_it_does_not_go_down_one_line() {
@@ -194,41 +203,20 @@ not go down
             length: 54,
             caretLocation: 20,
             selectedLength: 1,
+            selectedText: "\n",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
-                number: 2,
-                start: 20,
-                end: 21
+            fullValue: text,
+            number: 2,
+            start: 20,
+            end: 21
             )
-        )
+            )
         
         let returnedElement = applyMove(on: element)
         
-        XCTAssertEqual(returnedElement?.caretLocation, 20)        
+        XCTAssertEqual(returnedElement?.caretLocation, 20)   
+        XCTAssertEqual(returnedElement?.selectedLength, 0)
+        XCTAssertNil(returnedElement?.selectedText)
     }
     
-    func test_that_if_the_caret_is_at_the_end_of_the_TextView_it_does_not_move() {
-        let text = """
-at the end
-of a TextView
-"""
-        let element = AccessibilityTextElement(
-            role: .textArea,
-            value: text,
-            length: 24,
-            caretLocation: 24,
-            selectedLength: 1,
-            currentLine: AccessibilityTextElementLine(
-                fullValue: text,
-                number: 2,
-                start: 11,
-                end: 24
-            )
-        )
-        
-        let returnedElement = applyMove(on: element)
-        
-        XCTAssertEqual(returnedElement?.caretLocation, 24)
-    }
-     
 }

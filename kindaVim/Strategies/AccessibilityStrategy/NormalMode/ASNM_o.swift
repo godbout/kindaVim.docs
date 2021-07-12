@@ -2,7 +2,12 @@ extension AccessibilityStrategyNormalMode {
     
     func o(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         guard var element = element else { return nil }
-        guard element.role == .textArea else { return element }
+        guard element.role == .textArea else {
+            element.selectedLength = 0
+            element.selectedText = nil
+            
+            return element            
+        }
         
         guard element.caretIsNotAtTheEnd && element.currentLine.isNotAnEmptyLine else {
             element.selectedLength = 0

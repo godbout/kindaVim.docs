@@ -106,11 +106,12 @@ extension ASNM_h_Tests {
     func test_that_in_normal_setting_h_goes_one_character_to_the_left() {
         let text = "h goes one character to the left"
         let element = AccessibilityTextElement(
-            role: .textField,
+            role: .textArea,
             value: text,
             length: 32,
             caretLocation: 16,
             selectedLength: 1,
+            selectedText: "c",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 1,
@@ -122,6 +123,8 @@ extension ASNM_h_Tests {
         let returnedElement = applyMove(on: element)
 
         XCTAssertEqual(returnedElement?.caretLocation, 15)
+        XCTAssertEqual(returnedElement?.selectedLength, 1)
+        XCTAssertNil(returnedElement?.selectedText)
     }
         
     func test_that_at_the_beginning_of_a_Text_AXUIElement_h_does_not_move() {
@@ -135,6 +138,7 @@ h should not move
             length: 55,
             caretLocation: 0,
             selectedLength: 1,
+            selectedText: "i",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 1,
@@ -146,6 +150,8 @@ h should not move
         let returnedElement = applyMove(on: element)
 
         XCTAssertEqual(returnedElement?.caretLocation, 0)
+        XCTAssertEqual(returnedElement?.selectedLength, 1)
+        XCTAssertNil(returnedElement?.selectedText)
     }    
     
 }
@@ -167,6 +173,7 @@ the previous line
             length: 82,
             caretLocation: 43,
             selectedLength: 1,
+            selectedText: "h",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 3,
@@ -178,6 +185,8 @@ the previous line
         let returnedElement = applyMove(on: element)
 
         XCTAssertEqual(returnedElement?.caretLocation, 43)
+        XCTAssertEqual(returnedElement?.selectedLength, 1)
+        XCTAssertNil(returnedElement?.selectedText)
     }
 
 }

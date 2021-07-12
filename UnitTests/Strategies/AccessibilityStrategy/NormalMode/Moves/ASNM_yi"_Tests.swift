@@ -32,6 +32,7 @@ extension ASNM_yiDoubleQuote_Tests {
             length: 0,
             caretLocation: 0,
             selectedLength: 0,
+            selectedText: "",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 1,
@@ -43,9 +44,11 @@ extension ASNM_yiDoubleQuote_Tests {
         NSPasteboard.general.clearContents()
         NSPasteboard.general.setString("test 1 of The 3 Cases", forType: .string)
 
-        _ = applyMove(on: element)
+        let returnedElement = applyMove(on: element)
 
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "test 1 of The 3 Cases")
+        XCTAssertEqual(returnedElement?.selectedLength, 0)
+        XCTAssertNil(returnedElement?.selectedText)
     }
 
     func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_but_not_on_an_empty_line_it_works_and_does_nothing() {
@@ -59,6 +62,7 @@ gonna be at the end
             length: 28,
             caretLocation: 28,
             selectedLength: 0,
+            selectedText: "",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 2,
@@ -70,9 +74,11 @@ gonna be at the end
         NSPasteboard.general.clearContents()
         NSPasteboard.general.setString("test 2 of The 3 Cases", forType: .string)
 
-        _ = applyMove(on: element)
+        let returnedElement = applyMove(on: element)
 
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "test 2 of The 3 Cases")
+        XCTAssertEqual(returnedElement?.selectedLength, 0)
+        XCTAssertNil(returnedElement?.selectedText)
     }
 
     func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_and_on_an_empty_line_on_its_own_it_works_and_does_nothing() {
@@ -88,6 +94,7 @@ line
             length: 31,
             caretLocation: 31,
             selectedLength: 0,
+            selectedText: "",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 4,
@@ -99,9 +106,11 @@ line
         NSPasteboard.general.clearContents()
         NSPasteboard.general.setString("test 3 of The 3 Cases", forType: .string)
 
-        _ = applyMove(on: element)
+        let returnedElement = applyMove(on: element)
 
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "test 3 of The 3 Cases")
+        XCTAssertEqual(returnedElement?.selectedLength, 0)
+        XCTAssertNil(returnedElement?.selectedText)
     }
 
 }
@@ -118,6 +127,7 @@ extension ASNM_yiDoubleQuote_Tests {
             length: 34,
             caretLocation: 23,
             selectedLength: 1,
+            selectedText: "o",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 1,
@@ -133,6 +143,8 @@ extension ASNM_yiDoubleQuote_Tests {
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "no double quote")
         XCTAssertEqual(returnedElement?.caretLocation, 23)
+        XCTAssertEqual(returnedElement?.selectedLength, 1)
+        XCTAssertNil(returnedElement?.selectedText)
     }
     
     func test_that_there_is_only_one_double_quote_it_does_not_move_or_copy_anything_either() {
@@ -145,6 +157,7 @@ now there's one " double quote
             length: 30,
             caretLocation: 12,
             selectedLength: 1,
+            selectedText: "o",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 1,
@@ -160,6 +173,8 @@ now there's one " double quote
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "only one double quote")
         XCTAssertEqual(returnedElement?.caretLocation, 12)
+        XCTAssertEqual(returnedElement?.selectedLength, 1)
+        XCTAssertNil(returnedElement?.selectedText)
     }
     
     func test_that_if_there_are_two_double_quotes_and_the_caret_is_before_them_then_it_moves_the_caret_and_copy_the_text() {
@@ -173,6 +188,7 @@ two "double quotes" on the second line
             length: 50,
             caretLocation: 14,
             selectedLength: 1,
+            selectedText: "o",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 2,
@@ -185,6 +201,8 @@ two "double quotes" on the second line
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "double quotes")
         XCTAssertEqual(returnedElement?.caretLocation, 17)  
+        XCTAssertEqual(returnedElement?.selectedLength, 1)
+        XCTAssertNil(returnedElement?.selectedText)
     }
     
     func test_that_if_there_are_two_double_quotes_and_the_caret_is_between_them_then_it_moves_the_caret_and_copy_the_text() {
@@ -199,6 +217,7 @@ and now "hohohohoho"
             length: 42,
             caretLocation: 37,
             selectedLength: 1,
+            selectedText: "h",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 3,
@@ -211,6 +230,8 @@ and now "hohohohoho"
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "hohohohoho")
         XCTAssertEqual(returnedElement?.caretLocation, 31)  
+        XCTAssertEqual(returnedElement?.selectedLength, 1)
+        XCTAssertNil(returnedElement?.selectedText)
     }
     
     func test_that_if_there_are_two_double_quotes_and_the_caret_is_after_them_then_it_does_not_move_or_copy_anything() {
@@ -223,6 +244,7 @@ double "quotes" before the caret
             length: 32,
             caretLocation: 26,
             selectedLength: 1,
+            selectedText: " ",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 1,
@@ -238,6 +260,8 @@ double "quotes" before the caret
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "caret after double quote")
         XCTAssertEqual(returnedElement?.caretLocation, 26)  
+        XCTAssertEqual(returnedElement?.selectedLength, 1)
+        XCTAssertNil(returnedElement?.selectedText)
     }
     
     func test_that_if_there_are_three_double_quotes_and_the_caret_is_not_after_all_of_them_then_it_moves_the_caret_and_copy_the_right_text() {
@@ -251,6 +275,7 @@ heheheheh
             length: 41,
             caretLocation: 30,
             selectedLength: 1,
+            selectedText: "e",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 2,
@@ -263,10 +288,8 @@ heheheheh
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), " and some more")
         XCTAssertEqual(returnedElement?.caretLocation, 17)  
+        XCTAssertEqual(returnedElement?.selectedLength, 1)
+        XCTAssertNil(returnedElement?.selectedText)
     }
-    
-    func test_matching_pairs_of_double_quotes() throws {
-        throw XCTSkip("not for now i'm afraid...")
-    }    
-    
+        
 }

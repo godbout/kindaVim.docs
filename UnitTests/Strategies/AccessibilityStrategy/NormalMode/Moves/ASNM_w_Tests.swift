@@ -29,8 +29,9 @@ extension ASNM_w_Tests {
             role: .textArea,
             value: text,
             length: 29,
-            caretLocation: 11,
+            caretLocation: 13,
             selectedLength: 1,
+            selectedText: "l",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 1,

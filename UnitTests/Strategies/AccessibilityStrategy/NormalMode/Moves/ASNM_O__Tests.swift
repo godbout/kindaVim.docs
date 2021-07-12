@@ -19,8 +19,9 @@ extension ASNM_O__Tests {
             role: .textField,
             value: text,
             length: 39,
-            caretLocation: 15,
+            caretLocation: 23,
             selectedLength: 1,
+            selectedText: " ",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 1,

@@ -24,11 +24,12 @@ extension ASNM_ciw_Tests {
     func test_that_if_the_TextElement_is_empty_it_does_not_move() {
         let text = ""
         let element = AccessibilityTextElement(
-            role: .textField,
+            role: .textArea,
             value: text,
             length: 0,
             caretLocation: 0,
             selectedLength: 0,
+            selectedText: "",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 1,
@@ -55,6 +56,7 @@ gonna be at the end
             length: 28,
             caretLocation: 28,
             selectedLength: 0,
+            selectedText: "",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 2,
@@ -114,6 +116,7 @@ extension ASNM_ciw_Tests {
             length: 34,
             caretLocation: 12,
             selectedLength: 1,
+            selectedText: "i",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 1,
@@ -137,6 +140,7 @@ extension ASNM_ciw_Tests {
             length: 34,
             caretLocation: 15,
             selectedLength: 1,
+            selectedText: " ",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 1,
@@ -160,6 +164,7 @@ extension ASNM_ciw_Tests {
             length: 17,
             caretLocation: 6,
             selectedLength: 1,
+            selectedText: " ",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 1,
@@ -186,14 +191,14 @@ extension ASNM_ciw_Tests {
 can't go from
 one line to      
     the other
-"""
-        
+"""   
         let element = AccessibilityTextElement(
             role: .textArea,
             value: text,
             length: 45,
             caretLocation: 27,
             selectedLength: 1,
+            selectedText: " ",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 2,

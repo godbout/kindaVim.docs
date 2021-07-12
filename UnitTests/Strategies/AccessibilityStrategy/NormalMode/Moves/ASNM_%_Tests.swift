@@ -22,6 +22,7 @@ extension ASNM_percent_Tests {
             length: 28,
             caretLocation: 4,
             selectedLength: 1,
+            selectedText: "t",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 1,
@@ -32,7 +33,9 @@ extension ASNM_percent_Tests {
         
         let returnedElement = applyMove(on: element)
         
-        XCTAssertEqual(returnedElement?.caretLocation, 4)
+        XCTAssertEqual(returnedElement?.caretLocation, 4)        
+        XCTAssertEqual(returnedElement?.selectedLength, 1)
+        XCTAssertNil(returnedElement?.selectedText)
     }    
     
     func test_that_it_finds_the_next_item_to_match_and_goes_to_the_pairing_item_on_a_same_line() {
@@ -46,6 +49,7 @@ and a ( nice pair line ) :))
             length: 56,
             caretLocation: 30,
             selectedLength: 1,
+            selectedText: "d",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 2,
@@ -57,6 +61,8 @@ and a ( nice pair line ) :))
         let returnedElement = applyMove(on: element)
         
         XCTAssertEqual(returnedElement?.caretLocation, 51)
+        XCTAssertEqual(returnedElement?.selectedLength, 1)
+        XCTAssertNil(returnedElement?.selectedText)
     }
     
     func test_that_if_the_pair_cannot_be_matched_then_it_does_not_move() {
@@ -67,6 +73,7 @@ and a ( nice pair line ) :))
             length: 56,
             caretLocation: 34,
             selectedLength: 1,
+            selectedText: "e",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 1,
@@ -78,6 +85,8 @@ and a ( nice pair line ) :))
         let returnedElement = applyMove(on: element)
         
         XCTAssertEqual(returnedElement?.caretLocation, 34)
+        XCTAssertEqual(returnedElement?.selectedLength, 1)
+        XCTAssertNil(returnedElement?.selectedText)
     }
     
     func test_that_it_always_works_with_brackets() {
@@ -88,6 +97,7 @@ and a ( nice pair line ) :))
             length: 70,
             caretLocation: 14,
             selectedLength: 1,
+            selectedText: "a",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 1,
@@ -99,6 +109,8 @@ and a ( nice pair line ) :))
         let returnedElement = applyMove(on: element)
         
         XCTAssertEqual(returnedElement?.caretLocation, 45)
+        XCTAssertEqual(returnedElement?.selectedLength, 1)
+        XCTAssertNil(returnedElement?.selectedText)
     }
     
 }
@@ -119,6 +131,7 @@ func someBull() {
             length: 40,
             caretLocation: 39,
             selectedLength: 1,
+            selectedText: "}",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 3,
@@ -130,6 +143,8 @@ func someBull() {
         let returnedElement = applyMove(on: element)
         
         XCTAssertEqual(returnedElement?.caretLocation, 16)
+        XCTAssertEqual(returnedElement?.selectedLength, 1)
+        XCTAssertNil(returnedElement?.selectedText)
     }
     
 }

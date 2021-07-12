@@ -25,11 +25,12 @@ extension ASNM_x_Tests {
     func test_that_if_the_TextElement_is_empty_it_does_not_move() {
         let text = ""
         let element = AccessibilityTextElement(
-            role: .textField,
+            role: .textArea,
             value: text,
             length: 0,
             caretLocation: 0,
-            selectedLength: 1,
+            selectedLength: 0,
+            selectedText: "",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 1,
@@ -60,7 +61,8 @@ line
             value: text,
             length: 31,
             caretLocation: 31,
-            selectedLength: 1,
+            selectedLength: 0,
+            selectedText: "",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 4,
@@ -91,6 +93,7 @@ extension ASNM_x_Tests {
             length: 35,
             caretLocation: 11,
             selectedLength: 1,
+            selectedText: "l",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 1,

@@ -20,11 +20,12 @@ extension ASNM_C__Tests {
     func test_that_if_the_TextElement_is_empty_it_does_not_move() {
         let text = ""
         let element = AccessibilityTextElement(
-            role: .textField,
+            role: .textArea,
             value: text,
             length: 0,
             caretLocation: 0,
-            selectedLength: 1,
+            selectedLength: 0,
+            selectedText: "",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 1,
@@ -50,7 +51,8 @@ gonna be at the end
             value: text,
             length: 28,
             caretLocation: 28,
-            selectedLength: 1,
+            selectedLength: 0,
+            selectedText: "",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 2,
@@ -78,7 +80,8 @@ line
             value: text,
             length: 31,
             caretLocation: 31,
-            selectedLength: 1,
+            selectedLength: 0,
+            selectedText: "",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 4,
@@ -108,6 +111,7 @@ extension ASNM_C__Tests {
             length: 53,
             caretLocation: 28,
             selectedLength: 1,
+            selectedText: "e",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 1,
@@ -141,6 +145,7 @@ else everything gonna stuck
             length: 85,
             caretLocation: 40,
             selectedLength: 1,
+            selectedText: "o",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 2,
@@ -168,13 +173,14 @@ and that shouldn't be deleted by C
             length: 61,
             caretLocation: 26,
             selectedLength: 1,
+            selectedText: "\n",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
-                number: 2,
-                start: 26,
-                end: 27
+            fullValue: text,
+            number: 2,
+            start: 26,
+            end: 27
             )
-        )
+            )
         
         let returnedElement = applyMove(on: element)
         

@@ -29,6 +29,7 @@ extension ASNM_yy_Tests {
             length: 0,
             caretLocation: 0,
             selectedLength: 0,
+            selectedText: "",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 1,
@@ -40,9 +41,11 @@ extension ASNM_yy_Tests {
         NSPasteboard.general.clearContents()
         NSPasteboard.general.setString("test 1 of The 3 Cases", forType: .string)
         
-        _ = applyMove(on: element)
+        let returnedElement = applyMove(on: element)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "")
+        XCTAssertEqual(returnedElement?.selectedLength, 0)
+        XCTAssertNil(returnedElement?.selectedText)
     }
     
     func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_but_not_on_an_empty_line_it_works_and_copies_the_line() {
@@ -56,6 +59,7 @@ gonna be at the end
             length: 28,
             caretLocation: 28,
             selectedLength: 0,
+            selectedText: "",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 2,
@@ -67,9 +71,11 @@ gonna be at the end
         NSPasteboard.general.clearContents()
         NSPasteboard.general.setString("test 2 of The 3 Cases", forType: .string)
         
-        _ = applyMove(on: element)
+        let returnedElement = applyMove(on: element)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "gonna be at the end")
+        XCTAssertEqual(returnedElement?.selectedLength, 0)
+        XCTAssertNil(returnedElement?.selectedText)
     }
     
     func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_and_on_an_empty_line_on_its_own_it_works_and_copies_the_line() {
@@ -85,6 +91,7 @@ line
             length: 31,
             caretLocation: 31,
             selectedLength: 0,
+            selectedText: "",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 4,
@@ -96,9 +103,11 @@ line
         NSPasteboard.general.clearContents()
         NSPasteboard.general.setString("test 3 of The 3 Cases", forType: .string)
         
-        _ = applyMove(on: element)
+        let returnedElement = applyMove(on: element)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "")
+        XCTAssertEqual(returnedElement?.selectedLength, 0)
+        XCTAssertNil(returnedElement?.selectedText)
     }    
     
 }
@@ -115,6 +124,7 @@ extension ASNM_yy_Tests {
             length: 24,
             caretLocation: 12,
             selectedLength: 1,
+            selectedText: "a",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 1,
@@ -123,9 +133,11 @@ extension ASNM_yy_Tests {
             )
         )
         
-        _ = applyMove(on: element)
+        let returnedElement = applyMove(on: element)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), text)
+        XCTAssertEqual(returnedElement?.selectedLength, 1)
+        XCTAssertNil(returnedElement?.selectedText)
     }
     
     func test_that_it_includes_the_end_of_the_line_linefeed() {
@@ -140,6 +152,7 @@ my friend
             length: 24,
             caretLocation: 3,
             selectedLength: 1,
+            selectedText: "t",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 1,
@@ -148,9 +161,11 @@ my friend
             )
         )
         
-        _ = applyMove(on: element)
+        let returnedElement = applyMove(on: element)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "multiple lines\n")
+        XCTAssertEqual(returnedElement?.selectedLength, 1)
+        XCTAssertNil(returnedElement?.selectedText)
     }
     
     func test_that_it_does_not_include_the_linefeed_of_the_previous_line() {
@@ -166,6 +181,7 @@ my friend
             length: 30,
             caretLocation: 17,
             selectedLength: 1,
+            selectedText: "a",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 2,
@@ -174,9 +190,11 @@ my friend
             )
         )
         
-        _ = applyMove(on: element)
+        let returnedElement = applyMove(on: element)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "again\n")
+        XCTAssertEqual(returnedElement?.selectedLength, 1)
+        XCTAssertNil(returnedElement?.selectedText)
     }
     
 }

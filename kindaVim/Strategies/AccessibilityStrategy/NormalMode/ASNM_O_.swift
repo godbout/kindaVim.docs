@@ -2,7 +2,12 @@ extension AccessibilityStrategyNormalMode {
     
     func O(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         guard var element = element else { return nil }
-        guard element.role == .textArea else { return element }
+        guard element.role == .textArea else {
+            element.selectedLength = 0
+            element.selectedText = nil
+            
+            return element             
+        }
         
         if element.currentLine.isTheFirstLine {
             let lineText = element.currentLine.value

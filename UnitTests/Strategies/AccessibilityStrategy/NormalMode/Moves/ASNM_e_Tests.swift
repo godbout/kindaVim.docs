@@ -33,8 +33,9 @@ from the TextEngine
             role: .textArea,
             value: text,
             length: 62,
-            caretLocation: 32,
+            caretLocation: 33,
             selectedLength: 1,
+            selectedText: "w",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 2,

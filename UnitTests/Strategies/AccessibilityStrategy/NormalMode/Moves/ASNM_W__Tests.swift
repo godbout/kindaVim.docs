@@ -25,11 +25,12 @@ extension ASNM_W_Tests {
     func test_that_it_calls_the_TextEngine_WORDForward_function() {
         let text = "should be calling WORDForward"
         let element = AccessibilityTextElement(
-            role: .textField,
+            role: .textArea,
             value: text,
             length: 29,
-            caretLocation: 11,
+            caretLocation: 10,
             selectedLength: 1,
+            selectedText: "c",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 1,

@@ -112,14 +112,15 @@ extension ASNM_r_Tests {
         let element = AccessibilityTextElement(
             role: .textField,
             value: text,
-            length: 43,
+            length: 37,
             caretLocation: 23,
             selectedLength: 1,
+            selectedText: "o",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 1,
                 start: 0,
-                end: 43
+                end: 37
             )
         )
         
@@ -138,6 +139,7 @@ extension ASNM_r_Tests {
             length: 18,
             caretLocation: 12,
             selectedLength: 1,
+            selectedText: "s",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 1,
@@ -161,6 +163,7 @@ extension ASNM_r_Tests {
             length: 41,
             caretLocation: 15,
             selectedLength: 1,
+            selectedText: "c",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 1,
@@ -192,13 +195,14 @@ linefeed
             length: 24,
             caretLocation: 15,
             selectedLength: 1,
+            selectedText: "\n",
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
-                number: 2,
-                start: 15,
-                end: 16
+            fullValue: text,
+            number: 2,
+            start: 15,
+            end: 16
             )
-        )
+            )
         
         let returnedElement = applyMove(with: "g", on: element)
         

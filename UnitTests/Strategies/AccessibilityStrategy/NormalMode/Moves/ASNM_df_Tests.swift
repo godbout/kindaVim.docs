@@ -112,6 +112,7 @@ extension ASNM_df_Tests {
             length: 29,
             caretLocation: 1,
             selectedLength: 1,
+            selectedText: "o",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 1,
@@ -139,6 +140,7 @@ that is not there
             length: 44,
             caretLocation: 14,
             selectedLength: 1,
+            selectedText: " ",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 2,
@@ -173,6 +175,7 @@ on a line
             length: 40,
             caretLocation: 18,
             selectedLength: 1,
+            selectedText: "s",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 2,

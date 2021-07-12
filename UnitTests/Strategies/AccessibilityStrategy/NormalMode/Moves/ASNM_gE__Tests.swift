@@ -28,8 +28,9 @@ from the TextEngine
             role: .textArea,
             value: text,
             length: 63,
-            caretLocation: 36,
+            caretLocation: 24,
             selectedLength: 1,
+            selectedText: "O",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 2,

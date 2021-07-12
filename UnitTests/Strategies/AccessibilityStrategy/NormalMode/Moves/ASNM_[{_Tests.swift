@@ -32,13 +32,14 @@ the TextEngineTests
             role: .textArea,
             value: text,
             length: 90,
-            caretLocation: 88,
+            caretLocation: 50,
             selectedLength: 1,
+            selectedText: " ",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
-                number: 3,
-                start: 71,
-                end: 90
+                number: 2,
+                start: 43,
+                end: 71
             )
         )
         

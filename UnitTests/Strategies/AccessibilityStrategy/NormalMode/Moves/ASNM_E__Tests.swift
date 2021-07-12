@@ -28,13 +28,14 @@ from the TextEngine
             role: .textArea,
             value: text,
             length: 62,
-            caretLocation: 32,
+            caretLocation: 55,
             selectedLength: 1,
+            selectedText: "t",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
-                number: 2,
-                start: 21,
-                end: 43
+                number: 3,
+                start: 43,
+                end: 62
             )
         )
         

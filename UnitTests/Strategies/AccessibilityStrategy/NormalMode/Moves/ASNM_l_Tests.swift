@@ -20,11 +20,12 @@ extension ASNM_l_Tests {
     func test_that_if_the_TextElement_is_empty_it_does_not_move() {
         let text = ""
         let element = AccessibilityTextElement(
-            role: .textField,
+            role: .textArea,
             value: text,
             length: 0,
             caretLocation: 0,
-            selectedLength: 1,
+            selectedLength: 0,
+            selectedText: "",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 1,
@@ -50,7 +51,8 @@ gonna be at the end
             value: text,
             length: 28,
             caretLocation: 28,
-            selectedLength: 1,
+            selectedLength: 0,
+            selectedText: "",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 2,
@@ -78,15 +80,15 @@ line
             value: text,
             length: 31,
             caretLocation: 31,
-            selectedLength: 1,
+            selectedLength: 0,
+            selectedText: "",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 4,
                 start: 31,
                 end: 31
             )
-        )
-        
+        )        
         let returnedElement = applyMove(on: element)
         
         XCTAssertEqual(returnedElement?.caretLocation, 31)
@@ -108,6 +110,7 @@ extension ASNM_l_Tests {
             length: 38,
             caretLocation: 16,
             selectedLength: 1,
+            selectedText: "c",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 1,
@@ -119,6 +122,8 @@ extension ASNM_l_Tests {
         let returnedElement = applyMove(on: element)
 
         XCTAssertEqual(returnedElement?.caretLocation, 17)
+        XCTAssertEqual(returnedElement?.selectedLength, 1)
+        XCTAssertNil(returnedElement?.selectedText)
     }
         
     func test_that_l_does_not_move_if_caret_is_at_end_limit_of_Text_AXUIElement() {
@@ -133,6 +138,7 @@ hehe
             length: 30,
             caretLocation: 29,
             selectedLength: 1,
+            selectedText: "e",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 3,
@@ -144,6 +150,8 @@ hehe
         let returnedElement = applyMove(on: element)
 
         XCTAssertEqual(returnedElement?.caretLocation, 29)
+        XCTAssertEqual(returnedElement?.selectedLength, 1)
+        XCTAssertNil(returnedElement?.selectedText)
     }
     
 }
@@ -164,6 +172,7 @@ it's two thirty
             length: 46,
             caretLocation: 30,
             selectedLength: 1,
+            selectedText: "\n",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 2,
@@ -175,6 +184,8 @@ it's two thirty
         let returnedElement = applyMove(on: element)
         
         XCTAssertEqual(returnedElement?.caretLocation, 29)
+        XCTAssertEqual(returnedElement?.selectedLength, 1)
+        XCTAssertNil(returnedElement?.selectedText)
     }
     
 }

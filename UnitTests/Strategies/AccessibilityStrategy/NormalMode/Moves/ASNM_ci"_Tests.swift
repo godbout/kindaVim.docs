@@ -24,6 +24,7 @@ extension ASNM_ciDoubleQuote_Tests {
             length: 63,
             caretLocation: 15,
             selectedLength: 1,
+            selectedText: "\"",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 1,
@@ -46,6 +47,7 @@ extension ASNM_ciDoubleQuote_Tests {
             length: 35,
             caretLocation: 28,
             selectedLength: 1,
+            selectedText: "o",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 1,

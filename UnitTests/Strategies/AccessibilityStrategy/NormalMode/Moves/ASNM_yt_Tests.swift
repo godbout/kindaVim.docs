@@ -30,6 +30,7 @@ extension ASNM_yt_Tests {
             length: 0,
             caretLocation: 0,
             selectedLength: 0,
+            selectedText: "",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 1,
@@ -41,9 +42,11 @@ extension ASNM_yt_Tests {
         NSPasteboard.general.clearContents()
         NSPasteboard.general.setString("test 1 of The 3 Cases yt", forType: .string)
         
-        _ = applyMove(to: "a", on: element)
+        let returnedElement = applyMove(to: "a", on: element)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "test 1 of The 3 Cases yt")
+        XCTAssertEqual(returnedElement?.selectedLength, 0)
+        XCTAssertNil(returnedElement?.selectedText)
     }
     
     func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_but_not_on_an_empty_line_it_works_and_does_nothing_lol_bis() {
@@ -57,6 +60,7 @@ gonna be at the end
             length: 28,
             caretLocation: 28,
             selectedLength: 0,
+            selectedText: "",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 2,
@@ -68,9 +72,11 @@ gonna be at the end
         NSPasteboard.general.clearContents()
         NSPasteboard.general.setString("test 2 of The 3 Cases yt", forType: .string)
         
-        _ = applyMove(to: "a", on: element)
+        let returnedElement = applyMove(to: "a", on: element)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "test 2 of The 3 Cases yt")
+        XCTAssertEqual(returnedElement?.selectedLength, 0)
+        XCTAssertNil(returnedElement?.selectedText)
     }
     
     func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_and_on_an_empty_line_on_its_own_it_works_and_does_nothing_lol_thris() {
@@ -86,6 +92,7 @@ line
             length: 31,
             caretLocation: 31,
             selectedLength: 0,
+            selectedText: "",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 4,
@@ -97,9 +104,11 @@ line
         NSPasteboard.general.clearContents()
         NSPasteboard.general.setString("test 3 of The 3 Cases yt", forType: .string)
         
-        _ = applyMove(to: "a", on: element)
+        let returnedElement = applyMove(to: "a", on: element)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "test 3 of The 3 Cases yt")
+        XCTAssertEqual(returnedElement?.selectedLength, 0)
+        XCTAssertNil(returnedElement?.selectedText)
     }    
     
 }
@@ -116,6 +125,7 @@ extension ASNM_yt_Tests {
             length: 29,
             caretLocation: 8,
             selectedLength: 1,
+            selectedText: "e",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 1,
@@ -124,9 +134,11 @@ extension ASNM_yt_Tests {
             )
         )
         
-        _ = applyMove(to: "s", on: element)
+        let returnedElement = applyMove(to: "s", on: element)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "e yt on thi")
+        XCTAssertEqual(returnedElement?.selectedLength, 1)
+        XCTAssertNil(returnedElement?.selectedText)
     }
     
     func test_that_if_the_character_is_not_found_then_it_does_nothing() {
@@ -141,6 +153,7 @@ that is not there
             length: 44,
             caretLocation: 14,
             selectedLength: 1,
+            selectedText: " ",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 2,
@@ -152,9 +165,11 @@ that is not there
         NSPasteboard.general.clearContents()
         NSPasteboard.general.setString("404 character not found", forType: .string)
         
-        _ = applyMove(to: "z", on: element)
+        let returnedElement = applyMove(to: "z", on: element)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "404 character not found")
+        XCTAssertEqual(returnedElement?.selectedLength, 1)
+        XCTAssertNil(returnedElement?.selectedText)
     }
     
 }
@@ -175,6 +190,7 @@ on a line
             length: 40,
             caretLocation: 4,
             selectedLength: 1,
+            selectedText: "n",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 1,
@@ -183,9 +199,11 @@ on a line
             )
         )
         
-        _ = applyMove(to: "m", on: element)
+        let returnedElement = applyMove(to: "m", on: element)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "n a ")
+        XCTAssertEqual(returnedElement?.selectedLength, 1)
+        XCTAssertNil(returnedElement?.selectedText)
     }
     
 }

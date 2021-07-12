@@ -20,8 +20,9 @@ extension ASNM_o_Tests {
             role: .textField,
             value: text,
             length: 39,
-            caretLocation: 15,
+            caretLocation: 18,
             selectedLength: 1,
+            selectedText: "t",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 1,
@@ -51,7 +52,8 @@ extension ASNM_o_Tests {
             value: text,
             length: 0,
             caretLocation: 0,
-            selectedLength: 1,
+            selectedLength: 0,
+            selectedText: "",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 1,
@@ -77,7 +79,8 @@ gonna be at the end
             value: text,
             length: 28,
             caretLocation: 28,
-            selectedLength: 1,
+            selectedLength: 0,
+            selectedText: "",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 2,
@@ -105,7 +108,8 @@ line
             value: text,
             length: 31,
             caretLocation: 31,
-            selectedLength: 1,
+            selectedLength: 0,
+            selectedText: "",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 4,
@@ -140,6 +144,7 @@ below
             length: 53,
             caretLocation: 38,
             selectedLength: 1,
+            selectedText: " ",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 3,
@@ -166,6 +171,7 @@ so the new line follows that
             length: 56,
             caretLocation: 21,
             selectedLength: 1,
+            selectedText: " ",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 2,
@@ -223,6 +229,7 @@ it should not cut the last character
             length: 36,
             caretLocation: 25,
             selectedLength: 1,
+            selectedText: "t",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 1,
@@ -248,7 +255,8 @@ caret on empty last line
             value: text,
             length: 25,
             caretLocation: 25,
-            selectedLength: 1,
+            selectedLength: 0,
+            selectedText: "",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 2,
@@ -274,7 +282,8 @@ two lines empty below
             value: text,
             length: 23,
             caretLocation: 22,
-            selectedLength: 1,
+            selectedLength: 0,
+            selectedText: "",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 2,

@@ -13,19 +13,37 @@ extension AccessibilityStrategyNormalMode {
     }
     
     private func handleTheThreeCasesTM(for element: AccessibilityTextElement) -> AccessibilityTextElement? {
-        let element = element
+        var element = element
         
         
         if element.isEmpty {
-            return theMove(on: element)
+            NSPasteboard.general.clearContents()
+            NSPasteboard.general.setString(element.currentLine.value, forType: .string)
+            
+            element.selectedLength = 0
+            element.selectedText = nil
+            
+            return element
         }
         
         if element.caretIsAtTheEnd, element.lastCharacterIsNotLinefeed {
-            return theMove(on: element)
+            NSPasteboard.general.clearContents()
+            NSPasteboard.general.setString(element.currentLine.value, forType: .string)
+            
+            element.selectedLength = 0
+            element.selectedText = nil
+            
+            return element
         }
         
         if element.caretIsAtTheEnd, element.lastCharacterIsLinefeed {
-            return theMove(on: element)
+            NSPasteboard.general.clearContents()
+            NSPasteboard.general.setString(element.currentLine.value, forType: .string)
+            
+            element.selectedLength = 0
+            element.selectedText = nil
+            
+            return element
         }
         
         
@@ -38,7 +56,7 @@ extension AccessibilityStrategyNormalMode {
         NSPasteboard.general.clearContents()
         NSPasteboard.general.setString(element.currentLine.value, forType: .string)
         
-        element.selectedLength = 0
+        element.selectedLength = 1
         element.selectedText = nil
         
         return element

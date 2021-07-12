@@ -16,6 +16,7 @@ extension ASNM_i_Tests {
             length: 35,
             caretLocation: 24,
             selectedLength: 1,
+            selectedText: "o",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 1,
@@ -26,7 +27,9 @@ extension ASNM_i_Tests {
         
         let returnedElement = asNormalMode.i(on: element)
         
-        XCTAssertEqual(returnedElement?.caretLocation, 24)     
+        XCTAssertEqual(returnedElement?.caretLocation, 24)    
+        XCTAssertEqual(returnedElement?.selectedLength, 0)
+        XCTAssertNil(returnedElement?.selectedText)
     }    
     
 }

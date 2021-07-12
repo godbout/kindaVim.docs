@@ -44,9 +44,19 @@ extension AccessibilityStrategyNormalMode {
         
         let characterUnderCaretIndex = element.value.index(element.value.startIndex, offsetBy: element.caretLocation)
         let characterUnderCaretText = element.value[characterUnderCaretIndex]
-        guard characterUnderCaretText != "\n" else { return element }
+        guard characterUnderCaretText != "\n" else {
+            element.selectedLength = 1
+            element.selectedText = nil
+            
+            return element            
+        }
         
-        guard replacement != "\u{1b}" else { return element }            
+        guard replacement != "\u{1b}" else {
+            element.selectedLength = 1
+            element.selectedText = nil
+            
+            return element            
+        }            
         
         element.selectedLength = 1
         element.selectedText = replacement.isNewline ? "\n" : String(replacement)

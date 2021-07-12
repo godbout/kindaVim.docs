@@ -111,6 +111,7 @@ extension ASNM_a_Tests {
             length: 38,
             caretLocation: 16,
             selectedLength: 1,
+            selectedText: "c",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 1,
@@ -122,6 +123,8 @@ extension ASNM_a_Tests {
         let returnedElement = applyMove(on: element)
 
         XCTAssertEqual(returnedElement?.caretLocation, 17)
+        XCTAssertEqual(returnedElement?.selectedLength, 0)
+        XCTAssertNil(returnedElement?.selectedText)
     }
     
 }
@@ -142,6 +145,7 @@ a should not move
             length: 35,
             caretLocation: 17,
             selectedLength: 1,
+            selectedText: "\n",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 2,
@@ -153,6 +157,8 @@ a should not move
         let returnedElement = applyMove(on: element)
 
         XCTAssertEqual(returnedElement?.caretLocation, 17)
+        XCTAssertEqual(returnedElement?.selectedLength, 0)
+        XCTAssertNil(returnedElement?.selectedText)
     }
 
 }
