@@ -291,5 +291,33 @@ heheheheh
         XCTAssertEqual(returnedElement?.selectedLength, 1)
         XCTAssertNil(returnedElement?.selectedText)
     }
+    
+    func test_that_if_there_are_four_double_quotes_and_the_caret_is_exactly_on_the_third_one_it_calculates_the_matching_pairs_and_copy_the_right_text() {
+        let text = """
+now there's gonna
+"be" for "quotes" yep
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 39,
+            caretLocation: 27,
+            selectedLength: 1,
+            selectedText: "\"",
+            currentLine: AccessibilityTextElementLine(
+                fullValue: text,
+                number: 2,
+                start: 18,
+                end: 39
+            )
+        )
+        
+        let returnedElement = applyMove(on: element)
+        
+        XCTAssertEqual(NSPasteboard.general.string(forType: .string), "quotes")
+        XCTAssertEqual(returnedElement?.caretLocation, 28)  
+        XCTAssertEqual(returnedElement?.selectedLength, 1)
+        XCTAssertNil(returnedElement?.selectedText)
+    }
         
 }
