@@ -17,7 +17,21 @@ extension AccessibilityStrategyVisualMode {
         
         
         if element.isEmpty {
-            return theMove(on: element)
+            if let selectedText = element.selectedText {
+                NSPasteboard.general.clearContents()
+                NSPasteboard.general.setString(selectedText, forType: .string)
+            }
+            
+            if VimEngine.shared.visualStyle == .characterwise {
+                VimEngine.shared.lastYankStyle = .characterwise
+            } else {
+                VimEngine.shared.lastYankStyle = .linewise
+            }
+            
+            element.selectedLength = 0
+            element.selectedText = nil
+            
+            return element
         }
         
         if element.isNotEmpty, element.caretIsAtTheEnd, element.lastCharacterIsNotLinefeed {
@@ -29,7 +43,21 @@ extension AccessibilityStrategyVisualMode {
         }
         
         if element.caretIsAtTheEnd, element.lastCharacterIsLinefeed {
-            return theMove(on: element)
+            if let selectedText = element.selectedText {
+                NSPasteboard.general.clearContents()
+                NSPasteboard.general.setString(selectedText, forType: .string)
+            }
+            
+            if VimEngine.shared.visualStyle == .characterwise {
+                VimEngine.shared.lastYankStyle = .characterwise
+            } else {
+                VimEngine.shared.lastYankStyle = .linewise
+            }
+            
+            element.selectedLength = 0   
+            element.selectedText = nil
+            
+            return element
         }
         
         

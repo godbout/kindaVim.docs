@@ -54,7 +54,7 @@ should set
         
         VimEngine.shared.lastYankStyle = .characterwise
         
-        let returnedElement = applyMove(on: element)
+        _ = applyMove(on: element)
         
         XCTAssertEqual(VimEngine.shared.lastYankStyle, .linewise)
     }
