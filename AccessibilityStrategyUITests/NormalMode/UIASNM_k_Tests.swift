@@ -31,7 +31,7 @@ extension UIASNM_k_Tests {
         XCTAssertEqual(accessibilityElement?.caretLocation, 0)
     }
     
-    func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_but_not_on_an_empty_line_it_goes_back_one_character_to_the_left() {
+    func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_but_not_on_an_empty_line_it_just_works_and_moves_to_the_previous_line() {
         let textInAXFocusedElement = """
 caret is
 gonna be at the end
@@ -43,7 +43,7 @@ gonna be at the end
         
         let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
         
-        XCTAssertEqual(accessibilityElement?.caretLocation, 27)
+        XCTAssertEqual(accessibilityElement?.caretLocation, 7)
     }
     
     func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_and_on_an_empty_line_it_works_and_moves_up() {
