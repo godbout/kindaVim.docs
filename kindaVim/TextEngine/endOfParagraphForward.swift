@@ -1,10 +1,10 @@
 extension TextEngine {
     
     func endOfParagraphForward(startingAt location: Int, in text: TextEngineText) -> Int {
+        guard text.isNotEmpty else { return 0 }
+        
         let value = text.value
-        
-        guard !value.isEmpty else { return 0 }
-        
+                
         var searchStartIndex = value.index(value.startIndex, offsetBy: location)
         
         while searchStartIndex != value.endIndex, value[searchStartIndex].isNewline {

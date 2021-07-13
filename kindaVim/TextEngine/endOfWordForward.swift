@@ -1,10 +1,9 @@
 extension TextEngine {
     
     func endOfWordForward(startingAt location: Int, in text: TextEngineText) -> Int {
+        guard text.isNotEmpty else { return 0 }
+
         let value = text.value
-        
-        guard !value.isEmpty else { return 0 }
-        
         guard let anchorIndex = value.index(value.startIndex, offsetBy: location + 1, limitedBy: value.endIndex) else { return text.endLimit }
         let endIndex = value.endIndex
         

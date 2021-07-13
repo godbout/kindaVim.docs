@@ -1,6 +1,8 @@
 extension TextEngine { 
     
     func beginningOfParagraphBackward(startingAt location: Int, in text: TextEngineText) -> Int {
+        guard text.isNotEmpty else { return 0 }
+        
         let value = text.value
         
         var searchEndIndex = value.index(value.startIndex, offsetBy: location)

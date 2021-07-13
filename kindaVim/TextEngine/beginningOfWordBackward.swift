@@ -1,10 +1,9 @@
 extension TextEngine {
     
     func beginningOfWordBackward(startingAt location: Int, in text: TextEngineText) -> Int {
+        guard text.isNotEmpty else { return 0 }
+        
         let value = text.value
-        
-        guard !value.isEmpty else { return 0 }
-        
         let anchorIndex = value.index(value.startIndex, offsetBy: location)
         let startIndex = value.startIndex
         
