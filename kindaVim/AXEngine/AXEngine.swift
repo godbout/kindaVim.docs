@@ -119,7 +119,7 @@ struct AXEngine {
         
         var selectedTextRange = CFRange()
         selectedTextRange.location = accessibilityElement.caretLocation
-        selectedTextRange.length = accessibilityElement.caretIsAtTheEnd ? 0 : accessibilityElement.selectedLength
+        selectedTextRange.length = tweakedSelectedLength(for: accessibilityElement)
         
         let newValue = AXValueCreate(.cfRange, &selectedTextRange)
         guard AXUIElementSetAttributeValue(axFocusedElement, kAXSelectedTextRangeAttribute as CFString, newValue!) == .success else { return false }
@@ -129,6 +129,18 @@ struct AXEngine {
         }
         
         return true
+    }
+    
+    // this is to handle properly The 3rd Case of The 3 Cases.
+    // if the text ends with an empty line, we can't fake the block cursor, so ne need to
+    // tweak the selectedLength. the calculation is of course not the same for 
+    // Normal Mode (caretLocation) and Visual Mode (caretLocation + selectedLength)
+    private static func tweakedSelectedLength(for element: AccessibilityTextElement) -> Int {
+        if VimEngine.shared.currentMode == .visual {
+            return (element.caretLocation + (element.selectedLength - 1) >= element.length) ? element.selectedLength - 1 : element.selectedLength 
+        }
+        
+        return element.caretIsAtTheEnd ? 0 : element.selectedLength
     }
 
 }
