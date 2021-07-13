@@ -119,7 +119,7 @@ struct AXEngine {
         
         var selectedTextRange = CFRange()
         selectedTextRange.location = accessibilityElement.caretLocation
-        selectedTextRange.length = accessibilityElement.selectedLength
+        selectedTextRange.length = accessibilityElement.caretIsAtTheEnd ? 0 : accessibilityElement.selectedLength
         
         let newValue = AXValueCreate(.cfRange, &selectedTextRange)
         guard AXUIElementSetAttributeValue(axFocusedElement, kAXSelectedTextRangeAttribute as CFString, newValue!) == .success else { return false }

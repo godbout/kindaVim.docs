@@ -8,7 +8,7 @@ a full line
 of banana
 this time
 """
-        let accessibilityElement = AccessibilityTextElement(
+        let element = AccessibilityTextElement(
             value: text,
             length: 31,
             caretLocation: 21,
@@ -20,7 +20,7 @@ this time
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         
-        let conversionSucceeded = AccessibilityTextElementAdaptor.toAXFocusedElement(from: accessibilityElement)
+        let conversionSucceeded = AccessibilityTextElementAdaptor.toAXFocusedElement(from: element)
         XCTAssertTrue(conversionSucceeded)
         
         let reconvertedAccessibilityTextElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()

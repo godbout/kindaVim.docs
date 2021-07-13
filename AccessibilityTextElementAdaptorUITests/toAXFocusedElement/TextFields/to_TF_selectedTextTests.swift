@@ -4,7 +4,7 @@ class to_TF_selectedTextTests: ATEA_BaseTests {
 
     func test_that_we_can_set_the_selected_text_for_a_TextField() {
         let text = "gonna try to set the selected text"
-        let accessibilityElement = AccessibilityTextElement(
+        let element = AccessibilityTextElement(
             value: text,
             length: 34,
             caretLocation: 6,
@@ -16,7 +16,7 @@ class to_TF_selectedTextTests: ATEA_BaseTests {
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
         
-        let conversionSucceeded = AccessibilityTextElementAdaptor.toAXFocusedElement(from: accessibilityElement)
+        let conversionSucceeded = AccessibilityTextElementAdaptor.toAXFocusedElement(from: element)
         XCTAssertTrue(conversionSucceeded)
         
         let reconvertedAccessibilityTextElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()

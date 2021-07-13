@@ -466,6 +466,8 @@
 		91CD1B9926860AAE008DBCBB /* ASNM_l.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AB98C72674D68F007682CA /* ASNM_l.swift */; };
 		91CD1B9A26860AAE008DBCBB /* ASNM_W_.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916E86692676779800E2A807 /* ASNM_W_.swift */; };
 		91CD1B9B26860AAE008DBCBB /* ASNM__.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AB99012674D758007682CA /* ASNM__.swift */; };
+		91CD76EE269DAD3E00E367E2 /* to_TF_selectedLengthTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CD76ED269DAD3E00E367E2 /* to_TF_selectedLengthTests.swift */; };
+		91CD76F4269DAF9700E367E2 /* to_TV_selectedLengthTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CD76F3269DAF9700E367E2 /* to_TV_selectedLengthTests.swift */; };
 		91CDCDA92673C97100D18B86 /* UsingASNM___Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CDCDA82673C97100D18B86 /* UsingASNM___Tests.swift */; };
 		91CDCDB32673CA6A00D18B86 /* ASNM___Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CDCDB22673CA6A00D18B86 /* ASNM___Tests.swift */; };
 		91CE734E265CD06300248D18 /* KS_^_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CE734D265CD06300248D18 /* KS_^_Tests.swift */; };
@@ -959,6 +961,8 @@
 		91CC3381267C8A6F00E3145C /* UsingASNM_P__.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsingASNM_P__.swift; sourceTree = "<group>"; };
 		91CC3387267C8B0000E3145C /* ASNM_P_.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASNM_P_.swift; sourceTree = "<group>"; };
 		91CC338D267C8BC600E3145C /* UIASNM_P__TextFields_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIASNM_P__TextFields_Tests.swift; sourceTree = "<group>"; };
+		91CD76ED269DAD3E00E367E2 /* to_TF_selectedLengthTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = to_TF_selectedLengthTests.swift; sourceTree = "<group>"; };
+		91CD76F3269DAF9700E367E2 /* to_TV_selectedLengthTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = to_TV_selectedLengthTests.swift; sourceTree = "<group>"; };
 		91CDCDA82673C97100D18B86 /* UsingASNM___Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UsingASNM___Tests.swift"; sourceTree = "<group>"; };
 		91CDCDB22673CA6A00D18B86 /* ASNM___Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ASNM___Tests.swift"; sourceTree = "<group>"; };
 		91CE734D265CD06300248D18 /* KS_^_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KS_^_Tests.swift"; sourceTree = "<group>"; };
@@ -1639,6 +1643,7 @@
 			isa = PBXGroup;
 			children = (
 				91F2EC14265A2DF1003F038B /* to_TF_caretLocationTests.swift */,
+				91CD76ED269DAD3E00E367E2 /* to_TF_selectedLengthTests.swift */,
 				912924E426652B5D009AB40C /* to_TF_selectedTextTests.swift */,
 			);
 			path = TextFields;
@@ -1648,6 +1653,7 @@
 			isa = PBXGroup;
 			children = (
 				91F2EC16265A2E11003F038B /* to_TV_caretLocationTests.swift */,
+				91CD76F3269DAF9700E367E2 /* to_TV_selectedLengthTests.swift */,
 				912924EE26652EAD009AB40C /* to_TV_selectedTextTests.swift */,
 			);
 			path = TextViews;
@@ -2530,6 +2536,7 @@
 				91CD1B3426860A53008DBCBB /* AccessibilityStrategy.swift in Sources */,
 				91CD1B8726860AAE008DBCBB /* ASNM_T_.swift in Sources */,
 				9157B874268794BC0061BE12 /* ASVM_d.swift in Sources */,
+				91CD76F4269DAF9700E367E2 /* to_TV_selectedLengthTests.swift in Sources */,
 				91CD1B6726860AAE008DBCBB /* ASNM_ct.swift in Sources */,
 				91CD1B4926860A77008DBCBB /* beginningOfWORDForward_.swift in Sources */,
 				91CD1B8526860AAE008DBCBB /* ASNM_E_.swift in Sources */,
@@ -2553,6 +2560,7 @@
 				91CD1B5826860A95008DBCBB /* ASVM_$.swift in Sources */,
 				91CD1B7326860AAE008DBCBB /* ASNM_a.swift in Sources */,
 				91CD1B5A26860A95008DBCBB /* ASVM_l.swift in Sources */,
+				91CD76EE269DAD3E00E367E2 /* to_TF_selectedLengthTests.swift in Sources */,
 				91CD1B4826860A77008DBCBB /* beginningOfWordForward.swift in Sources */,
 				91CD1B6426860AAE008DBCBB /* ASNM_df.swift in Sources */,
 				91CD1B6526860AAE008DBCBB /* ASNM_O_.swift in Sources */,

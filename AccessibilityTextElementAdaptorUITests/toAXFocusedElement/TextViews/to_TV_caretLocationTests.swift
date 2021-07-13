@@ -8,7 +8,7 @@ so obviously that's
 a TextView that is not empty
 coz like come on there's so me shits inside.
 """
-        let accessibilityElement = AccessibilityTextElement(
+        let element = AccessibilityTextElement(
             value: text,
             length: 93,
             caretLocation: 0,
@@ -18,7 +18,7 @@ coz like come on there's so me shits inside.
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(text)
 
-        let conversionSucceeded = AccessibilityTextElementAdaptor.toAXFocusedElement(from: accessibilityElement)
+        let conversionSucceeded = AccessibilityTextElementAdaptor.toAXFocusedElement(from: element)
         XCTAssertTrue(conversionSucceeded)
 
         let reconvertedAccessibilityTextElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
@@ -33,7 +33,7 @@ for you
 my
 friend...
 """
-        let accessibilityElement = AccessibilityTextElement(
+        let element = AccessibilityTextElement(
             value: text,
             length: 46,
             caretLocation: 0,
@@ -43,7 +43,7 @@ friend...
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(text)
 
-        let conversionSucceeded = AccessibilityTextElementAdaptor.toAXFocusedElement(from: accessibilityElement)
+        let conversionSucceeded = AccessibilityTextElementAdaptor.toAXFocusedElement(from: element)
         XCTAssertTrue(conversionSucceeded)
 
         let reconvertedAccessibilityTextElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
@@ -57,7 +57,7 @@ i tell you
 it's biiiiiiig and long
 hallelujah
 """
-        let accessibilityElement = AccessibilityTextElement(
+        let element = AccessibilityTextElement(
             value: text,
             length: 68,
             caretLocation: 25,
@@ -67,7 +67,7 @@ hallelujah
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(text)
 
-        let conversionSucceeded = AccessibilityTextElementAdaptor.toAXFocusedElement(from: accessibilityElement)
+        let conversionSucceeded = AccessibilityTextElementAdaptor.toAXFocusedElement(from: element)
         XCTAssertTrue(conversionSucceeded)
 
         let reconvertedAccessibilityTextElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
@@ -80,7 +80,7 @@ i'm multiplug
 but still not
 that long.
 """
-        let accessibilityElement = AccessibilityTextElement(
+        let element = AccessibilityTextElement(
             value: text,
             length: 38,            
             caretLocation: 1993,
@@ -90,7 +90,7 @@ that long.
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(text)
 
-        let conversionSucceeded = AccessibilityTextElementAdaptor.toAXFocusedElement(from: accessibilityElement)
+        let conversionSucceeded = AccessibilityTextElementAdaptor.toAXFocusedElement(from: element)
         XCTAssertFalse(conversionSucceeded)
     }
 
