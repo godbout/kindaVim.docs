@@ -15,44 +15,6 @@ extension AccessibilityStrategyVisualMode {
     }
     
     private func jForVisualModeCharacterwise(on element: AccessibilityTextElement) -> AccessibilityTextElement {
-        if let oneOfTheThreeCasesForVisualModeCharacterwiseTM = handleTheThreeCasesForVisualModeCharacterwiseTM(for: element) {
-            return oneOfTheThreeCasesForVisualModeCharacterwiseTM
-        }
-        
-        return theMoveForVisualModeCharacterwise(on: element)
-    }
-    
-    private func handleTheThreeCasesForVisualModeCharacterwiseTM(for element: AccessibilityTextElement) -> AccessibilityTextElement? {
-        var element = element
-        
-        
-        if element.isEmpty {
-            element.selectedLength = 0
-            element.selectedText = nil
-            
-            return element
-        }
-        
-        if element.caretIsAtTheEnd, element.lastCharacterIsNotLinefeed {
-            element.caretLocation -= 1
-            element.selectedLength = 1
-            element.selectedText = nil
-            
-            return element
-        }
-        
-        if element.caretIsAtTheEnd, element.lastCharacterIsLinefeed {
-            element.selectedLength = 0
-            element.selectedText = nil
-            
-            return element
-        }
-        
-        
-        return nil
-    }
-    
-    private func theMoveForVisualModeCharacterwise(on element: AccessibilityTextElement) -> AccessibilityTextElement {
         var element = element
         
         if let lineAtHead = AccessibilityTextElementAdaptor.lineFor(location: Self.head), let lineBelowHead = AccessibilityTextElementAdaptor.lineFor(lineNumber: lineAtHead.number + 1) {
@@ -106,44 +68,6 @@ extension AccessibilityStrategyVisualMode {
     }
     
     private func jForVisualModeLinewise(on element: AccessibilityTextElement) -> AccessibilityTextElement {
-        if let oneOfTheThreeCasesForVisualModeLinewiseTM = handleTheThreeCasesForVisualModeLinewiseTM(for: element) {
-            return oneOfTheThreeCasesForVisualModeLinewiseTM
-        }
-        
-        return theMoveForVisualModeLinewise(on: element)
-    }
-    
-    private func handleTheThreeCasesForVisualModeLinewiseTM(for element: AccessibilityTextElement) -> AccessibilityTextElement? {
-        var element = element
-        
-        
-        if element.isEmpty {
-            element.selectedLength = 0
-            element.selectedText = nil
-            
-            return element
-        }
-        
-        if element.caretIsAtTheEnd, element.lastCharacterIsNotLinefeed {
-            element.caretLocation = element.currentLine.start
-            element.selectedLength = element.currentLine.length
-            element.selectedText = nil
-            
-            return element
-        }
-        
-        if element.caretIsAtTheEnd, element.lastCharacterIsLinefeed {
-            element.selectedLength = 0
-            element.selectedText = nil
-            
-            return element
-        }
-        
-        
-        return nil
-    }
-    
-    private func theMoveForVisualModeLinewise(on element: AccessibilityTextElement) -> AccessibilityTextElement {
         var element = element
         
         guard let lineAtAnchor = AccessibilityTextElementAdaptor.lineFor(location: AccessibilityStrategyVisualMode.anchor) else {

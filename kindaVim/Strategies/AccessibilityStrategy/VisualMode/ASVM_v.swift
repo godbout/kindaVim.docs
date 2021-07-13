@@ -7,53 +7,6 @@ extension AccessibilityStrategyVisualMode {
     }
     
     private func handleAnchorHeadAndCaretLocation(with element: AccessibilityTextElement) -> AccessibilityTextElement {
-        if let oneOfTheThreeCasesTM = handleTheThreeCasesTM(for: element) {
-            return oneOfTheThreeCasesTM
-        }
-        
-        return theMove(on: element)
-    }
-    
-    private func handleTheThreeCasesTM(for element: AccessibilityTextElement) -> AccessibilityTextElement? {
-        var element = element
-        
-        
-        if element.isEmpty {
-            element.selectedLength = 0
-            element.selectedText = nil
-            
-            Self.anchor = 0
-            Self.head = 0
-            
-            return element
-        }
-        
-        if element.caretIsAtTheEnd, element.lastCharacterIsNotLinefeed {
-            element.caretLocation -= 1
-            element.selectedLength = 0
-            element.selectedText = nil
-            
-            Self.anchor = element.caretLocation
-            Self.head = element.caretLocation
-            
-            return element
-        }
-        
-        if element.caretIsAtTheEnd, element.lastCharacterIsLinefeed {
-            element.selectedLength = 0
-            element.selectedText = nil
-            
-            Self.anchor = element.caretLocation
-            Self.head = element.caretLocation
-            
-            return element
-        }
-        
-        
-        return nil
-    }
-    
-    private func theMove(on element: AccessibilityTextElement) -> AccessibilityTextElement {
         var element = element
         
         if Self.anchor == nil {

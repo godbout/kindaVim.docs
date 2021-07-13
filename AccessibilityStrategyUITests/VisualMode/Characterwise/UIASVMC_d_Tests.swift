@@ -64,9 +64,10 @@ own empty
 caret is on its
 own empty
     line
+
 """
         )
-        XCTAssertEqual(accessibilityElement?.caretLocation, 30)
+        XCTAssertEqual(accessibilityElement?.caretLocation, 35)
     }
     
 }

@@ -13,7 +13,7 @@ extension AccessibilityStrategyNormalMode {
     private func handleTheThreeCasesTM(for element: AccessibilityTextElement) -> AccessibilityTextElement? {
         var element = element
         
-        
+
         if element.isEmpty {
             element.selectedLength = 0
             element.selectedText = nil

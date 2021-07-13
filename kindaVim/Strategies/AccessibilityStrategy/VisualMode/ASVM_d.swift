@@ -3,10 +3,6 @@ extension AccessibilityStrategyVisualMode {
     func d(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         guard let element = element else { return nil }
         
-        if let oneOfTheThreeCasesTM = handleTheThreeCasesTM(for: element) {
-            return oneOfTheThreeCasesTM
-        }
-        
         if VimEngine.shared.visualStyle == .characterwise {
             return theMoveForVisualModeCharacterwise(on: element)
         }
@@ -18,51 +14,6 @@ extension AccessibilityStrategyVisualMode {
         return element
     }
     
-    private func handleTheThreeCasesTM(for element: AccessibilityTextElement) -> AccessibilityTextElement? {
-        var element = element
-        
-        
-        if element.isEmpty {
-            element.selectedLength = 0
-            element.selectedText = nil
-            
-            return element
-        }
-        
-        if element.caretIsAtTheEnd, element.lastCharacterIsNotLinefeed {
-            element.caretLocation -= 1
-            element.selectedLength = 0
-            element.selectedText = nil
-            
-            return element
-        }
-        
-        if element.caretIsAtTheEnd, element.lastCharacterIsLinefeed {
-            element.caretLocation -= 1
-            element.selectedLength = 1
-            element.selectedText = ""
-            
-            _ = AccessibilityTextElementAdaptor.toAXFocusedElement(from: element)            
-            guard var updatedElement = AccessibilityTextElementAdaptor.fromAXFocusedElement() else { return nil }
-            
-            updatedElement.caretLocation -= 1
-            updatedElement.selectedText = nil
-            
-            _ = AccessibilityTextElementAdaptor.toAXFocusedElement(from: updatedElement)
-            guard var finalElement = AccessibilityTextElementAdaptor.fromAXFocusedElement() else { return nil }
-            
-            let firstNonBlankWithinLimitOfLastLineLocation = textEngine.firstNonBlankWithinLineLimit(in: TextEngineLine(from: finalElement.currentLine.value))            
-            finalElement.caretLocation = finalElement.currentLine.start + firstNonBlankWithinLimitOfLastLineLocation
-            finalElement.selectedLength = 0
-            finalElement.selectedText = nil
-            
-            return finalElement
-        }
-        
-        
-        return nil
-    }
-        
     private func theMoveForVisualModeCharacterwise(on element: AccessibilityTextElement) -> AccessibilityTextElement? {
         var element = element
         
