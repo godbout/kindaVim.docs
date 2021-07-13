@@ -158,8 +158,7 @@ extension VimEngine {
                 push(element: element)
             }
         case .rightBrace:
-            if var element = asNormalMode.rightBrace(on: focusedElement()) {
-                element.selectedLength = element.caretIsAtTheEnd ? 0 : 1
+            if let element = asNormalMode.rightBrace(on: focusedElement()) {
                 push(element: element)
             }
         case .rightBracket:
@@ -225,14 +224,11 @@ extension VimEngine {
         case .controlD:
             post(keyboardStrategy.controlD())
         case .e:
-            if var element = asNormalMode.e(on: focusedElement()) {
-                // move can go to the last empty line, but in that case we can't select the character as there is none
-                element.selectedLength = element.caretIsAtTheEnd ? 0 : 1                    
+            if let element = asNormalMode.e(on: focusedElement()) {
                 push(element: element)
             }
         case .E:
-            if var element = asNormalMode.E(on: focusedElement()) {
-                element.selectedLength = element.caretIsAtTheEnd ? 0 : 1                   
+            if let element = asNormalMode.E(on: focusedElement()) {
                 push(element: element)
             }
         case .f:
@@ -242,9 +238,7 @@ extension VimEngine {
         case .g:
             enterOperatorPendingMode(with: keyCombination)
         case .G:
-            if var element = asNormalMode.G(on: focusedElement()) {
-                // move can go to the last empty line, but in that case we can't select the character as there is none
-                element.selectedLength = element.caretIsAtTheEnd ? 0 : 1
+            if let element = asNormalMode.G(on: focusedElement()) {
                 push(element: element)
             } else {
                 post(keyboardStrategy.G())
@@ -273,16 +267,13 @@ extension VimEngine {
                 post(keyboardStrategy.I())
             }
         case .j:
-            if var element = asNormalMode.j(on: focusedElement()) {
-                // move can go to the last empty line, but in that case we can't select the character as there is none
-                element.selectedLength = element.caretIsAtTheEnd ? 0 : 1
+            if let element = asNormalMode.j(on: focusedElement()) {
                 push(element: element)
             } else {
                 post(keyboardStrategy.j())
             }
         case .k:
-            if var element = asNormalMode.k(on: focusedElement()) {
-                element.selectedLength = element.caretIsAtTheEnd ? 0 : 1
+            if let element = asNormalMode.k(on: focusedElement()) {
                 push(element: element)
             } else {
                 post(keyboardStrategy.k())
@@ -352,8 +343,7 @@ extension VimEngine {
             enterVisualMode()
             visualStyle = .characterwise
             
-            if var element = asVisualMode.v(on: focusedElement()) {
-                element.selectedLength = element.caretIsAtTheEnd ? 0 : 1
+            if let element = asVisualMode.v(on: focusedElement()) {
                 push(element: element)
             }
         case .V:
@@ -364,16 +354,13 @@ extension VimEngine {
                 push(element: element)
             }
         case .w:
-            if var element = asNormalMode.w(on: focusedElement()) {
-                // move can go to the last empty line, but in that case we can't select the character as there is none
-                element.selectedLength = element.caretIsAtTheEnd ? 0 : 1
+            if let element = asNormalMode.w(on: focusedElement()) {
                 push(element: element)
             } else {
                 post(keyboardStrategy.w())
             }
         case .W:
-            if var element = asNormalMode.W(on: focusedElement()) {
-                element.selectedLength = element.caretIsAtTheEnd ? 0 : 1
+            if let element = asNormalMode.W(on: focusedElement()) {
                 push(element: element)
             } else {
                 post(keyboardStrategy.w())
@@ -823,8 +810,7 @@ extension VimEngine {
                 push(element: element)
             }
         case .v:
-            if var element = asVisualMode.v(on: focusedElement()) {
-                element.selectedLength = element.caretIsAtTheEnd ? 0 : 1
+            if let element = asVisualMode.v(on: focusedElement()) {
                 push(element: element)
             }
             
@@ -848,8 +834,7 @@ extension VimEngine {
                 visualStyle = .linewise
             }
         case .y:
-            if var element = asVisualMode.y(on: focusedElement()) {                
-                element.selectedLength = element.caretIsAtTheEnd ? 0 : 1
+            if let element = asVisualMode.y(on: focusedElement()) {
                 push(element: element)
             }
             
@@ -859,8 +844,7 @@ extension VimEngine {
                 push(element: element)
             }            
         case .escape:
-            if var element = asVisualMode.escape(on: focusedElement()) {
-                element.selectedLength = element.caretIsAtTheEnd ? 0 : 1
+            if let element = asVisualMode.escape(on: focusedElement()) {
                 push(element: element)
             }      
             

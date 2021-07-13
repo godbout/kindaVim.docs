@@ -43,14 +43,17 @@ extension ASVMC_b_Tests {
             )
         )
         
+        AccessibilityStrategyVisualMode.anchor = 0
+        AccessibilityStrategyVisualMode.head = 0
+        
         let returnedElement = applyMove(on: element)
         
         XCTAssertEqual(returnedElement?.caretLocation, 0)
-        XCTAssertEqual(returnedElement?.selectedLength, 0)
+        XCTAssertEqual(returnedElement?.selectedLength, 1)
         XCTAssertNil(returnedElement?.selectedText)
     }
     
-    func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_but_not_on_an_empty_line_it_goes_back_one_character_and_selects_it() {
+    func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_but_not_on_an_empty_line_it_works_and_goes_to_the_beginning_of_the_word() {
         let text = """
 caret is
 gonna be at the end
@@ -70,17 +73,17 @@ gonna be at the end
             )
         )
         
-        AccessibilityStrategyVisualMode.anchor = 28
+        AccessibilityStrategyVisualMode.anchor = 27
         AccessibilityStrategyVisualMode.head = 28
         
         let returnedElement = applyMove(on: element)
         
-        XCTAssertEqual(returnedElement?.caretLocation, 27)
-        XCTAssertEqual(returnedElement?.selectedLength, 1)
+        XCTAssertEqual(returnedElement?.caretLocation, 25)
+        XCTAssertEqual(returnedElement?.selectedLength, 3)
         XCTAssertNil(returnedElement?.selectedText)
     }
     
-    func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_and_on_an_empty_line_it_does_not_move() {
+    func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_and_on_an_empty_line_it_works_and_goes_to_the_beginning_of_the_word() {
         let text = """
 caret is on its
 own empty
@@ -102,10 +105,15 @@ line
             )
         )
         
+        AccessibilityStrategyVisualMode.anchor = 31
+        AccessibilityStrategyVisualMode.head = 31
+        
         let returnedElement = applyMove(on: element)
         
-        XCTAssertEqual(returnedElement?.caretLocation, 31)
-        XCTAssertEqual(returnedElement?.selectedLength, 0)
+        XCTAssertEqual(returnedElement?.caretLocation, 26)
+        // selectedLength is 6, returned by the move.
+        // it will be tweaked to 5 by the AXEngine so that it doesn't fail (last empty line)
+        XCTAssertEqual(returnedElement?.selectedLength, 6)
         XCTAssertNil(returnedElement?.selectedText)
     }
     

@@ -44,7 +44,7 @@ extension ASVMC_c_Tests {
         
         XCTAssertEqual(returnedElement?.caretLocation, 0)
         XCTAssertEqual(returnedElement?.selectedLength, 0)
-        XCTAssertNil(returnedElement?.selectedText)
+        XCTAssertEqual(returnedElement?.selectedText, "")
     }
     
     func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_but_not_on_an_empty_line_it_works_and_does_nothing() {
@@ -74,7 +74,7 @@ gonna be at the end
         
         XCTAssertEqual(returnedElement?.caretLocation, 28)
         XCTAssertEqual(returnedElement?.selectedLength, 0)
-        XCTAssertNil(returnedElement?.selectedText)
+        XCTAssertEqual(returnedElement?.selectedText, "")
     }
     
     func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_and_on_an_empty_line_it_works_and_does_not_move() {
@@ -103,7 +103,7 @@ line
         
         XCTAssertEqual(returnedElement?.caretLocation, 31)
         XCTAssertEqual(returnedElement?.selectedLength, 0)
-        XCTAssertNil(returnedElement?.selectedText)
+        XCTAssertEqual(returnedElement?.selectedText, "")
     }
     
 }

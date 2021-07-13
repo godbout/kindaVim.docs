@@ -41,6 +41,9 @@ extension ASVMC_e_Tests {
             )
         )
         
+        AccessibilityStrategyVisualMode.anchor = 0
+        AccessibilityStrategyVisualMode.head = 0
+        
         let returnedElement = applyMove(on: element)
         
         XCTAssertEqual(returnedElement?.caretLocation, 0)
@@ -48,7 +51,7 @@ extension ASVMC_e_Tests {
         XCTAssertNil(returnedElement?.selectedText)
     }
     
-    func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_but_not_on_an_empty_line_it_goes_back_one_character_and_selects_it() {
+    func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_but_not_on_an_empty_line_it_works_and_does_not_move() {
         let text = """
 caret is
 gonna be at the end
@@ -68,13 +71,13 @@ gonna be at the end
             )
         )
         
-        AccessibilityStrategyVisualMode.anchor = 28
+        AccessibilityStrategyVisualMode.anchor = 27
         AccessibilityStrategyVisualMode.head = 28
         
         let returnedElement = applyMove(on: element)
         
-        XCTAssertEqual(returnedElement?.caretLocation, 27)
-        XCTAssertEqual(returnedElement?.selectedLength, 1)
+        XCTAssertEqual(returnedElement?.caretLocation, 28)
+        // no selectedLength here because it would depend of the anchor. don't care
         XCTAssertNil(returnedElement?.selectedText)
     }
     
@@ -100,10 +103,13 @@ line
             )
         )
         
+        AccessibilityStrategyVisualMode.anchor = 31
+        AccessibilityStrategyVisualMode.head = 31
+        
         let returnedElement = applyMove(on: element)
         
         XCTAssertEqual(returnedElement?.caretLocation, 31)
-        XCTAssertEqual(returnedElement?.selectedLength, 0)
+        // same as above for selectedLength
         XCTAssertNil(returnedElement?.selectedText)
     }
     
