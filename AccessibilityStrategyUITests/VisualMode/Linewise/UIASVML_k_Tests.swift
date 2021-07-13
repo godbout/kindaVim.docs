@@ -33,7 +33,7 @@ extension UIASVML_k_Tests {
         XCTAssertEqual(accessibilityElement?.caretLocation, 0)
     }
     
-    func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_but_not_on_an_empty_line_it_works_and_selects_the_whole_last_line() {
+    func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_but_not_on_an_empty_line_it_does_not_move() {
         let textInAXFocusedElement = """
    caret is
 gonna be at the end
@@ -48,8 +48,8 @@ gonna be at the end
         VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .k))
         let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
         
-        XCTAssertEqual(accessibilityElement?.caretLocation, 12)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 19)
+        XCTAssertEqual(accessibilityElement?.caretLocation, 31)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 0)
     }
     
     func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_and_on_an_empty_line_it_works_selects_the_line_above() {
