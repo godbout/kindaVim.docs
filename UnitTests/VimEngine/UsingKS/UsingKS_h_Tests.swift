@@ -6,7 +6,7 @@ class UsingKS_h_Tests: UsingKS_BaseTests {
     override func setUp() {
         super.setUp()
 
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .h))
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .h))
     }
 
 }
@@ -18,7 +18,7 @@ extension UsingKS_h_Tests {
     }
     
     func test_that_h_keeps_Vim_in_normal_mode() {
-        XCTAssertEqual(VimEngine.shared.currentMode, .normal)
+        XCTAssertEqual(KindaVimEngine.shared.currentMode, .normal)
     }
 
 }

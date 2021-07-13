@@ -6,7 +6,7 @@ class UsingASVM_BaseTests: UsingAS_BaseTests {
     override func setUp() {
         super.setUp()
         
-        VimEngine.shared.enterVisualMode()        
+        KindaVimEngine.shared.enterVisualMode()        
     }
     
 }

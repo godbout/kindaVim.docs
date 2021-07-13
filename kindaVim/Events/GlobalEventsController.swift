@@ -16,7 +16,7 @@ struct GlobalEventsController {
         if inNormalModeOrOperatorPendingModeOrVisualMode() {
             guard let implementedKeyCombination = keyCombination else { return true }
 
-            VimEngine.shared.handle(keyCombination: implementedKeyCombination)
+            KindaVimEngine.shared.handle(keyCombination: implementedKeyCombination)
 
             return true
         }
@@ -24,7 +24,7 @@ struct GlobalEventsController {
         guard let implementedKeyCombination = keyCombination else { return false }
 
         if globalVimEngineHotkeyIsPressed(implementedKeyCombination) {
-            VimEngine.shared.enterNormalMode()
+            KindaVimEngine.shared.enterNormalMode()
             
             print("enter Normal Mode")
             
@@ -41,9 +41,9 @@ struct GlobalEventsController {
     }
     
     private static func inNormalModeOrOperatorPendingModeOrVisualMode() -> Bool {
-        return VimEngine.shared.currentMode == .normal
-            || VimEngine.shared.currentMode == .operatorPending
-            || VimEngine.shared.currentMode == .visual
+        return KindaVimEngine.shared.currentMode == .normal
+            || KindaVimEngine.shared.currentMode == .operatorPending
+            || KindaVimEngine.shared.currentMode == .visual
     }
     
     private static func globalVimEngineHotkeyIsPressed(_ keyCombination: KeyCombination) -> Bool {

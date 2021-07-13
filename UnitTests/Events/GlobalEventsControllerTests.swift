@@ -13,15 +13,15 @@ class GlobalEventsControllerTests: XCTestCase {
 extension GlobalEventsControllerTests {
     
     func test_that_when_in_insert_mode_the_global_hotkey_press_sets_Vim_in_normal_mode() {
-        VimEngine.shared.enterInsertMode()
+        KindaVimEngine.shared.enterInsertMode()
 
         _ = GlobalEventsController.handle(keyCombination: globalHotkeyCombination)        
 
-        XCTAssertEqual(VimEngine.shared.currentMode, .normal)
+        XCTAssertEqual(KindaVimEngine.shared.currentMode, .normal)
     }
 
     func test_that_when_in_insert_mode_the_global_hotkey_press_is_captured_and_not_sent_back_to_macOS() {
-        VimEngine.shared.enterInsertMode()
+        KindaVimEngine.shared.enterInsertMode()
 
         let captured = GlobalEventsController.handle(keyCombination: globalHotkeyCombination)
 
@@ -29,7 +29,7 @@ extension GlobalEventsControllerTests {
     }
     
     func test_that_in_insert_mode_the_events_that_we_implemented_are_just_passed_back_to_macOS() {
-        VimEngine.shared.enterInsertMode()
+        KindaVimEngine.shared.enterInsertMode()
         
         guard let jEvent = CGEvent(keyboardEventSource: nil, virtualKey: 38, keyDown: true) else { return XCTFail() }
         
@@ -40,7 +40,7 @@ extension GlobalEventsControllerTests {
     }
     
     func test_that_in_insert_mode_the_events_that_we_did_not_implement_are_just_passed_back_to_macOS() {
-        VimEngine.shared.enterInsertMode()
+        KindaVimEngine.shared.enterInsertMode()
         
         guard let pEvent = CGEvent(keyboardEventSource: nil, virtualKey: 35, keyDown: true) else { return XCTFail() }
         
@@ -57,7 +57,7 @@ extension GlobalEventsControllerTests {
 extension GlobalEventsControllerTests {
 
     func test_that_when_in_normal_mode_the_global_hotkey_press_is_captured_and_not_sent_back_to_macOS() {
-        VimEngine.shared.enterNormalMode()
+        KindaVimEngine.shared.enterNormalMode()
 
         let captured = GlobalEventsController.handle(keyCombination: globalHotkeyCombination)
 
@@ -65,7 +65,7 @@ extension GlobalEventsControllerTests {
     }
         
     func test_that_in_normal_mode_the_events_that_we_implemented_are_captured() {
-        VimEngine.shared.enterNormalMode()
+        KindaVimEngine.shared.enterNormalMode()
         
         guard let jEvent = CGEvent(keyboardEventSource: nil, virtualKey: 38, keyDown: true) else { return XCTFail() }
 
@@ -76,7 +76,7 @@ extension GlobalEventsControllerTests {
     }
     
     func test_that_in_normal_mode_the_events_that_we_did_not_implement_are_captured() {
-        VimEngine.shared.enterNormalMode()
+        KindaVimEngine.shared.enterNormalMode()
         
         guard let pEvent = CGEvent(keyboardEventSource: nil, virtualKey: 35, keyDown: true) else { return XCTFail() }
         
@@ -93,7 +93,7 @@ extension GlobalEventsControllerTests {
 extension GlobalEventsControllerTests {
     
     func test_that_when_in_visual_mode_the_global_hotkey_press_is_captured_and_not_sent_back_to_macOS() {
-        VimEngine.shared.enterVisualMode()
+        KindaVimEngine.shared.enterVisualMode()
         
         let captured = GlobalEventsController.handle(keyCombination: globalHotkeyCombination)
         
@@ -101,7 +101,7 @@ extension GlobalEventsControllerTests {
     }
     
     func test_that_in_visual_mode_the_events_that_we_implemented_are_captured() {
-        VimEngine.shared.enterVisualMode()
+        KindaVimEngine.shared.enterVisualMode()
         
         guard let jEvent = CGEvent(keyboardEventSource: nil, virtualKey: 38, keyDown: true) else { return XCTFail() }
         
@@ -112,7 +112,7 @@ extension GlobalEventsControllerTests {
     }
     
     func test_that_in_visual_mode_the_events_that_we_did_not_implement_are_captured() {
-        VimEngine.shared.enterVisualMode()
+        KindaVimEngine.shared.enterVisualMode()
         
         guard let pEvent = CGEvent(keyboardEventSource: nil, virtualKey: 35, keyDown: true) else { return XCTFail() }
         

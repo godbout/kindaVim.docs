@@ -6,7 +6,7 @@ class UsingASNM_A__Tests: UsingASNM_BaseTests {
     override func setUp() {
         super.setUp()
 
-        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .A))
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .A))
     }
 
 }
@@ -18,7 +18,7 @@ extension UsingASNM_A__Tests {
     }
 
     func test_that_it_switches_Vim_into_insert_mode() {
-        XCTAssertEqual(VimEngine.shared.currentMode, .insert)
+        XCTAssertEqual(KindaVimEngine.shared.currentMode, .insert)
     }
 
 }

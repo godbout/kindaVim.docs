@@ -3,7 +3,7 @@ extension AccessibilityStrategyVisualMode {
     func e(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         guard var element = element else { return nil }
         
-        if VimEngine.shared.visualStyle == .characterwise {
+        if KindaVimEngine.shared.visualStyle == .characterwise {
             if Self.head >= Self.anchor {
                 let endOfWordForwardLocation = textEngine.endOfWordForward(startingAt: element.caretLocation + element.selectedLength - 1, in: TextEngineText(from: element.value))
                 

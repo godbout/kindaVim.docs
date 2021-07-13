@@ -7,7 +7,7 @@ class ASVMC_o_Tests: ASVM_BaseTests {
     override func setUp() {
         super.setUp()
         
-        VimEngine.shared.visualStyle = .characterwise
+        KindaVimEngine.shared.visualStyle = .characterwise
     }
     
     private func applyMove(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {

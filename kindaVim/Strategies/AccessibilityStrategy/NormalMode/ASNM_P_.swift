@@ -64,11 +64,11 @@ extension AccessibilityStrategyNormalMode {
     private func PForTextAreas(on element: AccessibilityTextElement) -> AccessibilityTextElement {
         let element = element
         
-        if VimEngine.shared.lastYankStyle == .characterwise {
+        if KindaVimEngine.shared.lastYankStyle == .characterwise {
             return PForTextAreasCharacterwise(on: element)
         }
         
-        if VimEngine.shared.lastYankStyle == .linewise {
+        if KindaVimEngine.shared.lastYankStyle == .linewise {
             return PForTextAreasLinewise(on: element)
         }
         

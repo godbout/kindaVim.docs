@@ -136,7 +136,7 @@ struct AXEngine {
     // tweak the selectedLength. the calculation is of course not the same for 
     // Normal Mode (caretLocation) and Visual Mode (caretLocation + selectedLength)
     private static func tweakedSelectedLength(for element: AccessibilityTextElement) -> Int {
-        if VimEngine.shared.currentMode == .visual {
+        if KindaVimEngine.shared.currentMode == .visual {
             return (element.caretLocation + (element.selectedLength - 1) >= element.length) ? element.selectedLength - 1 : element.selectedLength 
         }
         

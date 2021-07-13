@@ -7,7 +7,7 @@ class UsingASVM_j_Tests: UsingASVM_BaseTests {
     override func setUp() {
         super.setUp()
         
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .j))
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .j))
     }
     
 }
@@ -20,7 +20,7 @@ extension UsingASVM_j_Tests {
     }
     
     func test_that_it_keeps_Vim_in_visual_mode() {
-        XCTAssertEqual(VimEngine.shared.currentMode, .visual)
+        XCTAssertEqual(KindaVimEngine.shared.currentMode, .visual)
     }
     
 }

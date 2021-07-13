@@ -9,7 +9,7 @@ extension AccessibilityStrategyVisualMode {
     private func handleAnchorHeadAndCaretLocation(with element: AccessibilityTextElement) -> AccessibilityTextElement {
         var element = element
         
-        if Self.anchor == nil || VimEngine.shared.visualStyle == .characterwise {
+        if Self.anchor == nil || KindaVimEngine.shared.visualStyle == .characterwise {
             Self.anchor = element.currentLine.start
             Self.head = element.currentLine.end
             

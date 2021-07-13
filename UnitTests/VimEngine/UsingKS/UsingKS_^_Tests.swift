@@ -6,7 +6,7 @@ class UsingKS_caret_Tests: UsingKS_BaseTests {
     override func setUp() {
         super.setUp()
 
-        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .caret))
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .caret))
     }
 
 }
@@ -18,7 +18,7 @@ extension UsingKS_caret_Tests {
     }
 
     func test_that_caret_keeps_Vim_in_normal_mode() {
-        XCTAssertEqual(VimEngine.shared.currentMode, .normal)
+        XCTAssertEqual(KindaVimEngine.shared.currentMode, .normal)
     }
     
 }

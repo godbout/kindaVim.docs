@@ -6,8 +6,8 @@ class UsingASNM_dd_Tests: UsingASNM_BaseTests {
     override func setUp() {
         super.setUp()
         
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .d))
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .d))
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .d))
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .d))
     }
     
 }
@@ -19,7 +19,7 @@ extension UsingASNM_dd_Tests {
     }
     
     func test_that_it_keeps_Vim_in_normal_mode() {
-        XCTAssertEqual(VimEngine.shared.currentMode, .normal)
+        XCTAssertEqual(KindaVimEngine.shared.currentMode, .normal)
     }
     
 }

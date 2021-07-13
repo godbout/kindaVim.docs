@@ -18,7 +18,7 @@ extension AccessibilityStrategyVisualMode {
                 Self.anchor = element.caretLocation
                 Self.head = element.caretLocation
             }            
-        } else if VimEngine.shared.visualStyle == .linewise {
+        } else if KindaVimEngine.shared.visualStyle == .linewise {
             if let lineAtHead = AccessibilityTextElementAdaptor.lineFor(location: AccessibilityStrategyVisualMode.head) { 
                 if Self.head > lineAtHead.endLimit {
                     element.caretLocation = lineAtHead.endLimit
@@ -29,7 +29,7 @@ extension AccessibilityStrategyVisualMode {
                 Self.anchor = element.caretLocation
                 Self.head = element.caretLocation
             }
-        } else if VimEngine.shared.visualStyle == .characterwise {
+        } else if KindaVimEngine.shared.visualStyle == .characterwise {
             if let lineAtHead = AccessibilityTextElementAdaptor.lineFor(location: AccessibilityStrategyVisualMode.head) { 
                 if Self.head > lineAtHead.endLimit {
                     element.caretLocation = lineAtHead.endLimit

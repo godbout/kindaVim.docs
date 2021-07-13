@@ -7,8 +7,8 @@ class UsingASNM_leftBracketLeftParenthesis_Tests: UsingASNM_BaseTests {
     override func setUp() {
         super.setUp()
         
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .leftBracket))
-        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .leftParenthesis))
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .leftBracket))
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .leftParenthesis))
     }
     
 }
@@ -21,7 +21,7 @@ extension UsingASNM_leftBracketLeftParenthesis_Tests {
     }
     
     func test_that_it_keeps_Vim_in_normal_mode() {
-        XCTAssertEqual(VimEngine.shared.currentMode, .normal)
+        XCTAssertEqual(KindaVimEngine.shared.currentMode, .normal)
     }
     
 }

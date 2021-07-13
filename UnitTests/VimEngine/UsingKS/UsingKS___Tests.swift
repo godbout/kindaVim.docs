@@ -6,7 +6,7 @@ class UsingKS___Tests: UsingKS_BaseTests {
     override func setUp() {
         super.setUp()
 
-        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .underscore))
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .underscore))
     }
 
 }
@@ -18,7 +18,7 @@ extension UsingKS___Tests {
     }
     
     func test_that___keeps_Vim_in_normal_mode() {
-        XCTAssertEqual(VimEngine.shared.currentMode, .normal)
+        XCTAssertEqual(KindaVimEngine.shared.currentMode, .normal)
     }
     
 }

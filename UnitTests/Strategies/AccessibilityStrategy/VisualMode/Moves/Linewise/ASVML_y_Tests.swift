@@ -7,7 +7,7 @@ class ASVML_y_Tests: ASVM_BaseTests {
     override func setUp() {
         super.setUp()
         
-        VimEngine.shared.visualStyle = .linewise
+        KindaVimEngine.shared.visualStyle = .linewise
     }
     
     private func applyMove(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
@@ -52,11 +52,11 @@ should set
             )
         )
         
-        VimEngine.shared.lastYankStyle = .characterwise
+        KindaVimEngine.shared.lastYankStyle = .characterwise
         
         _ = applyMove(on: element)
         
-        XCTAssertEqual(VimEngine.shared.lastYankStyle, .linewise)
+        XCTAssertEqual(KindaVimEngine.shared.lastYankStyle, .linewise)
     }
     
     func test_that_for_TextFields_it_yanks_the_whole_line() {

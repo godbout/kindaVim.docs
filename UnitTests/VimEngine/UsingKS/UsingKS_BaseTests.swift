@@ -6,9 +6,9 @@ class UsingKS_BaseTests: XCTestCase {
     let keyboardStrategyMock = KeyboardStrategyMock()
 
     override func setUp() {
-        VimEngine.shared.keyboardStrategy = keyboardStrategyMock
-        VimEngine.shared.asNormalMode = FailingAccessibilityStrategyNormalModeStub()
-        VimEngine.shared.enterNormalMode()
+        KindaVimEngine.shared.keyboardStrategy = keyboardStrategyMock
+        KindaVimEngine.shared.asNormalMode = FailingAccessibilityStrategyNormalModeStub()
+        KindaVimEngine.shared.enterNormalMode()
     }
 
 }

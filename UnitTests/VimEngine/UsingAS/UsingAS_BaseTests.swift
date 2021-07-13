@@ -9,9 +9,9 @@ class UsingAS_BaseTests: XCTestCase {
     override func setUp() {
         super.setUp()
         
-        VimEngine.shared.keyboardStrategy = KeyboardStrategyMock()
-        VimEngine.shared.asNormalMode = asNormalModeMock
-        VimEngine.shared.asVisualMode = asVisualModeMock
+        KindaVimEngine.shared.keyboardStrategy = KeyboardStrategyMock()
+        KindaVimEngine.shared.asNormalMode = asNormalModeMock
+        KindaVimEngine.shared.asVisualMode = asVisualModeMock
     }
     
 }

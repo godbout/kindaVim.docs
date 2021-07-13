@@ -13,7 +13,7 @@ extension ASVM_AnchorAndHead_Tests {
         // head = 69 haha
         AccessibilityStrategyVisualMode.head = 69
         
-        VimEngine.shared.enterNormalMode()
+        KindaVimEngine.shared.enterNormalMode()
         
         XCTAssertNil(AccessibilityStrategyVisualMode.anchor)
         XCTAssertNil(AccessibilityStrategyVisualMode.head)

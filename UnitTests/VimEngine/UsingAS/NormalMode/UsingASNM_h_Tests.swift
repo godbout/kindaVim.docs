@@ -6,7 +6,7 @@ class UsingASNM_h_Tests: UsingASNM_BaseTests {
     override func setUp() {
         super.setUp()
 
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .h))
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .h))
     }
 
 }
@@ -18,7 +18,7 @@ extension UsingASNM_h_Tests {
     }
     
     func test_that_it_keeps_Vim_in_normal_mode() {
-        XCTAssertEqual(VimEngine.shared.currentMode, .normal)
+        XCTAssertEqual(KindaVimEngine.shared.currentMode, .normal)
     }
 
 }

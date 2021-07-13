@@ -6,7 +6,7 @@ class UsingASVM_y_Tests: UsingASVM_BaseTests {
     override func setUp() {
         super.setUp()
         
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .y))
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .y))
     }
     
 }
@@ -18,7 +18,7 @@ extension UsingASVM_y_Tests {
     }
     
     func test_that_it_switches_Vim_to_Normal_Mode() {
-        XCTAssertEqual(VimEngine.shared.currentMode, .normal)
+        XCTAssertEqual(KindaVimEngine.shared.currentMode, .normal)
     }
     
 }

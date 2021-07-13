@@ -10,10 +10,10 @@ extension AccessibilityStrategyVisualMode {
             NSPasteboard.general.setString(selectedText, forType: .string)
         }
         
-        if VimEngine.shared.visualStyle == .characterwise {
-            VimEngine.shared.lastYankStyle = .characterwise
+        if KindaVimEngine.shared.visualStyle == .characterwise {
+            KindaVimEngine.shared.lastYankStyle = .characterwise
         } else {
-            VimEngine.shared.lastYankStyle = .linewise
+            KindaVimEngine.shared.lastYankStyle = .linewise
         }
         
         element.selectedLength = 1     

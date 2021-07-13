@@ -6,7 +6,7 @@ class UsingASNM_BaseTests: UsingAS_BaseTests {
     override func setUp() {
         super.setUp()
         
-        VimEngine.shared.enterNormalMode()
+        KindaVimEngine.shared.enterNormalMode()
     }
 
 }

@@ -6,9 +6,9 @@ class UsingASNM_ciDoubleQuote_Tests: UsingASNM_BaseTests {
     override func setUp() {
         super.setUp()
         
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .c))
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .i))
-        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .doubleQuote))
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .c))
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .i))
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .doubleQuote))
     }
     
 }

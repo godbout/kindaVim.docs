@@ -19,9 +19,9 @@ enum VimEngineMoveStyle {
 }
 
 
-class VimEngine {
+class KindaVimEngine {
     
-    static var shared = VimEngine()
+    static var shared = KindaVimEngine()
     
     private(set) var currentMode: VimEngineMode = .insert
     private(set) var operatorPendingBuffer = [KeyCombination]()
@@ -104,7 +104,7 @@ class VimEngine {
 
 
 // normal mode
-extension VimEngine {
+extension KindaVimEngine {
  
     func handleNormalMode(with keyCombination: KeyCombination) {
         switch keyCombination.vimKey {
@@ -399,7 +399,7 @@ extension VimEngine {
 
 
 // operator pending mode
-extension VimEngine {
+extension KindaVimEngine {
     
     func handleOperatorPendingMode(with keyCombination: KeyCombination) {
         operatorPendingBuffer.append(keyCombination)
@@ -759,7 +759,7 @@ extension VimEngine {
 
 
 // visual mode
-extension VimEngine {
+extension KindaVimEngine {
     
     func handleVisualMode(with keyCombination: KeyCombination) {
         switch keyCombination.vimKey {

@@ -30,7 +30,7 @@
 		9118C4E7263F0CE50040C297 /* Display.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9118C4E6263F0CE50040C297 /* Display.swift */; };
 		911A0C7D26668EB800B78C15 /* ASNM_F__Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911A0C7C26668EB800B78C15 /* ASNM_F__Tests.swift */; };
 		911A0C8326668F4C00B78C15 /* ASNM_T__Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911A0C8226668F4C00B78C15 /* ASNM_T__Tests.swift */; };
-		911BB7492632899E006882D8 /* VimEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911BB7482632899E006882D8 /* VimEngine.swift */; };
+		911BB7492632899E006882D8 /* KindaVimEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911BB7482632899E006882D8 /* KindaVimEngine.swift */; };
 		911BB75626328D7D006882D8 /* EventTapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911BB75526328D7D006882D8 /* EventTapController.swift */; };
 		911DF54B2684B5FB008FCD29 /* AccessibilityStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911DF54A2684B5FB008FCD29 /* AccessibilityStrategy.swift */; };
 		911DF55D2684BBC5008FCD29 /* AccessibilityStrategyVisualModeMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911DF55C2684BBC5008FCD29 /* AccessibilityStrategyVisualModeMock.swift */; };
@@ -226,7 +226,7 @@
 		91A147F32661237E00D160AD /* AccessibilityTextElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913EBF47264ADEE700BCCCEE /* AccessibilityTextElement.swift */; };
 		91A147F92661238100D160AD /* AccessibilityTextElementAdaptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913EBF52264ADF5800BCCCEE /* AccessibilityTextElementAdaptor.swift */; };
 		91A147FF2661238800D160AD /* AXEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912686682657F0880096E927 /* AXEngine.swift */; };
-		91A1480A266123BB00D160AD /* VimEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911BB7482632899E006882D8 /* VimEngine.swift */; };
+		91A1480A266123BB00D160AD /* KindaVimEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911BB7482632899E006882D8 /* KindaVimEngine.swift */; };
 		91A14810266123C200D160AD /* Display.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9118C4E6263F0CE50040C297 /* Display.swift */; };
 		91A14816266123CF00D160AD /* KeyCombination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919DEB622632C85B0052D514 /* KeyCombination.swift */; };
 		91A1481C266123D100D160AD /* KeyCombinationAdaptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9197C0842636695A006C696A /* KeyCombinationAdaptor.swift */; };
@@ -381,7 +381,7 @@
 		91CC338E267C8BC600E3145C /* UIASNM_P__TextFields_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CC338D267C8BC600E3145C /* UIASNM_P__TextFields_Tests.swift */; };
 		91CC3397267C8D3C00E3145C /* ASNM_P_.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CC3387267C8B0000E3145C /* ASNM_P_.swift */; };
 		91CD1B162686093D008DBCBB /* AccessibilityStrategyVisualMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919EE8F92684919D001DB6A4 /* AccessibilityStrategyVisualMode.swift */; };
-		91CD1B1B2686094C008DBCBB /* VimEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911BB7482632899E006882D8 /* VimEngine.swift */; };
+		91CD1B1B2686094C008DBCBB /* KindaVimEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911BB7482632899E006882D8 /* KindaVimEngine.swift */; };
 		91CD1B20268609FE008DBCBB /* KeyCombination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919DEB622632C85B0052D514 /* KeyCombination.swift */; };
 		91CD1B2526860A01008DBCBB /* KeyCombinationAdaptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9197C0842636695A006C696A /* KeyCombinationAdaptor.swift */; };
 		91CD1B2A26860A14008DBCBB /* Display.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9118C4E6263F0CE50040C297 /* Display.swift */; };
@@ -677,7 +677,7 @@
 		9118C4E6263F0CE50040C297 /* Display.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Display.swift; sourceTree = "<group>"; };
 		911A0C7C26668EB800B78C15 /* ASNM_F__Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASNM_F__Tests.swift; sourceTree = "<group>"; };
 		911A0C8226668F4C00B78C15 /* ASNM_T__Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASNM_T__Tests.swift; sourceTree = "<group>"; };
-		911BB7482632899E006882D8 /* VimEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VimEngine.swift; sourceTree = "<group>"; };
+		911BB7482632899E006882D8 /* KindaVimEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KindaVimEngine.swift; sourceTree = "<group>"; };
 		911BB75526328D7D006882D8 /* EventTapController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTapController.swift; sourceTree = "<group>"; };
 		911DF54A2684B5FB008FCD29 /* AccessibilityStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilityStrategy.swift; sourceTree = "<group>"; };
 		911DF55C2684BBC5008FCD29 /* AccessibilityStrategyVisualModeMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilityStrategyVisualModeMock.swift; sourceTree = "<group>"; };
@@ -1601,7 +1601,7 @@
 		919DEB612632C8320052D514 /* VimEngine */ = {
 			isa = PBXGroup;
 			children = (
-				911BB7482632899E006882D8 /* VimEngine.swift */,
+				911BB7482632899E006882D8 /* KindaVimEngine.swift */,
 			);
 			path = VimEngine;
 			sourceTree = "<group>";
@@ -2165,7 +2165,7 @@
 				9197C0852636695A006C696A /* KeyCombinationAdaptor.swift in Sources */,
 				9162A2722681E3A300CB1AB3 /* endOfWORDBackward_.swift in Sources */,
 				918F4DEF265C070D0006CC2E /* TextEngine.swift in Sources */,
-				911BB7492632899E006882D8 /* VimEngine.swift in Sources */,
+				911BB7492632899E006882D8 /* KindaVimEngine.swift in Sources */,
 				918024B926386E95004FD719 /* AppComponent.swift in Sources */,
 				91AB98A42674D5FD007682CA /* ASNM_G_.swift in Sources */,
 				91FBCE98267FA88C00305615 /* ASNM_}.swift in Sources */,
@@ -2576,7 +2576,7 @@
 				91CD1B6F26860AAE008DBCBB /* ASNM_w.swift in Sources */,
 				919E5A3626922C93003E724A /* ASVM_b.swift in Sources */,
 				91CD1B5726860A95008DBCBB /* ASVM_V_.swift in Sources */,
-				91CD1B1B2686094C008DBCBB /* VimEngine.swift in Sources */,
+				91CD1B1B2686094C008DBCBB /* KindaVimEngine.swift in Sources */,
 				91CD1B7026860AAE008DBCBB /* ASNM_ci'.swift in Sources */,
 				91CD1B8626860AAE008DBCBB /* ASNM_cf.swift in Sources */,
 				91CD1B6D26860AAE008DBCBB /* ASNM_ciw.swift in Sources */,
@@ -2698,7 +2698,7 @@
 				91AB99222674D812007682CA /* ASNM_ciw.swift in Sources */,
 				9179220B26921F870002DB1C /* ASVM_0.swift in Sources */,
 				91A147D52661224000D160AD /* UIAS_BaseTests.swift in Sources */,
-				91A1480A266123BB00D160AD /* VimEngine.swift in Sources */,
+				91A1480A266123BB00D160AD /* KindaVimEngine.swift in Sources */,
 				91DD4D572681F0490021ABC2 /* ASNM_{.swift in Sources */,
 				91DD4D6B2681F07C0021ABC2 /* ASNM_yF_.swift in Sources */,
 				91F9E4B52685B719005D5C90 /* AccessibilityStrategy.swift in Sources */,

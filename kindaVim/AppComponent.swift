@@ -2,7 +2,7 @@ import SwiftUI
 
 class AppComponent {
     var statusBarController: StatusBarController!
-    var vimEngine: VimEngine!
+    var vimEngine: KindaVimEngine!
 
     var accessibilityElementAdaptorTestingWindow: NSWindow!
 
@@ -45,7 +45,7 @@ class AppComponent {
     }
 
     private func setUpVimEngine() {
-        vimEngine = VimEngine.shared
+        vimEngine = KindaVimEngine.shared
     }
 
 }

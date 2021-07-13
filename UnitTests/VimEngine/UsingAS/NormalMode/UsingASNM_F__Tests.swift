@@ -6,8 +6,8 @@ class UsingASNM_F__Tests: UsingASNM_BaseTests {
     override func setUp() {
         super.setUp()
         
-        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .F))
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .a))
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .F))
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .a))
     }
     
 }
@@ -19,7 +19,7 @@ extension UsingASNM_F__Tests {
     }
     
     func test_that_it_keeps_Vim_in_normal_mode() {
-        XCTAssertEqual(VimEngine.shared.currentMode, .normal)
+        XCTAssertEqual(KindaVimEngine.shared.currentMode, .normal)
     }
     
 }

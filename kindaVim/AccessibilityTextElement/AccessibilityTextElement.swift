@@ -66,7 +66,7 @@ struct AccessibilityTextElement {
     
     var caretLocation: Int {
         didSet {
-            if VimEngine.shared.currentMode == .normal || VimEngine.shared.currentMode == .insert {
+            if KindaVimEngine.shared.currentMode == .normal || KindaVimEngine.shared.currentMode == .insert {
                 if let lineForLocation = AccessibilityTextElementAdaptor.lineFor(location: caretLocation), lineForLocation.isNotAnEmptyLine {
                     Self.globalColumnNumber = caretLocation - lineForLocation.start + 1
                 }
@@ -75,7 +75,7 @@ struct AccessibilityTextElement {
     }
     var selectedLength: Int {
         didSet {
-            if VimEngine.shared.currentMode == .visual {
+            if KindaVimEngine.shared.currentMode == .visual {
                 if AccessibilityStrategyVisualMode.anchor != nil {
                     if caretLocation < AccessibilityStrategyVisualMode.anchor {
                         AccessibilityStrategyVisualMode.head = caretLocation

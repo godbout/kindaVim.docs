@@ -3,11 +3,11 @@ extension AccessibilityStrategyVisualMode {
     func d(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         guard let element = element else { return nil }
         
-        if VimEngine.shared.visualStyle == .characterwise {
+        if KindaVimEngine.shared.visualStyle == .characterwise {
             return theMoveForVisualModeCharacterwise(on: element)
         }
         
-        if VimEngine.shared.visualStyle == .linewise {
+        if KindaVimEngine.shared.visualStyle == .linewise {
             return theMoveForVisualModeLinewise(on: element)
         }
         

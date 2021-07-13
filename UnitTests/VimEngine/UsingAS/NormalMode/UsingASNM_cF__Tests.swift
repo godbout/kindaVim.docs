@@ -7,9 +7,9 @@ class UsingASNM_cF__Tests: UsingASNM_BaseTests {
     override func setUp() {
         super.setUp()
         
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .c))
-        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .F))
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .x))        
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .c))
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .F))
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .x))        
     }
     
 }

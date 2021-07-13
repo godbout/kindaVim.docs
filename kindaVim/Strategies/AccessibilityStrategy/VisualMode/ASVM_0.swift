@@ -3,7 +3,7 @@ extension AccessibilityStrategyVisualMode {
     func zero(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         guard var element = element else { return nil }
         
-        if VimEngine.shared.visualStyle == .characterwise, let lineAtHead = AccessibilityTextElementAdaptor.lineFor(location: AccessibilityStrategyVisualMode.head) {
+        if KindaVimEngine.shared.visualStyle == .characterwise, let lineAtHead = AccessibilityTextElementAdaptor.lineFor(location: AccessibilityStrategyVisualMode.head) {
             if lineAtHead.start <= Self.anchor || Self.head <= Self.anchor {
                 element.caretLocation = lineAtHead.start
                 element.selectedLength = (Self.anchor + 1) - lineAtHead.start

@@ -7,8 +7,8 @@ class UsingASNM_rightBracketRightParenthesis_Tests: UsingASNM_BaseTests {
     override func setUp() {
         super.setUp()
         
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .rightBracket))
-        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .rightParenthesis))
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .rightBracket))
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .rightParenthesis))
     }
     
 }
@@ -21,7 +21,7 @@ extension UsingASNM_rightBracketRightParenthesis_Tests {
     }
     
     func test_that_it_keeps_Vim_in_normal_mode() {
-        XCTAssertEqual(VimEngine.shared.currentMode, .normal)
+        XCTAssertEqual(KindaVimEngine.shared.currentMode, .normal)
     }
     
 }

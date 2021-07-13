@@ -7,7 +7,7 @@ class ASVMC_y_Tests: ASVM_BaseTests {
     override func setUp() {
         super.setUp()
         
-        VimEngine.shared.visualStyle = .characterwise
+        KindaVimEngine.shared.visualStyle = .characterwise
     }
     
     private func applyMove(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
@@ -143,11 +143,11 @@ should set Visu
             )
         )
         
-        VimEngine.shared.lastYankStyle = .linewise
+        KindaVimEngine.shared.lastYankStyle = .linewise
         
         let returnedElement = applyMove(on: element)
         
-        XCTAssertEqual(VimEngine.shared.lastYankStyle, .characterwise)
+        XCTAssertEqual(KindaVimEngine.shared.lastYankStyle, .characterwise)
         XCTAssertEqual(returnedElement?.selectedLength, 1)
         XCTAssertNil(returnedElement?.selectedText)
     }

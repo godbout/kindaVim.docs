@@ -6,7 +6,7 @@ class UsingKS_c_Tests: UsingKS_BaseTests {
     override func setUp() {
         super.setUp()
 
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .c))
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .c))
     }
 
 }
@@ -18,7 +18,7 @@ extension UsingKS_c_Tests {
     }
     
     func test_that_after_the_first_c_operator_pending_mode_is_on() {
-        XCTAssertEqual(VimEngine.shared.currentMode, .operatorPending)
+        XCTAssertEqual(KindaVimEngine.shared.currentMode, .operatorPending)
     }
 
 }
