@@ -16,11 +16,11 @@ from the caret location
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)        
         app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
-        VimEngine.shared.enterNormalMode()
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .v))
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .e))
+        KindaVimEngine.shared.enterNormalMode()
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .v))
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .e))
         
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .b))        
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .b))
         let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
                 
         XCTAssertEqual(accessibilityElement?.caretLocation, 53)
@@ -31,11 +31,11 @@ from the caret location
         let textInAXFocusedElement = "we have to updated caretLocation before selectedLength!"
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)        
-        VimEngine.shared.enterNormalMode()
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .v))                
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .b))
+        KindaVimEngine.shared.enterNormalMode()
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .v))
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .b))
         // it used to fail after the second move
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .b))        
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .b))
         
         XCTAssertEqual(AccessibilityStrategyVisualMode.head, 33)
     }

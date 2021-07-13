@@ -4,9 +4,9 @@ import XCTest
 class UIASVML_j_Tests: UIAS_BaseTests {
     
     private func applyMoveAndGetBackAccessibilityElement() -> AccessibilityTextElement? {
-        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .V))
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .V))
         
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .j))
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .j))
         
         return AccessibilityTextElementAdaptor.fromAXFocusedElement()
     }
@@ -24,7 +24,7 @@ extension UIASVML_j_Tests {
         let textInAXFocusedElement = ""
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
-        VimEngine.shared.enterNormalMode()
+        KindaVimEngine.shared.enterNormalMode()
         
         let accessibilityElement = applyMoveAndGetBackAccessibilityElement()        
         
@@ -38,11 +38,11 @@ gonna be at the end
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        VimEngine.shared.enterNormalMode()
+        KindaVimEngine.shared.enterNormalMode()
         app.textViews.firstMatch.typeKey(.rightArrow, modifierFlags: [])
         
         // enter Visual Mode Linewise and push the selection to the end
-        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .V))                
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .V))
         app.textViews.firstMatch.typeKey(.rightArrow, modifierFlags: [.command])
                 
         let accessibilityElement = asVisualMode.j(on: AccessibilityTextElementAdaptor.fromAXFocusedElement())
@@ -60,7 +60,7 @@ own empty
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        VimEngine.shared.enterNormalMode()
+        KindaVimEngine.shared.enterNormalMode()
         app.textViews.firstMatch.typeKey(.rightArrow, modifierFlags: [])
         
         let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
@@ -79,7 +79,7 @@ extension UIASVML_j_Tests {
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
         app.textFields.firstMatch.typeKey(.leftArrow, modifierFlags: [.option])
-        VimEngine.shared.enterNormalMode()
+        KindaVimEngine.shared.enterNormalMode()
         
         let accessibilityElement = applyMoveAndGetBackAccessibilityElement()        
         
@@ -105,7 +105,7 @@ when the head is after the anchor
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [.command])
-        VimEngine.shared.enterNormalMode()
+        KindaVimEngine.shared.enterNormalMode()
         
         let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
         
@@ -128,12 +128,12 @@ head if before the anchor
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        VimEngine.shared.enterNormalMode()
+        KindaVimEngine.shared.enterNormalMode()
         
-        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .V))        
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .k))
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .k))
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .k))
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .V))
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .k))
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .k))
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .k))
         
         let accessibilityElement = asVisualMode.j(on: AccessibilityTextElementAdaptor.fromAXFocusedElement())
                 
@@ -154,12 +154,12 @@ ass off lol
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        VimEngine.shared.enterNormalMode()
-        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .g))
-        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .g))        
-        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .V))         
+        KindaVimEngine.shared.enterNormalMode()
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .g))
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .g))
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .V))
         
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .j))
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .j))
         let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
         
         XCTAssertEqual(accessibilityElement?.caretLocation, 0)

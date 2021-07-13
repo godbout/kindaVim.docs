@@ -7,7 +7,7 @@ import XCTest
 class UIASNM_j_Tests: UIAS_BaseTests {
     
     private func applyMoveAndGetBackAccessibilityElement() -> AccessibilityTextElement? {
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .j))
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .j))
         
         return AccessibilityTextElementAdaptor.fromAXFocusedElement()
     }
@@ -25,7 +25,7 @@ extension UIASNM_j_Tests {
         let textInAXFocusedElement = ""
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        VimEngine.shared.enterNormalMode()       
+        KindaVimEngine.shared.enterNormalMode()
         
         let accessibilityElement = applyMoveAndGetBackAccessibilityElement()        
         
@@ -39,7 +39,7 @@ gonna be at the end
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        VimEngine.shared.enterNormalMode()        
+        KindaVimEngine.shared.enterNormalMode()
         app.textViews.firstMatch.typeKey(.rightArrow, modifierFlags: [])
         
         let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
@@ -56,7 +56,7 @@ line
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        VimEngine.shared.enterNormalMode()        
+        KindaVimEngine.shared.enterNormalMode()
         app.textViews.firstMatch.typeKey(.rightArrow, modifierFlags: [])
         
         let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
@@ -82,7 +82,7 @@ column shit
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [.command])
         app.textViews.firstMatch.typeKey(.rightArrow, modifierFlags: [.option])
-        VimEngine.shared.enterNormalMode()
+        KindaVimEngine.shared.enterNormalMode()
 
         let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
 
@@ -101,7 +101,7 @@ let's see
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
         app.textViews.firstMatch.typeKey(.rightArrow, modifierFlags: [.option])
-        VimEngine.shared.enterNormalMode()
+        KindaVimEngine.shared.enterNormalMode()
         
         let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
 
@@ -119,7 +119,7 @@ another long line longer than all the other ones!!!
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [.command])
         app.textViews.firstMatch.typeKey(.rightArrow, modifierFlags: [.command])
-        VimEngine.shared.enterNormalMode()
+        KindaVimEngine.shared.enterNormalMode()
         
         let firstJ = applyMoveAndGetBackAccessibilityElement()
         XCTAssertEqual(firstJ?.caretLocation, 33)
@@ -139,7 +139,7 @@ shut up
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        VimEngine.shared.enterNormalMode()
+        KindaVimEngine.shared.enterNormalMode()
                 
         let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
 
@@ -159,7 +159,7 @@ hehe
         app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
         app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
         app.textViews.firstMatch.typeKey(.rightArrow, modifierFlags: [])
-        VimEngine.shared.enterNormalMode()
+        KindaVimEngine.shared.enterNormalMode()
                 
         let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
 
@@ -176,10 +176,10 @@ edge case
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
         app.textViews.firstMatch.typeKey(.rightArrow, modifierFlags: [])
-        VimEngine.shared.enterNormalMode()
+        KindaVimEngine.shared.enterNormalMode()
 
         // need to move the caretLocation to have a proper AccessibilityTextElement.globalColumnNumber
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .l))
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .l))
         let globalColumnNumber = AccessibilityTextElement.globalColumnNumber
 
         let accessibilityElement = applyMoveAndGetBackAccessibilityElement()

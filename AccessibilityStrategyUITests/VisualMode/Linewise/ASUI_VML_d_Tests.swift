@@ -25,11 +25,11 @@ one extra line in between!
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
         app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
-        VimEngine.shared.enterNormalMode()
-        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .V))
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .j))
+        KindaVimEngine.shared.enterNormalMode()
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .V))
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .j))
         
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .d))
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .d))
         let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
                         
         XCTAssertEqual(accessibilityElement?.value, """
@@ -53,12 +53,12 @@ some more
         app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
         app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
         app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
-        VimEngine.shared.enterNormalMode()
-        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .V))
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .j))
+        KindaVimEngine.shared.enterNormalMode()
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .V))
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .j))
         
         
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .d))
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .d))
         let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
         
         XCTAssertEqual(accessibilityElement?.value, """
@@ -82,11 +82,11 @@ another line agan
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
         app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
-        VimEngine.shared.enterNormalMode()
-        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .V))
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .j))
+        KindaVimEngine.shared.enterNormalMode()
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .V))
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .j))
         
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .d))
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .d))
         let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
         
         XCTAssertEqual(accessibilityElement?.value, """
@@ -107,11 +107,11 @@ and it would be beautiful
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])    
-        VimEngine.shared.enterNormalMode()
-        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .V))
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .j))
+        KindaVimEngine.shared.enterNormalMode()
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .V))
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .j))
         
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .d))
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .d))
         let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
         
         XCTAssertEqual(accessibilityElement?.value, """
@@ -129,11 +129,11 @@ and it would be beautiful
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)       
-        VimEngine.shared.enterNormalMode()
-        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .V))
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .k))
+        KindaVimEngine.shared.enterNormalMode()
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .V))
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .k))
         
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .d))
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .d))
         let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
         
         XCTAssertEqual(accessibilityElement?.value, """
@@ -152,13 +152,13 @@ t
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)     
-        VimEngine.shared.enterNormalMode()
-        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .V))
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .k))
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .k))
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .k))
+        KindaVimEngine.shared.enterNormalMode()
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .V))
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .k))
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .k))
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .k))
         
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .d))
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .d))
         let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
         
         XCTAssertEqual(accessibilityElement?.value, "")

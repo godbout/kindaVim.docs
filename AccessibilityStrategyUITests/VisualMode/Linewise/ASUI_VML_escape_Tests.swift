@@ -19,10 +19,10 @@ extension UIASVML_escape_Tests {
         let textInAXFocusedElement = "some plain simple text for once"
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
-        VimEngine.shared.enterNormalMode()
-        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .V))        
+        KindaVimEngine.shared.enterNormalMode()
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .V))
         
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .escape))
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .escape))
         let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
         
         XCTAssertEqual(accessibilityElement?.caretLocation, 30)
@@ -41,11 +41,11 @@ over multiple lines
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        VimEngine.shared.enterNormalMode()        
-        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .V))        
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .k))
+        KindaVimEngine.shared.enterNormalMode()
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .V))
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .k))
         
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .escape))
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .escape))
         let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
         
         XCTAssertEqual(accessibilityElement?.caretLocation, 0)
@@ -58,12 +58,12 @@ gonna go after
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        VimEngine.shared.enterNormalMode()
-        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .k))
-        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .V))
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .j))
+        KindaVimEngine.shared.enterNormalMode()
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .k))
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .V))
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .j))
         
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .escape))
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .escape))
         let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
         
         XCTAssertEqual(accessibilityElement?.caretLocation, 35)

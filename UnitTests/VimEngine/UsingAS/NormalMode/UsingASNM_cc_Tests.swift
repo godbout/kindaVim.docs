@@ -7,7 +7,7 @@ class UsingASNM_cc_Tests: UsingASNM_BaseTests {
         super.setUp()
         
         KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .c))
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .c))        
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .c))
     }
     
 }

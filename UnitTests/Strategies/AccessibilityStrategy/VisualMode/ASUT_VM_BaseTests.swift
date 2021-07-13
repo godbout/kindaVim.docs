@@ -10,7 +10,7 @@ class ASVM_BaseTests: XCTestCase {
         super.setUp()
         
         asVisualMode = AccessibilityStrategyVisualMode()
-        KindaVimEngine.shared.enterVisualMode()            
+        KindaVimEngine.shared.enterVisualMode()
     }    
     
 }

@@ -5,7 +5,7 @@ import XCTest
 class UIASNM_G__Tests: UIAS_BaseTests {
     
     private func applyMoveAndGetBackAccessibilityElement() -> AccessibilityTextElement? {
-        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .G))
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .G))
         
         return AccessibilityTextElementAdaptor.fromAXFocusedElement()
     }
@@ -23,7 +23,7 @@ extension UIASNM_G__Tests {
         let textInAXFocusedElement = ""
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
-        VimEngine.shared.enterNormalMode()       
+        KindaVimEngine.shared.enterNormalMode()
         
         let accessibilityElement = applyMoveAndGetBackAccessibilityElement()        
         
@@ -37,7 +37,7 @@ gonna be at the end
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        VimEngine.shared.enterNormalMode()        
+        KindaVimEngine.shared.enterNormalMode()
         app.textViews.firstMatch.typeKey(.rightArrow, modifierFlags: [])
         
         let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
@@ -54,7 +54,7 @@ line
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        VimEngine.shared.enterNormalMode()        
+        KindaVimEngine.shared.enterNormalMode()
         app.textViews.firstMatch.typeKey(.rightArrow, modifierFlags: [])
         
         let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
@@ -72,7 +72,7 @@ extension UIASNM_G__Tests {
         let textInAXFocusedElement = "a normal sentence for G"
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
-        VimEngine.shared.enterNormalMode()       
+        KindaVimEngine.shared.enterNormalMode()
         
         let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
         
@@ -83,7 +83,7 @@ extension UIASNM_G__Tests {
         let textInAXFocusedElement = "      G should go to well G"
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
-        VimEngine.shared.enterNormalMode()       
+        KindaVimEngine.shared.enterNormalMode()
         
         let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
         
@@ -94,7 +94,7 @@ extension UIASNM_G__Tests {
         let textInAXFocusedElement = "         "
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
-        VimEngine.shared.enterNormalMode()       
+        KindaVimEngine.shared.enterNormalMode()
         
         let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
         
@@ -115,7 +115,7 @@ have xxx
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        VimEngine.shared.enterNormalMode()       
+        KindaVimEngine.shared.enterNormalMode()
         
         let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
         
@@ -130,7 +130,7 @@ story bro
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        VimEngine.shared.enterNormalMode()       
+        KindaVimEngine.shared.enterNormalMode()
         
         let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
         
@@ -146,7 +146,7 @@ completely empty
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
-        VimEngine.shared.enterNormalMode()       
+        KindaVimEngine.shared.enterNormalMode()
         
         let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
         
@@ -161,7 +161,7 @@ again at the last line
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        VimEngine.shared.enterNormalMode()       
+        KindaVimEngine.shared.enterNormalMode()
         
         let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
         
@@ -178,7 +178,7 @@ why
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [.command])
         app.textViews.firstMatch.typeKey(.rightArrow, modifierFlags: [.option])
-        VimEngine.shared.enterNormalMode()       
+        KindaVimEngine.shared.enterNormalMode()
         
         let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
         

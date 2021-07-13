@@ -17,10 +17,10 @@ a new line
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
-        VimEngine.shared.enterNormalMode()       
+        KindaVimEngine.shared.enterNormalMode()
         
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .r))
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .enter))
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .r))
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .enter))
         
         let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
         
@@ -42,10 +42,10 @@ escape
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        VimEngine.shared.enterNormalMode()       
+        KindaVimEngine.shared.enterNormalMode()
         
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .r))
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .escape))
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .r))
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .escape))
         
         let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
         

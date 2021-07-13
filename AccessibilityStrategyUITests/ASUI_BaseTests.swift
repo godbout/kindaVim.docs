@@ -15,7 +15,7 @@ class UIAS_BaseTests: XCTestCase {
         
         // new one for every test coz anchor and head are static instance properties
         asVisualMode = AccessibilityStrategyVisualMode()
-        VimEngine.shared.enterInsertMode()
+        KindaVimEngine.shared.enterInsertMode()
     }
     
 }

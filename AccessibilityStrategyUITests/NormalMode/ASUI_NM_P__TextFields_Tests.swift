@@ -6,7 +6,7 @@ import XCTest
 class UIASNM_P__TextFields_Tests: UIAS_BaseTests {
     
     private func sendMoveThroughVimEngineAndGetBackAccessibilityElement() -> AccessibilityTextElement? {
-        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .P))
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .P))
         
         return AccessibilityTextElementAdaptor.fromAXFocusedElement()        
     }    
@@ -23,12 +23,12 @@ extension UIASNM_P__TextFields_Tests {
         let textInAXFocusedElement = ""
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
-        VimEngine.shared.enterNormalMode()
+        KindaVimEngine.shared.enterNormalMode()
         
         NSPasteboard.general.clearContents()
         NSPasteboard.general.setString("test 1 of The 3 Cases P TF", forType: .string)
         
-        VimEngine.shared.lastYankStyle = .characterwise
+        KindaVimEngine.shared.lastYankStyle = .characterwise
         let accessibilityElement = sendMoveThroughVimEngineAndGetBackAccessibilityElement() 
         
         XCTAssertEqual(accessibilityElement?.value, "test 1 of The 3 Cases P TF")
@@ -39,13 +39,13 @@ extension UIASNM_P__TextFields_Tests {
         let textInAXFocusedElement = "oh oh you're out of the boundaries!"
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
-        VimEngine.shared.enterNormalMode()        
+        KindaVimEngine.shared.enterNormalMode()
         app.textViews.firstMatch.typeKey(.rightArrow, modifierFlags: [])
         
         NSPasteboard.general.clearContents()
         NSPasteboard.general.setString("test 2 of The 3 Cases P TF", forType: .string)
         
-        VimEngine.shared.lastYankStyle = .characterwise
+        KindaVimEngine.shared.lastYankStyle = .characterwise
         let accessibilityElement = sendMoveThroughVimEngineAndGetBackAccessibilityElement()
         
         XCTAssertEqual(accessibilityElement?.value, "oh oh you're out of the boundaries!test 2 of The 3 Cases P TF")
@@ -63,13 +63,13 @@ extension UIASNM_P__TextFields_Tests {
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
         app.textFields.firstMatch.typeKey(.leftArrow, modifierFlags: [.option])
-        VimEngine.shared.enterNormalMode()
+        KindaVimEngine.shared.enterNormalMode()
         app.textViews.firstMatch.typeKey(.rightArrow, modifierFlags: [])
         
         NSPasteboard.general.clearContents()
         NSPasteboard.general.setString("text to pasta pizza!!!", forType: .string)
         
-        VimEngine.shared.lastYankStyle = .characterwise
+        KindaVimEngine.shared.lastYankStyle = .characterwise
         let accessibilityElement = sendMoveThroughVimEngineAndGetBackAccessibilityElement()
         
         XCTAssertEqual(accessibilityElement?.value, "pasta text to pasta pizza!!!pizza")
@@ -87,12 +87,12 @@ extension UIASNM_P__TextFields_Tests {
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
         app.textFields.firstMatch.typeKey(.leftArrow, modifierFlags: [.command])
-        VimEngine.shared.enterNormalMode()
+        KindaVimEngine.shared.enterNormalMode()
         
         NSPasteboard.general.clearContents()
         NSPasteboard.general.setString("paste me daddy", forType: .string)
         
-        VimEngine.shared.lastYankStyle = .linewise
+        KindaVimEngine.shared.lastYankStyle = .linewise
         let accessibilityElement = sendMoveThroughVimEngineAndGetBackAccessibilityElement()
         
         XCTAssertEqual(accessibilityElement?.value, "paste me daddyP linewise for TF is still pasted characterwise!")
@@ -104,12 +104,12 @@ extension UIASNM_P__TextFields_Tests {
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
         app.textFields.firstMatch.typeKey(.leftArrow, modifierFlags: [.option])
-        VimEngine.shared.enterNormalMode()
+        KindaVimEngine.shared.enterNormalMode()
         
         NSPasteboard.general.clearContents()
         NSPasteboard.general.setString("yanked with the linefeed hum hum\n", forType: .string)
         
-        VimEngine.shared.lastYankStyle = .linewise
+        KindaVimEngine.shared.lastYankStyle = .linewise
         let accessibilityElement = sendMoveThroughVimEngineAndGetBackAccessibilityElement()
         
         XCTAssertEqual(accessibilityElement?.value, "P should not paste linefeeds in theyanked with the linefeed hum hum TF")

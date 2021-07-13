@@ -19,10 +19,10 @@ extension UIASVML_$_Tests {
         let textInAXFocusedElement = "$ will only move stuff in VM characterwise"
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)     
-        VimEngine.shared.enterNormalMode()
-        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .V))
+        KindaVimEngine.shared.enterNormalMode()
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .V))
         
-        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .dollarSign))        
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .dollarSign))
         let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
         
         XCTAssertEqual(accessibilityElement?.value, "$ will only move stuff in VM characterwise")

@@ -8,7 +8,7 @@ class UsingASNM_ciw_Tests: UsingASNM_BaseTests {
         
         KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .c))
         KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .i))
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .w))        
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .w))
     }
     
 }

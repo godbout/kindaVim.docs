@@ -9,7 +9,7 @@ class UsingASNM_dF__Tests: UsingASNM_BaseTests {
         
         KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .d))
         KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .F))
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .x))        
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .x))
     }
     
 }

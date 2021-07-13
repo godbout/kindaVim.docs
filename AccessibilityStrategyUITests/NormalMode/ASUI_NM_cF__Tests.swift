@@ -15,13 +15,13 @@ cF is pretty cool
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
         app.textFields.firstMatch.typeKey(.leftArrow, modifierFlags: [])
-        VimEngine.shared.enterNormalMode()
+        KindaVimEngine.shared.enterNormalMode()
         
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .c))
-        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .F))
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .p))
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .c))
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .F))
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .p))
         
-        XCTAssertEqual(VimEngine.shared.currentMode, .insert)        
+        XCTAssertEqual(KindaVimEngine.shared.currentMode, .insert)
     }
     
     func test_a_case_where_it_should_not_delete_the_content_stays_in_normal_mode() {
@@ -31,13 +31,13 @@ hehe can't use cF here with the last letter of the alphabet!
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)                
         app.textFields.firstMatch.typeKey(.leftArrow, modifierFlags: [.option])
-        VimEngine.shared.enterNormalMode()
+        KindaVimEngine.shared.enterNormalMode()
         
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .c))
-        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .F))
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .z))
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .c))
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .F))
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .z))
         
-        XCTAssertEqual(VimEngine.shared.currentMode, .normal)      
+        XCTAssertEqual(KindaVimEngine.shared.currentMode, .normal)
     }
     
 }

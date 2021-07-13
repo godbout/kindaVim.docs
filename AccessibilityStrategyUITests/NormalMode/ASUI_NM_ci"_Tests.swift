@@ -10,9 +10,9 @@ import XCTest
 class UIASNM_ciDoubleQuote_Tests: UIAS_BaseTests {
     
     private func applyMoveAndGetBackAccessibilityElement() -> AccessibilityTextElement? {
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .c))
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .i))
-        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .doubleQuote))
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .c))
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .i))
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .doubleQuote))
         
         return AccessibilityTextElementAdaptor.fromAXFocusedElement()
     }
@@ -30,7 +30,7 @@ hehe there's gonna be some "double quotes" in that shit
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
         app.textFields.firstMatch.typeKey(.leftArrow, modifierFlags: [.command])
-        VimEngine.shared.enterNormalMode()
+        KindaVimEngine.shared.enterNormalMode()
         
         let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
         
@@ -44,13 +44,13 @@ hehe there's gonna be some "double quotes" in that shit
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
         app.textFields.firstMatch.typeKey(.leftArrow, modifierFlags: [.command])
-        VimEngine.shared.enterNormalMode()
+        KindaVimEngine.shared.enterNormalMode()
                         
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .c))
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .i))
-        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .doubleQuote))
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .c))
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .i))
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .doubleQuote))
         
-        XCTAssertEqual(VimEngine.shared.currentMode, .insert)        
+        XCTAssertEqual(KindaVimEngine.shared.currentMode, .insert)
     }
         
     func test_a_case_where_it_should_not_delete_the_content_and_then_stay_in_normal_mode() {
@@ -60,13 +60,13 @@ huhu only one " in there...
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)                
         app.textFields.firstMatch.typeKey(.leftArrow, modifierFlags: [.option])
-        VimEngine.shared.enterNormalMode()
+        KindaVimEngine.shared.enterNormalMode()
                         
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .c))
-        VimEngine.shared.handle(keyCombination: KeyCombination(key: .i))
-        VimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .doubleQuote))
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .c))
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .i))
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .doubleQuote))
         
-        XCTAssertEqual(VimEngine.shared.currentMode, .normal)      
+        XCTAssertEqual(KindaVimEngine.shared.currentMode, .normal)
     }
     
 }
