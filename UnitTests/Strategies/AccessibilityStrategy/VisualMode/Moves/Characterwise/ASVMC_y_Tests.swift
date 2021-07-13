@@ -46,11 +46,11 @@ extension ASVMC_y_Tests {
         let returnedElement = applyMove(on: element)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "")
-        XCTAssertEqual(returnedElement?.selectedLength, 0)
+        XCTAssertEqual(returnedElement?.selectedLength, 1)
         XCTAssertNil(returnedElement?.selectedText)
     }
     
-    func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_but_not_on_an_empty_line_it_works_and_just_goes_back_one_character_to_the_left_without_copying_nothing() {
+    func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_but_not_on_an_empty_line_it_works_copies_nothing() {
         let text = """
 caret is
 gonna be at the end
@@ -75,8 +75,8 @@ gonna be at the end
         
         let returnedElement = applyMove(on: element)
         
-        XCTAssertEqual(NSPasteboard.general.string(forType: .string), "test 2 of The 3 Cases VM y")
-        XCTAssertEqual(returnedElement?.caretLocation, 27)
+        XCTAssertEqual(NSPasteboard.general.string(forType: .string), "")
+        XCTAssertEqual(returnedElement?.caretLocation, 28)
         XCTAssertEqual(returnedElement?.selectedLength, 1)
         XCTAssertNil(returnedElement?.selectedText)
     }
@@ -109,7 +109,7 @@ line
         let returnedElement = applyMove(on: element)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "")
-        XCTAssertEqual(returnedElement?.selectedLength, 0)
+        XCTAssertEqual(returnedElement?.selectedLength, 1)
         XCTAssertNil(returnedElement?.selectedText)
     }    
     
