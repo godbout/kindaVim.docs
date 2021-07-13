@@ -37,7 +37,7 @@ extension ASNM_dT__Tests {
         let returnedElement = applyMove(to: "a", on: element)
         
         XCTAssertEqual(returnedElement?.caretLocation, 0)
-        XCTAssertEqual(returnedElement?.selectedLength, 0)
+        XCTAssertEqual(returnedElement?.selectedLength, 1)
         XCTAssertNil(returnedElement?.selectedText)
     }
     
@@ -63,9 +63,9 @@ gonna be at the end
         
         let returnedElement = applyMove(to: "b", on: element)
         
-        XCTAssertEqual(returnedElement?.caretLocation, 28)
-        XCTAssertEqual(returnedElement?.selectedLength, 0)
-        XCTAssertNil(returnedElement?.selectedText)
+        XCTAssertEqual(returnedElement?.caretLocation, 16)
+        XCTAssertEqual(returnedElement?.selectedLength, 12)
+        XCTAssertEqual(returnedElement?.selectedText, "")
     }
     
     func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_and_on_an_empty_line_on_its_own_it_does_not_move() {
@@ -93,7 +93,7 @@ line
         let returnedElement = applyMove(to: "c", on: element)
         
         XCTAssertEqual(returnedElement?.caretLocation, 31)
-        XCTAssertEqual(returnedElement?.selectedLength, 0)
+        XCTAssertEqual(returnedElement?.selectedLength, 1)
         XCTAssertNil(returnedElement?.selectedText)
     }
     

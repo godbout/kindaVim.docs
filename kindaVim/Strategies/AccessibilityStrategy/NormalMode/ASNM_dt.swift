@@ -1,46 +1,7 @@
 extension AccessibilityStrategyNormalMode {
     
     func dt(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
-        guard let element = element else { return nil }
-        
-        if let oneOfTheThreeCasesTM = handleTheThreeCasesTM(for: element) {
-            return oneOfTheThreeCasesTM
-        }
-        
-        return theMove(to: character, on: element)
-    }
-    
-    private func handleTheThreeCasesTM(for element: AccessibilityTextElement) -> AccessibilityTextElement? {
-        var element = element
-        
-        
-        if element.isEmpty {
-            element.selectedLength = 0
-            element.selectedText = nil
-            
-            return element
-        }
-        
-        if element.caretIsAtTheEnd, element.lastCharacterIsNotLinefeed {
-            element.selectedLength = 0
-            element.selectedText = nil
-            
-            return element
-        }
-        
-        if element.caretIsAtTheEnd, element.lastCharacterIsLinefeed {
-            element.selectedLength = 0
-            element.selectedText = nil
-            
-            return element
-        }
-        
-        
-        return nil
-    }
-    
-    private func theMove(to character: Character, on element: AccessibilityTextElement) -> AccessibilityTextElement {
-        var element = element
+        guard var element = element else { return nil }
         
         if let elementFound = t(to: character, on: element), elementFound.caretLocation != element.caretLocation {
             element.selectedLength = (elementFound.caretLocation + 1) - element.caretLocation

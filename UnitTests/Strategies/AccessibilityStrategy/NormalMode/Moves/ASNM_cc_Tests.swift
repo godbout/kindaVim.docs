@@ -38,7 +38,7 @@ extension ASNM_cc_Tests {
         
         XCTAssertEqual(returnedElement?.caretLocation, 0)
         XCTAssertEqual(returnedElement?.selectedLength, 0)
-        XCTAssertNil(returnedElement?.selectedText)
+        XCTAssertEqual(returnedElement?.selectedText, "")
     }
     
     func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_but_not_on_an_empty_line_it_works_and_deletes_the_line() {
@@ -94,7 +94,7 @@ line
         
         XCTAssertEqual(returnedElement?.caretLocation, 31)
         XCTAssertEqual(returnedElement?.selectedLength, 0)
-        XCTAssertNil(returnedElement?.selectedText)
+        XCTAssertEqual(returnedElement?.selectedText, "")
     }
     
 }

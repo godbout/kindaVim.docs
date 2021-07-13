@@ -41,7 +41,7 @@ extension ASNM_yT__Tests {
         let returnedElement = applyMove(to: "a", on: element)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "test 1 of The 3 Cases yT")
-        XCTAssertEqual(returnedElement?.selectedLength, 0)
+        XCTAssertEqual(returnedElement?.selectedLength, 1)
         XCTAssertNil(returnedElement?.selectedText)
     }
     
@@ -70,7 +70,7 @@ gonna be at the end
         
         let returnedElement = applyMove(to: "a", on: element)
         
-        XCTAssertEqual(NSPasteboard.general.string(forType: .string), "t the en")
+        XCTAssertEqual(NSPasteboard.general.string(forType: .string), "t the end")
         XCTAssertEqual(returnedElement?.selectedLength, 1)
         XCTAssertNil(returnedElement?.selectedText)
     }
@@ -103,7 +103,7 @@ line
         let returnedElement = applyMove(to: "a", on: element)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "test 3 of The 3 Cases yT")
-        XCTAssertEqual(returnedElement?.selectedLength, 0)
+        XCTAssertEqual(returnedElement?.selectedLength, 1)
         XCTAssertNil(returnedElement?.selectedText)
     }  
     

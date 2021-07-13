@@ -42,10 +42,10 @@ extension ASNM_ciw_Tests {
         
         XCTAssertEqual(returnedElement?.caretLocation, 0)
         XCTAssertEqual(returnedElement?.selectedLength, 0)
-        XCTAssertNil(returnedElement?.selectedText)
+        XCTAssertEqual(returnedElement?.selectedText, "")
     }
     
-    func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_but_not_on_an_empty_line_it_works_and_deletes_the_last_word() {
+    func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_but_not_on_an_empty_line_it_kinda_works_by_deleting_the_last_two_characters_like_below() {
         let text = """
 caret is
 gonna be at the end
@@ -67,14 +67,12 @@ gonna be at the end
         
         let returnedElement = applyMove(on: element)
         
-        XCTAssertEqual(returnedElement?.caretLocation, 25)
-        XCTAssertEqual(returnedElement?.selectedLength, 3)
+        XCTAssertEqual(returnedElement?.caretLocation, 26)
+        XCTAssertEqual(returnedElement?.selectedLength, 2)
         XCTAssertEqual(returnedElement?.selectedText, "")
     }
     
-    func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_and_on_an_empty_line_it_works_and_deletes_the_last_character_of_the_previous_line() throws {
-        throw XCTSkip("weird case. the test is correct but no implementation yet. currently the implementation just returns the element")
-        
+    func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_and_on_an_empty_line_it_works_and_deletes_the_last_character_of_the_previous_line() {        
         let text = """
 caret is on its
 own empty
