@@ -187,11 +187,8 @@ lines this time
         KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .k))
         KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .v))
         KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .j))
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .l))
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .l))
         
         KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .d))
-        
         let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
         
         XCTAssertEqual(accessibilityElement?.value, """
