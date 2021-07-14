@@ -83,11 +83,10 @@ struct AccessibilityTextElementAdaptor {
         guard let (elementValue, elementLength) = AXEngine.axValueAndNumberOfCharacters(of: axFocusedElement) else { return nil }
         guard let axLineNumber = AXEngine.axLineNumberFor(location: location, on: axFocusedElement) else { return nil }
         guard let axLineRange = AXEngine.axLineRangeFor(lineNumber: axLineNumber, on: axFocusedElement) else { return nil }
-        guard let axSelectedTextRange = AXEngine.axSelectedTextRange(on: axFocusedElement) else { return nil }
         
-        // if the AX API returns a location that is equal to the line end while the selectedLength is more than 0
-        // then we're gonna hit the Big Sur bug and need to do some magic
-        if location == axLineRange.location + axLineRange.length, axSelectedTextRange.length > 0  {
+        // if the AX API returns a location that is equal to the line end
+        // then there's a big chane that we're gonna hit the Big Sur bug and need to do some magic
+        if location == axLineRange.location + axLineRange.length {
             // if we're on the last character we gonna hit the 2nd of The 3 Cases LMAO
             if location == elementLength - 1 {
                 guard var axLineNumber = AXEngine.axLineNumberFor(location: location, on: axFocusedElement) else { return nil }
