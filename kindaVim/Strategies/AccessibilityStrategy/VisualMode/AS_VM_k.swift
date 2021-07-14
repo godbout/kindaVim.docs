@@ -17,7 +17,7 @@ extension AccessibilityStrategyVisualMode {
     private func kForVisualModeCharacterwise(on element: AccessibilityTextElement) -> AccessibilityTextElement {
         var element = element
         
-        if let lineAtHead = AccessibilityTextElementAdaptor.lineFor(location: Self.head), let lineAboveHead = AccessibilityTextElementAdaptor.lineFor(lineNumber: lineAtHead.number - 1) {
+        if let lineAtHead = AccessibilityTextElementAdaptor.lineFor(location: Self.head), let lineAboveHead = AccessibilityTextElementAdaptor.lineFor(location: lineAtHead.start - 1) {
             var newHeadLocation = lineAboveHead.start + (AccessibilityTextElement.globalColumnNumber - 1)
             var globalColumnNumber: Int?
             
@@ -28,25 +28,16 @@ extension AccessibilityStrategyVisualMode {
                 globalColumnNumber = AccessibilityTextElement.globalColumnNumber
             }
             
-            // here we use selectedLength += rather than the easier selectedLength =
-            // because for last character, we can't select the character, so it would fail
             if Self.head > Self.anchor, newHeadLocation > Self.anchor {
-                element.selectedLength -= Self.head - newHeadLocation
-            } else if Self.head > Self.anchor, newHeadLocation <= Self.anchor {
-                element.caretLocation = newHeadLocation
-                element.selectedLength += (Self.anchor - Self.head) + (Self.anchor - newHeadLocation)
+                element.selectedLength = (newHeadLocation - Self.anchor) + 1
             } else {
                 element.caretLocation = newHeadLocation
-                element.selectedLength += Self.head - newHeadLocation
-            } 
+                element.selectedLength = (Self.anchor - newHeadLocation) + 1
+            }
             
             if globalColumnNumber != nil {
                 AccessibilityTextElement.globalColumnNumber = globalColumnNumber!
             }
-            
-            element.selectedText = nil
-            
-            return element
         }
         
         element.selectedText = nil
@@ -71,17 +62,17 @@ extension AccessibilityStrategyVisualMode {
             
             return element
         }
-        
+                
         if lineAtHead.number > lineAtAnchor.number {
-            element.selectedLength -= lineAtHead.length
+            element.selectedLength = lineAtHead.start - Self.anchor
             element.selectedText = nil
             
             return element
         }
         
         if let lineAboveHead = AccessibilityTextElementAdaptor.lineFor(lineNumber: lineAtHead.number - 1) {
-            element.caretLocation -= lineAboveHead.length
-            element.selectedLength += lineAboveHead.length
+            element.caretLocation = lineAboveHead.start
+            element.selectedLength = lineAtAnchor.end - lineAboveHead.start
             element.selectedText = nil
             
             return element

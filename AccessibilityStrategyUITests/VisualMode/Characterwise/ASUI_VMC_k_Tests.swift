@@ -2,14 +2,14 @@
 import XCTest
 
 
-class UIASSVMC_k_Tests: UIAS_BaseTests {}
+class ASUI_VMC_k_Tests: UIAS_BaseTests {}
 
 
 // the 3 special cases:
 // - empty TextElement
 // - caret at the end of TextElement but not on empty line
 // - caret at the end of TextElement on own empty line
-extension UIASSVMC_k_Tests {
+extension ASUI_VMC_k_Tests {
     
     func test_that_if_the_TextElement_is_empty_it_works_and_does_not_move() {
         let textInAXFocusedElement = ""
@@ -24,7 +24,7 @@ extension UIASSVMC_k_Tests {
         XCTAssertEqual(accessibilityElement?.caretLocation, 0)
     }
     
-    func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_but_not_on_an_empty_line_it_does_nothing() {
+    func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_but_not_on_an_empty_line_it_works_and_goes_up_and_selects_from_the_anchor() {
         let textInAXFocusedElement = """
    caret is
 gonna be at the end
@@ -38,7 +38,8 @@ gonna be at the end
         KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .k))
         let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
         
-        XCTAssertEqual(accessibilityElement?.caretLocation, 31)
+        XCTAssertEqual(accessibilityElement?.caretLocation, 11)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 20)
     }
     
     func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_and_on_an_empty_line_it_works_and_selects_from_the_last_character_to_the_first_character_of_the_previous_line() {
@@ -65,7 +66,7 @@ own empty
 
 
 // TextFields
-extension UIASSVMC_k_Tests {
+extension ASUI_VMC_k_Tests {
     
     func test_that_in_TextFields_it_does_nothing() {
         let textInAXFocusedElement = "VM jk in TextFields will do nothing"
@@ -86,7 +87,7 @@ extension UIASSVMC_k_Tests {
 
 
 // TextViews
-extension UIASSVMC_k_Tests {
+extension ASUI_VMC_k_Tests {
     
     func test_that_if_the_head_is_before_the_anchor_then_it_goes_to_the_line_above_the_head_on_the_same_column_number_and_selects_from_that_new_head_location_to_the_anchor() {
         let textInAXFocusedElement = """
