@@ -2,14 +2,14 @@
 import XCTest
 
 
-class UIASSVMC_j_Tests: UIAS_BaseTests {}
+class ASUI_VMC_j_Tests: UIAS_BaseTests {}
 
 
 // the 3 special cases:
 // - empty TextElement
 // - caret at the end of TextElement but not on empty line
 // - caret at the end of TextElement on own empty line
-extension UIASSVMC_j_Tests {
+extension ASUI_VMC_j_Tests {
     
     func test_that_if_the_TextElement_is_empty_it_works_and_does_not_move() {
         let textInAXFocusedElement = ""
@@ -64,7 +64,7 @@ own empty
 
 
 // TextFields
-extension UIASSVMC_j_Tests {
+extension ASUI_VMC_j_Tests {
     
     func test_that_in_TextFields_it_does_nothing() {
         let textInAXFocusedElement = "VM jk in TextFields will do nothing"
@@ -85,7 +85,7 @@ extension UIASSVMC_j_Tests {
 
 
 // TextViews
-extension UIASSVMC_j_Tests {
+extension ASUI_VMC_j_Tests {
     
     func test_that_if_the_head_is_after_the_anchor_then_it_goes_to_the_line_below_the_head_on_the_same_column_number_and_selects_from_the_anchor_to_that_new_head_location() {
         let textInAXFocusedElement = """

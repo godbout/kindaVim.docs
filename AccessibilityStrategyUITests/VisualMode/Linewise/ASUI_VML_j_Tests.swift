@@ -1,7 +1,7 @@
 import XCTest
 
 
-class UIASVML_j_Tests: UIAS_BaseTests {
+class ASUI_VML_j_Tests: UIAS_BaseTests {
     
     private func applyMoveAndGetBackAccessibilityElement() -> AccessibilityTextElement? {
         KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .V))
@@ -18,7 +18,7 @@ class UIASVML_j_Tests: UIAS_BaseTests {
 // - empty TextElement
 // - caret at the end of TextElement but not on empty line
 // - caret at the end of TextElement on own empty line
-extension UIASVML_j_Tests {    
+extension ASUI_VML_j_Tests {    
     
     func test_that_if_the_TextElement_is_empty_it_works_and_does_not_move() {
         let textInAXFocusedElement = ""
@@ -72,7 +72,7 @@ own empty
 
 
 // TextFields
-extension UIASVML_j_Tests {
+extension ASUI_VML_j_Tests {
     
     func test_that_in_TextFields_basically_it_does_nothing() {
         let textInAXFocusedElement = "hehe you little fucker"
@@ -91,7 +91,7 @@ extension UIASVML_j_Tests {
 
 
 // TextViews
-extension UIASVML_j_Tests {
+extension ASUI_VML_j_Tests {
     
     // we go down twice coz once worked but twice didn't hehe :))
     func test_that_if_the_head_is_after_the_anchor_then_it_extends_the_selection_by_one_line_below_at_a_time() {

@@ -1,7 +1,7 @@
 import XCTest
 
 
-class UIASVML_l_Tests: UIAS_BaseTests {}
+class ASUI_VML_l_Tests: UIAS_BaseTests {}
 
 
 // currently same as Characterwise, so not bothering
@@ -9,11 +9,11 @@ class UIASVML_l_Tests: UIAS_BaseTests {}
 // - empty TextElement
 // - caret at the end of TextElement but not on empty line
 // - caret at the end of TextElement on own empty line
-extension UIASVML_l_Tests {}
+extension ASUI_VML_l_Tests {}
 
 
 // Both
-extension UIASVML_l_Tests {
+extension ASUI_VML_l_Tests {
     
     func test_that_in_visual_linewise_it_does_nothing() {
         let textInAXFocusedElement = "l will only move stuff in VM characterwise"

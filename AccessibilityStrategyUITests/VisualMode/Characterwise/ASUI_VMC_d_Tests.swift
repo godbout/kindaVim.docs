@@ -1,14 +1,14 @@
 import XCTest
 
 
-class UIASVMC_d_Tests: UIAS_BaseTests {}
+class ASUI_VMC_d_Tests: UIAS_BaseTests {}
 
 
 // the 3 special cases:
 // - empty TextElement
 // - caret at the end of TextElement but not on empty line
 // - caret at the end of TextElement on own empty line
-extension UIASVMC_d_Tests {    
+extension ASUI_VMC_d_Tests {    
     
     func test_that_if_the_TextElement_is_empty_it_works_and_deletes_NOTHING() {
         let textInAXFocusedElement = ""
@@ -73,7 +73,7 @@ own empty
 }
 
 
-extension UIASVMC_d_Tests {
+extension ASUI_VMC_d_Tests {
     
     func test_that_it_simply_deletes_the_selection() {
         let textInAXFocusedElement = """
