@@ -47,9 +47,10 @@ class to_TF_selectedLengthTests: ATEA_BaseTests {
             )
         )
         
-        let textInAXFocusedElement = text
+        let textInAXFocusedElement = text        
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
+        KindaVimEngine.shared.enterNormalMode()
         
         let conversionSucceeded = AccessibilityTextElementAdaptor.toAXFocusedElement(from: element)
         XCTAssertTrue(conversionSucceeded)
