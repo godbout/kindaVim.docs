@@ -58,7 +58,7 @@ class KindaVimEngine {
     }
     
     func enterNormalMode() {
-        if currentMode == .insert, var element = asNormalMode.h(on: focusedElement()) {
+        if currentMode == .insert, let element = asNormalMode.h(on: focusedElement()) {
             _ = push(element: element)
         }
         
@@ -243,7 +243,7 @@ extension KindaVimEngine {
                 post(keyboardStrategy.G())
             }
         case .h:
-            if var element = asNormalMode.h(on: focusedElement()) {
+            if let element = asNormalMode.h(on: focusedElement()) {
                 push(element: element)
             } else {
                 post(keyboardStrategy.h())

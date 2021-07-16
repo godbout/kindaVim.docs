@@ -119,7 +119,8 @@ struct AccessibilityTextElement {
         return value[nextCharacterIndex].utf16.count
     }
     var previousCharacterLength: Int {
-        guard let characterIndex = value.utf16.index(value.startIndex, offsetBy: caretLocation, limitedBy: value.endIndex) else { return 0 }        
+        guard let characterIndex = value.utf16.index(value.startIndex, offsetBy: caretLocation, limitedBy: value.endIndex) else { return 0 }
+        guard characterIndex != value.startIndex else { return 0 }
         let previousCharacterIndex = value.index(before: characterIndex)
         guard previousCharacterIndex != value.endIndex else { return 0 }
         

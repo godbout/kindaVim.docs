@@ -2,7 +2,7 @@
 import XCTest
 
 
-// there were no tests before for ATEElementLine but 
+// there were no tests before for ATELine but 
 // well now we're trying the emojis and it breaks everything so here we go.
 // we gonna test with and without emojis coz i'm still not
 // familiar with that utf16 shit.
