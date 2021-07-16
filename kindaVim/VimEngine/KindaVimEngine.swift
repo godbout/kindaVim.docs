@@ -59,7 +59,6 @@ class KindaVimEngine {
     
     func enterNormalMode() {
         if currentMode == .insert, var element = asNormalMode.h(on: focusedElement()) {
-            element.selectedLength = 1
             _ = push(element: element)
         }
         
@@ -245,7 +244,6 @@ extension KindaVimEngine {
             }
         case .h:
             if var element = asNormalMode.h(on: focusedElement()) {
-                element.selectedLength = 1
                 push(element: element)
             } else {
                 post(keyboardStrategy.h())
@@ -279,8 +277,7 @@ extension KindaVimEngine {
                 post(keyboardStrategy.k())
             }
         case .l:
-            if var element = asNormalMode.l(on: focusedElement()) {
-                element.selectedLength = 1
+            if let element = asNormalMode.l(on: focusedElement()) {
                 push(element: element)
             } else {
                 post(keyboardStrategy.l())
