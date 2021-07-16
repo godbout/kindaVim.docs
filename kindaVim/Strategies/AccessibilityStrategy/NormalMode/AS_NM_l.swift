@@ -1,18 +1,22 @@
 extension AccessibilityStrategyNormalMode {
-
+    
     func l(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
-        guard var element = element else { return nil }
+        guard let element = element else { return nil }
+        var newElement = element
         
-        if element.caretLocation < element.currentLine.endLimit {
-            element.caretLocation += 1
-        } else {
-            element.caretLocation = element.currentLine.endLimit
+        guard element.caretLocation + element.characterLength < element.currentLine.endLimit else {
+            newElement.caretLocation = element.currentLine.endLimit
+            newElement.selectedLength = element.characterLength
+            newElement.selectedText = nil
+            
+            return newElement
         }
         
-        element.selectedLength = 1
-        element.selectedText = nil
+        newElement.caretLocation += element.characterLength
+        newElement.selectedLength = element.nextCharacterLength        
+        newElement.selectedText = nil
         
-        return element
+        return newElement
     }    
     
 }

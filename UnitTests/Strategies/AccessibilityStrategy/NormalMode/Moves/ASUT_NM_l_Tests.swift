@@ -2,7 +2,7 @@
 import XCTest
 
 
-class ASNM_l_Tests: ASNM_BaseTests {
+class ASUT_NM_l_Tests: ASNM_BaseTests {
     
     private func applyMove(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return asNormalMode.l(on: element) 
@@ -15,7 +15,7 @@ class ASNM_l_Tests: ASNM_BaseTests {
 // - empty TextElement
 // - caret at the end of TextElement but not on empty line
 // - caret at the end of TextElement on own empty line
-extension ASNM_l_Tests {
+extension ASUT_NM_l_Tests {
     
     func test_that_if_the_TextElement_is_empty_it_does_not_move() {
         let text = ""
@@ -37,7 +37,7 @@ extension ASNM_l_Tests {
         let returnedElement = applyMove(on: element)
         
         XCTAssertEqual(returnedElement?.caretLocation, 0)
-        XCTAssertEqual(returnedElement?.selectedLength, 1)
+        XCTAssertEqual(returnedElement?.selectedLength, 0)
         XCTAssertNil(returnedElement?.selectedText)
     }
     
@@ -64,7 +64,7 @@ gonna be at the end
         let returnedElement = applyMove(on: element)
         
         XCTAssertEqual(returnedElement?.caretLocation, 27)
-        XCTAssertEqual(returnedElement?.selectedLength, 1)
+        XCTAssertEqual(returnedElement?.selectedLength, 0)
         XCTAssertNil(returnedElement?.selectedText)
     }
     
@@ -92,7 +92,7 @@ line
         let returnedElement = applyMove(on: element)
         
         XCTAssertEqual(returnedElement?.caretLocation, 31)
-        XCTAssertEqual(returnedElement?.selectedLength, 1)
+        XCTAssertEqual(returnedElement?.selectedLength, 0)
         XCTAssertNil(returnedElement?.selectedText)
     }
     
@@ -100,7 +100,7 @@ line
 
 
 // Both
-extension ASNM_l_Tests {
+extension ASUT_NM_l_Tests {
     
     func test_that_in_normal_setting_l_goes_one_character_to_the_right_in_Text_AXUIElement() {
         let text = "l should go one character to the right"
@@ -158,7 +158,7 @@ hehe
 
 
 // TextViews
-extension ASNM_l_Tests {
+extension ASUT_NM_l_Tests {
     
     func test_that_if_the_caret_location_is_after_a_line_end_limit_then_it_goes_back_to_the_end_limit() {
         let text = """
@@ -184,6 +184,66 @@ it's two thirty
         let returnedElement = applyMove(on: element)
         
         XCTAssertEqual(returnedElement?.caretLocation, 29)
+        XCTAssertEqual(returnedElement?.selectedLength, 1)
+        XCTAssertNil(returnedElement?.selectedText)
+    }
+    
+}
+
+
+// emojis
+extension ASUT_NM_l_Tests {
+    
+    func test_that_it_stops_at_emojis_properly_like_an_adult() {
+        let text = """
+gonna blow up
+that shit 💣️ again
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 33,
+            caretLocation: 23,
+            selectedLength: 1,
+            selectedText: " ",
+            currentLine: AccessibilityTextElementLine(
+                fullValue: text,
+                number: 2,
+                start: 14,
+                end: 33
+            )
+        )
+        
+        let returnedElement = applyMove(on: element)
+        
+        XCTAssertEqual(returnedElement?.caretLocation, 24)
+        XCTAssertEqual(returnedElement?.selectedLength, 3)
+        XCTAssertNil(returnedElement?.selectedText)
+    }
+    
+    func test_that_it_can_pass_and_does_not_get_stuck_at_emojis() {
+        let text = """
+gonna blow up
+that shit 💣️ again
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 33,
+            caretLocation: 24,
+            selectedLength: 3,
+            selectedText: "💣️",
+            currentLine: AccessibilityTextElementLine(
+                fullValue: text,
+                number: 2,
+                start: 14,
+                end: 33
+            )
+        )
+        
+        let returnedElement = applyMove(on: element)
+        
+        XCTAssertEqual(returnedElement?.caretLocation, 27)
         XCTAssertEqual(returnedElement?.selectedLength, 1)
         XCTAssertNil(returnedElement?.selectedText)
     }

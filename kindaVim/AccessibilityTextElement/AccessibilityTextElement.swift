@@ -20,10 +20,10 @@ struct AccessibilityTextElementLine {
     
     var fullValue: String
     var value: String {        
-        let lineStartIndex = fullValue.index(fullValue.startIndex, offsetBy: start)
-        let lineEndIndex = fullValue.index(lineStartIndex, offsetBy: end - start)
+        let lineStartIndex = fullValue.utf16.index(fullValue.utf16.startIndex, offsetBy: start)
+        let lineEndIndex = fullValue.utf16.index(lineStartIndex, offsetBy: end - start)
         
-        return String(fullValue[lineStartIndex..<lineEndIndex])
+        return String(fullValue.utf16[lineStartIndex..<lineEndIndex])!
     }
     
     let number: Int
@@ -31,10 +31,20 @@ struct AccessibilityTextElementLine {
     let end: Int
     var length: Int { end - start }
     var lengthWithoutLinefeed: Int { value.hasSuffix("\n") ? length - 1 : length }
-    var endLimit: Int {
+    var endLimit: Int {        
         guard end - start > 1 else { return start }
-
-        return value.hasSuffix("\n") ? end - 2 : end - 1
+        
+        if value.hasSuffix("\n") {
+            let characterBeforeLinefeedIndex = value.index(before: value.lastIndex(of: "\n")!)
+            let characterBeforeLinefeedLength = value[characterBeforeLinefeedIndex].utf16.count
+            
+            return (end - 1) - characterBeforeLinefeedLength
+        } else {
+            let lastCharacterIndex = value.index(before: value.endIndex)
+            let lastCharacterLength = value[lastCharacterIndex].utf16.count
+            
+            return end - lastCharacterLength
+        }
     }
     
     var isNotAnEmptyLine: Bool { !isAnEmptyLine }
@@ -95,6 +105,26 @@ struct AccessibilityTextElement {
     var selectedText: String?
     
     var currentLine: AccessibilityTextElementLine!
+    
+    var characterLength: Int {
+        guard let characterIndex = value.utf16.index(value.startIndex, offsetBy: caretLocation, limitedBy: value.endIndex) else { return 0 }
+        guard characterIndex != value.endIndex else { return 0 }
+        
+        return value[characterIndex].utf16.count
+    }
+    var nextCharacterLength: Int {
+        guard let nextCharacterIndex = value.utf16.index(value.startIndex, offsetBy: caretLocation + characterLength, limitedBy: value.endIndex) else { return 0 }
+        guard nextCharacterIndex != value.endIndex else { return 0 }
+        
+        return value[nextCharacterIndex].utf16.count
+    }
+    var previousCharacterLength: Int {
+        guard let characterIndex = value.utf16.index(value.startIndex, offsetBy: caretLocation, limitedBy: value.endIndex) else { return 0 }        
+        let previousCharacterIndex = value.index(before: characterIndex)
+        guard previousCharacterIndex != value.endIndex else { return 0 }
+        
+        return value[previousCharacterIndex].utf16.count
+    }
     
     var isEmpty: Bool { value.isEmpty }    
     var isNotEmpty: Bool { !isEmpty }
