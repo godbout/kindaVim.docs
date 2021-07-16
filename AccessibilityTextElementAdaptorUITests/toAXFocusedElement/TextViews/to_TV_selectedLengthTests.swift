@@ -34,7 +34,7 @@ TextAreas
         XCTAssertEqual(reconvertedAccessibilityTextElement?.selectedLength, 29)
     }
     
-    func test_that_if_the_caret_is_at_the_end_of_the_text_then_we_change_the_selection_length_to_0() {
+    func test_that_in_Normal_Mode_if_the_caret_is_at_the_end_of_the_text_with_a_selectedLength_of_1_then_we_tweak_the_selection_length_to_0_so_that_the_caret_can_move_there() {
         let text = """
 that's a longer hello dear
 because we're in

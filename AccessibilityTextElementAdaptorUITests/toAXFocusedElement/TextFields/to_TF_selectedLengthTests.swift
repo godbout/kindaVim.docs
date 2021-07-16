@@ -30,7 +30,7 @@ class to_TF_selectedLengthTests: ATEA_BaseTests {
         XCTAssertEqual(reconvertedAccessibilityTextElement?.selectedLength, 5)
     }
     
-    func test_that_if_the_caret_is_at_the_end_of_the_text_then_we_change_the_selection_length_to_0() {
+    func test_that_in_Normal_Mode_if_the_caret_is_at_the_end_of_the_text_with_a_selectedLength_of_1_then_we_tweak_the_selection_length_to_0_so_that_the_caret_can_move_there() {
         let text = "hello you dear"
         let element = AccessibilityTextElement(
             role: .textField,
