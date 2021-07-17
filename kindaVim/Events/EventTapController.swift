@@ -26,9 +26,15 @@ struct EventTapController {
 //            on application: \(String(describing: NSWorkspace.shared.frontmostApplication?.bundleIdentifier))
 //            """
 //        )
-
+        
+        guard event.type == .keyDown else {
+            KindaVimEngine.shared.enterInsertMode()
+            
+            return Unmanaged.passUnretained(event)
+        }        
+                
         let keyCombinationPressed = KeyCombinationAdaptor.fromCGEvent(from: event)
-
+        
         if GlobalEventsController.handle(keyCombination: keyCombinationPressed) == true {
             return nil
         }
@@ -41,11 +47,13 @@ struct EventTapController {
     }
     
     private func setUpEventTap() {
+        let eventMask = (1 << CGEventType.keyDown.rawValue) | (1 << CGEventType.leftMouseDown.rawValue) | (1 << CGEventType.rightMouseDown.rawValue)
+        
         guard let eventTap = CGEvent.tapCreate(
             tap: .cghidEventTap,
             place: .headInsertEventTap,
             options: .defaultTap,
-            eventsOfInterest: CGEventMask(1 << CGEventType.keyDown.rawValue),
+            eventsOfInterest: CGEventMask(eventMask),
             callback: eventTapCallback,
             userInfo: nil
         ) else {
