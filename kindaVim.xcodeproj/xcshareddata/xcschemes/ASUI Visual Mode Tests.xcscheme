@@ -33,42 +33,9 @@
             testExecutionOrdering = "random">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "9128F2C0262AA90D00625B42"
-               BuildableName = "UnitTests.xctest"
-               BlueprintName = "UnitTests"
-               ReferencedContainer = "container:kindaVim.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO"
-            testExecutionOrdering = "random">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "914734E626A1FE0100B20466"
-               BuildableName = "AccessibilityStrategyNormalModeUITests.xctest"
-               BlueprintName = "AccessibilityStrategyNormalModeUITests"
-               ReferencedContainer = "container:kindaVim.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO"
-            testExecutionOrdering = "random">
-            <BuildableReference
-               BuildableIdentifier = "primary"
                BlueprintIdentifier = "91A147C32661222900D160AD"
                BuildableName = "AccessibilityStrategyVisualModeUITests.xctest"
                BlueprintName = "AccessibilityStrategyVisualModeUITests"
-               ReferencedContainer = "container:kindaVim.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO"
-            testExecutionOrdering = "random">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "91A147AF2661221100D160AD"
-               BuildableName = "AccessibilityTextElementAdaptorUITests.xctest"
-               BlueprintName = "AccessibilityTextElementAdaptorUITests"
                ReferencedContainer = "container:kindaVim.xcodeproj">
             </BuildableReference>
          </TestableReference>
