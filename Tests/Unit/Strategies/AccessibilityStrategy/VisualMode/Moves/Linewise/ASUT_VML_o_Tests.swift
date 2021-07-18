@@ -18,9 +18,9 @@ class ASVML_o_Tests: ASVM_BaseTests {
 
 
 // currently same as Characterwise
-// the 3 special cases:
+// The 3 Cases:
 // - empty TextElement
-// - caret at the end of TextElement but not on empty line
+// - 2nd case is now gone!
 // - caret at the end of TextElement on own empty line
 extension ASVML_o_Tests {}
 

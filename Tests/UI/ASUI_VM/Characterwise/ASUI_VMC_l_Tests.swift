@@ -5,9 +5,9 @@ import XCTest
 class ASUI_VMC_l_Tests: ASUI_VM_BaseTests {}
 
 
-// the 3 special cases:
+// The 3 Cases:
 // - empty TextElement
-// - caret at the end of TextElement but not on empty line
+// - 2nd case is now gone!
 // - caret at the end of TextElement on own empty line
 extension ASUI_VMC_l_Tests {
     
@@ -22,28 +22,6 @@ extension ASUI_VMC_l_Tests {
         let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
         
         XCTAssertEqual(accessibilityElement?.caretLocation, 0)
-    }
-    
-    func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_but_not_on_an_empty_line_it_works_and_does_nothing() {
-        let textInAXFocusedElement = """
-   caret is
-gonna be at the end
-"""
-        app.textViews.firstMatch.tap()
-        app.textViews.firstMatch.typeText(textInAXFocusedElement)     
-        KindaVimEngine.shared.enterNormalMode()
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .v))
-        app.textViews.firstMatch.typeKey(.rightArrow, modifierFlags: [])
-        
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .l))
-        let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
-        
-        XCTAssertEqual(accessibilityElement?.value, """
-   caret is
-gonna be at the end
-"""
-        )
-        XCTAssertEqual(accessibilityElement?.caretLocation, 31)
     }
     
     func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_and_on_an_empty_line_it_works_and_does_nothing() {

@@ -69,33 +69,6 @@ extension ASNM_o_Tests {
         XCTAssertEqual(returnedElement?.selectedText, "\n")
     }
     
-    func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_but_not_on_an_empty_line_it_works_and_creates_a_line_below() {
-        let text = """
-caret is
-gonna be at the end
-"""
-        let element = AccessibilityTextElement(
-            role: .textArea,
-            value: text,
-            length: 28,
-            caretLocation: 28,
-            selectedLength: 0,
-            selectedText: "",
-            currentLine: AccessibilityTextElementLine(
-                fullValue: text,
-                number: 2,
-                start: 9,
-                end: 28
-            )
-        )
-        
-        let returnedElement = applyMove(on: element)
-        
-        XCTAssertEqual(returnedElement?.caretLocation, 28)
-        XCTAssertEqual(returnedElement?.selectedLength, 0)
-        XCTAssertEqual(returnedElement?.selectedText, "\n")
-    }
-    
     func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_and_on_an_empty_line_on_its_works_and_creates_a_line_below() {
         let text = """
 caret is on its

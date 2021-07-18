@@ -15,9 +15,9 @@ class UIASNM_P__TextViews_Tests: ASUI_NM_BaseTests {
 
 
 // characterwise
-// the 3 special cases:
+// The 3 Cases:
 // - empty TextElement
-// - caret at the end of TextElement but not on empty line
+// - 2nd case is now gone!
 // - caret at the end of TextElement on own empty line
 extension UIASNM_P__TextViews_Tests {
 
@@ -35,23 +35,6 @@ extension UIASNM_P__TextViews_Tests {
 
         XCTAssertEqual(accessibilityElement?.value, "test 1 of The 3 Cases for TextArea P")
         XCTAssertEqual(accessibilityElement?.caretLocation, 35)
-    }
-
-    func test_that_if_the_caret_is_at_the_last_character_of_the_TextArea_it_still_pastes() {
-        let textInAXFocusedElement = "you're out of the boundaries buddy"
-        app.textViews.firstMatch.tap()
-        app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        KindaVimEngine.shared.enterNormalMode()
-        app.textViews.firstMatch.typeKey(.rightArrow, modifierFlags: [])
-
-        NSPasteboard.general.clearContents()
-        NSPasteboard.general.setString("test 2 of The 3 Cases for TextArea P", forType: .string)
-
-        KindaVimEngine.shared.lastYankStyle = .characterwise
-        let accessibilityElement = sendMoveThroughVimEngineAndGetBackAccessibilityElement()
-
-        XCTAssertEqual(accessibilityElement?.value, "you're out of the boundaries buddytest 2 of The 3 Cases for TextArea P")
-        XCTAssertEqual(accessibilityElement?.caretLocation, 69)
     }
 
     func test_that_if_the_caret_is_at_the_last_character_of_the_TextArea_and_on_an_empty_line_it_still_pastes() {
@@ -146,9 +129,9 @@ here's the last one
 
 
 // linewise
-// the 3 special cases:
+// The 3 Cases:
 // - empty TextElement
-// - caret at the end of TextElement but not on empty line
+// - 2nd case is now gone!
 // - caret at the end of TextElement on own empty line
 extension UIASNM_P__TextViews_Tests {
 
@@ -170,31 +153,6 @@ test 1 of The 3 Cases for TextArea linewise P
 """
         )
         XCTAssertEqual(accessibilityElement?.caretLocation, 0)
-    }
-
-    func test_that_if_the_caret_is_at_the_last_character_of_the_TextArea_and_on_a_non_empty_line_it_still_pastes_and_will_enforce_a_trailing_linefeed() {
-        let textInAXFocusedElement = """
-end of boundaries
-cannot
-"""
-        app.textViews.firstMatch.tap()
-        app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        KindaVimEngine.shared.enterNormalMode()
-        app.textViews.firstMatch.typeKey(.rightArrow, modifierFlags: [])
-
-        NSPasteboard.general.clearContents()
-        NSPasteboard.general.setString("test 2 of The 3 Cases for TextArea linewise P", forType: .string)
-
-        KindaVimEngine.shared.lastYankStyle = .linewise
-        let accessibilityElement = sendMoveThroughVimEngineAndGetBackAccessibilityElement()
-
-        XCTAssertEqual(accessibilityElement?.value, """
-end of boundaries
-test 2 of The 3 Cases for TextArea linewise P
-cannot
-"""
-        )
-        XCTAssertEqual(accessibilityElement?.caretLocation, 18)
     }
 
     func test_that_if_the_caret_is_at_the_last_character_of_the_TextArea_and_on_an_empty_line_it_still_pastes_and_will_enforce_a_trailing_linefeed() {

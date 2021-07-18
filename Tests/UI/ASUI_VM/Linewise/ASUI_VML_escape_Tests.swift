@@ -5,9 +5,9 @@ class UIASVML_escape_Tests: ASUI_VM_BaseTests {}
 
 
 // currently same as Characterwise, so not bothering
-// the 3 special cases:
+// The 3 Cases:
 // - empty TextElement
-// - caret at the end of TextElement but not on empty line
+// - 2nd case is now gone!
 // - caret at the end of TextElement on own empty line
 extension UIASVML_escape_Tests {}
 

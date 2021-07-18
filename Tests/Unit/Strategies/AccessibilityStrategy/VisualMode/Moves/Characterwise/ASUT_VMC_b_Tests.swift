@@ -20,9 +20,9 @@ class ASVMC_b_Tests: ASVM_BaseTests {
 }
 
 
-// the 3 special cases:
+// The 3 Cases:
 // - empty TextElement
-// - caret at the end of TextElement but not on empty line
+// - 2nd case is now gone!
 // - caret at the end of TextElement on own empty line
 extension ASVMC_b_Tests {
     
@@ -50,36 +50,6 @@ extension ASVMC_b_Tests {
         
         XCTAssertEqual(returnedElement?.caretLocation, 0)
         XCTAssertEqual(returnedElement?.selectedLength, 1)
-        XCTAssertNil(returnedElement?.selectedText)
-    }
-    
-    func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_but_not_on_an_empty_line_it_works_and_goes_to_the_beginning_of_the_word() {
-        let text = """
-caret is
-gonna be at the end
-"""
-        let element = AccessibilityTextElement(
-            role: .textArea,
-            value: text,
-            length: 28,
-            caretLocation: 28,
-            selectedLength: 0,
-            selectedText: "",
-            currentLine: AccessibilityTextElementLine(
-                fullValue: text,
-                number: 2,
-                start: 9,
-                end: 28
-            )
-        )
-        
-        AccessibilityStrategyVisualMode.anchor = 27
-        AccessibilityStrategyVisualMode.head = 28
-        
-        let returnedElement = applyMove(on: element)
-        
-        XCTAssertEqual(returnedElement?.caretLocation, 25)
-        XCTAssertEqual(returnedElement?.selectedLength, 3)
         XCTAssertNil(returnedElement?.selectedText)
     }
     

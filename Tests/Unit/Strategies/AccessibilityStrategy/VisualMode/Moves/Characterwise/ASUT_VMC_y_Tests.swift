@@ -17,9 +17,9 @@ class ASVMC_y_Tests: ASVM_BaseTests {
 }
 
 
-// the 3 special cases:
+// The 3 Cases:
 // - empty TextElement
-// - caret at the end of TextElement but not on empty line
+// - 2nd case is now gone!
 // - caret at the end of TextElement on own empty line
 extension ASVMC_y_Tests {
     
@@ -46,37 +46,6 @@ extension ASVMC_y_Tests {
         let returnedElement = applyMove(on: element)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "")
-        XCTAssertEqual(returnedElement?.selectedLength, 1)
-        XCTAssertNil(returnedElement?.selectedText)
-    }
-    
-    func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_but_not_on_an_empty_line_it_works_copies_nothing() {
-        let text = """
-caret is
-gonna be at the end
-"""
-        let element = AccessibilityTextElement(
-            role: .textArea,
-            value: text,
-            length: 28,
-            caretLocation: 28,
-            selectedLength: 0,
-            selectedText: "",
-            currentLine: AccessibilityTextElementLine(
-                fullValue: text,
-                number: 2,
-                start: 9,
-                end: 28
-            )
-        )
-        
-        NSPasteboard.general.clearContents()
-        NSPasteboard.general.setString("test 2 of The 3 Cases VM y", forType: .string)
-        
-        let returnedElement = applyMove(on: element)
-        
-        XCTAssertEqual(NSPasteboard.general.string(forType: .string), "")
-        XCTAssertEqual(returnedElement?.caretLocation, 28)
         XCTAssertEqual(returnedElement?.selectedLength, 1)
         XCTAssertNil(returnedElement?.selectedText)
     }

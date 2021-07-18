@@ -16,7 +16,7 @@ class ASUI_VML_j_Tests: ASUI_VM_BaseTests {
 
 // The 3 Cases:
 // - empty TextElement
-// - caret at the end of TextElement but not on empty line
+// - 2nd case is now gone!
 // - caret at the end of TextElement on own empty line
 extension ASUI_VML_j_Tests {    
     
@@ -29,26 +29,6 @@ extension ASUI_VML_j_Tests {
         let accessibilityElement = applyMoveAndGetBackAccessibilityElement()        
         
         XCTAssertEqual(accessibilityElement?.caretLocation, 0)
-    }
-    
-    func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_but_not_on_an_empty_line_it_does_not_move() {
-        let textInAXFocusedElement = """
-   caret is
-gonna be at the end
-"""
-        app.textViews.firstMatch.tap()
-        app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        KindaVimEngine.shared.enterNormalMode()
-        app.textViews.firstMatch.typeKey(.rightArrow, modifierFlags: [])
-        
-        // enter Visual Mode Linewise and push the selection to the end
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .V))
-        app.textViews.firstMatch.typeKey(.rightArrow, modifierFlags: [.command])
-                
-        let accessibilityElement = asVisualMode.j(on: AccessibilityTextElementAdaptor.fromAXFocusedElement())
-        
-        XCTAssertEqual(accessibilityElement?.caretLocation, 31)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 0)
     }
     
     func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_and_on_an_empty_line_it_works_and_does_not_move() {

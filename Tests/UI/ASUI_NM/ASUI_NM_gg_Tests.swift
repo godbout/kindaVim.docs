@@ -14,9 +14,9 @@ class UIASNM_gg_Tests: ASUI_NM_BaseTests {
 }
 
 
-// the 3 special cases:
+// The 3 Cases:
 // - empty TextElement
-// - caret at the end of TextElement but not on empty line
+// - 2nd case is now gone!
 // - caret at the end of TextElement on own empty line
 extension UIASNM_gg_Tests {    
     
@@ -27,21 +27,6 @@ extension UIASNM_gg_Tests {
         KindaVimEngine.shared.enterNormalMode()
         
         let accessibilityElement = applyMoveAndGetBackAccessibilityElement()        
-        
-        XCTAssertEqual(accessibilityElement?.caretLocation, 0)
-    }
-    
-    func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_but_not_on_an_empty_line_it_works_and_the_caret_goes_to_the_relevant_position() {
-        let textInAXFocusedElement = """
-caret is
-gonna be at the end
-"""
-        app.textViews.firstMatch.tap()
-        app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        KindaVimEngine.shared.enterNormalMode()
-        app.textViews.firstMatch.typeKey(.rightArrow, modifierFlags: [])
-        
-        let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
         
         XCTAssertEqual(accessibilityElement?.caretLocation, 0)
     }

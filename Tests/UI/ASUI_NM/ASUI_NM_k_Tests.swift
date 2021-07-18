@@ -31,21 +31,6 @@ extension UIASNM_k_Tests {
         XCTAssertEqual(accessibilityElement?.caretLocation, 0)
     }
     
-    func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_but_not_on_an_empty_line_it_just_works_and_moves_to_the_previous_line() {
-        let textInAXFocusedElement = """
-caret is
-gonna be at the end
-"""
-        app.textViews.firstMatch.tap()
-        app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        KindaVimEngine.shared.enterNormalMode()
-        app.textViews.firstMatch.typeKey(.rightArrow, modifierFlags: [])
-        
-        let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
-        
-        XCTAssertEqual(accessibilityElement?.caretLocation, 7)
-    }
-    
     func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_and_on_an_empty_line_it_works_and_moves_up() {
         let textInAXFocusedElement = """
 caret is on its

@@ -10,7 +10,7 @@ class AccessibilityTextElementTests: XCTestCase {}
 // without emojis
 // The 3 Cases:
 // - empty TextElement
-// - caret at the end of TextElement but not on empty line
+// - 2nd case is now gone!
 // - caret at the end of TextElement on own empty line
 extension AccessibilityTextElementTests {
     
@@ -34,31 +34,6 @@ extension AccessibilityTextElementTests {
         XCTAssertEqual(element.characterLength, 0)
         XCTAssertEqual(element.nextCharacterLength, 0)
         XCTAssertEqual(element.previousCharacterLength, 0)
-    }
-                
-    func test_that_without_emojis_if_the_caret_is_at_the_last_character_of_the_TextElement_but_not_on_an_empty_line_the_computed_properties_are_correctly_calculated() {
-        let text = """
-caret is
-gonna be at the end
-"""
-        let element = AccessibilityTextElement(
-            role: .textArea,
-            value: text,
-            length: 28,
-            caretLocation: 28,
-            selectedLength: 0,
-            selectedText: "",
-            currentLine: AccessibilityTextElementLine(
-                fullValue: text,
-                number: 2,
-                start: 9,
-                end: 28
-            )
-        )
-        
-        XCTAssertEqual(element.characterLength, 0)
-        XCTAssertEqual(element.nextCharacterLength, 0)
-        XCTAssertEqual(element.previousCharacterLength, 1)
     }
         
     func test_that_without_emojis_if_the_caret_is_at_the_last_character_of_the_TextElement_and_on_an_empty_line_the_computed_properties_are_correctly_calculated() {
@@ -123,37 +98,12 @@ extension AccessibilityTextElementTests {
 // with emojis
 // The 3 Cases:
 // - empty TextElement
-// - caret at the end of TextElement but not on empty line
+// - 2nd case is now gone!
 // - caret at the end of TextElement on own empty line
 extension AccessibilityTextElementTests {
     
     // well empty but with emojis. how does that work? :D
     func test_that_with_emojis_if_the_TextElement_is_empty_the_computed_properties_are_correctly_calculated() {}
-    
-    func test_that_with_emojis_if_the_caret_is_at_the_last_character_of_the_TextElement_but_not_on_an_empty_line_the_computed_properties_are_correctly_calculated() {
-        let text = """
-caret is
-gonna be at the end 🖕️
-"""
-        let element = AccessibilityTextElement(
-            role: .textArea,
-            value: text,
-            length: 32,
-            caretLocation: 32,
-            selectedLength: 0,
-            selectedText: "",
-            currentLine: AccessibilityTextElementLine(
-                fullValue: text,
-                number: 2,
-                start: 9,
-                end: 32
-            )
-        )
-        
-        XCTAssertEqual(element.characterLength, 0)
-        XCTAssertEqual(element.nextCharacterLength, 0)
-        XCTAssertEqual(element.previousCharacterLength, 3)
-    }
     
     func test_that_with_emojis_if_the_caret_is_at_the_last_character_of_the_TextElement_and_on_an_empty_line_the_computed_properties_are_correctly_calculated() {
         let text = """

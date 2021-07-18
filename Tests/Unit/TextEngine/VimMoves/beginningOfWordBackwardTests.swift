@@ -5,9 +5,9 @@ import XCTest
 class beginningOfWordBackwardTests: TextEngineBaseTests {}
 
 
-// the 3 special cases:
+// The 3 Cases:
 // - empty TextElement
-// - caret at the end of TextElement but not on empty line
+// - 2nd case is now gone!
 // - caret at the end of TextElement on own empty line
 extension beginningOfWordBackwardTests {
     
@@ -17,18 +17,6 @@ extension beginningOfWordBackwardTests {
         let newCaretPosition = textEngine.beginningOfWordBackward(startingAt: 0, in: TextEngineText(from: text))
         
         XCTAssertEqual(newCaretPosition, 0)
-    }
-    
-    func test_that_if_the_caret_is_after_the_last_character_on_a_non_empty_line_then_it_still_goes_to_the_beginning_of_the_last_word() {
-        let text = """
-a couple of
-lines but not
-coke haha
-"""
-        
-        let newCaretPosition = textEngine.beginningOfWordBackward(startingAt: 35, in: TextEngineText(from: text))
-        
-        XCTAssertEqual(newCaretPosition, 31)
     }
     
     func test_that_if_the_caret_is_after_the_last_character_on_an_empty_line_then_it_still_goes_to_the_beginning_of_the_last_word() {
