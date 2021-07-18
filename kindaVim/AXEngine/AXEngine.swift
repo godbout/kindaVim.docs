@@ -131,7 +131,7 @@ struct AXEngine {
         return true
     }
     
-    // this is to handle properly The 3rd Case of The 3 Cases.
+    // this is to handle properly The 3rd Case of The 3 Cases (and maybe also the 1st?).
     // if the text ends with an empty line, we can't fake the block cursor, so ne need to
     // tweak the selectedLength. the calculation is of course not the same for 
     // Normal Mode (caretLocation) and Visual Mode (caretLocation + selectedLength)
