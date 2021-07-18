@@ -1,12 +1,12 @@
 import XCTest
 
 
-class The3CasesTests: ATEA_BaseTests {}
+class The2CasesTests: ATEA_BaseTests {}
 
 
 // TextFields
-// only 2 cases for TF
-extension The3CasesTests {
+// only 1 cases for TF
+extension The2CasesTests {
     
     func test_that_we_grab_a_correct_AccessibilityTextElement_when_the_TextField_is_empty() {
         let textInAXFocusedElement = ""
@@ -27,30 +27,11 @@ extension The3CasesTests {
         XCTAssertEqual(accessibilityElement?.currentLine.end, 0)
     }
     
-    func test_that_we_grab_a_correct_AccessibilityTextElement_when_the_caret_is_at_the_end_of_the_TextField() {
-        let textInAXFocusedElement = "it's four O two and i'm having so much fun :D"
-        app.textFields.firstMatch.tap()
-        app.textFields.firstMatch.typeText(textInAXFocusedElement)
-        
-        let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
-        
-        XCTAssertEqual(accessibilityElement?.role, .textField)
-        XCTAssertEqual(accessibilityElement?.value, "it's four O two and i'm having so much fun :D")
-        XCTAssertEqual(accessibilityElement?.length, 45)
-        XCTAssertEqual(accessibilityElement?.caretLocation, 45)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 0)
-        XCTAssertEqual(accessibilityElement?.selectedText, "")
-        XCTAssertEqual(accessibilityElement?.currentLine.value, "it's four O two and i'm having so much fun :D")
-        XCTAssertEqual(accessibilityElement?.currentLine.number, 1)
-        XCTAssertEqual(accessibilityElement?.currentLine.start, 0)
-        XCTAssertEqual(accessibilityElement?.currentLine.end, 45)
-    }
-    
 }
 
 
 // TextViews
-extension The3CasesTests {
+extension The2CasesTests {
     
     func test_that_we_grab_a_correct_AccessibilityTextElement_when_the_TextView_is_empty() {
         let textInAXFocusedElement = ""

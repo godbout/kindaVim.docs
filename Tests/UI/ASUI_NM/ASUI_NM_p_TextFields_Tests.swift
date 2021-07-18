@@ -19,9 +19,8 @@ class UIASNM_p_TextFields_Tests: ASUI_NM_BaseTests {
 }
 
 
-// the 3 special cases, but only 2 for TextFields as the last one doesn't apply
+// the 3 special cases, but only 1 for TextFields as the two others don't apply
 // - empty TextElement
-// - caret at the end of TextElement but not on empty line
 // also the tests are valid for characterwise and linewise, as we actually don't even check
 // p should behave the same for both linewise or characterwise last yanked style. it will
 // always behave characterwise because no linefeed in TextFields. (still having some tests
@@ -42,22 +41,6 @@ extension UIASNM_p_TextFields_Tests {
         
         XCTAssertEqual(accessibilityElement?.value, "test 1 of The 3 Cases")
         XCTAssertEqual(accessibilityElement?.caretLocation, 20)
-    }
-    
-    func test_that_if_the_caret_is_at_the_last_character_of_the_TextField_it_still_pastes() {
-        let textInAXFocusedElement = "the user has clicked out of the boundaries!"
-        app.textFields.firstMatch.tap()
-        app.textFields.firstMatch.typeText(textInAXFocusedElement)
-        KindaVimEngine.shared.enterNormalMode()
-        
-        NSPasteboard.general.clearContents()
-        NSPasteboard.general.setString("test 2 of The 3 Cases", forType: .string)
-        
-        KindaVimEngine.shared.lastYankStyle = .characterwise
-        let accessibilityElement = sendMoveThroughVimEngineAndGetBackAccessibilityElement()
-        
-        XCTAssertEqual(accessibilityElement?.value, "the user has clicked out of the boundaries!test 2 of The 3 Cases")
-        XCTAssertEqual(accessibilityElement?.caretLocation, 63)
     }
 
 }

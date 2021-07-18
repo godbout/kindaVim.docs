@@ -14,9 +14,8 @@ class UIASNM_P__TextFields_Tests: ASUI_NM_BaseTests {
 }
 
 
-// same as p. The 3 Cases but only 2 because no empty line for TextFields
+// same as p. The 3 Cases but only 1 because the other ones don't make sense
 // - empty TextElement
-// - caret at the end of TextElement but not on empty line
 extension UIASNM_P__TextFields_Tests {
     
     func test_that_if_the_TextField_is_empty_it_still_pastes() {
@@ -33,23 +32,6 @@ extension UIASNM_P__TextFields_Tests {
         
         XCTAssertEqual(accessibilityElement?.value, "test 1 of The 3 Cases P TF")
         XCTAssertEqual(accessibilityElement?.caretLocation, 25)
-    }
-    
-    func test_that_if_the_caret_is_at_the_last_character_of_the_TextField_it_still_pastes() {
-        let textInAXFocusedElement = "oh oh you're out of the boundaries!"
-        app.textFields.firstMatch.tap()
-        app.textFields.firstMatch.typeText(textInAXFocusedElement)
-        KindaVimEngine.shared.enterNormalMode()
-        app.textViews.firstMatch.typeKey(.rightArrow, modifierFlags: [])
-        
-        NSPasteboard.general.clearContents()
-        NSPasteboard.general.setString("test 2 of The 3 Cases P TF", forType: .string)
-        
-        KindaVimEngine.shared.lastYankStyle = .characterwise
-        let accessibilityElement = sendMoveThroughVimEngineAndGetBackAccessibilityElement()
-        
-        XCTAssertEqual(accessibilityElement?.value, "oh oh you're out of the boundaries!test 2 of The 3 Cases P TF")
-        XCTAssertEqual(accessibilityElement?.caretLocation, 60)
     }
     
 }
