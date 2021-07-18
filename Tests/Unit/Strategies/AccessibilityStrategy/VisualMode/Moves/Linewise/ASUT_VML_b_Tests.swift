@@ -17,14 +17,6 @@ class ASVML_b_Tests: ASVM_BaseTests {
 }
 
 
-// currently same as Characterwise
-// The 3 Cases:
-// - empty TextElement
-// - 2nd case is now gone!
-// - caret at the end of TextElement on own empty line
-extension ASVML_b_Tests {}
-
-
 // Both
 extension ASVML_b_Tests {
     

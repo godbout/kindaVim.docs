@@ -15,61 +15,6 @@ class UIASNM_P__TextViews_Tests: ASUI_NM_BaseTests {
 
 
 // characterwise
-// The 3 Cases:
-// - empty TextElement
-// - 2nd case is now gone!
-// - caret at the end of TextElement on own empty line
-extension UIASNM_P__TextViews_Tests {
-
-    func test_that_if_the_TextArea_is_empty_it_still_pastes() {
-        let textInAXFocusedElement = ""
-        app.textViews.firstMatch.tap()
-        app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        KindaVimEngine.shared.enterNormalMode()
-
-        NSPasteboard.general.clearContents()
-        NSPasteboard.general.setString("test 1 of The 3 Cases for TextArea P", forType: .string)
-
-        KindaVimEngine.shared.lastYankStyle = .characterwise
-        let accessibilityElement = sendMoveThroughVimEngineAndGetBackAccessibilityElement()
-
-        XCTAssertEqual(accessibilityElement?.value, "test 1 of The 3 Cases for TextArea P")
-        XCTAssertEqual(accessibilityElement?.caretLocation, 35)
-    }
-
-    func test_that_if_the_caret_is_at_the_last_character_of_the_TextArea_and_on_an_empty_line_it_still_pastes() {
-        let textInAXFocusedElement = """
-caret is on its
-own empty
-line
-
-"""
-        app.textViews.firstMatch.tap()
-        app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        KindaVimEngine.shared.enterNormalMode()
-        app.textViews.firstMatch.typeKey(.rightArrow, modifierFlags: [])
-
-        NSPasteboard.general.clearContents()
-        NSPasteboard.general.setString("test 3 of The 3 Cases for TextArea P", forType: .string)
-
-        KindaVimEngine.shared.lastYankStyle = .characterwise
-        let accessibilityElement = sendMoveThroughVimEngineAndGetBackAccessibilityElement()
-
-        XCTAssertEqual(accessibilityElement?.value, """
-caret is on its
-own empty
-line
-test 3 of The 3 Cases for TextArea P
-"""
-        )
-        XCTAssertEqual(accessibilityElement?.caretLocation, 66)
-    }
-
-}
-
-
-// characterwise
-// other cases
 extension UIASNM_P__TextViews_Tests {
 
     func test_that_in_normal_setting_it_pastes_the_text_at_the_caret_location_and_the_block_cursor_ends_up_at_the_end_of_the_pasted_text() {
@@ -129,66 +74,6 @@ here's the last one
 
 
 // linewise
-// The 3 Cases:
-// - empty TextElement
-// - 2nd case is now gone!
-// - caret at the end of TextElement on own empty line
-extension UIASNM_P__TextViews_Tests {
-
-    func test_that_if_the_TextArea_is_empty_it_still_pastes_on_the_current_line_and_enforce_a_trailing_linefeed() {
-        let textInAXFocusedElement = ""
-        app.textViews.firstMatch.tap()
-        app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        KindaVimEngine.shared.enterNormalMode()
-
-        NSPasteboard.general.clearContents()
-        NSPasteboard.general.setString("test 1 of The 3 Cases for TextArea linewise P", forType: .string)
-
-        KindaVimEngine.shared.lastYankStyle = .linewise
-        let accessibilityElement = sendMoveThroughVimEngineAndGetBackAccessibilityElement()
-
-        XCTAssertEqual(accessibilityElement?.value, """
-test 1 of The 3 Cases for TextArea linewise P
-
-"""
-        )
-        XCTAssertEqual(accessibilityElement?.caretLocation, 0)
-    }
-
-    func test_that_if_the_caret_is_at_the_last_character_of_the_TextArea_and_on_an_empty_line_it_still_pastes_and_will_enforce_a_trailing_linefeed() {
-        let textInAXFocusedElement = """
-this should paste
-on the last line and
-enforce a linefeed
-
-"""
-        app.textViews.firstMatch.tap()
-        app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        KindaVimEngine.shared.enterNormalMode()
-        app.textViews.firstMatch.typeKey(.rightArrow, modifierFlags: [])
-
-        NSPasteboard.general.clearContents()
-        NSPasteboard.general.setString("test 3 of The 3 Cases for TextArea linewise P", forType: .string)
-
-        KindaVimEngine.shared.lastYankStyle = .linewise
-        let accessibilityElement = sendMoveThroughVimEngineAndGetBackAccessibilityElement()
-
-        XCTAssertEqual(accessibilityElement?.value, """
-this should paste
-on the last line and
-enforce a linefeed
-test 3 of The 3 Cases for TextArea linewise P
-
-"""
-        )
-        XCTAssertEqual(accessibilityElement?.caretLocation, 58)
-    }
-
-}
-
-
-// linewise
-// other cases
 extension UIASNM_P__TextViews_Tests {
 
     func test_that_in_normal_setting_it_pasts_the_content_on_the_current_line_and_shifts_the_current_line_down() {
@@ -247,6 +132,35 @@ to the first non blank of the copied line
 """
         )
         XCTAssertEqual(accessibilityElement?.caretLocation, 19)
+    }
+    
+    func test_that_if_the_caret_is_at_the_last_character_of_the_TextArea_and_on_an_empty_line_it_still_pastes_and_will_enforce_a_trailing_linefeed() {
+        let textInAXFocusedElement = """
+this should paste
+on the last line and
+enforce a linefeed
+
+"""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        KindaVimEngine.shared.enterNormalMode()
+        app.textViews.firstMatch.typeKey(.rightArrow, modifierFlags: [])
+        
+        NSPasteboard.general.clearContents()
+        NSPasteboard.general.setString("test 3 of The 3 Cases for TextArea linewise P", forType: .string)
+        
+        KindaVimEngine.shared.lastYankStyle = .linewise
+        let accessibilityElement = sendMoveThroughVimEngineAndGetBackAccessibilityElement()
+        
+        XCTAssertEqual(accessibilityElement?.value, """
+this should paste
+on the last line and
+enforce a linefeed
+test 3 of The 3 Cases for TextArea linewise P
+
+"""
+        )
+        XCTAssertEqual(accessibilityElement?.caretLocation, 58)
     }
 
 }

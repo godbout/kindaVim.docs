@@ -14,43 +14,6 @@ class UIASNM_gg_Tests: ASUI_NM_BaseTests {
 }
 
 
-// The 3 Cases:
-// - empty TextElement
-// - 2nd case is now gone!
-// - caret at the end of TextElement on own empty line
-extension UIASNM_gg_Tests {    
-    
-    func test_that_if_the_TextElement_is_empty_it_does_not_move() {
-        let textInAXFocusedElement = ""
-        app.textFields.firstMatch.tap()
-        app.textFields.firstMatch.typeText(textInAXFocusedElement)
-        KindaVimEngine.shared.enterNormalMode()
-        
-        let accessibilityElement = applyMoveAndGetBackAccessibilityElement()        
-        
-        XCTAssertEqual(accessibilityElement?.caretLocation, 0)
-    }
-    
-    func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_and_on_an_empty_line_it_works_and_the_caret_goes_to_the_relevant_position() {
-        let textInAXFocusedElement = """
-caret is on its
-own empty
-line
-
-"""
-        app.textViews.firstMatch.tap()
-        app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        KindaVimEngine.shared.enterNormalMode()
-        app.textViews.firstMatch.typeKey(.rightArrow, modifierFlags: [])
-        
-        let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
-        
-        XCTAssertEqual(accessibilityElement?.caretLocation, 0)
-    }
-    
-}
-
-
 // TextFields
 extension UIASNM_gg_Tests {
     

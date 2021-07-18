@@ -17,68 +17,6 @@ class ASVMC_o_Tests: ASVM_BaseTests {
 }
 
 
-// The 3 Cases:
-// - empty TextElement
-// - 2nd case is now gone!
-// - caret at the end of TextElement on own empty line
-extension ASVMC_o_Tests {
-    
-    func test_that_if_the_TextElement_is_empty_it_works_and_changes_nothing() {
-        let text = ""
-        let element = AccessibilityTextElement(
-            role: .textField,
-            value: text,
-            length: 0,
-            caretLocation: 0,
-            selectedLength: 0,
-            selectedText: "",
-            currentLine: AccessibilityTextElementLine(
-                fullValue: text,
-                number: 1,
-                start: 0,
-                end: 0
-            )
-        )
-        
-        let returnedElement = applyMove(on: element)
-        
-        XCTAssertEqual(returnedElement?.caretLocation, 0)
-        XCTAssertEqual(returnedElement?.selectedLength, 0)
-        XCTAssertNil(returnedElement?.selectedText)
-    }
-    
-    func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_and_on_an_empty_line_it_does_nothing() {
-        let text = """
-caret is on its
-own emptyfjsl
-line
-
-"""
-        let element = AccessibilityTextElement(
-            role: .textArea,
-            value: text,
-            length: 35,
-            caretLocation: 35,
-            selectedLength: 0,
-            selectedText: "",
-            currentLine: AccessibilityTextElementLine(
-                fullValue: text,
-                number: 4,
-                start: 35,
-                end: 35
-            )
-        )
-        
-        let returnedElement = applyMove(on: element)
-        
-        XCTAssertEqual(returnedElement?.caretLocation, 35)
-        XCTAssertEqual(returnedElement?.selectedLength, 0)
-        XCTAssertNil(returnedElement?.selectedText)
-    }
-    
-}
-
-
 // Both
 extension ASVMC_o_Tests {
     

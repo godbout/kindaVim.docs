@@ -1,6 +1,8 @@
 import XCTest
 
+
 class NonTextElementsTests: ATEA_BaseTests {}
+
 
 // from AXUIElement
 extension NonTextElementsTests {
@@ -22,6 +24,7 @@ extension NonTextElementsTests {
     }
 
 }
+
 
 // to AXUIElement
 extension NonTextElementsTests {

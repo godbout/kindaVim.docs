@@ -20,76 +20,6 @@ class ASVMC_b_Tests: ASVM_BaseTests {
 }
 
 
-// The 3 Cases:
-// - empty TextElement
-// - 2nd case is now gone!
-// - caret at the end of TextElement on own empty line
-extension ASVMC_b_Tests {
-    
-    func test_that_if_the_TextElement_is_empty_it_works_and_does_not_move() {
-        let text = ""
-        let element = AccessibilityTextElement(
-            role: .textField,
-            value: text,
-            length: 0,
-            caretLocation: 0,
-            selectedLength: 0,
-            selectedText: "",
-            currentLine: AccessibilityTextElementLine(
-                fullValue: text,
-                number: 1,
-                start: 0,
-                end: 0
-            )
-        )
-        
-        AccessibilityStrategyVisualMode.anchor = 0
-        AccessibilityStrategyVisualMode.head = 0
-        
-        let returnedElement = applyMove(on: element)
-        
-        XCTAssertEqual(returnedElement?.caretLocation, 0)
-        XCTAssertEqual(returnedElement?.selectedLength, 1)
-        XCTAssertNil(returnedElement?.selectedText)
-    }
-    
-    func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_and_on_an_empty_line_it_works_and_goes_to_the_beginning_of_the_word() {
-        let text = """
-caret is on its
-own empty
-line
-
-"""
-        let element = AccessibilityTextElement(
-            role: .textArea,
-            value: text,
-            length: 31,
-            caretLocation: 31,
-            selectedLength: 0,
-            selectedText: "",
-            currentLine: AccessibilityTextElementLine(
-                fullValue: text,
-                number: 4,
-                start: 31,
-                end: 31
-            )
-        )
-        
-        AccessibilityStrategyVisualMode.anchor = 31
-        AccessibilityStrategyVisualMode.head = 31
-        
-        let returnedElement = applyMove(on: element)
-        
-        XCTAssertEqual(returnedElement?.caretLocation, 26)
-        // selectedLength is 6, returned by the move.
-        // it will be tweaked to 5 by the AXEngine so that it doesn't fail (last empty line)
-        XCTAssertEqual(returnedElement?.selectedLength, 6)
-        XCTAssertNil(returnedElement?.selectedText)
-    }
-    
-}
-
-
 // Both
 extension ASVMC_b_Tests {
     
@@ -178,6 +108,40 @@ fro
         
         XCTAssertEqual(returnedElement?.caretLocation, 8)
         XCTAssertEqual(returnedElement?.selectedLength, 11)   
+        XCTAssertNil(returnedElement?.selectedText)
+    }
+    
+    func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_and_on_an_empty_line_it_works_and_goes_to_the_beginning_of_the_word() {
+        let text = """
+caret is on its
+own empty
+line
+
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 31,
+            caretLocation: 31,
+            selectedLength: 0,
+            selectedText: "",
+            currentLine: AccessibilityTextElementLine(
+                fullValue: text,
+                number: 4,
+                start: 31,
+                end: 31
+            )
+        )
+        
+        AccessibilityStrategyVisualMode.anchor = 31
+        AccessibilityStrategyVisualMode.head = 31
+        
+        let returnedElement = applyMove(on: element)
+        
+        XCTAssertEqual(returnedElement?.caretLocation, 26)
+        // selectedLength is 6, returned by the move.
+        // it will be tweaked to 5 by the AXEngine so that it doesn't fail (last empty line)
+        XCTAssertEqual(returnedElement?.selectedLength, 6)
         XCTAssertNil(returnedElement?.selectedText)
     }
     

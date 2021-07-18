@@ -5,54 +5,6 @@ import XCTest
 class UIASSVMC_h_Tests: ASUI_VM_BaseTests {}
     
 
-// The 3 Cases:
-// - empty TextElement
-// - 2nd case is now gone!
-// - caret at the end of TextElement on own empty line
-extension UIASSVMC_h_Tests {
-    
-    func test_that_if_the_TextElement_is_empty_it_works_and_does_not_move() {
-        let textInAXFocusedElement = ""
-        app.textFields.firstMatch.tap()
-        app.textFields.firstMatch.typeText(textInAXFocusedElement)
-        KindaVimEngine.shared.enterNormalMode()
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .v))
-        
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .h))
-        let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
-        
-        XCTAssertEqual(accessibilityElement?.caretLocation, 0)
-    }
-    
-    func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_and_on_an_empty_line_it_works_and_does_nothing() {
-        let textInAXFocusedElement = """
-caret is on its
-own empty
-    line
-
-"""
-        app.textViews.firstMatch.tap()
-        app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        KindaVimEngine.shared.enterNormalMode()
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .v))
-        app.textViews.firstMatch.typeKey(.rightArrow, modifierFlags: [])
-        
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .h))
-        let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
-        
-        XCTAssertEqual(accessibilityElement?.value, """
-caret is on its
-own empty
-    line
-
-"""
-        )
-        XCTAssertEqual(accessibilityElement?.caretLocation, 35)
-    } 
-    
-}
-
-
 // Both
 extension UIASSVMC_h_Tests {
     

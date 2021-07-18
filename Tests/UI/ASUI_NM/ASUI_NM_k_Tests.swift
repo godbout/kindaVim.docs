@@ -14,44 +14,6 @@ class UIASNM_k_Tests: ASUI_NM_BaseTests {
 }
 
 
-// the 3 special cases, same as j, no TF tests here
-// - empty TextElement
-// - caret at the end of TextElement but not on empty line
-// - caret at the end of TextElement on own empty line
-extension UIASNM_k_Tests {    
-    
-    func test_that_if_the_TextElement_is_empty_it_works_and_does_not_move() {
-        let textInAXFocusedElement = ""
-        app.textViews.firstMatch.tap()
-        app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        KindaVimEngine.shared.enterNormalMode()
-        
-        let accessibilityElement = applyMoveAndGetBackAccessibilityElement()        
-        
-        XCTAssertEqual(accessibilityElement?.caretLocation, 0)
-    }
-    
-    func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_and_on_an_empty_line_it_works_and_moves_up() {
-        let textInAXFocusedElement = """
-caret is on its
-own empty
-line
-
-"""
-        app.textViews.firstMatch.tap()
-        app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        KindaVimEngine.shared.enterNormalMode()
-        
-        let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
-        
-        // real location will depend on GlobalColumnNumber, so we test that it moved up
-        // we don't care where exactly on the previous line
-        XCTAssertNotEqual(accessibilityElement?.caretLocation, 31)
-    }
-    
-}
-
-
 // TextViews
 extension UIASNM_k_Tests {
 

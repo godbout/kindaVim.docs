@@ -17,74 +17,6 @@ class ASVMC_y_Tests: ASVM_BaseTests {
 }
 
 
-// The 3 Cases:
-// - empty TextElement
-// - 2nd case is now gone!
-// - caret at the end of TextElement on own empty line
-extension ASVMC_y_Tests {
-    
-    func test_that_if_the_TextElement_is_empty_it_works_and_copies_the_emptiness_of_life() {
-        let text = ""
-        let element = AccessibilityTextElement(
-            role: .textField,
-            value: text,
-            length: 0,
-            caretLocation: 0,
-            selectedLength: 0,
-            selectedText: "",
-            currentLine: AccessibilityTextElementLine(
-                fullValue: text,
-                number: 1,
-                start: 0,
-                end: 0
-            )
-        )
-        
-        NSPasteboard.general.clearContents()
-        NSPasteboard.general.setString("test 1 of The 3 Cases VM y", forType: .string)
-        
-        let returnedElement = applyMove(on: element)
-        
-        XCTAssertEqual(NSPasteboard.general.string(forType: .string), "")
-        XCTAssertEqual(returnedElement?.selectedLength, 1)
-        XCTAssertNil(returnedElement?.selectedText)
-    }
-    
-    func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_and_on_an_empty_line_on_its_own_it_works_and_copies_nothing() {
-        let text = """
-caret is on its
-own empty
-line
-
-"""
-        let element = AccessibilityTextElement(
-            role: .textArea,
-            value: text,
-            length: 31,
-            caretLocation: 31,
-            selectedLength: 0,
-            selectedText: "",
-            currentLine: AccessibilityTextElementLine(
-                fullValue: text,
-                number: 4,
-                start: 31,
-                end: 31
-            )
-        )
-        
-        NSPasteboard.general.clearContents()
-        NSPasteboard.general.setString("test 3 of The 3 Cases VM y", forType: .string)
-        
-        let returnedElement = applyMove(on: element)
-        
-        XCTAssertEqual(NSPasteboard.general.string(forType: .string), "")
-        XCTAssertEqual(returnedElement?.selectedLength, 1)
-        XCTAssertNil(returnedElement?.selectedText)
-    }    
-    
-}
-
-
 // Both
 extension ASVMC_y_Tests {
     
@@ -168,5 +100,64 @@ should set Visu
         XCTAssertEqual(returnedElement?.selectedLength, 1)
         XCTAssertNil(returnedElement?.selectedText)
     }
+    
+    func test_that_if_the_TextElement_is_empty_it_works_and_copies_the_emptiness_of_life() {
+        let text = ""
+        let element = AccessibilityTextElement(
+            role: .textField,
+            value: text,
+            length: 0,
+            caretLocation: 0,
+            selectedLength: 0,
+            selectedText: "",
+            currentLine: AccessibilityTextElementLine(
+                fullValue: text,
+                number: 1,
+                start: 0,
+                end: 0
+            )
+        )
+        
+        NSPasteboard.general.clearContents()
+        NSPasteboard.general.setString("test 1 of The 3 Cases VM y", forType: .string)
+        
+        let returnedElement = applyMove(on: element)
+        
+        XCTAssertEqual(NSPasteboard.general.string(forType: .string), "")
+        XCTAssertEqual(returnedElement?.selectedLength, 1)
+        XCTAssertNil(returnedElement?.selectedText)
+    }
+    
+    func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_and_on_an_empty_line_on_its_own_it_works_and_copies_nothing() {
+        let text = """
+caret is on its
+own empty
+line
+
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 31,
+            caretLocation: 31,
+            selectedLength: 0,
+            selectedText: "",
+            currentLine: AccessibilityTextElementLine(
+                fullValue: text,
+                number: 4,
+                start: 31,
+                end: 31
+            )
+        )
+        
+        NSPasteboard.general.clearContents()
+        NSPasteboard.general.setString("test 3 of The 3 Cases VM y", forType: .string)
+        
+        let returnedElement = applyMove(on: element)
+        
+        XCTAssertEqual(NSPasteboard.general.string(forType: .string), "")
+        XCTAssertEqual(returnedElement?.selectedLength, 1)
+        XCTAssertNil(returnedElement?.selectedText)
+    }   
     
 }

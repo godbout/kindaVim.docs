@@ -19,33 +19,6 @@ class UIASNM_p_TextFields_Tests: ASUI_NM_BaseTests {
 }
 
 
-// the 3 special cases, but only 1 for TextFields as the two others don't apply
-// - empty TextElement
-// also the tests are valid for characterwise and linewise, as we actually don't even check
-// p should behave the same for both linewise or characterwise last yanked style. it will
-// always behave characterwise because no linefeed in TextFields. (still having some tests
-// below to sleep better at night :D)
-extension UIASNM_p_TextFields_Tests {
-    
-    func test_that_if_the_TextField_is_empty_it_still_pastes() {
-        let textInAXFocusedElement = ""
-        app.textFields.firstMatch.tap()
-        app.textFields.firstMatch.typeText(textInAXFocusedElement)
-        KindaVimEngine.shared.enterNormalMode()
-                
-        NSPasteboard.general.clearContents()
-        NSPasteboard.general.setString("test 1 of The 3 Cases", forType: .string)
-                
-        KindaVimEngine.shared.lastYankStyle = .characterwise
-        let accessibilityElement = sendMoveThroughVimEngineAndGetBackAccessibilityElement() 
-        
-        XCTAssertEqual(accessibilityElement?.value, "test 1 of The 3 Cases")
-        XCTAssertEqual(accessibilityElement?.caretLocation, 20)
-    }
-
-}
-
-
 // characterwise
 extension UIASNM_p_TextFields_Tests {
     

@@ -4,14 +4,6 @@ import XCTest
 class UIASVML_h_Tests: ASUI_VM_BaseTests {}
 
 
-// currently same as Characterwise, so not bothering
-// The 3 Cases:
-// - empty TextElement
-// - 2nd case is now gone!
-// - caret at the end of TextElement on own empty line
-extension UIASVML_h_Tests {}
-
-
 // Both
 extension UIASVML_h_Tests {
     

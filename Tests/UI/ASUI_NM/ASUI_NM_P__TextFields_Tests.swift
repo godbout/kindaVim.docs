@@ -14,29 +14,6 @@ class UIASNM_P__TextFields_Tests: ASUI_NM_BaseTests {
 }
 
 
-// same as p. The 3 Cases but only 1 because the other ones don't make sense
-// - empty TextElement
-extension UIASNM_P__TextFields_Tests {
-    
-    func test_that_if_the_TextField_is_empty_it_still_pastes() {
-        let textInAXFocusedElement = ""
-        app.textFields.firstMatch.tap()
-        app.textFields.firstMatch.typeText(textInAXFocusedElement)
-        KindaVimEngine.shared.enterNormalMode()
-        
-        NSPasteboard.general.clearContents()
-        NSPasteboard.general.setString("test 1 of The 3 Cases P TF", forType: .string)
-        
-        KindaVimEngine.shared.lastYankStyle = .characterwise
-        let accessibilityElement = sendMoveThroughVimEngineAndGetBackAccessibilityElement() 
-        
-        XCTAssertEqual(accessibilityElement?.value, "test 1 of The 3 Cases P TF")
-        XCTAssertEqual(accessibilityElement?.caretLocation, 25)
-    }
-    
-}
-
-
 // characterwise
 extension UIASNM_P__TextFields_Tests {
     

@@ -14,49 +14,6 @@ class UIASNM_dd_Tests: ASUI_NM_BaseTests {
 }
 
 
-// The 3 Cases:
-// - empty TextElement
-// - 2nd case is now gone!
-// - caret at the end of TextElement on own empty line
-extension UIASNM_dd_Tests {    
-    
-    func test_that_if_the_TextElement_is_empty_it_works_and_deletes_dark_emptiness() {
-        let textInAXFocusedElement = ""
-        app.textFields.firstMatch.tap()
-        app.textFields.firstMatch.typeText(textInAXFocusedElement)
-        KindaVimEngine.shared.enterNormalMode()
-        
-        let accessibilityElement = applyMoveAndGetBackAccessibilityElement()        
-        
-        XCTAssertEqual(accessibilityElement?.caretLocation, 0)
-    }
-    
-    func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_and_on_an_empty_line_it_works_and_the_caret_goes_to_the_relevant_position() {
-        let textInAXFocusedElement = """
-caret is on its
-own empty
-    line
-
-"""
-        app.textViews.firstMatch.tap()
-        app.textViews.firstMatch.typeText(textInAXFocusedElement)
-        KindaVimEngine.shared.enterNormalMode()
-        app.textViews.firstMatch.typeKey(.rightArrow, modifierFlags: [])
-        
-        let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
-        
-        XCTAssertEqual(accessibilityElement?.value, """
-caret is on its
-own empty
-    line
-"""
-        )
-        XCTAssertEqual(accessibilityElement?.caretLocation, 30)
-    }
-    
-}
-
-
 // TextFields
 extension UIASNM_dd_Tests {
     
@@ -221,6 +178,29 @@ dd here and we suppose
 """
         )
         XCTAssertEqual(accessibilityElement?.caretLocation, 47)    
+    }
+    
+    func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_and_on_an_empty_line_it_works_and_the_caret_goes_to_the_relevant_position() {
+        let textInAXFocusedElement = """
+caret is on its
+own empty
+    line
+
+"""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        KindaVimEngine.shared.enterNormalMode()
+        app.textViews.firstMatch.typeKey(.rightArrow, modifierFlags: [])
+        
+        let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
+        
+        XCTAssertEqual(accessibilityElement?.value, """
+caret is on its
+own empty
+    line
+"""
+        )
+        XCTAssertEqual(accessibilityElement?.caretLocation, 30)
     }
     
 }
