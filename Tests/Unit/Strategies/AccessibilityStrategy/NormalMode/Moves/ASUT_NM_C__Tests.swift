@@ -101,3 +101,36 @@ and that shouldn't be deleted by C
     }
     
 }
+
+
+// emojis
+extension ASNM_C__Tests {
+    
+    func test_that_it_handles_emojis() {
+        let text = """
+need to deal with
+those faces 🥺️☹️😂️
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 38,
+            caretLocation: 33,
+            selectedLength: 1,
+            selectedText: "a",
+            currentLine: AccessibilityTextElementLine(
+                fullValue: text,
+                number: 2,
+                start: 18,
+                end: 38
+            )
+        )
+        
+        let returnedElement = applyMove(on: element)
+        
+        XCTAssertEqual(returnedElement?.caretLocation, 33)
+        XCTAssertEqual(returnedElement?.selectedLength, 5)
+        XCTAssertEqual(returnedElement?.selectedText, "")
+    }
+    
+}
