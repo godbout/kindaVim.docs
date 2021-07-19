@@ -114,24 +114,13 @@ struct AccessibilityTextElement {
     var currentLine: AccessibilityTextElementLine!
     
     var characterLength: Int {
-        guard let characterIndex = value.utf16.index(value.startIndex, offsetBy: caretLocation, limitedBy: value.endIndex) else { return 0 }
-        guard characterIndex != value.endIndex else { return 0 }
-        
-        return value[characterIndex].utf16.count
+        return value.characterLengthForCharacter(at: caretLocation)
     }
     var nextCharacterLength: Int {
-        guard let nextCharacterIndex = value.utf16.index(value.startIndex, offsetBy: caretLocation + characterLength, limitedBy: value.endIndex) else { return 0 }
-        guard nextCharacterIndex != value.endIndex else { return 0 }
-        
-        return value[nextCharacterIndex].utf16.count
+        return value.characterLengthForCharacter(after: caretLocation)        
     }
     var previousCharacterLength: Int {
-        guard let characterIndex = value.utf16.index(value.startIndex, offsetBy: caretLocation, limitedBy: value.endIndex) else { return 0 }
-        guard characterIndex != value.startIndex else { return 0 }
-        let previousCharacterIndex = value.index(before: characterIndex)
-        guard previousCharacterIndex != value.endIndex else { return 0 }
-        
-        return value[previousCharacterIndex].utf16.count
+        return value.characterLengthForCharacter(before: caretLocation)
     }
     
     var isEmpty: Bool { value.isEmpty }    
