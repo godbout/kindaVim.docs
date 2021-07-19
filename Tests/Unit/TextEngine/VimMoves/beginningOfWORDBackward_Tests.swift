@@ -225,3 +225,17 @@ whitespaces
     }
     
 }
+
+// emojis
+// see beginningOfWordBackward for the blah blah
+extension beginningOfWORDBackwardTests {
+    
+    func test_that_it_handles_emojis() {
+        let text = "emojis are symbols that 🔫️🔫️hehe🔫️ are longer than 1 length"
+        
+        let newCaretPosition = textEngine.beginningOfWORDBackward(startingAt: 34, in: TextEngineText(from: text))
+        
+        XCTAssertEqual(newCaretPosition, 24)                
+    }
+    
+}

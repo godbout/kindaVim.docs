@@ -195,16 +195,14 @@ extension KindaVimEngine {
                 post(keyboardStrategy.A())
             }
         case .b:
-            if var element = asNormalMode.b(on: focusedElement()) {
-                element.selectedLength = 1
-                _ = push(element: element)
+            if let element = asNormalMode.b(on: focusedElement()) {
+               push(element: element)
             } else {
                 post(keyboardStrategy.b())
             }
         case .B:
-            if var element = asNormalMode.B(on: focusedElement()) {
-                element.selectedLength = 1
-                _ = push(element: element)
+            if let element = asNormalMode.B(on: focusedElement()) {
+                push(element: element)
             } else {
                 post(keyboardStrategy.b())
             }

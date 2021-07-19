@@ -5,7 +5,7 @@ extension TextEngine {
         
         let value = text.value
         
-        let anchorIndex = value.index(value.startIndex, offsetBy: location)
+        let anchorIndex = value.utf16.index(value.startIndex, offsetBy: location)
         let startIndex = value.startIndex
         
         for index in value[startIndex..<anchorIndex].indices.reversed() {
@@ -28,7 +28,7 @@ extension TextEngine {
                 }
             }
             
-            return value.distance(from: startIndex, to: index)
+            return value.utf16.distance(from: startIndex, to: index)
         }        
         
         return location
