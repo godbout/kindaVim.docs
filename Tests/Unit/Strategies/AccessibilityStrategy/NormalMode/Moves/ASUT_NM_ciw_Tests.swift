@@ -153,3 +153,65 @@ line
     }
     
 }
+
+
+// emojis
+extension ASNM_ciw_Tests {
+    
+    func test_that_it_handles_emojis() {
+        let text = """
+need to deal with
+those faces 🥺️☹️😂️
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 38,
+            caretLocation: 33,
+            selectedLength: 0,
+            selectedText: "",
+            currentLine: AccessibilityTextElementLine(
+                fullValue: text,
+                number: 2,
+                start: 18,
+                end: 38
+            )
+        )
+        
+        let returnedElement = applyMove(on: element)
+        
+        XCTAssertEqual(returnedElement?.caretLocation, 30)
+        XCTAssertEqual(returnedElement?.selectedLength, 8)
+        XCTAssertEqual(returnedElement?.selectedText, "")
+    }
+    
+    func test_that_if_the_caret_is_at_the_last_character_of_the_TextElement_and_on_an_empty_line_it_works_and_deletes_the_last_character_of_the_previous_line_even_if_it_is_an_emoji() {        
+        let text = """
+caret is on its
+own empty
+line 📆️
+
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 35,
+            caretLocation: 35,
+            selectedLength: 0,
+            selectedText: "",
+            currentLine: AccessibilityTextElementLine(
+                fullValue: text,
+                number: 4,
+                start: 35,
+                end: 35
+            )
+        )
+        
+        let returnedElement = applyMove(on: element)
+        
+        XCTAssertEqual(returnedElement?.caretLocation, 31)
+        XCTAssertEqual(returnedElement?.selectedLength, 4)
+        XCTAssertEqual(returnedElement?.selectedText, "")
+    }
+    
+}
