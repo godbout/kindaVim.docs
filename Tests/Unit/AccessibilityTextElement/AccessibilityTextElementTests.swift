@@ -4,6 +4,10 @@ import XCTest
 
 // here we gonna test all the ATE computed properties to make sure that when
 // we use them later in the moves they're not full of shit :D
+// currently we are grouping the tests rather than testing each computed property
+// independently because they will be tested by themselves through the move tests.
+// those tests are not extra necessary, but because i'm dealing with the emojis now i wanna avoid headaches
+// and make sure i get correct results from those computed properties
 class AccessibilityTextElementTests: XCTestCase {}
 
 
@@ -34,6 +38,12 @@ extension AccessibilityTextElementTests {
         XCTAssertEqual(element.characterLength, 0)
         XCTAssertEqual(element.nextCharacterLength, 0)
         XCTAssertEqual(element.previousCharacterLength, 0)
+        XCTAssertEqual(element.isEmpty, true)
+        XCTAssertEqual(element.isNotEmpty, false)
+        XCTAssertEqual(element.caretIsAtTheEnd, true)
+        XCTAssertEqual(element.caretIsNotAtTheEnd, false)
+        XCTAssertEqual(element.lastCharacterIsLinefeed, false)
+        XCTAssertEqual(element.lastCharacterIsNotLinefeed, true)
     }
         
     func test_that_without_emojis_if_the_caret_is_at_the_last_character_of_the_TextElement_and_on_an_empty_line_the_computed_properties_are_correctly_calculated() {
@@ -61,6 +71,12 @@ line
         XCTAssertEqual(element.characterLength, 0)
         XCTAssertEqual(element.nextCharacterLength, 0)
         XCTAssertEqual(element.previousCharacterLength, 1)
+        XCTAssertEqual(element.isEmpty, false)
+        XCTAssertEqual(element.isNotEmpty, true)
+        XCTAssertEqual(element.caretIsAtTheEnd, true)
+        XCTAssertEqual(element.caretIsNotAtTheEnd, false)
+        XCTAssertEqual(element.lastCharacterIsLinefeed, true)
+        XCTAssertEqual(element.lastCharacterIsNotLinefeed, false)
     }
             
 }
@@ -90,6 +106,12 @@ extension AccessibilityTextElementTests {
         XCTAssertEqual(element.characterLength, 1)
         XCTAssertEqual(element.nextCharacterLength, 1)
         XCTAssertEqual(element.previousCharacterLength, 1)
+        XCTAssertEqual(element.isEmpty, false)
+        XCTAssertEqual(element.isNotEmpty, true)
+        XCTAssertEqual(element.caretIsAtTheEnd, false)
+        XCTAssertEqual(element.caretIsNotAtTheEnd, true)
+        XCTAssertEqual(element.lastCharacterIsLinefeed, false)
+        XCTAssertEqual(element.lastCharacterIsNotLinefeed, true)
     }
     
 }
@@ -131,6 +153,12 @@ line 🌻️
         XCTAssertEqual(element.nextCharacterLength, 0)
         // previous is linefeed, not sunflower :D
         XCTAssertEqual(element.previousCharacterLength, 1)
+        XCTAssertEqual(element.isEmpty, false)
+        XCTAssertEqual(element.isNotEmpty, true)
+        XCTAssertEqual(element.caretIsAtTheEnd, true)
+        XCTAssertEqual(element.caretIsNotAtTheEnd, false)
+        XCTAssertEqual(element.lastCharacterIsLinefeed, true)
+        XCTAssertEqual(element.lastCharacterIsNotLinefeed, false)
     }
     
 }
@@ -158,6 +186,12 @@ extension AccessibilityTextElementTests {
         XCTAssertEqual(element.characterLength, 3)
         XCTAssertEqual(element.nextCharacterLength, 5)
         XCTAssertEqual(element.previousCharacterLength, 3)
+        XCTAssertEqual(element.isEmpty, false)
+        XCTAssertEqual(element.isNotEmpty, true)
+        XCTAssertEqual(element.caretIsAtTheEnd, false)
+        XCTAssertEqual(element.caretIsNotAtTheEnd, true)
+        XCTAssertEqual(element.lastCharacterIsLinefeed, false)
+        XCTAssertEqual(element.lastCharacterIsNotLinefeed, true)
     }
     
 }
