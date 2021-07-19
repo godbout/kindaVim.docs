@@ -15,29 +15,29 @@ class ASNM_a_Tests: ASNM_BaseTests {
 extension ASNM_a_Tests {
 
     func test_that_in_normal_setting_a_goes_one_character_to_the_right_in_Text_AXUIElement() {
-        let text = "l should go one character to the right"
+        let text = "l should go one ➡️ character to the right"
         let element = AccessibilityTextElement(
             role: .textField,
             value: text,
-            length: 38,
+            length: 41,
             caretLocation: 16,
-            selectedLength: 1,
-            selectedText: "c",
+            selectedLength: 2,
+            selectedText: "➡️",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 1,
                 start: 0,
-                end: 38
+                end: 41
             )
         )
 
         let returnedElement = applyMove(on: element)
 
-        XCTAssertEqual(returnedElement?.caretLocation, 17)
+        XCTAssertEqual(returnedElement?.caretLocation, 18)
         XCTAssertEqual(returnedElement?.selectedLength, 0)
         XCTAssertNil(returnedElement?.selectedText)
     }
-    
+
 }
 
 
