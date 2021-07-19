@@ -74,3 +74,21 @@ and a line is empty!
     }
     
 }
+
+
+// emojis
+// see beginningOfWordBackward for the blah blah
+extension firstNonBlankTests {
+    
+    // actually this function especially doesn't need anything special to handle emojis as it is counting only
+    // the blank characters and will stop at the first non blank found. still for consistency so that i'm not wondering
+    // later here it is.
+    func test_that_it_handles_emojis() {
+        let text = "     😂️"
+        
+        let newCaretPosition = textEngine.firstNonBlank(in: text)
+        
+        XCTAssertEqual(newCaretPosition, 5)                
+    }
+    
+}

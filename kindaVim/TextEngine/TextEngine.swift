@@ -120,10 +120,12 @@ struct TextEngine: TextEngineProtocol {}
 // to Vim ways of working.
 extension TextEngine {
     
+    // this one doesn't actually need the utf16 because it's particular as it's only checking for a first non blank character
+    // whether it is an emoji or not. still for consistency we will utf16 that shit.
     func firstNonBlank(in text: String) -> Int {
-        guard let characterIndex = text.firstIndex(where: { !$0.isWhitespaceButNotNewline }) else { return text.count }
+        guard let characterIndex = text.firstIndex(where: { !$0.isWhitespaceButNotNewline }) else { return text.utf16.count }
         
-        return text.distance(from: text.startIndex, to: characterIndex)
+        return text.utf16.distance(from: text.startIndex, to: characterIndex)
     }
     
     func firstNonBlankWithinLineLimit(in line: TextEngineLine) -> Int {

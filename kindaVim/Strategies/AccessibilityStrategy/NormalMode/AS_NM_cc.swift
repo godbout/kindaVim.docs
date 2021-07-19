@@ -1,16 +1,17 @@
 extension AccessibilityStrategyNormalMode {
     
     func cc(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
-        guard var element = element else { return nil }
+        guard let element = element else { return nil }
+        var newElement = element
         
         let lineText = element.currentLine.value
         let firstNonBlankOfCurrentLineLocation = textEngine.firstNonBlank(in: lineText)
         
-        element.caretLocation = element.currentLine.start + firstNonBlankOfCurrentLineLocation
-        element.selectedLength = element.currentLine.lengthWithoutLinefeed - firstNonBlankOfCurrentLineLocation
-        element.selectedText = ""
+        newElement.caretLocation = element.currentLine.start + firstNonBlankOfCurrentLineLocation
+        newElement.selectedLength = element.currentLine.lengthWithoutLinefeed - firstNonBlankOfCurrentLineLocation
+        newElement.selectedText = ""
         
-        return element
+        return newElement
     }
     
 }
