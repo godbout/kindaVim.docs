@@ -109,7 +109,7 @@ class TextEngineMock: TextEngineProtocol {
         return nil
     }
     
-    func innerWord(startingAt location: Int, in text: String) -> Range<Int> {
+    func innerWord(startingAt location: Int, in text: TextEngineText) -> Range<Int> {
         functionCalled = #function
         
         return 0..<0 
