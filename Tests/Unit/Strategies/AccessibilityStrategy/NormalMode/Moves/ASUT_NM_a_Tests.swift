@@ -81,26 +81,26 @@ extension ASNM_a_Tests {
     func test_that_it_handles_emojis() {
         let text = """
 need to deal with
-those 🥺️☹️ faces
+those 🥺️☹️😂️ faces
 """
         let element = AccessibilityTextElement(
             role: .textArea,
             value: text,
-            length: 35,
-            caretLocation: 24,
-            selectedLength: 3,
-            selectedText: "🥺️",
+            length: 38,
+            caretLocation: 27,
+            selectedLength: 0,
+            selectedText: "",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 2,
                 start: 18,
-                end: 35
+                end: 38
             )
         )
         
         let returnedElement = applyMove(on: element)
         
-        XCTAssertEqual(returnedElement?.caretLocation, 27)
+        XCTAssertEqual(returnedElement?.caretLocation, 29)
         XCTAssertEqual(returnedElement?.selectedLength, 0)
         XCTAssertNil(returnedElement?.selectedText)
     }
