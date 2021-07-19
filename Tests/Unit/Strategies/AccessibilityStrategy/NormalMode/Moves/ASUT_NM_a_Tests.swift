@@ -15,25 +15,25 @@ class ASNM_a_Tests: ASNM_BaseTests {
 extension ASNM_a_Tests {
 
     func test_that_in_normal_setting_a_goes_one_character_to_the_right_in_Text_AXUIElement() {
-        let text = "l should go one ➡️ character to the right"
+        let text = "l should go one character to the right"
         let element = AccessibilityTextElement(
             role: .textField,
             value: text,
-            length: 41,
-            caretLocation: 16,
-            selectedLength: 2,
-            selectedText: "➡️",
+            length: 38,
+            caretLocation: 13,
+            selectedLength: 1,
+            selectedText: "n",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 1,
                 start: 0,
-                end: 41
+                end: 38
             )
         )
 
         let returnedElement = applyMove(on: element)
 
-        XCTAssertEqual(returnedElement?.caretLocation, 18)
+        XCTAssertEqual(returnedElement?.caretLocation, 14)
         XCTAssertEqual(returnedElement?.selectedLength, 0)
         XCTAssertNil(returnedElement?.selectedText)
     }
@@ -72,4 +72,37 @@ a should not move
         XCTAssertNil(returnedElement?.selectedText)
     }
 
+}
+
+
+// emojis
+extension ASNM_a_Tests {
+    
+    func test_that_it_handles_emojis() {
+        let text = """
+need to deal with
+those 🥺️☹️ faces
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 35,
+            caretLocation: 24,
+            selectedLength: 3,
+            selectedText: "🥺️",
+            currentLine: AccessibilityTextElementLine(
+                fullValue: text,
+                number: 2,
+                start: 18,
+                end: 35
+            )
+        )
+        
+        let returnedElement = applyMove(on: element)
+        
+        XCTAssertEqual(returnedElement?.caretLocation, 27)
+        XCTAssertEqual(returnedElement?.selectedLength, 0)
+        XCTAssertNil(returnedElement?.selectedText)
+    }
+    
 }
