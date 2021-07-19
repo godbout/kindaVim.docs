@@ -2,20 +2,14 @@
 import XCTest
 
 
-// we use a mock here just to make sure the correct function
-// is called, but all the rest of the tests are handled by:
-// 1. tests of the TextEngine function this move is calling
-// 2. AS UI Tests where we test that the globalColumnNumber is updated
-//    correctly when the caret changes line due to this move
+// b is calling a TE func. we already have many tests in the TE func but just for the caretLocation
+// as the TE funcs don't handle anything else. here we will test some selectedLength as now with
+// emojis it can be different than 1
 class ASNM_b_Tests: ASNM_BaseTests {
     
-    let textEngineMock = TextEngineMock()
-    
-    override func setUp() {
-        super.setUp()
-        
-        asNormalMode = AccessibilityStrategyNormalMode(textEngine: textEngineMock)
-    }    
+    private func applyMove(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        return asNormalMode.b(on: element) 
+    }
     
 }
 
@@ -23,30 +17,30 @@ class ASNM_b_Tests: ASNM_BaseTests {
 // Both
 extension ASNM_b_Tests {
     
-    func test_that_it_calls_the_TextEngine_wordBackward_function() {
+    func test_that_it_returns_the_correct_selectedLength() {
         let text = """
-just testing call to wordBackward
-all the cases are tested in
-the TextEngineTests
+yeah coz the text functions don't
+care about the length but 🦋️ the move
+itself does
 """
         let element = AccessibilityTextElement(
             role: .textArea,
             value: text,
-            length: 81,
-            caretLocation: 49,
+            length: 84,
+            caretLocation: 64,
             selectedLength: 1,
-            selectedText: "r",
+            selectedText: "t",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 2,
                 start: 34,
-                end: 62
+                end: 73
             )
         )
         
-        _ = asNormalMode.b(on: element)
+        let returnedElement = applyMove(on: element)
         
-        XCTAssertEqual(textEngineMock.functionCalled, "beginningOfWordBackward(startingAt:in:)")        
+        XCTAssertEqual(returnedElement?.selectedLength, 3)
     }
     
 }
