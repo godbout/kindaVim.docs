@@ -20,7 +20,7 @@ struct AccessibilityTextElementLine {
     
     var fullValue: String
     var value: String {        
-        let lineStartIndex = fullValue.utf16.index(fullValue.utf16.startIndex, offsetBy: start)
+        let lineStartIndex = fullValue.utf16.index(fullValue.startIndex, offsetBy: start)
         let lineEndIndex = fullValue.utf16.index(lineStartIndex, offsetBy: end - start)
         
         return String(fullValue.utf16[lineStartIndex..<lineEndIndex])!
@@ -47,11 +47,18 @@ struct AccessibilityTextElementLine {
         }
     }
     
+    var characterAtEndLimitLength: Int {
+        let characterAtEndLimitIndex = fullValue.utf16.index(fullValue.startIndex, offsetBy: endLimit) 
+        guard characterAtEndLimitIndex != fullValue.endIndex else { return 0 }
+        
+        return fullValue[characterAtEndLimitIndex].utf16.count
+    }
+    
+    var isAnEmptyLine: Bool { value == "\n" || value == "" }
     var isNotAnEmptyLine: Bool { !isAnEmptyLine }
-    var isNotTheLastLine: Bool { !isTheLastLine }
     var isTheFirstLine: Bool { start == 0 }    
     var isTheLastLine: Bool { !value.hasSuffix("\n") }
-    var isAnEmptyLine: Bool { value == "\n" || value == "" }
+    var isNotTheLastLine: Bool { !isTheLastLine }
     
 }
 
