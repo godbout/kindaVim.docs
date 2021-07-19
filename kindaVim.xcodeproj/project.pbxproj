@@ -580,6 +580,7 @@
 		91CDCDB32673CA6A00D18B86 /* ASUT_NM___Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CDCDB22673CA6A00D18B86 /* ASUT_NM___Tests.swift */; };
 		91CE734E265CD06300248D18 /* KS_^_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CE734D265CD06300248D18 /* KS_^_Tests.swift */; };
 		91CE7350265CD31B00248D18 /* UsingKS_^_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CE734F265CD31B00248D18 /* UsingKS_^_Tests.swift */; };
+		91CF260826A5F6B500CF215D /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CF260726A5F6B500CF215D /* String.swift */; };
 		91CF55CD2681FC54008094FC /* AS_NM_%.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CF55CC2681FC54008094FC /* AS_NM_%.swift */; };
 		91CF55D72682306F008094FC /* UsingASNM_%_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CF55D62682306F008094FC /* UsingASNM_%_Tests.swift */; };
 		91CF55E12682313A008094FC /* ASUT_NM_%_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CF55E02682313A008094FC /* ASUT_NM_%_Tests.swift */; };
@@ -1083,6 +1084,7 @@
 		91CDCDB22673CA6A00D18B86 /* ASUT_NM___Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ASUT_NM___Tests.swift"; sourceTree = "<group>"; };
 		91CE734D265CD06300248D18 /* KS_^_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KS_^_Tests.swift"; sourceTree = "<group>"; };
 		91CE734F265CD31B00248D18 /* UsingKS_^_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UsingKS_^_Tests.swift"; sourceTree = "<group>"; };
+		91CF260726A5F6B500CF215D /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		91CF55CC2681FC54008094FC /* AS_NM_%.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AS_NM_%.swift"; sourceTree = "<group>"; };
 		91CF55D62682306F008094FC /* UsingASNM_%_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UsingASNM_%_Tests.swift"; sourceTree = "<group>"; };
 		91CF55E02682313A008094FC /* ASUT_NM_%_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ASUT_NM_%_Tests.swift"; sourceTree = "<group>"; };
@@ -1527,6 +1529,7 @@
 			isa = PBXGroup;
 			children = (
 				9163BD662673ADA800BB7113 /* Character.swift */,
+				91CF260726A5F6B500CF215D /* String.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -2310,6 +2313,7 @@
 				9157B84026878A340061BE12 /* AS_VM_d.swift in Sources */,
 				91E3A63C26935AD30022F1CE /* AS_VM_escape.swift in Sources */,
 				918F444F2689D5FC003EAEE0 /* AS_NM_dj.swift in Sources */,
+				91CF260826A5F6B500CF215D /* String.swift in Sources */,
 				91AB98B02674D634007682CA /* AS_NM_i.swift in Sources */,
 				91AB98882674D5AA007682CA /* AS_NM_e.swift in Sources */,
 				91B7A1C82684A8CB000AE3B3 /* AS_VM_$.swift in Sources */,

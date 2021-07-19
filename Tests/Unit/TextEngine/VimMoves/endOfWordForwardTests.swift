@@ -124,3 +124,27 @@ if text[index].isCharacterThatConstitutesAVimWord() {
     }
 
 }
+
+
+// emojis
+// see beginningOfWordBackward for the blah blah
+extension endOfWORDForwardTests {
+    
+    func test_that_it_goes_to_the_end_of_a_word_made_of_emojis() {
+        let text = "emojis are symbols that 🔫️🔫️🔫️ are longer than 1 length"
+        
+        let newCaretPosition = textEngine.endOfWordForward(startingAt: 24, in: TextEngineText(from: text))
+        
+        XCTAssertEqual(newCaretPosition, 30)                
+    }
+    
+    func test_that_it_can_pass_the_end_of_a_word_made_of_emojis() {
+        let text = "emojis are symbols that 🔫️🔫️🔫️ are longer than 1 length"
+        
+        let newCaretPosition = textEngine.endOfWordForward(startingAt: 30, in: TextEngineText(from: text))
+        
+        XCTAssertEqual(newCaretPosition, 36)                
+    }
+    
+}
+
