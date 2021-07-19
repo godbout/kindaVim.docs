@@ -1,6 +1,9 @@
 import XCTest
 
 
+// here we test what we really receive or calculate from the Adaptor,
+// we don't test the computed properties. those are tested in Unit Tests,
+// ATE and ATELine
 class The2CasesTests: ATEA_BaseTests {}
 
 
@@ -21,7 +24,7 @@ extension The2CasesTests {
         XCTAssertEqual(accessibilityElement?.caretLocation, 0)
         XCTAssertEqual(accessibilityElement?.selectedLength, 0)
         XCTAssertEqual(accessibilityElement?.selectedText, "")
-        XCTAssertEqual(accessibilityElement?.currentLine.value, "")
+        XCTAssertEqual(accessibilityElement?.currentLine.fullValue, "")
         XCTAssertEqual(accessibilityElement?.currentLine.number, 1)
         XCTAssertEqual(accessibilityElement?.currentLine.start, 0)
         XCTAssertEqual(accessibilityElement?.currentLine.end, 0)
@@ -46,7 +49,7 @@ extension The2CasesTests {
         XCTAssertEqual(accessibilityElement?.caretLocation, 0)
         XCTAssertEqual(accessibilityElement?.selectedLength, 0)
         XCTAssertEqual(accessibilityElement?.selectedText, "")
-        XCTAssertEqual(accessibilityElement?.currentLine.value, "")
+        XCTAssertEqual(accessibilityElement?.currentLine.fullValue, "")
         XCTAssertEqual(accessibilityElement?.currentLine.number, 1)
         XCTAssertEqual(accessibilityElement?.currentLine.start, 0)
         XCTAssertEqual(accessibilityElement?.currentLine.end, 0)
@@ -76,7 +79,13 @@ and i'm still having fun
         XCTAssertEqual(accessibilityElement?.caretLocation, 46)
         XCTAssertEqual(accessibilityElement?.selectedLength, 0)
         XCTAssertEqual(accessibilityElement?.selectedText, "")
-        XCTAssertEqual(accessibilityElement?.currentLine.value, "")
+        XCTAssertEqual(accessibilityElement?.currentLine.fullValue, """
+it's four O eight
+and i'm still having fun
+:D
+
+"""
+        )
         XCTAssertEqual(accessibilityElement?.currentLine.number, 4)
         XCTAssertEqual(accessibilityElement?.currentLine.start, 46)
         XCTAssertEqual(accessibilityElement?.currentLine.end, 46)
