@@ -31,6 +31,7 @@ protocol TextEngineTextObjectProtocol {
     
 }
 
+
 extension TextEngineTextObjectProtocol {
 
     var isEmpty: Bool {
@@ -55,9 +56,9 @@ struct TextEngineText: TextEngineTextObjectProtocol {
     var endLimit: Int {
         guard isNotEmpty else { return 0 }
         guard !isOnlyALinefeedCharacter else { return 0 }
-        guard value.hasSuffix("\n") else { return value.distance(from: value.startIndex, to: value.index(before: value.endIndex)) }
+        guard value.hasSuffix("\n") else { return value.utf16.distance(from: value.startIndex, to: value.index(before: value.endIndex)) }
 
-        return value.distance(from: value.startIndex, to: value.endIndex)
+        return value.utf16.distance(from: value.startIndex, to: value.endIndex)
     }
     
     
@@ -77,9 +78,9 @@ struct TextEngineLine: TextEngineTextObjectProtocol {
     var endLimit: Int {
         guard isNotEmpty else { return 0 }
         guard !isOnlyALinefeedCharacter else { return 0 }
-        guard value.hasSuffix("\n") else { return value.distance(from: value.startIndex, to: value.index(before: value.endIndex)) }
+        guard value.hasSuffix("\n") else { return value.utf16.distance(from: value.startIndex, to: value.index(before: value.endIndex)) }
             
-        return value.distance(from: value.startIndex, to: value.index(value.endIndex, offsetBy: -2))                    
+        return value.utf16.distance(from: value.startIndex, to: value.index(value.endIndex, offsetBy: -2))                    
     }
     
     mutating func removeTrailingLinefeedIfAny() {
@@ -97,7 +98,7 @@ struct TextEngineLine: TextEngineTextObjectProtocol {
     
     init(from text: String) {
         start = 0
-        end = text.count
+        end = text.utf16.count
         value = text
     }
     
@@ -172,19 +173,26 @@ extension TextEngine {
     func innerWord(startingAt location: Int, in text: String) -> Range<Int> {
         guard !text.isEmpty else { return 0..<0 }
         
-        guard let characterAtLocationIndex = text.index(text.startIndex, offsetBy: location, limitedBy: text.index(before: text.endIndex)) else { return (text.count - 2)..<text.count }
+        // count - 2 should be -1 for linefeed + - length of the character right before the linefeed 
+        guard let characterAtLocationIndex = text.utf16.index(text.startIndex, offsetBy: location, limitedBy: text.index(before: text.endIndex)) else { return (text.count - 2)..<text.count }
         let characterAtLocationText = text[characterAtLocationIndex]
 
         if characterAtLocationText == " " {
+            // what is this -1?
             let previousNonBlankLocation = findPreviousNonBlank(startingAt: location, in: text) ?? -1
+            // should text.count be changed?
             let nextNonBlankLocation = findNextNonBlank(after: location, in: text) ?? text.count  
             
+            // +1 or plus length of the character OMG LMAO
             return (previousNonBlankLocation + 1)..<nextNonBlankLocation
         }
 
+        // + 1 should be + length of current character
         let beginningOfWordLocation = beginningOfWordBackward(startingAt: location + 1, in: TextEngineText(from: text))
+        // -1 or -length of character?
         let endOfWordLocation = endOfWordForward(startingAt: location - 1, in: TextEngineText(from: text))
 
+        // +1 should be length of character at endOfWordLocation
         return beginningOfWordLocation..<(endOfWordLocation + 1)
     }
     

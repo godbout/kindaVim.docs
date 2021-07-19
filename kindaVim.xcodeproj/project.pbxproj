@@ -690,6 +690,8 @@
 		91EF3924268B8F3600612C4E /* AS_VM_j.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91EF391E268B8F0F00612C4E /* AS_VM_j.swift */; };
 		91EF3929268B8F3600612C4E /* AS_VM_j.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91EF391E268B8F0F00612C4E /* AS_VM_j.swift */; };
 		91EF392F268B8FEA00612C4E /* ASUI_VML_j_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91EF392E268B8FEA00612C4E /* ASUI_VML_j_Tests.swift */; };
+		91F5244D26A5CDC300785A6F /* TextEngineTextTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F5244C26A5CDC300785A6F /* TextEngineTextTests.swift */; };
+		91F5245426A5CDD100785A6F /* TextEngineLineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F5245326A5CDD100785A6F /* TextEngineLineTests.swift */; };
 		91F67A46267F4532007C8517 /* UsingASNM_df_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F67A45267F4532007C8517 /* UsingASNM_df_Tests.swift */; };
 		91F67A4C267F4592007C8517 /* AS_NM_df.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F67A4B267F4592007C8517 /* AS_NM_df.swift */; };
 		91F67A51267F45B1007C8517 /* AS_NM_df.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F67A4B267F4592007C8517 /* AS_NM_df.swift */; };
@@ -1168,6 +1170,8 @@
 		91EF392E268B8FEA00612C4E /* ASUI_VML_j_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASUI_VML_j_Tests.swift; sourceTree = "<group>"; };
 		91F2EC14265A2DF1003F038B /* to_TF_caretLocationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = to_TF_caretLocationTests.swift; sourceTree = "<group>"; };
 		91F2EC16265A2E11003F038B /* to_TV_caretLocationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = to_TV_caretLocationTests.swift; sourceTree = "<group>"; };
+		91F5244C26A5CDC300785A6F /* TextEngineTextTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextEngineTextTests.swift; sourceTree = "<group>"; };
+		91F5245326A5CDD100785A6F /* TextEngineLineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextEngineLineTests.swift; sourceTree = "<group>"; };
 		91F67A45267F4532007C8517 /* UsingASNM_df_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsingASNM_df_Tests.swift; sourceTree = "<group>"; };
 		91F67A4B267F4592007C8517 /* AS_NM_df.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AS_NM_df.swift; sourceTree = "<group>"; };
 		91F67A56267F4609007C8517 /* ASUT_NM_df_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASUT_NM_df_Tests.swift; sourceTree = "<group>"; };
@@ -1846,6 +1850,8 @@
 			isa = PBXGroup;
 			children = (
 				9153E86A2662963300064761 /* TextEngineBaseTests.swift */,
+				91F5244C26A5CDC300785A6F /* TextEngineTextTests.swift */,
+				91F5245326A5CDD100785A6F /* TextEngineLineTests.swift */,
 				91DCE19A26711EF2007C7771 /* VimMoves */,
 				91DCE19B26711F16007C7771 /* Helpers */,
 			);
@@ -2541,6 +2547,7 @@
 				913E7C042666803400370A7F /* UsingASNM_F__Tests.swift in Sources */,
 				91E304E12643F2F8004D9933 /* UsingKS_j_Tests.swift in Sources */,
 				918AC562267604B30036EA0D /* ASUT_NM_ciInnerQuotedString_Tests.swift in Sources */,
+				91F5245426A5CDD100785A6F /* TextEngineLineTests.swift in Sources */,
 				91DA6EE32645581300CF7504 /* KS_dG.swift in Sources */,
 				91E304D52643F133004D9933 /* UsingKS_G__Tests.swift in Sources */,
 				919D3268267F8FD0007817F2 /* ASUT_NM_yF__Tests.swift in Sources */,
@@ -2669,6 +2676,7 @@
 				91761DEA267F3FB4000ED024 /* UsingASNM_dT__Tests.swift in Sources */,
 				910A0E9426848A81007C9BF3 /* UsingASNM_v_Tests.swift in Sources */,
 				9140E6DD264554320021C2FB /* KS_cgg_Tests.swift in Sources */,
+				91F5244D26A5CDC300785A6F /* TextEngineTextTests.swift in Sources */,
 				91E304FD2643FB2D004D9933 /* UsingKS_NotImplementedOrDontExist_Tests.swift in Sources */,
 				91A54EE72643B76F00400677 /* KS_dd_Tests.swift in Sources */,
 				9153E86B2662963300064761 /* TextEngineBaseTests.swift in Sources */,
