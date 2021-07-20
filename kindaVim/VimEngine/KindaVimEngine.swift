@@ -107,75 +107,6 @@ extension KindaVimEngine {
  
     func handleNormalMode(with keyCombination: KeyCombination) {
         switch keyCombination.vimKey {
-        // to test (can dump info to console, send stuff to AX etc.)
-        case .commandD:
-            if let element = AccessibilityStrategyNormalMode.test(element: focusedElement()) {
-                _ = push(element: element)
-            }
-        // temporary for escape to enter Command Mode
-        // and escape again to send escape key to macOS
-        case .escape:
-            enterInsertMode()            
-            post(keyboardStrategy.escape())
-            
-            if var element = focusedElement() {
-                element.selectedLength = 0
-                element.selectedText = nil
-                push(element: element)
-            }
-        // temporary for pressing enter in Command Mode
-        // to act like an enter in Insert Mode
-        // checking if it feels better (like in Alfred)
-        case .enter:
-            enterInsertMode()
-            
-            post(keyboardStrategy.enter())
-        case .caret:
-            if var element = asNormalMode.caret(on: focusedElement()) {
-                element.selectedLength = 1                    
-                _ = push(element: element)
-            } else {
-                post(keyboardStrategy.caret())
-            }
-        case .dollarSign:
-            if var element = asNormalMode.dollarSign(on: focusedElement()) {
-                element.selectedLength = 1
-                _ = push(element: element)
-            } else {
-                post(keyboardStrategy.dollarSign())
-            }
-        case .leftBrace:
-            if var element = asNormalMode.leftBrace(on: focusedElement()) {
-                element.selectedLength = 1
-                push(element: element)
-            }
-        case .leftBracket:
-            enterOperatorPendingMode(with: KeyCombination(key: .leftBracket))
-        case .percent:
-            if var element = asNormalMode.percent(on: focusedElement()) {
-                element.selectedLength = 1                  
-                push(element: element)
-            }
-        case .rightBrace:
-            if let element = asNormalMode.rightBrace(on: focusedElement()) {
-                push(element: element)
-            }
-        case .rightBracket:
-            enterOperatorPendingMode(with: KeyCombination(key: .rightBracket))
-        case .underscore:
-            if var element = asNormalMode.underscore(on: focusedElement()) {
-                element.selectedLength = 1                    
-                _ = push(element: element)
-            } else {
-                post(keyboardStrategy.underscore())
-            }
-        case .zero:
-            if var element = asNormalMode.zero(on: focusedElement()) {
-                element.selectedLength = 1
-                _ = push(element: element)
-            } else {
-                post(keyboardStrategy.zero())
-            }
         case .a:
             enterInsertMode()
             
@@ -384,7 +315,7 @@ extension KindaVimEngine {
                 _ = push(element: element)
             } else {
                 post(keyboardStrategy.yy())
-            }                
+            }
         default:
             ()
         }
@@ -667,7 +598,7 @@ extension KindaVimEngine {
                     push(element: element)
                     
                     if var element = focusedElement() {
-                        element.selectedLength = 1
+                        element.selectedLength = element.characterLength
                         element.selectedText = nil
                         push(element: element)
                     }
@@ -675,23 +606,21 @@ extension KindaVimEngine {
             }
                             
             if operatorPendingBuffer.first?.vimKey == .f, let character = operatorPendingBuffer.last {
-                if var element = asNormalMode.f(to: character.character, on: focusedElement()) {
-                    element.selectedLength = 1
-                    _ = push(element: element)
+                if let element = asNormalMode.f(to: character.character, on: focusedElement()) {
+                    push(element: element)
                 }
             }
             
             if operatorPendingBuffer.first?.vimKey == .F, let character = operatorPendingBuffer.last {
-                if var element = asNormalMode.F(to: character.character, on: focusedElement()) {
-                    element.selectedLength = 1
-                    _ = push(element: element)
+                if let element = asNormalMode.F(to: character.character, on: focusedElement()) {
+                    push(element: element)
                 }
             }
             
             if operatorPendingBuffer.first?.vimKey == .r, let replacement = operatorPendingBuffer.last {                
                 if let element = asNormalMode.r(with: replacement.character, on: focusedElement()) {
                     if element.selectedText != nil {
-                        _ = push(element: element)
+                        push(element: element)
                         
                         if var element = asNormalMode.h(on: focusedElement()) {                        
                             element.selectedLength = 1
