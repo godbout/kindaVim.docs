@@ -315,8 +315,10 @@ extension TextEngine {
         return (location + characterLengthAtLocation) + characterFoundLocation
     }
     
+    // utf16 no super needed here as we stop before the non blank character
+    // but using it for consistency. looks beautiful
     func findNextNonBlank(after location: Int, in text: String) -> Int? {
-        let anchorIndex = text.index(text.startIndex, offsetBy: location)
+        let anchorIndex = text.utf16.index(text.startIndex, offsetBy: location)
         let endIndex = text.endIndex
         
         for index in text[anchorIndex..<endIndex].indices {
@@ -327,7 +329,7 @@ extension TextEngine {
                 continue
             }
             
-            return text.distance(from: text.startIndex, to: nextIndex)
+            return text.utf16.distance(from: text.startIndex, to: nextIndex)
         }
         
         return nil

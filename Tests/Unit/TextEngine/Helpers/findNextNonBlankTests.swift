@@ -66,3 +66,18 @@ shouldn't go to the next
     }
     
 }
+
+
+// emojis
+// see beginningOfWordBackward for the blah blah
+extension findNextNonBlankTests {
+    
+    func test_that_it_handles_emojis() {
+        let text = "those are        😨️😨️spaces!"
+        
+        let location = textEngine.findNextNonBlank(after: 10, in: text)
+        
+        XCTAssertEqual(location, 17)
+    }
+    
+}
