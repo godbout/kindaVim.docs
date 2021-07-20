@@ -316,6 +316,76 @@ extension KindaVimEngine {
             } else {
                 post(keyboardStrategy.yy())
             }
+        // to test (can dump info to console, send stuff to AX etc.)
+        case .commandD:
+            if let element = AccessibilityStrategyNormalMode.test(element: focusedElement()) {
+                _ = push(element: element)
+            }
+        // temporary for escape to enter Command Mode
+        // and escape again to send escape key to macOS
+        case .escape:
+            enterInsertMode()            
+            post(keyboardStrategy.escape())
+            
+            if var element = focusedElement() {
+                element.selectedLength = 0
+                element.selectedText = nil
+                push(element: element)
+            }
+        // temporary for pressing enter in Command Mode
+        // to act like an enter in Insert Mode
+        // checking if it feels better (like in Alfred)
+        case .enter:
+            enterInsertMode()
+            
+            post(keyboardStrategy.enter())
+        case .caret:
+            if var element = asNormalMode.caret(on: focusedElement()) {
+                element.selectedLength = 1                    
+                _ = push(element: element)
+            } else {
+                post(keyboardStrategy.caret())
+            }
+        case .dollarSign:
+            if var element = asNormalMode.dollarSign(on: focusedElement()) {
+                element.selectedLength = 1
+                _ = push(element: element)
+            } else {
+                post(keyboardStrategy.dollarSign())
+            }
+        case .leftBrace:
+            if var element = asNormalMode.leftBrace(on: focusedElement()) {
+                element.selectedLength = 1
+                push(element: element)
+            }
+        case .leftBracket:
+            enterOperatorPendingMode(with: KeyCombination(key: .leftBracket))
+        case .percent:
+            if var element = asNormalMode.percent(on: focusedElement()) {
+                element.selectedLength = 1                  
+                push(element: element)
+            }
+        case .rightBrace:
+            if var element = asNormalMode.rightBrace(on: focusedElement()) {
+                element.selectedLength = element.caretIsAtTheEnd ? 0 : 1
+                push(element: element)
+            }
+        case .rightBracket:
+            enterOperatorPendingMode(with: KeyCombination(key: .rightBracket))
+        case .underscore:
+            if var element = asNormalMode.underscore(on: focusedElement()) {
+                element.selectedLength = 1                    
+                _ = push(element: element)
+            } else {
+                post(keyboardStrategy.underscore())
+            }
+        case .zero:
+            if var element = asNormalMode.zero(on: focusedElement()) {
+                element.selectedLength = 1
+                _ = push(element: element)
+            } else {
+                post(keyboardStrategy.zero())
+            }
         default:
             ()
         }
