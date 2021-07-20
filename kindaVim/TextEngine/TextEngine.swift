@@ -343,7 +343,8 @@ extension TextEngine {
     }
     
     func findPreviousNonBlank(startingAt location: Int, in text: String) -> Int? {
-        guard let anchorIndex = text.index(text.startIndex, offsetBy: location + 1, limitedBy: text.endIndex) else { return nil }
+        
+        guard let anchorIndex = text.utf16.index(text.startIndex, offsetBy: location + text.characterLengthForCharacter(at: location), limitedBy: text.endIndex) else { return nil }
         let startIndex = text.startIndex
         
         for index in text[..<anchorIndex].indices.reversed() {
@@ -354,7 +355,7 @@ extension TextEngine {
                 continue
             }
             
-            return text.distance(from: startIndex, to: previousIndex)
+            return text.utf16.distance(from: startIndex, to: previousIndex)
         }
         
         return nil
