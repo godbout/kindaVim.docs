@@ -8,7 +8,7 @@ import XCTest
 // heavily tested
 // so basically this is just a copy paste from ^. if one day we implement the counts, then
 // we'll have to update accordingly
-class ASNM___Tests: ASNM_BaseTests {
+class ASUT_NM___Tests: ASNM_BaseTests {
     
     private func applyMove(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return asNormalMode.underscore(on: element) 
@@ -18,7 +18,7 @@ class ASNM___Tests: ASNM_BaseTests {
 
 
 // Both
-extension ASNM___Tests {
+extension ASUT_NM___Tests {
     
     func test_that_in_normal_case_it_goes_to_the_first_non_blank_of_the_line() {
         let text = "    hehe ankulay"
@@ -77,7 +77,7 @@ without a linefeed but with spaces
 
 
 // TextViews 
-extension ASNM___Tests {
+extension ASUT_NM___Tests {
     
     func test_that_for_spaces_and_a_linefeed_it_stops_before_the_linefeed_at_the_correct_end_limit() {
         let text = """
@@ -109,3 +109,37 @@ empty line has a linefeed
     }
     
 }
+
+
+// emojis
+extension ASUT_NM___Tests {
+    
+    func test_that_it_handles_emojis() {
+        let text = """
+need to deal with
+    🧕️those 🍃️🍃️🍃️🍃️🍃️🍃️ faces 🥺️☹️😂️
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 64,
+            caretLocation: 59,
+            selectedLength: 2,
+            selectedText: "☹️",
+            currentLine: AccessibilityTextElementLine(
+                fullValue: text,
+                number: 2,
+                start: 18,
+                end: 64
+            )
+        )
+        
+        let returnedElement = applyMove(on: element)
+        
+        XCTAssertEqual(returnedElement?.caretLocation, 22)
+        XCTAssertEqual(returnedElement?.selectedLength, 3)
+        XCTAssertNil(returnedElement?.selectedText)
+    }
+    
+}
+
