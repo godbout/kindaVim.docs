@@ -5,12 +5,12 @@ extension TextEngine {
         
         let value = text.value
         
-        let anchorIndex = value.index(value.startIndex, offsetBy: location)
+        let anchorIndex = value.utf16.index(value.startIndex, offsetBy: location)
         let startIndex = value.startIndex
         
         for index in value[startIndex..<anchorIndex].indices.reversed() {
             guard index != startIndex else { return 0 }
-            guard index != value.index(before: value.endIndex) else { return value.last == "\n" ? text.endLimit - 2 : text.endLimit }
+            guard index != value.index(before: value.endIndex) else { return value.last == "\n" ? (text.endLimit - 1) - text.characterLengthForCharacter(before: location - 1) : text.endLimit }
             let nextIndex = value.index(after: index)
             
             if value[index].isCharacterThatConstitutesAVimWORD {
@@ -33,7 +33,7 @@ extension TextEngine {
                 }                
             }
             
-            return value.distance(from: startIndex, to: index)
+            return value.utf16.distance(from: startIndex, to: index)
         }
         
         return location
