@@ -76,24 +76,25 @@ struct AccessibilityStrategyNormalMode: AccessibilityStrategyNormalModeProtocol 
         
     
     func ciInnerQuotedString(using quote: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
-        guard var element = element else { return nil }
+        guard let element = element else { return nil }
+        var newElement = element
         
         let lineStart = element.currentLine.start             
         let lineText = element.currentLine.value
         let lineCaretLocation = element.caretLocation - lineStart
         
         if let quotedStringRange = textEngine.innerQuotedString(using: quote, startingAt: lineCaretLocation, in: lineText) {
-            element.caretLocation = lineStart + quotedStringRange.lowerBound
-            element.selectedLength = quotedStringRange.count
-            element.selectedText = ""
+            newElement.caretLocation = lineStart + quotedStringRange.lowerBound
+            newElement.selectedLength = quotedStringRange.count
+            newElement.selectedText = ""
             
-            return element
+            return newElement
         }
         
-        element.selectedLength = 0
-        element.selectedText = nil
+        newElement.selectedLength = element.characterLength
+        newElement.selectedText = nil
         
-        return element    
+        return newElement    
     }
     
     static func test(element: AccessibilityTextElement?) -> AccessibilityTextElement? {

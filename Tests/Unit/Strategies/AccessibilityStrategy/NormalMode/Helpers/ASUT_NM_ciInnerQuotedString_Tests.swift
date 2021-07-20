@@ -176,3 +176,36 @@ that's " four quotes " in " there "
     }
 
 }
+
+
+// emojis
+extension ASNM_ciInnerQuotedString_Tests {
+    
+    func test_that_it_handles_emojis() {
+        let text = """
+need to deal with
+those💨️💨️💨️ fac"es 🥺️☹️😂️ h😀️ha👅️" hhohohoo🤣️
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 71,
+            caretLocation: 20,
+            selectedLength: 1,
+            selectedText: "o",
+            currentLine: AccessibilityTextElementLine(
+                fullValue: text,
+                number: 2,
+                start: 18,
+                end: 71
+            )
+        )
+        
+        let returnedElement = asNormalMode.ciInnerQuotedString(using: "\"", on: element)
+        
+        XCTAssertEqual(returnedElement?.caretLocation, 37)
+        XCTAssertEqual(returnedElement?.selectedLength, 21)
+        XCTAssertEqual(returnedElement?.selectedText, "")
+    }
+    
+}
