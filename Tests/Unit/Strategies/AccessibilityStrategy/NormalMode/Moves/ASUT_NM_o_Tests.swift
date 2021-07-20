@@ -2,7 +2,7 @@
 import XCTest
 
 
-class ASNM_o_Tests: ASNM_BaseTests {
+class ASUT_NM_o_Tests: ASNM_BaseTests {
     
     private func applyMove(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return asNormalMode.o(on: element) 
@@ -12,7 +12,7 @@ class ASNM_o_Tests: ASNM_BaseTests {
 
 
 // TextFields
-extension ASNM_o_Tests {
+extension ASUT_NM_o_Tests {
     
     func test_that_for_a_TextField_it_does_nothing() {
         let text = "o shouldn't do anything in a TextField!"
@@ -40,7 +40,7 @@ extension ASNM_o_Tests {
 
 
 // TextViews
-extension ASNM_o_Tests {
+extension ASUT_NM_o_Tests {
     
     func test_that_in_normal_setting_it_creates_a_new_line() {
         let text = """
@@ -210,4 +210,39 @@ two lines empty below
     }
     
 }
+
+
+// emojis
+extension ASUT_NM_o_Tests {
+    
+    func test_that_it_handles_emojis() {
+        let text = """
+need🍃️🍃️🍃️ to deal wi🛩️🛩️th
+those 🍃️🍃️🍃️🍃️🍃️🍃️ faces 🥺️☹️😂️
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 72,
+            caretLocation: 19,
+            selectedLength: 1,
+            selectedText: "a",
+            currentLine: AccessibilityTextElementLine(
+                fullValue: text,
+                number: 1,
+                start: 0,
+                end: 33
+            )
+        )
+        
+        let returnedElement = applyMove(on: element)
+        
+        XCTAssertEqual(returnedElement?.caretLocation, 19)
+        XCTAssertEqual(returnedElement?.selectedLength, 13)
+        XCTAssertEqual(returnedElement?.selectedText, "al wi🛩️🛩️th\n")
+    }
+    
+}
+
+
 

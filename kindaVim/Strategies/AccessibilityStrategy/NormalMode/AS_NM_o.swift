@@ -1,34 +1,36 @@
 extension AccessibilityStrategyNormalMode {
     
     func o(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
-        guard var element = element else { return nil }
+        guard let element = element else { return nil }
+        var newElement = element
+        
         guard element.role == .textArea else {
-            element.selectedLength = 0
-            element.selectedText = nil
+            newElement.selectedLength = 0
+            newElement.selectedText = nil
             
-            return element            
+            return newElement            
         }
         
         guard element.caretIsNotAtTheEnd && element.currentLine.isNotAnEmptyLine else {
-            element.selectedLength = 0
-            element.selectedText = "\n"
+            newElement.selectedLength = 0
+            newElement.selectedText = "\n"
             
-            return element
+            return newElement
         }
                         
         let lineText = element.currentLine.value         
-        let lineCaretLocationIndex = lineText.index(lineText.startIndex, offsetBy: element.caretLocation - element.currentLine.start)            
-        let limitForCopyingTextIndex = lineText.index(lineText.startIndex, offsetBy: element.currentLine.endLimit - element.currentLine.start + 1)        
+        let lineCaretLocationIndex = lineText.utf16.index(lineText.startIndex, offsetBy: element.caretLocation - element.currentLine.start)            
+        let limitForCopyingTextIndex = lineText.utf16.index(lineText.startIndex, offsetBy: element.currentLine.endLimit - element.currentLine.start)        
         
-        let textFromCaretToLimitForCopyingText = lineText[lineCaretLocationIndex..<limitForCopyingTextIndex]
+        let textFromCaretToLimitForCopyingText = lineText[lineCaretLocationIndex...limitForCopyingTextIndex]
         
         let firstNonBlankOfCurrentLineLocation = textEngine.firstNonBlank(in: lineText)
         let firstNonBlankOfCurrentLineText = lineText[..<lineText.index(lineText.startIndex, offsetBy: firstNonBlankOfCurrentLineLocation)]      
         
-        element.selectedLength = textFromCaretToLimitForCopyingText.count
-        element.selectedText = String(textFromCaretToLimitForCopyingText + "\n" + firstNonBlankOfCurrentLineText)                            
+        newElement.selectedLength = textFromCaretToLimitForCopyingText.utf16.count
+        newElement.selectedText = String(textFromCaretToLimitForCopyingText + "\n" + firstNonBlankOfCurrentLineText)                            
         
-        return element
+        return newElement
     }
     
 }
