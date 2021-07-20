@@ -2,20 +2,12 @@
 import XCTest
 
 
-// we use a mock here just to make sure the correct function
-// is called, but all the rest of the tests are handled by:
-// 1. tests of the TextEngine function this move is calling
-// 2. AS UI Tests where we test that the globalColumnNumber is updated
-//    correctly when the caret changes line due to this move
+// see b for blah blah
 class ASNM_e_Tests: ASNM_BaseTests {
     
-    let textEngineMock = TextEngineMock()
-    
-    override func setUp() {
-        super.setUp()
-        
-        asNormalMode = AccessibilityStrategyNormalMode(textEngine: textEngineMock)
-    }    
+    private func applyMove(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        return asNormalMode.e(on: element) 
+    }
     
 }
 
@@ -23,30 +15,30 @@ class ASNM_e_Tests: ASNM_BaseTests {
 // Both
 extension ASNM_e_Tests {
     
-    func test_that_it_calls_the_TextEngine_endOfWordForward_function() {
+    func test_that_it_returns_the_correct_selectedLength() {
         let text = """
-this should call the
-endOfWordForward func
-from the TextEngine
+yeah coz the text functions don't
+care about the length but 🦋️ the move
+itself does
 """
         let element = AccessibilityTextElement(
             role: .textArea,
             value: text,
-            length: 62,
-            caretLocation: 33,
+            length: 84,
+            caretLocation: 58,
             selectedLength: 1,
-            selectedText: "w",
+            selectedText: "t",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 2,
-                start: 21,
-                end: 43
+                start: 34,
+                end: 73
             )
         )
         
-        _ = asNormalMode.e(on: element)
+        let returnedElement = applyMove(on: element)
         
-        XCTAssertEqual(textEngineMock.functionCalled, "endOfWordForward(startingAt:in:)")        
+        XCTAssertEqual(returnedElement?.selectedLength, 3)
     }
     
 }
