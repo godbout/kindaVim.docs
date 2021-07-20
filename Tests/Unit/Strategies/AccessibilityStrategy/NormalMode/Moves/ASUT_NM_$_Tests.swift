@@ -2,7 +2,7 @@
 import XCTest
 
 
-class ASNM_$_Tests: ASNM_BaseTests {
+class ASUT_NM_$_Tests: ASNM_BaseTests {
     
     private func applyMove(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return asNormalMode.dollarSign(on: element) 
@@ -13,7 +13,7 @@ class ASNM_$_Tests: ASNM_BaseTests {
 
 
 // Both
-extension ASNM_$_Tests {
+extension ASUT_NM_$_Tests {
     
     func test_that_if_line_ends_with_visible_character_$_goes_one_character_before_the_end() {
         let text = "hello world"
@@ -43,7 +43,7 @@ extension ASNM_$_Tests {
     
 
 // TextViews
-extension ASNM_$_Tests {
+extension ASUT_NM_$_Tests {
     
     func test_that_if_line_ends_with_linefeed_$_goes_two_characters_before_the_end() {
         let text = """
@@ -103,3 +103,38 @@ it's a bug!
     }
 
 }
+
+
+// emojis
+extension ASUT_NM_$_Tests {
+    
+    func test_that_it_handles_emojis() {
+        let text = """
+need to deal with
+those 🍃️🍃️🍃️🍃️🍃️🍃️ f🚀️ces 🥺️☹️😂️
+more
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 64,
+            caretLocation: 33,
+            selectedLength: 3,
+            selectedText: "🍃️",
+            currentLine: AccessibilityTextElementLine(
+                fullValue: text,
+                number: 2,
+                start: 18,
+                end: 60
+            )
+        )
+        
+        let returnedElement = applyMove(on: element)
+        
+        XCTAssertEqual(returnedElement?.caretLocation, 56)
+        XCTAssertEqual(returnedElement?.selectedLength, 3)
+        XCTAssertNil(returnedElement?.selectedText)
+    }
+    
+}
+

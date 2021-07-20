@@ -1,13 +1,14 @@
 extension AccessibilityStrategyNormalMode {
     
     func dollarSign(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
-        guard var element = element else { return nil }
+        guard let element = element else { return nil }
+        var newElement = element
         
-        element.caretLocation = element.currentLine.endLimit
-        element.selectedLength = 1
-        element.selectedText = nil
+        newElement.caretLocation = element.currentLine.endLimit
+        newElement.selectedLength = element.currentLine.characterAtEndLimitLength
+        newElement.selectedText = nil
         
-        return element
+        return newElement
     }
     
 }
