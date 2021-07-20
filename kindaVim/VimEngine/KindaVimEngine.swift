@@ -178,8 +178,7 @@ extension KindaVimEngine {
                 post(keyboardStrategy.h())
             }
         case .i:
-            if var element = asNormalMode.i(on: focusedElement()) {
-                element.selectedLength = 0
+            if let element = asNormalMode.i(on: focusedElement()) {
                 push(element: element)
             }
             
@@ -187,8 +186,7 @@ extension KindaVimEngine {
         case .I:
             enterInsertMode()
             
-            if var element = asNormalMode.I(on: focusedElement()) {
-                element.selectedLength = 0
+            if let element = asNormalMode.I(on: focusedElement()) {
                 push(element: element)
             } else {
                 post(keyboardStrategy.I())
