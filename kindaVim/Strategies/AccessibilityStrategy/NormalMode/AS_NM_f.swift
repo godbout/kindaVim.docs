@@ -16,7 +16,10 @@ extension AccessibilityStrategyNormalMode {
             return newElement
         }
         
-        return element
+        newElement.selectedLength = element.characterLength
+        newElement.selectedText = nil
+        
+        return newElement
     }
     
 }
