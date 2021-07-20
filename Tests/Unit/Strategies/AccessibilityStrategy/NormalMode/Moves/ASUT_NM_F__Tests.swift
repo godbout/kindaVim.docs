@@ -107,3 +107,36 @@ yeah
     }
     
 }
+
+
+// emojis
+extension ASNM_F__Tests {
+    
+    func test_that_it_handles_emojis() {
+        let text = """
+need to deal with
+those 🍃️🍃️🍃️🍃️🍃️🍃️ faces 🥺️☹️😂️
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 57,
+            caretLocation: 47,
+            selectedLength: 1,
+            selectedText: "s",
+            currentLine: AccessibilityTextElementLine(
+                fullValue: text,
+                number: 2,
+                start: 18,
+                end: 57
+            )
+        )
+        
+        let returnedElement = applyMove(to: "o", on: element)
+        
+        XCTAssertEqual(returnedElement?.caretLocation, 20)
+        XCTAssertEqual(returnedElement?.selectedLength, 1)
+        XCTAssertNil(returnedElement?.selectedText)
+    }
+    
+}
