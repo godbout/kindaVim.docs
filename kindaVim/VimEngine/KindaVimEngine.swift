@@ -536,8 +536,7 @@ extension KindaVimEngine {
         case [.g, .e]:
             enterNormalMode()
             
-            if var element = asNormalMode.ge(on: focusedElement()) {
-                element.selectedLength = 1                
+            if let element = asNormalMode.ge(on: focusedElement()) {                
                 push(element: element)
             }     
         case [.g, .g]:
