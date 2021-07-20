@@ -7,7 +7,7 @@ extension AccessibilityStrategyNormalMode {
         let lineText = element.currentLine.value
         let lineCaretLocation = element.caretLocation - lineStart
         
-        if let characterFoundLocation = textEngine.findNext(character, after: lineCaretLocation, in: lineText) {
+        if let characterFoundLocation = textEngine.findNext(character, after: lineCaretLocation, in: TextEngineLine(from: lineText)) {
             element.caretLocation = lineStart + characterFoundLocation - 1            
         }
         

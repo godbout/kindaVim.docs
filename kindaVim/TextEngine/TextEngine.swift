@@ -10,7 +10,7 @@ protocol TextEngineProtocol {
     func endOfWORDBackward(startingAt location: Int, in text: TextEngineText) -> Int
     func endOfWordForward(startingAt location: Int, in text: TextEngineText) -> Int
     func endOfWORDForward(startingAt location: Int, in text: TextEngineText) -> Int
-    func findNext(_ character: Character, after location: Int, in text: String) -> Int?
+    func findNext(_ character: Character, after location: Int, in text: TextEngineTextObjectProtocol) -> Int?
     func findPrevious(_ character: Character, before location: Int, in text: String) -> Int?
     func firstNonBlank(in text: String) -> Int
     func firstNonBlankWithinLineLimit(in line: TextEngineLine) -> Int
@@ -27,7 +27,10 @@ protocol TextEngineTextObjectProtocol {
     var value: String { get }        
     var isEmpty: Bool { get }    
     var isNotEmpty: Bool { get }    
-    var isOnlyALinefeedCharacter: Bool { get }        
+    var isOnlyALinefeedCharacter: Bool { get }
+    
+    func characterLengthForCharacter(at location: Int) -> Int
+    func characterLengthForCharacter(before location: Int) -> Int
     
 }
 
@@ -44,6 +47,15 @@ extension TextEngineTextObjectProtocol {
     
     var isOnlyALinefeedCharacter: Bool {
         return value == "\n"
+    }
+    
+    
+    func characterLengthForCharacter(at location: Int) -> Int {
+        return value.characterLengthForCharacter(at: location)
+    }
+    
+    func characterLengthForCharacter(before location: Int) -> Int {
+        return value.characterLengthForCharacter(before: location)
     }
     
 }
@@ -64,14 +76,6 @@ struct TextEngineText: TextEngineTextObjectProtocol {
     
     init(from text: String) {
         value = text
-    }
-    
-    func characterLengthForCharacter(at location: Int) -> Int {
-        return value.characterLengthForCharacter(at: location) 
-    }
-    
-    func characterLengthForCharacter(before location: Int) -> Int {
-        return value.characterLengthForCharacter(before: location)
     }
 
 }
@@ -155,7 +159,7 @@ extension TextEngine {
             let numberOfQuotesBeforeCurrentQuote = text[..<searchEndIndex].filter { $0 == quote }.count
             
             if numberOfQuotesBeforeCurrentQuote % 2 == 0 {
-                if let nextQuoteLocation = findNext(quote, after: location, in: text) {
+                if let nextQuoteLocation = findNext(quote, after: location, in: TextEngineText(from: text)) {
                     return (location + 1)..<nextQuoteLocation
                 }
                 
@@ -164,7 +168,7 @@ extension TextEngine {
         }
                 
         if let previousQuoteLocation = findPrevious(quote, before: location, in: text) {
-            if let nextQuoteLocation = findNext(quote, after: location - 1, in: text) {
+            if let nextQuoteLocation = findNext(quote, after: location - 1, in: TextEngineText(from: text)) {
                 return (previousQuoteLocation + 1)..<nextQuoteLocation
             }
             
@@ -290,7 +294,7 @@ extension TextEngine {
     private func findFirst(_ character: Character, in text: String) -> Int? {
         guard let characterIndex = text.firstIndex(of: character) else { return nil }
         
-        return text.distance(from: text.startIndex, to: characterIndex)
+        return text.utf16.distance(from: text.startIndex, to: characterIndex)
     }
     
     func findLast(_ character: Character, in text: String) -> Int? {
@@ -299,13 +303,16 @@ extension TextEngine {
         return text.distance(from: text.startIndex, to: characterIndex)
     }
     
-    func findNext(_ character: Character, after location: Int, in text: String) -> Int? {
-        guard let searchStartIndex = text.index(text.startIndex, offsetBy: location + 1, limitedBy: text.endIndex) else { return nil }
-        let searchEndIndex = text.endIndex
+    func findNext(_ character: Character, after location: Int, in text: TextEngineTextObjectProtocol) -> Int? {
+        let characterLengthAtLocation = text.characterLengthForCharacter(at: location)
         
-        guard let characterFoundLocation = findFirst(character, in: String(text[searchStartIndex..<searchEndIndex])) else { return nil }
+        let value = text.value
+        guard let searchStartIndex = value.utf16.index(value.startIndex, offsetBy: location + characterLengthAtLocation, limitedBy: value.endIndex) else { return nil }
+        let searchEndIndex = value.endIndex
         
-        return (location + 1) + characterFoundLocation
+        guard let characterFoundLocation = findFirst(character, in: String(value[searchStartIndex..<searchEndIndex])) else { return nil }
+        
+        return (location + characterLengthAtLocation) + characterFoundLocation
     }
     
     func findNextNonBlank(after location: Int, in text: String) -> Int? {

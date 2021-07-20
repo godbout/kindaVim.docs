@@ -73,7 +73,7 @@ class TextEngineMock: TextEngineProtocol {
         return nil 
     }
             
-    func findNext(_ character: Character, after location: Int, in text: String) -> Int? {
+    func findNext(_ character: Character, after location: Int, in text: TextEngineTextObjectProtocol) -> Int? {
         functionCalled = #function
         
         return nil 
