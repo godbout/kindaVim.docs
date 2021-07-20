@@ -78,9 +78,9 @@ extension findNextTests {
     
     func test_that_it_handles_emojis() {
         let text = "check if f can 😂️ find ☹️!"
-        let location = textEngine.findNext("☹️", after: 2, in: TextEngineLine(from: text))
+        let location = textEngine.findNext("d", after: 2, in: TextEngineLine(from: text))
         
-        XCTAssertEqual(location, 24)
+        XCTAssertEqual(location, 22)
     }
     
 }
