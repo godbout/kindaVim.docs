@@ -365,7 +365,7 @@ extension TextEngine {
         let nextToFirstCharacterIndex = text.index(after: firstCharacterIndex)
         guard let secondCharacterLocation = findFirst(character, in: String(text[nextToFirstCharacterIndex...])) else { return nil }
         
-        return text.distance(from: text.startIndex, to: nextToFirstCharacterIndex) + secondCharacterLocation
+        return text.utf16.distance(from: text.startIndex, to: nextToFirstCharacterIndex) + secondCharacterLocation
     }
             
 }
