@@ -69,3 +69,17 @@ character even on multilines
     }
     
 }
+
+
+// emojis
+// see beginningOfWordBackward for the blah blah
+extension findPreviousTests {
+    
+    func test_that_it_handles_emojis() {
+        let text = "check if f can 😂️ find ☹️!"
+        let location = textEngine.findPrevious("h", before: 26, in: text)
+        
+        XCTAssertEqual(location, 1)
+    }
+    
+}

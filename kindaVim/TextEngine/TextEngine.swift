@@ -300,7 +300,7 @@ extension TextEngine {
     func findLast(_ character: Character, in text: String) -> Int? {
         guard let characterIndex = text.lastIndex(of: character) else { return nil }
         
-        return text.distance(from: text.startIndex, to: characterIndex)
+        return text.utf16.distance(from: text.startIndex, to: characterIndex)
     }
     
     func findNext(_ character: Character, after location: Int, in text: TextEngineTextObjectProtocol) -> Int? {
@@ -335,7 +335,7 @@ extension TextEngine {
     
     func findPrevious(_ character: Character, before location: Int, in text: String) -> Int? {
         let searchStartIndex = text.startIndex
-        guard let searchEndIndex = text.index(text.startIndex, offsetBy: location, limitedBy: text.endIndex) else { return nil }
+        guard let searchEndIndex = text.utf16.index(text.startIndex, offsetBy: location, limitedBy: text.endIndex) else { return nil }
         
         guard let characterFoundLocation = findLast(character, in: String(text[searchStartIndex..<searchEndIndex])) else { return nil }
         
