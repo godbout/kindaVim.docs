@@ -214,4 +214,28 @@ line 📆️
         XCTAssertEqual(returnedElement?.selectedText, "")
     }
     
+    func test_that_it_does_suck_the_emojis_before_a_space_when_we_are_at_a_space() {        
+        let text = "don't suck 🦆️   me   "
+        let element = AccessibilityTextElement(
+            role: .textField,
+            value: text,
+            length: 22,
+            caretLocation: 15,
+            selectedLength: 1,
+            selectedText: " ",
+            currentLine: AccessibilityTextElementLine(
+                fullValue: text,
+                number: 1,
+                start: 0,
+                end: 22
+            )
+        )
+        
+        let returnedElement = applyMove(on: element)
+        
+        XCTAssertEqual(returnedElement?.caretLocation, 14)
+        XCTAssertEqual(returnedElement?.selectedLength, 3)
+        XCTAssertEqual(returnedElement?.selectedText, "")
+    }
+    
 }

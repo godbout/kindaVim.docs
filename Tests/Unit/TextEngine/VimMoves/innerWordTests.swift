@@ -117,4 +117,13 @@ extension innerWordTests {
         XCTAssertEqual(wordRange.upperBound, 33)                
     }
     
+    func test_that_it_does_not_do_shit_with_emojis_before_a_space() {
+        let text = "emojis are symbols that 🔫️🔫️🔫️ are longer than 1 length"
+        
+        let wordRange = textEngine.innerWord(startingAt: 33, in: text)
+        
+        XCTAssertEqual(wordRange.lowerBound, 33)
+        XCTAssertEqual(wordRange.upperBound, 34)                
+    }
+    
 }

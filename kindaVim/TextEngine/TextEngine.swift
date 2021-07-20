@@ -191,10 +191,12 @@ extension TextEngine {
         let characterAtLocationText = text[characterAtLocationIndex]
 
         if characterAtLocationText == " " {
-            let previousNonBlankLocation = findPreviousNonBlank(startingAt: location, in: text) ?? -1
+            let previousNonBlankLocation = findPreviousNonBlank(startingAt: location, in: text) ?? 0
             let nextNonBlankLocation = findNextNonBlank(after: location, in: text) ?? text.utf16.count  
             
-            return (previousNonBlankLocation + 1)..<nextNonBlankLocation
+            guard previousNonBlankLocation != 0 else { return 0..<nextNonBlankLocation }
+            
+            return (previousNonBlankLocation + text.characterLengthForCharacter(at: previousNonBlankLocation))..<nextNonBlankLocation
         }
  
         let beginningOfWordLocation = beginningOfWordBackward(startingAt: location + text.characterLengthForCharacter(at: location), in: TextEngineText(from: text))
