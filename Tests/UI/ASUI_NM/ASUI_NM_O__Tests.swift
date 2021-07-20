@@ -2,7 +2,7 @@
 import XCTest
 
 
-class UIASNM_O__Tests: ASUI_NM_BaseTests {
+class ASUI_NM_O_Tests: ASUI_NM_BaseTests {
     
     private func applyMoveAndGetBackAccessibilityElement() -> AccessibilityTextElement? {
         KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .O))
@@ -14,14 +14,14 @@ class UIASNM_O__Tests: ASUI_NM_BaseTests {
 
 
 // TextViews
-extension UIASNM_O__Tests {
+extension ASUI_NM_O_Tests {
     
     func test_that_in_normal_setting_it_creates_a_new_line_above_the_current_one() {
         let textInAXFocusedElement = """
-that's a multiline
-and O will
-create a new line
-above!
+tha😄️t's a mu😄️ltiline
+an😄️😄️d O will
+create a n😄️ew line
+abo😄️ve!
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
@@ -32,14 +32,14 @@ above!
         let accessibilityElement = applyMoveAndGetBackAccessibilityElement()        
         
         XCTAssertEqual(accessibilityElement?.value, """
-that's a multiline
+tha😄️t's a mu😄️ltiline
 
-and O will
-create a new line
-above!
+an😄️😄️d O will
+create a n😄️ew line
+abo😄️ve!
 """
         )
-        XCTAssertEqual(accessibilityElement?.caretLocation, 19)
+        XCTAssertEqual(accessibilityElement?.caretLocation, 25)
     }
     
     func test_that_if_at_the_first_line_it_will_create_a_new_line_above() {
