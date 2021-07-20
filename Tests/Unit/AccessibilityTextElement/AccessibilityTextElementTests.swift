@@ -7,7 +7,9 @@ import XCTest
 // currently we are grouping the tests rather than testing each computed property
 // independently because they will be tested by themselves through the move tests.
 // those tests are not extra necessary, but because i'm dealing with the emojis now i wanna avoid headaches
-// and make sure i get correct results from those computed properties
+// and make sure i get correct results from those computed properties.
+// currently only testing computed properties, not funcs because lazy and also might change. if the funcs fail
+// for sure the moves will fail and the tests will grab
 class AccessibilityTextElementTests: XCTestCase {}
 
 
