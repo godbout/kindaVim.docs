@@ -1,41 +1,43 @@
 extension AccessibilityStrategyNormalMode {
     
     func dd(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
-        guard var element = element else { return nil }
+        guard let element = element else { return nil }
+        var newElement = element
                 
         if let nextLine = AccessibilityTextElementAdaptor.lineFor(lineNumber: element.currentLine.number + 1) {
             let lineValue = nextLine.value
             let firstNonBlankWithinLineLimitOfNextLineLocation = textEngine.firstNonBlankWithinLineLimit(in: TextEngineLine(from: lineValue))
-            let firstNonBlankWithinLineLimitOfNextLineText = lineValue[..<lineValue.index(lineValue.startIndex, offsetBy: firstNonBlankWithinLineLimitOfNextLineLocation)]
+            let firstNonBlankWithinLineLimitOfNextLineText = lineValue[..<lineValue.utf16.index(lineValue.startIndex, offsetBy: firstNonBlankWithinLineLimitOfNextLineLocation)]
             
-            element.caretLocation = element.currentLine.start
-            element.selectedLength = element.currentLine.length + firstNonBlankWithinLineLimitOfNextLineLocation
-            element.selectedText = String(firstNonBlankWithinLineLimitOfNextLineText)
+            newElement.caretLocation = element.currentLine.start
+            newElement.selectedLength = element.currentLine.length + firstNonBlankWithinLineLimitOfNextLineLocation
+            newElement.selectedText = String(firstNonBlankWithinLineLimitOfNextLineText)
             
-            return element
+            return newElement
         }
         
         if let previousLine = AccessibilityTextElementAdaptor.lineFor(lineNumber: element.currentLine.number - 1) {
             let firstNonBlankWithinLineLimitOfPreviousLineLocation = textEngine.firstNonBlankWithinLineLimit(in: TextEngineLine(from: previousLine.value))
+            let linefeedCharacterLength = 1
             
-            element.caretLocation = element.currentLine.start - 1
-            element.selectedLength = element.currentLine.length + 1
-            element.selectedText = ""
+            newElement.caretLocation = element.currentLine.start - linefeedCharacterLength
+            newElement.selectedLength = element.currentLine.length + linefeedCharacterLength
+            newElement.selectedText = ""
             
-            _ = AccessibilityTextElementAdaptor.toAXFocusedElement(from: element)
+            _ = AccessibilityTextElementAdaptor.toAXFocusedElement(from: newElement)
             
-            element.caretLocation -= previousLine.length - firstNonBlankWithinLineLimitOfPreviousLineLocation - 1                
-            element.selectedLength = 0
-            element.selectedText = ""
+            newElement.caretLocation -= previousLine.lengthWithoutLinefeed - firstNonBlankWithinLineLimitOfPreviousLineLocation                
+            newElement.selectedLength = 0
+            newElement.selectedText = ""
             
-            return element
+            return newElement
         }
         
-        element.caretLocation = 0
-        element.selectedLength = element.length
-        element.selectedText = ""                          
+        newElement.caretLocation = 0
+        newElement.selectedLength = element.length
+        newElement.selectedText = ""                          
         
-        return element
+        return newElement
     }
     
 }

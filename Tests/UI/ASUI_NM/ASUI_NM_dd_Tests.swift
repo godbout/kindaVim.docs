@@ -205,3 +205,29 @@ own empty
     
 }
 
+
+// emojis
+extension UIASNM_dd_Tests {
+    
+    func test_that_it_handles_emojis() {
+        let textInAXFocusedElement = """
+wow now that 😂️😂️😂️ have to handle🙈️
+    🍌️dd with the 🙈️🙈️🙈️🙈️🙈️🙈️🙈️ emojis🍌️🍌️
+  and i don't really 🍌️🍌️🍌️ know it it works🍌️
+"""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        KindaVimEngine.shared.enterNormalMode()
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .k))
+        
+        let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
+        
+        XCTAssertEqual(accessibilityElement?.value, """
+wow now that 😂️😂️😂️ have to handle🙈️
+  and i don't really 🍌️🍌️🍌️ know it it works🍌️
+"""
+        )
+        XCTAssertEqual(accessibilityElement?.caretLocation, 43)
+    }
+    
+}

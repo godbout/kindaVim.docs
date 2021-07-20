@@ -32,6 +32,7 @@
 		911A0C8326668F4C00B78C15 /* ASUT_NM_T__Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911A0C8226668F4C00B78C15 /* ASUT_NM_T__Tests.swift */; };
 		911BB7492632899E006882D8 /* KindaVimEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911BB7482632899E006882D8 /* KindaVimEngine.swift */; };
 		911BB75626328D7D006882D8 /* EventTapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911BB75526328D7D006882D8 /* EventTapController.swift */; };
+		911CD4E326A6C82600849F54 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CF260726A5F6B500CF215D /* String.swift */; };
 		911DF54B2684B5FB008FCD29 /* AccessibilityStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911DF54A2684B5FB008FCD29 /* AccessibilityStrategy.swift */; };
 		911DF55D2684BBC5008FCD29 /* AccessibilityStrategyVisualModeMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911DF55C2684BBC5008FCD29 /* AccessibilityStrategyVisualModeMock.swift */; };
 		911F64EA267F49E40033B4D4 /* UsingASNM_dF__Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911F64E9267F49E40033B4D4 /* UsingASNM_dF__Tests.swift */; };
@@ -2798,6 +2799,7 @@
 				9147350E26A2004D00B20466 /* Display.swift in Sources */,
 				9147353526A200CE00B20466 /* AS_NM__.swift in Sources */,
 				9147350526A1FE3800B20466 /* ASUI_NM_x_Tests.swift in Sources */,
+				911CD4E326A6C82600849F54 /* String.swift in Sources */,
 				914734FF26A1FE3800B20466 /* ASUI_NM_dd_Tests.swift in Sources */,
 				9147353726A200CE00B20466 /* AS_NM_cc.swift in Sources */,
 				9147352426A200CE00B20466 /* AS_NM_F_.swift in Sources */,
