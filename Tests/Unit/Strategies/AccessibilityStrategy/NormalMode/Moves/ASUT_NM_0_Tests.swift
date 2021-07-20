@@ -2,7 +2,7 @@
 import XCTest
 
 
-class ASNM_0_Tests: ASNM_BaseTests {
+class ASUT_NM_0_Tests: ASNM_BaseTests {
     
     private func applyMove(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return asNormalMode.zero(on: element) 
@@ -12,7 +12,7 @@ class ASNM_0_Tests: ASNM_BaseTests {
 
 
 // Both
-extension ASNM_0_Tests {
+extension ASUT_NM_0_Tests {
 
     func test_that_in_normal_setting_0_is_moving_the_caret_position_to_the_first_character_of_the_line() {
         let text = "0 should send us to the beginning of the line"
@@ -41,7 +41,7 @@ extension ASNM_0_Tests {
 }
 
 // TextViews
-extension ASNM_0_Tests {
+extension ASUT_NM_0_Tests {
 
     func test_that_at_the_beginning_of_a_line_zero_does_not_move() {
         let text = """
@@ -70,3 +70,37 @@ where we gonna test 0
     }
 
 }
+
+
+// emojis
+extension ASUT_NM_0_Tests {
+    
+    func test_that_it_handles_emojis() {
+        let text = """
+need to deal with
+🌱️those 🍃️🍃️🍃️🍃️🍃️🍃️ faces 🥺️☹️😂️
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 61,
+            caretLocation: 42,
+            selectedLength: 3,
+            selectedText: "🍃️",
+            currentLine: AccessibilityTextElementLine(
+                fullValue: text,
+                number: 2,
+                start: 18,
+                end: 61
+            )
+        )
+        
+        let returnedElement = applyMove(on: element)
+        
+        XCTAssertEqual(returnedElement?.caretLocation, 18)
+        XCTAssertEqual(returnedElement?.selectedLength, 3)
+        XCTAssertNil(returnedElement?.selectedText)
+    }
+    
+}
+
