@@ -151,12 +151,12 @@ extension TextEngine {
     func innerQuotedString(using quote: Character, startingAt location: Int, in text: String) -> Range<Int>? {
         guard !text.isEmpty else { return nil }
         
-        guard let characterAtLocationIndex = text.index(text.startIndex, offsetBy: location, limitedBy: text.index(before: text.endIndex)) else { return nil }
+        guard let characterAtLocationIndex = text.utf16.index(text.startIndex, offsetBy: location, limitedBy: text.index(before: text.endIndex)) else { return nil }
         let characterAtLocationText = text[characterAtLocationIndex]
         
         if characterAtLocationText == quote {
-            let searchEndIndex = text.index(text.startIndex, offsetBy: location)
-            let numberOfQuotesBeforeCurrentQuote = text[..<searchEndIndex].filter { $0 == quote }.count
+            let searchEndIndex = text.utf16.index(text.startIndex, offsetBy: location)
+            let numberOfQuotesBeforeCurrentQuote = text[..<searchEndIndex].filter { $0 == quote }.utf16.count
             
             if numberOfQuotesBeforeCurrentQuote % 2 == 0 {
                 if let nextQuoteLocation = findNext(quote, after: location, in: TextEngineText(from: text)) {

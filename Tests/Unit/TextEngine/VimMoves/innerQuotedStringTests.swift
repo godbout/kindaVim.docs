@@ -2,11 +2,11 @@
 import XCTest
 
 
-class innerQuotedString: TextEngineBaseTests {}
+class innerQuotedStringTests: TextEngineBaseTests {}
 
 
 // Both
-extension innerQuotedString {
+extension innerQuotedStringTests {
     
     func test_that_if_there_is_no_quote_then_it_returns_nil() {
         let text = "yep no quote in here"
@@ -85,6 +85,23 @@ several "pairs" here and kindaVim should "know which one to delete
         XCTAssertNil(
             textEngine.innerQuotedString(using: "\"", startingAt: 0, in: text)
         )
+    }
+    
+}
+
+
+// emojis
+// see beginningOfWordBackward for the blah blah
+extension innerQuotedStringTests {
+    
+    func test_that_it_handles_emojis() {
+        let text = """
+emojis are sy🧑‍🌾️🧑‍🌾️mbols" that 🔫️🔫️🔫️ are longer" than 1 length
+"""
+        guard let quotedStringRange = textEngine.innerQuotedString(using: "\"", startingAt: 9, in: text) else { return XCTFail() }
+        
+        XCTAssertEqual(quotedStringRange.lowerBound, 31)
+        XCTAssertEqual(quotedStringRange.upperBound, 57) 
     }
     
 }
