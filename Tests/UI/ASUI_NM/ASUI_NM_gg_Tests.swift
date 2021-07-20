@@ -29,7 +29,7 @@ extension UIASNM_gg_Tests {
     }
     
     func test_that_it_goes_to_the_first_non_blank_of_the_line() {
-        let textInAXFocusedElement = "      gg should go to g"
+        let textInAXFocusedElement = "      😀️g should go to 😀️"
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
         KindaVimEngine.shared.enterNormalMode()
@@ -37,6 +37,7 @@ extension UIASNM_gg_Tests {
         let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
         
         XCTAssertEqual(accessibilityElement?.caretLocation, 6)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 3)
     }
     
     func test_that_it_goes_to_the_end_limit_of_the_line_if_there_is_no_non_blank() {

@@ -542,8 +542,7 @@ extension KindaVimEngine {
         case [.g, .g]:
             enterNormalMode()
             
-            if var element = asNormalMode.gg(on: focusedElement()) {
-                element.selectedLength = 1                
+            if let element = asNormalMode.gg(on: focusedElement()) {                
                 push(element: element)
             } else {
                 post(keyboardStrategy.gg())
@@ -551,8 +550,7 @@ extension KindaVimEngine {
         case [.g, .E]:
             enterNormalMode()
             
-            if var element = asNormalMode.gE(on: focusedElement()) {
-                element.selectedLength = 1                
+            if let element = asNormalMode.gE(on: focusedElement()) {                
                 push(element: element)
             }
         case [.leftBracket, .leftBrace]:
