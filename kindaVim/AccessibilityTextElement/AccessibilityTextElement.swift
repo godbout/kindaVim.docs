@@ -123,6 +123,14 @@ struct AccessibilityTextElement {
         return value.characterLengthForCharacter(before: caretLocation)
     }
     
+    func characterLengthForCharacter(at location: Int) -> Int {
+        return value.characterLengthForCharacter(at: location)
+    }
+    
+    func characterLengthForCharacter(before location: Int) -> Int {
+        return value.characterLengthForCharacter(before: location)
+    }
+    
     var isEmpty: Bool { value.isEmpty }    
     var isNotEmpty: Bool { !isEmpty }
     var caretIsAtTheEnd: Bool { caretLocation == length }    
