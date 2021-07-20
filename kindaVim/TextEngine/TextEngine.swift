@@ -140,12 +140,13 @@ extension TextEngine {
         
         return text.utf16.distance(from: text.startIndex, to: characterIndex)
     }
-    
+
+    // see firstNonBlank above for blah blah
     func firstNonBlankWithinLineLimit(in line: TextEngineLine) -> Int {
         let value = line.value
         guard let characterIndex = value.firstIndex(where: { !$0.isWhitespace }) else { return line.endLimit }
         
-        return value.distance(from: value.startIndex, to: characterIndex)
+        return value.utf16.distance(from: value.startIndex, to: characterIndex)
     }
     
     func innerQuotedString(using quote: Character, startingAt location: Int, in text: String) -> Range<Int>? {

@@ -65,3 +65,20 @@ extension firstNonBlankWithinLineLimitTests {
     }
     
 }
+
+
+// emojis
+// see beginningOfWordBackward for the blah blah
+// actually for blank stuff it doesn't really matter, but at least
+// the test is here so i'll not wonder later why there's none :D
+extension firstNonBlankWithinLineLimitTests {
+    
+    func test_that_it_handles_emojis() {
+        let text = "                🔫️🔫️🔫️ are "
+        
+        let location = textEngine.firstNonBlankWithinLineLimit(in: TextEngineLine(from: text))
+        
+        XCTAssertEqual(location, 16)
+    }
+    
+}
