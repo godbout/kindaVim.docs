@@ -1,12 +1,13 @@
 extension AccessibilityStrategyNormalMode {
     
     func i(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
-        guard var element = element else { return nil }
+        guard let element = element else { return nil }
+        var newElement = element
         
-        element.selectedLength = 0
-        element.selectedText = nil
+        newElement.selectedLength = 0
+        newElement.selectedText = nil
         
-        return element
+        return newElement
     }
     
 }
