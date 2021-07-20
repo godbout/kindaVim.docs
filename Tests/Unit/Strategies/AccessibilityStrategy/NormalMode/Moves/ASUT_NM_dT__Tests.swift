@@ -101,3 +101,36 @@ on a line
     }
     
 }
+
+
+// emojis
+extension ASNM_dT__Tests {
+    
+    func test_that_it_handles_emojis() {
+        let text = """
+need to deal with
+those💨️💨️💨️ faces 🥺️☹️😂️ h😀️ha
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 54,
+            caretLocation: 48,
+            selectedLength: 1,
+            selectedText: "h",
+            currentLine: AccessibilityTextElementLine(
+                fullValue: text,
+                number: 2,
+                start: 18,
+                end: 54
+            )
+        )
+        
+        let returnedElement = applyMove(to: "h", on: element)
+        
+        XCTAssertEqual(returnedElement?.caretLocation, 20)
+        XCTAssertEqual(returnedElement?.selectedLength, 28)
+        XCTAssertEqual(returnedElement?.selectedText, "")
+    }
+    
+}

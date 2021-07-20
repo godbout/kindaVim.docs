@@ -1,20 +1,21 @@
 extension AccessibilityStrategyNormalMode {
     
     func dT(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
-        guard var element = element else { return nil }
+        guard let element = element else { return nil }
+        var newElement = element
         
         if let elementFound = T(to: character, on: element), elementFound.caretLocation != element.caretLocation {
-            element.selectedLength = element.caretLocation - elementFound.caretLocation
-            element.caretLocation = elementFound.caretLocation
-            element.selectedText = ""
+            newElement.caretLocation = elementFound.caretLocation
+            newElement.selectedLength = element.caretLocation - elementFound.caretLocation
+            newElement.selectedText = ""
             
-            return element
+            return newElement
         }
         
-        element.selectedLength = 1
-        element.selectedText = nil
+        newElement.selectedLength = element.characterLength
+        newElement.selectedText = nil
         
-        return element
+        return newElement
     }
     
 }
