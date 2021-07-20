@@ -28,7 +28,7 @@ extension UIASNM_G__Tests {
     }
     
     func test_that_it_goes_to_the_first_non_blank_of_the_line() {
-        let textInAXFocusedElement = "      G should go to well G"
+        let textInAXFocusedElement = "      🍆️ should go to well 🍆️"
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
         KindaVimEngine.shared.enterNormalMode()
@@ -36,6 +36,7 @@ extension UIASNM_G__Tests {
         let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
         
         XCTAssertEqual(accessibilityElement?.caretLocation, 6)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 3)
     }
     
     func test_that_it_goes_to_the_end_limit_of_the_line_if_there_is_no_non_blank() {
