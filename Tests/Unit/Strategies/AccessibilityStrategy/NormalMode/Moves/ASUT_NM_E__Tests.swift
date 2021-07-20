@@ -2,15 +2,12 @@
 import XCTest
 
 
+// see b for blah blah
 class ASNM_E__Tests: ASNM_BaseTests {
     
-    let textEngineMock = TextEngineMock()
-    
-    override func setUp() {
-        super.setUp()
-        
-        asNormalMode = AccessibilityStrategyNormalMode(textEngine: textEngineMock)
-    }    
+    private func applyMove(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        return asNormalMode.E(on: element) 
+    }
     
 }
 
@@ -18,30 +15,31 @@ class ASNM_E__Tests: ASNM_BaseTests {
 // Both
 extension ASNM_E__Tests {
     
-    func test_that_it_calls_the_TextEngine_endOfWordForward_function() {
+    func test_that_it_returns_the_correct_selectedLength() {
         let text = """
-this should call the
-endOfWordForward func
-from the TextEngine
+yeah coz the text functions don't
+care about the length but 🦋️ the move
+itself does
 """
         let element = AccessibilityTextElement(
             role: .textArea,
             value: text,
-            length: 62,
-            caretLocation: 55,
+            length: 84,
+            caretLocation: 58,
             selectedLength: 1,
             selectedText: "t",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
-                number: 3,
-                start: 43,
-                end: 62
+                number: 2,
+                start: 34,
+                end: 73
             )
         )
         
-        _ = asNormalMode.E(on: element)
+        let returnedElement = applyMove(on: element)
         
-        XCTAssertEqual(textEngineMock.functionCalled, "endOfWORDForward(startingAt:in:)")        
+        XCTAssertEqual(returnedElement?.selectedLength, 3)
     }
     
 }
+
