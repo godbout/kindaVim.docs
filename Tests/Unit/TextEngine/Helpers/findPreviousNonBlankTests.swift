@@ -40,14 +40,6 @@ extension findPreviousNonBlankTests {
         XCTAssertNil(location) 
     }
     
-    func test_that_it_does_not_crash_if_the_caret_is_at_the_end_of_the_text() {
-        let text = "this is the text that may crash"
-        
-        let location = textEngine.findPreviousNonBlank(startingAt: 31, in: text)
-        
-        XCTAssertNil(location) 
-    }
-    
 }
 
 

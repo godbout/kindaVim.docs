@@ -2,48 +2,43 @@
 import XCTest
 
 
-// we use a mock here just to make sure the correct function
-// is called, but all the rest of the tests are handled by:
-// 1. tests of the TextEngine function this move is calling
-// 2. AS UI Tests where we test that the globalColumnNumber is updated
-//    correctly when the caret changes line due to this move
+// see b for blah blah
 class ASNM_w_Tests: ASNM_BaseTests {
     
-    let textEngineMock = TextEngineMock()
-    
-    override func setUp() {
-        super.setUp()
-        
-        asNormalMode = AccessibilityStrategyNormalMode(textEngine: textEngineMock)
-    }    
+    private func applyMove(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        return asNormalMode.w(on: element)
+    }
     
 }
 
 
 // Both
 extension ASNM_w_Tests {
-
-    func test_that_it_calls_the_TextEngine_wordForward_function() {
-        let text = "should be calling wordForward"
+    
+    func test_that_it_returns_the_correct_selectedLength() {
+        let text = """
+yeah coz the text functions don't
+care about the length but 🦋️ the move
+itself does
+"""
         let element = AccessibilityTextElement(
             role: .textArea,
             value: text,
-            length: 29,
-            caretLocation: 13,
+            length: 84,
+            caretLocation: 57,
             selectedLength: 1,
-            selectedText: "l",
+            selectedText: "u",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
-                number: 1,
-                start: 0,
-                end: 29
+                number: 2,
+                start: 34,
+                end: 73
             )
         )
         
-        _ = asNormalMode.w(on: element)
+        let returnedElement = applyMove(on: element)
         
-        XCTAssertEqual(textEngineMock.functionCalled, "beginningOfWordForward(startingAt:in:)")        
+        XCTAssertEqual(returnedElement?.selectedLength, 3)
     }
-
+    
 }
-
