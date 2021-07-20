@@ -8,7 +8,7 @@ import XCTest
 // here the two tests relevant are:
 // 1. can find the character, then getting the right location
 // 2. cannot find the character, then not moving
-class ASNM_T__Tests: ASNM_BaseTests {
+class ASUT_NM_T__Tests: ASNM_BaseTests {
     
     private func applyMove(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return asNormalMode.T(to: character, on: element) 
@@ -18,7 +18,7 @@ class ASNM_T__Tests: ASNM_BaseTests {
 
 
 // Both
-extension ASNM_T__Tests {
+extension ASUT_NM_T__Tests {
     
     func test_that_in_normal_setting_it_moves_the_caret_after_the_first_occurence_of_the_character_found_to_the_left() {
         let text = "check if T can find shit!"
@@ -76,7 +76,7 @@ that is not there
 
 
 // TextViews
-extension ASNM_T__Tests {
+extension ASUT_NM_T__Tests {
     
     func test_that_it_can_find_the_character_on_a_line_for_a_multiline() {
         let text = """
@@ -103,6 +103,39 @@ yeah
         let returnedElement = applyMove(to: "w", on: element)
         
         XCTAssertEqual(returnedElement?.caretLocation, 32)
+        XCTAssertEqual(returnedElement?.selectedLength, 1)
+        XCTAssertNil(returnedElement?.selectedText)
+    }
+    
+}
+
+
+// emojis
+extension ASUT_NM_T__Tests {
+    
+    func test_that_it_handles_emojis() {
+        let text = """
+need to deal with
+those 🍃️🍃️🍃️🍃️🍃️🍃️ faces 🥺️☹️😂️
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 57,
+            caretLocation: 47,
+            selectedLength: 1,
+            selectedText: "s",
+            currentLine: AccessibilityTextElementLine(
+                fullValue: text,
+                number: 2,
+                start: 18,
+                end: 57
+            )
+        )
+        
+        let returnedElement = applyMove(to: "o", on: element)
+        
+        XCTAssertEqual(returnedElement?.caretLocation, 21)
         XCTAssertEqual(returnedElement?.selectedLength, 1)
         XCTAssertNil(returnedElement?.selectedText)
     }
