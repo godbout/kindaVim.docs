@@ -15,7 +15,7 @@ protocol TextEngineProtocol {
     func firstNonBlank(in text: String) -> Int
     func firstNonBlankWithinLineLimit(in line: TextEngineLine) -> Int
     func innerQuotedString(using character: Character, startingAt location: Int, in text: String) -> Range<Int>?
-    func innerWord(startingAt location: Int, in text: TextEngineText) -> Range<Int>
+    func innerWord(startingAt location: Int, in text: String) -> Range<Int>
     func nextUnmatched(_ bracket: Character, after location: Int, in text: String) -> Int
     func previousUnmatched(_ bracket: Character, before location: Int, in text: String) -> Int
 
@@ -183,23 +183,22 @@ extension TextEngine {
         return nil
     }    
 
-    func innerWord(startingAt location: Int, in text: TextEngineText) -> Range<Int> {
+    func innerWord(startingAt location: Int, in text: String) -> Range<Int> {
         guard !text.isEmpty else { return 0..<0 }
         
-        let value = text.value
         // weird Vim move for that one: if on last empty line, iw selects the linefeed and last character of the previous line before the linefeed
-        guard let characterAtLocationIndex = value.utf16.index(value.startIndex, offsetBy: location, limitedBy: value.index(before: value.endIndex)) else { return ((value.utf16.count - 1) - text.characterLengthForCharacter(before: location - 1))..<value.utf16.count }
-        let characterAtLocationText = value[characterAtLocationIndex]
+        guard let characterAtLocationIndex = text.utf16.index(text.startIndex, offsetBy: location, limitedBy: text.index(before: text.endIndex)) else { return ((text.utf16.count - 1) - text.characterLengthForCharacter(before: location - 1))..<text.utf16.count }
+        let characterAtLocationText = text[characterAtLocationIndex]
 
         if characterAtLocationText == " " {
-            let previousNonBlankLocation = findPreviousNonBlank(startingAt: location, in: text.value) ?? -1
-            let nextNonBlankLocation = findNextNonBlank(after: location, in: text.value) ?? value.utf16.count  
+            let previousNonBlankLocation = findPreviousNonBlank(startingAt: location, in: text) ?? -1
+            let nextNonBlankLocation = findNextNonBlank(after: location, in: text) ?? text.utf16.count  
             
             return (previousNonBlankLocation + 1)..<nextNonBlankLocation
         }
  
-        let beginningOfWordLocation = beginningOfWordBackward(startingAt: location + text.characterLengthForCharacter(at: location), in: text)
-        let endOfWordLocation = endOfWordForward(startingAt: location - text.characterLengthForCharacter(before: location), in: text)
+        let beginningOfWordLocation = beginningOfWordBackward(startingAt: location + text.characterLengthForCharacter(at: location), in: TextEngineText(from: text))
+        let endOfWordLocation = endOfWordForward(startingAt: location - text.characterLengthForCharacter(before: location), in: TextEngineText(from: text))
 
         return beginningOfWordLocation..<(endOfWordLocation + text.characterLengthForCharacter(at: endOfWordLocation))
     }

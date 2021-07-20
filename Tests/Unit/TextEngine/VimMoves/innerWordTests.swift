@@ -16,7 +16,7 @@ extension innerWordTests {
     func test_that_it_the_caret_is_on_a_letter_if_finds_the_correct_inner_word() {
         let text = "ok we're gonna try to get the inner word here"
         
-        let wordRange = textEngine.innerWord(startingAt: 10, in: TextEngineText(from: text))
+        let wordRange = textEngine.innerWord(startingAt: 10, in: text)
         
         XCTAssertEqual(wordRange.lowerBound, 9)
         XCTAssertEqual(wordRange.upperBound, 14) 
@@ -25,7 +25,7 @@ extension innerWordTests {
     func test_that_if_the_caret_is_on_a_space_the_inner_word_is_all_the_consecutive_spaces() {
         let text = "ok so now we have a lot of     spaces"
         
-        let wordRange = textEngine.innerWord(startingAt: 28, in: TextEngineText(from: text))
+        let wordRange = textEngine.innerWord(startingAt: 28, in: text)
         
         XCTAssertEqual(wordRange.lowerBound, 26)
         XCTAssertEqual(wordRange.upperBound, 31)         
@@ -34,7 +34,7 @@ extension innerWordTests {
     func test_that_if_the_caret_is_on_a_single_space_it_recognizes_it_as_an_inner_word() {
         let text = "a single space is an inner word"
         
-        let wordRange = textEngine.innerWord(startingAt: 20, in: TextEngineText(from: text))
+        let wordRange = textEngine.innerWord(startingAt: 20, in: text)
         
         XCTAssertEqual(wordRange.lowerBound, 20)
         XCTAssertEqual(wordRange.upperBound, 21) 
@@ -43,7 +43,7 @@ extension innerWordTests {
     func test_that_if_the_TextField_starts_with_spaces_it_finds_the_correct_inner_word() {
         let text = "     that's lots of spaces"
         
-        let wordRange = textEngine.innerWord(startingAt: 4, in: TextEngineText(from: text))
+        let wordRange = textEngine.innerWord(startingAt: 4, in: text)
         
         XCTAssertEqual(wordRange.lowerBound, 0)
         XCTAssertEqual(wordRange.upperBound, 5) 
@@ -52,7 +52,7 @@ extension innerWordTests {
     func test_that_if_the_TextField_ends_with_spaces_it_still_gets_the_correct_inner_word() {
         let text = "that's lots of spaces again       "
         
-        let wordRange = textEngine.innerWord(startingAt: 29, in: TextEngineText(from: text))
+        let wordRange = textEngine.innerWord(startingAt: 29, in: text)
         
         XCTAssertEqual(wordRange.lowerBound, 27)
         XCTAssertEqual(wordRange.upperBound, 34) 
@@ -61,7 +61,7 @@ extension innerWordTests {
     func test_that_if_the_text_is_empty_it_returns_a_range_of_0_to_0() {
         let text = ""
         
-        let wordRange = textEngine.innerWord(startingAt: 0, in: TextEngineText(from: text))
+        let wordRange = textEngine.innerWord(startingAt: 0, in: text)
         
         XCTAssertEqual(wordRange.lowerBound, 0)
         XCTAssertEqual(wordRange.upperBound, 0) 
@@ -80,7 +80,7 @@ spill
    on the next line
 """
         
-        let wordRange = textEngine.innerWord(startingAt: 23, in: TextEngineText(from: text))
+        let wordRange = textEngine.innerWord(startingAt: 23, in: text)
         
         XCTAssertEqual(wordRange.lowerBound, 20)
         XCTAssertEqual(wordRange.upperBound, 26)
@@ -93,7 +93,7 @@ spill also
     backwards
 """
         
-        let wordrange = textEngine.innerWord(startingAt: 33, in: TextEngineText(from: text))
+        let wordrange = textEngine.innerWord(startingAt: 33, in: text)
         
         XCTAssertEqual(wordrange.lowerBound, 30)
         XCTAssertEqual(wordrange.upperBound, 34)
@@ -111,7 +111,7 @@ extension innerWordTests {
     func test_that_it_handles_emojis() {
         let text = "emojis are symbols that 🔫️🔫️🔫️ are longer than 1 length"
         
-        let wordRange = textEngine.innerWord(startingAt: 27, in: TextEngineText(from: text))
+        let wordRange = textEngine.innerWord(startingAt: 27, in: text)
         
         XCTAssertEqual(wordRange.lowerBound, 24)
         XCTAssertEqual(wordRange.upperBound, 33)                
