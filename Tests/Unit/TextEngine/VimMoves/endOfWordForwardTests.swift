@@ -128,7 +128,7 @@ if text[index].isCharacterThatConstitutesAVimWord() {
 
 // emojis
 // see beginningOfWordBackward for the blah blah
-extension endOfWORDForwardTests {
+extension endOfWordForward {
     
     func test_that_it_goes_to_the_end_of_a_word_made_of_emojis() {
         let text = "emojis are symbols that 🔫️🔫️🔫️ are longer than 1 length"

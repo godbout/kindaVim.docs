@@ -4,7 +4,7 @@ extension TextEngine {
         guard text.isNotEmpty else { return 0 }
         
         let value = text.value        
-        guard let anchorIndex = value.index(value.startIndex, offsetBy: location + 1, limitedBy: value.endIndex) else { return text.endLimit }
+        guard let anchorIndex = value.utf16.index(value.startIndex, offsetBy: location + text.characterLengthForCharacter(at: location), limitedBy: value.endIndex) else { return text.endLimit }
         let endIndex = value.endIndex
         
         for index in value[anchorIndex..<endIndex].indices {
@@ -27,7 +27,7 @@ extension TextEngine {
                 continue
             }
             
-            return value.distance(from: value.startIndex, to: index)
+            return value.utf16.distance(from: value.startIndex, to: index)
         }
         
         return location
