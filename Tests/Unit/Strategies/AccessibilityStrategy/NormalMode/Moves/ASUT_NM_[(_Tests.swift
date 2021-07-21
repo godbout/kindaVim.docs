@@ -18,7 +18,7 @@ class ASUT_NM_leftBracketLeftParenthesis_Tests: ASNM_BaseTests {
 // emojis
 extension ASUT_NM_leftBracketLeftParenthesis_Tests {
     
-    func test_that_it_returns_the_correct_selectedLength() {
+    func test_that_it_returns_the_correct_caretLocation_and_selectedLength() {
         let text = """
 yeah 🤨️(🤨️ coz🤨️🤨️ the text 🤨️🤨️functions don't
 care about😂️🤨️🤨️🤨️ the length but 🦋️ the move
