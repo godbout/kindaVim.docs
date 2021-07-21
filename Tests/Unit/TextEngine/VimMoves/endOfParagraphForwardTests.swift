@@ -88,3 +88,24 @@ some more
     }
     
 }
+
+
+// emojis
+// see beginningOfWordBackward for the blah blah
+extension endOfParagraphForwardTests {
+    
+    func test_that_it_handles_emojis() {
+        let text = """
+yes 🐰️🐰️🐰️🐰️ this can happen🐰️🐰️ when the
+
+
+
+🐰️🐰️car🐰️et is after the last character🐰️🐰️🐰️
+"""
+        
+        let newCaretPosition = textEngine.endOfParagraphForward(startingAt: 13, in: TextEngineText(from: text))
+        
+        XCTAssertEqual(newCaretPosition, 48)
+    }
+    
+}
