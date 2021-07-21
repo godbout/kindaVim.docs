@@ -206,7 +206,7 @@ extension TextEngine {
     }
     
     func nextUnmatched(_ bracket: Character, after location: Int, in text: String) -> Int {
-        let locationIndex = text.index(text.startIndex, offsetBy: location)
+        let locationIndex = text.utf16.index(text.startIndex, offsetBy: location)
         let searchText = String(text[locationIndex...])
 
         if let rightBracketFoundLocation = findNextUnmatched(bracket, after: 0, in: searchText) {
@@ -277,20 +277,20 @@ extension TextEngine {
             return nil
         }
         
-        guard let searchStartIndex = text.index(text.startIndex, offsetBy: location + 1, limitedBy: text.endIndex) else { return nil }
+        guard let searchStartIndex = text.utf16.index(text.startIndex, offsetBy: location + text.characterLengthForCharacter(at: location), limitedBy: text.endIndex) else { return nil }
         
         guard let firstRightBracketFoundIndex = text[searchStartIndex...].firstIndex(of: bracket) else { return nil }
         
         if let firstLeftBracketFoundIndex = text[text.index(after: text.startIndex)..<firstRightBracketFoundIndex].firstIndex(of: pairingBracket) {
-            let distanceBetweenLeftAndRightBracketsFound = text.distance(from: firstLeftBracketFoundIndex, to: firstRightBracketFoundIndex)
-            let distanceFromStartToFirstLeftBracketFound = text.distance(from: text.startIndex, to: firstLeftBracketFoundIndex)
+            let distanceBetweenLeftAndRightBracketsFound = text.utf16.distance(from: firstLeftBracketFoundIndex, to: firstRightBracketFoundIndex)
+            let distanceFromStartToFirstLeftBracketFound = text.utf16.distance(from: text.startIndex, to: firstLeftBracketFoundIndex)
             
             guard let nextRightBracketFoundLocation = findNextUnmatched(bracket, after: distanceBetweenLeftAndRightBracketsFound, in: String(text[firstLeftBracketFoundIndex...])) else { return nil } 
             
             return distanceFromStartToFirstLeftBracketFound + nextRightBracketFoundLocation
         }
         
-        return text.distance(from: text.startIndex, to: firstRightBracketFoundIndex)               
+        return text.utf16.distance(from: text.startIndex, to: firstRightBracketFoundIndex)               
     }
     
     private func findFirst(_ character: Character, in text: String) -> Int? {
