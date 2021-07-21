@@ -251,9 +251,11 @@ struct KeyboardStrategy: KeyboardStrategyProtocol {
         ]
     }
 
+    // gross undo/redo for now until we understand the UndoManager API
     func controlR() -> [KeyCombination] {
         return [
-            KeyCombination(key: .z, shift: true, command: true)
+            KeyCombination(key: .z, shift: true, command: true),
+            KeyCombination(key: .right, shift: true)
         ]
     }
 
@@ -263,9 +265,12 @@ struct KeyboardStrategy: KeyboardStrategyProtocol {
         ]
     }
     
+    // gross undo/redo for now until we understand the UndoManager API
     func u() -> [KeyCombination] {
         return [
-            KeyCombination(key: .z, command: true)
+            KeyCombination(key: .z, command: true),
+            KeyCombination(key: .left),
+            KeyCombination(key: .right, shift: true)
         ]
     }
     
