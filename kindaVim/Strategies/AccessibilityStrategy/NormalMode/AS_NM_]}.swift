@@ -1,13 +1,14 @@
 extension AccessibilityStrategyNormalMode {
     
     func rightBracketRightBrace(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
-        guard var element = element else { return nil }
+        guard let element = element else { return nil }
+        var newElement = element
         
-        element.caretLocation = textEngine.nextUnmatched("}", after: element.caretLocation, in: element.value)
-        element.selectedLength = 1
-        element.selectedText = nil
+        newElement.caretLocation = textEngine.nextUnmatched("}", after: element.caretLocation, in: element.value)
+        newElement.selectedLength = newElement.characterLength
+        newElement.selectedText = nil
         
-        return element
+        return newElement
     }
     
 }

@@ -2,46 +2,44 @@
 import XCTest
 
 
-class ASNM_rightBracketRightBrace_Tests: ASNM_BaseTests {
+class ASUT_NM_rightBracketRightBrace_Tests: ASNM_BaseTests {
     
-    let textEngineMock = TextEngineMock()
-    
-    override func setUp() {
-        super.setUp()
-        
-        asNormalMode = AccessibilityStrategyNormalMode(textEngine: textEngineMock)
-    }    
+    private func applyMove(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        return asNormalMode.rightBracketRightBrace(on: element) 
+    }
     
 }
 
 
-// Both
-extension ASNM_rightBracketRightBrace_Tests {
+// emojis
+extension ASUT_NM_rightBracketRightBrace_Tests {
     
-    func test_that_it_calls_the_TextEngine_nextUnmatched_function() {
+    func test_that_it_returns_the_correct_selectedLength() {
         let text = """
-just testing call to nextUnmatched
-all the cases are tested in
-the TextEngineTests
+y{ah 🤨️(🤨️ coz🤨️🤨️ the text 🤨️🤨️functions don't
+care about😂️🤨️🤨️🤨️ the length but 🦋️ the m)ove
+itself d🤨️}🤨️🤨️oes
 """
         let element = AccessibilityTextElement(
             role: .textArea,
             value: text,
-            length: 82,
-            caretLocation: 2,
-            selectedLength: 1,
-            selectedText: "s",
+            length: 127,
+            caretLocation: 19,
+            selectedLength: 3,
+            selectedText: "🤨️",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 1,
                 start: 0,
-                end: 35
+                end: 54
             )
         )
         
-        _ = asNormalMode.rightBracketRightBrace(on: element)
+        let returnedElement = applyMove(on: element)
         
-        XCTAssertEqual(textEngineMock.functionCalled, "nextUnmatched(_:after:in:)")        
+        XCTAssertEqual(returnedElement?.caretLocation, 117)
+        XCTAssertEqual(returnedElement?.selectedLength, 1)
     }
     
 }
+
