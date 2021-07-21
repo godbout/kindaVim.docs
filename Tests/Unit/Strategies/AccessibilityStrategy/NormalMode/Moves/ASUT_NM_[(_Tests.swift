@@ -2,48 +2,48 @@
 import XCTest
 
 
-// this move just calls a TextEngine function
-// no 3 Cases because it's text based
-class ASNM_leftBracketLeftParenthesis_Tests: ASNM_BaseTests {
+// see b for blah blah
+// but also here because we are looking for the specific "{" character
+// we know the selectedLength is gonna 1, but we can still check the caretLocation
+// and see if the emojis are fucking with the counts
+class ASUT_NM_leftBracketLeftParenthesis_Tests: ASNM_BaseTests {
     
-    let textEngineMock = TextEngineMock()
-    
-    override func setUp() {
-        super.setUp()
-        
-        asNormalMode = AccessibilityStrategyNormalMode(textEngine: textEngineMock)
-    }    
+    private func applyMove(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        return asNormalMode.leftBracketLeftBrace(on: element) 
+    }
     
 }
 
 
-// Both
-extension ASNM_leftBracketLeftParenthesis_Tests {
+// emojis
+extension ASUT_NM_leftBracketLeftParenthesis_Tests {
     
-    func test_that_it_calls_the_TextEngine_findPreviousUnmatched_function() {
+    func test_that_it_returns_the_correct_selectedLength() {
         let text = """
-just testing call to findPreviousUnmatched
-all the cases are tested in
-the TextEngineTests
+yeah 🤨️{🤨️ coz🤨️🤨️ the text 🤨️🤨️functions don't
+care about😂️🤨️🤨️🤨️ the length but 🦋️ the move
+itself d🤨️🤨️🤨️oes
 """
         let element = AccessibilityTextElement(
             role: .textArea,
             value: text,
-            length: 90,
-            caretLocation: 53,
+            length: 125,
+            caretLocation: 110,
             selectedLength: 1,
-            selectedText: "s",
+            selectedText: "f",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
-                number: 2,
-                start: 43,
-                end: 71
+                number: 3,
+                start: 105,
+                end: 125
             )
         )
         
-        _ = asNormalMode.leftBracketLeftParenthesis(on: element)
+        let returnedElement = applyMove(on: element)
         
-        XCTAssertEqual(textEngineMock.functionCalled, "previousUnmatched(_:before:in:)")        
+        XCTAssertEqual(returnedElement?.caretLocation, 8)
+        XCTAssertEqual(returnedElement?.selectedLength, 1)
     }
     
 }
+  
