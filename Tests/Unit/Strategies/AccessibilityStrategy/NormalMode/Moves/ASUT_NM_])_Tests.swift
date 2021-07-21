@@ -2,46 +2,44 @@
 import XCTest
 
 
-class ASNM_rightBracketRightParenthesis_Tests: ASNM_BaseTests {
+class ASUT_NM_rightBracketRightParenthesis_Tests: ASNM_BaseTests {
     
-    let textEngineMock = TextEngineMock()
-    
-    override func setUp() {
-        super.setUp()
-        
-        asNormalMode = AccessibilityStrategyNormalMode(textEngine: textEngineMock)
-    }    
+    private func applyMove(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        return asNormalMode.rightBracketRightParenthesis(on: element) 
+    }
     
 }
 
 
-// Both
-extension ASNM_rightBracketRightParenthesis_Tests {
+// emojis
+extension ASUT_NM_rightBracketRightParenthesis_Tests {
     
-    func test_that_it_calls_the_TextEngine_nextUnmatched_function() {
+    func test_that_it_returns_the_correct_selectedLength() {
         let text = """
-just testing call to nextUnmatched
-all the cases are tested in
-the TextEngineTests
+y{ah 🤨️(🤨️ coz🤨️🤨️ the text 🤨️🤨️functions don't
+care about😂️🤨️🤨️🤨️ the length but 🦋️ the m)ove
+itself d🤨️🤨️🤨️oes
 """
         let element = AccessibilityTextElement(
             role: .textArea,
             value: text,
-            length: 82,
-            caretLocation: 60,
-            selectedLength: 1,
-            selectedText: "i",
+            length: 126,
+            caretLocation: 14,
+            selectedLength: 0,
+            selectedText: "",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
-                number: 2,
-                start: 35,
-                end: 63
+                number: 1,
+                start: 0,
+                end: 54
             )
         )
         
-        _ = asNormalMode.rightBracketRightParenthesis(on: element)
+        let returnedElement = applyMove(on: element)
         
-        XCTAssertEqual(textEngineMock.functionCalled, "nextUnmatched(_:after:in:)")        
+        XCTAssertEqual(returnedElement?.caretLocation, 101)
+        XCTAssertEqual(returnedElement?.selectedLength, 1)
     }
     
 }
+
