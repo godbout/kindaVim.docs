@@ -59,7 +59,7 @@ extension The2CasesTests {
         let textInAXFocusedElement = """
 it's four O eight
 and i'm still having fun
-:D
+😅️
 
 """
         app.textViews.firstMatch.tap()
@@ -71,24 +71,24 @@ and i'm still having fun
         XCTAssertEqual(accessibilityElement?.value, """
 it's four O eight
 and i'm still having fun
-:D
+😅️
 
 """
         )
-        XCTAssertEqual(accessibilityElement?.length, 46)
-        XCTAssertEqual(accessibilityElement?.caretLocation, 46)
+        XCTAssertEqual(accessibilityElement?.length, 47)
+        XCTAssertEqual(accessibilityElement?.caretLocation, 47)
         XCTAssertEqual(accessibilityElement?.selectedLength, 0)
         XCTAssertEqual(accessibilityElement?.selectedText, "")
         XCTAssertEqual(accessibilityElement?.currentLine.fullValue, """
 it's four O eight
 and i'm still having fun
-:D
+😅️
 
 """
         )
         XCTAssertEqual(accessibilityElement?.currentLine.number, 4)
-        XCTAssertEqual(accessibilityElement?.currentLine.start, 46)
-        XCTAssertEqual(accessibilityElement?.currentLine.end, 46)
+        XCTAssertEqual(accessibilityElement?.currentLine.start, 47)
+        XCTAssertEqual(accessibilityElement?.currentLine.end, 47)
     }
     
 }

@@ -38,7 +38,7 @@ extension OtherCasesTests {
         let textInAXFocusedElement = """
 that's a TextField
 with multiple lines
-of course
+of course 💩️💩️💩️
 because that's its
 life
 """
@@ -53,26 +53,26 @@ life
         XCTAssertEqual(accessibilityElement?.value, """
 that's a TextField
 with multiple lines
-of course
+of course 💩️💩️💩️
 because that's its
 life
 """
         )
-        XCTAssertEqual(accessibilityElement?.length, 72)
+        XCTAssertEqual(accessibilityElement?.length, 82)
         XCTAssertEqual(accessibilityElement?.caretLocation, 43)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 10)
-        XCTAssertEqual(accessibilityElement?.selectedText, "ourse\nbeca")
+        XCTAssertEqual(accessibilityElement?.selectedLength, 20)
+        XCTAssertEqual(accessibilityElement?.selectedText, "ourse 💩️💩️💩️\nbeca")
         XCTAssertEqual(accessibilityElement?.currentLine.fullValue, """
 that's a TextField
 with multiple lines
-of course
+of course 💩️💩️💩️
 because that's its
 life
 """
         )
         XCTAssertEqual(accessibilityElement?.currentLine.number, 3)
         XCTAssertEqual(accessibilityElement?.currentLine.start, 39)
-        XCTAssertEqual(accessibilityElement?.currentLine.end, 49)
+        XCTAssertEqual(accessibilityElement?.currentLine.end, 59)
     }
     
 }

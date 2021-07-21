@@ -14,7 +14,7 @@ this time
             length: 31,
             caretLocation: 21,
             selectedLength: 0,
-            selectedText: "\nbanana banana banana"
+            selectedText: "\nbanana banana 🍌️🍌️🍌️ banana"
         )
         
         let textInAXFocusedElement = text
@@ -25,11 +25,11 @@ this time
         XCTAssertTrue(conversionSucceeded)
         
         let reconvertedAccessibilityTextElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
-        XCTAssertEqual(reconvertedAccessibilityTextElement?.caretLocation, 42) 
+        XCTAssertEqual(reconvertedAccessibilityTextElement?.caretLocation, 52) 
         XCTAssertEqual(reconvertedAccessibilityTextElement?.value, """
 a full line
 of banana
-banana banana banana
+banana banana 🍌️🍌️🍌️ banana
 this time
 """
         )

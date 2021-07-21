@@ -24,12 +24,20 @@ class to_TF_caretLocationTests: ATEA_BaseTests {
     }
 
     func test_that_we_can_set_the_caret_location_wherever_between_the_beginning_and_the_end_of_the_line() {
-        let text = "hello"
+        let text = "💨️ hello"
         let element = AccessibilityTextElement(
+            role: .textField,
             value: text,
-            length: 5,
+            length: 9,
             caretLocation: 4,
-            selectedLength: 1
+            selectedLength: 1,
+            selectedText: nil,
+            currentLine: AccessibilityTextElementLine(
+                fullValue: text,
+                number: 1,
+                start: 0,
+                end: 9
+            )
         )
 
         let textInAXFocusedElement = text

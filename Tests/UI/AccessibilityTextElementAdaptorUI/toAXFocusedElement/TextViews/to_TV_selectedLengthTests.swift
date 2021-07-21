@@ -6,23 +6,23 @@ class to_TV_selectedLengthTests: ATEA_BaseTests {
     func test_that_we_can_set_a_selection_length() {
         let text = """
 that's a longer hello dear
-because we're in
+because 💭️💭️ we're in
 TextAreas
 """
         let element = AccessibilityTextElement(
             role: .textArea,
             value: text,
-            length: 53,
+            length: 60,
             caretLocation: 5,
-            selectedLength: 29,
+            selectedLength: 38,
             selectedText: nil,
             currentLine: AccessibilityTextElementLine(
-                fullValue: text,
-                number: 1,
-                start: 0,
-                end: 27
+            fullValue: text,
+            number: 1,
+            start: 0,
+            end: 27
             )
-        )
+            )
         
         let textInAXFocusedElement = text
         app.textViews.firstMatch.tap()
@@ -32,7 +32,7 @@ TextAreas
         XCTAssertTrue(conversionSucceeded)
         
         let reconvertedAccessibilityTextElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
-        XCTAssertEqual(reconvertedAccessibilityTextElement?.selectedLength, 29)
+        XCTAssertEqual(reconvertedAccessibilityTextElement?.selectedLength, 38)
     }
     
     func test_that_in_Normal_Mode_if_the_caret_is_at_the_end_of_the_text_with_a_selectedLength_of_1_then_we_tweak_the_selection_length_to_0_so_that_the_caret_can_move_there() {

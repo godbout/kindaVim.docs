@@ -85,7 +85,7 @@ shit
         let textInAXFocusedElement = """
 that big sur shit
 LOL
-6
+🕕️
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
@@ -101,21 +101,21 @@ LOL
         XCTAssertEqual(accessibilityElement?.value, """
 that big sur shit
 LOL
-6
+🕕️
 """
         )
-        XCTAssertEqual(accessibilityElement?.length, 23)
+        XCTAssertEqual(accessibilityElement?.length, 25)
         XCTAssertEqual(accessibilityElement?.caretLocation, 22)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 1)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 3)
         XCTAssertEqual(accessibilityElement?.currentLine.fullValue, """
 that big sur shit
 LOL
-6
+🕕️
 """
         )
         XCTAssertEqual(accessibilityElement?.currentLine.number, 3)
         XCTAssertEqual(accessibilityElement?.currentLine.start, 22)
-        XCTAssertEqual(accessibilityElement?.currentLine.end, 23)
+        XCTAssertEqual(accessibilityElement?.currentLine.end, 25)
     }
     
 }
