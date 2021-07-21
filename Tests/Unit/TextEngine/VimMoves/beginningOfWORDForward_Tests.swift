@@ -190,3 +190,18 @@ whitespaces
     }
     
 }
+
+
+// emojis
+// see beginningOfWordBackward for the blah blah
+extension beginningOfWORDForwardTests {
+
+    func test_that_it_handles_emojis() {
+        let text = "emojis are symbols that 🔫️🔫️haha🔫️ are longer than 1 length"
+
+        let newCaretPosition = textEngine.beginningOfWORDForward(startingAt: 27, in: TextEngineText(from: text))
+
+        XCTAssertEqual(newCaretPosition, 38)
+    }
+
+}

@@ -208,9 +208,7 @@ whitespaces
 
 
 // emojis
-// emojis are symbols so as long as we take care of the emojis length, all the rest
-// works exactly like symbols: passing, skipping, part or not of words, etc...
-// so no need to test those parts again.
+// see beginningOfWordBackward for the blah blah
 extension beginningOfWordForwardTests {
 
     func test_that_it_handles_emojis() {
