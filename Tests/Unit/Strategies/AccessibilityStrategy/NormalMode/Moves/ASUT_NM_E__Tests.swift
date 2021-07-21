@@ -12,7 +12,7 @@ class ASNM_E__Tests: ASNM_BaseTests {
 }
 
 
-// Both
+// emojis
 extension ASNM_E__Tests {
     
     func test_that_it_returns_the_correct_selectedLength() {
