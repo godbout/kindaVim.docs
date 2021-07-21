@@ -122,3 +122,18 @@ again
     }
     
 }
+
+
+// emojis
+// see beginningOfWordBackward for the blah blah
+extension previousUnmatchedTests {
+    
+    func test_that_it_handles_emojis() {
+        let text = "emyeah 🤨️{🤨️ coz🤨️🤨️ the text 🤨️🤨️functions don't care about😂️🤨️🤨️🤨️ the length but 🦋️ the move"
+        
+        let location = textEngine.previousUnmatched("{", before: 103, in: text)
+        
+        XCTAssertEqual(location, 10)
+    }
+    
+}
