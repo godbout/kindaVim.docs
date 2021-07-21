@@ -2,47 +2,43 @@
 import XCTest
 
 
-// same as w
-// we use a mock here because all the tests for this move
-// are checked in the TextEngine function that this move called.
-// rest is UI Tests to check that the globalColumnNumber is updated
-class ASNM_W_Tests: ASNM_BaseTests {
+// see b for blah blah
+class ASNM_W__Tests: ASNM_BaseTests {
     
-    let textEngineMock = TextEngineMock()
-    
-    override func setUp() {
-        super.setUp()
-        
-        asNormalMode = AccessibilityStrategyNormalMode(textEngine: textEngineMock)
-    }    
-    
-}
-
-
-// Both
-extension ASNM_W_Tests {
-    
-    func test_that_it_calls_the_TextEngine_WORDForward_function() {
-        let text = "should be calling WORDForward"
-        let element = AccessibilityTextElement(
-            role: .textArea,
-            value: text,
-            length: 29,
-            caretLocation: 10,
-            selectedLength: 1,
-            selectedText: "c",
-            currentLine: AccessibilityTextElementLine(
-                fullValue: text,
-                number: 1,
-                start: 0,
-                end: 29
-            )
-        )
-        
-        _ = asNormalMode.W(on: element)
-        
-        XCTAssertEqual(textEngineMock.functionCalled, "beginningOfWORDForward(startingAt:in:)")        
+    private func applyMove(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        return asNormalMode.W(on: element)
     }
     
 }
 
+
+// emojis
+extension ASNM_W__Tests {
+    
+    func test_that_it_returns_the_correct_selectedLength() {
+        let text = """
+yeah coz the text functions don't
+care about the length but 🦋️ the move
+itself does
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 84,
+            caretLocation: 57,
+            selectedLength: 1,
+            selectedText: "u",
+            currentLine: AccessibilityTextElementLine(
+                fullValue: text,
+                number: 2,
+                start: 34,
+                end: 73
+            )
+        )
+        
+        let returnedElement = applyMove(on: element)
+        
+        XCTAssertEqual(returnedElement?.selectedLength, 3)
+    }
+    
+}
