@@ -12,6 +12,8 @@ extension AccessibilityStrategyNormalMode {
             newElement.caretLocation = lineStart + characterFoundLocation + 1
             newElement.selectedLength = newElement.characterLength
             newElement.selectedText = nil
+            
+            return newElement
         }
         
         newElement.selectedLength = element.characterLength
