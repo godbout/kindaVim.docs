@@ -129,3 +129,25 @@ caret is after the last character
     }
     
 }
+
+
+// emojis
+// see beginningOfWordBackward for the blah blah
+extension beginningOfParagraphBackwardTests {
+    
+    func test_that_it_handles_emojis() {
+        let text = """
+yes 🐰️🐰️🐰️🐰️ this can happen🐰️🐰️ when the
+
+
+
+🐰️🐰️car🐰️et is after the last character🐰️🐰️🐰️
+"""
+        
+        let newCaretPosition = textEngine.beginningOfParagraphBackward(startingAt: 96, in: TextEngineText(from: text))
+        
+        XCTAssertEqual(newCaretPosition, 50)
+    }
+    
+}
+
