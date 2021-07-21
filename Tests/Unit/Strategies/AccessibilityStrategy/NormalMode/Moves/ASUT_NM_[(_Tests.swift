@@ -9,7 +9,7 @@ import XCTest
 class ASUT_NM_leftBracketLeftParenthesis_Tests: ASNM_BaseTests {
     
     private func applyMove(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
-        return asNormalMode.leftBracketLeftBrace(on: element) 
+        return asNormalMode.leftBracketLeftParenthesis(on: element) 
     }
     
 }
@@ -20,7 +20,7 @@ extension ASUT_NM_leftBracketLeftParenthesis_Tests {
     
     func test_that_it_returns_the_correct_selectedLength() {
         let text = """
-yeah 🤨️{🤨️ coz🤨️🤨️ the text 🤨️🤨️functions don't
+yeah 🤨️(🤨️ coz🤨️🤨️ the text 🤨️🤨️functions don't
 care about😂️🤨️🤨️🤨️ the length but 🦋️ the move
 itself d🤨️🤨️🤨️oes
 """

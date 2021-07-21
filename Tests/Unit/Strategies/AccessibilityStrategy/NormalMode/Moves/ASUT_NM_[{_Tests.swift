@@ -2,50 +2,45 @@
 import XCTest
 
 
-// this move uses the TextEngine.findPreviousUnmatched function
-// so the tests will be there.
-// no need for The 3 Cases as it's text-based not AX API base so we will
-// always make it work.
-class ASNM_leftBrackerLeftBrace_Tests: ASNM_BaseTests {
+// see [( for blah blah blah
+class ASUT_NM_leftBracketLeftBrace_Tests: ASNM_BaseTests {
     
-    let textEngineMock = TextEngineMock()
-    
-    override func setUp() {
-        super.setUp()
-        
-        asNormalMode = AccessibilityStrategyNormalMode(textEngine: textEngineMock)
-    }    
+    private func applyMove(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        return asNormalMode.leftBracketLeftBrace(on: element) 
+    }
     
 }
 
 
-// Both
-extension ASNM_leftBrackerLeftBrace_Tests {
+// emojis
+extension ASUT_NM_leftBracketLeftBrace_Tests {
     
-    func test_that_it_calls_the_TextEngine_findPreviousUnmatched_function() {
+    func test_that_it_returns_the_correct_selectedLength() {
         let text = """
-just testing call to findPreviousUnmatched
-all the cases are tested in
-the TextEngineTests
+y{ah 🤨️(🤨️ coz🤨️🤨️ the text 🤨️🤨️functions don't
+care about😂️🤨️🤨️🤨️ the length but 🦋️ the move
+itself d🤨️🤨️🤨️oes
 """
         let element = AccessibilityTextElement(
             role: .textArea,
             value: text,
-            length: 90,
-            caretLocation: 50,
+            length: 125,
+            caretLocation: 110,
             selectedLength: 1,
-            selectedText: " ",
+            selectedText: "f",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
-                number: 2,
-                start: 43,
-                end: 71
+                number: 3,
+                start: 105,
+                end: 125
             )
         )
         
-        _ = asNormalMode.leftBracketLeftBrace(on: element)
+        let returnedElement = applyMove(on: element)
         
-        XCTAssertEqual(textEngineMock.functionCalled, "previousUnmatched(_:before:in:)")        
+        XCTAssertEqual(returnedElement?.caretLocation, 1)
+        XCTAssertEqual(returnedElement?.selectedLength, 1)
     }
     
 }
+
