@@ -3,7 +3,7 @@ import XCTest
 
 
 // see other yt/f blah blah
-class ASNM_yT__Tests: ASNM_BaseTests {
+class ASUT_NM_yT__Tests: ASNM_BaseTests {
     
     private func applyMove(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return asNormalMode.yT(to: character, on: element) 
@@ -13,7 +13,7 @@ class ASNM_yT__Tests: ASNM_BaseTests {
 
 
 // Both
-extension ASNM_yT__Tests {
+extension ASUT_NM_yT__Tests {
     
     func test_that_in_normal_setting_it_copies_the_text_from_the_character_found_the_caret_and_move_the_caret_to_the_character_found() {
         let text = "gonna use yT on this sentence"
@@ -75,7 +75,7 @@ that is not there
 
 
 // TextViews
-extension ASNM_yT__Tests {
+extension ASUT_NM_yT__Tests {
     
     func test_that_it_can_find_the_character_on_a_line_for_a_multiline() {
         let text = """
@@ -103,6 +103,40 @@ on a line
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "T on a multil")
         XCTAssertEqual(returnedElement?.caretLocation, 1)
         XCTAssertEqual(returnedElement?.selectedLength, 1)
+        XCTAssertNil(returnedElement?.selectedText)
+    }
+    
+}
+
+
+// emojis
+extension ASUT_NM_yT__Tests {
+    
+    func test_that_it_handles_emojis() {
+        let text = """
+need to deal with
+th📍️se💨️💨️💨️ faces 🥺️☹️😂️ h😀️ha
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 56,
+            caretLocation: 50,
+            selectedLength: 1,
+            selectedText: "h",
+            currentLine: AccessibilityTextElementLine(
+                fullValue: text,
+                number: 2,
+                start: 18,
+                end: 56
+            )
+        )
+        
+        let returnedElement = applyMove(to: "h", on: element)
+        
+        XCTAssertEqual(NSPasteboard.general.string(forType: .string), "📍️se💨️💨️💨️ faces 🥺️☹️😂️ ")
+        XCTAssertEqual(returnedElement?.caretLocation, 20)
+        XCTAssertEqual(returnedElement?.selectedLength, 3)
         XCTAssertNil(returnedElement?.selectedText)
     }
     
