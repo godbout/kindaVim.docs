@@ -7,7 +7,7 @@ import XCTest
 // correct.
 //
 // the tests are useful as i found out that it was not correct :D
-class ASNM_yiDoubleQuote_Tests: ASNM_BaseTests {
+class ASUT_NM_yiDoubleQuote_Tests: ASNM_BaseTests {
 
     private func applyMove(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return asNormalMode.yiDoubleQuote(on: element)
@@ -17,7 +17,7 @@ class ASNM_yiDoubleQuote_Tests: ASNM_BaseTests {
 
 
 // Both
-extension ASNM_yiDoubleQuote_Tests {
+extension ASUT_NM_yiDoubleQuote_Tests {
     
     func test_that_there_is_no_double_quote_it_does_not_move_or_copy_anything() {
         let text = "some text without any double quote"
@@ -220,4 +220,38 @@ now there's gonna
         XCTAssertNil(returnedElement?.selectedText)
     }
         
+}
+
+
+// emojis
+extension ASUT_NM_yiDoubleQuote_Tests {
+    
+    func test_that_it_handles_emojis() {
+        let text = """
+need to deal with
+those💨️💨️💨️ fac"🍵️s 🥺️☹️😂️ h😀️ha👅️" hhohohoo🤣️
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 73,
+            caretLocation: 20,
+            selectedLength: 1,
+            selectedText: "o",
+            currentLine: AccessibilityTextElementLine(
+                fullValue: text,
+                number: 2,
+                start: 18,
+                end: 73
+            )
+        )
+        
+        let returnedElement = applyMove(on: element)
+        
+        XCTAssertEqual(NSPasteboard.general.string(forType: .string), "🍵️s 🥺️☹️😂️ h😀️ha👅️")
+        XCTAssertEqual(returnedElement?.caretLocation, 37)  
+        XCTAssertEqual(returnedElement?.selectedLength, 3)
+        XCTAssertNil(returnedElement?.selectedText)
+    }
+    
 }
