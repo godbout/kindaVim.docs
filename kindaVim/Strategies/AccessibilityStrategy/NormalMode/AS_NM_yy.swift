@@ -3,15 +3,16 @@ import AppKit
 extension AccessibilityStrategyNormalMode {
     
     func yy(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
-        guard var element = element else { return nil }
+        guard let element = element else { return nil }
+        var newElement = element
         
         NSPasteboard.general.clearContents()
         NSPasteboard.general.setString(element.currentLine.value, forType: .string)
         
-        element.selectedLength = 1
-        element.selectedText = nil
+        newElement.selectedLength = element.characterLength
+        newElement.selectedText = nil
         
-        return element
+        return newElement
     }
     
 }

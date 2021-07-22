@@ -308,9 +308,8 @@ extension KindaVimEngine {
         case .Y:
             lastYankStyle = .linewise
 
-            if var element = asNormalMode.yy(on: focusedElement()) {
-                element.selectedLength = 1
-                _ = push(element: element)
+            if let element = asNormalMode.yy(on: focusedElement()) {
+                push(element: element)
             } else {
                 post(keyboardStrategy.yy())
             }
@@ -604,9 +603,8 @@ extension KindaVimEngine {
             enterNormalMode()
             lastYankStyle = .linewise
             
-            if var element = asNormalMode.yy(on: focusedElement()) {
-                element.selectedLength = 1
-                _ = push(element: element)
+            if let element = asNormalMode.yy(on: focusedElement()) {
+                push(element: element)
             } else {
                 post(keyboardStrategy.yy())
             }

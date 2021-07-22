@@ -4,7 +4,7 @@ import XCTest
 
 // yy doesn't touch the caret position or anything else, it just copies
 // the line into the NSPasteBoard, so i guess we need to check this here
-class ASNM_yy_Tests: ASNM_BaseTests {
+class ASUT_NM_yy_Tests: ASNM_BaseTests {
     
     private func applyMove(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return asNormalMode.yy(on: element) 
@@ -14,7 +14,7 @@ class ASNM_yy_Tests: ASNM_BaseTests {
 
 
 // Both
-extension ASNM_yy_Tests {
+extension ASUT_NM_yy_Tests {
     
     func test_that_in_normal_setting_it_copies_the_line_into_the_buffer() {
         let text = "is that gonna be copied?"
@@ -157,3 +157,41 @@ line
     }    
     
 }
+
+
+// emojis
+extension ASUT_NM_yy_Tests {
+    
+    func test_that_it_handles_emojis() {
+        let text = """
+😫️eed🍃️🍃️🍃️ to deal wi🛩️🛩️th
+those 🍃️🍃️🍃️🍃️🍃️🍃️ faces 🥺️☹️😂️
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 74,
+            caretLocation: 12,
+            selectedLength: 3,
+            selectedText: "🍃️",
+            currentLine: AccessibilityTextElementLine(
+                fullValue: text,
+                number: 1,
+                start: 0,
+                end: 35
+            )
+        )
+        
+        NSPasteboard.general.clearContents()
+        NSPasteboard.general.setString("", forType: .string)
+        
+        let returnedElement = applyMove(on: element)
+        
+        XCTAssertEqual(NSPasteboard.general.string(forType: .string), "😫️eed🍃️🍃️🍃️ to deal wi🛩️🛩️th\n")
+        XCTAssertEqual(returnedElement?.selectedLength, 3)
+        XCTAssertNil(returnedElement?.selectedText)
+    }
+    
+}
+
+
