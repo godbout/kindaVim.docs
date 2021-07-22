@@ -1,37 +1,45 @@
 extension AccessibilityStrategyNormalMode {
     
     func x(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
-        guard var element = element else { return nil }
+        guard let element = element else { return nil }
+        var newElement = element
         
         guard element.currentLine.isNotAnEmptyLine else {
-            element.selectedLength = 1
-            element.selectedText = nil
+            newElement.selectedLength = 1
+            newElement.selectedText = nil
             
-            return element
+            return newElement
         }        
         
         // if we're at the last character of the line we need to move the caret back
-        // one position, in certain cases
+        // one position (if not at the start of the line)
         guard element.caretLocation < element.currentLine.endLimit else {
-            element.selectedLength = 1
-            element.selectedText = ""
+            let characterLengthOfCharacterBeforeLocation = element.characterLengthForCharacter(before: element.caretLocation)
             
-            _ = AccessibilityTextElementAdaptor.toAXFocusedElement(from: element)
+            newElement.selectedLength = element.characterLength
+            newElement.selectedText = ""
             
-            if element.caretLocation > element.currentLine.start {
-                element.caretLocation -= 1                                
+            _ = AccessibilityTextElementAdaptor.toAXFocusedElement(from: newElement)
+            
+            guard element.caretLocation > element.currentLine.start else {
+                newElement.caretLocation = element.currentLine.start
+                newElement.selectedLength = newElement.characterLength
+                newElement.selectedText = nil
+                
+                return newElement
             }
             
-            element.selectedLength = 1
-            element.selectedText = nil
+            newElement.caretLocation -= characterLengthOfCharacterBeforeLocation
+            newElement.selectedLength = characterLengthOfCharacterBeforeLocation
+            newElement.selectedText = nil
             
-            return element
+            return newElement
         }
         
-        element.selectedLength = 1
-        element.selectedText = ""
+        newElement.selectedLength = element.characterLength
+        newElement.selectedText = ""
         
-        return element
+        return newElement
     }
     
 }

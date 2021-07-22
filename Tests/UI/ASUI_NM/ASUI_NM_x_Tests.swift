@@ -20,7 +20,7 @@ extension UIASNM_x_Tests {
         let textInAXFocusedElement = """
 so we're on the last
 character of the last line
-that is not an empty line
+that is not an empty line🤡️🤡️
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
@@ -31,10 +31,11 @@ that is not an empty line
         XCTAssertEqual(accessibilityElement?.value, """
 so we're on the last
 character of the last line
-that is not an empty lin
+that is not an empty line🤡️
 """
         )
-        XCTAssertEqual(accessibilityElement?.caretLocation, 71)
+        XCTAssertEqual(accessibilityElement?.caretLocation, 73)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 3)
     }
     
     func test_that_if_the_caret_is_on_an_empty_line_it_does_not_delete_the_linefeed() {
@@ -62,7 +63,7 @@ but shouldn't be deleted
     func test_that_if_it_deletes_the_last_standing_character_of_a_line_it_does_not_jump_to_the_previous_line() {
         let textInAXFocusedElement = """
 shouldn't jump up on this line!
-x
+☀️
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
@@ -80,7 +81,7 @@ shouldn't jump up on this line!
     
     func test_that_it_should_not_suck_the_next_line() {
         let textInAXFocusedElement = """
-a
+💥️
 x
 """
         app.textViews.firstMatch.tap()
