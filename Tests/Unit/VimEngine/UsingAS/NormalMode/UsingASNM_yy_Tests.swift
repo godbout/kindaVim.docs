@@ -7,6 +7,8 @@ class UsingASNM_yy_Tests: UsingASNM_BaseTests {
     override func setUp() {
         super.setUp()
         
+        KindaVimEngine.shared.lastYankStyle = .characterwise
+        
         KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .y))
         KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .y))
     }

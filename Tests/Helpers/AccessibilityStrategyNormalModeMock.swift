@@ -276,13 +276,13 @@ class AccessibilityStrategyNormalModeMock: AccessibilityStrategyNormalModeProtoc
     func yf(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         
-        return nil
+        return element
     }
     
     func yF(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         
-        return nil
+        return element
     }
     
     func yiw(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
@@ -294,19 +294,19 @@ class AccessibilityStrategyNormalModeMock: AccessibilityStrategyNormalModeProtoc
     func yiDoubleQuote(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         
-        return nil
+        return element
     }
     
     func yt(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         
-        return nil
+        return element
     }
     
     func yT(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         
-        return nil
+        return element
     }
     
     func yy(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {

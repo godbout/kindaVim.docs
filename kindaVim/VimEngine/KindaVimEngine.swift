@@ -110,8 +110,7 @@ extension KindaVimEngine {
         case .a:
             enterInsertMode()
             
-            if var element = asNormalMode.a(on: focusedElement()) {
-                element.selectedLength = 0
+            if let element = asNormalMode.a(on: focusedElement()) {
                 push(element: element)
             } else {
                 post(keyboardStrategy.a())
@@ -119,8 +118,7 @@ extension KindaVimEngine {
         case .A:
             enterInsertMode()
             
-            if var element = asNormalMode.A(on: focusedElement()) {
-                element.selectedLength = 0
+            if let element = asNormalMode.A(on: focusedElement()) {
                 push(element: element)
             } else {
                 post(keyboardStrategy.A())
@@ -337,49 +335,42 @@ extension KindaVimEngine {
             
             post(keyboardStrategy.enter())
         case .caret:
-            if var element = asNormalMode.caret(on: focusedElement()) {
-                element.selectedLength = 1                    
-                _ = push(element: element)
+            if let element = asNormalMode.caret(on: focusedElement()) {
+                push(element: element)
             } else {
                 post(keyboardStrategy.caret())
             }
         case .dollarSign:
-            if var element = asNormalMode.dollarSign(on: focusedElement()) {
-                element.selectedLength = 1
-                _ = push(element: element)
+            if let element = asNormalMode.dollarSign(on: focusedElement()) {
+                push(element: element)
             } else {
                 post(keyboardStrategy.dollarSign())
             }
         case .leftBrace:
-            if var element = asNormalMode.leftBrace(on: focusedElement()) {
-                element.selectedLength = 1
+            if let element = asNormalMode.leftBrace(on: focusedElement()) {
                 push(element: element)
             }
         case .leftBracket:
             enterOperatorPendingMode(with: KeyCombination(key: .leftBracket))
         case .percent:
-            if var element = asNormalMode.percent(on: focusedElement()) {
-                element.selectedLength = 1                  
+            if let element = asNormalMode.percent(on: focusedElement()) {
                 push(element: element)
             }
         case .rightBrace:
-            if var element = asNormalMode.rightBrace(on: focusedElement()) {
-                element.selectedLength = element.caretIsAtTheEnd ? 0 : 1
+            if let element = asNormalMode.rightBrace(on: focusedElement()) {
                 push(element: element)
             }
         case .rightBracket:
             enterOperatorPendingMode(with: KeyCombination(key: .rightBracket))
         case .underscore:
-            if var element = asNormalMode.underscore(on: focusedElement()) {
-                element.selectedLength = 1                    
-                _ = push(element: element)
+            if let element = asNormalMode.underscore(on: focusedElement()) {
+                push(element: element)
             } else {
                 post(keyboardStrategy.underscore())
             }
         case .zero:
-            if var element = asNormalMode.zero(on: focusedElement()) {
-                element.selectedLength = 1
-                _ = push(element: element)
+            if let element = asNormalMode.zero(on: focusedElement()) {
+                push(element: element)
             } else {
                 post(keyboardStrategy.zero())
             }
@@ -444,6 +435,7 @@ extension KindaVimEngine {
             // if element.selectedText is nil that means that ci" didn't find a pair of " to empty
             if let element = asNormalMode.ciDoubleQuote(on: focusedElement()), element.selectedText != nil {
                 push(element: element)
+                lastYankStyle = .characterwise
                 enterInsertMode()
             }
         case [.c, .i, .singleQuote]:
@@ -587,9 +579,9 @@ extension KindaVimEngine {
         case [.y, .i, .doubleQuote]:
             enterNormalMode()
             
-            if var element = asNormalMode.yiDoubleQuote(on: focusedElement()) {
-                element.selectedLength = 1
-                _ = push(element: element)
+            if let element = asNormalMode.yiDoubleQuote(on: focusedElement()) {
+                push(element: element)
+                lastYankStyle = .characterwise
             }
         case [.y, .i, .w]:
             enterNormalMode()
@@ -734,9 +726,9 @@ extension KindaVimEngine {
                     element = asNormalMode.yT(to: character.character, on: focusedElement())                    
                 }
                 
-                if var element = element {
-                    element.selectedLength = 1
+                if let element = element {
                     push(element: element)
+                    lastYankStyle = .characterwise                    
                 }
             }
                         
