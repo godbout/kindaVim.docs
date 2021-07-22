@@ -5,7 +5,7 @@ import XCTest
 // yt uses t internally, which is already tested.
 // just some tests here to confirm the NSPasteboard got filled
 // we don't bother with caretLocation and stuff coz they're completely untouched
-class ASNM_yt_Tests: ASNM_BaseTests {
+class ASUT_NM_yt_Tests: ASNM_BaseTests {
     
     private func applyMove(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return asNormalMode.yt(to: character, on: element) 
@@ -15,7 +15,7 @@ class ASNM_yt_Tests: ASNM_BaseTests {
 
 
 // Both
-extension ASNM_yt_Tests {
+extension ASUT_NM_yt_Tests {
     
     func test_that_in_normal_setting_it_copies_the_text_from_the_caret_to_before_the_character_found() {
         let text = "gonna use yt on this sentence"
@@ -76,7 +76,7 @@ that is not there
 
 
 // TextViews
-extension ASNM_yt_Tests {
+extension ASUT_NM_yt_Tests {
     
     func test_that_it_can_find_the_character_on_a_line_for_a_multiline() {
         let text = """
@@ -103,6 +103,39 @@ on a line
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "n a ")
         XCTAssertEqual(returnedElement?.selectedLength, 1)
+        XCTAssertNil(returnedElement?.selectedText)
+    }
+    
+}
+
+
+// emojis
+extension ASUT_NM_yt_Tests {
+    
+    func test_that_it_handles_emojis() {
+        let text = """
+need to deal with
+t🍆️ose💨️💨️💨️ faces 🥺️☹️😂️ h😀️ha
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 56,
+            caretLocation: 19,
+            selectedLength: 3,
+            selectedText: "🍆️",
+            currentLine: AccessibilityTextElementLine(
+                fullValue: text,
+                number: 2,
+                start: 18,
+                end: 56
+            )
+        )
+        
+        let returnedElement = applyMove(to: "h", on: element)
+        
+        XCTAssertEqual(NSPasteboard.general.string(forType: .string), "🍆️ose💨️💨️💨️ faces 🥺️☹️😂️ ")
+        XCTAssertEqual(returnedElement?.selectedLength, 3)
         XCTAssertNil(returnedElement?.selectedText)
     }
     
