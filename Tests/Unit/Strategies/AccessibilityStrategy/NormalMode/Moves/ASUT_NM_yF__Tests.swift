@@ -5,7 +5,7 @@ import XCTest
 // yF uses F internally that is already tested
 // but yF also copies text, and move the caretLocation to the character found
 // so those are two things that we test here
-class ASNM_yF__Tests: ASNM_BaseTests {
+class ASUT_NM_yF__Tests: ASNM_BaseTests {
     
     private func applyMove(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return asNormalMode.yF(to: character, on: element) 
@@ -15,7 +15,7 @@ class ASNM_yF__Tests: ASNM_BaseTests {
 
 
 // Both
-extension ASNM_yF__Tests {
+extension ASUT_NM_yF__Tests {
     
     func test_that_in_normal_setting_it_copies_the_text_from_the_character_found_the_caret_and_move_the_caret_to_the_character_found() {
         let text = "gonna use yF on this sentence"
@@ -77,7 +77,7 @@ that is not there
 
 
 // TextViews
-extension ASNM_yF__Tests {
+extension ASUT_NM_yF__Tests {
     
     func test_that_it_can_find_the_character_on_a_line_for_a_multiline() {
         let text = """
@@ -104,6 +104,39 @@ on a line
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "hould wo")
         XCTAssertEqual(returnedElement?.caretLocation, 19)
+        XCTAssertEqual(returnedElement?.selectedLength, 1)
+        XCTAssertNil(returnedElement?.selectedText)
+    }
+    
+}
+
+
+// emojis
+extension ASUT_NM_yF__Tests {
+    
+    func test_that_it_handles_emojis() {
+        let text = """
+need to deal with
+those💨️💨️💨️ faces 🥺️☹️😂️ h😀️ha
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 54,
+            caretLocation: 44,
+            selectedLength: 3,
+            selectedText: "😂️",
+            currentLine: AccessibilityTextElementLine(
+                fullValue: text,
+                number: 2,
+                start: 18,
+                end: 54
+            )
+        )
+        
+        let returnedElement = applyMove(to: "h", on: element)
+        
+        XCTAssertEqual(NSPasteboard.general.string(forType: .string), "hose💨️💨️💨️ faces 🥺️☹️😂️")
         XCTAssertEqual(returnedElement?.selectedLength, 1)
         XCTAssertNil(returnedElement?.selectedText)
     }
