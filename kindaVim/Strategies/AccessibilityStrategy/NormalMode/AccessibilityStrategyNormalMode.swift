@@ -49,6 +49,7 @@ protocol AccessibilityStrategyNormalModeProtocol {
     func x(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func yf(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func yF(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement?
+    func yiw(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func yiDoubleQuote(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func yt(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func yT(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement?

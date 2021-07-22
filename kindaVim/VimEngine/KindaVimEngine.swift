@@ -593,8 +593,13 @@ extension KindaVimEngine {
             }
         case [.y, .i, .w]:
             enterNormalMode()
+            lastYankStyle = .characterwise
             
-            post(keyboardStrategy.yiw())
+            if let element = asNormalMode.yiw(on: focusedElement()) {
+                push(element: element)
+            } else {
+                post(keyboardStrategy.yiw())
+            }
         case [.y, .t]:
             ()
         case [.y, .T]:
