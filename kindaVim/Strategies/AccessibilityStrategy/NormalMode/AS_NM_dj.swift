@@ -1,31 +1,32 @@
 extension AccessibilityStrategyNormalMode {
     
     func dj(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
-        guard var element = element else { return nil }
+        guard let element = element else { return nil }
+        var newElement = element
         
         if let nextLine = AccessibilityTextElementAdaptor.lineFor(lineNumber: element.currentLine.number + 1) {
-            element.caretLocation = element.currentLine.start
-            element.selectedLength = element.currentLine.length + nextLine.length
-            element.selectedText = ""
+            newElement.caretLocation = element.currentLine.start
+            newElement.selectedLength = element.currentLine.length + nextLine.length
+            newElement.selectedText = ""
             
-            _ = AccessibilityTextElementAdaptor.toAXFocusedElement(from: element)
+            _ = AccessibilityTextElementAdaptor.toAXFocusedElement(from: newElement)
             
             if let updatedElement = AccessibilityTextElementAdaptor.fromAXFocusedElement() {            
                 let firstNonBlankWithinLineLimitOfUpdatedElementLocation = textEngine.firstNonBlankWithinLineLimit(in: TextEngineLine(from: updatedElement.currentLine.value))
                 
-                element.caretLocation += firstNonBlankWithinLineLimitOfUpdatedElementLocation
+                newElement.caretLocation += firstNonBlankWithinLineLimitOfUpdatedElementLocation
             }
             
-            element.selectedLength = 1
-            element.selectedText = nil
+            newElement.selectedLength = newElement.characterLength
+            newElement.selectedText = nil
             
-            return element
+            return newElement
         }    
 
-        element.selectedLength = 1
-        element.selectedText = nil
+        newElement.selectedLength = element.characterLength
+        newElement.selectedText = nil
         
-        return element
+        return newElement
     }
     
 }

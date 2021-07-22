@@ -53,9 +53,9 @@ one should disappear
     
     func test_that_if_there_are_more_than_two_lines_the_caret_goes_to_the_first_non_blank_of_the_third_line() {
         let textInAXFocusedElement = """
-now this is getting cool
-because it will go to the next
-     non blank of this line
+now 🤡️🤡️this is🤡️ get🤡️🤡️ting cool
+becau🤡️se it w🤡️🤡️ill go 🤡️to the🤡️ next
+     🤡️o🤡️n b🤡️lank of 🤡️this line
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
@@ -65,10 +65,11 @@ because it will go to the next
         let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
         
         XCTAssertEqual(accessibilityElement?.value, """
-     non blank of this line
+     🤡️o🤡️n b🤡️lank of 🤡️this line
 """
         )        
         XCTAssertEqual(accessibilityElement?.caretLocation, 5)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 3)
     }
     
 }

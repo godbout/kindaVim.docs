@@ -507,7 +507,6 @@ extension KindaVimEngine {
                 push(element: element)
                 
                 if var element = focusedElement() {
-                    element.selectedLength = 1
                     element.selectedText = nil
                     push(element: element)
                 }

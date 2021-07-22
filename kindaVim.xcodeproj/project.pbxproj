@@ -472,6 +472,7 @@
 		91C1E4A62684ED93007ABEAA /* UsingASVM_h_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C1E4A52684ED93007ABEAA /* UsingASVM_h_Tests.swift */; };
 		91C2788926456EBC0049436F /* KS_dj_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C2788826456EBC0049436F /* KS_dj_Tests.swift */; };
 		91C2788B264570900049436F /* UsingKS_dj_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C2788A264570900049436F /* UsingKS_dj_Tests.swift */; };
+		91C2CB7F26A9B8C00082CE6C /* AS_NM_yiw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91DDC7B126A98009002FC274 /* AS_NM_yiw.swift */; };
 		91C3B2FD2681DF480053B478 /* beginningOfParagraphBackward.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C3B2FC2681DF480053B478 /* beginningOfParagraphBackward.swift */; };
 		91C47DA226668435008E55AA /* findLastTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C47DA126668435008E55AA /* findLastTests.swift */; };
 		91C486052641C0D30003D9D7 /* KeyboardStrategyMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C486042641C0D30003D9D7 /* KeyboardStrategyMock.swift */; };
@@ -2749,6 +2750,7 @@
 				9147350C26A1FFFD00B20466 /* KeyCombination.swift in Sources */,
 				9147355226A200CE00B20466 /* AS_NM_j.swift in Sources */,
 				9147350426A1FE3800B20466 /* ASUI_NM_r_Tests.swift in Sources */,
+				91C2CB7F26A9B8C00082CE6C /* AS_NM_yiw.swift in Sources */,
 				9147352E26A200CE00B20466 /* AS_NM_%.swift in Sources */,
 				9147352A26A200CE00B20466 /* AS_NM_cF__.swift in Sources */,
 				9147351026A2006900B20466 /* TextEngine.swift in Sources */,
