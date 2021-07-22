@@ -2,7 +2,7 @@
 import XCTest
 
 
-class ASNM_percent_Tests: ASNM_BaseTests {
+class ASUT_NM_percent_Tests: ASNM_BaseTests {
     
     private func applyMove(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return asNormalMode.percent(on: element) 
@@ -12,7 +12,7 @@ class ASNM_percent_Tests: ASNM_BaseTests {
 
 
 // Both
-extension ASNM_percent_Tests {
+extension ASUT_NM_percent_Tests {
     
     func test_that_the_caret_does_not_move_if_it_cannot_find_an_item_to_pair() {
         let text = "no item to pair on this line"
@@ -117,7 +117,7 @@ and a ( nice pair line ) :))
 
 
 // TextViews
-extension ASNM_percent_Tests {
+extension ASUT_NM_percent_Tests {
     
     func test_that_it_finds_the_next_item_to_match_and_goes_to_the_pairing_item_even_on_a_different_line() {
         let text = """
@@ -143,6 +143,39 @@ func someBull() {
         let returnedElement = applyMove(on: element)
         
         XCTAssertEqual(returnedElement?.caretLocation, 16)
+        XCTAssertEqual(returnedElement?.selectedLength, 1)
+        XCTAssertNil(returnedElement?.selectedText)
+    }
+    
+}
+
+
+// emojis
+extension ASUT_NM_percent_Tests {
+    
+    func test_that_it_handles_emojis() {
+        let text = """
+need 🥠️🥠️to  { deal🥠️ with
+those faces 🥺️☹️ } 😂️
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 53,
+            caretLocation: 3,
+            selectedLength: 1,
+            selectedText: "d",
+            currentLine: AccessibilityTextElementLine(
+                fullValue: text,
+                number: 1,
+                start: 0,
+                end: 30
+            )
+        )
+        
+        let returnedElement = applyMove(on: element)
+        
+        XCTAssertEqual(returnedElement?.caretLocation, 48)
         XCTAssertEqual(returnedElement?.selectedLength, 1)
         XCTAssertNil(returnedElement?.selectedText)
     }
