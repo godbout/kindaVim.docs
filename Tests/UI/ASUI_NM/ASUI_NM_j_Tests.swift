@@ -137,3 +137,9 @@ edge case
     }
     
 }
+
+
+// emojis
+// unfortunately for now we not gonna test for j and k because i don't know how to handle
+// with the globalColumnNumber
+extension UIASNM_j_Tests {}

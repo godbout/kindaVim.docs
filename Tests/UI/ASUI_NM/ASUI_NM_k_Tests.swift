@@ -3,7 +3,7 @@ import XCTest
 
 
 // check j for why no TextFields tests here
-class UIASNM_k_Tests: ASUI_NM_BaseTests {
+class ASUI_NM_k_Tests: ASUI_NM_BaseTests {
     
     private func applyMoveAndGetBackAccessibilityElement() -> AccessibilityTextElement? {
         KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .k))
@@ -15,7 +15,7 @@ class UIASNM_k_Tests: ASUI_NM_BaseTests {
 
 
 // TextViews
-extension UIASNM_k_Tests {
+extension ASUI_NM_k_Tests {
 
     func test_that_in_normal_setting_k_goes_to_the_previous_line_at_the_same_column() {
         let textInAXFocusedElement = """
@@ -131,3 +131,8 @@ empty
     }
     
 }
+
+
+// emojis
+// see j for blah blah
+extension ASUI_NM_k_Tests {}
