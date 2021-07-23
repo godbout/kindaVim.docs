@@ -3,7 +3,7 @@ import XCTest
 
 
 // read p for more blah blah
-class UIASNM_P__TextFields_Tests: ASUI_NM_BaseTests {
+class ASUI_NM_P__TextFields_Tests: ASUI_NM_BaseTests {
     
     private func sendMoveThroughVimEngineAndGetBackAccessibilityElement() -> AccessibilityTextElement? {
         KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .P))
@@ -15,7 +15,7 @@ class UIASNM_P__TextFields_Tests: ASUI_NM_BaseTests {
 
 
 // characterwise
-extension UIASNM_P__TextFields_Tests {
+extension ASUI_NM_P__TextFields_Tests {
     
     func test_that_in_normal_setting_it_pastes_the_text_at_the_caret_position_and_the_block_cursor_ends_up_at_the_end_of_the_pasted_text() {
         let textInAXFocusedElement = "pasta pizza"
@@ -39,7 +39,7 @@ extension UIASNM_P__TextFields_Tests {
 
 
 // linewise
-extension UIASNM_P__TextFields_Tests {
+extension ASUI_NM_P__TextFields_Tests {
     
     func test_that_even_if_the_last_yank_was_linewise_it_still_pastes_as_characterwise_at_the_caret_location_and_the_block_cursor_ends_up_at_the_end_of_the_pasted_text() {
         let textInAXFocusedElement = "P linewise for TF is still pasted characterwise!"
@@ -73,6 +73,29 @@ extension UIASNM_P__TextFields_Tests {
         
         XCTAssertEqual(accessibilityElement?.value, "P should not paste linefeeds in theyanked with the linefeed hum hum TF")
         XCTAssertEqual(accessibilityElement?.caretLocation, 66)
+    }
+    
+}
+
+
+// emojis
+extension ASUI_NM_P__TextFields_Tests {
+    
+    func test_that_it_handles_emojis() {
+        let textInAXFocusedElement = "🍕️🍕️🍕️"
+        app.textFields.firstMatch.tap()
+        app.textFields.firstMatch.typeText(textInAXFocusedElement)
+        KindaVimEngine.shared.enterNormalMode()
+        
+        NSPasteboard.general.clearContents()
+        NSPasteboard.general.setString("text to pasta 🍕️!!🍔️", forType: .string)
+        
+        KindaVimEngine.shared.lastYankStyle = .characterwise
+        let accessibilityElement = sendMoveThroughVimEngineAndGetBackAccessibilityElement()
+        
+        XCTAssertEqual(accessibilityElement?.value, "🍕️🍕️text to pasta 🍕️!!🍔️🍕️")
+        XCTAssertEqual(accessibilityElement?.caretLocation, 25)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 3)
     }
     
 }
