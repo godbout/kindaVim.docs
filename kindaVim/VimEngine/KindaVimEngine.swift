@@ -228,8 +228,8 @@ extension KindaVimEngine {
                 push(element: element)
                 
                 if var element = asNormalMode.h(on: focusedElement()) {                        
-                    element.selectedLength = 1
-                    _ = push(element: element)
+                    element.selectedLength = element.characterLength
+                    push(element: element)
                 }   
             } else {
 //                post(keyboardStrategy.p())
@@ -239,11 +239,11 @@ extension KindaVimEngine {
                 push(element: element)
                 
                 if var element = asNormalMode.h(on: focusedElement()) {                        
-                    element.selectedLength = 1
-                    _ = push(element: element)
+                    element.selectedLength = element.characterLength
+                    push(element: element)
                 }   
             } else {
-                //                post(keyboardStrategy.P())
+//                post(keyboardStrategy.P())
             }
         case .r:
             enterOperatorPendingMode(with: keyCombination)

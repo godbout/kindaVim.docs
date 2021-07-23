@@ -6,7 +6,7 @@ import XCTest
 // the pasting style will depend on how the last yanking was made
 // if it was characterwise, pasting paste in line
 // if it was linewise, pasting paste on a new line below
-class UIASNM_p_TextViews_Tests: ASUI_NM_BaseTests {
+class ASUI_NM_p_TextViews_Tests: ASUI_NM_BaseTests {
     
     private func sendMoveThroughVimEngineAndGetBackAccessibilityElement() -> AccessibilityTextElement? {
         KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .p))
@@ -18,7 +18,7 @@ class UIASNM_p_TextViews_Tests: ASUI_NM_BaseTests {
 
 
 // characterwise
-extension UIASNM_p_TextViews_Tests {
+extension ASUI_NM_p_TextViews_Tests {
     
     func test_that_in_normal_setting_it_pastes_the_text_after_the_block_cursor_and_the_block_cursor_ends_up_at_the_end_of_the_pasted_text() {
         let textInAXFocusedElement = """
@@ -77,7 +77,7 @@ here's the last one
 
 
 // linewise
-extension UIASNM_p_TextViews_Tests {
+extension ASUI_NM_p_TextViews_Tests {
     
     func test_that_in_normal_setting_it_pasts_the_content_on_a_new_line_below() {
         let textInAXFocusedElement = """
@@ -224,6 +224,72 @@ test 3 of The 3 Cases for TextArea linewise
 """
         )
         XCTAssertEqual(accessibilityElement?.caretLocation, 59)
+    }
+    
+}
+
+
+// emojis
+extension ASUI_NM_p_TextViews_Tests {
+    
+    func test_that_it_handles_emojis_characterwise() {
+        let textInAXFocusedElement = """
+time to paste
+in 🚬️
+ho ho ho
+"""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
+        KindaVimEngine.shared.enterNormalMode()
+        
+        NSPasteboard.general.clearContents()
+        NSPasteboard.general.setString("pastain🤡️", forType: .string)
+        
+        KindaVimEngine.shared.lastYankStyle = .characterwise
+        let accessibilityElement = sendMoveThroughVimEngineAndGetBackAccessibilityElement()
+        
+        XCTAssertEqual(accessibilityElement?.value, """
+time to paste
+in 🚬️pastain🤡️
+ho ho ho
+"""
+        )
+        XCTAssertEqual(accessibilityElement?.caretLocation, 27)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 3)
+    }
+    
+    func test_that_it_handles_emojis_linewise() {
+        let textInAXFocusedElement = """
+we gonna linewise paste
+on a line that is not
+the last so there'🚨️ 💭️
+a linefeed at the end of the line
+"""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
+        app.textViews.firstMatch.typeKey(.leftArrow, modifierFlags: [.option])
+        app.textViews.firstMatch.typeKey(.leftArrow, modifierFlags: [])
+        KindaVimEngine.shared.enterNormalMode()
+        
+        NSPasteboard.general.clearContents()
+        NSPasteboard.general.setString("🦶️👋️ould paste that somewhere 🧑‍🌾️\n", forType: .string)
+        
+        KindaVimEngine.shared.lastYankStyle = .linewise
+        let accessibilityElement = sendMoveThroughVimEngineAndGetBackAccessibilityElement()
+        
+        XCTAssertEqual(accessibilityElement?.value, """
+we gonna linewise paste
+on a line that is not
+the last so there'🚨️ 💭️
+🦶️👋️ould paste that somewhere 🧑‍🌾️
+a linefeed at the end of the line
+"""
+        )
+        XCTAssertEqual(accessibilityElement?.caretLocation, 72)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 3)
+        
     }
     
 }

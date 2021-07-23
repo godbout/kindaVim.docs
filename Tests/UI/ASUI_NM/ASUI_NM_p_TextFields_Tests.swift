@@ -79,3 +79,26 @@ extension UIASNM_p_TextFields_Tests {
         XCTAssertEqual(accessibilityElement?.caretLocation, 60)
     }
 }
+
+
+// emojis
+extension UIASNM_p_TextFields_Tests {
+    
+    func test_that_it_handles_emojis() {
+        let textInAXFocusedElement = "we go😂️😂️😂️nna paste some 💩️"
+        app.textFields.firstMatch.tap()
+        app.textFields.firstMatch.typeText(textInAXFocusedElement)
+        KindaVimEngine.shared.enterNormalMode()
+        
+        NSPasteboard.general.clearContents()
+        NSPasteboard.general.setString("text to 🥞️🥞️🥞️ paste!!!🥠️", forType: .string)
+        
+        KindaVimEngine.shared.lastYankStyle = .characterwise
+        let accessibilityElement = sendMoveThroughVimEngineAndGetBackAccessibilityElement()
+        
+        XCTAssertEqual(accessibilityElement?.value, "we go😂️😂️😂️nna paste some 💩️text to 🥞️🥞️🥞️ paste!!!🥠️")
+        XCTAssertEqual(accessibilityElement?.caretLocation, 58)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 3)
+    }
+    
+}
