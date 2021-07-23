@@ -793,7 +793,8 @@ extension KindaVimEngine {
                 push(element: element)
             }
         case .v:
-            if let element = asVisualMode.v(on: focusedElement()) {
+            if var element = asVisualMode.v(on: focusedElement()) {
+                element.selectedLength = element.characterLength
                 push(element: element)
             }
             
@@ -805,7 +806,7 @@ extension KindaVimEngine {
         case .V:
             if var element = asVisualMode.V(on: focusedElement()) {
                 if visualStyle == .linewise {
-                    element.selectedLength = element.caretIsAtTheEnd ? 0 : 1
+                    element.selectedLength = element.characterLength
                 }
                 
                 push(element: element)
