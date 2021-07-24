@@ -693,16 +693,14 @@ extension KindaVimEngine {
             }
             
             if operatorPendingBuffer.first?.vimKey == .t, let character = operatorPendingBuffer.last {
-                if var element = asNormalMode.t(to: character.character, on: focusedElement()) {
-                    element.selectedLength = 1
-                    _ = push(element: element)
+                if let element = asNormalMode.t(to: character.character, on: focusedElement()) {
+                    push(element: element)
                 }
             }
             
             if operatorPendingBuffer.first?.vimKey == .T, let character = operatorPendingBuffer.last {
-                if var element = asNormalMode.T(to: character.character, on: focusedElement()) {
-                    element.selectedLength = 1
-                    _ = push(element: element)
+                if let element = asNormalMode.T(to: character.character, on: focusedElement()) {
+                    push(element: element)
                 }
             }
             
