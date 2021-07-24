@@ -480,7 +480,7 @@ extension KindaVimEngine {
                 push(element: element)
                 
                 if var element = focusedElement() {
-                    element.selectedLength = 1
+                    element.selectedLength = element.characterLength
                     element.selectedText = nil
                     push(element: element)
                 }
@@ -546,28 +546,24 @@ extension KindaVimEngine {
             enterNormalMode()
             
             if var element = asNormalMode.leftBracketLeftBrace(on: focusedElement()) {
-                element.selectedLength = 1
                 push(element: element)
             }
         case [.leftBracket, .leftParenthesis]:
             enterNormalMode()
             
             if var element = asNormalMode.leftBracketLeftParenthesis(on: focusedElement()) {
-                element.selectedLength = 1
                 push(element: element)
             }
         case [.rightBracket, .rightBrace]:
             enterNormalMode()
             
             if var element = asNormalMode.rightBracketRightBrace(on: focusedElement()) {
-                element.selectedLength = 1
                 push(element: element)
             }
         case [.rightBracket, .rightParenthesis]:
             enterNormalMode()
             
             if var element = asNormalMode.rightBracketRightParenthesis(on: focusedElement()) {
-                element.selectedLength = 1
                 push(element: element)
             }
         case [.y, .f]:
