@@ -1,10 +1,10 @@
 import XCTest
 
 
-class UIASVM_v_Tests: ASUI_VM_BaseTests {}
+class ASUI_VM_v_Tests: ASUI_VM_BaseTests {}
 
 
-extension UIASVM_v_Tests {
+extension ASUI_VM_v_Tests {
     
     func test_that_if_we_just_entered_VisualMode_with_v_from_NormalMode_it_sets_the_anchor_and_head_to_the_caret_location() {
         let textInAXFocusedElement = """
@@ -125,3 +125,9 @@ multiple lines
     }
     
 }
+
+
+// emojis
+// from what i've seen from the code, there's nothing that
+// the emojis would affect
+extension ASUI_VM_v_Tests {}

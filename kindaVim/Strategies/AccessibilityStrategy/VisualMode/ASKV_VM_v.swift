@@ -7,11 +7,11 @@ extension AccessibilityStrategyVisualMode {
     }
     
     private func handleAnchorHeadAndCaretLocation(with element: AccessibilityTextElement) -> AccessibilityTextElement {
-        var element = element
+        var newElement = element
         
         if Self.anchor == nil {
             if element.caretLocation >= element.currentLine.endLimit {
-                element.caretLocation = element.currentLine.endLimit
+                newElement.caretLocation = element.currentLine.endLimit
                 Self.anchor = element.currentLine.endLimit
                 Self.head = element.currentLine.endLimit
             } else {
@@ -21,9 +21,9 @@ extension AccessibilityStrategyVisualMode {
         } else if KindaVimEngine.shared.visualStyle == .linewise {
             if let lineAtHead = AccessibilityTextElementAdaptor.lineFor(location: AccessibilityStrategyVisualMode.head) { 
                 if Self.head > lineAtHead.endLimit {
-                    element.caretLocation = lineAtHead.endLimit
+                    newElement.caretLocation = lineAtHead.endLimit
                 } else {
-                    element.caretLocation = Self.head
+                    newElement.caretLocation = Self.head
                 }
                 
                 Self.anchor = element.caretLocation
@@ -32,16 +32,16 @@ extension AccessibilityStrategyVisualMode {
         } else if KindaVimEngine.shared.visualStyle == .characterwise {
             if let lineAtHead = AccessibilityTextElementAdaptor.lineFor(location: AccessibilityStrategyVisualMode.head) { 
                 if Self.head > lineAtHead.endLimit {
-                    element.caretLocation = lineAtHead.endLimit
+                    newElement.caretLocation = lineAtHead.endLimit
                 } else {
-                    element.caretLocation = Self.head
+                    newElement.caretLocation = Self.head
                 }
             }
         }
         
-        element.selectedText = nil
+        newElement.selectedText = nil
         
-        return element   
+        return newElement   
     }
     
 }
