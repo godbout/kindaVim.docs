@@ -15,23 +15,23 @@ extension AccessibilityStrategyVisualMode {
     }
     
     private func theMoveForVisualModeCharacterwise(on element: AccessibilityTextElement) -> AccessibilityTextElement {
-        var element = element 
+        var newElement = element 
         
-        element.selectedText = ""
+        newElement.selectedText = ""
         
-        return element
+        return newElement
     }
     
     private func theMoveForVisualModeLinewise(on element: AccessibilityTextElement) -> AccessibilityTextElement {
-        var element = element
+        var newElement = element
         
         if let selectedText = element.selectedText, selectedText.last == "\n" {
-            element.selectedLength -= 1
+            newElement.selectedLength -= AccessibilityTextElement.linefeedCharacterLength
         }
         
-        element.selectedText = ""
+        newElement.selectedText = ""
         
-        return element
+        return newElement
     }
     
 }

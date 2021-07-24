@@ -2,7 +2,7 @@
 import XCTest
 
 
-class ASVMC_c_Tests: ASVM_BaseTests {
+class ASUT_VMC_c_Tests: ASVM_BaseTests {
     
     override func setUp() {
         super.setUp()
@@ -18,7 +18,7 @@ class ASVMC_c_Tests: ASVM_BaseTests {
 
 
 // Both
-extension ASVMC_c_Tests {
+extension ASUT_VMC_c_Tests {
     
     func test_that_when_the_selection_is_spanning_on_a_single_line_it_deletes_the_selected_text() {
         let text = "ok so VM c (hahaha) on a single line"
@@ -77,3 +77,9 @@ lines bec
     }
     
 }
+
+
+// emojis
+// no need to test emojis here. this moves doesn't select according to
+// character length
+extension ASUT_VMC_c_Tests {}
