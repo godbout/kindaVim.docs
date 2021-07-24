@@ -9,7 +9,7 @@ extension AccessibilityStrategyVisualMode {
                 newElement.caretLocation += element.characterLength
                 newElement.selectedLength -= element.characterLength
             } else if element.caretLocation + element.selectedLength < lineAtHead.end {
-                newElement.selectedLength += element.characterLength
+                newElement.selectedLength += element.characterLengthForCharacter(at: element.caretLocation + element.selectedLength)
             }            
         }        
         

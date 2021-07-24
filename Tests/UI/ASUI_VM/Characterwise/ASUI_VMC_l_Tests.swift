@@ -157,4 +157,22 @@ wow now that 😂️😂️😂️ have to handle🙈️
         XCTAssertEqual(accessibilityElement?.selectedLength, 5)  
     }
     
+    func test_that_it_add_to_the_selection_by_the_right_number_of_characters() {
+        let textInAXFocusedElement = "wow now that 😂️😂️ hae"
+
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        KindaVimEngine.shared.enterNormalMode()
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .b))
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .b))
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .v))
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .l))
+        
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .l))
+        let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
+        
+        XCTAssertEqual(accessibilityElement?.caretLocation, 13)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 7)  
+    }
+    
 }

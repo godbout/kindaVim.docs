@@ -133,7 +133,7 @@ wow now that 😂️😂️😂️ have to handle🙈️
         KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .h))
         let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
         
-        XCTAssertEqual(accessibilityElement?.caretLocation, 60)
+        XCTAssertEqual(accessibilityElement?.caretLocation, 59)
         XCTAssertEqual(accessibilityElement?.selectedLength, 13)  
     }
     
