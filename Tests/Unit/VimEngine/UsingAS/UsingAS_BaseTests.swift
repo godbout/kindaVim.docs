@@ -10,6 +10,7 @@ class UsingAS_BaseTests: XCTestCase {
         super.setUp()
         
         KindaVimEngine.shared.keyboardStrategy = KeyboardStrategyMock()
+        KindaVimEngine.shared.accessibilityStrategy = AccessibilityStrategyMock()
         KindaVimEngine.shared.asNormalMode = asNormalModeMock
         KindaVimEngine.shared.asVisualMode = asVisualModeMock
     }

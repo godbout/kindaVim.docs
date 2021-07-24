@@ -29,6 +29,7 @@ class KindaVimEngine {
     var lastYankStyle: VimEngineMoveStyle = .characterwise
     var visualStyle: VimEngineMoveStyle = .characterwise
     var keyboardStrategy: KeyboardStrategyProtocol = KeyboardStrategy()
+    var accessibilityStrategy: AccessibilityStrategyProtocol = AccessibilityStrategy()
     var asNormalMode: AccessibilityStrategyNormalModeProtocol = AccessibilityStrategyNormalMode()
     var asVisualMode: AccessibilityStrategyVisualModeProtocol = AccessibilityStrategyVisualMode()
 
@@ -91,12 +92,12 @@ class KindaVimEngine {
     }
 
     private func focusedElement() -> AccessibilityTextElement? {
-        return AccessibilityStrategy.focusedElement()
+        return accessibilityStrategy.focusedElement()
     }
 
     @discardableResult
     private func push(element: AccessibilityTextElement) -> Bool {
-        return AccessibilityStrategy.push(element: element)
+        return accessibilityStrategy.push(element: element)
     }
     
 }

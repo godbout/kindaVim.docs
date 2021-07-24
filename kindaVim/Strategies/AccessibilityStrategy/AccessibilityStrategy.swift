@@ -1,10 +1,18 @@
-struct AccessibilityStrategy {
+protocol AccessibilityStrategyProtocol {
+        
+    func focusedElement() -> AccessibilityTextElement?
+    func push(element: AccessibilityTextElement) -> Bool
+        
+}
+
+
+struct AccessibilityStrategy: AccessibilityStrategyProtocol {
     
-    static func focusedElement() -> AccessibilityTextElement? {
+    func focusedElement() -> AccessibilityTextElement? {
         return AccessibilityTextElementAdaptor.fromAXFocusedElement()
     }
     
-    static func push(element: AccessibilityTextElement) -> Bool {
+    func push(element: AccessibilityTextElement) -> Bool {
         print("move using Accessibility Stragety")
         
         return AccessibilityTextElementAdaptor.toAXFocusedElement(from: element)
