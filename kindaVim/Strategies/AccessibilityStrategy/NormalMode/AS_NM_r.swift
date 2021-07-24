@@ -1,32 +1,46 @@
 extension AccessibilityStrategyNormalMode {
     
     func r(with replacement: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
-        guard var element = element else { return nil }
+        guard let element = element else { return nil }
+        var newElement = element
         
         let value = element.value
         
         guard !value.isEmpty else { return element }                        
-        guard let characterUnderCaretIndex = value.index(value.startIndex, offsetBy: element.caretLocation, limitedBy: value.index(before: value.endIndex)) else { return element }
+        guard let characterUnderCaretIndex = value.utf16.index(value.startIndex, offsetBy: element.caretLocation, limitedBy: value.index(before: value.endIndex)) else { return element }
         let characterUnderCaretText = element.value[characterUnderCaretIndex]
         
         guard characterUnderCaretText != "\n" else {
-            element.selectedLength = 1
-            element.selectedText = nil
+            newElement.selectedLength = 1
+            newElement.selectedText = nil
             
-            return element            
+            return newElement            
         }
         
         guard replacement != "\u{1b}" else {
-            element.selectedLength = 1
-            element.selectedText = nil
+            newElement.selectedLength = 1
+            newElement.selectedText = nil
             
-            return element            
-        }            
+            return newElement            
+        }
         
-        element.selectedLength = 1
-        element.selectedText = replacement.isNewline ? "\n" : String(replacement)
+        newElement.selectedLength = newElement.characterLength
+        newElement.selectedText = ""
         
-        return element
+        _ = AccessibilityTextElementAdaptor.toAXFocusedElement(from: newElement)
+        
+        if let updatedElement = AccessibilityTextElementAdaptor.fromAXFocusedElement() {
+            newElement.caretLocation = updatedElement.caretLocation
+            newElement.selectedLength = 0
+            newElement.selectedText = replacement.isNewline ? "\n" : String(replacement)
+            
+            return newElement
+        }
+        
+        newElement.selectedLength = element.characterLength
+        newElement.selectedText = nil
+        
+        return newElement
     }
-   
+    
 }

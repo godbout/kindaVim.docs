@@ -683,8 +683,8 @@ extension KindaVimEngine {
                         push(element: element)
                         
                         if var element = asNormalMode.h(on: focusedElement()) {                        
-                            element.selectedLength = 1
-                            _ = push(element: element)
+                            element.selectedLength = element.characterLength
+                            push(element: element)
                         }                        
                     }
                 } else {
