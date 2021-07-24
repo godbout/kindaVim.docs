@@ -2,7 +2,7 @@
 import XCTest
 
 
-class ASVMC_o_Tests: ASVM_BaseTests {
+class ASUT_VMC_o_Tests: ASVM_BaseTests {
     
     override func setUp() {
         super.setUp()
@@ -18,7 +18,7 @@ class ASVMC_o_Tests: ASVM_BaseTests {
 
 
 // Both
-extension ASVMC_o_Tests {
+extension ASUT_VMC_o_Tests {
     
     func test_that_if_the_anchor_is_the_caret_location_and_the_head_is_the_end_of_the_selection_then_it_switches_them() {
         let text = "a sentence with a word, or more..."
@@ -107,3 +107,7 @@ my friend
     }
     
 }
+
+// emojis
+// nothing to do here
+extension ASUT_VMC_o_Tests {}

@@ -1,7 +1,8 @@
 extension AccessibilityStrategyVisualMode {
     
     func o(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
-        guard var element = element else { return nil }
+        guard let element = element else { return nil }
+        var newElement = element
         
         if Self.anchor == element.caretLocation {
             Self.anchor = Self.head
@@ -11,9 +12,9 @@ extension AccessibilityStrategyVisualMode {
             Self.anchor = element.caretLocation
         }
         
-        element.selectedText = nil
+        newElement.selectedText = nil
         
-        return element
+        return newElement
     }
      
 }
