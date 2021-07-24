@@ -53,20 +53,20 @@ extension ASUT_NM_x_Tests {
     func test_that_it_can_delete_a_character_and_end_up_on_the_following_emoji_correctly() {
         let text = """
 need to deal with
-those💨️💨️💨️ fac"es 🥺️☹️😂️ h😀️ha👅️" hhohohoo🤣️
+those💨️💨️💨️ fac"es 🥺️☹️😂️ 😀️😀️ha👅️" hhohohoo🤣️
 """
         let element = AccessibilityTextElement(
             role: .textArea,
             value: text,
-            length: 71,
+            length: 73,
             caretLocation: 49,
-            selectedLength: 1,
-            selectedText: "h",
+            selectedLength: 3,
+            selectedText: "😀️",
             currentLine: AccessibilityTextElementLine(
                 fullValue: text,
                 number: 2,
                 start: 18,
-                end: 71
+                end: 73
             )
         )
         
