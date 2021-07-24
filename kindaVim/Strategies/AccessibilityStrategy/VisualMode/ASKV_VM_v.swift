@@ -26,8 +26,8 @@ extension AccessibilityStrategyVisualMode {
                     newElement.caretLocation = Self.head
                 }
                 
-                Self.anchor = element.caretLocation
-                Self.head = element.caretLocation
+                Self.anchor = newElement.caretLocation
+                Self.head = newElement.caretLocation
             }
         } else if KindaVimEngine.shared.visualStyle == .characterwise {
             if let lineAtHead = AccessibilityTextElementAdaptor.lineFor(location: AccessibilityStrategyVisualMode.head) { 
