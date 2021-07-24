@@ -113,3 +113,48 @@ w askljaslkasdlfjak
     
 }
 
+
+// emojis
+extension ASUI_VMC_l_Tests {
+    
+    func test_that_it_handles_emojis_with_head_before_anchor() {
+        let textInAXFocusedElement = """
+wow now that 😂️😂️😂️ have to handle🙈️
+    🍌️dd with the 🙈️🙈️🙈️🙈️
+"""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        KindaVimEngine.shared.enterNormalMode()
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .underscore))
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .l))
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .v))
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .h))
+        
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .l))
+        let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
+        
+        XCTAssertEqual(accessibilityElement?.caretLocation, 48)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 1)  
+    }
+    
+    func test_that_it_handles_emojis_with_anchor_before_head() {
+        let textInAXFocusedElement = """
+wow now that 😂️😂️😂️ have to handle🙈️
+    🍌️dd with the 🙈️🙈️🙈️🙈️
+"""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        KindaVimEngine.shared.enterNormalMode()
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .underscore))
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .h))
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .v))
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .l))
+        
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .l))
+        let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
+        
+        XCTAssertEqual(accessibilityElement?.caretLocation, 44)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 5)  
+    }
+    
+}
