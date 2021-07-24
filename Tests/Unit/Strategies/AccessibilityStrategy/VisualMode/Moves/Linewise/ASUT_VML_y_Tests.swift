@@ -2,7 +2,7 @@
 import XCTest
 
 
-class ASVML_y_Tests: ASVM_BaseTests {
+class ASUT_VML_y_Tests: ASVM_BaseTests {
     
     override func setUp() {
         super.setUp()
@@ -18,7 +18,7 @@ class ASVML_y_Tests: ASVM_BaseTests {
 
 
 // Both
-extension ASVML_y_Tests {
+extension ASUT_VML_y_Tests {
     
     func test_that_it_sets_the_Last_Yanking_Style_to_Linewise() {
         let text = """
@@ -79,7 +79,7 @@ should set
 
 
 // TextViews
-extension ASVML_y_Tests {
+extension ASUT_VML_y_Tests {
     
     func test_that_for_TextViews_it_yanks_the_selected_lines() {
         let text = """
@@ -144,6 +144,40 @@ not the anchor!
         
         XCTAssertEqual(returnedElement?.caretLocation, 21)
         XCTAssertEqual(returnedElement?.selectedLength, 1)
+        XCTAssertNil(returnedElement?.selectedText)
+    }
+    
+}
+
+
+// emojis
+extension ASUT_VML_y_Tests {
+    
+    func test_that_it_handles_emojis() {
+        let text = """
+yes even in multilne
+🔥️t goes back to
+the crazy caret location and
+not the anchor!
+"""
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 83,
+            caretLocation: 21,
+            selectedLength: 47,
+            currentLine: AccessibilityTextElementLine(
+                fullValue: text,
+                number: 2,
+                start: 21,
+                end: 39
+                )
+            )
+        
+        let returnedElement = applyMove(on: element)
+        
+        XCTAssertEqual(returnedElement?.caretLocation, 21)
+        XCTAssertEqual(returnedElement?.selectedLength, 3)
         XCTAssertNil(returnedElement?.selectedText)
     }
     
