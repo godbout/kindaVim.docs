@@ -7,27 +7,27 @@ extension AccessibilityStrategyVisualMode {
     }
     
     private func handleAnchorHeadAndCaretLocation(with element: AccessibilityTextElement) -> AccessibilityTextElement {
-        var element = element
+        var newElement = element
         
         if Self.anchor == nil || KindaVimEngine.shared.visualStyle == .characterwise {
             Self.anchor = element.currentLine.start
             Self.head = element.currentLine.end
             
-            element.caretLocation = Self.anchor
-            element.selectedLength = Self.head - Self.anchor
+            newElement.caretLocation = Self.anchor
+            newElement.selectedLength = Self.head - Self.anchor
         } else {
             if let lineAtHead = AccessibilityTextElementAdaptor.lineFor(location: AccessibilityStrategyVisualMode.head) { 
                 if Self.head > lineAtHead.endLimit {
-                    element.caretLocation = lineAtHead.endLimit
+                    newElement.caretLocation = lineAtHead.endLimit
                 } else {
-                    element.caretLocation = Self.head                
+                    newElement.caretLocation = Self.head                
                 }
             }
         }
         
-        element.selectedText = nil
+        newElement.selectedText = nil
         
-        return element   
+        return newElement   
     }
     
 }
