@@ -1,4 +1,5 @@
 import Foundation
+import AppKit
 
 
 enum KeyCode: Int64, RawRepresentable {
@@ -153,13 +154,12 @@ struct KeyCombination {
     var shift: Bool = false
     var command: Bool = false
     var character: Character {
-        let cgEvent = KeyCombinationAdaptor.toCGEvents(from: self)
+        let cgEvents = KeyCombinationAdaptor.toCGEvents(from: self)
         
-        var uniChar = UniChar()
-        var length = 0
-        cgEvent.first?.keyboardGetUnicodeString(maxStringLength: 1, actualStringLength: &length, unicodeString: &uniChar)
+        guard let cgEvent = cgEvents.first else { return "?" }
+        guard let nsEvent = NSEvent(cgEvent: cgEvent) else { return "?" }
         
-        return Character(UnicodeScalar(uniChar) ?? "?")        
+        return Character(nsEvent.charactersIgnoringModifiers ?? "?")
     }
     var action: KeyCombinationAction = .both
     
