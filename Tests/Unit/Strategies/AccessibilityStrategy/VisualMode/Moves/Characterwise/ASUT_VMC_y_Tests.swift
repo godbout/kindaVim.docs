@@ -124,7 +124,7 @@ should set Visu
         let returnedElement = applyMove(on: element)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "")
-        XCTAssertEqual(returnedElement?.selectedLength, 1)
+        XCTAssertEqual(returnedElement?.selectedLength, 0)
         XCTAssertNil(returnedElement?.selectedText)
     }
     
@@ -156,7 +156,7 @@ line
         let returnedElement = applyMove(on: element)
         
         XCTAssertEqual(NSPasteboard.general.string(forType: .string), "")
-        XCTAssertEqual(returnedElement?.selectedLength, 1)
+        XCTAssertEqual(returnedElement?.selectedLength, 0)
         XCTAssertNil(returnedElement?.selectedText)
     }   
     
