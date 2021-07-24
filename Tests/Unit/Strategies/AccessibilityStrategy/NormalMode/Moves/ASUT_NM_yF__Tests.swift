@@ -136,7 +136,7 @@ those💨️💨️💨️ faces 🥺️☹️😂️ h😀️ha
         
         let returnedElement = applyMove(to: "h", on: element)
         
-        XCTAssertEqual(NSPasteboard.general.string(forType: .string), "hose💨️💨️💨️ faces 🥺️☹️😂️")
+        XCTAssertEqual(NSPasteboard.general.string(forType: .string), "hose💨️💨️💨️ faces 🥺️☹️")
         XCTAssertEqual(returnedElement?.selectedLength, 1)
         XCTAssertNil(returnedElement?.selectedText)
     }

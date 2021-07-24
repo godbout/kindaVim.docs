@@ -12,7 +12,7 @@ extension AccessibilityStrategyNormalMode {
             let elementFoundCaretLocationIndex = text.utf16.index(text.startIndex, offsetBy: elementFound.caretLocation)
             
             NSPasteboard.general.clearContents()
-            NSPasteboard.general.setString(String(text[elementFoundCaretLocationIndex...caretLocationIndex]), forType: .string)
+            NSPasteboard.general.setString(String(text[elementFoundCaretLocationIndex..<caretLocationIndex]), forType: .string)
             
             newElement.caretLocation = elementFound.caretLocation
             newElement.selectedLength = newElement.characterLength
