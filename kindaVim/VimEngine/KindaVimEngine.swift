@@ -88,7 +88,7 @@ class KindaVimEngine {
     }
 
     private func post(_ keyCombinations: [KeyCombination]) {
-        KeyboardStrategy.post(keyCombinations)
+        keyboardStrategy.post(keyCombinations)
     }
 
     private func focusedElement() -> AccessibilityTextElement? {

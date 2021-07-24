@@ -249,5 +249,7 @@ class KeyboardStrategyMock: KeyboardStrategyProtocol {
         
         return []
     }
+    
+    func post(_ keyCombinations: [KeyCombination]) {}
 
 }

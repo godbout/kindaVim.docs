@@ -50,7 +50,8 @@ protocol KeyboardStrategyProtocol {
 
     func underscore() -> [KeyCombination]
     func zero() -> [KeyCombination]
-
+    
+    func post(_ keyCombinations: [KeyCombination])
 }
 
 struct KeyboardStrategy: KeyboardStrategyProtocol {
@@ -364,14 +365,14 @@ struct KeyboardStrategy: KeyboardStrategyProtocol {
         ]
     }
 
-    static func post(_ keyCombinations: [KeyCombination]) {
+    func post(_ keyCombinations: [KeyCombination]) {
         print("move using Keyboard Strategy")
         
         for keyCombination in keyCombinations {
             let cgEvents = KeyCombinationAdaptor.toCGEvents(from: keyCombination)
             
             for cgEvent in cgEvents {
-                cgEvent.tapPostEvent(proxy)
+                cgEvent.tapPostEvent(Self.proxy)
             }
         }
     }
