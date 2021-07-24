@@ -116,7 +116,7 @@ extension ASUT_NM_T__Tests {
     func test_that_it_handles_emojis() {
         let text = """
 need to deal with
-those 🍃️🍃️🍃️🍃️🍃️🍃️ faces 🥺️☹️😂️
+those 🍃️🍃️D🍃️🍃️🍃️🍃️ faces 🥺️☹️😂️
 """
         let element = AccessibilityTextElement(
             role: .textArea,
@@ -133,10 +133,10 @@ those 🍃️🍃️🍃️🍃️🍃️🍃️ faces 🥺️☹️😂️
             )
         )
         
-        let returnedElement = applyMove(to: "o", on: element)
+        let returnedElement = applyMove(to: "D", on: element)
         
-        XCTAssertEqual(returnedElement?.caretLocation, 21)
-        XCTAssertEqual(returnedElement?.selectedLength, 1)
+        XCTAssertEqual(returnedElement?.caretLocation, 31)
+        XCTAssertEqual(returnedElement?.selectedLength, 3)
         XCTAssertNil(returnedElement?.selectedText)
     }
     

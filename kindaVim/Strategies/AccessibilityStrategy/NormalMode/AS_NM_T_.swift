@@ -9,7 +9,7 @@ extension AccessibilityStrategyNormalMode {
         let lineCaretLocation = element.caretLocation - lineStart
         
         if let characterFoundLocation = textEngine.findPrevious(character, before: lineCaretLocation, in: lineText) {
-            newElement.caretLocation = lineStart + characterFoundLocation + 1
+            newElement.caretLocation = lineStart + (characterFoundLocation + element.characterLengthForCharacter(at: characterFoundLocation)) 
             newElement.selectedLength = newElement.characterLength
             newElement.selectedText = nil
             
