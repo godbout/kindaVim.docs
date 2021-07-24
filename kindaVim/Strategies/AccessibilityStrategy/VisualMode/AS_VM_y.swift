@@ -3,7 +3,8 @@ import AppKit
 extension AccessibilityStrategyVisualMode {
     
     func y(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
-        guard var element = element else { return nil }
+        guard let element = element else { return nil }
+        var newElement = element
         
         if let selectedText = element.selectedText {
             NSPasteboard.general.clearContents()
@@ -16,10 +17,10 @@ extension AccessibilityStrategyVisualMode {
             KindaVimEngine.shared.lastYankStyle = .linewise
         }
         
-        element.selectedLength = 1     
-        element.selectedText = nil
+        newElement.selectedLength = element.characterLength
+        newElement.selectedText = nil
         
-        return element
+        return newElement
     }
     
 }

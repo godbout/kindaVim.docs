@@ -2,7 +2,7 @@
 import XCTest
 
 
-class ASVMC_y_Tests: ASVM_BaseTests {
+class ASUT_VMC_y_Tests: ASVM_BaseTests {
     
     override func setUp() {
         super.setUp()
@@ -18,7 +18,7 @@ class ASVMC_y_Tests: ASVM_BaseTests {
 
 
 // Both
-extension ASVMC_y_Tests {
+extension ASUT_VMC_y_Tests {
     
     func test_that_it_sets_the_Last_Yanking_Style_to_Characterwise() {
         let text = """
@@ -159,5 +159,35 @@ line
         XCTAssertEqual(returnedElement?.selectedLength, 1)
         XCTAssertNil(returnedElement?.selectedText)
     }   
+    
+}
+
+
+// emojis
+extension ASUT_VMC_y_Tests {
+    
+    func test_that_it_handles_emojis() {
+        let text = "after ya🍦️king you go back to caret you bastard!"
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 49,
+            caretLocation: 8,
+            selectedLength: 33,
+            selectedText: "🍦️king you go back to caret you ",
+            currentLine: AccessibilityTextElementLine(
+                fullValue: text,
+                number: 1,
+                start: 0,
+                end: 49
+            )
+        )
+        
+        let returnedElement = applyMove(on: element)
+        
+        XCTAssertEqual(returnedElement?.caretLocation, 8)
+        XCTAssertEqual(returnedElement?.selectedLength, 3)
+        XCTAssertNil(returnedElement?.selectedText)
+    }
     
 }

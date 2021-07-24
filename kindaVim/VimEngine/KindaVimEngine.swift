@@ -545,25 +545,25 @@ extension KindaVimEngine {
         case [.leftBracket, .leftBrace]:
             enterNormalMode()
             
-            if var element = asNormalMode.leftBracketLeftBrace(on: focusedElement()) {
+            if let element = asNormalMode.leftBracketLeftBrace(on: focusedElement()) {
                 push(element: element)
             }
         case [.leftBracket, .leftParenthesis]:
             enterNormalMode()
             
-            if var element = asNormalMode.leftBracketLeftParenthesis(on: focusedElement()) {
+            if let element = asNormalMode.leftBracketLeftParenthesis(on: focusedElement()) {
                 push(element: element)
             }
         case [.rightBracket, .rightBrace]:
             enterNormalMode()
             
-            if var element = asNormalMode.rightBracketRightBrace(on: focusedElement()) {
+            if let element = asNormalMode.rightBracketRightBrace(on: focusedElement()) {
                 push(element: element)
             }
         case [.rightBracket, .rightParenthesis]:
             enterNormalMode()
             
-            if var element = asNormalMode.rightBracketRightParenthesis(on: focusedElement()) {
+            if let element = asNormalMode.rightBracketRightParenthesis(on: focusedElement()) {
                 push(element: element)
             }
         case [.y, .f]:
