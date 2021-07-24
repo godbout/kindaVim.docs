@@ -30,7 +30,7 @@ struct KeyCombinationAdaptor {
     
     private static func toCGEvent(from keyCombination: KeyCombination, pressed: Bool) -> CGEvent? {
         guard let cgEvent =  CGEvent(
-                keyboardEventSource: nil,
+            keyboardEventSource: CGEventSource(stateID: .privateState),
                 virtualKey: CGKeyCode(keyCombination.key.rawValue),
                 keyDown: pressed
         ) else { return nil }
