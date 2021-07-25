@@ -26,31 +26,6 @@ coz like come on there's so me shits inside.
         XCTAssertEqual(reconvertedAccessibilityTextElement?.caretLocation, 0)
     }
     
-    func test_that_we_can_set_the_caret_location_to_the_end_of_the_TextView() {
-        let text = """
-another looooong
-big shit
-for you
-my
-friend...
-"""
-        let element = AccessibilityTextElement(
-            value: text,
-            length: 46,
-            caretLocation: 46,
-            selectedLength: 1
-        )
-
-        app.textViews.firstMatch.tap()
-        app.textViews.firstMatch.typeText(text)
-
-        let conversionSucceeded = AccessibilityTextElementAdaptor.toAXFocusedElement(from: element)
-        XCTAssertTrue(conversionSucceeded)
-
-        let reconvertedAccessibilityTextElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
-        XCTAssertEqual(reconvertedAccessibilityTextElement?.caretLocation, 46)
-    }
-
     func test_that_we_can_set_the_caret_location_wherever_between_the_beginning_and_the_end_of_the_TextView() {
         let text = """
 those shits never stop
