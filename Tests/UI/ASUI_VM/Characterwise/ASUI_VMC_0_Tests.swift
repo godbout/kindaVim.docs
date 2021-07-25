@@ -47,7 +47,7 @@ at the anchor, not at the caret location
 
 
 // TextViews
-extension UIASVML_0_Tests {
+extension ASUI_VMC_0_Tests {
 
     func test_that_if_the_selection_spans_over_multiple_lines_and_the_head_is_before_the_anchor_the_it_goes_to_the_beginning_of_the_line_and_extends_the_selection() {
         let textInAXFocusedElement = """
@@ -91,8 +91,49 @@ start of the line
         XCTAssertEqual(accessibilityElement?.caretLocation, 0)
         XCTAssertEqual(accessibilityElement?.selectedLength, 36)
     }
+
+}
+
+
+// emojis
+extension ASUI_VMC_0_Tests {
     
+    func test_that_it_handles_emojis_with_head_before_anchor() {
+        let textInAXFocusedElement = """
+wow now that 😂️😂️😂️ have to handle🙈️
+    🍌️dd with the 🙈️🙈️🙈️🙈️
+"""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        KindaVimEngine.shared.enterNormalMode()
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .underscore))
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .v))
+
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .zero))
+        let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
+        
+        XCTAssertEqual(accessibilityElement?.caretLocation, 41)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 7)
+    }
     
-    
+    func test_that_it_handles_emojis_with_anchor_before_head() {
+        let textInAXFocusedElement = """
+wow now that 😂️😂️😂️ have to handle🙈️
+🍌️    dd with the 🙈️🙈️🙈️🙈️
+"""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        KindaVimEngine.shared.enterNormalMode()
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .b))
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .k))
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .v))
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .j))
+        
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .zero))
+        let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
+        
+        XCTAssertEqual(accessibilityElement?.caretLocation, 19)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 25)
+    }
     
 }

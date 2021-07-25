@@ -1,20 +1,21 @@
 extension AccessibilityStrategyVisualMode {
     
     func zero(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
-        guard var element = element else { return nil }
+        guard let element = element else { return nil }
+        var newElement = element
         
         if KindaVimEngine.shared.visualStyle == .characterwise, let lineAtHead = AccessibilityTextElementAdaptor.lineFor(location: AccessibilityStrategyVisualMode.head) {
             if lineAtHead.start <= Self.anchor || Self.head <= Self.anchor {
-                element.caretLocation = lineAtHead.start
-                element.selectedLength = (Self.anchor + 1) - lineAtHead.start
+                newElement.caretLocation = lineAtHead.start
+                newElement.selectedLength = (Self.anchor + element.characterLengthForCharacter(at: Self.anchor)) - lineAtHead.start
             } else {
-                element.selectedLength = (lineAtHead.start + 1) - Self.anchor
+                newElement.selectedLength = (lineAtHead.start + element.characterLengthForCharacter(at: lineAtHead.start)) - Self.anchor
             }
         }
        
-        element.selectedText = nil
+        newElement.selectedText = nil
         
-        return element
+        return newElement
     }
 
 }
