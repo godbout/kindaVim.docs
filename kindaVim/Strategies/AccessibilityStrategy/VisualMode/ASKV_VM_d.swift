@@ -15,25 +15,25 @@ extension AccessibilityStrategyVisualMode {
     }
     
     private func theMoveForVisualModeCharacterwise(on element: AccessibilityTextElement) -> AccessibilityTextElement? {
-        var element = element
+        var newElement = element
         
-        element.selectedText = ""
+        newElement.selectedText = ""
         
-        _ = AccessibilityTextElementAdaptor.toAXFocusedElement(from: element)
+        _ = AccessibilityTextElementAdaptor.toAXFocusedElement(from: newElement)
         guard let updatedElement = AccessibilityTextElementAdaptor.fromAXFocusedElement() else { return nil }
         
         if updatedElement.caretLocation > updatedElement.currentLine.endLimit {            
-            element.caretLocation -= 1             
+            newElement.caretLocation -= AccessibilityTextElement.linefeedCharacterLength
         }
 
-        element.selectedLength = 0
-        element.selectedText = nil        
+        newElement.selectedLength = 0
+        newElement.selectedText = nil        
         
-        return element
+        return newElement
     }
     
     private func theMoveForVisualModeLinewise(on element: AccessibilityTextElement) -> AccessibilityTextElement? {
-        var element = element
+        var newElement = element
         
         var lineAtEndOfSelection: AccessibilityTextElementLine?
         var lineAtBeginningOfSelection: AccessibilityTextElementLine?
@@ -49,37 +49,37 @@ extension AccessibilityStrategyVisualMode {
         if let lineAtEndOfSelection = lineAtEndOfSelection, let lineAfterSelection = AccessibilityTextElementAdaptor.lineFor(lineNumber: lineAtEndOfSelection.number + 1) {
             let firstNonBlankWithinLineLimitOflineAfterSelectionLocation = textEngine.firstNonBlankWithinLineLimit(in: TextEngineLine(from: lineAfterSelection.value))
             
-            element.selectedText = ""
+            newElement.selectedText = ""
             
-            _ = AccessibilityTextElementAdaptor.toAXFocusedElement(from: element)
+            _ = AccessibilityTextElementAdaptor.toAXFocusedElement(from: newElement)
             
-            element.caretLocation += firstNonBlankWithinLineLimitOflineAfterSelectionLocation
-            element.selectedLength = 0
-            element.selectedText = nil
+            newElement.caretLocation += firstNonBlankWithinLineLimitOflineAfterSelectionLocation
+            newElement.selectedLength = 0
+            newElement.selectedText = nil
             
-            return element
+            return newElement
         }
         
         if let lineAtBeginningOfSelection = lineAtBeginningOfSelection, let lineBeforeSelection = AccessibilityTextElementAdaptor.lineFor(lineNumber: lineAtBeginningOfSelection.number - 1) {
             let firstNonBlankWithinLineLimitOflineBeforeSelectionLocation = textEngine.firstNonBlankWithinLineLimit(in: TextEngineLine(from: lineBeforeSelection.value))
             
-            element.caretLocation -= 1
-            element.selectedLength += 1
-            element.selectedText = ""
+            newElement.caretLocation -= AccessibilityTextElement.linefeedCharacterLength
+            newElement.selectedLength += AccessibilityTextElement.linefeedCharacterLength
+            newElement.selectedText = ""
             
-            _ = AccessibilityTextElementAdaptor.toAXFocusedElement(from: element)
+            _ = AccessibilityTextElementAdaptor.toAXFocusedElement(from: newElement)
             
-            element.caretLocation -= lineBeforeSelection.length - firstNonBlankWithinLineLimitOflineBeforeSelectionLocation - 1                
-            element.selectedLength = 0
-            element.selectedText = ""
+            newElement.caretLocation -= lineBeforeSelection.lengthWithoutLinefeed - firstNonBlankWithinLineLimitOflineBeforeSelectionLocation                
+            newElement.selectedLength = 0
+            newElement.selectedText = ""
             
-            return element
+            return newElement
         } 
             
-        element.selectedLength = element.length
-        element.selectedText = ""        
+        newElement.selectedLength = element.length
+        newElement.selectedText = ""        
         
-        return element
+        return newElement
     }
     
 }
