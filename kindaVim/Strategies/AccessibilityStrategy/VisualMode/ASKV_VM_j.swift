@@ -15,7 +15,7 @@ extension AccessibilityStrategyVisualMode {
     }
     
     private func jForVisualModeCharacterwise(on element: AccessibilityTextElement) -> AccessibilityTextElement {
-        var element = element
+        var newElement = element
         
         if let lineAtHead = AccessibilityTextElementAdaptor.lineFor(location: Self.head), let lineBelowHead = AccessibilityTextElementAdaptor.lineFor(lineNumber: lineAtHead.number + 1) {
             var newHeadLocation = lineBelowHead.start + (AccessibilityTextElement.globalColumnNumber - 1)
@@ -24,18 +24,18 @@ extension AccessibilityStrategyVisualMode {
             // if the new head is over the line limit, we set it at the line limit,
             // and we will override the setting of the globalColumnNumber
             if newHeadLocation >= lineBelowHead.end {
-                newHeadLocation = lineBelowHead.end - 1
+                newHeadLocation = lineBelowHead.end - element.characterLengthForCharacter(before: lineBelowHead.end)
                 globalColumnNumber = AccessibilityTextElement.globalColumnNumber
             }
             
             if Self.head >= Self.anchor, newHeadLocation > Self.anchor {
-                element.selectedLength += newHeadLocation - Self.head
+                newElement.selectedLength = (newHeadLocation + element.characterLengthForCharacter(at: newHeadLocation)) - Self.anchor
             } else if Self.head < Self.anchor, newHeadLocation >= Self.anchor {
-                element.caretLocation = Self.anchor
-                element.selectedLength += (Self.head - Self.anchor) + (newHeadLocation - Self.anchor)
+                newElement.caretLocation = Self.anchor
+                newElement.selectedLength = (newHeadLocation + element.characterLengthForCharacter(at: newHeadLocation)) - Self.anchor 
             } else if Self.head < Self.anchor, newHeadLocation < Self.anchor {
-                element.caretLocation = newHeadLocation
-                element.selectedLength -= newHeadLocation - Self.head
+                newElement.caretLocation = newHeadLocation
+                newElement.selectedLength = (Self.anchor + element.characterLengthForCharacter(at: Self.anchor)) - newHeadLocation
             }
             
             // so here we override the globalColumnNumber as when you reach the end
@@ -44,27 +44,28 @@ extension AccessibilityStrategyVisualMode {
                 AccessibilityTextElement.globalColumnNumber = globalColumnNumber!
             }
                 
-            element.selectedText = nil
+            newElement.selectedText = nil
             
-            return element
+            return newElement
         }
         
         if Self.anchor == element.length {
             let globalColumnNumber = AccessibilityTextElement.globalColumnNumber
             
-            element.caretLocation = element.length
-            element.selectedLength = 0
-            element.selectedText = nil
+            newElement.caretLocation = element.length
+            newElement.selectedLength = 0
+            newElement.selectedText = nil
             
             AccessibilityTextElement.globalColumnNumber = globalColumnNumber
             
-            return element
+            return newElement
         } 
         
-        element.selectedLength += (element.length - Self.head) - 1
-        element.selectedText = nil
+        newElement.caretLocation = Self.anchor
+        newElement.selectedLength = element.length - Self.anchor 
+        newElement.selectedText = nil
         
-        return element
+        return newElement
     }
     
     private func jForVisualModeLinewise(on element: AccessibilityTextElement) -> AccessibilityTextElement {

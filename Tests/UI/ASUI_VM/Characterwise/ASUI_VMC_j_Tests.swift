@@ -178,3 +178,52 @@ own empty
     } 
     
 }
+
+
+// emojis
+// more tests possible but tired of that 💩️ for now
+extension ASUI_VMC_j_Tests {
+    
+    func test_that_it_handles_emojis() {
+        let textInAXFocusedElement = """
+askdfljha😂️jsfdkhasdkfhha😂️
+    asdfa😂️sdfkjhask🌲️
+"""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        KindaVimEngine.shared.enterNormalMode()
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .k))
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .dollarSign))
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .v))
+        
+        
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .j))
+        let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
+        
+        XCTAssertEqual(accessibilityElement?.caretLocation, 26)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 28)
+    }     
+    
+    func test_that_it_handles_emojis_even_with_the_weird_3rd_case() {
+        let textInAXFocusedElement = """
+askdfljha😂️jsfdkhasdkfhha😂️
+    asdfa😂️sdfkjhask🌲️
+
+"""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        KindaVimEngine.shared.enterNormalMode()
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .k))
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .k))
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .dollarSign))
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .v))
+        
+        
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .j))
+        let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
+        
+        XCTAssertEqual(accessibilityElement?.caretLocation, 26)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 29)
+    }   
+    
+}
