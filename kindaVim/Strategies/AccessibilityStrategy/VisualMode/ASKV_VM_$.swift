@@ -1,22 +1,23 @@
 extension AccessibilityStrategyVisualMode {
     
     func dollarSign(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
-        guard var element = element else { return nil }
+        guard let element = element else { return nil }
+        var newElement = element
         
         if KindaVimEngine.shared.visualStyle == .characterwise, let lineAtHead = AccessibilityTextElementAdaptor.lineFor(location: AccessibilityStrategyVisualMode.head) {
             if Self.head >= Self.anchor || lineAtHead.end >= Self.anchor {
-                element.caretLocation = Self.anchor
-                element.selectedLength = lineAtHead.end - element.caretLocation
+                newElement.caretLocation = Self.anchor
+                newElement.selectedLength = lineAtHead.end - newElement.caretLocation
             } else {
-                element.caretLocation = lineAtHead.end - 1
-                element.selectedLength = (Self.anchor + 1) - element.caretLocation
+                newElement.caretLocation = lineAtHead.end - AccessibilityTextElement.linefeedCharacterLength
+                newElement.selectedLength = (Self.anchor + element.characterLengthForCharacter(at: Self.anchor)) - newElement.caretLocation
             }
             
         }
         
-        element.selectedText = nil
+        newElement.selectedText = nil
         
-        return element
+        return newElement
     }
     
 }
