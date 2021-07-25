@@ -28,14 +28,15 @@ extension AccessibilityStrategyVisualMode {
                 globalColumnNumber = AccessibilityTextElement.globalColumnNumber
             }
             
+            // yes, + 1. check KV NM jk to see why (currently don't know how to handle colums with emojis)
             if Self.head >= Self.anchor, newHeadLocation > Self.anchor {
-                newElement.selectedLength = (newHeadLocation + element.characterLengthForCharacter(at: newHeadLocation)) - Self.anchor
+                newElement.selectedLength = (newHeadLocation + 1) - Self.anchor
             } else if Self.head < Self.anchor, newHeadLocation >= Self.anchor {
                 newElement.caretLocation = Self.anchor
-                newElement.selectedLength = (newHeadLocation + element.characterLengthForCharacter(at: newHeadLocation)) - Self.anchor 
+                newElement.selectedLength = (newHeadLocation + 1) - Self.anchor 
             } else if Self.head < Self.anchor, newHeadLocation < Self.anchor {
                 newElement.caretLocation = newHeadLocation
-                newElement.selectedLength = (Self.anchor + element.characterLengthForCharacter(at: Self.anchor)) - newHeadLocation
+                newElement.selectedLength = (Self.anchor + 1) - newHeadLocation
             }
             
             // so here we override the globalColumnNumber as when you reach the end

@@ -181,7 +181,6 @@ own empty
 
 
 // emojis
-// more tests possible but tired of that 💩️ for now
 extension ASUI_VMC_j_Tests {
     
     func test_that_it_handles_emojis() {
