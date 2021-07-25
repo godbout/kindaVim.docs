@@ -46,41 +46,41 @@ extension AccessibilityStrategyVisualMode {
     }
     
     private func kForVisualModeLinewise(on element: AccessibilityTextElement) -> AccessibilityTextElement {        
-        var element = element
+        var newElement = element
         
         guard let lineAtAnchor = AccessibilityTextElementAdaptor.lineFor(location: AccessibilityStrategyVisualMode.anchor) else {
-            element.selectedLength = 1
-            element.selectedText = nil
+            newElement.selectedLength = element.characterLength
+            newElement.selectedText = nil
             
-            return element
+            return newElement
             
         }
         
         guard let lineAtHead = AccessibilityTextElementAdaptor.lineFor(location: AccessibilityStrategyVisualMode.head) else {
-            element.selectedLength = 1
-            element.selectedText = nil 
+            newElement.selectedLength = element.characterLength
+            newElement.selectedText = nil 
             
-            return element
+            return newElement
         }
                 
         if lineAtHead.number > lineAtAnchor.number {
-            element.selectedLength = lineAtHead.start - Self.anchor
-            element.selectedText = nil
+            newElement.selectedLength = lineAtHead.start - Self.anchor
+            newElement.selectedText = nil
             
-            return element
+            return newElement
         }
         
         if let lineAboveHead = AccessibilityTextElementAdaptor.lineFor(lineNumber: lineAtHead.number - 1) {
-            element.caretLocation = lineAboveHead.start
-            element.selectedLength = lineAtAnchor.end - lineAboveHead.start
-            element.selectedText = nil
+            newElement.caretLocation = lineAboveHead.start
+            newElement.selectedLength = lineAtAnchor.end - lineAboveHead.start
+            newElement.selectedText = nil
             
-            return element
+            return newElement
         }
         
-        element.selectedText = nil
+        newElement.selectedText = nil
         
-        return element
+        return newElement
     }
     
 }
