@@ -131,16 +131,17 @@ struct AXEngine {
         return true
     }
     
-    // this is to handle properly The 3rd Case of The 3 Cases (and maybe also the 1st?).
-    // if the text ends with an empty line, we can't fake the block cursor, so ne need to
-    // tweak the selectedLength. the calculation is of course not the same for 
-    // Normal Mode (caretLocation) and Visual Mode (caretLocation + selectedLength)
+    // we don't need to take care anymore of the 1st and 3rd Cases in Normal Mode
+    // as we now calculate the selectedLength dynamically thanks to the emojis.
+    // we still need the tweak for the Visual Mode though because we can start the Visual Mode
+    // at the last empty line, and we also need to come back to it. in that case we need to remove one character length
+    // from the total length, as we can't force the block cursor on the last empty line.
     private static func tweakedSelectedLength(for element: AccessibilityTextElement) -> Int {
         if KindaVimEngine.shared.currentMode == .visual {
-            return (element.caretLocation + (element.selectedLength - 1) >= element.length) ? element.selectedLength - 1 : element.selectedLength 
+            guard element.caretLocation + element.selectedLength <= element.length else { return element.selectedLength - 1 }
         }
         
-        return element.caretIsAtTheEnd ? 0 : element.selectedLength
+        return element.selectedLength
     }
 
 }
