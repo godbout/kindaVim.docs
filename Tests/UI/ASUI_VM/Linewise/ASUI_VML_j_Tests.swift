@@ -110,3 +110,8 @@ ass off lol
     }
     
 }
+
+
+// emojis
+// from what i see, no emojis issues with Linewise
+extension ASUI_VML_j_Tests {}

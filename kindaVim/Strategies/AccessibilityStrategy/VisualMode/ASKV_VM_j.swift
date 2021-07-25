@@ -68,33 +68,33 @@ extension AccessibilityStrategyVisualMode {
     }
     
     private func jForVisualModeLinewise(on element: AccessibilityTextElement) -> AccessibilityTextElement {
-        var element = element
+        var newElement = element
         
         guard let lineAtAnchor = AccessibilityTextElementAdaptor.lineFor(location: AccessibilityStrategyVisualMode.anchor) else {
-            element.selectedLength = 1
-            element.selectedText = nil
+            newElement.selectedLength = element.characterLength
+            newElement.selectedText = nil
             
-            return element             
+            return newElement             
         }
         
         guard let lineAtHead = AccessibilityTextElementAdaptor.lineFor(location: AccessibilityStrategyVisualMode.head) else {
-            element.selectedLength = 1
-            element.selectedText = nil
+            newElement.selectedLength = element.characterLength
+            newElement.selectedText = nil
             
-            return element
+            return newElement
         }
         
         if lineAtHead.number >= lineAtAnchor.number {
             if let lineBelowHead = AccessibilityTextElementAdaptor.lineFor(lineNumber: lineAtHead.number + 1) {
-                element.selectedLength += lineBelowHead.length
+                newElement.selectedLength += lineBelowHead.length
             }
         } else {
-            element.caretLocation += lineAtHead.length
-            element.selectedLength -= lineAtHead.length 
+            newElement.caretLocation += lineAtHead.length
+            newElement.selectedLength -= lineAtHead.length 
         }
         
-        element.selectedText = nil
+        newElement.selectedText = nil
         
-        return element
+        return newElement
     }
 }
