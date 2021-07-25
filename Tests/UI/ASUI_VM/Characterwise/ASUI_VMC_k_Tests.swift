@@ -161,3 +161,25 @@ own empty
     
 }
 
+
+// emojis
+extension ASUI_VMC_k_Tests {
+    
+    func test_that_it_handles_emojis() {
+        let textInAXFocusedElement = """
+askdfljha😂️jsfdkhasdkfhha😂️
+asdfa😂️sdfkjhajkhasdfkjhasfdakjsh askjh😂️😂️
+"""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        KindaVimEngine.shared.enterNormalMode()
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .v))
+        
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .k))
+        let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
+        
+        XCTAssertEqual(accessibilityElement?.caretLocation, 29)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 47)
+    }     
+    
+}

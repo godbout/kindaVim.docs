@@ -15,7 +15,7 @@ extension AccessibilityStrategyVisualMode {
     }
     
     private func kForVisualModeCharacterwise(on element: AccessibilityTextElement) -> AccessibilityTextElement {
-        var element = element
+        var newElement = element
         
         if let lineAtHead = AccessibilityTextElementAdaptor.lineFor(location: Self.head), let lineAboveHead = AccessibilityTextElementAdaptor.lineFor(location: lineAtHead.start - 1) {
             var newHeadLocation = lineAboveHead.start + (AccessibilityTextElement.globalColumnNumber - 1)
@@ -24,15 +24,16 @@ extension AccessibilityStrategyVisualMode {
             // if the new head is over the line limit, we set it at the line limit,
             // and we will override the setting of the globalColumnNumber
             if newHeadLocation >= lineAboveHead.end {
-                newHeadLocation = lineAboveHead.end - 1
+                newHeadLocation = lineAboveHead.end - AccessibilityTextElement.linefeedCharacterLength
                 globalColumnNumber = AccessibilityTextElement.globalColumnNumber
             }
             
+            // yes, we leave the + 1 here. see KV NM jk for why
             if Self.head > Self.anchor, newHeadLocation > Self.anchor {
-                element.selectedLength = (newHeadLocation - Self.anchor) + 1
+                newElement.selectedLength = (newHeadLocation + 1) - Self.anchor
             } else {
-                element.caretLocation = newHeadLocation
-                element.selectedLength = (Self.anchor - newHeadLocation) + 1
+                newElement.caretLocation = newHeadLocation
+                newElement.selectedLength = (Self.anchor + 1) - newHeadLocation 
             }
             
             if globalColumnNumber != nil {
@@ -40,9 +41,9 @@ extension AccessibilityStrategyVisualMode {
             }
         }
         
-        element.selectedText = nil
+        newElement.selectedText = nil
         
-        return element
+        return newElement
     }
     
     private func kForVisualModeLinewise(on element: AccessibilityTextElement) -> AccessibilityTextElement {        
