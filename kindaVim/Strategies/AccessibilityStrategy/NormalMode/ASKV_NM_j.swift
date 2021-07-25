@@ -6,8 +6,6 @@ extension AccessibilityStrategyNormalMode {
         guard element.role == .textArea else { return nil }
         var newElement = element
         
-        // the only two times we don't get a next line is if we are at the last line, or if we are before the last line
-        // but the last line is empty. if the whole text is empty, we still receive a next line (yes, doesn't seem proper right?)
         if let nextLine = AccessibilityTextElementAdaptor.lineFor(lineNumber: element.currentLine.number + 1) {
             guard nextLine.length > AccessibilityTextElement.globalColumnNumber else {
                 let globalColumNumber = AccessibilityTextElement.globalColumnNumber

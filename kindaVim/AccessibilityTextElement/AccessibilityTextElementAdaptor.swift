@@ -133,18 +133,6 @@ struct AccessibilityTextElementAdaptor {
         guard let axFocusedElement = axFocusedElement else { return nil }
         
         guard let (elementValue, _) = AXEngine.axValueAndNumberOfCharacters(of: axFocusedElement) else { return nil }
-        
-        
-        if elementValue.isEmpty {
-            return AccessibilityTextElementLine(
-                fullValue: "",
-                number: 1,
-                start: 0,
-                end: 0
-            )
-        }
-        
-        
         guard let axLineRange = AXEngine.axLineRangeFor(lineNumber: lineNumber - 1, on: axFocusedElement) else { return nil }
         
         return AccessibilityTextElementLine(
@@ -154,8 +142,6 @@ struct AccessibilityTextElementAdaptor {
             end: axLineRange.location + axLineRange.length
         )
     }
-    
-    
     
 
     private static func caretIsAtTheEnd(for location: Int, with length: Int) -> Bool {
