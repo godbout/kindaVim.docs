@@ -1,20 +1,21 @@
 extension AccessibilityStrategyVisualMode {
     
     func escape(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
-        guard var element = element else { return nil }
+        guard let element = element else { return nil }
+        var newElement = element
         
         if let lineAtHead = AccessibilityTextElementAdaptor.lineFor(location: AccessibilityStrategyVisualMode.head) {
             if Self.head > lineAtHead.endLimit {
-                element.caretLocation = lineAtHead.endLimit
+                newElement.caretLocation = lineAtHead.endLimit
             } else {
-                element.caretLocation = Self.head
+                newElement.caretLocation = Self.head
             }
         }
         
-        element.selectedLength = 1
-        element.selectedText = nil
+        newElement.selectedLength = newElement.characterLength
+        newElement.selectedText = nil
         
-        return element
+        return newElement
     }
     
 }

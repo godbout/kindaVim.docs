@@ -1,11 +1,11 @@
 import XCTest
 
 
-class UIASVMC_escape_Tests: ASUI_VM_BaseTests {}
+class ASUI_VMC_escape_Tests: ASUI_VM_BaseTests {}
 
 
 // TextFields
-extension UIASVMC_escape_Tests {
+extension ASUI_VMC_escape_Tests {
     
     func test_that_the_caret_location_goes_to_the_head() {
         let textInAXFocusedElement = "some plain simple text for once"
@@ -26,7 +26,7 @@ extension UIASVMC_escape_Tests {
 
 
 // TextViews
-extension UIASVMC_escape_Tests {
+extension ASUI_VMC_escape_Tests {
     
     func test_that_the_caret_location_goes_to_the_head_even_when_the_selection_spans_over_multiple_lines() {
         let textInAXFocusedElement = """
@@ -68,3 +68,26 @@ gonna go after
     }    
     
 }
+
+
+// emojis
+extension ASUI_VMC_escape_Tests {
+    
+    func test_that_it_handles_emojis() {
+        let textInAXFocusedElement = "wow now that 😂️😂️😂️🙈️"
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        KindaVimEngine.shared.enterNormalMode()
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .v))
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .b))
+        
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .escape))
+        let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
+        
+        XCTAssertEqual(accessibilityElement?.caretLocation, 13)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 3)
+    }
+    
+}
+
+
