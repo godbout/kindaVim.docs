@@ -3,7 +3,7 @@ import XCTest
 
 
 // see b for blah blah
-class ASVMC_e_Tests: ASVM_BaseTests {
+class ASUT_VMC_e_Tests: ASVM_BaseTests {
     
     override func setUp() {
         super.setUp()
@@ -19,7 +19,7 @@ class ASVMC_e_Tests: ASVM_BaseTests {
 
 
 // Both
-extension ASVMC_e_Tests {
+extension ASUT_VMC_e_Tests {
     
     func test_that_if_the_head_is_after_the_anchor_it_extends_the_selected_length_to_the_end_of_the_word_forward() {
         let text = "gonna start with text moves in Visual Mode"
@@ -99,6 +99,93 @@ extension ASVMC_e_Tests {
         
         XCTAssertEqual(returnedElement?.caretLocation, 26)
         XCTAssertEqual(returnedElement?.selectedLength, 3)  
+        XCTAssertNil(returnedElement?.selectedText)
+    }
+    
+}
+
+
+// emojis
+extension ASUT_VMC_e_Tests {
+    
+    func test_that_it_handles_emojis_when_head_and_anchor_are_the_same() {
+        let text = "because ☀️urrently 🤖️t seems it does"
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 37,
+            caretLocation: 19,
+            selectedLength: 3,
+            selectedText: "🤖️",
+            currentLine: AccessibilityTextElementLine(
+                fullValue: text,
+                number: 1,
+                start: 0,
+                end: 37
+            )
+        )
+        
+        AccessibilityStrategyVisualMode.anchor = 19
+        AccessibilityStrategyVisualMode.head = 19
+        
+        let returnedElement = applyMove(on: element)
+        
+        XCTAssertEqual(returnedElement?.caretLocation, 19)
+        XCTAssertEqual(returnedElement?.selectedLength, 4)   
+        XCTAssertNil(returnedElement?.selectedText)
+    }
+    
+    func test_that_it_handles_emojis_when_the_head_is_before_the_anchor_and_will_stay_before_even_after_the_move_is_done() {
+        let text = "because ☀️urrently 🤖️t seems it does"
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 37,
+            caretLocation: 8,
+            selectedLength: 14,
+            selectedText: "☀️urrently 🤖️",
+            currentLine: AccessibilityTextElementLine(
+                fullValue: text,
+                number: 1,
+                start: 0,
+                end: 37
+            )
+        )
+        
+        AccessibilityStrategyVisualMode.anchor = 19
+        AccessibilityStrategyVisualMode.head = 8
+        
+        let returnedElement = applyMove(on: element)
+        
+        XCTAssertEqual(returnedElement?.caretLocation, 17)
+        XCTAssertEqual(returnedElement?.selectedLength, 5)   
+        XCTAssertNil(returnedElement?.selectedText)
+    }
+    
+    func test_that_it_handles_emojis_when_the_head_is_before_the_anchor_and_goes_after_the_anchor_after_the_move_is_done() {
+        let text = "because ☀️🤖️🤖️🤖️🤖️🤖️🤖️ t seems it does"
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 44,
+            caretLocation: 8,
+            selectedLength: 11,
+            selectedText: "☀️🤖️🤖️🤖️",
+            currentLine: AccessibilityTextElementLine(
+                fullValue: text,
+                number: 1,
+                start: 0,
+                end: 44
+            )
+        )
+        
+        AccessibilityStrategyVisualMode.anchor = 16
+        AccessibilityStrategyVisualMode.head = 8
+        
+        let returnedElement = applyMove(on: element)
+        
+        XCTAssertEqual(returnedElement?.caretLocation, 16)
+        XCTAssertEqual(returnedElement?.selectedLength, 12)   
         XCTAssertNil(returnedElement?.selectedText)
     }
     
