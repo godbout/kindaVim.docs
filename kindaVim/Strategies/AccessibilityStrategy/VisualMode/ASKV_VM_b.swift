@@ -1,29 +1,30 @@
 extension AccessibilityStrategyVisualMode {
     
     func b(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
-        guard var element = element else { return nil }
+        guard let element = element else { return nil }
+        var newElement = element
         
         if KindaVimEngine.shared.visualStyle == .characterwise {
             if Self.head >= Self.anchor {
-                let beginningOfWordLocation = textEngine.beginningOfWordBackward(startingAt: element.caretLocation + element.selectedLength - 1, in: TextEngineText(from: element.value))
+                let beginningOfWordLocation = textEngine.beginningOfWordBackward(startingAt: (element.caretLocation + element.selectedLength) - element.characterLengthForCharacter(before: element.caretLocation + element.selectedLength), in: TextEngineText(from: element.value))
                 
                 if beginningOfWordLocation <= Self.anchor {
-                    element.caretLocation = beginningOfWordLocation         
-                    element.selectedLength = Self.anchor - element.caretLocation + 1
+                    newElement.caretLocation = beginningOfWordLocation         
+                    newElement.selectedLength = (Self.anchor + element.characterLengthForCharacter(at: Self.anchor)) - newElement.caretLocation
                 } else {
-                    element.selectedLength -= Self.head - beginningOfWordLocation
+                    newElement.selectedLength -= Self.head - beginningOfWordLocation
                 }
             } else if Self.head < Self.anchor {
                 let beginningOfWordLocation = textEngine.beginningOfWordBackward(startingAt: element.caretLocation, in: TextEngineText(from: element.value))
                 
-                element.caretLocation = beginningOfWordLocation 
-                element.selectedLength = Self.anchor - element.caretLocation + 1
+                newElement.caretLocation = beginningOfWordLocation 
+                newElement.selectedLength = (Self.anchor + element.characterLengthForCharacter(at: Self.anchor)) - newElement.caretLocation
             }
         }
         
-        element.selectedText = nil
+        newElement.selectedText = nil
         
-        return element
+        return newElement
     }
         
 }
