@@ -6,7 +6,7 @@ extension AccessibilityStrategyVisualMode {
         
         if KindaVimEngine.shared.visualStyle == .characterwise {
             if Self.head >= Self.anchor {
-                let endOfWordForwardLocation = textEngine.endOfWordForward(startingAt: (element.caretLocation + element.selectedLength) - element.characterLengthForCharacter(at: element.caretLocation + element.selectedLength), in: TextEngineText(from: element.value))                
+                let endOfWordForwardLocation = textEngine.endOfWordForward(startingAt: (element.caretLocation + element.selectedLength) - element.characterLengthForCharacter(before: element.caretLocation + element.selectedLength), in: TextEngineText(from: element.value))                
                 newElement.selectedLength += (endOfWordForwardLocation + element.characterLengthForCharacter(at: endOfWordForwardLocation)) - (Self.head + element.characterLengthForCharacter(at: Self.head))
             } else if Self.head < Self.anchor {
                 let endOfWordForwardLocation = textEngine.endOfWordForward(startingAt: element.caretLocation, in: TextEngineText(from: element.value))

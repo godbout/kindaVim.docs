@@ -189,4 +189,31 @@ extension ASUT_VMC_e_Tests {
         XCTAssertNil(returnedElement?.selectedText)
     }
     
+    func test_that_it_handles_emojis_by_not_getting_stuck_in_front_of_them_sacrebleu() {
+        let text = "because🤖️🤖️🤖️🤖️🤖️🤖️ t seems it does"
+        let element = AccessibilityTextElement(
+            role: .textArea,
+            value: text,
+            length: 41,
+            caretLocation: 5,
+            selectedLength: 2,
+            selectedText: "se",
+            currentLine: AccessibilityTextElementLine(
+                fullValue: text,
+                number: 1,
+                start: 0,
+                end: 41
+            )
+        )
+        
+        AccessibilityStrategyVisualMode.anchor = 5
+        AccessibilityStrategyVisualMode.head = 6
+        
+        let returnedElement = applyMove(on: element)
+        
+        XCTAssertEqual(returnedElement?.caretLocation, 5)
+        XCTAssertEqual(returnedElement?.selectedLength, 20)   
+        XCTAssertNil(returnedElement?.selectedText)
+    }
+    
 }
