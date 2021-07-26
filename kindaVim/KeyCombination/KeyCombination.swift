@@ -137,6 +137,7 @@ enum VimKey {
     // checking if it feels better (like in Alfred)
     case enter
     
+    case rightChevron
     case singleQuote
     
     case underscore
@@ -234,15 +235,7 @@ struct KeyCombination {
         case .k:
             key = .k
         case .l:
-            key = .l
-        case .leftBrace:
-            key = .leftBracket
-            shift = true
-        case .leftBracket:
-            key = .leftBracket
-        case .leftParenthesis:
-            key = .nine
-            shift = true
+            key = .l        
         case .o:
             key = .o
         case .O:
@@ -260,15 +253,7 @@ struct KeyCombination {
             key = .r
         case .controlR:
             key = .r
-            control = true
-        case .rightBrace:
-            key = .rightBracket
-            shift = true
-        case .rightBracket:
-            key = .rightBracket
-        case .rightParenthesis:
-            key = .zero
-            shift = true
+            control = true        
         case .s:
             key = .s
         case .t:
@@ -305,7 +290,7 @@ struct KeyCombination {
             key = .backtick
         case .caret:
             key = .six
-            shift = true
+            shift = true        
         case .doubleQuote:
             key = .singleQuote
             shift = true
@@ -315,7 +300,26 @@ struct KeyCombination {
         case .escape:
             key = .escape
         case .enter:
-            key = .enter
+            key = .enter  
+        case .leftBrace:
+            key = .leftBracket
+            shift = true
+        case .leftBracket:
+            key = .leftBracket
+        case .leftParenthesis:
+            key = .nine
+            shift = true
+        case .rightBrace:
+            key = .rightBracket
+            shift = true
+        case .rightBracket:
+            key = .rightBracket
+        case .rightChevron:
+            key = .dot
+            shift = true
+        case .rightParenthesis:
+            key = .zero
+            shift = true
         case .singleQuote:
             key = .singleQuote
         case .underscore:
@@ -410,6 +414,8 @@ struct KeyCombination {
             return .Y
         case .backtick where control == false && option == false && shift == false && command == false:
             return .backtick
+        case .dot where control == false && option == false && shift == true && command == false:
+            return .rightChevron
         // temporary for escape to enter Command Mode
         // and escape again to send escape key to macOS
         case .escape where control == false && option == false && shift == false && command == false:

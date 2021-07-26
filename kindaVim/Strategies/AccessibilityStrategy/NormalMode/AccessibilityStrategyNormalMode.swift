@@ -64,6 +64,7 @@ protocol AccessibilityStrategyNormalModeProtocol {
     func rightBrace(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func rightBracketRightBrace(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func rightBracketRightParenthesis(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
+    func rightChevronRightChevron(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func underscore(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func zero(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     

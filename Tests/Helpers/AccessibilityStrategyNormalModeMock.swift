@@ -369,6 +369,12 @@ class AccessibilityStrategyNormalModeMock: AccessibilityStrategyNormalModeProtoc
         return nil
     }
     
+    func rightChevronRightChevron(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        functionCalled = #function
+        
+        return nil
+    }
+    
     func underscore(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         

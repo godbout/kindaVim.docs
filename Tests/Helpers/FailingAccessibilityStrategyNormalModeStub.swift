@@ -255,6 +255,10 @@ struct FailingAccessibilityStrategyNormalModeStub: AccessibilityStrategyNormalMo
         return nil
     }
     
+    func rightChevronRightChevron(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        return nil
+    }
+    
     func underscore(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return nil
     }

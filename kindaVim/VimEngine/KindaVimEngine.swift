@@ -363,6 +363,8 @@ extension KindaVimEngine {
             }
         case .rightBracket:
             enterOperatorPendingMode(with: KeyCombination(key: .rightBracket))
+        case .rightChevron:
+            enterOperatorPendingMode(with: KeyCombination(vimKey: .rightChevron))
         case .underscore:
             if let element = asNormalMode.underscore(on: focusedElement()) {
                 push(element: element)
@@ -564,6 +566,12 @@ extension KindaVimEngine {
             enterNormalMode()
             
             if let element = asNormalMode.rightBracketRightParenthesis(on: focusedElement()) {
+                push(element: element)
+            }
+        case [.rightChevron, .rightChevron]:
+            enterNormalMode()
+            
+            if let element = asNormalMode.rightChevronRightChevron(on: focusedElement()) {
                 push(element: element)
             }
         case [.y, .f]:
