@@ -5,7 +5,8 @@ struct GlobalEventsController {
     
     static let appsToIgnore: [String] = [
         "com.sublimetext.4",
-        "com.googlecode.iterm2"
+        "com.googlecode.iterm2",
+        "com.microsoft.VSCode",
     ]
     
     static func handle(keyCombination: KeyCombination?) -> Bool {
