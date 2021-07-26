@@ -100,6 +100,40 @@ struct AccessibilityStrategyNormalMode: AccessibilityStrategyNormalModeProtocol 
         return newElement    
     }
     
+    func shiftCurrentLine4SpacesToTheRight(on element: AccessibilityTextElement) -> AccessibilityTextElement? {
+        var newElement = element
+        
+        guard newElement.currentLine.isNotAnEmptyLine else {
+            newElement.caretLocation = element.currentLine.start
+            newElement.selectedLength = 1
+            newElement.selectedText = nil
+            
+            return newElement
+        }
+        
+        newElement.caretLocation = element.currentLine.start
+        newElement.selectedLength = 0
+        newElement.selectedText = "    "
+        
+        _ = AccessibilityTextElementAdaptor.toAXFocusedElement(from: newElement)
+        
+        return AccessibilityTextElementAdaptor.fromAXFocusedElement()
+    }
+    
+    func shiftCurrentLine4SpacesToTheLeft(on element: AccessibilityTextElement) -> AccessibilityTextElement? {
+        var newElement = element
+        
+        let leadingNonBlanksCount = textEngine.firstNonBlankWithinLineLimit(in: TextEngineLine(from: element.currentLine.value))
+        
+        newElement.caretLocation = element.currentLine.start
+        newElement.selectedLength = leadingNonBlanksCount >= 4 ? 4 : leadingNonBlanksCount
+        newElement.selectedText = ""
+        
+        _ = AccessibilityTextElementAdaptor.toAXFocusedElement(from: newElement)
+        
+        return AccessibilityTextElementAdaptor.fromAXFocusedElement()
+    }
+    
     static func test(element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         print("\ncaret position: \(String(describing: element?.caretLocation))")
         print("line start: \(String(describing: element?.currentLine.start))", "line end: \(String(describing: element?.currentLine.end))")

@@ -1,26 +1,25 @@
 @testable import kindaVim
 import XCTest
 
-
-class ASUI_NM_leftChevronLeftChevron_Tests: ASUI_NM_BaseTests {
+// see the Left one for blah blah
+class shiftCurrentLine4SpacesToTheRight: ASUI_NM_BaseTests {
     
     private func applyMoveAndGetBackAccessibilityElement() -> AccessibilityTextElement? {
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .leftChevron))
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .leftChevron))
+        guard let focusedElement = AccessibilityTextElementAdaptor.fromAXFocusedElement() else { return nil }
         
-        return AccessibilityTextElementAdaptor.fromAXFocusedElement()
+        return asNormalMode.shiftCurrentLine4SpacesToTheRight(on: focusedElement)
     }
     
 }
 
 
 // Both
-extension ASUI_NM_leftChevronLeftChevron_Tests {
+extension shiftCurrentLine4SpacesToTheRight {
     
-    func test_that_in_normal_setting_it_removes_4_spaces_at_the_beginning_of_a_line_and_sets_the_caret_to_the_first_non_blank_of_the_line() {
+    func test_that_in_normal_setting_it_adds_4_spaces_at_the_beginning_of_a_line_and_sets_the_caret_to_the_first_non_blank_of_the_line() {
         let textInAXFocusedElement = """
 seems that even the normal
-       🖕️ase fails LMAO
+🖕️ase fails LMAO
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
@@ -30,18 +29,16 @@ seems that even the normal
         
         XCTAssertEqual(accessibilityElement?.value, """
 seems that even the normal
-   🖕️ase fails LMAO
+    🖕️ase fails LMAO
 """
         )        
-        XCTAssertEqual(accessibilityElement?.caretLocation, 30)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 3)
     }
     
-    func test_that_it_removes_all_the_spaces_if_there_are_4_or_less() {
+    func test_that_it_does_not_shift_the_line_if_the_line_is_considered_empty() {
         let textInAXFocusedElement = """
- now the line
-  😀️as just two
- spaces
+a line empty means with nothing
+
+or just a linefeed
 """
         app.textViews.firstMatch.tap()
         app.textViews.firstMatch.typeText(textInAXFocusedElement)
@@ -51,13 +48,11 @@ seems that even the normal
         let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
         
         XCTAssertEqual(accessibilityElement?.value, """
- now the line
-😀️as just two
- spaces
+a line empty means with nothing
+
+or just a linefeed
 """
         )
-        XCTAssertEqual(accessibilityElement?.caretLocation, 14)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 3)
     }
     
 }
