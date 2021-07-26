@@ -345,6 +345,12 @@ class AccessibilityStrategyNormalModeMock: AccessibilityStrategyNormalModeProtoc
         return nil
     }
     
+    func leftChevronLeftChevron(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        functionCalled = #function
+        
+        return nil
+    }
+    
     func percent(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         

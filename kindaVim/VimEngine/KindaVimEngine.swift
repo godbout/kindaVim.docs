@@ -353,6 +353,8 @@ extension KindaVimEngine {
             }
         case .leftBracket:
             enterOperatorPendingMode(with: KeyCombination(key: .leftBracket))
+        case .leftChevron:
+            enterOperatorPendingMode(with: KeyCombination(vimKey: .leftChevron))
         case .percent:
             if let element = asNormalMode.percent(on: focusedElement()) {
                 push(element: element)
@@ -554,6 +556,12 @@ extension KindaVimEngine {
             enterNormalMode()
             
             if let element = asNormalMode.leftBracketLeftParenthesis(on: focusedElement()) {
+                push(element: element)
+            }
+        case [.leftChevron, .leftChevron]:
+            enterNormalMode()
+            
+            if let element = asNormalMode.leftChevronLeftChevron(on: focusedElement()) {
                 push(element: element)
             }
         case [.rightBracket, .rightBrace]:

@@ -239,6 +239,10 @@ struct FailingAccessibilityStrategyNormalModeStub: AccessibilityStrategyNormalMo
         return nil
     }
     
+    func leftChevronLeftChevron(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        return nil
+    }
+    
     func percent(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return nil
     }

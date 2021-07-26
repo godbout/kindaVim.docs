@@ -137,6 +137,8 @@ enum VimKey {
     // checking if it feels better (like in Alfred)
     case enter
     
+    case leftChevron
+    
     case rightChevron
     case singleQuote
     
@@ -290,7 +292,10 @@ struct KeyCombination {
             key = .backtick
         case .caret:
             key = .six
-            shift = true        
+            shift = true 
+        case .leftChevron:
+            key = .comma
+            shift = true
         case .doubleQuote:
             key = .singleQuote
             shift = true
@@ -414,6 +419,8 @@ struct KeyCombination {
             return .Y
         case .backtick where control == false && option == false && shift == false && command == false:
             return .backtick
+        case .comma where control == false && option == false && shift == true && command == false:
+            return .leftChevron
         case .dot where control == false && option == false && shift == true && command == false:
             return .rightChevron
         // temporary for escape to enter Command Mode
