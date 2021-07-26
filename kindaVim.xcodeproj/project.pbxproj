@@ -289,6 +289,7 @@
 		9183EF8026AEACF400D2E2F4 /* ASKV_NM_>>.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9183EF7926AEACCC00D2E2F4 /* ASKV_NM_>>.swift */; };
 		9183EF8626AEACF400D2E2F4 /* ASKV_NM_>>.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9183EF7926AEACCC00D2E2F4 /* ASKV_NM_>>.swift */; };
 		9183EF8726AEACF400D2E2F4 /* ASKV_NM_>>.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9183EF7926AEACCC00D2E2F4 /* ASKV_NM_>>.swift */; };
+		9183EFA026AEB51700D2E2F4 /* ASUI_NM_>>_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9183EF9926AEB35500D2E2F4 /* ASUI_NM_>>_Tests.swift */; };
 		91842075267CEF0D0085711E /* ASKV_NM_]}.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91842074267CEF0D0085711E /* ASKV_NM_]}.swift */; };
 		9184207B267CF7120085711E /* ASKV_NM_[(.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9184207A267CF7120085711E /* ASKV_NM_[(.swift */; };
 		91842081267CF72C0085711E /* ASKV_NM_]).swift in Sources */ = {isa = PBXBuildFile; fileRef = 91842080267CF72C0085711E /* ASKV_NM_]).swift */; };
@@ -938,6 +939,7 @@
 		91835516267CC3FF0050B6F4 /* UsingASNM_[{_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UsingASNM_[{_Tests.swift"; sourceTree = "<group>"; };
 		91835520267CC50D0050B6F4 /* ASUT_NM_[{_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ASUT_NM_[{_Tests.swift"; sourceTree = "<group>"; };
 		9183EF7926AEACCC00D2E2F4 /* ASKV_NM_>>.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ASKV_NM_>>.swift"; sourceTree = "<group>"; };
+		9183EF9926AEB35500D2E2F4 /* ASUI_NM_>>_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ASUI_NM_>>_Tests.swift"; sourceTree = "<group>"; };
 		91842074267CEF0D0085711E /* ASKV_NM_]}.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ASKV_NM_]}.swift"; sourceTree = "<group>"; };
 		9184207A267CF7120085711E /* ASKV_NM_[(.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ASKV_NM_[(.swift"; sourceTree = "<group>"; };
 		91842080267CF72C0085711E /* ASKV_NM_]).swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ASKV_NM_]).swift"; sourceTree = "<group>"; };
@@ -1477,6 +1479,7 @@
 				917C0001267C90970041E5F3 /* ASUI_NM_P__TextViews_Tests.swift */,
 				91ACB29E267619D8000B3CE7 /* ASUI_NM_r_Tests.swift */,
 				9193CC7F2674C6F300F30608 /* ASUI_NM_x_Tests.swift */,
+				9183EF9926AEB35500D2E2F4 /* ASUI_NM_>>_Tests.swift */,
 				914734EB26A1FE0100B20466 /* Info.plist */,
 			);
 			path = ASUI_NM;
@@ -2835,6 +2838,7 @@
 				9147350526A1FE3800B20466 /* ASUI_NM_x_Tests.swift in Sources */,
 				911CD4E326A6C82600849F54 /* String.swift in Sources */,
 				914734FF26A1FE3800B20466 /* ASUI_NM_dd_Tests.swift in Sources */,
+				9183EFA026AEB51700D2E2F4 /* ASUI_NM_>>_Tests.swift in Sources */,
 				9147353726A200CE00B20466 /* ASKV_NM_cc.swift in Sources */,
 				9147352426A200CE00B20466 /* ASKV_NM_F_.swift in Sources */,
 				9147353326A200CE00B20466 /* ASKV_NM_W_.swift in Sources */,
