@@ -28,6 +28,7 @@ class KindaVimEngine {
     
     var lastYankStyle: VimEngineMoveStyle = .characterwise
     var visualStyle: VimEngineMoveStyle = .characterwise
+    var display = Display()
     var keyboardStrategy: KeyboardStrategyProtocol = KeyboardStrategy()
     var accessibilityStrategy: AccessibilityStrategyProtocol = AccessibilityStrategy()
     var asNormalMode: AccessibilityStrategyNormalModeProtocol = AccessibilityStrategyNormalMode()
@@ -55,7 +56,7 @@ class KindaVimEngine {
         currentMode = .insert
         resetOperatorPendingBuffer()
         
-        Display.reset()
+        display.reset()
     }
     
     func enterNormalMode() {
@@ -67,7 +68,7 @@ class KindaVimEngine {
         resetOperatorPendingBuffer()
         resetVisualMode()
 
-        Display.tint()
+        display.tint()
     }
     
     private func enterOperatorPendingMode(with keyCombination: KeyCombination) {
