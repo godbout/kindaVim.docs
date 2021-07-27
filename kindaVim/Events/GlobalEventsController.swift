@@ -7,6 +7,8 @@ struct GlobalEventsController {
         "com.sublimetext.4",
         "com.googlecode.iterm2",
         "com.microsoft.VSCode",
+        "com.jetbrains.PhpStorm",
+        "com.github.atom",
     ]
     
     static func handle(keyCombination: KeyCombination?) -> Bool {
