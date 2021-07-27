@@ -839,11 +839,9 @@ extension KindaVimEngine {
                 push(element: element)
             }            
         case .escape:
-            if let element = asVisualMode.escape(on: focusedElement()) {
-                push(element: element)
-            }      
-            
-            enterNormalMode()
+            // currently a hack
+            // so that we can comment multiple lines by keeping the VM selection :D
+            enterInsertMode()
         case .zero:
             if let element = asVisualMode.zero(on: focusedElement()) {
                 push(element: element)
