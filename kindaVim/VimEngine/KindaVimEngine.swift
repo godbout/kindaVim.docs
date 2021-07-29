@@ -56,7 +56,7 @@ class KindaVimEngine {
         currentMode = .insert
         resetOperatorPendingBuffer()
         
-        display.unHazeOver()
+        display.hazeOver(.off)
     }
     
     func enterNormalMode() {
@@ -68,7 +68,7 @@ class KindaVimEngine {
         resetOperatorPendingBuffer()
         resetVisualMode()
 
-        display.hazeOver()
+        display.hazeOver(.on)
     }
     
     private func enterOperatorPendingMode(with keyCombination: KeyCombination) {

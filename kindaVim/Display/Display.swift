@@ -2,6 +2,14 @@ import Foundation
 import AppKit
 
 
+enum DisplayFeaturesStatus {
+    
+    case on
+    case off
+    
+}
+
+
 struct Display {
 
     var hazeOverWindow: NSWindow?
@@ -20,7 +28,16 @@ struct Display {
         hazeOverWindow?.animationBehavior = .utilityWindow
     }
     
-    func hazeOver() {
+    func hazeOver(_ status: DisplayFeaturesStatus) {
+        switch status {
+        case .on:
+            hazeOverON()
+        case .off:
+            hazeOverOFF()
+        }
+    }
+    
+    private func hazeOverON() {
         guard let screen = NSScreen.main else { return }
         hazeOverWindow?.setFrameOrigin(screen.visibleFrame.origin)
         hazeOverWindow?.setFrame(NSRect(x: 0, y: 0, width: screen.frame.width, height: screen.frame.height), display: true)
@@ -37,7 +54,7 @@ struct Display {
         return mainWindowData.value(forKey: "kCGWindowNumber") as? Int
     }
     
-    func unHazeOver() {
+    private func hazeOverOFF() {
         hazeOverWindow?.orderOut(self)
     }
     
