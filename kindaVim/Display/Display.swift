@@ -4,32 +4,32 @@ import AppKit
 
 struct Display {
 
-    var window: NSWindow?
+    var hazeOverWindow: NSWindow?
     
     
     init() {
-        if let screen = NSScreen.main {
-            window = NSWindow(
-                contentRect: NSRect(x: 0, y: 0, width: screen.frame.width, height: screen.frame.height),
-                styleMask: [],
-                backing: .buffered,
-                defer: true,
-                screen: screen
-            )
-            
-            window?.backgroundColor = .black
-            window?.alphaValue = 0.8
-            window?.animationBehavior = .utilityWindow
-        }
-    }
-    
-    func tint() {
-        let mainWindowNumber = self.mainWindowNumber() ?? -6969
+        hazeOverWindow = NSWindow(
+            contentRect: NSRect(),
+            styleMask: [],
+            backing: .buffered,
+            defer: true
+        )
         
-        window?.order(.below, relativeTo: mainWindowNumber)
+        hazeOverWindow?.backgroundColor = .black
+        hazeOverWindow?.alphaValue = 0.8
+        hazeOverWindow?.animationBehavior = .utilityWindow
     }
     
-    private func mainWindowNumber() -> Int? {
+    func hazeOver() {
+        guard let screen = NSScreen.main else { return }
+        hazeOverWindow?.setFrameOrigin(screen.visibleFrame.origin)
+        hazeOverWindow?.setFrame(NSRect(x: 0, y: 0, width: screen.frame.width, height: screen.frame.height), display: true)
+        
+        let mainWindowNumber = macOSMainWindowNumber() ?? -6969
+        hazeOverWindow?.order(.below, relativeTo: mainWindowNumber)
+    }
+    
+    private func macOSMainWindowNumber() -> Int? {
         guard let pid = NSWorkspace.shared.frontmostApplication?.processIdentifier else { return nil }
         guard let tooManyWindows = CGWindowListCopyWindowInfo([.optionOnScreenOnly, .excludeDesktopElements], kCGNullWindowID) as NSArray? else { return nil }
         guard let mainWindowData = tooManyWindows.filtered(using: NSPredicate(format: "kCGWindowOwnerPID = \(pid)")).first as? NSDictionary else { return nil } 
@@ -37,8 +37,8 @@ struct Display {
         return mainWindowData.value(forKey: "kCGWindowNumber") as? Int
     }
     
-    func reset() {
-        window?.orderOut(self)
+    func unHazeOver() {
+        hazeOverWindow?.orderOut(self)
     }
     
 }
