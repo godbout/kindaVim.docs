@@ -1,6 +1,7 @@
 import XCTest
 
 
+// see the other VM escape for explanation
 class UIASVML_escape_Tests: ASUI_VM_BaseTests {}
 
 
@@ -17,7 +18,7 @@ extension UIASVML_escape_Tests {
         KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .escape))
         let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
         
-        XCTAssertEqual(accessibilityElement?.caretLocation, 30)
+        XCTAssertEqual(accessibilityElement?.caretLocation, 0)
     }
     
 }
@@ -58,7 +59,7 @@ gonna go after
         KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .escape))
         let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
         
-        XCTAssertEqual(accessibilityElement?.caretLocation, 35)
+        XCTAssertEqual(accessibilityElement?.caretLocation, 0)
     }    
     
 }

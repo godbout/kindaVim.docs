@@ -1,6 +1,9 @@
 import XCTest
 
 
+// currently VM escape has been changed to go back to IM
+// and leaving the selection untouched. this is to be able to
+// comment or indent multiple lines :D until we build the moves
 class ASUI_VMC_escape_Tests: ASUI_VM_BaseTests {}
 
 
@@ -44,7 +47,7 @@ over multiple lines
         KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .escape))
         let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
         
-        XCTAssertEqual(accessibilityElement?.caretLocation, 28)
+        XCTAssertEqual(accessibilityElement?.caretLocation, 18)
     }
     
     func test_that_if_the_head_is_above_line_end_limit_then_the_caret_goes_to_the_end_limit() {
@@ -64,7 +67,7 @@ gonna go after
         KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .escape))
         let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
         
-        XCTAssertEqual(accessibilityElement?.caretLocation, 35)
+        XCTAssertEqual(accessibilityElement?.caretLocation, 13)
     }    
     
 }
@@ -85,7 +88,7 @@ extension ASUI_VMC_escape_Tests {
         let accessibilityElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
         
         XCTAssertEqual(accessibilityElement?.caretLocation, 13)
-        XCTAssertEqual(accessibilityElement?.selectedLength, 3)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 12)
     }
     
 }

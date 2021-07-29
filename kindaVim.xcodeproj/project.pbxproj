@@ -722,6 +722,15 @@
 		91F67A51267F45B1007C8517 /* ASKV_NM_df.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F67A4B267F4592007C8517 /* ASKV_NM_df.swift */; };
 		91F67A57267F4609007C8517 /* ASUT_NM_df_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F67A56267F4609007C8517 /* ASUT_NM_df_Tests.swift */; };
 		91F68EAB26874EEB0075E4CA /* ASUT_VM_AnchorAndHead_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F68EAA26874EEB0075E4CA /* ASUT_VM_AnchorAndHead_Tests.swift */; };
+		91F7085D26B316E30092599F /* CharactersWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913580DA26B30DDB00AF8AB9 /* CharactersWindow.swift */; };
+		91F7086326B316E30092599F /* CharactersWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913580DA26B30DDB00AF8AB9 /* CharactersWindow.swift */; };
+		91F7086426B316E40092599F /* CharactersWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913580DA26B30DDB00AF8AB9 /* CharactersWindow.swift */; };
+		91F7086A26B316E80092599F /* HazeOverWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913580D326B30DB700AF8AB9 /* HazeOverWindow.swift */; };
+		91F7087026B316E90092599F /* HazeOverWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913580D326B30DB700AF8AB9 /* HazeOverWindow.swift */; };
+		91F7087126B316E90092599F /* HazeOverWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913580D326B30DB700AF8AB9 /* HazeOverWindow.swift */; };
+		91F7088226B317170092599F /* CharactersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913580CC26B3072900AF8AB9 /* CharactersView.swift */; };
+		91F7088826B3172C0092599F /* CharactersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913580CC26B3072900AF8AB9 /* CharactersView.swift */; };
+		91F7088E26B3172C0092599F /* CharactersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913580CC26B3072900AF8AB9 /* CharactersView.swift */; };
 		91F7A005264FC70500B609FF /* UsingASNM_BaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F7A004264FC70500B609FF /* UsingASNM_BaseTests.swift */; };
 		91F7A007264FC75F00B609FF /* UsingASNM_h_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F7A006264FC75F00B609FF /* UsingASNM_h_Tests.swift */; };
 		91F7A009264FC81000B609FF /* AccessibilityStrategyNormalModeMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F7A008264FC81000B609FF /* AccessibilityStrategyNormalModeMock.swift */; };
@@ -2848,6 +2857,7 @@
 				9147356D26A2043800B20466 /* ASKV_VM_h.swift in Sources */,
 				9147352726A200CE00B20466 /* ASKV_NM_o.swift in Sources */,
 				914734FE26A1FE3800B20466 /* ASUI_NM_p_TextFields_Tests.swift in Sources */,
+				91F7087126B316E90092599F /* HazeOverWindow.swift in Sources */,
 				9147357326A2043800B20466 /* ASKV_VM_V_.swift in Sources */,
 				9147354226A200CE00B20466 /* ASKV_NM_ge.swift in Sources */,
 				9147354126A200CE00B20466 /* ASKV_NM_x.swift in Sources */,
@@ -2873,6 +2883,7 @@
 				9147351626A2007E00B20466 /* endOfWORDForward_.swift in Sources */,
 				9147350226A1FE3800B20466 /* ASUI_NM_dj_Tests.swift in Sources */,
 				9147355326A200CE00B20466 /* ASKV_NM_ci".swift in Sources */,
+				91F7088E26B3172C0092599F /* CharactersView.swift in Sources */,
 				9147352026A200CE00B20466 /* ASKV_NM_dt.swift in Sources */,
 				9147356F26A2043800B20466 /* ASKV_VM_v.swift in Sources */,
 				9147351526A2007E00B20466 /* endOfWordBackward.swift in Sources */,
@@ -2893,6 +2904,7 @@
 				9147352626A200CE00B20466 /* ASKV_NM_yi".swift in Sources */,
 				9147350E26A2004D00B20466 /* Display.swift in Sources */,
 				9147353526A200CE00B20466 /* ASKV_NM__.swift in Sources */,
+				91F7086426B316E40092599F /* CharactersWindow.swift in Sources */,
 				9147350526A1FE3800B20466 /* ASUI_NM_x_Tests.swift in Sources */,
 				911CD4E326A6C82600849F54 /* String.swift in Sources */,
 				914734FF26A1FE3800B20466 /* ASUI_NM_dd_Tests.swift in Sources */,
@@ -2930,6 +2942,7 @@
 				91CD1B9026860AAE008DBCBB /* ASKV_NM_ci`.swift in Sources */,
 				912924EF26652EAD009AB40C /* to_TV_selectedTextTests.swift in Sources */,
 				91CD1B6E26860AAE008DBCBB /* ASKV_NM_F_.swift in Sources */,
+				91F7085D26B316E30092599F /* CharactersWindow.swift in Sources */,
 				91CD1B6626860AAE008DBCBB /* ASKV_NM_P_.swift in Sources */,
 				91CD1B8A26860AAE008DBCBB /* ASKV_NM_yf.swift in Sources */,
 				91CD1B4726860A77008DBCBB /* beginningOfWORDBackward_.swift in Sources */,
@@ -2944,6 +2957,7 @@
 				91CD1B6026860AAE008DBCBB /* ASKV_NM_$.swift in Sources */,
 				91CD1B9726860AAE008DBCBB /* ASKV_NM_B_.swift in Sources */,
 				91EF3924268B8F3600612C4E /* ASKV_VM_j.swift in Sources */,
+				91F7086A26B316E80092599F /* HazeOverWindow.swift in Sources */,
 				91CD1B9426860AAE008DBCBB /* ASKV_NM_[(.swift in Sources */,
 				91CD1B7626860AAE008DBCBB /* ASKV_NM_cT_.swift in Sources */,
 				91CD1B3426860A53008DBCBB /* AccessibilityStrategy.swift in Sources */,
@@ -3006,6 +3020,7 @@
 				91CD1B9526860AAE008DBCBB /* ASKV_NM_[{.swift in Sources */,
 				91CD1B6826860AAE008DBCBB /* ASKV_NM_i.swift in Sources */,
 				91CD1B4426860A77008DBCBB /* endOfWordBackward.swift in Sources */,
+				91F7088226B317170092599F /* CharactersView.swift in Sources */,
 				91CD1B9326860AAE008DBCBB /* ASKV_NM_o.swift in Sources */,
 				91CD1B7D26860AAE008DBCBB /* ASKV_NM_ci".swift in Sources */,
 				91CD1B6926860AAE008DBCBB /* ASKV_NM_%.swift in Sources */,
@@ -3088,12 +3103,14 @@
 				91DC92FA26765D79004E74B6 /* ASKV_NM_ct.swift in Sources */,
 				91A147F32661237E00D160AD /* AccessibilityTextElement.swift in Sources */,
 				91BE76E7268B9C3B00A51A06 /* ASKV_VM_k.swift in Sources */,
+				91F7088826B3172C0092599F /* CharactersView.swift in Sources */,
 				915072EE26AED986003BC539 /* ASKV_NM_<<.swift in Sources */,
 				91AB99192674D812007682CA /* ASKV_NM_F_.swift in Sources */,
 				91761DDF267F3F40000ED024 /* ASKV_NM_cT_.swift in Sources */,
 				9151BE5B2696F2EB0079A94A /* ASUI_VMC_h_Tests.swift in Sources */,
 				91D73C4126768B3D004EF8E9 /* ASKV_NM_gE_.swift in Sources */,
 				91DD4D812681F0960021ABC2 /* beginningOfWordForward.swift in Sources */,
+				91F7087026B316E90092599F /* HazeOverWindow.swift in Sources */,
 				91AB99252674D812007682CA /* ASKV_NM_t.swift in Sources */,
 				9161EEE126872CC30084A955 /* ASUI_VM_v_Tests.swift in Sources */,
 				91B7A2B92684AC84000AE3B3 /* AccessibilityStrategyVisualMode.swift in Sources */,
@@ -3146,6 +3163,7 @@
 				9184208B267CF9680085711E /* ASKV_NM_[(.swift in Sources */,
 				91AB991F2674D812007682CA /* ASKV_NM_$.swift in Sources */,
 				91AB99152674D812007682CA /* ASKV_NM_0.swift in Sources */,
+				91F7086326B316E30092599F /* CharactersWindow.swift in Sources */,
 				91AB99182674D812007682CA /* ASKV_NM_l.swift in Sources */,
 				91AB99202674D812007682CA /* ASKV_NM_k.swift in Sources */,
 				91DD4D662681F07A0021ABC2 /* ASKV_NM_yT_.swift in Sources */,
