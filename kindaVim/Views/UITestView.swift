@@ -20,7 +20,7 @@ struct TextView: NSViewRepresentable {
 
 }
 
-struct ContentView: View {
+struct UITestView: View {
 
     @State var textFieldValue = ""
     @State var textViewValue = ""
@@ -46,8 +46,8 @@ struct ContentView: View {
 }
 
 
-struct ContentView_Previews: PreviewProvider {
+struct UITestView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        UITestView()
     }
 }

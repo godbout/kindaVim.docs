@@ -22,7 +22,7 @@ class AppComponent {
         NSApplication.shared.setActivationPolicy(.regular)
         NSApplication.shared.activate(ignoringOtherApps: true)
         
-        let contentView = ContentView()
+        let contentView = UITestView()
 
         accessibilityElementAdaptorTestingWindow = NSWindow(
             contentRect: NSRect(x: 0, y: 0, width: 680, height: 400),
