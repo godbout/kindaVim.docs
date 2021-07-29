@@ -36,6 +36,14 @@ struct EventTapController {
         let keyCombinationPressed = KeyCombinationAdaptor.fromCGEvent(from: event)
         
         if GlobalEventsController.handle(keyCombination: keyCombinationPressed) == true {
+            #if DEBUG
+            KindaVimEngine.shared.display.showKeysTyped(lastBeing: keyCombinationPressed)
+            
+            if KindaVimEngine.shared.currentMode == .insert {
+                KindaVimEngine.shared.display.fadeOutCharactersWindow()
+            }
+            #endif
+            
             return nil
         }
         
