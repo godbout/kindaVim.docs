@@ -37,6 +37,8 @@ struct CharactersWindow {
     }
     
     func hide() {
+        Self.lettersTyped = ""
+        
         Timer.scheduledTimer(
             withTimeInterval: 0.69,
             repeats: false,
