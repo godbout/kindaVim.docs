@@ -51,6 +51,10 @@ struct FailingAccessibilityStrategyNormalModeStub: AccessibilityStrategyNormalMo
         return nil
     }
     
+    func ciLeftBrace(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        return nil
+    }
+    
     func ciSingleQuote(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return nil
     }

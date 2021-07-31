@@ -13,6 +13,7 @@ protocol AccessibilityStrategyNormalModeProtocol {
     func cF(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func ciBacktick(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func ciDoubleQuote(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
+    func ciLeftBrace(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func ciSingleQuote(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func ciw(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func ct(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement?

@@ -438,10 +438,18 @@ extension KindaVimEngine {
         case [.c, .i, .doubleQuote]:
             enterNormalMode()
                         
-            // if element.selectedText is nil that means that ci" didn't find a pair of " to empty
+            // if element.selectedText is nil that means that the move didn't find a pair of "something" to empty
             if let element = asNormalMode.ciDoubleQuote(on: focusedElement()), element.selectedText != nil {
                 push(element: element)
                 lastYankStyle = .characterwise
+                enterInsertMode()
+            }
+        case [.c, .i, .leftBrace]:
+            enterNormalMode()
+            
+            // if element.selectedText is nil that means that the move didn't find a pair of "something" to empty
+            if let element = asNormalMode.ciLeftBrace(on: focusedElement()), element.selectedText != nil {
+                push(element: element)
                 enterInsertMode()
             }
         case [.c, .i, .singleQuote]:

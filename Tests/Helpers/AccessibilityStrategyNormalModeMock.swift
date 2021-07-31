@@ -63,6 +63,12 @@ class AccessibilityStrategyNormalModeMock: AccessibilityStrategyNormalModeProtoc
         return nil
     }
     
+    func ciLeftBrace(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        functionCalled = #function
+        
+        return nil
+    }
+    
     func ciBacktick(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         
