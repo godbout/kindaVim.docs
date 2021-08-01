@@ -14,6 +14,7 @@ protocol TextEngineProtocol {
     func findPrevious(_ character: Character, before location: Int, in text: String) -> Int?
     func firstNonBlank(in text: String) -> Int
     func firstNonBlankWithinLineLimit(in line: TextEngineLine) -> Int
+    func innerBrackets(using character: Character, startingAt location: Int, in text: String) -> Range<Int>?
     func innerQuotedString(using character: Character, startingAt location: Int, in text: String) -> Range<Int>?
     func innerWord(startingAt location: Int, in text: String) -> Range<Int>
     func nextUnmatched(_ bracket: Character, after location: Int, in text: String) -> Int
@@ -168,6 +169,22 @@ extension TextEngine {
         guard let characterIndex = value.firstIndex(where: { !$0.isWhitespace }) else { return line.endLimit }
         
         return value.utf16.distance(from: value.startIndex, to: characterIndex)
+    }
+    
+    func innerBrackets(using bracket: Character, startingAt location: Int, in text: String) -> Range<Int>? {
+        guard !text.isEmpty else { return nil }
+        
+        guard let pairingBracket = pairingBracket(of: bracket) else { return nil }
+        
+        let previousUnmatchedBracketLocation = previousUnmatched(bracket, before: location, in: text) 
+        guard previousUnmatchedBracketLocation != location else { return nil }
+        
+        // we're using the fact that next or previous unmatched, in Vim, will return the matched item if the
+        // location is at an item. which means if we're on a {, the next unmatched will be the matching }
+        let matchingBracketLocation = nextUnmatched(pairingBracket, after: previousUnmatchedBracketLocation, in: text)
+        guard matchingBracketLocation != previousUnmatchedBracketLocation else { return nil }
+        
+        return previousUnmatchedBracketLocation..<matchingBracketLocation
     }
     
     func innerQuotedString(using quote: Character, startingAt location: Int, in text: String) -> Range<Int>? {

@@ -102,7 +102,13 @@ class TextEngineMock: TextEngineProtocol {
         
         return 0
     }
-    
+        
+    func innerBrackets(using quote: Character, startingAt location: Int, in text: String) -> Range<Int>? {
+        functionCalled = #function
+        
+        return nil
+    }
+
     func innerQuotedString(using quote: Character, startingAt location: Int, in text: String) -> Range<Int>? {
         functionCalled = #function
         
