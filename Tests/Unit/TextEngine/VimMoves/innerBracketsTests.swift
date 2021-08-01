@@ -86,7 +86,7 @@ var array = [
     // so currently this test "passes", but ultimately it doesn't behave like Vim.
     func test_that_currently_we_do_not_skip_brackets_that_are_within_quoted_strings() {
         let text = """
-func something() [
+func something() {
         var 😂️ = ""
         var 🤣️ = "}"
 }
