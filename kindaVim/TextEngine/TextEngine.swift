@@ -123,7 +123,28 @@ struct TextEngineLine: TextEngineTextObjectProtocol {
 }
 
 
-struct TextEngine: TextEngineProtocol {}
+struct TextEngine: TextEngineProtocol {
+    
+    func pairingBracket(of bracket: Character) -> Character? {
+        switch bracket {
+        case "{":
+            return "}"
+        case "(":
+            return ")"
+        case "[":
+            return "]"
+        case "}":
+            return "{"
+        case ")":
+            return "("
+        case "]":
+            return "["
+        default:
+            return nil
+        }
+    } 
+    
+}
 
 
 // Vim Text Engine types of move.
@@ -237,18 +258,7 @@ extension TextEngine {
 extension TextEngine {
     
     private func findPreviousUnmatched(_ bracket: Character, before location: Int, in text: String) -> Int? {
-        var pairingBracket: Character
-        
-        switch bracket {
-        case "{":
-            pairingBracket = "}"
-        case "(":
-            pairingBracket = ")"
-        case "[":
-            pairingBracket = "]"
-        default:
-            return nil
-        }
+        guard let pairingBracket = pairingBracket(of: bracket) else { return nil }
         
         let searchEndIndex = text.utf16.index(text.startIndex, offsetBy: location)
         
@@ -264,18 +274,7 @@ extension TextEngine {
     }
     
     private func findNextUnmatched(_ bracket: Character, after location: Int, in text: String) -> Int? {
-        var pairingBracket: Character
-        
-        switch bracket {
-        case "}":
-            pairingBracket = "{"
-        case ")":
-            pairingBracket = "("
-        case "]":
-            pairingBracket = "["
-        default:
-            return nil
-        }
+        guard let pairingBracket = pairingBracket(of: bracket) else { return nil }
         
         guard let searchStartIndex = text.utf16.index(text.startIndex, offsetBy: location + text.characterLengthForCharacter(at: location), limitedBy: text.endIndex) else { return nil }
         
