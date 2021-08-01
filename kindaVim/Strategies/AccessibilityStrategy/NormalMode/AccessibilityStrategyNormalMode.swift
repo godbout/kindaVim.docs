@@ -14,6 +14,11 @@ protocol AccessibilityStrategyNormalModeProtocol {
     func ciBacktick(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func ciDoubleQuote(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func ciLeftBrace(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
+    func ciLeftBracket(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
+    func ciLeftParenthesis(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
+    func ciRightBrace(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
+    func ciRightBracket(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
+    func ciRightParenthesis(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func ciSingleQuote(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func ciw(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func ct(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement?
@@ -77,7 +82,27 @@ protocol AccessibilityStrategyNormalModeProtocol {
 struct AccessibilityStrategyNormalMode: AccessibilityStrategyNormalModeProtocol {    
     
     var textEngine: TextEngineProtocol = TextEngine()
+    
+    
+    func ciInnerBrackets(using bracket: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        guard let element = element else { return nil }
+        var newElement = element
         
+        if let innerBracketsRange = textEngine.innerBrackets(using: bracket, startingAt: element.caretLocation, in: element.value) {
+            let bracketCharacterLength = 1
+            
+            newElement.caretLocation = innerBracketsRange.lowerBound + bracketCharacterLength
+            newElement.selectedLength = innerBracketsRange.count - bracketCharacterLength
+            newElement.selectedText = ""
+            
+            return newElement
+        }
+        
+        newElement.selectedLength = element.characterLength
+        newElement.selectedText = nil
+        
+        return newElement    
+    }
     
     func ciInnerQuotedString(using quote: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         guard let element = element else { return nil }

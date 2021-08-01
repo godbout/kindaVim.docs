@@ -452,6 +452,46 @@ extension KindaVimEngine {
                 push(element: element)
                 enterInsertMode()
             }
+        case [.c, .i, .leftBracket]:
+            enterNormalMode()
+            
+            // if element.selectedText is nil that means that the move didn't find a pair of "something" to empty
+            if let element = asNormalMode.ciLeftBracket(on: focusedElement()), element.selectedText != nil {
+                push(element: element)
+                enterInsertMode()
+            }
+        case [.c, .i, .leftParenthesis]:
+            enterNormalMode()
+            
+            // if element.selectedText is nil that means that the move didn't find a pair of "something" to empty
+            if let element = asNormalMode.ciLeftParenthesis(on: focusedElement()), element.selectedText != nil {
+                push(element: element)
+                enterInsertMode()
+            }
+        case [.c, .i, .rightBrace]:
+            enterNormalMode()
+            
+            // if element.selectedText is nil that means that the move didn't find a pair of "something" to empty
+            if let element = asNormalMode.ciRightBrace(on: focusedElement()), element.selectedText != nil {
+                push(element: element)
+                enterInsertMode()
+            }
+        case [.c, .i, .rightBracket]:
+            enterNormalMode()
+            
+            // if element.selectedText is nil that means that the move didn't find a pair of "something" to empty
+            if let element = asNormalMode.ciRightBracket(on: focusedElement()), element.selectedText != nil {
+                push(element: element)
+                enterInsertMode()
+            }
+        case [.c, .i, .rightParenthesis]:
+            enterNormalMode()
+            
+            // if element.selectedText is nil that means that the move didn't find a pair of "something" to empty
+            if let element = asNormalMode.ciRightParenthesis(on: focusedElement()), element.selectedText != nil {
+                push(element: element)
+                enterInsertMode()
+            }
         case [.c, .i, .singleQuote]:
             enterNormalMode()
             
