@@ -88,20 +88,43 @@ struct AccessibilityStrategyNormalMode: AccessibilityStrategyNormalModeProtocol 
         guard let element = element else { return nil }
         var newElement = element
         
-        if let innerBracketsRange = textEngine.innerBrackets(using: bracket, startingAt: element.caretLocation, in: element.value) {
-            let bracketCharacterLength = 1
-            
-            newElement.caretLocation = innerBracketsRange.lowerBound + bracketCharacterLength
-            newElement.selectedLength = innerBracketsRange.count - bracketCharacterLength
-            newElement.selectedText = ""
+        let value = element.value
+                
+        guard let innerBracketsRange = textEngine.innerBrackets(using: bracket, startingAt: element.caretLocation, in: value) else {
+            newElement.selectedLength = element.characterLength
+            newElement.selectedText = nil
             
             return newElement
         }
+       
+        let bracketCharacterLength = 1
+
+        let leftBracketIndex = value.utf16.index(value.startIndex, offsetBy: innerBracketsRange.lowerBound)
+        let characterAfterLeftBracketIndex = value.utf16.index(after: leftBracketIndex)
         
-        newElement.selectedLength = element.characterLength
-        newElement.selectedText = nil
+        if value[characterAfterLeftBracketIndex] == "\n" {
+            newElement.caretLocation = innerBracketsRange.lowerBound + bracketCharacterLength + AccessibilityTextElement.linefeedCharacterLength
+            newElement.selectedLength = innerBracketsRange.count - bracketCharacterLength - AccessibilityTextElement.linefeedCharacterLength
+        } else {
+            newElement.caretLocation = innerBracketsRange.lowerBound + bracketCharacterLength
+            newElement.selectedLength = innerBracketsRange.count - bracketCharacterLength
+        }
         
-        return newElement    
+        let startOfLineWhereClosingBracketIs = (textEngine.findPrevious("\n", before: innerBracketsRange.upperBound , in: value) ?? 0) + AccessibilityTextElement.linefeedCharacterLength
+        let startOfLineWhereClosingBracketIsIndex = value.utf16.index(value.startIndex, offsetBy: startOfLineWhereClosingBracketIs)
+        let endOfLineWhereClosingBracketIs = textEngine.findNext("\n", after: innerBracketsRange.upperBound, in: TextEngineText(from: value)) ?? element.length
+        let endOfLineWhereClosingBracketIsIndex = value.utf16.index(value.startIndex, offsetBy: endOfLineWhereClosingBracketIs)
+        let lineValueOfLineWhereClosingBracketIs = value[startOfLineWhereClosingBracketIsIndex..<endOfLineWhereClosingBracketIsIndex]
+       
+        let firstNonBlankOfLineWhereClosingBracketIs = textEngine.firstNonBlank(in: String(lineValueOfLineWhereClosingBracketIs))
+        
+        if startOfLineWhereClosingBracketIs + firstNonBlankOfLineWhereClosingBracketIs == innerBracketsRange.upperBound {
+            newElement.selectedLength -= (firstNonBlankOfLineWhereClosingBracketIs + AccessibilityTextElement.linefeedCharacterLength)
+        }
+
+        newElement.selectedText = ""
+        
+        return newElement
     }
     
     func ciInnerQuotedString(using quote: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
