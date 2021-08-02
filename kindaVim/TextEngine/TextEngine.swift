@@ -171,98 +171,6 @@ extension TextEngine {
         return value.utf16.distance(from: value.startIndex, to: characterIndex)
     }
     
-    func innerBrackets(using bracket: Character, startingAt location: Int, in text: String) -> Range<Int>? {
-        guard !text.isEmpty else { return nil }
-        
-        guard let pairingBracket = pairingBracket(of: bracket) else { return nil }
-        
-        let previousUnmatchedBracketLocation = previousUnmatched(bracket, before: location, in: text) 
-        // we're using the fact that next or previous unmatched, in Vim, will return the matched item if the
-        // location is at an item. which means if we're on a {, the next unmatched will be the matching }
-        let matchingBracketLocation = nextUnmatched(pairingBracket, after: previousUnmatchedBracketLocation, in: text)
-        guard matchingBracketLocation != previousUnmatchedBracketLocation else { return nil }
-        
-        return previousUnmatchedBracketLocation..<matchingBracketLocation
-    }
-    
-    func innerQuotedString(using quote: Character, startingAt location: Int, in text: String) -> Range<Int>? {
-        guard !text.isEmpty else { return nil }
-        
-        guard let characterAtLocationIndex = text.utf16.index(text.startIndex, offsetBy: location, limitedBy: text.index(before: text.endIndex)) else { return nil }
-        let characterAtLocationText = text[characterAtLocationIndex]
-        
-        if characterAtLocationText == quote {
-            let searchEndIndex = text.utf16.index(text.startIndex, offsetBy: location)
-            let numberOfQuotesBeforeCurrentQuote = text[..<searchEndIndex].filter { $0 == quote }.utf16.count
-            
-            if numberOfQuotesBeforeCurrentQuote % 2 == 0 {
-                if let nextQuoteLocation = findNext(quote, after: location, in: TextEngineText(from: text)) {
-                    return (location + AccessibilityTextElement.quoteCharacterLength)..<nextQuoteLocation
-                }
-                
-                return nil
-            }
-        }
-                
-        if let previousQuoteLocation = findPrevious(quote, before: location, in: text) {
-            if let nextQuoteLocation = findNext(quote, after: location - AccessibilityTextElement.quoteCharacterLength, in: TextEngineText(from: text)) {
-                return (previousQuoteLocation + AccessibilityTextElement.quoteCharacterLength)..<nextQuoteLocation
-            }
-            
-            return nil
-        }
-        
-        if let firstQuoteLocation = findFirst(quote, in: text), let secondQuoteLocation = findSecond(quote, in: text) {
-            return (firstQuoteLocation + AccessibilityTextElement.quoteCharacterLength)..<secondQuoteLocation
-        }
-        
-        return nil
-    }    
-
-    func innerWord(startingAt location: Int, in text: String) -> Range<Int> {
-        guard !text.isEmpty else { return 0..<0 }
-        
-        // weird Vim move for that one: if on last empty line, iw selects the linefeed and last character of the previous line before the linefeed
-        guard let characterAtLocationIndex = text.utf16.index(text.startIndex, offsetBy: location, limitedBy: text.index(before: text.endIndex)) else { return ((text.utf16.count - 1) - text.characterLengthForCharacter(before: location - 1))..<text.utf16.count }
-        let characterAtLocationText = text[characterAtLocationIndex]
-
-        if characterAtLocationText == " " {
-            let previousNonBlankLocation = findPreviousNonBlank(startingAt: location, in: text) ?? 0
-            let nextNonBlankLocation = findNextNonBlank(after: location, in: text) ?? text.utf16.count  
-            
-            guard previousNonBlankLocation != 0 else { return 0..<nextNonBlankLocation }
-            
-            return (previousNonBlankLocation + text.characterLengthForCharacter(at: previousNonBlankLocation))..<nextNonBlankLocation
-        }
- 
-        let beginningOfWordLocation = beginningOfWordBackward(startingAt: location + text.characterLengthForCharacter(at: location), in: TextEngineText(from: text))
-        let endOfWordLocation = endOfWordForward(startingAt: location - text.characterLengthForCharacter(before: location), in: TextEngineText(from: text))
-
-        return beginningOfWordLocation..<(endOfWordLocation + text.characterLengthForCharacter(at: endOfWordLocation))
-    }
-    
-    func nextUnmatched(_ bracket: Character, after location: Int, in text: String) -> Int {
-        let locationIndex = text.utf16.index(text.startIndex, offsetBy: location)
-        let searchText = String(text[locationIndex...])
-
-        if let rightBracketFoundLocation = findNextUnmatched(bracket, after: 0, in: searchText) {
-            return location + rightBracketFoundLocation
-        }
-        
-        return location
-    }    
-    
-    func previousUnmatched(_ bracket: Character, before location: Int, in text: String) -> Int {
-        let locationIndex = text.utf16.index(text.startIndex, offsetBy: location)
-        let searchText = String(text[..<locationIndex])
-        
-        if let leftBracketFoundLocation = findPreviousUnmatched(bracket, before: location, in: searchText) {
-            return leftBracketFoundLocation
-        }
-        
-        return location
-    }
-
 }
 
 
@@ -272,7 +180,7 @@ extension TextEngine {
 // they may return nil when they cannot find what is being looking for
 extension TextEngine {
     
-    private func findPreviousUnmatched(_ bracket: Character, before location: Int, in text: String) -> Int? {
+    func findPreviousUnmatched(_ bracket: Character, before location: Int, in text: String) -> Int? {
         guard let pairingBracket = pairingBracket(of: bracket) else { return nil }
         
         let searchEndIndex = text.utf16.index(text.startIndex, offsetBy: location)
@@ -288,7 +196,7 @@ extension TextEngine {
         return text.utf16.distance(from: text.startIndex, to: lastLeftBracketFoundIndex)
     }
     
-    private func findNextUnmatched(_ bracket: Character, after location: Int, in text: String) -> Int? {
+    func findNextUnmatched(_ bracket: Character, after location: Int, in text: String) -> Int? {
         guard let pairingBracket = pairingBracket(of: bracket) else { return nil }
         
         guard let searchStartIndex = text.utf16.index(text.startIndex, offsetBy: location + text.characterLengthForCharacter(at: location), limitedBy: text.endIndex) else { return nil }
@@ -307,7 +215,7 @@ extension TextEngine {
         return text.utf16.distance(from: text.startIndex, to: firstRightBracketFoundIndex)               
     }
     
-    private func findFirst(_ character: Character, in text: String) -> Int? {
+    func findFirst(_ character: Character, in text: String) -> Int? {
         guard let characterIndex = text.firstIndex(of: character) else { return nil }
         
         return text.utf16.distance(from: text.startIndex, to: characterIndex)
@@ -379,7 +287,7 @@ extension TextEngine {
         return nil
     }
     
-    private func findSecond(_ character: Character, in text: String) -> Int? {
+    func findSecond(_ character: Character, in text: String) -> Int? {
         guard let firstCharacterIndex = text.firstIndex(of: character) else { return nil }
         let nextToFirstCharacterIndex = text.index(after: firstCharacterIndex)
         guard let secondCharacterLocation = findFirst(character, in: String(text[nextToFirstCharacterIndex...])) else { return nil }
