@@ -97,17 +97,15 @@ struct AccessibilityStrategyNormalMode: AccessibilityStrategyNormalModeProtocol 
             return newElement
         }
        
-        let bracketCharacterLength = 1
-
         let leftBracketIndex = value.utf16.index(value.startIndex, offsetBy: innerBracketsRange.lowerBound)
         let characterAfterLeftBracketIndex = value.utf16.index(after: leftBracketIndex)
         
         if value[characterAfterLeftBracketIndex] == "\n" {
-            newElement.caretLocation = innerBracketsRange.lowerBound + bracketCharacterLength + AccessibilityTextElement.linefeedCharacterLength
-            newElement.selectedLength = innerBracketsRange.count - bracketCharacterLength - AccessibilityTextElement.linefeedCharacterLength
+            newElement.caretLocation = innerBracketsRange.lowerBound + AccessibilityTextElement.bracketCharacterLength + AccessibilityTextElement.linefeedCharacterLength
+            newElement.selectedLength = innerBracketsRange.count - AccessibilityTextElement.bracketCharacterLength - AccessibilityTextElement.linefeedCharacterLength
         } else {
-            newElement.caretLocation = innerBracketsRange.lowerBound + bracketCharacterLength
-            newElement.selectedLength = innerBracketsRange.count - bracketCharacterLength
+            newElement.caretLocation = innerBracketsRange.lowerBound + AccessibilityTextElement.bracketCharacterLength
+            newElement.selectedLength = innerBracketsRange.count - AccessibilityTextElement.bracketCharacterLength
         }
         
         let startOfLineWhereClosingBracketIs = (textEngine.findPrevious("\n", before: innerBracketsRange.upperBound , in: value) ?? 0) + AccessibilityTextElement.linefeedCharacterLength

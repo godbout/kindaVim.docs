@@ -197,7 +197,7 @@ extension TextEngine {
             
             if numberOfQuotesBeforeCurrentQuote % 2 == 0 {
                 if let nextQuoteLocation = findNext(quote, after: location, in: TextEngineText(from: text)) {
-                    return (location + 1)..<nextQuoteLocation
+                    return (location + AccessibilityTextElement.quoteCharacterLength)..<nextQuoteLocation
                 }
                 
                 return nil
@@ -205,15 +205,15 @@ extension TextEngine {
         }
                 
         if let previousQuoteLocation = findPrevious(quote, before: location, in: text) {
-            if let nextQuoteLocation = findNext(quote, after: location - 1, in: TextEngineText(from: text)) {
-                return (previousQuoteLocation + 1)..<nextQuoteLocation
+            if let nextQuoteLocation = findNext(quote, after: location - AccessibilityTextElement.quoteCharacterLength, in: TextEngineText(from: text)) {
+                return (previousQuoteLocation + AccessibilityTextElement.quoteCharacterLength)..<nextQuoteLocation
             }
             
             return nil
         }
         
         if let firstQuoteLocation = findFirst(quote, in: text), let secondQuoteLocation = findSecond(quote, in: text) {
-            return (firstQuoteLocation + 1)..<secondQuoteLocation
+            return (firstQuoteLocation + AccessibilityTextElement.quoteCharacterLength)..<secondQuoteLocation
         }
         
         return nil
