@@ -39,6 +39,6 @@ extension ASUT_NM_ciInnerBrackets_Tests {
         XCTAssertEqual(returnedElement?.caretLocation, 13)
         XCTAssertEqual(returnedElement?.selectedLength, 24)
         XCTAssertEqual(returnedElement?.selectedText, "")      
-    }    
+    }
     
 }

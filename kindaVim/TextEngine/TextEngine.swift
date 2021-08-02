@@ -177,8 +177,6 @@ extension TextEngine {
         guard let pairingBracket = pairingBracket(of: bracket) else { return nil }
         
         let previousUnmatchedBracketLocation = previousUnmatched(bracket, before: location, in: text) 
-        guard previousUnmatchedBracketLocation != location else { return nil }
-        
         // we're using the fact that next or previous unmatched, in Vim, will return the matched item if the
         // location is at an item. which means if we're on a {, the next unmatched will be the matching }
         let matchingBracketLocation = nextUnmatched(pairingBracket, after: previousUnmatchedBracketLocation, in: text)

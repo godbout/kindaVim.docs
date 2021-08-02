@@ -7,7 +7,7 @@ import XCTest
 class innerBracketsTests: TextEngineBaseTests {}
 
 
-// TextFields
+// Both
 extension innerBracketsTests {
 
     func test_that_if_there_is_no_bracket_then_it_returns_nil() {
@@ -58,6 +58,15 @@ extension innerBracketsTests {
         
         XCTAssertEqual(innerBracketsRange.lowerBound, 13)
         XCTAssertEqual(innerBracketsRange.upperBound, 55)
+    }
+        
+    func test_that_if_the_caret_location_is_on_a_bracket_it_can_find_the_correct_range() {
+        let text = "ok so it seems it doesn't ( work when the location is ) exactly on a bracket"
+        
+        guard let innerBracketsRange = textEngine.innerBrackets(using: "(", startingAt: 26, in: text) else { return XCTFail() }
+        
+        XCTAssertEqual(innerBracketsRange.lowerBound, 26)
+        XCTAssertEqual(innerBracketsRange.upperBound, 54)
     }
    
 }
