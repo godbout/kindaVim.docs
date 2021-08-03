@@ -14,7 +14,7 @@ class UsingKS___Tests: UsingKS_BaseTests {
 extension UsingKS___Tests {
     
     func test_that___calls_the_underscore_function_on_keyboard_strategy() {
-        XCTAssertEqual(keyboardStrategyMock.functionCalled, "underscore()")
+        XCTAssertEqual(ksNormalModeMock.functionCalled, "underscore()")
     }
     
     func test_that___keeps_Vim_in_normal_mode() {

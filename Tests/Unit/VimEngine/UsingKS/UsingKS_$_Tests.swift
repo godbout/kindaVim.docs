@@ -14,7 +14,7 @@ class UsingKS_$_Tests: UsingKS_BaseTests {
 extension UsingKS_$_Tests {
     
     func test_that_$_calls_the_dollarSign_function_on_keyboard_strategy() {
-        XCTAssertEqual(keyboardStrategyMock.functionCalled, "dollarSign()")
+        XCTAssertEqual(ksNormalModeMock.functionCalled, "dollarSign()")
     }
 
     func test_that_$_keeps_Vim_in_normal_mode() {

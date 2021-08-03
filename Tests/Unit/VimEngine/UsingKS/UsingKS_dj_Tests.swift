@@ -15,7 +15,7 @@ class UsingKS_dj_Tests: UsingKS_BaseTests {
 extension UsingKS_dj_Tests {
     
     func test_that_dj_calls_the_dj_function_on_keyboard_strategy() {
-        XCTAssertEqual(keyboardStrategyMock.functionCalled, "dj()")
+        XCTAssertEqual(ksNormalModeMock.functionCalled, "dj()")
     }
     
     func test_that_dj_keeps_Vim_in_normal_mode() {

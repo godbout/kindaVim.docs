@@ -16,7 +16,7 @@ class UsingKS_ciw_Tests: UsingKS_BaseTests {
 extension UsingKS_ciw_Tests {
     
     func test_that_ciw_calls_the_ciw_function_on_keyboard_strategy() {
-        XCTAssertEqual(keyboardStrategyMock.functionCalled, "ciw()")
+        XCTAssertEqual(ksNormalModeMock.functionCalled, "ciw()")
     }
     
     func test_that_ciw_switches_Vim_to_insert_mode() {

@@ -16,7 +16,7 @@ class UsingKS_yiw_Tests: UsingKS_BaseTests {
 extension UsingKS_yiw_Tests {
 
     func test_that_yiw_calls_the_ciw_function_on_keyboard_strategy() {
-        XCTAssertEqual(keyboardStrategyMock.functionCalled, "yiw()")
+        XCTAssertEqual(ksNormalModeMock.functionCalled, "yiw()")
     }
 
     func test_that_yiw_keeps_Vim_in_normal_mode() {

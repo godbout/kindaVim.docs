@@ -15,7 +15,7 @@ class UsingKS_dd_Tests: UsingKS_BaseTests {
 extension UsingKS_dd_Tests {
     
     func test_that_dd_calls_the_dd_function_on_keyboard_strategy() {
-        XCTAssertEqual(keyboardStrategyMock.functionCalled, "dd()")
+        XCTAssertEqual(ksNormalModeMock.functionCalled, "dd()")
     }
     
     func test_that_dd_keeps_Vim_in_normal_mode() {

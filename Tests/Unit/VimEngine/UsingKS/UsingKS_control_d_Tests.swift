@@ -14,7 +14,7 @@ class UsingKS_control_d_Tests: UsingKS_BaseTests {
 extension UsingKS_control_d_Tests {
     
     func test_that_control_d_calls_the_controlD_function_on_keyboard_strategy() {
-        XCTAssertEqual(keyboardStrategyMock.functionCalled, "controlD()")
+        XCTAssertEqual(ksNormalModeMock.functionCalled, "controlD()")
     }
     
     func test_that_control_d_keeps_Vim_in_normal_mode() {

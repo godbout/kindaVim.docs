@@ -16,7 +16,7 @@ class UsingKS_cgg_Tests: UsingKS_BaseTests {
 extension UsingKS_cgg_Tests {
 
     func test_that_cgg_calls_the_cgg_function_on_keyboard_strategy() {
-        XCTAssertEqual(keyboardStrategyMock.functionCalled, "cgg()")
+        XCTAssertEqual(ksNormalModeMock.functionCalled, "cgg()")
     }
 
     func test_that_cgg_switches_Vim_to_insert_mode() {

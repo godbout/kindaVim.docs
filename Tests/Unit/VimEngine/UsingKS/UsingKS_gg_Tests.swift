@@ -15,7 +15,7 @@ class UsingKS_gg_Tests: UsingKS_BaseTests {
 extension UsingKS_gg_Tests {
     
     func test_that_gg_calls_the_gg_function_on_keyboard_strategy() {
-        XCTAssertEqual(keyboardStrategyMock.functionCalled, "gg()")
+        XCTAssertEqual(ksNormalModeMock.functionCalled, "gg()")
     }
     
     func test_that_gg_keeps_Vim_in_normal_mode() {

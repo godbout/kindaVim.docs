@@ -18,7 +18,7 @@ extension UsingKS_I_Tests {
     }
     
     func test_that_I_calls_the_I_function_on_keyboard_strategy() {
-        XCTAssertEqual(keyboardStrategyMock.functionCalled, "I()")
+        XCTAssertEqual(ksNormalModeMock.functionCalled, "I()")
     }
 
 }

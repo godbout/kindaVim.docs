@@ -16,7 +16,7 @@ class UsingKS_dgg_Tests: UsingKS_BaseTests {
 extension UsingKS_dgg_Tests {
 
     func test_that_dgg_calls_the_dgg_function_on_keyboard_strategy() {
-        XCTAssertEqual(keyboardStrategyMock.functionCalled, "dgg()")
+        XCTAssertEqual(ksNormalModeMock.functionCalled, "dgg()")
     }
 
     func test_that_dgg_keeps_Vim_in_normal_mode() {

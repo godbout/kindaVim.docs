@@ -14,7 +14,7 @@ class UsingKS_j_Tests: UsingKS_BaseTests {
 extension UsingKS_j_Tests {
     
     func test_that_j_calls_the_j_function_on_keyboard_strategy() {
-        XCTAssertEqual(keyboardStrategyMock.functionCalled, "j()")
+        XCTAssertEqual(ksNormalModeMock.functionCalled, "j()")
     }
     
     func test_that_j_keeps_Vim_in_normal_mode() {

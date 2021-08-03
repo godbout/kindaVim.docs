@@ -14,7 +14,7 @@ class UsingKS_s_Tests: UsingKS_BaseTests {
 extension UsingKS_s_Tests {
 
     func test_that_s_calls_the_s_function_on_keyboard_strategy() {
-        XCTAssertEqual(keyboardStrategyMock.functionCalled, "s()")
+        XCTAssertEqual(ksNormalModeMock.functionCalled, "s()")
     }
 
     func test_that_s_switches_Vim_to_insert_mode() {

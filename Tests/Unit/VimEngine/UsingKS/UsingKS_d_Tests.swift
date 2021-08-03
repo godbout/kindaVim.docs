@@ -14,7 +14,7 @@ class UsingKS_d_Tests: UsingKS_BaseTests {
 extension UsingKS_d_Tests {
     
     func test_that_d_does_not_call_any_function_on_keyboard_strategy() {
-        XCTAssertEqual(keyboardStrategyMock.functionCalled, "")
+        XCTAssertEqual(ksNormalModeMock.functionCalled, "")
     }
     
     func test_that_after_the_first_d_operator_pending_mode_is_on() {
