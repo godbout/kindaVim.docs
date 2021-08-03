@@ -13,6 +13,14 @@ struct AXTextElementData {
 }
 
 
+enum AXElementRole {
+    
+    case webArea
+    case someOtherShit
+    
+}
+
+
 struct AXEngine {
 
     static func axFocusedElement() -> AXUIElement? {
@@ -43,6 +51,23 @@ struct AXEngine {
         AXValueGetValue(lineRangeValue as! AXValue, .cfRange, &lineRange)
 
         return lineRange
+    }
+    
+    static func axRole(of axFocusedElement: AXUIElement? = axFocusedElement()) -> AXElementRole? {
+        guard let axFocusedElement = axFocusedElement else { return nil }
+        
+        var role: AnyObject?
+        let error = AXUIElementCopyAttributeValue(axFocusedElement, kAXRoleAttribute as CFString, &role)
+        
+        guard error == .success, let elementRole = role as? String else { return nil }
+        
+        switch (elementRole) {
+        case "AXWebArea":
+            return .webArea
+        default:
+            return .someOtherShit
+        }
+        
     }
     
     static func axTextElementData(of axFocusedElement: AXUIElement? = axFocusedElement()) -> AXTextElementData? { 

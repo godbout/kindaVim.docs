@@ -97,13 +97,13 @@ class KeyboardStrategyNormalModeMock: KeyboardStrategyNormalModeProtocol {
         return []
     }
     
-    func G() -> [KeyCombination] {
+    func G(on role: AXElementRole?) -> [KeyCombination] {
         functionCalled = #function
         
         return []
     }
     
-    func gg() -> [KeyCombination] {
+    func gg(on role: AXElementRole?) -> [KeyCombination] {
         functionCalled = #function
         
         return []

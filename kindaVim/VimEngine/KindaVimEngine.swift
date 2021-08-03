@@ -170,7 +170,7 @@ extension KindaVimEngine {
             if let element = asNormalMode.G(on: focusedElement()) {
                 push(element: element)
             } else {
-                post(ksNormalMode.G())
+                post(ksNormalMode.G(on: AXEngine.axRole()))
             }
         case .h:
             if let element = asNormalMode.h(on: focusedElement()) {
@@ -588,7 +588,7 @@ extension KindaVimEngine {
             if let element = asNormalMode.gg(on: focusedElement()) {                
                 push(element: element)
             } else {
-                post(ksNormalMode.gg())
+                post(ksNormalMode.gg(on: AXEngine.axRole()))
             }
         case [.g, .E]:
             enterNormalMode()

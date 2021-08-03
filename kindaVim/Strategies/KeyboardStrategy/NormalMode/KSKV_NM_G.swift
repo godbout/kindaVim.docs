@@ -1,9 +1,12 @@
 extension KeyboardStrategyNormalMode {
     
-    func G() -> [KeyCombination] {
-        return [
-            KeyCombination(key: .down, option: true)
-        ]
+    func G(on role: AXElementRole?) -> [KeyCombination] {
+        switch role {
+        case .webArea:
+            return [KeyCombination(key: .down, command: true)]
+        default:
+            return [KeyCombination(key: .down, option: true)]
+        }
     }
     
 }
