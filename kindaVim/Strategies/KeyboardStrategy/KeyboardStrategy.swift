@@ -186,13 +186,13 @@ struct KeyboardStrategy: KeyboardStrategyProtocol {
 
     func G() -> [KeyCombination] {
         return [
-            KeyCombination(key: .down, command: true)
+            KeyCombination(key: .down, option: true)
         ]
     }
 
     func gg() -> [KeyCombination] {
         return [
-            KeyCombination(key: .up, command: true)
+            KeyCombination(key: .up, option: true)
         ]
     }
 
