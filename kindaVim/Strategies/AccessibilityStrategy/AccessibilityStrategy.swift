@@ -1,6 +1,6 @@
 protocol AccessibilityStrategyProtocol {
         
-    func focusedElement() -> AccessibilityTextElement?
+    func focusedTextElement() -> AccessibilityTextElement?
     func push(element: AccessibilityTextElement) -> Bool
         
 }
@@ -8,7 +8,7 @@ protocol AccessibilityStrategyProtocol {
 
 struct AccessibilityStrategy: AccessibilityStrategyProtocol {
     
-    func focusedElement() -> AccessibilityTextElement? {
+    func focusedTextElement() -> AccessibilityTextElement? {
         return AccessibilityTextElementAdaptor.fromAXFocusedElement()
     }
     
