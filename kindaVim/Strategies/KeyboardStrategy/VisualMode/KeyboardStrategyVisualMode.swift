@@ -1,8 +1,9 @@
-//
-//  KeyboardStrategyVisualMode.swift
-//  kindaVim
-//
-//  Created by Guillaume Leclerc on 05/08/2021.
-//
+protocol KeyboardStrategyVisualModeProtocol {
+    
+    func j() -> [KeyCombination]
+    func k() -> [KeyCombination]
 
-import Foundation
+}
+
+
+struct KeyboardStrategyVisualMode: KeyboardStrategyVisualModeProtocol {}

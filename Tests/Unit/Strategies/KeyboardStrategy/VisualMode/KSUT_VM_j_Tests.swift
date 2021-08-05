@@ -1,8 +1,14 @@
-//
-//  KSUT_VM_j_Tests.swift
-//  kindaVim
-//
-//  Created by Guillaume Leclerc on 05/08/2021.
-//
+@testable import kindaVim
+import XCTest
 
-import Foundation
+
+class KSUT_VM_j_Tests: KSUT_NM_BaseTests {
+    
+    func test_that_j_returns_shift_down() {
+        let keyCombinations = ksVisualMode.j()
+
+        guard keyCombinations.count == 1 else { return XCTFail() }
+        XCTAssertEqual(keyCombinations[0], KeyCombination(key: .down, shift: true))
+    }
+    
+}

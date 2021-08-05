@@ -1,8 +1,21 @@
-//
-//  KeyboardStrategyVisualModeMock.swift
-//  kindaVim
-//
-//  Created by Guillaume Leclerc on 05/08/2021.
-//
-
+@testable import kindaVim
 import Foundation
+
+
+class KeyboardStrategyVisualModeMock: KeyboardStrategyVisualModeProtocol {
+    
+    var functionCalled = ""
+    
+
+    func j() -> [KeyCombination] {
+        functionCalled = #function
+        
+        return []
+    }
+    
+    func k() -> [KeyCombination] {
+        functionCalled = #function
+        
+        return []
+    }
+}

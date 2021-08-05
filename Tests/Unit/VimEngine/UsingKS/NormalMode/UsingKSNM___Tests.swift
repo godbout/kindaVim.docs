@@ -1,7 +1,7 @@
 @testable import kindaVim
 import XCTest
 
-class UsingKS___Tests: UsingKS_BaseTests {
+class UsingKS___Tests: UsingKSNM_BaseTests {
 
     override func setUp() {
         super.setUp()

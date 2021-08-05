@@ -1,8 +1,8 @@
-//
-//  KSKV_VM_k.swift
-//  kindaVim
-//
-//  Created by Guillaume Leclerc on 05/08/2021.
-//
-
-import Foundation
+extension KeyboardStrategyVisualMode {
+    
+    func k() -> [KeyCombination] {
+        return [
+            KeyCombination(key: .up, shift: true)
+        ]
+    }
+}

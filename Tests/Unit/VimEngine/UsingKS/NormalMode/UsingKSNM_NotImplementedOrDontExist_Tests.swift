@@ -1,7 +1,7 @@
 @testable import kindaVim
 import XCTest
 
-class UsingKS_NotImplementedOrDontExist_Tests: UsingKS_BaseTests {}
+class UsingKS_NotImplementedOrDontExist_Tests: UsingKSNM_BaseTests {}
 
 // this is for single key combination (not operators)
 // single key combination will always fail if they don't exist or ar not implemented

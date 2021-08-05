@@ -1,8 +1,13 @@
-//
-//  UsingKSVM_BaseTests.swift
-//  kindaVim
-//
-//  Created by Guillaume Leclerc on 05/08/2021.
-//
+@testable import kindaVim
+import XCTest
 
-import Foundation
+
+class UsingKSVM_BaseTests: UsingKS_BaseTests {
+
+    override func setUp() {
+        super.setUp()
+        
+        KindaVimEngine.shared.enterVisualMode()
+    }
+
+}

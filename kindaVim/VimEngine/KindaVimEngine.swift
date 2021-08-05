@@ -31,6 +31,7 @@ class KindaVimEngine {
     var display = Display()
     var keyboardStrategy: KeyboardStrategyProtocol = KeyboardStrategy()
     var ksNormalMode: KeyboardStrategyNormalModeProtocol = KeyboardStrategyNormalMode()
+    var ksVisualMode: KeyboardStrategyVisualModeProtocol = KeyboardStrategyVisualMode()
     var accessibilityStrategy: AccessibilityStrategyProtocol = AccessibilityStrategy()
     var asNormalMode: AccessibilityStrategyNormalModeProtocol = AccessibilityStrategyNormalMode()
     var asVisualMode: AccessibilityStrategyVisualModeProtocol = AccessibilityStrategyVisualMode()
@@ -840,10 +841,14 @@ extension KindaVimEngine {
         case .j:
             if let element = asVisualMode.j(on: focusedTextElement()) {
                 push(element: element)
+            } else {
+                post(ksVisualMode.j())
             }
         case .k:
             if let element = asVisualMode.k(on: focusedTextElement()) {
                 push(element: element)
+            } else {
+                post(ksVisualMode.k())
             }
         case .l:
             if let element = asVisualMode.l(on: focusedTextElement()) {
