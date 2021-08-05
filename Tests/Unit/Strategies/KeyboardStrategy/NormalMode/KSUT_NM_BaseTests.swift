@@ -1,8 +1,9 @@
 @testable import kindaVim
 import XCTest
 
-class KS_BaseTests: XCTestCase {
+class KSUT_NM_BaseTests: XCTestCase {
 
     let ksNormalMode = KeyboardStrategyNormalMode()
+    let ksVisualMode = KeyboardStrategyVisualMode()
     
 }

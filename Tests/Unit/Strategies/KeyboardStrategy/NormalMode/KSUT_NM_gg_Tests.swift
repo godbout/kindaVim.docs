@@ -1,7 +1,7 @@
 @testable import kindaVim
 import XCTest
 
-class KS_gg_Tests: KS_BaseTests {
+class KS_gg_Tests: KSUT_NM_BaseTests {
     
     // gg (and G) have different moves depending on the role of the focused element :D
     // dropdowns use option up/down while (currently) all others use command up/down

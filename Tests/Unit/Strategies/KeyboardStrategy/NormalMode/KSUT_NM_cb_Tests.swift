@@ -1,7 +1,7 @@
 @testable import kindaVim
 import XCTest
 
-class KS_cb_Tests: KS_BaseTests {
+class KS_cb_Tests: KSUT_NM_BaseTests {
 
     func test_that_cb_returns_option_delete() {
         let keyCombinations = ksNormalMode.cb()

@@ -1,7 +1,7 @@
 @testable import kindaVim
 import XCTest
 
-class KS_caret_Tests: KS_BaseTests {
+class KS_caret_Tests: KSUT_NM_BaseTests {
     
     func test_that_caret_returns_command_right_option_right_option_left() {
         let keyCombinations = ksNormalMode.caret()

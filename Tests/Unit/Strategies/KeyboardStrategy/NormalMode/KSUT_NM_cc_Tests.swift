@@ -1,7 +1,7 @@
 @testable import kindaVim
 import XCTest
 
-class KS_cc_Tests: KS_BaseTests {
+class KS_cc_Tests: KSUT_NM_BaseTests {
     
     func test_that_cc_returns_command_right_shift_command_left_delete() {
         let keyCombinations = ksNormalMode.cc()

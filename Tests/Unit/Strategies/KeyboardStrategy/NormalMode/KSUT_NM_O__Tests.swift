@@ -1,7 +1,7 @@
 @testable import kindaVim
 import XCTest
 
-class KS_O__Tests: KS_BaseTests {
+class KS_O__Tests: KSUT_NM_BaseTests {
     
     func test_that_O_returns_command_right_command_left_enter_up() {
         let keyCombinations = ksNormalMode.O()

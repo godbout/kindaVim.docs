@@ -2,7 +2,7 @@
 import XCTest
 
 
-class KS_$_Tests: KS_BaseTests {
+class KS_$_Tests: KSUT_NM_BaseTests {
 
     func test_that_$_returns_command_right() {
         let keyCombinations = ksNormalMode.dollarSign()

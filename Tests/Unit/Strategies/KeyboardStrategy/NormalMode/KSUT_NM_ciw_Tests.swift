@@ -1,7 +1,7 @@
 @testable import kindaVim
 import XCTest
 
-class KS_ciw_Tests: KS_BaseTests {
+class KS_ciw_Tests: KSUT_NM_BaseTests {
     
     func test_that_ciw_returns_option_right_option_left_delete() {
         let keyCombinations = ksNormalMode.ciw()

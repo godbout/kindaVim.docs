@@ -1,7 +1,7 @@
 @testable import kindaVim
 import XCTest
 
-class KS_cgg_Tests: KS_BaseTests {
+class KS_cgg_Tests: KSUT_NM_BaseTests {
 
     func test_that_cgg_returns_command_right_shift_command_up_delete() {
         let keyCombinations = ksNormalMode.cgg()
