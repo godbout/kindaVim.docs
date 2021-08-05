@@ -20,8 +20,7 @@ struct HazeOverWindow {
     
     func on() {
         guard let screen = NSScreen.main else { return }
-        window.setFrameOrigin(screen.visibleFrame.origin)
-        window.setFrame(NSRect(x: 0, y: 0, width: screen.frame.width, height: screen.frame.height), display: true)
+        window.setFrame(NSRect(origin: screen.visibleFrame.origin, size: screen.visibleFrame.size), display: true)
         window.alphaValue = mainWindowIsInFullScreenMode() ? 0.2 : 0.8
         
         let mainWindowNumber = self.mainWindowNumber() ?? -6969
