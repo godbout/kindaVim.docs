@@ -9,7 +9,7 @@ struct CharactersWindow {
     
     init() {
         window = NSWindow(
-            contentRect: NSRect(x: 50, y: 80, width: 269, height: 60),
+            contentRect: NSRect(),
             styleMask: [],
             backing: .buffered,
             defer: true
@@ -20,10 +20,17 @@ struct CharactersWindow {
         window.isMovableByWindowBackground = true
         window.level = .floating
         window.animationBehavior = .utilityWindow
+        window.collectionBehavior = [.canJoinAllSpaces, .transient]
     }
     
     
     func show(lastCharacterBeing character: Character) {
+        guard let screen = NSScreen.main else { return }
+            
+        window.setFrameOrigin(screen.visibleFrame.origin)
+        window.setFrame(NSRect(x: 50, y: 80, width: 269, height: 60), display: true)
+        window.setFrame(NSRect(x: screen.visibleFrame.origin.x + 50, y: screen.visibleFrame.origin.y + 80, width: 269, height: 60), display: true)
+       
         if Self.lettersTyped.count > 10 {
             Self.lettersTyped = ""
         }
