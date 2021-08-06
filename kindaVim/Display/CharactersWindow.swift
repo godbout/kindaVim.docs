@@ -26,9 +26,6 @@ struct CharactersWindow {
     
     func show(lastCharacterBeing character: Character) {
         guard let screen = NSScreen.main else { return }
-            
-        window.setFrameOrigin(screen.visibleFrame.origin)
-        window.setFrame(NSRect(x: 50, y: 80, width: 269, height: 60), display: true)
         window.setFrame(NSRect(x: screen.visibleFrame.origin.x + 50, y: screen.visibleFrame.origin.y + 80, width: 269, height: 60), display: true)
        
         if Self.lettersTyped.count > 10 {
@@ -37,9 +34,7 @@ struct CharactersWindow {
         
         Self.lettersTyped.append(character)
         
-        let charactersView = CharactersView(lettersTyped: Self.lettersTyped)
-        
-        window.contentView = NSHostingView(rootView: charactersView)
+        window.contentView = NSHostingView(rootView: CharactersView(lettersTyped: Self.lettersTyped))
         window.orderFrontRegardless()
     }
     
