@@ -23,7 +23,7 @@ struct HazeOverWindow {
         
         if mainWindowIsInFullScreenMode() {
             window.setFrame(NSRect(origin: screen.frame.origin, size: screen.frame.size), display: true)
-            window.alphaValue = 0.2
+            window.alphaValue = 0.1
         } else {
             window.setFrame(NSRect(origin: screen.visibleFrame.origin, size: screen.visibleFrame.size), display: true)
             window.alphaValue = 0.8
