@@ -1,6 +1,18 @@
 import AppKit
 
-struct HazeOverWindow {
+
+struct MainWindowInfo {
+    
+    let number: Int
+    let height: CGFloat
+    let width: CGFloat
+    let x: CGFloat
+    let y: CGFloat
+    
+}
+
+
+struct HazeOverWindow: WindowProtocol {
     
     var window: NSWindow
     
@@ -24,32 +36,22 @@ struct HazeOverWindow {
         // front to back but it doesn't work properly when in fullScreen. furthermore the NSScreen.main returns
         // the wrong screen in fullScreen mode too (returns the default one rather than the main).
         if mainWindowIsInFullScreenMode() {
+            guard let mainWindowInfo = mainWindowInfo() else { return }
+            guard let screen = screenOfMainWindowInFullScreenMode(using: mainWindowInfo) else { return }
+            
+            window.setFrame(NSRect(origin: screen.frame.origin, size: screen.frame.size), display: true)
+            window.alphaValue = 0.2
+            window.order(.above, relativeTo: mainWindowInfo.number)
+        } else {
+            guard let mainWindowInfo = mainWindowInfo() else { return }
             guard let screen = NSScreen.main else { return }
             
             window.setFrame(NSRect(origin: screen.frame.origin, size: screen.frame.size), display: true)
-            window.alphaValue = 0.1
-            window.order(.above, relativeTo: mainWindowNumber() ?? -6969)
-        } else {
-            guard let screen = NSScreen.main else { return }
-            
-            window.setFrame(NSRect(origin: screen.visibleFrame.origin, size: screen.visibleFrame.size), display: true)
-            window.alphaValue = 0.8 
-            window.order(.below, relativeTo: mainWindowNumber() ?? -6969)
+            window.alphaValue = 0.8
+            window.order(.below, relativeTo: mainWindowInfo.number)
         }
     }
-    
-    private func mainWindowIsInFullScreenMode() -> Bool {
-        return AXEngine.axFullScreenStatus(of: AXEngine.axFocusedElement())
-    }
-    
-    private func mainWindowNumber() -> Int? {
-        guard let pid = NSWorkspace.shared.frontmostApplication?.processIdentifier else { return nil }
-        guard let tooManyWindows = CGWindowListCopyWindowInfo([.optionOnScreenOnly, .excludeDesktopElements], kCGNullWindowID) as NSArray? else { return nil }
-        guard let mainWindowData = tooManyWindows.filtered(using: NSPredicate(format: "kCGWindowOwnerPID = \(pid)")).first as? NSDictionary else { return nil } 
-        
-        return mainWindowData.value(forKey: "kCGWindowNumber") as? Int
-    }
-    
+  
     func off() {
         window.orderOut(self)
     }

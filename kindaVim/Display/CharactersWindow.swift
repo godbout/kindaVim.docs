@@ -2,7 +2,7 @@ import AppKit
 import SwiftUI
 
 
-struct CharactersWindow {
+struct CharactersWindow: WindowProtocol {
     
     var window: NSWindow
     static var lettersTyped = ""
@@ -25,8 +25,16 @@ struct CharactersWindow {
     
     
     func show(lastCharacterBeing character: Character) {
-        guard let screen = NSScreen.main else { return }
-        window.setFrame(NSRect(x: screen.visibleFrame.origin.x + 50, y: screen.visibleFrame.origin.y + 80, width: 269, height: 60), display: true)
+        if mainWindowIsInFullScreenMode() {
+            guard let mainWindowInfo = mainWindowInfo() else { return }
+            guard let screen = screenOfMainWindowInFullScreenMode(using: mainWindowInfo) else { return }
+            
+            window.setFrame(NSRect(x: screen.frame.origin.x + 50, y: screen.frame.origin.y + 80, width: 269, height: 60), display: true)
+        } else {
+            guard let screen = NSScreen.main else { return }
+            
+            window.setFrame(NSRect(x: screen.frame.origin.x + 50, y: screen.frame.origin.y + 80, width: 269, height: 60), display: true)
+        }
        
         if Self.lettersTyped.count > 10 {
             Self.lettersTyped = ""
