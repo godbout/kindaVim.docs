@@ -19,27 +19,27 @@ struct HazeOverWindow {
     
     
     func on() {
-        guard let screen = NSScreen.main else { return }
-        
+        // we need to test first if the mainWindow is fullScreen because it seems the window system
+        // in macOS is quite buggy. the doc says that the CGWindowListCopyWindowInfo returns windows from
+        // front to back but it doesn't work properly when in fullScreen. furthermore the NSScreen.main returns
+        // the wrong screen in fullScreen mode too (returns the default one rather than the main).
         if mainWindowIsInFullScreenMode() {
+            guard let screen = NSScreen.main else { return }
+            
             window.setFrame(NSRect(origin: screen.frame.origin, size: screen.frame.size), display: true)
             window.alphaValue = 0.1
+            window.order(.above, relativeTo: mainWindowNumber() ?? -6969)
         } else {
+            guard let screen = NSScreen.main else { return }
+            
             window.setFrame(NSRect(origin: screen.visibleFrame.origin, size: screen.visibleFrame.size), display: true)
-            window.alphaValue = 0.8
+            window.alphaValue = 0.8 
+            window.order(.below, relativeTo: mainWindowNumber() ?? -6969)
         }
-
-        let mainWindowNumber = self.mainWindowNumber() ?? -6969
-        window.order(.below, relativeTo: mainWindowNumber)
     }
-  
+    
     private func mainWindowIsInFullScreenMode() -> Bool {
-        guard let tooManyWindows = CGWindowListCopyWindowInfo([.optionOnScreenOnly], kCGNullWindowID) as NSArray? else { return false }
-        guard let isInFullScreenMode = tooManyWindows.filtered(using: NSPredicate(format: "kCGWindowOwnerName = \"Dock\" AND kCGWindowStoreType = 2")).first as? NSDictionary else { return false }
-        
-        print(isInFullScreenMode.count)
-        
-        return isInFullScreenMode.count == 0 ? false : true
+        return AXEngine.axFullScreenStatus(of: AXEngine.axFocusedElement())
     }
     
     private func mainWindowNumber() -> Int? {
