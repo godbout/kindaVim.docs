@@ -25,10 +25,17 @@ struct CharactersWindow: WindowProtocol {
     
     
     func show(lastCharacterBeing character: Character) {
-        guard let mainWindowInfo = mainWindowInfo() else { return }
-        guard let screen = screenWhereMainWindowIs(using: mainWindowInfo) else { return }
+        let screen: NSScreen?
         
-        window.setFrame(NSRect(x: screen.frame.origin.x + 50, y: screen.frame.origin.y + 80, width: 269, height: 60), display: true)
+        if let mainWindowInfo = mainWindowInfo() {
+            screen = screenWhereMainWindowIs(using: mainWindowInfo)
+        } else {
+            screen = NSScreen.main
+        }
+        
+        guard let theScreen = screen else { return } 
+        
+        window.setFrame(NSRect(x: theScreen.frame.origin.x + 50, y: theScreen.frame.origin.y + 80, width: 269, height: 60), display: true)
                
         if Self.lettersTyped.count > 10 {
             Self.lettersTyped = ""

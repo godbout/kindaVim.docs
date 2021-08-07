@@ -31,7 +31,12 @@ struct HazeOverWindow: WindowProtocol {
     
     
     func on() {
-        guard let mainWindowInfo = mainWindowInfo() else { return }
+        guard let mainWindowInfo = mainWindowInfo() else { 
+            window.alphaValue = 0.2
+            window.orderFront(self)
+            
+            return
+        }
         guard let screen = screenWhereMainWindowIs(using: mainWindowInfo) else { return }
         
         window.setFrame(NSRect(origin: screen.frame.origin, size: screen.frame.size), display: true)
