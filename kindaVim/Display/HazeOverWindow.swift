@@ -31,22 +31,15 @@ struct HazeOverWindow: WindowProtocol {
     
     
     func on() {
-        // we need to test first if the mainWindow is fullScreen because it seems the window system
-        // in macOS is quite buggy. the doc says that the CGWindowListCopyWindowInfo returns windows from
-        // front to back but it doesn't work properly when in fullScreen. furthermore the NSScreen.main returns
-        // the wrong screen in fullScreen mode too (returns the default one rather than the main).
+        guard let mainWindowInfo = mainWindowInfo() else { return }
+        guard let screen = screenWhereMainWindowIs(using: mainWindowInfo) else { return }
+        
+        window.setFrame(NSRect(origin: screen.frame.origin, size: screen.frame.size), display: true)
+        
         if mainWindowIsInFullScreenMode() {
-            guard let mainWindowInfo = mainWindowInfo() else { return }
-            guard let screen = screenOfMainWindowInFullScreenMode(using: mainWindowInfo) else { return }
-            
-            window.setFrame(NSRect(origin: screen.frame.origin, size: screen.frame.size), display: true)
             window.alphaValue = 0.2
-            window.order(.above, relativeTo: mainWindowInfo.number)
+            window.order(.above, relativeTo: mainWindowInfo.number)            
         } else {
-            guard let mainWindowInfo = mainWindowInfo() else { return }
-            guard let screen = NSScreen.main else { return }
-            
-            window.setFrame(NSRect(origin: screen.frame.origin, size: screen.frame.size), display: true)
             window.alphaValue = 0.8
             window.order(.below, relativeTo: mainWindowInfo.number)
         }

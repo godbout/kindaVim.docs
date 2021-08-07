@@ -3,7 +3,7 @@ import AppKit
 
 protocol WindowProtocol {
     
-    func screenOfMainWindowInFullScreenMode(using mainWindowInfo: MainWindowInfo) -> NSScreen?
+    func screenWhereMainWindowIs(using mainWindowInfo: MainWindowInfo) -> NSScreen?
     func mainWindowIsInFullScreenMode() -> Bool
     func mainWindowInfo() -> MainWindowInfo?
 
@@ -11,25 +11,54 @@ protocol WindowProtocol {
 
 
 extension WindowProtocol {
+
+    func screenWhereMainWindowIs(using mainWindowInfo: MainWindowInfo) -> NSScreen? {
+        // the calculation is different for when in fullScreen and when not
+        // because the mac APIs are bonkers
+        if mainWindowIsInFullScreenMode() {
+            return screenWhereMainWindowIsWhenInFullScreenMode(using: mainWindowInfo) 
+        } else {
+            return screenWhereMainWindowIsWhenNotInFullScreenMode(using: mainWindowInfo)
+        }
+    }
     
-    func screenOfMainWindowInFullScreenMode(using mainWindowInfo: MainWindowInfo) -> NSScreen? {
-        // yes, this is completely bonkers LMAO
-        // first the list of windows should be from front to back but it doesn't work properly
-        // in fullScreen mode (there should be only one window but there's two, and the first
-        // one that should be the front one is a small window of 54px height. no idea wtf is this)
-        // second the y is not correct LMAO as it's BELOW the fucking screen. it seems that in
-        // fullScreen mode, the fullScreen window is made of two windows. anyways it completely doesn't
-        // follow the docs.
-        // so because we can't use y, but because we know we are in the fullScreen mode, we can
-        // check which on which screen the window is on by checking the screen and the window
-        // start at the same x point :D
+    // yes, this is complete madness LMAO
+    // first the list of windows should be from front to back but it doesn't work properly
+    // in fullScreen mode (there should be only one window but there's two, and the first
+    // one that should be the front one is a small window of 54px height. no idea wtf is this)
+    // second the y is not correct LMAO as it's UNDER the fucking screen. it seems that in
+    // fullScreen mode, the fullScreen window is made of two windows. anyways it completely doesn't
+    // follow the docs.
+    // so because we can't use y, but because we know we are in the fullScreen mode, we can
+    // check which on which screen the window is on by checking the screen and the window
+    // start at the same x point :D
+    private func screenWhereMainWindowIsWhenInFullScreenMode(using mainWindowInfo: MainWindowInfo) -> NSScreen? {
         for screen in NSScreen.screens {
             if mainWindowInfo.x == screen.frame.origin.x {
                 return screen
             }
-        }
+        }
         
         return nil
+    }
+    
+    // currently we return the main screen. i'm not sure yet how to calculate on which screen is a NSWindow
+    // seems that checking the bounds will not work, because this is not how macOS shows windows. your window
+    // can have more than half on a screen but still show on the other screen. it's not about the bounds, it's
+    // about where is the cursor position when you move a window. so, currently no idea how to do this better.
+    // need to digest.
+    private func screenWhereMainWindowIsWhenNotInFullScreenMode(using mainWindowInfo: MainWindowInfo) -> NSScreen? {
+        for screen in NSScreen.screens {
+            if mainWindowInfo.x >= screen.frame.origin.x
+                && mainWindowInfo.y >= screen.frame.origin.y
+                && (mainWindowInfo.x + mainWindowInfo.width) >= (screen.frame.origin.x + screen.frame.width)
+                && (mainWindowInfo.y + mainWindowInfo.height) >= (screen.frame.origin.y + screen.frame.height)
+            {
+                return screen
+            }
+        }
+        
+        return NSScreen.main
     }
     
     func mainWindowIsInFullScreenMode() -> Bool {
