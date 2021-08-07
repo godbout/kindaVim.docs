@@ -22,6 +22,10 @@ extension WindowProtocol {
         }
     }
     
+    func mainWindowIsInFullScreenMode() -> Bool {
+        return AXEngine.axFullScreenStatus(of: AXEngine.axFocusedElement())
+    }
+    
     // yes, this is complete madness LMAO
     // first the list of windows should be from front to back but it doesn't work properly
     // in fullScreen mode (there should be only one window but there's two, and the first
@@ -37,23 +41,17 @@ extension WindowProtocol {
             if mainWindowInfo.x == screen.frame.origin.x {
                 return screen
             }
-        }
+        }
         
         return nil
     }
     
-    // currently we return the main screen. i'm not sure yet how to calculate on which screen is a NSWindow
-    // seems that checking the bounds will not work, because this is not how macOS shows windows. your window
-    // can have more than half on a screen but still show on the other screen. it's not about the bounds, it's
-    // about where is the cursor position when you move a window. so, currently no idea how to do this better.
-    // need to digest.
+    // if the window bounds are fully within the screen bounds, then we return that screen
+    // but else, if it's in between, then we use the main screen. there might be some cases
+    // that go through but fuck it. impossible to solve for every case.d
     private func screenWhereMainWindowIsWhenNotInFullScreenMode(using mainWindowInfo: MainWindowInfo) -> NSScreen? {
         for screen in NSScreen.screens {
-            if mainWindowInfo.x >= screen.frame.origin.x
-                && mainWindowInfo.y >= screen.frame.origin.y
-                && (mainWindowInfo.x + mainWindowInfo.width) >= (screen.frame.origin.x + screen.frame.width)
-                && (mainWindowInfo.y + mainWindowInfo.height) >= (screen.frame.origin.y + screen.frame.height)
-            {
+            if windowIsFullyWithinScreen(with: mainWindowInfo, for: screen) {
                 return screen
             }
         }
@@ -61,10 +59,18 @@ extension WindowProtocol {
         return NSScreen.main
     }
     
-    func mainWindowIsInFullScreenMode() -> Bool {
-        return AXEngine.axFullScreenStatus(of: AXEngine.axFocusedElement())
+    private func windowIsFullyWithinScreen(with window: MainWindowInfo, for screen: NSScreen) -> Bool {
+        if window.x >= screen.frame.origin.x
+            && window.y >= screen.frame.origin.y
+            && (window.x + window.width) <= (screen.frame.origin.x + screen.frame.width)
+            && (window.y + window.height) <= (screen.frame.origin.y + screen.frame.height)
+        {
+            return true
+        }
+        
+        return false
     }
-    
+
     func mainWindowInfo() -> MainWindowInfo? {
         guard let pid = NSWorkspace.shared.frontmostApplication?.processIdentifier else { return nil }
         guard let tooManyWindows = CGWindowListCopyWindowInfo([.optionOnScreenOnly, .excludeDesktopElements], kCGNullWindowID) as NSArray? else { return nil }
