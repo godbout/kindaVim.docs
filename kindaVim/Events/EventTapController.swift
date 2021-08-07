@@ -30,6 +30,10 @@ struct EventTapController {
         guard event.type == .keyDown else {
             KindaVimEngine.shared.enterInsertMode()
             
+            #if DEBUG
+            KindaVimEngine.shared.display.fadeOutCharactersWindow()
+            #endif
+            
             return Unmanaged.passUnretained(event)
         }        
                 
