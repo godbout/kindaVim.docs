@@ -139,14 +139,17 @@ struct AXEngine {
         return (axValue, axLength)
     }
     
-    static func axFullScreenStatus(of axFocusedElement: AXUIElement? = axFocusedElement()) -> Bool {
-        guard let axFocusedElement = axFocusedElement else { return false }
+    static func axFullScreenStatusOfFocusedWindow() -> Bool {
+        let axSystemWideElement = AXUIElementCreateSystemWide()
         
-        var axWindow: AnyObject?
-        guard AXUIElementCopyAttributeValue(axFocusedElement, kAXWindowAttribute as CFString, &axWindow) == .success else { return false }
+        var axFocusedApplication: AnyObject?
+        AXUIElementCopyAttributeValue(axSystemWideElement, kAXFocusedApplicationAttribute as CFString, &axFocusedApplication)
+        
+        var axFocusedWindow: AnyObject?
+        guard AXUIElementCopyAttributeValue(axFocusedApplication as! AXUIElement, kAXFocusedWindowAttribute as CFString, &axFocusedWindow) == .success else { return false }
         
         var fullScreenStatus: AnyObject?
-        guard AXUIElementCopyAttributeValue(axWindow as! AXUIElement, "AXFullScreen" as CFString, &fullScreenStatus) == .success else { return false }
+        guard AXUIElementCopyAttributeValue(axFocusedWindow as! AXUIElement, "AXFullScreen" as CFString, &fullScreenStatus) == .success else { return false }
         
         return fullScreenStatus as! Bool
     }
