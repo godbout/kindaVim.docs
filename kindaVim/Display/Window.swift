@@ -68,7 +68,7 @@ extension WindowProtocol {
     func mainWindowInfo() -> MainWindowInfo? {
         guard let pid = NSWorkspace.shared.frontmostApplication?.processIdentifier else { return nil }
         guard let tooManyWindows = CGWindowListCopyWindowInfo([.optionOnScreenOnly, .excludeDesktopElements], kCGNullWindowID) as NSArray? else { return nil }
-        guard let mainWindowData = tooManyWindows.filtered(using: NSPredicate(format: "kCGWindowOwnerPID = \(pid)")).first as? NSDictionary else { return nil }
+        guard let mainWindowData = tooManyWindows.filtered(using: NSPredicate(format: "kCGWindowOwnerPID = \(pid) AND kCGWindowLayer = 0")).first as? NSDictionary else { return nil }
         
         guard let number = mainWindowData.value(forKey: "kCGWindowNumber") as? Int else { return nil }
         guard let bounds = mainWindowData.value(forKey: "kCGWindowBounds") as? NSDictionary else { return nil }
