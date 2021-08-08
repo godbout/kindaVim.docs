@@ -13,8 +13,10 @@ protocol WindowProtocol {
 extension WindowProtocol {
 
     func screenWhereMainWindowIs(using mainWindowInfo: MainWindowInfo) -> NSScreen? {
-        // the calculation is different for when in fullScreen and when not
-        // because the mac APIs are bonkers
+        guard NSScreen.screens.count > 1 else { return NSScreen.main }
+        
+        // the calculation is different for when in fullScreen
+        // and when not because the mac APIs are bonkers
         if mainWindowIsInFullScreenMode() {
             return screenWhereMainWindowIsWhenInFullScreenMode(using: mainWindowInfo) 
         } else {
@@ -23,40 +25,32 @@ extension WindowProtocol {
     }
     
     func mainWindowIsInFullScreenMode() -> Bool {
-        return AXEngine.axFullScreenStatus(of: AXEngine.axFocusedElement())
+        return AXEngine.axFullScreenStatusOfFocusedWindow()
     }
     
     // yes, this is complete madness LMAO
-    // first the list of windows should be from front to back but it doesn't work properly
+    // 1) the list of windows should be from front to back but it doesn't work properly
     // in fullScreen mode (there should be only one window but there's two, and the first
     // one that should be the front one is a small window of 54px height. no idea wtf is this)
-    // second the y is not correct LMAO as it's UNDER the fucking screen. it seems that in
+    // 2) the y is not correct LMAO as it's UNDER the fucking screen. it seems that in
     // fullScreen mode, the fullScreen window is made of two windows. anyways it completely doesn't
     // follow the docs.
     // so because we can't use y, but because we know we are in the fullScreen mode, we can
-    // check which on which screen the window is on by checking the screen and the window
+    // check on which screen the window is on by checking the screen and the window
     // start at the same x point :D
+    // but also it's possible that it's a window from the fullScreen app, but the window itself (option or something else)
+    // does not start at x = 0, so in this case we also need to check whether the bounds of the window are within the bounds of the screen zzz
     private func screenWhereMainWindowIsWhenInFullScreenMode(using mainWindowInfo: MainWindowInfo) -> NSScreen? {
-        for screen in NSScreen.screens {
-            if mainWindowInfo.x == screen.frame.origin.x {
-                return screen
-            }
+        return NSScreen.screens.first { 
+            mainWindowInfo.x == $0.frame.origin.x || windowIsFullyWithinScreen(with: mainWindowInfo, for: $0)             
         }
-        
-        return nil
     }
     
-    // if the window bounds are fully within the screen bounds, then we return that screen
-    // but else, if it's in between, then we use the main screen. there might be some cases
-    // that go through but fuck it. impossible to solve for every case.d
+    // if the window bounds are fully within the screen bounds, we return that screen
+    // but else, if it's in between, we use the main screen. there might be some cases
+    // that go through but fuck it. impossible to solve for every case.
     private func screenWhereMainWindowIsWhenNotInFullScreenMode(using mainWindowInfo: MainWindowInfo) -> NSScreen? {
-        for screen in NSScreen.screens {
-            if windowIsFullyWithinScreen(with: mainWindowInfo, for: screen) {
-                return screen
-            }
-        }
-        
-        return NSScreen.main
+        return NSScreen.screens.first { windowIsFullyWithinScreen(with: mainWindowInfo, for: $0) } ?? NSScreen.main
     }
     
     private func windowIsFullyWithinScreen(with window: MainWindowInfo, for screen: NSScreen) -> Bool {
