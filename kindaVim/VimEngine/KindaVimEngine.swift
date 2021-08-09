@@ -430,7 +430,11 @@ extension KindaVimEngine {
         case [.c, .g, .g]:
             enterInsertMode()
             
-            post(ksNormalMode.cgg())
+            if let element = asNormalMode.cgg(on: focusedTextElement()) {
+                push(element: element)
+            } else {
+                post(ksNormalMode.cgg())
+            }
         case [.c, .G]:
             enterInsertMode()
             
