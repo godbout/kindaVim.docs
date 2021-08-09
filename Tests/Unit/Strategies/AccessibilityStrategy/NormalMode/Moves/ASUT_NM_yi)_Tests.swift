@@ -1,8 +1,6 @@
-//
-//  ASUT_NM_yi)_Tests.swift
-//  kindaVim
-//
-//  Created by Guillaume Leclerc on 09/08/2021.
-//
+@testable import kindaVim
+import XCTest
 
-import Foundation
+
+// see yi(
+class ASUT_NM_yiRightParenthesis_Tests: ASNM_BaseTests {}
