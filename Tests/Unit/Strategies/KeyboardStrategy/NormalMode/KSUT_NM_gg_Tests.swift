@@ -4,7 +4,7 @@ import XCTest
 
 // gg (and G) have different moves depending on the role of the focused element :D
 // dropdowns use option up/down while (currently) all others use command up/down
-class KSUT_NM_gg_Tests: KSUT_NM_BaseTests {
+class KSUT_NM_gg_Tests: KSUT_BaseTests {
     
     func test_that_for_AXWebArea_gg_returns_command_up() {
         let keyCombinations = ksNormalMode.gg(on: .webArea)

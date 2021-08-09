@@ -1,7 +1,7 @@
 @testable import kindaVim
 import XCTest
 
-class KS_s_Tests: KSUT_NM_BaseTests {
+class KS_s_Tests: KSUT_BaseTests {
 
     func test_that_s_returns_control_d() {
         let keyCombinations = ksNormalMode.s()

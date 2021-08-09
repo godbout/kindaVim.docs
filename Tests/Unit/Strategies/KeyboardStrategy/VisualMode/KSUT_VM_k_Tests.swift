@@ -2,7 +2,7 @@
 import XCTest
 
 
-class KSUT_VM_k_Tests: KSUT_NM_BaseTests {
+class KSUT_VM_k_Tests: KSUT_BaseTests {
     
     func test_that_k_returns_shift_down() {
         let keyCombinations = ksVisualMode.k()

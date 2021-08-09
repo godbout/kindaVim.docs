@@ -1,7 +1,7 @@
 @testable import kindaVim
 import XCTest
 
-class KS_control_r_Tests: KSUT_NM_BaseTests {
+class KS_control_r_Tests: KSUT_BaseTests {
     
     func test_that_control_r_returns_command_shift_z() {
         let keyCombinations = ksNormalMode.controlR()

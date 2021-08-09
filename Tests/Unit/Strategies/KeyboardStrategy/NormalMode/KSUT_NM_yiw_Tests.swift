@@ -1,7 +1,7 @@
 @testable import kindaVim
 import XCTest
 
-class KS_yiw_Tests: KSUT_NM_BaseTests {
+class KS_yiw_Tests: KSUT_BaseTests {
 
     func test_that_yiw_returns_option_left_option_shift_right_command_c_right() {
         let keyCombinations = ksNormalMode.yiw()

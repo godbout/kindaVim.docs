@@ -3,7 +3,7 @@ import XCTest
 
 
 // see gg for blah blah 
-class KSUT_NM_G__Tests: KSUT_NM_BaseTests {
+class KSUT_NM_G__Tests: KSUT_BaseTests {
 
     func test_that_for_AXWebArea_G_returns_command_down() {
         let keyCombinations = ksNormalMode.G(on: .webArea)

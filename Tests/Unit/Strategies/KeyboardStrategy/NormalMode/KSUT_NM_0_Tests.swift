@@ -1,7 +1,7 @@
 @testable import kindaVim
 import XCTest
 
-class KS_0_Tests: KSUT_NM_BaseTests {
+class KS_0_Tests: KSUT_BaseTests {
     
     func test_that_0_returns_command_left_command_left() {
         let keyCombinations = ksNormalMode.zero()

@@ -4,7 +4,7 @@ import XCTest
 
 // dd will have different moves depending of the type of Element we're dealing with
 // so that we can delete a list item, or act like a real dd for WebAreas and such
-class KSUT_NM_dd_Tests: KSUT_NM_BaseTests {
+class KSUT_NM_dd_Tests: KSUT_BaseTests {
     
     func test_that_for_AXWebArea_dd_returns_a_big_pile_of_key_combinations() {
         let keyCombinations = ksNormalMode.dd(on: .webArea)

@@ -1,8 +1,14 @@
-//
-//  KSUT_VM_d_Tests.swift
-//  UnitTests
-//
-//  Created by Guillaume Leclerc on 09/08/2021.
-//
+@testable import kindaVim
+import XCTest
 
-import Foundation
+
+class KSUT_VM_d_Tests: KSUT_BaseTests {
+    
+    func test_that_d_returns_delete() {
+        let keyCombinations = ksVisualMode.d()
+
+        guard keyCombinations.count == 1 else { return XCTFail() }
+        XCTAssertEqual(keyCombinations[0], KeyCombination(key: .delete))
+    }
+    
+}

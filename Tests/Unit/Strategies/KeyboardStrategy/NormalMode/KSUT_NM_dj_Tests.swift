@@ -1,7 +1,7 @@
 @testable import kindaVim
 import XCTest
 
-class KS_dj_Tests: KSUT_NM_BaseTests {
+class KS_dj_Tests: KSUT_BaseTests {
 
     func test_that_dj_returns_a_big_pile_of_key_combinations() {
         let keyCombinations = ksNormalMode.dj()
