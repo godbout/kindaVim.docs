@@ -827,6 +827,8 @@ extension KindaVimEngine {
                     element.selectedText = nil
                     push(element: element)
                 }
+            } else {
+                post(ksVisualMode.d())
             }
             
             enterNormalMode()
