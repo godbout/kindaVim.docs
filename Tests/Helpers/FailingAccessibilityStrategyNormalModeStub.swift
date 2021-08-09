@@ -226,6 +226,30 @@ struct FailingAccessibilityStrategyNormalModeStub: AccessibilityStrategyNormalMo
     func yiDoubleQuote(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return nil
     }
+        
+    func yiLeftBrace(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        return nil
+    }
+    
+    func yiLeftBracket(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        return nil
+    }
+    
+    func yiLeftParenthesis(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        return nil
+    }
+        
+    func yiRightBrace(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        return nil
+    }
+    
+    func yiRightBracket(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        return nil
+    }
+    
+    func yiRightParenthesis(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        return nil
+    }
     
     func yiw(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return nil
