@@ -73,7 +73,7 @@ class KeyboardStrategyNormalModeMock: KeyboardStrategyNormalModeProtocol {
         return []
     }
     
-    func dd() -> [KeyCombination] {
+    func dd(on role: AXElementRole?) -> [KeyCombination] {
         functionCalled = #function
         
         return []

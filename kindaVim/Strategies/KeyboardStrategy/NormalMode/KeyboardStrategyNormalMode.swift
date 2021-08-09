@@ -13,7 +13,7 @@ protocol KeyboardStrategyNormalModeProtocol {
     func ciw() -> [KeyCombination]
     func controlD() -> [KeyCombination]
     func db() -> [KeyCombination]
-    func dd() -> [KeyCombination]
+    func dd(on role: AXElementRole?) -> [KeyCombination]
     func dj() -> [KeyCombination]
     func dgg() -> [KeyCombination]
     func dG() -> [KeyCombination]

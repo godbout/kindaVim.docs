@@ -1,10 +1,13 @@
 @testable import kindaVim
 import XCTest
 
-class KS_dd_Tests: KSUT_NM_BaseTests {
+
+// dd will have different moves depending of the type of Element we're dealing with
+// so that we can delete a list item, or act like a real dd for WebAreas and such
+class KSUT_NM_dd_Tests: KSUT_NM_BaseTests {
     
-    func test_that_dd_returns_a_big_pile_of_key_combinations() {
-        let keyCombinations = ksNormalMode.dd()
+    func test_that_for_AXWebArea_dd_returns_a_big_pile_of_key_combinations() {
+        let keyCombinations = ksNormalMode.dd(on: .webArea)
 
         guard keyCombinations.count == 12 else { return XCTFail() }
         XCTAssertEqual(keyCombinations[0], KeyCombination(key: .right, command: true))
@@ -21,5 +24,11 @@ class KS_dd_Tests: KSUT_NM_BaseTests {
         XCTAssertEqual(keyCombinations[11], KeyCombination(key: .left, command: true))
     }
     
+    func test_that_for_other_roles_dd_returns_delete() {
+        let keyCombinations = ksNormalMode.dd(on: .someOtherShit)
+        
+        guard keyCombinations.count == 1 else { return XCTFail() }
+        XCTAssertEqual(keyCombinations[0], KeyCombination(key: .delete))
+    }
+    
 }
-
