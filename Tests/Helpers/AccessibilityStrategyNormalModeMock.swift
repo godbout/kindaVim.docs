@@ -327,12 +327,24 @@ class AccessibilityStrategyNormalModeMock: AccessibilityStrategyNormalModeProtoc
         return nil
     }
     
+    func yiBacktick(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        functionCalled = #function
+        
+        return element
+    }
+    
     func yiDoubleQuote(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         
         return element
     }
         
+    func yiSingleQuote(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        functionCalled = #function
+        
+        return element
+    }
+    
     func yiLeftBrace(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         

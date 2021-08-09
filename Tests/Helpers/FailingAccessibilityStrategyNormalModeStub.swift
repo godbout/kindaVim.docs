@@ -223,10 +223,18 @@ struct FailingAccessibilityStrategyNormalModeStub: AccessibilityStrategyNormalMo
         return nil
     }
     
+    func yiBacktick(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        return nil
+    }
+    
     func yiDoubleQuote(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return nil
     }
         
+    func yiSingleQuote(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        return nil
+    }
+    
     func yiLeftBrace(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return nil
     }

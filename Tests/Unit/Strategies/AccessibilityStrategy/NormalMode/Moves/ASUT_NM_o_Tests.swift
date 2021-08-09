@@ -97,39 +97,6 @@ so the new line follows that
         XCTAssertEqual(returnedElement?.selectedText, " space\n    ")            
     }
     
-    func test_that_the_caret_goes_to_the_same_tabs_indentation_as_the_previous_line_on_the_newly_create_line() throws {
-        throw XCTSkip("""
-the implementation works but not the tests. probably has to do with \t and UTF8 or 16 stuff
-like the emojis. i can't use a real tab in Xcode because it gets transformed in four spaces.
-but when using a real tab in a TextElement, the move works properly. so skipping for now
-until we solved the fucking emoji shit.
-""")
-        
-        let text = """
-like
-\tthere's some space
-so the new line follows that
-"""
-        let element = AccessibilityTextElement(
-            role: .textArea,
-            value: text,
-            length: 54,
-            caretLocation: 18,
-            selectedLength: 1,
-            currentLine: AccessibilityTextElementLine(
-                fullValue: text,
-                number: 2,
-                start: 5,
-                end: 26
-            )
-        )
-        
-        let returnedElement = applyMove(on: element)
-        
-        XCTAssertEqual(returnedElement?.selectedLength, 6)
-        XCTAssertEqual(returnedElement?.selectedText, " space\n\t")            
-    }
-    
     func test_that_if_on_the_last_line_it_does_not_cut_and_put_the_last_character_on_the_next_new_line() {
         let text = """
 it should not cut the last character

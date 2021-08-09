@@ -639,10 +639,24 @@ extension KindaVimEngine {
             ()
         case [.y, .i]:
             ()
+        case [.y, .i, .backtick]:
+            enterNormalMode()
+            
+            if let element = asNormalMode.yiBacktick(on: focusedTextElement()) {
+                push(element: element)
+                lastYankStyle = .characterwise
+            }
         case [.y, .i, .doubleQuote]:
             enterNormalMode()
             
             if let element = asNormalMode.yiDoubleQuote(on: focusedTextElement()) {
+                push(element: element)
+                lastYankStyle = .characterwise
+            }
+        case [.y, .i, .singleQuote]:
+            enterNormalMode()
+            
+            if let element = asNormalMode.yiSingleQuote(on: focusedTextElement()) {
                 push(element: element)
                 lastYankStyle = .characterwise
             }

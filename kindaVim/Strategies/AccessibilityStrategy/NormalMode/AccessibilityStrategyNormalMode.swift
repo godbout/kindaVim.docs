@@ -57,7 +57,9 @@ protocol AccessibilityStrategyNormalModeProtocol {
     func yf(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func yF(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func yiw(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
+    func yiBacktick(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func yiDoubleQuote(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
+    func yiSingleQuote(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func yiLeftBrace(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func yiLeftBracket(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func yiLeftParenthesis(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
@@ -215,6 +217,34 @@ struct AccessibilityStrategyNormalMode: AccessibilityStrategyNormalModeProtocol 
         
         newElement.caretLocation = innerBracketsRange.lowerBound + AccessibilityTextElement.bracketCharacterLength
         newElement.selectedLength = newElement.characterLength
+        newElement.selectedText = nil
+        
+        return newElement
+    }
+    
+    func yiInnerQuotedString(using quote: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        guard let element = element else { return nil }
+        var newElement = element
+        
+        let lineStart = element.currentLine.start              
+        let lineText = element.currentLine.value
+        let lineCaretLocation = element.caretLocation - lineStart
+        
+        if let quotedStringRange = textEngine.innerQuotedString(using: quote, startingAt: lineCaretLocation, in: lineText) {
+            let startQuoteIndex = lineText.utf16.index(lineText.startIndex, offsetBy: quotedStringRange.lowerBound)
+            let endQuoteIndex = lineText.utf16.index(lineText.startIndex, offsetBy: quotedStringRange.upperBound)
+            
+            NSPasteboard.general.clearContents()
+            NSPasteboard.general.setString(String(lineText[startQuoteIndex..<endQuoteIndex]), forType: .string)                
+            
+            newElement.caretLocation = lineStart + quotedStringRange.lowerBound
+            newElement.selectedLength = newElement.characterLength
+            newElement.selectedText = nil
+            
+            return newElement
+        }        
+        
+        newElement.selectedLength = element.characterLength
         newElement.selectedText = nil
         
         return newElement
