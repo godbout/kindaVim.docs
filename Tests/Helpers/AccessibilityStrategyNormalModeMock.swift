@@ -57,6 +57,12 @@ class AccessibilityStrategyNormalModeMock: AccessibilityStrategyNormalModeProtoc
         return nil
     }
     
+    func cG(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        functionCalled = #function
+        
+        return nil
+    }
+    
     func ciw(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         
