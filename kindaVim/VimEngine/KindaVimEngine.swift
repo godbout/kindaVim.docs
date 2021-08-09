@@ -236,7 +236,7 @@ extension KindaVimEngine {
                     push(element: element)
                 }   
             } else {
-//                post(ksNormalMode.p())
+                post(ksNormalMode.p())
             }
         case .P:
             if let element = asNormalMode.P(on: focusedTextElement()) {

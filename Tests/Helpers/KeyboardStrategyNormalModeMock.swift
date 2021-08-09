@@ -151,6 +151,12 @@ class KeyboardStrategyNormalModeMock: KeyboardStrategyNormalModeProtocol {
         return []
     }
     
+    func p() -> [KeyCombination] {
+        functionCalled = #function
+        
+        return []
+    }
+    
     func r(with replacement: KeyCombination) -> [KeyCombination] {
         functionCalled = #function
         
