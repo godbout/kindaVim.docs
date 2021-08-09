@@ -1,3 +1,4 @@
+import AppKit
 import Foundation
 
 
@@ -192,6 +193,31 @@ struct AccessibilityStrategyNormalMode: AccessibilityStrategyNormalModeProtocol 
         print("line start: \(String(describing: element?.currentLine.start))", "line end: \(String(describing: element?.currentLine.end))")
         
         return nil
+    }
+    
+    func yiInnerBrackets(using bracket: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        guard let element = element else { return nil }
+        var newElement = element
+        
+        let value = element.value
+        
+        guard let innerBracketsRange = textEngine.innerBrackets(using: bracket, startingAt: element.caretLocation, in: value) else {
+            newElement.selectedLength = element.characterLength
+            newElement.selectedText = nil
+            
+            return newElement
+        }
+        
+        let startOfRangeIndex = value.utf16.index(value.startIndex, offsetBy: (innerBracketsRange.lowerBound + AccessibilityTextElement.bracketCharacterLength))
+        let endOfRangeIndex = value.utf16.index(value.startIndex, offsetBy: innerBracketsRange.upperBound)
+        NSPasteboard.general.clearContents()
+        NSPasteboard.general.setString(String(value[startOfRangeIndex..<endOfRangeIndex]), forType: .string)
+        
+        newElement.caretLocation = innerBracketsRange.lowerBound + AccessibilityTextElement.bracketCharacterLength
+        newElement.selectedLength = newElement.characterLength
+        newElement.selectedText = nil
+        
+        return newElement
     }
 
 }
