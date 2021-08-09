@@ -24,4 +24,10 @@ class KeyboardStrategyVisualModeMock: KeyboardStrategyVisualModeProtocol {
         
         return []
     }
+    
+    func y() -> [KeyCombination] {
+        functionCalled = #function
+        
+        return []
+    }
 }

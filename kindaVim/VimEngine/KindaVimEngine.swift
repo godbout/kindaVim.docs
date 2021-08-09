@@ -930,6 +930,8 @@ extension KindaVimEngine {
         case .y:
             if let element = asVisualMode.y(on: focusedTextElement()) {
                 push(element: element)
+            } else {
+                post(ksVisualMode.y())
             }
             
             enterNormalMode()
