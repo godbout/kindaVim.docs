@@ -1,8 +1,14 @@
-//
-//  KSUT_VM_gg_Tests.swift
-//  UnitTests
-//
-//  Created by Guillaume Leclerc on 11/08/2021.
-//
+@testable import kindaVim
+import XCTest
 
-import Foundation
+
+class KSUT_VM_gg_Tests: KSUT_BaseTests {
+    
+    func test_that_gg_returns_option_shift_up() {
+        let keyCombinations = ksVisualMode.gg()
+        
+        guard keyCombinations.count == 1 else { return XCTFail() }
+        XCTAssertEqual(keyCombinations[0], KeyCombination(key: .up, option: true, shift: true))
+    }
+    
+}

@@ -18,7 +18,7 @@ extension UsingKS_d_Tests {
     }
     
     func test_that_after_the_first_d_operator_pending_mode_is_on() {
-        XCTAssertEqual(KindaVimEngine.shared.currentMode, .operatorPending)
+        XCTAssertEqual(KindaVimEngine.shared.currentMode, .operatorPendingForNormalMode)
     }
 
 }

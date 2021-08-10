@@ -908,6 +908,8 @@ extension KindaVimEngine {
             if let element = asVisualMode.e(on: focusedTextElement()) {
                 push(element: element)
             }
+        case .g:
+            enterOperatorPendingForVisualMode(with: keyCombination)
         case .G:
             if let element = asVisualMode.G(on: focusedTextElement()) {
                 push(element: element)
@@ -985,6 +987,39 @@ extension KindaVimEngine {
             }  
         default:
             ()
+        }
+    }
+    
+}
+
+
+// operator pending for visual mode
+extension KindaVimEngine {
+    
+    func handleOperatorPendingForVisualMode(with keyCombination: KeyCombination) {
+        operatorPendingBuffer.append(keyCombination)
+        
+        parseOperatorCommandForVisualMode()
+        
+        if currentMode != .operatorPendingForVisualMode {
+            resetOperatorPendingBuffer()
+        }
+    }
+    
+    private func parseOperatorCommandForVisualMode() {
+        switch operatorPendingBuffer.map({ $0.vimKey }) {
+        case [.g, .g]:
+            if let element = asVisualMode.gg(on: focusedTextElement()) {
+                push(element: element)
+            } else {
+                post(ksVisualMode.gg())
+            }        
+            
+            enterVisualMode()
+        default:
+            // if we don't recognize any operator move
+            // go back to visual mode
+            enterVisualMode()
         }
     }
     
