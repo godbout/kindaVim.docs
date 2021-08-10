@@ -23,9 +23,9 @@ struct Display {
     }
     
     func showKeysTyped(lastBeing keyCombination: KeyCombination?) {
-        guard let character = keyCombination?.character else { return }
+        guard let keyCombination = keyCombination else { return }
         
-        charactersWindow.show(lastCharacterBeing: character)
+        charactersWindow.show(lastKeyCombinationBeing: keyCombination)
     }
     
     func fadeOutCharactersWindow() {
