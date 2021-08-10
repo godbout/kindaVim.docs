@@ -568,6 +568,8 @@
 		91835511267CC0A70050B6F4 /* ASKV_NM_[{.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91835510267CC0A70050B6F4 /* ASKV_NM_[{.swift */; };
 		91835517267CC3FF0050B6F4 /* UsingASNM_[{_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91835516267CC3FF0050B6F4 /* UsingASNM_[{_Tests.swift */; };
 		91835521267CC50D0050B6F4 /* ASUT_NM_[{_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91835520267CC50D0050B6F4 /* ASUT_NM_[{_Tests.swift */; };
+		91837F7926C25CA700FE82BA /* UsingASVM_G__Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91837F7826C25CA700FE82BA /* UsingASVM_G__Tests.swift */; };
+		91837F7B26C25D3100FE82BA /* ASKV_VM_G_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91837F7A26C25D3100FE82BA /* ASKV_VM_G_Tests.swift */; };
 		9183EF7A26AEACCC00D2E2F4 /* ASKV_NM_>>.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9183EF7926AEACCC00D2E2F4 /* ASKV_NM_>>.swift */; };
 		9183EF8026AEACF400D2E2F4 /* ASKV_NM_>>.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9183EF7926AEACCC00D2E2F4 /* ASKV_NM_>>.swift */; };
 		9183EF8626AEACF400D2E2F4 /* ASKV_NM_>>.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9183EF7926AEACCC00D2E2F4 /* ASKV_NM_>>.swift */; };
@@ -1390,6 +1392,8 @@
 		91835510267CC0A70050B6F4 /* ASKV_NM_[{.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ASKV_NM_[{.swift"; sourceTree = "<group>"; };
 		91835516267CC3FF0050B6F4 /* UsingASNM_[{_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UsingASNM_[{_Tests.swift"; sourceTree = "<group>"; };
 		91835520267CC50D0050B6F4 /* ASUT_NM_[{_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ASUT_NM_[{_Tests.swift"; sourceTree = "<group>"; };
+		91837F7826C25CA700FE82BA /* UsingASVM_G__Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsingASVM_G__Tests.swift; sourceTree = "<group>"; };
+		91837F7A26C25D3100FE82BA /* ASKV_VM_G_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASKV_VM_G_Tests.swift; sourceTree = "<group>"; };
 		9183EF7926AEACCC00D2E2F4 /* ASKV_NM_>>.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ASKV_NM_>>.swift"; sourceTree = "<group>"; };
 		9183EF9926AEB35500D2E2F4 /* ASUI_NM_>>_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ASUI_NM_>>_Tests.swift"; sourceTree = "<group>"; };
 		9183EFDA26AEC4C000D2E2F4 /* ASKV_NM_<<.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ASKV_NM_<<.swift"; sourceTree = "<group>"; };
@@ -2193,6 +2197,7 @@
 				91FB925F2689CEE6006EB82D /* UsingASVM_c_Tests.swift */,
 				9157B839268789CB0061BE12 /* UsingASVM_d_Tests.swift */,
 				91C7006226930A0C0013C11E /* UsingASVM_e_Tests.swift */,
+				91837F7826C25CA700FE82BA /* UsingASVM_G__Tests.swift */,
 				91C1E4A52684ED93007ABEAA /* UsingASVM_h_Tests.swift */,
 				91EF3918268B8EA200612C4E /* UsingASVM_j_Tests.swift */,
 				91BE76D6268B9BDC00A51A06 /* UsingASVM_k_Tests.swift */,
@@ -2465,6 +2470,7 @@
 				91FB92692689CF58006EB82D /* ASKV_VM_c.swift */,
 				9157B83F26878A340061BE12 /* ASKV_VM_d.swift */,
 				91C7006826930A590013C11E /* ASKV_VM_e.swift */,
+				91837F7A26C25D3100FE82BA /* ASKV_VM_G_Tests.swift */,
 				91C1E49F2684ED78007ABEAA /* ASKV_VM_h.swift */,
 				91EF391E268B8F0F00612C4E /* ASKV_VM_j.swift */,
 				91BE76DC268B9C2000A51A06 /* ASKV_VM_k.swift */,
@@ -3101,6 +3107,7 @@
 				911B5EA326C185DC00B8E3B0 /* KSKV_NM_p.swift in Sources */,
 				9146222126C15E53007F36D9 /* ASKV_NM_yi[.swift in Sources */,
 				91F67A4C267F4592007C8517 /* ASKV_NM_df.swift in Sources */,
+				91837F7B26C25D3100FE82BA /* ASKV_VM_G_Tests.swift in Sources */,
 				91AB98F62674D73A007682CA /* ASKV_NM_^.swift in Sources */,
 				916F741526B9850F007CC8F9 /* KSKV_NM_cG.swift in Sources */,
 				91842081267CF72C0085711E /* ASKV_NM_]).swift in Sources */,
@@ -3265,6 +3272,7 @@
 				910B05CA2642AECC005D287C /* FailingAccessibilityStrategyNormalModeStub.swift in Sources */,
 				912B92D426443A06007F44E1 /* KSUT_NM_yy_Tests.swift in Sources */,
 				913204F826B6F7D00005920C /* ASUT_NM_ci)_Tests.swift in Sources */,
+				91837F7926C25CA700FE82BA /* UsingASVM_G__Tests.swift in Sources */,
 				91A9439D267662B30004B80C /* ASUT_NM_ct_Tests.swift in Sources */,
 				91FF3C5E26ABD4DA00A1DF5E /* AccessibilityStrategyMock.swift in Sources */,
 				91FB0575267F41B200581F63 /* UsingASNM_cf_Tests.swift in Sources */,

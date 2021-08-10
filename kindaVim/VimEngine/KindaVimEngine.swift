@@ -901,7 +901,11 @@ extension KindaVimEngine {
                 push(element: element)
             }
         case .G:
-            post(ksVisualMode.G())
+            if let element = asVisualMode.G(on: focusedTextElement()) {
+                push(element: element)
+            } else {
+                post(ksVisualMode.G())
+            }
         case .h:
             if let element = asVisualMode.h(on: focusedTextElement()) {
                 push(element: element)
