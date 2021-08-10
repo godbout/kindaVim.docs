@@ -12,7 +12,6 @@ extension AccessibilityStrategyVisualMode {
                 newElement.caretLocation = lineAtHead.end - AccessibilityTextElement.linefeedCharacterLength
                 newElement.selectedLength = (Self.anchor + element.characterLengthForCharacter(at: Self.anchor)) - newElement.caretLocation
             }
-            
         }
         
         newElement.selectedText = nil
