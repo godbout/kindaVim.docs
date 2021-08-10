@@ -45,8 +45,9 @@ struct GlobalEventsController {
     
     private static func inNormalModeOrOperatorPendingModeOrVisualMode() -> Bool {
         return KindaVimEngine.shared.currentMode == .normal
-            || KindaVimEngine.shared.currentMode == .operatorPending
+            || KindaVimEngine.shared.currentMode == .operatorPendingForNormalMode
             || KindaVimEngine.shared.currentMode == .visual
+            || KindaVimEngine.shared.currentMode == .operatorPendingForVisualMode
     }
     
     private static func globalVimEngineHotkeyIsPressed(_ keyCombination: KeyCombination) -> Bool {

@@ -3,10 +3,11 @@ import Foundation
 
 enum VimEngineMode {
     
-    case normal
     case insert
-    case operatorPending
+    case normal
+    case operatorPendingForNormalMode
     case visual
+    case operatorPendingForVisualMode
     
 }
 
@@ -45,10 +46,12 @@ class KindaVimEngine {
         switch currentMode {
         case .normal:
             handleNormalMode(with: keyCombination)
-        case .operatorPending:
-            handleOperatorPendingMode(with: keyCombination)
+        case .operatorPendingForNormalMode:
+            handleOperatorPendingForNormalMode(with: keyCombination)
         case .visual:
             handleVisualMode(with: keyCombination)
+        case .operatorPendingForVisualMode:
+            handleOperatorPendingForVisualMode(with: keyCombination)
         default:
             ()
         }
@@ -73,8 +76,13 @@ class KindaVimEngine {
         display.hazeOver(.on)
     }
     
-    private func enterOperatorPendingMode(with keyCombination: KeyCombination) {
-        currentMode = .operatorPending
+    private func enterOperatorPendingForNormalMode(with keyCombination: KeyCombination) {
+        currentMode = .operatorPendingForNormalMode
+        operatorPendingBuffer.append(keyCombination)
+    }
+    
+    private func enterOperatorPendingForVisualMode(with keyCombination: KeyCombination) {
+        currentMode = .operatorPendingForVisualMode
         operatorPendingBuffer.append(keyCombination)
     }
     
@@ -140,7 +148,7 @@ extension KindaVimEngine {
                 post(ksNormalMode.b())
             }
         case .c:
-            enterOperatorPendingMode(with: keyCombination)
+            enterOperatorPendingForNormalMode(with: keyCombination)
         case .C:
             enterInsertMode()
             
@@ -150,7 +158,7 @@ extension KindaVimEngine {
                 post(ksNormalMode.C())
             }
         case .d:
-            enterOperatorPendingMode(with: keyCombination)
+            enterOperatorPendingForNormalMode(with: keyCombination)
         case .controlD:
             post(ksNormalMode.controlD())
         case .e:
@@ -162,11 +170,11 @@ extension KindaVimEngine {
                 push(element: element)
             }
         case .f:
-            enterOperatorPendingMode(with: keyCombination)
+            enterOperatorPendingForNormalMode(with: keyCombination)
         case .F:
-            enterOperatorPendingMode(with: keyCombination)
+            enterOperatorPendingForNormalMode(with: keyCombination)
         case .g:
-            enterOperatorPendingMode(with: keyCombination)
+            enterOperatorPendingForNormalMode(with: keyCombination)
         case .G:
             if let element = asNormalMode.G(on: focusedTextElement()) {
                 push(element: element)
@@ -250,7 +258,7 @@ extension KindaVimEngine {
 //                post(ksNormalMode.P())
             }
         case .r:
-            enterOperatorPendingMode(with: keyCombination)
+            enterOperatorPendingForNormalMode(with: keyCombination)
         case .controlR:
             post(ksNormalMode.controlR())
         case .s:
@@ -258,9 +266,9 @@ extension KindaVimEngine {
             
             post(ksNormalMode.s())
         case .t:
-            enterOperatorPendingMode(with: keyCombination)
+            enterOperatorPendingForNormalMode(with: keyCombination)
         case .T:
-            enterOperatorPendingMode(with: keyCombination)
+            enterOperatorPendingForNormalMode(with: keyCombination)
         case .u:
             post(ksNormalMode.u())
         case .controlU:
@@ -306,7 +314,7 @@ extension KindaVimEngine {
         case .X:
             post(ksNormalMode.X())
         case .y:
-            enterOperatorPendingMode(with: keyCombination)
+            enterOperatorPendingForNormalMode(with: keyCombination)
         case .Y:
             lastYankStyle = .linewise
 
@@ -355,9 +363,9 @@ extension KindaVimEngine {
                 push(element: element)
             }
         case .leftBracket:
-            enterOperatorPendingMode(with: KeyCombination(key: .leftBracket))
+            enterOperatorPendingForNormalMode(with: KeyCombination(key: .leftBracket))
         case .leftChevron:
-            enterOperatorPendingMode(with: KeyCombination(vimKey: .leftChevron))
+            enterOperatorPendingForNormalMode(with: KeyCombination(vimKey: .leftChevron))
         case .percent:
             if let element = asNormalMode.percent(on: focusedTextElement()) {
                 push(element: element)
@@ -367,9 +375,9 @@ extension KindaVimEngine {
                 push(element: element)
             }
         case .rightBracket:
-            enterOperatorPendingMode(with: KeyCombination(key: .rightBracket))
+            enterOperatorPendingForNormalMode(with: KeyCombination(key: .rightBracket))
         case .rightChevron:
-            enterOperatorPendingMode(with: KeyCombination(vimKey: .rightChevron))
+            enterOperatorPendingForNormalMode(with: KeyCombination(vimKey: .rightChevron))
         case .underscore:
             if let element = asNormalMode.underscore(on: focusedTextElement()) {
                 push(element: element)
@@ -390,15 +398,15 @@ extension KindaVimEngine {
 }
 
 
-// operator pending mode
+// operator pending for normal mode
 extension KindaVimEngine {
     
-    func handleOperatorPendingMode(with keyCombination: KeyCombination) {
+    func handleOperatorPendingForNormalMode(with keyCombination: KeyCombination) {
         operatorPendingBuffer.append(keyCombination)
         
         parseOperatorCommand()
         
-        if currentMode != .operatorPending {
+        if currentMode != .operatorPendingForNormalMode {
             resetOperatorPendingBuffer()
         }
     }
