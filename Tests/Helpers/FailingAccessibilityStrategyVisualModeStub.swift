@@ -20,6 +20,10 @@ struct FailingAccessibilityStrategyVisualModeStub: AccessibilityStrategyVisualMo
         return nil
     }
     
+    func gg(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        return nil
+    }
+    
     func G(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return nil
     }

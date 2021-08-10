@@ -7,6 +7,7 @@ protocol AccessibilityStrategyVisualModeProtocol {
     func c(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func d(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func e(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
+    func gg(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func G(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func h(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func j(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
