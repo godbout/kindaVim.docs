@@ -381,7 +381,7 @@
 		916F743126B98575007CC8F9 /* KSKV_NM_dj.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916F743026B98575007CC8F9 /* KSKV_NM_dj.swift */; };
 		916F743826B98587007CC8F9 /* KSKV_NM_dgg.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916F743726B98587007CC8F9 /* KSKV_NM_dgg.swift */; };
 		916F743F26B9859D007CC8F9 /* KSKV_NM_dG.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916F743E26B9859D007CC8F9 /* KSKV_NM_dG.swift */; };
-		916F744626B985B0007CC8F9 /* KSKV_NM_G.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916F744526B985B0007CC8F9 /* KSKV_NM_G.swift */; };
+		916F744626B985B0007CC8F9 /* KSKV_NM_G_.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916F744526B985B0007CC8F9 /* KSKV_NM_G_.swift */; };
 		916F744D26B985C6007CC8F9 /* KSKV_NM_gg.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916F744C26B985C6007CC8F9 /* KSKV_NM_gg.swift */; };
 		916F745426B985D9007CC8F9 /* KSKV_NM_h.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916F745326B985D9007CC8F9 /* KSKV_NM_h.swift */; };
 		916F745B26B985EE007CC8F9 /* KSKV_NM_I_.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916F745A26B985EE007CC8F9 /* KSKV_NM_I_.swift */; };
@@ -425,7 +425,7 @@
 		916F75D426B98BEC007CC8F9 /* KSKV_NM_h.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916F745326B985D9007CC8F9 /* KSKV_NM_h.swift */; };
 		916F75D526B98BEC007CC8F9 /* KSKV_NM_r.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916F748426B9867B007CC8F9 /* KSKV_NM_r.swift */; };
 		916F75D626B98BEC007CC8F9 /* KSKV_NM_k.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916F746826B98625007CC8F9 /* KSKV_NM_k.swift */; };
-		916F75D726B98BEC007CC8F9 /* KSKV_NM_G.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916F744526B985B0007CC8F9 /* KSKV_NM_G.swift */; };
+		916F75D726B98BEC007CC8F9 /* KSKV_NM_G_.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916F744526B985B0007CC8F9 /* KSKV_NM_G_.swift */; };
 		916F75D826B98BEC007CC8F9 /* KSKV_NM_yiw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916F74B526B9871C007CC8F9 /* KSKV_NM_yiw.swift */; };
 		916F75D926B98BEC007CC8F9 /* KSKV_NM_j.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916F746126B9860E007CC8F9 /* KSKV_NM_j.swift */; };
 		916F75DA26B98BEC007CC8F9 /* KSKV_NM_dgg.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916F743726B98587007CC8F9 /* KSKV_NM_dgg.swift */; };
@@ -491,7 +491,7 @@
 		916F764326B98CD2007CC8F9 /* KSKV_NM_r.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916F748426B9867B007CC8F9 /* KSKV_NM_r.swift */; };
 		916F764426B98CD2007CC8F9 /* KSKV_NM_u.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916F749226B986AA007CC8F9 /* KSKV_NM_u.swift */; };
 		916F764526B98CD2007CC8F9 /* KSKV_NM_controlU.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916F74FE26B98866007CC8F9 /* KSKV_NM_controlU.swift */; };
-		916F764626B98CD2007CC8F9 /* KSKV_NM_G.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916F744526B985B0007CC8F9 /* KSKV_NM_G.swift */; };
+		916F764626B98CD2007CC8F9 /* KSKV_NM_G_.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916F744526B985B0007CC8F9 /* KSKV_NM_G_.swift */; };
 		916F764726B98CD2007CC8F9 /* KSKV_NM_ciw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916F741B26B98525007CC8F9 /* KSKV_NM_ciw.swift */; };
 		916F764826B98CD2007CC8F9 /* KSKV_NM_j.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916F746126B9860E007CC8F9 /* KSKV_NM_j.swift */; };
 		916F764926B98CD2007CC8F9 /* KSKV_NM_cc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916F740626B984DD007CC8F9 /* KSKV_NM_cc.swift */; };
@@ -531,7 +531,7 @@
 		916F767026B98CD3007CC8F9 /* KSKV_NM_r.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916F748426B9867B007CC8F9 /* KSKV_NM_r.swift */; };
 		916F767126B98CD3007CC8F9 /* KSKV_NM_u.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916F749226B986AA007CC8F9 /* KSKV_NM_u.swift */; };
 		916F767226B98CD3007CC8F9 /* KSKV_NM_controlU.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916F74FE26B98866007CC8F9 /* KSKV_NM_controlU.swift */; };
-		916F767326B98CD3007CC8F9 /* KSKV_NM_G.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916F744526B985B0007CC8F9 /* KSKV_NM_G.swift */; };
+		916F767326B98CD3007CC8F9 /* KSKV_NM_G_.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916F744526B985B0007CC8F9 /* KSKV_NM_G_.swift */; };
 		916F767426B98CD3007CC8F9 /* KSKV_NM_ciw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916F741B26B98525007CC8F9 /* KSKV_NM_ciw.swift */; };
 		916F767526B98CD3007CC8F9 /* KSKV_NM_j.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916F746126B9860E007CC8F9 /* KSKV_NM_j.swift */; };
 		916F767626B98CD3007CC8F9 /* KSKV_NM_cc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916F740626B984DD007CC8F9 /* KSKV_NM_cc.swift */; };
@@ -1338,7 +1338,7 @@
 		916F743026B98575007CC8F9 /* KSKV_NM_dj.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSKV_NM_dj.swift; sourceTree = "<group>"; };
 		916F743726B98587007CC8F9 /* KSKV_NM_dgg.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSKV_NM_dgg.swift; sourceTree = "<group>"; };
 		916F743E26B9859D007CC8F9 /* KSKV_NM_dG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSKV_NM_dG.swift; sourceTree = "<group>"; };
-		916F744526B985B0007CC8F9 /* KSKV_NM_G.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSKV_NM_G.swift; sourceTree = "<group>"; };
+		916F744526B985B0007CC8F9 /* KSKV_NM_G_.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSKV_NM_G_.swift; sourceTree = "<group>"; };
 		916F744C26B985C6007CC8F9 /* KSKV_NM_gg.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSKV_NM_gg.swift; sourceTree = "<group>"; };
 		916F745326B985D9007CC8F9 /* KSKV_NM_h.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSKV_NM_h.swift; sourceTree = "<group>"; };
 		916F745A26B985EE007CC8F9 /* KSKV_NM_I_.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSKV_NM_I_.swift; sourceTree = "<group>"; };
@@ -2118,7 +2118,7 @@
 				916F743026B98575007CC8F9 /* KSKV_NM_dj.swift */,
 				916F743726B98587007CC8F9 /* KSKV_NM_dgg.swift */,
 				916F743E26B9859D007CC8F9 /* KSKV_NM_dG.swift */,
-				916F744526B985B0007CC8F9 /* KSKV_NM_G.swift */,
+				916F744526B985B0007CC8F9 /* KSKV_NM_G_.swift */,
 				916F744C26B985C6007CC8F9 /* KSKV_NM_gg.swift */,
 				916F745326B985D9007CC8F9 /* KSKV_NM_h.swift */,
 				916F745A26B985EE007CC8F9 /* KSKV_NM_I_.swift */,
@@ -3152,7 +3152,7 @@
 				916F74F126B98829007CC8F9 /* KSKV_NM_controlD.swift in Sources */,
 				91C3B2FD2681DF480053B478 /* beginningOfParagraphBackward.swift in Sources */,
 				91DAB793267F47680057C567 /* ASKV_NM_cF__.swift in Sources */,
-				916F744626B985B0007CC8F9 /* KSKV_NM_G.swift in Sources */,
+				916F744626B985B0007CC8F9 /* KSKV_NM_G_.swift in Sources */,
 				91EDF141267F92A400007F2C /* ASKV_NM_yT_.swift in Sources */,
 				9179220126921F520002DB1C /* ASKV_VM_0.swift in Sources */,
 				918DD80726C181FE00EE42E5 /* KSKV_VM_y.swift in Sources */,
@@ -3570,7 +3570,7 @@
 				9147351726A2007E00B20466 /* beginningOfParagraphBackward.swift in Sources */,
 				916034ED26BBFE6C00977AB3 /* KeyboardStrategyVisualMode.swift in Sources */,
 				9147352C26A200CE00B20466 /* ASKV_NM_dd.swift in Sources */,
-				916F767326B98CD3007CC8F9 /* KSKV_NM_G.swift in Sources */,
+				916F767326B98CD3007CC8F9 /* KSKV_NM_G_.swift in Sources */,
 				916F767626B98CD3007CC8F9 /* KSKV_NM_cc.swift in Sources */,
 				9147354C26A200CE00B20466 /* ASKV_NM_h.swift in Sources */,
 				9132043026B6F39F0005920C /* ASKV_NM_ci(.swift in Sources */,
@@ -3800,7 +3800,7 @@
 				91CD1B9A26860AAE008DBCBB /* ASKV_NM_W_.swift in Sources */,
 				91CD1B5B26860A95008DBCBB /* ASKV_VM_o.swift in Sources */,
 				91CD1B6326860AAE008DBCBB /* ASKV_NM_]).swift in Sources */,
-				916F75D726B98BEC007CC8F9 /* KSKV_NM_G.swift in Sources */,
+				916F75D726B98BEC007CC8F9 /* KSKV_NM_G_.swift in Sources */,
 				91CD1B6026860AAE008DBCBB /* ASKV_NM_$.swift in Sources */,
 				916F75E226B98BEC007CC8F9 /* KSKV_NM_cG.swift in Sources */,
 				916F75EC26B98BEC007CC8F9 /* KSKV_NM__.swift in Sources */,
@@ -4083,7 +4083,7 @@
 				91DD4D862681F0960021ABC2 /* endOfWordBackward.swift in Sources */,
 				91DD4D5C2681F05B0021ABC2 /* ASKV_NM_}.swift in Sources */,
 				91AB99142674D812007682CA /* ASKV_NM_a.swift in Sources */,
-				916F764626B98CD2007CC8F9 /* KSKV_NM_G.swift in Sources */,
+				916F764626B98CD2007CC8F9 /* KSKV_NM_G_.swift in Sources */,
 				91AB99282674D812007682CA /* ASKV_NM_w.swift in Sources */,
 				91B9CBC3267682430040C49B /* ASKV_NM_B_.swift in Sources */,
 				918F44592689D61C003EAEE0 /* ASKV_NM_dj.swift in Sources */,
