@@ -23,6 +23,17 @@ extension AccessibilityStrategyVisualMode {
     private func ggForVisualModeLinewise(on element: AccessibilityTextElement) -> AccessibilityTextElement {
         var newElement = element
         
+        guard let lineAtAnchor = AccessibilityTextElementAdaptor.lineFor(location: AccessibilityStrategyVisualMode.anchor) else {
+            newElement.selectedLength = element.characterLength
+            newElement.selectedText = nil
+            
+            return newElement             
+        }
+        
+        newElement.caretLocation = 0
+        newElement.selectedLength = lineAtAnchor.end
+        newElement.selectedText = nil
+        
         return newElement
     }
     
