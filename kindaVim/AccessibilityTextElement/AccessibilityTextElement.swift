@@ -83,16 +83,17 @@ struct AccessibilityTextElement {
     
     var caretLocation: Int {
         didSet {
-            if KindaVimEngine.shared.currentMode == .normal || KindaVimEngine.shared.currentMode == .insert {
+            if KindaVimEngine.shared.currentMode == .normal || KindaVimEngine.shared.currentMode == .operatorPendingForNormalMode || KindaVimEngine.shared.currentMode == .insert {
                 if let lineForLocation = AccessibilityTextElementAdaptor.lineFor(location: caretLocation), lineForLocation.isNotAnEmptyLine {                    
                     Self.globalColumnNumber = (caretLocation - lineForLocation.start) + 1
+                    print(Self.globalColumnNumber)
                 }
             }
         }
     }
     var selectedLength: Int {
         didSet {
-            if KindaVimEngine.shared.currentMode == .visual {
+            if KindaVimEngine.shared.currentMode == .visual || KindaVimEngine.shared.currentMode == .operatorPendingForVisualMode {
                 if AccessibilityStrategyVisualMode.anchor != nil {
                     if caretLocation < AccessibilityStrategyVisualMode.anchor {
                         AccessibilityStrategyVisualMode.head = caretLocation
