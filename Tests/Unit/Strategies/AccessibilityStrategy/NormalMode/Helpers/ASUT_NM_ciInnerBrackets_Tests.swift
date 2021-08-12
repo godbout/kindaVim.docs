@@ -7,6 +7,7 @@ import XCTest
 // spans on a line or several. this is up to ciInnerBrackets to handle this, which is
 // what we test here.
 // also so other stuff like going back to IM or NM have to be tested through UI.
+// also one of the test where we reposition the cursor to the first non blank need to be done through UI.
 class ASUT_NM_ciInnerBrackets_Tests: ASNM_BaseTests {
     
     private func applyMove(using bracket: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {

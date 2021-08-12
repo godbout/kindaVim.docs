@@ -112,8 +112,15 @@ struct AccessibilityStrategyNormalMode: AccessibilityStrategyNormalModeProtocol 
         let characterAfterLeftBracketIndex = value.utf16.index(after: leftBracketIndex)
         
         if value[characterAfterLeftBracketIndex] == "\n" {
-            newElement.caretLocation = innerBracketsRange.lowerBound + Character.bracketCharacterLength + Character.linefeedCharacterLength
-            newElement.selectedLength = innerBracketsRange.count - Character.bracketCharacterLength - Character.linefeedCharacterLength
+            guard let firstLineAfterLeftBracket = AccessibilityTextElementAdaptor.lineFor(location: innerBracketsRange.lowerBound + Character.bracketCharacterLength + Character.linefeedCharacterLength) else { 
+                newElement.selectedLength = element.characterLength
+                newElement.selectedText = nil
+                
+                return newElement
+            }
+                
+            newElement.caretLocation = innerBracketsRange.lowerBound + Character.bracketCharacterLength + Character.linefeedCharacterLength + textEngine.firstNonBlankWithinLineLimit(in: TextEngineLine(from: firstLineAfterLeftBracket.value))
+            newElement.selectedLength = innerBracketsRange.count - Character.bracketCharacterLength - Character.linefeedCharacterLength - textEngine.firstNonBlankWithinLineLimit(in: TextEngineLine(from: firstLineAfterLeftBracket.value))
         } else {
             newElement.caretLocation = innerBracketsRange.lowerBound + Character.bracketCharacterLength
             newElement.selectedLength = innerBracketsRange.count - Character.bracketCharacterLength

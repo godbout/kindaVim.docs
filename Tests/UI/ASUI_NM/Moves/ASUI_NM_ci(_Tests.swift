@@ -5,6 +5,9 @@ import XCTest
 // see ci" for blah blah 
 // plus we don't test ci[, ci{ and ci)]} because in KVE it's copy/pasted
 // and the UI Tests are expensive :(
+// also we have another test that checks that we position the caret properly in a special
+// case where we follow autoindentation and first non blank blah blah. currently only this
+// part of the move is calling lineFor, which requires a UI Test.
 class UIASNM_ciLeftParenthesis_Tests: ASUI_NM_BaseTests {
     
     private func applyMoveAndGetBackAccessibilityElement() -> AccessibilityTextElement? {
@@ -74,6 +77,29 @@ hoho no bracket on that shit
         KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .leftParenthesis))
         
         XCTAssertEqual(KindaVimEngine.shared.currentMode, .normal)
+    }
+    
+    func test_that_in_the_case_where_it_leaves_an_empty_line_between_the_brackets_it_positions_the_cursor_according_to_the_first_non_blank_of_the_first_line_that_is_after_the_opening_bracket() {
+        let textInAXFocusedElement = """
+now that shit will get cleaned (
+    and the non blank
+  will be respected!
+)
+"""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)                
+        KindaVimEngine.shared.enterNormalMode()
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .k))
+        
+        let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
+        
+        XCTAssertEqual(accessibilityElement?.value, """
+now that shit will get cleaned (
+    
+)
+"""
+        )
+        XCTAssertEqual(accessibilityElement?.caretLocation, 37)
     }
     
 }
