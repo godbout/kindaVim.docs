@@ -125,7 +125,7 @@ struct TextEngineLine: TextEngineTextObjectProtocol {
 
 
 struct TextEngine: TextEngineProtocol {
-    
+
     func pairingBracket(of bracket: Character) -> Character? {
         switch bracket {
         case "{":
@@ -183,7 +183,7 @@ extension TextEngine {
     func findPreviousUnmatched(_ bracket: Character, before location: Int, in text: String) -> Int? {
         guard let pairingBracket = pairingBracket(of: bracket) else { return nil }
         
-        let searchEndIndex = text.utf16.index(text.startIndex, offsetBy: location)
+        guard let searchEndIndex = text.utf16.index(text.startIndex, offsetBy: location, limitedBy: text.endIndex) else { return nil }
         
         guard let lastLeftBracketFoundIndex = text[..<searchEndIndex].lastIndex(of: bracket) else { return nil }
         
