@@ -202,22 +202,55 @@ struct AccessibilityStrategyNormalMode: AccessibilityStrategyNormalModeProtocol 
     func yiInnerBrackets(using bracket: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         guard let element = element else { return nil }
         var newElement = element
-        
+                
         let value = element.value
         
         guard let innerBracketsRange = textEngine.innerBrackets(using: bracket, startingAt: element.caretLocation, in: value) else {
+            KindaVimEngine.shared.lastYankStyle = .characterwise
+            
             newElement.selectedLength = element.characterLength
             newElement.selectedText = nil
-            
+                        
             return newElement
         }
         
-        let startOfRangeIndex = value.utf16.index(value.startIndex, offsetBy: (innerBracketsRange.lowerBound + Character.bracketCharacterLength))
-        let endOfRangeIndex = value.utf16.index(value.startIndex, offsetBy: innerBracketsRange.upperBound)
-        NSPasteboard.general.clearContents()
-        NSPasteboard.general.setString(String(value[startOfRangeIndex..<endOfRangeIndex]), forType: .string)
+        let leftBracketIndex = value.utf16.index(value.startIndex, offsetBy: innerBracketsRange.lowerBound)
+        let characterAfterLeftBracketIndex = value.utf16.index(after: leftBracketIndex)
         
-        newElement.caretLocation = innerBracketsRange.lowerBound + Character.bracketCharacterLength
+        // here we don't necessarily copy from bracket to bracket. there's some rules like if the opening bracket
+        // is directly followed by a linefeed, or the closing one is preceded by a linefeed, or whitespaces, etc, etc.
+        // so we need to calculate how much of the text within the brackets need to be copied.
+        let startOfTextToBeCopiedIndex: String.Index
+        var endOfTextToBeCopiedIndex: String.Index
+        
+        if value[characterAfterLeftBracketIndex] == "\n" {
+            startOfTextToBeCopiedIndex = value.utf16.index(value.startIndex, offsetBy: innerBracketsRange.lowerBound + Character.bracketCharacterLength + Character.linefeedCharacterLength)
+            endOfTextToBeCopiedIndex = value.utf16.index(value.startIndex, offsetBy: innerBracketsRange.upperBound)
+        } else {
+            startOfTextToBeCopiedIndex = value.utf16.index(value.startIndex, offsetBy: innerBracketsRange.lowerBound + Character.bracketCharacterLength)
+            endOfTextToBeCopiedIndex = value.utf16.index(value.startIndex, offsetBy: innerBracketsRange.upperBound)
+        }
+        
+        let startOfLineWhereClosingBracketIs = (textEngine.findPrevious("\n", before: innerBracketsRange.upperBound , in: value) ?? 0) + Character.linefeedCharacterLength
+        let startOfLineWhereClosingBracketIsIndex = value.utf16.index(value.startIndex, offsetBy: startOfLineWhereClosingBracketIs)
+        let endOfLineWhereClosingBracketIs = textEngine.findNext("\n", after: innerBracketsRange.upperBound, in: TextEngineText(from: value)) ?? element.length
+        let endOfLineWhereClosingBracketIsIndex = value.utf16.index(value.startIndex, offsetBy: endOfLineWhereClosingBracketIs)
+        let lineValueOfLineWhereClosingBracketIs = value[startOfLineWhereClosingBracketIsIndex..<endOfLineWhereClosingBracketIsIndex]
+        
+        let firstNonBlankOfLineWhereClosingBracketIs = textEngine.firstNonBlank(in: String(lineValueOfLineWhereClosingBracketIs))
+        
+        if startOfLineWhereClosingBracketIs + firstNonBlankOfLineWhereClosingBracketIs == innerBracketsRange.upperBound {
+            KindaVimEngine.shared.lastYankStyle = .linewise
+            
+            endOfTextToBeCopiedIndex = value.utf16.index(value.startIndex, offsetBy: startOfLineWhereClosingBracketIs - Character.linefeedCharacterLength)
+        } else {
+            KindaVimEngine.shared.lastYankStyle = .characterwise
+        }
+        
+        NSPasteboard.general.clearContents()
+        NSPasteboard.general.setString(String(value[startOfTextToBeCopiedIndex..<endOfTextToBeCopiedIndex]), forType: .string)       
+        
+        newElement.caretLocation = value.distance(from: value.startIndex, to: startOfTextToBeCopiedIndex)
         newElement.selectedLength = newElement.characterLength
         newElement.selectedText = nil
         

@@ -681,42 +681,36 @@ extension KindaVimEngine {
             
             if let element = asNormalMode.yiLeftBrace(on: focusedTextElement()) {
                 push(element: element)
-                lastYankStyle = .characterwise
             }
         case [.y, .i, .leftBracket]:
             enterNormalMode()
             
             if let element = asNormalMode.yiLeftBracket(on: focusedTextElement()) {
                 push(element: element)
-                lastYankStyle = .characterwise
             }
         case [.y, .i, .leftParenthesis]:
             enterNormalMode()
             
             if let element = asNormalMode.yiLeftParenthesis(on: focusedTextElement()) {
                 push(element: element)
-                lastYankStyle = .characterwise
             }
         case [.y, .i, .rightBrace]:
             enterNormalMode()
             
             if let element = asNormalMode.yiRightBrace(on: focusedTextElement()) {
                 push(element: element)
-                lastYankStyle = .characterwise
             }
         case [.y, .i, .rightBracket]:
             enterNormalMode()
             
             if let element = asNormalMode.yiRightBracket(on: focusedTextElement()) {
                 push(element: element)
-                lastYankStyle = .characterwise
             }
         case [.y, .i, .rightParenthesis]:
             enterNormalMode()
             
             if let element = asNormalMode.yiRightParenthesis(on: focusedTextElement()) {
                 push(element: element)
-                lastYankStyle = .characterwise
             }
         case [.y, .i, .w]:
             enterNormalMode()
