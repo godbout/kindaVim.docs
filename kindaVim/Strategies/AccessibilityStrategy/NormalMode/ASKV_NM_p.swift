@@ -22,11 +22,24 @@ extension AccessibilityStrategyNormalMode {
         var textToPaste = TextEngineLine(from: NSPasteboard.general.string(forType: .string) ?? "")
         textToPaste.removeTrailingLinefeedIfAny()
         
-        newElement.caretLocation += element.characterLength
+        newElement.caretLocation = element.caretLocation + element.characterLength
         newElement.selectedLength = 0
         newElement.selectedText = textToPaste.value
         
-        return newElement
+        _ = AccessibilityTextElementAdaptor.toAXFocusedElement(from: newElement)
+        
+        guard var updatedElement = AccessibilityTextElementAdaptor.fromAXFocusedElement() else {
+            newElement.selectedLength = newElement.characterLength
+            newElement.selectedText = nil
+            
+            return newElement    
+        } 
+        
+        updatedElement.caretLocation -= updatedElement.characterLengthForCharacter(before: updatedElement.caretLocation)
+        updatedElement.selectedLength = updatedElement.characterLength
+        updatedElement.selectedText = nil
+        
+        return updatedElement
     }
     
     private func pForTextAreas(on element: AccessibilityTextElement) -> AccessibilityTextElement {
@@ -46,18 +59,39 @@ extension AccessibilityStrategyNormalMode {
     private func pForTextAreasCharacterwise(on element: AccessibilityTextElement) -> AccessibilityTextElement {
         var newElement = element
         
-        guard element.currentLine.isNotAnEmptyLine else {
-            newElement.selectedLength = 0
-            newElement.selectedText = NSPasteboard.general.string(forType: .string)    
+        let textToPaste = NSPasteboard.general.string(forType: .string) ?? ""
+        
+        if element.currentLine.isAnEmptyLine {
+            newElement.caretLocation = element.caretLocation
+        } else {
+            newElement.caretLocation = element.caretLocation + element.characterLength
+        }
+                
+        newElement.selectedLength = 0
+        newElement.selectedText = textToPaste
+        
+        _ = AccessibilityTextElementAdaptor.toAXFocusedElement(from: newElement)
+        
+        guard var updatedElement = AccessibilityTextElementAdaptor.fromAXFocusedElement() else {
+            newElement.selectedLength = newElement.characterLength
+            newElement.selectedText = nil
             
             return newElement
         }
         
-        newElement.caretLocation += element.characterLength
-        newElement.selectedLength = 0
-        newElement.selectedText = NSPasteboard.general.string(forType: .string)
+        guard textToPaste.contains("\n") == false else {
+            updatedElement.caretLocation = newElement.caretLocation + newElement.characterLength
+            updatedElement.selectedLength = updatedElement.characterLength
+            updatedElement.selectedText = nil
+            
+            return updatedElement
+        }
         
-        return newElement
+        updatedElement.caretLocation -= updatedElement.characterLengthForCharacter(before: updatedElement.caretLocation)
+        updatedElement.selectedLength = updatedElement.characterLength
+        updatedElement.selectedText = nil
+        
+        return updatedElement        
     }
 
     private func pForTextAreasLinewise(on element: AccessibilityTextElement) -> AccessibilityTextElement {
@@ -79,11 +113,23 @@ extension AccessibilityStrategyNormalMode {
         
         _ = AccessibilityTextElementAdaptor.toAXFocusedElement(from: newElement)
         
-        newElement.caretLocation += 1 + textEngine.firstNonBlank(in: textToPaste.value)
-        newElement.selectedLength = newElement.characterLength
-        newElement.selectedText = nil
+        guard var updatedElement = AccessibilityTextElementAdaptor.fromAXFocusedElement() else {
+            newElement.selectedLength = newElement.characterLength
+            newElement.selectedText = nil
+            
+            return newElement
+        }
         
-        return newElement    
+        if element.currentLine.isTheLastLine {
+            updatedElement.caretLocation = (newElement.caretLocation + Character.linefeedCharacterLength) + textEngine.firstNonBlank(in: textToPaste.value) 
+        } else {
+            updatedElement.caretLocation = newElement.caretLocation + textEngine.firstNonBlank(in: textToPaste.value)
+        }
+        
+        updatedElement.selectedLength = updatedElement.characterLength
+        updatedElement.selectedText = nil
+        
+        return updatedElement
     }
     
 }

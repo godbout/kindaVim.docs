@@ -238,11 +238,6 @@ extension KindaVimEngine {
         case .p:
             if let element = asNormalMode.p(on: focusedTextElement()) {
                 push(element: element)
-                
-                if var element = asNormalMode.h(on: focusedTextElement()) {                        
-                    element.selectedLength = element.characterLength
-                    push(element: element)
-                }   
             } else {
                 post(ksNormalMode.p())
             }
