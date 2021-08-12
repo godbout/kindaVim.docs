@@ -4,7 +4,9 @@ import XCTest
 
 // this is using TE innerBrackets which is already heavily tested.
 // so here we test only what is specific to the move, which is the NSPasteboard
-// and the caret location, selectedLengh and selectedText
+// and the caret location, selectedLengh and selectedText and also whether
+// the lastYankStyle goes Characterwise or Linewise (tested here because it does depend
+// on the text that is being copied, so cannot test in KVE).
 class ASUT_NM_yiInnerBrackets_Tests: ASNM_BaseTests {
     
     private func applyMove(using bracket: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
