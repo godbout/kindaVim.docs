@@ -123,10 +123,7 @@ struct AccessibilityTextElement {
     var previousCharacterLength: Int {
         return value.characterLengthForCharacter(before: caretLocation)
     }
-    static var linefeedCharacterLength = 1
-    static var bracketCharacterLength = 1
-    static var quoteCharacterLength = 1
-    
+
     func characterLengthForCharacter(at location: Int) -> Int {
         return value.characterLengthForCharacter(at: location)
     }

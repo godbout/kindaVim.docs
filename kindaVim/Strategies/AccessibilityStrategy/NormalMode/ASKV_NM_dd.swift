@@ -19,8 +19,8 @@ extension AccessibilityStrategyNormalMode {
         if let previousLine = AccessibilityTextElementAdaptor.lineFor(lineNumber: element.currentLine.number - 1) {
             let firstNonBlankWithinLineLimitOfPreviousLineLocation = textEngine.firstNonBlankWithinLineLimit(in: TextEngineLine(from: previousLine.value))
             
-            newElement.caretLocation = element.currentLine.start - AccessibilityTextElement.linefeedCharacterLength
-            newElement.selectedLength = element.currentLine.length + AccessibilityTextElement.linefeedCharacterLength
+            newElement.caretLocation = element.currentLine.start - Character.linefeedCharacterLength
+            newElement.selectedLength = element.currentLine.length + Character.linefeedCharacterLength
             newElement.selectedText = ""
             
             _ = AccessibilityTextElementAdaptor.toAXFocusedElement(from: newElement)

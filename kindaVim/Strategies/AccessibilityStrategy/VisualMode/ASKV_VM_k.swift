@@ -24,7 +24,7 @@ extension AccessibilityStrategyVisualMode {
             // if the new head is over the line limit, we set it at the line limit,
             // and we will override the setting of the globalColumnNumber
             if newHeadLocation >= lineAboveHead.end {
-                newHeadLocation = lineAboveHead.end - AccessibilityTextElement.linefeedCharacterLength
+                newHeadLocation = lineAboveHead.end - Character.linefeedCharacterLength
                 globalColumnNumber = AccessibilityTextElement.globalColumnNumber
             }
             

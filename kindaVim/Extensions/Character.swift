@@ -16,4 +16,8 @@ extension Character {
         return self.isLetter || self.isNumber || self.isPunctuation || self.isSymbol
     }
     
+    static var linefeedCharacterLength = 1
+    static var bracketCharacterLength = 1
+    static var quoteCharacterLength = 1
+    
 }

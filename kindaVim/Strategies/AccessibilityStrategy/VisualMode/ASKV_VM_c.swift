@@ -26,7 +26,7 @@ extension AccessibilityStrategyVisualMode {
         var newElement = element
         
         if let selectedText = element.selectedText, selectedText.last == "\n" {
-            newElement.selectedLength -= AccessibilityTextElement.linefeedCharacterLength
+            newElement.selectedLength -= Character.linefeedCharacterLength
         }
         
         newElement.selectedText = ""

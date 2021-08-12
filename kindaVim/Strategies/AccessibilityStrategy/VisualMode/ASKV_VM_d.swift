@@ -23,7 +23,7 @@ extension AccessibilityStrategyVisualMode {
         guard let updatedElement = AccessibilityTextElementAdaptor.fromAXFocusedElement() else { return nil }
         
         if updatedElement.caretLocation > updatedElement.currentLine.endLimit {            
-            newElement.caretLocation -= AccessibilityTextElement.linefeedCharacterLength
+            newElement.caretLocation -= Character.linefeedCharacterLength
         }
 
         newElement.selectedLength = 0
@@ -63,8 +63,8 @@ extension AccessibilityStrategyVisualMode {
         if let lineAtBeginningOfSelection = lineAtBeginningOfSelection, let lineBeforeSelection = AccessibilityTextElementAdaptor.lineFor(lineNumber: lineAtBeginningOfSelection.number - 1) {
             let firstNonBlankWithinLineLimitOflineBeforeSelectionLocation = textEngine.firstNonBlankWithinLineLimit(in: TextEngineLine(from: lineBeforeSelection.value))
             
-            newElement.caretLocation -= AccessibilityTextElement.linefeedCharacterLength
-            newElement.selectedLength += AccessibilityTextElement.linefeedCharacterLength
+            newElement.caretLocation -= Character.linefeedCharacterLength
+            newElement.selectedLength += Character.linefeedCharacterLength
             newElement.selectedText = ""
             
             _ = AccessibilityTextElementAdaptor.toAXFocusedElement(from: newElement)
