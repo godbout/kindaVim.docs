@@ -24,7 +24,7 @@ class UIASNM_ciLeftParenthesis_Tests: ASUI_NM_BaseTests {
 // Both
 extension UIASNM_ciLeftParenthesis_Tests {
     
-    func test_that_in_normal_setting_it_can_delete_the_content_between_double_quotes() {
+    func test_that_in_normal_setting_it_can_delete_the_content_between_brackets() {
         let textInAXFocusedElement = """
 hehe (
 some bs

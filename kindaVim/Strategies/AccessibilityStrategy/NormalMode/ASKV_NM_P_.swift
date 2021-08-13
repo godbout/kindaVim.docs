@@ -22,10 +22,24 @@ extension AccessibilityStrategyNormalMode {
         var textToPaste = TextEngineLine(from: NSPasteboard.general.string(forType: .string) ?? "")        
         textToPaste.removeTrailingLinefeedIfAny()
         
+        newElement.caretLocation = element.caretLocation
         newElement.selectedLength = 0        
         newElement.selectedText = textToPaste.value
         
-        return newElement
+        _ = AccessibilityTextElementAdaptor.toAXFocusedElement(from: newElement)
+        
+        guard var updatedElement = AccessibilityTextElementAdaptor.fromAXFocusedElement() else {
+            newElement.selectedLength = newElement.characterLength
+            newElement.selectedText = nil
+            
+            return newElement
+        }
+        
+        updatedElement.caretLocation -= updatedElement.characterLengthForCharacter(before: updatedElement.caretLocation)
+        updatedElement.selectedLength = updatedElement.characterLength
+        updatedElement.selectedText = nil
+        
+        return updatedElement
     }
     
     private func PForTextAreas(on element: AccessibilityTextElement) -> AccessibilityTextElement {
