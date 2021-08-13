@@ -27,8 +27,8 @@ extension UIASNM_ciLeftParenthesis_Tests {
     func test_that_in_normal_setting_it_can_delete_the_content_between_double_quotes() {
         let textInAXFocusedElement = """
 hehe (
-    some bs
-    some more
+some bs
+some more
 )
 """
         app.textViews.firstMatch.tap()
