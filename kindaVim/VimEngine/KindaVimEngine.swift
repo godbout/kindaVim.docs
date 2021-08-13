@@ -245,7 +245,7 @@ extension KindaVimEngine {
             if let element = asNormalMode.P(on: focusedTextElement()) {
                 push(element: element)
             } else {
-//                post(ksNormalMode.P())
+                post(ksNormalMode.P())
             }
         case .r:
             enterOperatorPendingForNormalMode(with: keyCombination)
