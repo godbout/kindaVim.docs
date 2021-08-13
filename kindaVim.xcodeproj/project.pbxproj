@@ -719,33 +719,53 @@
 		91AB958226C1A5AA00FDEBFC /* ASUT_NM_yi'_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AB957626C1A55800FDEBFC /* ASUT_NM_yi'_Tests.swift */; };
 		91AB958D26C1A5B000FDEBFC /* ASUT_NM_yi`_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AB956F26C1A54A00FDEBFC /* ASUT_NM_yi`_Tests.swift */; };
 		91AB985A2674D4F2007682CA /* ASKV_NM_a.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AB98592674D4F2007682CA /* ASKV_NM_a.swift */; };
+		91AB985C26C67EA5006302AA /* UsingASNM_u_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AB985B26C67EA5006302AA /* UsingASNM_u_Tests.swift */; };
+		91AB986326C67EFF006302AA /* ASKV_NM_u.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AB986226C67EFF006302AA /* ASKV_NM_u.swift */; };
 		91AB98642674D510007682CA /* ASKV_NM_A_.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AB98632674D510007682CA /* ASKV_NM_A_.swift */; };
+		91AB986926C67F4E006302AA /* ASKV_NM_u.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AB986226C67EFF006302AA /* ASKV_NM_u.swift */; };
 		91AB986A2674D52E007682CA /* ASKV_NM_b.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AB98692674D52E007682CA /* ASKV_NM_b.swift */; };
+		91AB986F26C67F4F006302AA /* ASKV_NM_u.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AB986226C67EFF006302AA /* ASKV_NM_u.swift */; };
 		91AB98702674D547007682CA /* ASKV_NM_cc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AB986F2674D547007682CA /* ASKV_NM_cc.swift */; };
+		91AB987526C67F4F006302AA /* ASKV_NM_u.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AB986226C67EFF006302AA /* ASKV_NM_u.swift */; };
 		91AB98762674D565007682CA /* ASKV_NM_ci".swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AB98752674D565007682CA /* ASKV_NM_ci".swift */; };
 		91AB987C2674D581007682CA /* ASKV_NM_ciw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AB987B2674D581007682CA /* ASKV_NM_ciw.swift */; };
+		91AB987C26C6CAD1006302AA /* KSKV_NM_uForAXElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AB987B26C6CAD1006302AA /* KSKV_NM_uForAXElement.swift */; };
 		91AB98822674D594007682CA /* ASKV_NM_dd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AB98812674D594007682CA /* ASKV_NM_dd.swift */; };
 		91AB98882674D5AA007682CA /* ASKV_NM_e.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AB98872674D5AA007682CA /* ASKV_NM_e.swift */; };
+		91AB988926C6CB4F006302AA /* KSUT_NM_uForAXElement_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AB988226C6CB2E006302AA /* KSUT_NM_uForAXElement_Tests.swift */; };
 		91AB988E2674D5BE007682CA /* ASKV_NM_f.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AB988D2674D5BE007682CA /* ASKV_NM_f.swift */; };
 		91AB98982674D5CF007682CA /* ASKV_NM_F_.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AB98972674D5CF007682CA /* ASKV_NM_F_.swift */; };
 		91AB989E2674D5E4007682CA /* ASKV_NM_gg.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AB989D2674D5E4007682CA /* ASKV_NM_gg.swift */; };
 		91AB98A42674D5FD007682CA /* ASKV_NM_G_.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AB98A32674D5FD007682CA /* ASKV_NM_G_.swift */; };
 		91AB98AA2674D621007682CA /* ASKV_NM_h.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AB98A92674D621007682CA /* ASKV_NM_h.swift */; };
 		91AB98B02674D634007682CA /* ASKV_NM_i.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AB98AF2674D634007682CA /* ASKV_NM_i.swift */; };
+		91AB98B226C6CD2A006302AA /* KSUT_NM_control_rForAXElement_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AB989426C6CD0C006302AA /* KSUT_NM_control_rForAXElement_Tests.swift */; };
 		91AB98B62674D652007682CA /* ASKV_NM_I_.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AB98B52674D652007682CA /* ASKV_NM_I_.swift */; };
+		91AB98B926C6CD70006302AA /* KSKV_NM_controlRForAXElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AB98B826C6CD70006302AA /* KSKV_NM_controlRForAXElement.swift */; };
 		91AB98BC2674D667007682CA /* ASKV_NM_j.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AB98BB2674D667007682CA /* ASKV_NM_j.swift */; };
 		91AB98C22674D67B007682CA /* ASKV_NM_k.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AB98C12674D67B007682CA /* ASKV_NM_k.swift */; };
+		91AB98C626C6D2BC006302AA /* UsingASNM_control_r_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AB98BF26C6D289006302AA /* UsingASNM_control_r_Tests.swift */; };
 		91AB98C82674D68F007682CA /* ASKV_NM_l.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AB98C72674D68F007682CA /* ASKV_NM_l.swift */; };
+		91AB98D126C6D3B1006302AA /* KSKV_NM_uForAXElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AB987B26C6CAD1006302AA /* KSKV_NM_uForAXElement.swift */; };
 		91AB98D22674D6B0007682CA /* ASKV_NM_o.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AB98D12674D6B0007682CA /* ASKV_NM_o.swift */; };
+		91AB98D726C6D3B1006302AA /* KSKV_NM_uForAXElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AB987B26C6CAD1006302AA /* KSKV_NM_uForAXElement.swift */; };
 		91AB98D82674D6C2007682CA /* ASKV_NM_O_.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AB98D72674D6C2007682CA /* ASKV_NM_O_.swift */; };
+		91AB98DD26C6D3B1006302AA /* KSKV_NM_uForAXElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AB987B26C6CAD1006302AA /* KSKV_NM_uForAXElement.swift */; };
 		91AB98DE2674D6D8007682CA /* ASKV_NM_t.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AB98DD2674D6D8007682CA /* ASKV_NM_t.swift */; };
+		91AB98E326C6D3B7006302AA /* KSKV_NM_controlRForAXElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AB98B826C6CD70006302AA /* KSKV_NM_controlRForAXElement.swift */; };
 		91AB98E42674D6ED007682CA /* ASKV_NM_T_.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AB98E32674D6ED007682CA /* ASKV_NM_T_.swift */; };
+		91AB98E926C6D3B8006302AA /* KSKV_NM_controlRForAXElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AB98B826C6CD70006302AA /* KSKV_NM_controlRForAXElement.swift */; };
 		91AB98EA2674D705007682CA /* ASKV_NM_w.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AB98E92674D705007682CA /* ASKV_NM_w.swift */; };
+		91AB98EA26C6D3B9006302AA /* KSKV_NM_controlRForAXElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AB98B826C6CD70006302AA /* KSKV_NM_controlRForAXElement.swift */; };
 		91AB98F02674D727007682CA /* ASKV_NM_x.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AB98EF2674D727007682CA /* ASKV_NM_x.swift */; };
+		91AB98F126C6D41A006302AA /* ASKV_NM_control_r.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AB98F026C6D41A006302AA /* ASKV_NM_control_r.swift */; };
 		91AB98F62674D73A007682CA /* ASKV_NM_^.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AB98F52674D73A007682CA /* ASKV_NM_^.swift */; };
 		91AB98FC2674D747007682CA /* ASKV_NM_$.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AB98FB2674D747007682CA /* ASKV_NM_$.swift */; };
+		91AB98FC26C6D4A6006302AA /* ASKV_NM_control_r.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AB98F026C6D41A006302AA /* ASKV_NM_control_r.swift */; };
 		91AB99022674D758007682CA /* ASKV_NM__.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AB99012674D758007682CA /* ASKV_NM__.swift */; };
+		91AB990226C6D4A6006302AA /* ASKV_NM_control_r.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AB98F026C6D41A006302AA /* ASKV_NM_control_r.swift */; };
 		91AB99082674D772007682CA /* ASKV_NM_0.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AB99072674D772007682CA /* ASKV_NM_0.swift */; };
+		91AB990826C6D4A7006302AA /* ASKV_NM_control_r.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AB98F026C6D41A006302AA /* ASKV_NM_control_r.swift */; };
 		91AB990D2674D812007682CA /* ASKV_NM_b.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AB98692674D52E007682CA /* ASKV_NM_b.swift */; };
 		91AB990E2674D812007682CA /* ASKV_NM_h.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AB98A92674D621007682CA /* ASKV_NM_h.swift */; };
 		91AB990F2674D812007682CA /* ASKV_NM__.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AB99012674D758007682CA /* ASKV_NM__.swift */; };
@@ -1531,21 +1551,28 @@
 		91AB956F26C1A54A00FDEBFC /* ASUT_NM_yi`_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ASUT_NM_yi`_Tests.swift"; sourceTree = "<group>"; };
 		91AB957626C1A55800FDEBFC /* ASUT_NM_yi'_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ASUT_NM_yi'_Tests.swift"; sourceTree = "<group>"; };
 		91AB98592674D4F2007682CA /* ASKV_NM_a.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASKV_NM_a.swift; sourceTree = "<group>"; };
+		91AB985B26C67EA5006302AA /* UsingASNM_u_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsingASNM_u_Tests.swift; sourceTree = "<group>"; };
+		91AB986226C67EFF006302AA /* ASKV_NM_u.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASKV_NM_u.swift; sourceTree = "<group>"; };
 		91AB98632674D510007682CA /* ASKV_NM_A_.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASKV_NM_A_.swift; sourceTree = "<group>"; };
 		91AB98692674D52E007682CA /* ASKV_NM_b.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASKV_NM_b.swift; sourceTree = "<group>"; };
 		91AB986F2674D547007682CA /* ASKV_NM_cc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASKV_NM_cc.swift; sourceTree = "<group>"; };
 		91AB98752674D565007682CA /* ASKV_NM_ci".swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ASKV_NM_ci\".swift"; sourceTree = "<group>"; };
 		91AB987B2674D581007682CA /* ASKV_NM_ciw.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASKV_NM_ciw.swift; sourceTree = "<group>"; };
+		91AB987B26C6CAD1006302AA /* KSKV_NM_uForAXElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSKV_NM_uForAXElement.swift; sourceTree = "<group>"; };
 		91AB98812674D594007682CA /* ASKV_NM_dd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASKV_NM_dd.swift; sourceTree = "<group>"; };
+		91AB988226C6CB2E006302AA /* KSUT_NM_uForAXElement_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSUT_NM_uForAXElement_Tests.swift; sourceTree = "<group>"; };
 		91AB98872674D5AA007682CA /* ASKV_NM_e.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASKV_NM_e.swift; sourceTree = "<group>"; };
 		91AB988D2674D5BE007682CA /* ASKV_NM_f.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASKV_NM_f.swift; sourceTree = "<group>"; };
+		91AB989426C6CD0C006302AA /* KSUT_NM_control_rForAXElement_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSUT_NM_control_rForAXElement_Tests.swift; sourceTree = "<group>"; };
 		91AB98972674D5CF007682CA /* ASKV_NM_F_.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASKV_NM_F_.swift; sourceTree = "<group>"; };
 		91AB989D2674D5E4007682CA /* ASKV_NM_gg.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASKV_NM_gg.swift; sourceTree = "<group>"; };
 		91AB98A32674D5FD007682CA /* ASKV_NM_G_.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASKV_NM_G_.swift; sourceTree = "<group>"; };
 		91AB98A92674D621007682CA /* ASKV_NM_h.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASKV_NM_h.swift; sourceTree = "<group>"; };
 		91AB98AF2674D634007682CA /* ASKV_NM_i.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASKV_NM_i.swift; sourceTree = "<group>"; };
 		91AB98B52674D652007682CA /* ASKV_NM_I_.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASKV_NM_I_.swift; sourceTree = "<group>"; };
+		91AB98B826C6CD70006302AA /* KSKV_NM_controlRForAXElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSKV_NM_controlRForAXElement.swift; sourceTree = "<group>"; };
 		91AB98BB2674D667007682CA /* ASKV_NM_j.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASKV_NM_j.swift; sourceTree = "<group>"; };
+		91AB98BF26C6D289006302AA /* UsingASNM_control_r_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsingASNM_control_r_Tests.swift; sourceTree = "<group>"; };
 		91AB98C12674D67B007682CA /* ASKV_NM_k.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASKV_NM_k.swift; sourceTree = "<group>"; };
 		91AB98C72674D68F007682CA /* ASKV_NM_l.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASKV_NM_l.swift; sourceTree = "<group>"; };
 		91AB98D12674D6B0007682CA /* ASKV_NM_o.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASKV_NM_o.swift; sourceTree = "<group>"; };
@@ -1554,6 +1581,7 @@
 		91AB98E32674D6ED007682CA /* ASKV_NM_T_.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASKV_NM_T_.swift; sourceTree = "<group>"; };
 		91AB98E92674D705007682CA /* ASKV_NM_w.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASKV_NM_w.swift; sourceTree = "<group>"; };
 		91AB98EF2674D727007682CA /* ASKV_NM_x.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASKV_NM_x.swift; sourceTree = "<group>"; };
+		91AB98F026C6D41A006302AA /* ASKV_NM_control_r.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASKV_NM_control_r.swift; sourceTree = "<group>"; };
 		91AB98F52674D73A007682CA /* ASKV_NM_^.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ASKV_NM_^.swift"; sourceTree = "<group>"; };
 		91AB98FB2674D747007682CA /* ASKV_NM_$.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASKV_NM_$.swift; sourceTree = "<group>"; };
 		91AB99012674D758007682CA /* ASKV_NM__.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASKV_NM__.swift; sourceTree = "<group>"; };
@@ -2165,6 +2193,7 @@
 				916F748426B9867B007CC8F9 /* KSKV_NM_r.swift */,
 				916F748B26B98695007CC8F9 /* KSKV_NM_s.swift */,
 				916F749226B986AA007CC8F9 /* KSKV_NM_u.swift */,
+				91AB987B26C6CAD1006302AA /* KSKV_NM_uForAXElement.swift */,
 				916F749926B986C0007CC8F9 /* KSKV_NM_w.swift */,
 				916F74A026B986D6007CC8F9 /* KSKV_NM_x.swift */,
 				916F74A726B986E8007CC8F9 /* KSKV_NM_X_.swift */,
@@ -2176,6 +2205,7 @@
 				916F74CA26B98781007CC8F9 /* KSKV_NM__.swift */,
 				916F74F026B98829007CC8F9 /* KSKV_NM_controlD.swift */,
 				916F74F726B98850007CC8F9 /* KSKV_NM_controlR.swift */,
+				91AB98B826C6CD70006302AA /* KSKV_NM_controlRForAXElement.swift */,
 				916F74FE26B98866007CC8F9 /* KSKV_NM_controlU.swift */,
 				916F74E226B987DF007CC8F9 /* KSKV_NM_enter.swift */,
 				916F74E926B9880A007CC8F9 /* KSKV_NM_escape.swift */,
@@ -2214,8 +2244,10 @@
 				910F768F26C67988005EE967 /* KSUT_NM_P__Tests.swift */,
 				91473C7D2647009000AA52D5 /* KSUT_NM_r_Tests.swift */,
 				91A54EFA2643BAB800400677 /* KSUT_NM_control_r_Tests.swift */,
+				91AB989426C6CD0C006302AA /* KSUT_NM_control_rForAXElement_Tests.swift */,
 				918C26502646D29000C39ADA /* KSUT_NM_s_Tests.swift */,
 				91A54EFC2643BB2A00400677 /* KSUT_NM_u_Tests.swift */,
+				91AB988226C6CB2E006302AA /* KSUT_NM_uForAXElement_Tests.swift */,
 				91054E8A2644FE7D00CC0ACC /* KSUT_NM_control_u_Tests.swift */,
 				91A54EFE2643BB7000400677 /* KSUT_NM_w_Tests.swift */,
 				91A54F002643BBA100400677 /* KSUT_NM_x_Tests.swift */,
@@ -2306,8 +2338,10 @@
 				91A832CD2678C9E5001482CD /* UsingASNM_p_Tests.swift */,
 				91CC3381267C8A6F00E3145C /* UsingASNM_P__.swift */,
 				91ACB28C26760C5B000B3CE7 /* UsingASNM_r_Tests.swift */,
+				91AB98BF26C6D289006302AA /* UsingASNM_control_r_Tests.swift */,
 				91308E3826666F0900D13A13 /* UsingASNM_t_Tests.swift */,
 				9124BFF826668D10004C45B9 /* UsingASNM_T__Tests.swift */,
+				91AB985B26C67EA5006302AA /* UsingASNM_u_Tests.swift */,
 				910A0E9326848A81007C9BF3 /* UsingASNM_v_Tests.swift */,
 				91DD72DD268499700041A09C /* UsingASNM_V__Tests.swift */,
 				9136AF88266158EA00385C07 /* UsingASNM_w_Tests.swift */,
@@ -2781,8 +2815,10 @@
 				91A832D32678CA6F001482CD /* ASKV_NM_p.swift */,
 				91CC3387267C8B0000E3145C /* ASKV_NM_P_.swift */,
 				91ACB29226760D15000B3CE7 /* ASKV_NM_r.swift */,
+				91AB98F026C6D41A006302AA /* ASKV_NM_control_r.swift */,
 				91AB98DD2674D6D8007682CA /* ASKV_NM_t.swift */,
 				91AB98E32674D6ED007682CA /* ASKV_NM_T_.swift */,
+				91AB986226C67EFF006302AA /* ASKV_NM_u.swift */,
 				91AB98E92674D705007682CA /* ASKV_NM_w.swift */,
 				916E86692676779800E2A807 /* ASKV_NM_W_.swift */,
 				91AB98EF2674D727007682CA /* ASKV_NM_x.swift */,
@@ -3103,7 +3139,9 @@
 				9195C6C42681CE4800CC4EAF /* beginningOfWORDForward_.swift in Sources */,
 				91AB98982674D5CF007682CA /* ASKV_NM_F_.swift in Sources */,
 				91F9A625267A5C1000A4F807 /* ASKV_NM_C_.swift in Sources */,
+				91AB987C26C6CAD1006302AA /* KSKV_NM_uForAXElement.swift in Sources */,
 				916F74EA26B9880A007CC8F9 /* KSKV_NM_escape.swift in Sources */,
+				91AB986326C67EFF006302AA /* ASKV_NM_u.swift in Sources */,
 				91CB8A922681DB2200F53B4E /* endOfWORDForward_.swift in Sources */,
 				915A61C426849C5100C04AC6 /* ASKV_VM_v.swift in Sources */,
 				91B9CBBE267681D30040C49B /* ASKV_NM_B_.swift in Sources */,
@@ -3196,6 +3234,7 @@
 				916F744626B985B0007CC8F9 /* KSKV_NM_G_.swift in Sources */,
 				91EDF141267F92A400007F2C /* ASKV_NM_yT_.swift in Sources */,
 				9179220126921F520002DB1C /* ASKV_VM_0.swift in Sources */,
+				91AB98B926C6CD70006302AA /* KSKV_NM_controlRForAXElement.swift in Sources */,
 				918DD80726C181FE00EE42E5 /* KSKV_VM_y.swift in Sources */,
 				91AB956426C1A0EB00FDEBFC /* ASKV_NM_yi'.swift in Sources */,
 				91E0C15E267F8BE0000265EC /* ASKV_NM_yf.swift in Sources */,
@@ -3223,6 +3262,7 @@
 				91C7006926930A590013C11E /* ASKV_VM_e.swift in Sources */,
 				9163BD672673ADA800BB7113 /* Character.swift in Sources */,
 				916034E826BBFE0300977AB3 /* KeyboardStrategyVisualMode.swift in Sources */,
+				91AB98F126C6D41A006302AA /* ASKV_NM_control_r.swift in Sources */,
 				916F742A26B98562007CC8F9 /* KSKV_NM_dd.swift in Sources */,
 				91AB989E2674D5E4007682CA /* ASKV_NM_gg.swift in Sources */,
 				914A83A62680F9C20052ADEF /* ASKV_NM_{.swift in Sources */,
@@ -3426,6 +3466,7 @@
 				91308E3926666F0900D13A13 /* UsingASNM_t_Tests.swift in Sources */,
 				91AAE67B2692E36B003F663E /* ASUT_NM_k_Tests.swift in Sources */,
 				91E304D92643F1EF004D9933 /* UsingKSNM_h_Tests.swift in Sources */,
+				91AB988926C6CB4F006302AA /* KSUT_NM_uForAXElement_Tests.swift in Sources */,
 				9146220C26C15CB9007F36D9 /* UsingASNM_yi]_Tests.swift in Sources */,
 				913E7C042666803400370A7F /* UsingASNM_F__Tests.swift in Sources */,
 				91E304E12643F2F8004D9933 /* UsingKSNM_j_Tests.swift in Sources */,
@@ -3466,6 +3507,7 @@
 				91F83842267D0F3D00DFE3CD /* ASUT_NM_]}_Tests.swift in Sources */,
 				91D2D5B8266F9610004634C0 /* ASUT_NM_ciw_Tests.swift in Sources */,
 				916034F726BC053200977AB3 /* KSUT_VM_j_Tests.swift in Sources */,
+				91AB98C626C6D2BC006302AA /* UsingASNM_control_r_Tests.swift in Sources */,
 				916F776A26B990BE007CC8F9 /* KeyboardStrategyNormalModeMock.swift in Sources */,
 				9134DB4A26888F8C0076C702 /* firstNonBlankWithinLineLimitTests.swift in Sources */,
 				910E5269266D445700C03DCF /* UsingASNM_A__Tests.swift in Sources */,
@@ -3476,6 +3518,7 @@
 				91A54F032643BBC900400677 /* KSUT_NM_X__Tests.swift in Sources */,
 				91E304C32643EC48004D9933 /* UsingKS_BaseTests.swift in Sources */,
 				91A54EE52643B6F400400677 /* KSUT_NM_ciw_Tests.swift in Sources */,
+				91AB98B226C6CD2A006302AA /* KSUT_NM_control_rForAXElement_Tests.swift in Sources */,
 				91E988A6266921FF00935D97 /* UsingASNM_I__Tests.swift in Sources */,
 				9172261C2677AC80008B8FB0 /* endOfWORDBackward_Tests.swift in Sources */,
 				9153E8512662792F00064761 /* UsingASNM_b_Tests.swift in Sources */,
@@ -3578,6 +3621,7 @@
 				91643DE32665376D002F2D0E /* ASUT_NM_ci"_Tests.swift in Sources */,
 				911DF55D2684BBC5008FCD29 /* AccessibilityStrategyVisualModeMock.swift in Sources */,
 				916E86642676774200E2A807 /* UsingASNM_W__Tests.swift in Sources */,
+				91AB985C26C67EA5006302AA /* UsingASNM_u_Tests.swift in Sources */,
 				91E304CB2643EF64004D9933 /* UsingKSNM_d_Tests.swift in Sources */,
 				91F90BF62669230C00176433 /* ASUT_NM_I__Tests.swift in Sources */,
 				9157254026768BF300F36730 /* ASUT_NM_gE__Tests.swift in Sources */,
@@ -3680,6 +3724,7 @@
 				9147352826A200CE00B20466 /* ASKV_NM_r.swift in Sources */,
 				9147354F26A200CE00B20466 /* ASKV_NM_ct.swift in Sources */,
 				9147351426A2007E00B20466 /* endOfWORDBackward_.swift in Sources */,
+				91AB98DD26C6D3B1006302AA /* KSKV_NM_uForAXElement.swift in Sources */,
 				9147353A26A200CE00B20466 /* ASKV_NM_t.swift in Sources */,
 				91E0004526C1A64900F831F0 /* ASKV_NM_yi`.swift in Sources */,
 				916F765C26B98CD3007CC8F9 /* KSKV_NM_X_.swift in Sources */,
@@ -3741,6 +3786,7 @@
 				9147350226A1FE3800B20466 /* ASUI_NM_dj_Tests.swift in Sources */,
 				916F767226B98CD3007CC8F9 /* KSKV_NM_controlU.swift in Sources */,
 				9147355326A200CE00B20466 /* ASKV_NM_ci".swift in Sources */,
+				91AB98E926C6D3B8006302AA /* KSKV_NM_controlRForAXElement.swift in Sources */,
 				91F7088E26B3172C0092599F /* CharactersView.swift in Sources */,
 				916F765826B98CD3007CC8F9 /* KSKV_NM_x.swift in Sources */,
 				915206BA26B8382600C8557C /* innerBrackets.swift in Sources */,
@@ -3789,8 +3835,10 @@
 				9147353326A200CE00B20466 /* ASKV_NM_W_.swift in Sources */,
 				9147352B26A200CE00B20466 /* ASKV_NM_ci'.swift in Sources */,
 				9147351826A2007E00B20466 /* endOfWordForward.swift in Sources */,
+				91AB987526C67F4F006302AA /* ASKV_NM_u.swift in Sources */,
 				918576A526C1B104003FD3D5 /* ASKV_NM_cgg.swift in Sources */,
 				914734FA26A1FE3800B20466 /* ASUI_NM_j_Tests.swift in Sources */,
+				91AB990826C6D4A7006302AA /* ASKV_NM_control_r.swift in Sources */,
 				91E5B64026C1290800B5B60A /* KSKV_VM_d.swift in Sources */,
 				9147351C26A200A000B20466 /* AccessibilityTextElementAdaptor.swift in Sources */,
 				9147355A26A200CE00B20466 /* ASKV_NM_b.swift in Sources */,
@@ -3861,8 +3909,10 @@
 				916F75E926B98BEC007CC8F9 /* KSKV_NM_controlU.swift in Sources */,
 				91CD1B9426860AAE008DBCBB /* ASKV_NM_[(.swift in Sources */,
 				91CD1B7626860AAE008DBCBB /* ASKV_NM_cT_.swift in Sources */,
+				91AB986926C67F4E006302AA /* ASKV_NM_u.swift in Sources */,
 				915206CD26B8382C00C8557C /* innerWord.swift in Sources */,
 				91CD1B3426860A53008DBCBB /* AccessibilityStrategy.swift in Sources */,
+				91AB98FC26C6D4A6006302AA /* ASKV_NM_control_r.swift in Sources */,
 				91A68BA626B5A4CC00F4093E /* ASKV_NM_ci{.swift in Sources */,
 				91CD1B8726860AAE008DBCBB /* ASKV_NM_T_.swift in Sources */,
 				9157B874268794BC0061BE12 /* ASKV_VM_d.swift in Sources */,
@@ -3918,6 +3968,7 @@
 				91CD1B6426860AAE008DBCBB /* ASKV_NM_df.swift in Sources */,
 				916F75D226B98BEC007CC8F9 /* KSKV_NM_o.swift in Sources */,
 				91CD1B6526860AAE008DBCBB /* ASKV_NM_O_.swift in Sources */,
+				91AB98D126C6D3B1006302AA /* KSKV_NM_uForAXElement.swift in Sources */,
 				916F75D126B98BEC007CC8F9 /* KSKV_NM_^.swift in Sources */,
 				91FB2DC726936A04004EA231 /* ASKV_VM_escape.swift in Sources */,
 				91CD1B7E26860AAE008DBCBB /* ASKV_NM_p.swift in Sources */,
@@ -4002,6 +4053,7 @@
 				916F75C726B98BEC007CC8F9 /* KSKV_NM_0.swift in Sources */,
 				91E207282661251100E73009 /* to_TF_caretLocationTests.swift in Sources */,
 				91CD1B9B26860AAE008DBCBB /* ASKV_NM__.swift in Sources */,
+				91AB98E326C6D3B7006302AA /* KSKV_NM_controlRForAXElement.swift in Sources */,
 				91CD1B3E26860A6B008DBCBB /* TextEngine.swift in Sources */,
 				916F761626B98C3D007CC8F9 /* KeyboardStrategy.swift in Sources */,
 				9146225926C15ECB007F36D9 /* ASKV_NM_yi}.swift in Sources */,
@@ -4090,6 +4142,7 @@
 				91E0003226C1A62A00F831F0 /* KSKV_VM_y.swift in Sources */,
 				91E0006326C1A67300F831F0 /* KSKV_NM_p.swift in Sources */,
 				916F764026B98CD2007CC8F9 /* KSKV_NM_cb.swift in Sources */,
+				91AB98D726C6D3B1006302AA /* KSKV_NM_uForAXElement.swift in Sources */,
 				916F763F26B98CD2007CC8F9 /* KSKV_NM_db.swift in Sources */,
 				916F762226B98CD2007CC8F9 /* KSKV_NM_I_.swift in Sources */,
 				91F7088826B3172C0092599F /* CharactersView.swift in Sources */,
@@ -4151,6 +4204,7 @@
 				9147350726A1FE6400B20466 /* ASUI_VM_BaseTests.swift in Sources */,
 				916F763326B98CD2007CC8F9 /* KSKV_NM_cG.swift in Sources */,
 				916F762A26B98CD2007CC8F9 /* KSKV_NM_controlD.swift in Sources */,
+				91AB98EA26C6D3B9006302AA /* KSKV_NM_controlRForAXElement.swift in Sources */,
 				916034EC26BBFE6B00977AB3 /* KeyboardStrategyVisualMode.swift in Sources */,
 				916F763926B98CD2007CC8F9 /* KSKV_NM_s.swift in Sources */,
 				911F64F9267F4A830033B4D4 /* ASKV_NM_dF__.swift in Sources */,
@@ -4199,8 +4253,10 @@
 				91DD4D662681F07A0021ABC2 /* ASKV_NM_yT_.swift in Sources */,
 				91A1481C266123D100D160AD /* KeyCombinationAdaptor.swift in Sources */,
 				91BCA6FB26961B34002FBEBC /* ASUI_VML_0_Tests.swift in Sources */,
+				91AB986F26C67F4F006302AA /* ASKV_NM_u.swift in Sources */,
 				9199469D2694BFB5005D7E89 /* ASUI_VMC_$_Tests.swift in Sources */,
 				91EF3929268B8F3600612C4E /* ASKV_VM_j.swift in Sources */,
+				91AB990226C6D4A6006302AA /* ASKV_NM_control_r.swift in Sources */,
 				91AB99132674D812007682CA /* ASKV_NM_i.swift in Sources */,
 				919CC3AC2696C65E007DD557 /* ASKV_VM_y.swift in Sources */,
 				91AB99262674D812007682CA /* ASKV_NM_T_.swift in Sources */,

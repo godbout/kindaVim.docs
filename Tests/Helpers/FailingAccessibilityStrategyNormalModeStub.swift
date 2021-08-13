@@ -195,11 +195,19 @@ struct FailingAccessibilityStrategyNormalModeStub: AccessibilityStrategyNormalMo
         return nil        
     }
     
+    func controlR(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        return nil        
+    }
+    
     func t(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return nil
     }
     
     func T(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        return nil
+    }
+    
+    func u(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return nil
     }
     

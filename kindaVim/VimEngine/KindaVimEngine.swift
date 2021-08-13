@@ -250,7 +250,12 @@ extension KindaVimEngine {
         case .r:
             enterOperatorPendingForNormalMode(with: keyCombination)
         case .controlR:
-            post(ksNormalMode.controlR())
+            if asNormalMode.controlR(on: focusedTextElement()) != nil {
+                post(ksNormalMode.controlRForAXElement())
+            } else {
+                post(ksNormalMode.controlR())
+            }
+            
         case .s:
             enterInsertMode()
             
@@ -260,7 +265,11 @@ extension KindaVimEngine {
         case .T:
             enterOperatorPendingForNormalMode(with: keyCombination)
         case .u:
-            post(ksNormalMode.u())
+            if asNormalMode.u(on: focusedTextElement()) != nil {
+                post(ksNormalMode.uForAXElement())
+            } else {
+                post(ksNormalMode.u())
+            }
         case .controlU:
             post(ksNormalMode.controlU())
         case .v:

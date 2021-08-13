@@ -51,8 +51,10 @@ protocol AccessibilityStrategyNormalModeProtocol {
     func p(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func P(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func r(with replacement: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement?
+    func controlR(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func t(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func T(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement?
+    func u(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func w(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func W(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func x(on element: AccessibilityTextElement?) -> AccessibilityTextElement?

@@ -175,6 +175,12 @@ class KeyboardStrategyNormalModeMock: KeyboardStrategyNormalModeProtocol {
         return []
     }
     
+    func controlRForAXElement() -> [KeyCombination] {
+        functionCalled = #function
+        
+        return []
+    }
+    
     func s() -> [KeyCombination] {
         functionCalled = #function
         
@@ -182,6 +188,12 @@ class KeyboardStrategyNormalModeMock: KeyboardStrategyNormalModeProtocol {
     }
     
     func u() -> [KeyCombination] {
+        functionCalled = #function
+        
+        return []
+    }
+    
+    func uForAXElement() -> [KeyCombination] {
         functionCalled = #function
         
         return []
