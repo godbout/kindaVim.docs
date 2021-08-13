@@ -59,11 +59,35 @@ extension AccessibilityStrategyNormalMode {
     private func PForTextAreasCharacterwise(on element: AccessibilityTextElement) -> AccessibilityTextElement {
         var newElement = element
         
-        newElement.selectedLength = 0    
-        newElement.selectedText = NSPasteboard.general.string(forType: .string)
+        let textToPaste = NSPasteboard.general.string(forType: .string) ?? ""
         
-        return newElement
-    }        
+        newElement.caretLocation = element.caretLocation
+        newElement.selectedLength = 0
+        newElement.selectedText = textToPaste
+        
+        _ = AccessibilityTextElementAdaptor.toAXFocusedElement(from: newElement)
+            
+        guard var updatedElement = AccessibilityTextElementAdaptor.fromAXFocusedElement() else {
+            newElement.selectedLength = newElement.characterLength
+            newElement.selectedText = nil
+            
+            return newElement
+        }
+        
+        guard textToPaste.contains("\n") == false else {
+            updatedElement.caretLocation = newElement.caretLocation
+            updatedElement.selectedLength = updatedElement.characterLength
+            updatedElement.selectedText = nil
+            
+            return updatedElement
+        }
+        
+        updatedElement.caretLocation -= updatedElement.characterLengthForCharacter(before: updatedElement.caretLocation)
+        updatedElement.selectedLength = updatedElement.characterLength
+        updatedElement.selectedText = nil
+        
+        return updatedElement
+    }
     
     private func PForTextAreasLinewise(on element: AccessibilityTextElement) -> AccessibilityTextElement {
         var newElement = element

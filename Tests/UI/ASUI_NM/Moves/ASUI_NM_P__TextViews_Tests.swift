@@ -17,7 +17,7 @@ class ASUI_NM_P__TextViews_Tests: ASUI_NM_BaseTests {
 // characterwise
 extension ASUI_NM_P__TextViews_Tests {
 
-    func test_that_in_normal_setting_it_pastes_the_text_at_the_caret_location_and_the_block_cursor_ends_up_at_the_end_of_the_pasted_text() {
+    func test_that_in_normal_setting_it_pastes_the_text_at_the_caret_location_and_if_the_text_does_not_contain_a_linefeed_the_block_cursor_ends_up_at_the_end_of_the_pasted_text() {
         let textInAXFocusedElement = """
 time to paste
 in TextViews
@@ -42,6 +42,35 @@ ho ho ho
 """
         )
         XCTAssertEqual(accessibilityElement?.caretLocation, 23)
+    }
+    
+    func test_that_in_normal_setting_it_pastes_the_text_at_the_caret_location_and_if_the_text_contains_a_linefeed_the_block_cursor_ends_up_at_the_beginning_of_the_pasted_text() {
+        let textInAXFocusedElement = """
+time to paste
+in TextViews
+ho ho ho
+"""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        app.textViews.firstMatch.typeKey(.upArrow, modifierFlags: [])
+        app.textViews.firstMatch.typeKey(.leftArrow, modifierFlags: [.option])
+        KindaVimEngine.shared.enterNormalMode()
+
+        NSPasteboard.general.clearContents()
+        NSPasteboard.general.setString("😂️astaing\nmy man!", forType: .string)
+
+        KindaVimEngine.shared.lastYankStyle = .characterwise
+        let accessibilityElement = sendMoveThroughVimEngineAndGetBackAccessibilityElement()
+
+        XCTAssertEqual(accessibilityElement?.value, """
+time to paste
+in😂️astaing
+my man! TextViews
+ho ho ho
+"""
+        )
+        XCTAssertEqual(accessibilityElement?.caretLocation, 16)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 3)
     }
 
     func test_that_pasting_on_an_empty_line_does_not_paste_on_a_line_above_but_stays_on_the_same_line_and_does_not_stick_with_the_next_line() {
