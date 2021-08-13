@@ -73,6 +73,7 @@ ho ho ho
 """
         )
         XCTAssertEqual(accessibilityElement?.caretLocation, 17)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 3)
     }
     
     func test_that_pasting_on_an_empty_line_does_not_paste_on_a_line_below_but_stays_on_the_same_line_and_does_not_stick_with_the_next_line() {

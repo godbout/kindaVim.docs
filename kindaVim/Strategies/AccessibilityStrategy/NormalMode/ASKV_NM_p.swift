@@ -80,7 +80,7 @@ extension AccessibilityStrategyNormalMode {
         }
         
         guard textToPaste.contains("\n") == false else {
-            updatedElement.caretLocation = newElement.caretLocation + newElement.characterLength
+            updatedElement.caretLocation = newElement.caretLocation
             updatedElement.selectedLength = updatedElement.characterLength
             updatedElement.selectedText = nil
             
