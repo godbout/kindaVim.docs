@@ -102,11 +102,18 @@ extension AccessibilityStrategyNormalMode {
         
         _ = AccessibilityTextElementAdaptor.toAXFocusedElement(from: newElement)
         
-        newElement.caretLocation = element.currentLine.start + 1 + textEngine.firstNonBlank(in: textToPaste.value)
-        newElement.selectedLength = newElement.characterLength
-        newElement.selectedText = nil
+        guard var updatedElement = AccessibilityTextElementAdaptor.fromAXFocusedElement() else {
+            newElement.selectedLength = newElement.characterLength
+            newElement.selectedText = nil
+            
+            return newElement
+        }
         
-        return newElement   
+        updatedElement.caretLocation = element.currentLine.start + textEngine.firstNonBlank(in: textToPaste.value)
+        updatedElement.selectedLength = updatedElement.characterLength
+        updatedElement.selectedText = nil
+        
+        return updatedElement
     }
     
 }
