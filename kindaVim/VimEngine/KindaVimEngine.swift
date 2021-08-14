@@ -591,7 +591,16 @@ extension KindaVimEngine {
         case [.d, .k]:
             enterNormalMode()
             
-            post(ksNormalMode.dk(on: AXEngine.axRole()))
+            if let element = asNormalMode.dk(on: focusedTextElement()) {
+                push(element: element)
+                
+                if var element = focusedTextElement() {
+                    element.selectedText = nil
+                    push(element: element)
+                }
+            } else {
+                post(ksNormalMode.dk(on: AXEngine.axRole()))
+            }
         case [.d, .t]:
             ()
         case [.d, .T]:

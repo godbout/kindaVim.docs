@@ -30,6 +30,7 @@ protocol AccessibilityStrategyNormalModeProtocol {
     func df(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func dF(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func dj(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
+    func dk(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func dt(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func dT(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement?
     func e(on element: AccessibilityTextElement?) -> AccessibilityTextElement?
