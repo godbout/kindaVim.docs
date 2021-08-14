@@ -567,6 +567,10 @@ extension KindaVimEngine {
             enterNormalMode()
             
             post(ksNormalMode.dgg())
+        case [.d, .G]:
+            enterNormalMode()
+            
+            post(ksNormalMode.dG())
         case [.d, .i]:
             ()
         case [.d, .i, .w]:
@@ -584,10 +588,10 @@ extension KindaVimEngine {
             } else {
                 post(ksNormalMode.dj(on: AXEngine.axRole()))
             }
-        case [.d, .G]:
+        case [.d, .k]:
             enterNormalMode()
             
-            post(ksNormalMode.dG())
+            post(ksNormalMode.dk(on: AXEngine.axRole()))
         case [.d, .t]:
             ()
         case [.d, .T]:

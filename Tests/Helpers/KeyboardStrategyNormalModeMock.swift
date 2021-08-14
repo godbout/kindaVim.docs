@@ -79,12 +79,6 @@ class KeyboardStrategyNormalModeMock: KeyboardStrategyNormalModeProtocol {
         return []
     }
     
-    func dj(on role: AXElementRole?) -> [KeyCombination] {
-        functionCalled = #function
-        
-        return []
-    }
-    
     func dgg() -> [KeyCombination] {
         functionCalled = #function
         
@@ -92,6 +86,18 @@ class KeyboardStrategyNormalModeMock: KeyboardStrategyNormalModeProtocol {
     }
     
     func dG() -> [KeyCombination] {
+        functionCalled = #function
+        
+        return []
+    }
+    
+    func dj(on role: AXElementRole?) -> [KeyCombination] {
+        functionCalled = #function
+        
+        return []
+    }
+    
+    func dk(on role: AXElementRole?) -> [KeyCombination] {
         functionCalled = #function
         
         return []

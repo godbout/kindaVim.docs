@@ -17,7 +17,7 @@ class KS_dj_Tests: KSUT_BaseTests {
         XCTAssertEqual(keyCombinations[6], KeyCombination(key: .left, command: true))
     }
     
-    func test_that_for_other_roles_dd_returns_shift_down_delete() {
+    func test_that_for_other_roles_dj_returns_shift_down_delete() {
         let keyCombinations = ksNormalMode.dj(on: .someOtherShit)
         
         guard keyCombinations.count == 2 else { return XCTFail() }
