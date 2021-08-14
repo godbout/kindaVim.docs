@@ -15,6 +15,7 @@ struct AXTextElementData {
 
 enum AXElementRole {
     
+    case scrollArea
     case webArea
     case someOtherShit
     
@@ -62,6 +63,8 @@ struct AXEngine {
         guard error == .success, let elementRole = role as? String else { return nil }
         
         switch (elementRole) {
+        case "AXScrollArea":
+            return .scrollArea
         case "AXWebArea":
             return .webArea
         default:

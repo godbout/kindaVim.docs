@@ -13,6 +13,13 @@ class KSUT_NM_gg_Tests: KSUT_BaseTests {
         XCTAssertEqual(keyCombinations[0], KeyCombination(key: .up, command: true))
     }
     
+    func test_that_for_AXScrollArea_gg_returns_command_up() {
+        let keyCombinations = ksNormalMode.gg(on: .scrollArea)
+        
+        guard keyCombinations.count == 1 else { return XCTFail() }
+        XCTAssertEqual(keyCombinations[0], KeyCombination(key: .up, command: true))
+    }
+    
     func test_that_for_other_roles_gg_returns_option_up() {
         let keyCombinations = ksNormalMode.gg(on: .someOtherShit)
         

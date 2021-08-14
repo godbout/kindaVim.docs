@@ -2,7 +2,7 @@ extension KeyboardStrategyNormalMode {
 
     func dd(on role: AXElementRole?) -> [KeyCombination] {
         switch role {
-        case .webArea:
+        case .scrollArea, .webArea:
             return [
                 KeyCombination(key: .right, command: true),
                 KeyCombination(key: .left, shift: true, command: true),
