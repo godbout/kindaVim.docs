@@ -56,7 +56,8 @@ struct AccessibilityTextElementLine {
     
     var isAnEmptyLine: Bool { value == "\n" || value == "" }
     var isNotAnEmptyLine: Bool { !isAnEmptyLine }
-    var isTheFirstLine: Bool { start == 0 }    
+    var isTheFirstLine: Bool { start == 0 }
+    var isNotTheFirstLine: Bool { !isTheFirstLine }
     var isTheLastLine: Bool { !value.hasSuffix("\n") }
     var isNotTheLastLine: Bool { !isTheLastLine }
     

@@ -71,5 +71,25 @@ becau🤡️se it w🤡️🤡️ill go 🤡️to the🤡️ next
         XCTAssertEqual(accessibilityElement?.selectedLength, 3)
     }
     
+    func test_that_if_what_we_deleted_are_the_two_last_lines_then_the_caret_goes_to_the_first_non_blank_of_what_is_now_the_newly_last_line() {
+        let textInAXFocusedElement = """
+   😚️ow 🤡️🤡️this is🤡️ get🤡️🤡️ting cool
+becau🤡️se it w🤡️🤡️ill go 🤡️to the🤡️ next
+     🤡️o🤡️n b🤡️lank of 🤡️this line
+"""
+        app.textViews.firstMatch.tap()
+        app.textViews.firstMatch.typeText(textInAXFocusedElement)
+        KindaVimEngine.shared.enterNormalMode()
+        
+        let accessibilityElement = applyMoveAndGetBackAccessibilityElement()
+        
+        XCTAssertEqual(accessibilityElement?.value, """
+   😚️ow 🤡️🤡️this is🤡️ get🤡️🤡️ting cool
+"""
+        )        
+        XCTAssertEqual(accessibilityElement?.caretLocation, 3)
+        XCTAssertEqual(accessibilityElement?.selectedLength, 3)
+    }
+    
 }
 
