@@ -582,7 +582,7 @@ extension KindaVimEngine {
                     push(element: element)
                 }
             } else {
-                post(ksNormalMode.dj())
+                post(ksNormalMode.dj(on: AXEngine.axRole()))
             }
         case [.d, .G]:
             enterNormalMode()
