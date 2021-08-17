@@ -3,7 +3,7 @@ import Foundation
 
 struct AXTextElementData {
 
-    let role: AccessibilityTextElementRole
+    let role: AXElementRole
     let value: String
     let length: Int
     let caretLocation: Int
@@ -16,6 +16,8 @@ struct AXTextElementData {
 enum AXElementRole {
     
     case scrollArea
+    case textField
+    case textArea
     case webArea
     case someOtherShit
     
@@ -62,15 +64,7 @@ struct AXEngine {
         
         guard error == .success, let elementRole = role as? String else { return nil }
         
-        switch (elementRole) {
-        case "AXScrollArea":
-            return .scrollArea
-        case "AXWebArea":
-            return .webArea
-        default:
-            return .someOtherShit
-        }
-        
+        return Self.role(for: elementRole)
     }
     
     static func axTextElementData(of axFocusedElement: AXUIElement? = axFocusedElement()) -> AXTextElementData? { 
@@ -103,12 +97,16 @@ struct AXEngine {
         )
     }
     
-    private static func role(for role: String) -> AccessibilityTextElementRole {
-        switch role {
+    private static func role(for role: String) -> AXElementRole {
+        switch (role) {
+        case "AXScrollArea":
+            return .scrollArea
         case "AXTextField":
             return .textField
         case "AXTextArea":
             return .textArea
+        case "AXWebArea":
+            return .webArea
         default:
             return .someOtherShit
         }

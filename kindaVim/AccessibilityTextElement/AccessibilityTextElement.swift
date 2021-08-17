@@ -7,14 +7,6 @@
 // so the way we handle this is by using the SelectedText and SelectedTextRange to remove or add
 // what we need in the current buffer, rather than pushing the full text.
 
-enum AccessibilityTextElementRole {
-    
-    case textField
-    case textArea
-    case someOtherShit
-    
-}
-
 
 struct AccessibilityTextElementLine {
     
@@ -78,7 +70,7 @@ struct AccessibilityTextElement {
 
     static var globalColumnNumber = 1
 
-    private(set) var role: AccessibilityTextElementRole = .someOtherShit
+    private(set) var role: AXElementRole = .someOtherShit
     private(set) var value: String
     private(set) var length: Int
     
