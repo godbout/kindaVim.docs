@@ -168,6 +168,12 @@ struct AXEngine {
         if let selectedText = accessibilityElement.selectedText {
             guard AXUIElementSetAttributeValue(axFocusedElement, kAXSelectedTextAttribute as CFString, selectedText as CFTypeRef) == .success else { return false }
         }
+
+        if var updatedVisibleCharacterRange = updatedVisibleCharacterRangeIfNecessary(for: accessibilityElement, using: axFocusedElement) {
+            let newVisibleCharacterRange = AXValueCreate(.cfRange, &updatedVisibleCharacterRange)
+            
+            AXUIElementSetAttributeValue(axFocusedElement, kAXVisibleCharacterRangeAttribute as CFString, newVisibleCharacterRange as CFTypeRef)
+        }
         
         return true
     }
@@ -183,6 +189,63 @@ struct AXEngine {
         }
         
         return element.selectedLength
+    }
+        
+    private static func updatedVisibleCharacterRangeIfNecessary(for element: AccessibilityTextElement, using axFocusedElement: AXUIElement) -> CFRange? {
+        switch element.role {
+        case .textField:
+            return updatedVisibleCharacterRangeForTextFields(textfieldBeing: element)
+        default:            
+            return updatedVisibleCharacterRangeForOtherElements(elementBeing: element, using: axFocusedElement)
+        }
+    }
+    
+    // the visibleCharacterRange returned by Apple's AX API doesn't work for TextFields (returns the whole field from start
+    // to end instead).
+    // so we need to trick by constantly moving the visibleCharacterRange one character before the location, except if
+    // we're already at the beginning.
+    // also to move at the right time we need to use a length of 3, but not when we're at the last character else it fails LOL
+    private static func updatedVisibleCharacterRangeForTextFields(textfieldBeing element: AccessibilityTextElement) -> CFRange {
+        return CFRange(
+            location: element.caretLocation == 0 ? 0 : element.caretLocation - 1,
+            length: element.caretLocation == element.length - 1 ? 1 : 3
+        )
+    }
+    
+    // the visibleCharacterRange is tricky also for TextAreas because some also return the whole field from start to end instead
+    // of the visible part ROFL.
+    // so in those cases, we have to ignore and not set the visibleCharacterRange, else the buffer will keep flickering :(
+    // what a big pile of fucking shit Apple.
+    private static func updatedVisibleCharacterRangeForOtherElements(elementBeing element: AccessibilityTextElement, using axFocusedElement: AXUIElement) -> CFRange? {
+        guard let visibleCharacterRange = axVisibleCharacterRange(for: axFocusedElement) else { return nil }
+        
+        if element.caretLocation <= visibleCharacterRange.location {
+            return CFRange(
+                location: element.caretLocation == 0 ? 0 : element.caretLocation - 1,
+                length: 1
+            )
+        }
+        
+        if element.caretLocation >= visibleCharacterRange.location + visibleCharacterRange.length {
+            return CFRange(
+                location: element.caretLocation == element.length - 1 ? element.caretLocation : element.caretLocation + 1,
+                length: 1
+            )
+        }
+        
+        return nil 
+    }
+    
+    private static func axVisibleCharacterRange(for axFocusedElement: AXUIElement? = axFocusedElement()) -> CFRange? {
+        guard let axFocusedElement = axFocusedElement else { return nil }
+        
+        var axVisibleCharacterRange: AnyObject?
+        guard AXUIElementCopyAttributeValue(axFocusedElement, kAXVisibleCharacterRangeAttribute as CFString, &axVisibleCharacterRange) == .success else { return nil }
+        
+        var visibleCharacterRange = CFRange()
+        AXValueGetValue(axVisibleCharacterRange as! AXValue, .cfRange, &visibleCharacterRange)
+        
+        return visibleCharacterRange
     }
 
 }

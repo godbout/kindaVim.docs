@@ -79,7 +79,6 @@ struct AccessibilityTextElement {
             if KindaVimEngine.shared.currentMode == .normal || KindaVimEngine.shared.currentMode == .operatorPendingForNormalMode || KindaVimEngine.shared.currentMode == .insert {
                 if let lineForLocation = AccessibilityTextElementAdaptor.lineFor(location: caretLocation), lineForLocation.isNotAnEmptyLine {                    
                     Self.globalColumnNumber = (caretLocation - lineForLocation.start) + 1
-                    print(Self.globalColumnNumber)
                 }
             }
         }
