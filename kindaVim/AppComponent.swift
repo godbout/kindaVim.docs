@@ -7,18 +7,20 @@ class AppComponent {
     var accessibilityElementAdaptorTestingWindow: NSWindow!
 
     func setUp() {
-        setUpWindowsState()
         setUpStatusBar()
         #if !CITESTING
         setUpEventTap()
         #endif
         setUpVimEngine()
+        
+        NSApplication.shared.hide(self)
+        
+        #if UITESTING
+        setUpUITestingWindow()
+        #endif
     }
 
-    private func setUpWindowsState() {
-        NSApplication.shared.hide(self)
-
-        #if UITESTING
+    private func setUpUITestingWindow() {
         NSApplication.shared.setActivationPolicy(.regular)
         NSApplication.shared.activate(ignoringOtherApps: true)
         
@@ -33,7 +35,6 @@ class AppComponent {
         accessibilityElementAdaptorTestingWindow.center()
         accessibilityElementAdaptorTestingWindow.contentView = NSHostingView(rootView: contentView)
         accessibilityElementAdaptorTestingWindow.makeKeyAndOrderFront(nil)
-        #endif
     }
 
     private func setUpStatusBar() {
