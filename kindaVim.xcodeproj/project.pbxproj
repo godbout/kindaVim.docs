@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -18,6 +18,7 @@
 		91054E8D264501F500CC0ACC /* UsingKSNM_control_u_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91054E8C264501F500CC0ACC /* UsingKSNM_control_u_Tests.swift */; };
 		91054E8F2645079B00CC0ACC /* KSUT_NM_control_d_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91054E8E2645079B00CC0ACC /* KSUT_NM_control_d_Tests.swift */; };
 		91054E912645087A00CC0ACC /* UsingKSNM_control_d_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91054E902645087A00CC0ACC /* UsingKSNM_control_d_Tests.swift */; };
+		9106FE0226D155CC009FB108 /* Preferences in Frameworks */ = {isa = PBXBuildFile; productRef = 9106FE0126D155CC009FB108 /* Preferences */; };
 		9107EE092646B92D003575A7 /* KSUT_NM_cb_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9107EE082646B92D003575A7 /* KSUT_NM_cb_Tests.swift */; };
 		9107EE0F2646BA1E003575A7 /* UsingKSNM_cb_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9107EE0E2646BA1E003575A7 /* UsingKSNM_cb_Tests.swift */; };
 		9107EE152646BC32003575A7 /* KSUT_NM_db_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9107EE142646BC32003575A7 /* KSUT_NM_db_Tests.swift */; };
@@ -1804,6 +1805,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9106FE0226D155CC009FB108 /* Preferences in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2960,6 +2962,9 @@
 			dependencies = (
 			);
 			name = kindaVim;
+			packageProductDependencies = (
+				9106FE0126D155CC009FB108 /* Preferences */,
+			);
 			productName = kindaVim;
 			productReference = 9128F2AC262AA90C00625B42 /* kindaVim.app */;
 			productType = "com.apple.product-type.application";
@@ -3075,6 +3080,9 @@
 				Base,
 			);
 			mainGroup = 9128F2A3262AA90C00625B42;
+			packageReferences = (
+				9106FE0026D155CC009FB108 /* XCRemoteSwiftPackageReference "Preferences" */,
+			);
 			productRefGroup = 9128F2AD262AA90C00625B42 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -5114,6 +5122,26 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		9106FE0026D155CC009FB108 /* XCRemoteSwiftPackageReference "Preferences" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sindresorhus/Preferences";
+			requirement = {
+				kind = versionRange;
+				maximumVersion = 2.3.0;
+				minimumVersion = 2.2.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		9106FE0126D155CC009FB108 /* Preferences */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9106FE0026D155CC009FB108 /* XCRemoteSwiftPackageReference "Preferences" */;
+			productName = Preferences;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 9128F2A4262AA90C00625B42 /* Project object */;
 }
