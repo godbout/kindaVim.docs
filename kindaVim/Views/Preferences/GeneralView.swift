@@ -2,7 +2,7 @@ import SwiftUI
 import Preferences
 
 
-struct PreferencesPane: View {
+struct GeneralPane: View {
     
     var body: some View {
         Preferences.Container(contentWidth: 450.0) {
@@ -19,9 +19,9 @@ struct PreferencesPane: View {
 }
 
 
-struct PreferencesPane_Previews: PreviewProvider {
+struct GeneralPane_Previews: PreviewProvider {
     
     static var previews: some View {
-        PreferencesPane()
+        GeneralPane()
     }
 }

@@ -1,20 +1,31 @@
-//
-//  StrategiesView.swift
-//  kindaVim
-//
-//  Created by Guillaume Leclerc on 22/08/2021.
-//
-
 import SwiftUI
+import Preferences
 
-struct StrategiesView: View {
+
+struct StrategiesPane: View {
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Preferences.Container(contentWidth: 450.0) {
+            Preferences.Section(title: "section 1") {
+                Text("some bs 1")
+                Text("some bs 3")
+            }
+            
+            Preferences.Section(title: "section 2") {
+                Text("some bs 2")
+                Text("some bs 2")
+                Text("some bs 2")
+                Text("some bs 2")
+            }
+        }
     }
+    
 }
 
-struct StrategiesView_Previews: PreviewProvider {
+
+struct StrategiesPane_Previews: PreviewProvider {
+    
     static var previews: some View {
-        StrategiesView()
+        StrategiesPane()
     }
 }

@@ -1,8 +1,9 @@
-//
-//  Panes.swift
-//  kindaVim
-//
-//  Created by Guillaume Leclerc on 22/08/2021.
-//
+import Preferences
 
-import Foundation
+
+extension Preferences.PaneIdentifier {
+    
+    static let general = Self("general")
+    static let strategies = Self("strategies")
+    
+}

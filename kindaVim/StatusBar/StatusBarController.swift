@@ -1,8 +1,31 @@
 import AppKit
+import Preferences
+
 
 class StatusBarController {
     
     var statusItem: NSStatusItem!
+    
+    private lazy var preferencesWindowController = PreferencesWindowController(
+        panes: [
+            Preferences.Pane(
+                identifier: Preferences.PaneIdentifier.general,
+                title: "General",
+                toolbarIcon: NSImage(named: NSImage.preferencesGeneralName)!
+            ) {
+                GeneralPane()
+            },
+            Preferences.Pane(
+                identifier: Preferences.PaneIdentifier.strategies,
+                title: "Strategies",
+                toolbarIcon: NSImage(named: NSImage.columnViewTemplateName)!
+            ) {
+                StrategiesPane()
+            }
+        ],
+        animated: false
+    )
+    
     
     init() {
         setUpStatusItem()
@@ -29,7 +52,7 @@ class StatusBarController {
     }
     
     @objc func preferences() {
-        print("preferences box appears. magic!")
+        preferencesWindowController.show(preferencePane: .general)
     }
 
     @objc func quit() {
