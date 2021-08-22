@@ -38,7 +38,7 @@ struct PreferencesController {
         if #available(macOS 11.0, *) {
             toolbarIcon = NSImage(systemSymbolName: "keyboard", accessibilityDescription: "Strategies Preferences")!
         } else {
-            toolbarIcon = NSImage(named: NSImage.columnViewTemplateName)!
+            toolbarIcon = NSImage(named: NSImage.computerName)!
         }
        
         let paneView = Preferences.Pane(identifier: identifier, title: title, toolbarIcon: toolbarIcon) {
