@@ -4,33 +4,14 @@ import Preferences
 
 class StatusBarController {
     
-    var statusItem: NSStatusItem!
-    
-    private lazy var preferencesWindowController = PreferencesWindowController(
-        panes: [
-            Preferences.Pane(
-                identifier: Preferences.PaneIdentifier.general,
-                title: "General",
-                toolbarIcon: NSImage(named: NSImage.preferencesGeneralName)!
-            ) {
-                GeneralPane()
-            },
-            Preferences.Pane(
-                identifier: Preferences.PaneIdentifier.strategies,
-                title: "Strategies",
-                toolbarIcon: NSImage(named: NSImage.columnViewTemplateName)!
-            ) {
-                StrategiesPane()
-            }
-        ],
-        animated: false
-    )
-    
+    private var statusItem: NSStatusItem!
+    private lazy var preferencesController = PreferencesController()
     
     init() {
         setUpStatusItem()
         setUpStatusItemMenu()
     }
+    
     
     private func setUpStatusItem() {
         statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
@@ -52,7 +33,7 @@ class StatusBarController {
     }
     
     @objc func preferences() {
-        preferencesWindowController.show(preferencePane: .general)
+        preferencesController.window.show(preferencePane: .general)
     }
 
     @objc func quit() {
