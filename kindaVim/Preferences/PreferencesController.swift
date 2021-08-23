@@ -39,7 +39,7 @@ struct PreferencesController {
         if #available(macOS 11.0, *) {
             toolbarIcon = NSImage(systemSymbolName: "keyboard", accessibilityDescription: "Strategies Preferences")!
         } else {
-            toolbarIcon = NSImage(named: NSImage.computerName)!
+            toolbarIcon = NSImage(named: NSImage.networkName)!
         }
        
         let paneView = Preferences.Pane(identifier: identifier, title: title, toolbarIcon: toolbarIcon) {
@@ -57,7 +57,7 @@ struct PreferencesController {
         if #available(macOS 11.0, *) {
             toolbarIcon = NSImage(systemSymbolName: "eyeglasses", accessibilityDescription: "Visuals Preferences")!
         } else {
-            toolbarIcon = NSImage(named: NSImage.quickLookTemplateName)!
+            toolbarIcon = NSImage(named: NSImage.computerName)!
         }
        
         let paneView = Preferences.Pane(identifier: identifier, title: title, toolbarIcon: toolbarIcon) {
@@ -75,7 +75,7 @@ struct PreferencesController {
    
     lazy var window = PreferencesWindowController(
         preferencePanes: preferences,
-        animated: false
+        animated: true
     )
     
 }
