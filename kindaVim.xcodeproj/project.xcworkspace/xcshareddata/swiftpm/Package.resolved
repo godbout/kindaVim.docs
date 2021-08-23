@@ -2,6 +2,15 @@
   "object": {
     "pins": [
       {
+        "package": "LaunchAtLogin",
+        "repositoryURL": "https://github.com/sindresorhus/LaunchAtLogin",
+        "state": {
+          "branch": null,
+          "revision": "6b16bcdf7d45a9d76a768a5c4912dde925cf0e95",
+          "version": "4.1.0"
+        }
+      },
+      {
         "package": "Preferences",
         "repositoryURL": "https://github.com/sindresorhus/Preferences",
         "state": {

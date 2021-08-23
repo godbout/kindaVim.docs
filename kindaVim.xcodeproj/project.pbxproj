@@ -806,6 +806,7 @@
 		91ACB2AE26761BF0000B3CE7 /* ASKV_NM_ci`.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913D5C7626760B5300253DDC /* ASKV_NM_ci`.swift */; };
 		91B100D32681D31B00AFBE26 /* endOfWordBackward.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B100D22681D31B00AFBE26 /* endOfWordBackward.swift */; };
 		91B100D92681D96100AFBE26 /* endOfWordForward.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B100D82681D96100AFBE26 /* endOfWordForward.swift */; };
+		91B1F58926D38C28003F0555 /* LaunchAtLogin in Frameworks */ = {isa = PBXBuildFile; productRef = 91B1F58826D38C28003F0555 /* LaunchAtLogin */; };
 		91B2BDD826D23C5C00E22AE2 /* PreferencesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B2BDD726D23C5C00E22AE2 /* PreferencesController.swift */; };
 		91B597FD267E74100034B3A0 /* UsingASNM_cT__Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B597FC267E74100034B3A0 /* UsingASNM_cT__Tests.swift */; };
 		91B59803267E74810034B3A0 /* ASKV_NM_cT_.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B59802267E74810034B3A0 /* ASKV_NM_cT_.swift */; };
@@ -1811,6 +1812,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				91B1F58926D38C28003F0555 /* LaunchAtLogin in Frameworks */,
 				9106FE0226D155CC009FB108 /* Preferences in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2989,6 +2991,7 @@
 				9128F2A8262AA90C00625B42 /* Sources */,
 				9128F2A9262AA90C00625B42 /* Frameworks */,
 				9128F2AA262AA90C00625B42 /* Resources */,
+				91B1F58A26D38C55003F0555 /* Copy "Launch at Login Helper" */,
 			);
 			buildRules = (
 			);
@@ -2997,6 +3000,7 @@
 			name = kindaVim;
 			packageProductDependencies = (
 				9106FE0126D155CC009FB108 /* Preferences */,
+				91B1F58826D38C28003F0555 /* LaunchAtLogin */,
 			);
 			productName = kindaVim;
 			productReference = 9128F2AC262AA90C00625B42 /* kindaVim.app */;
@@ -3115,6 +3119,7 @@
 			mainGroup = 9128F2A3262AA90C00625B42;
 			packageReferences = (
 				9106FE0026D155CC009FB108 /* XCRemoteSwiftPackageReference "Preferences" */,
+				91B1F58726D38C28003F0555 /* XCRemoteSwiftPackageReference "LaunchAtLogin" */,
 			);
 			productRefGroup = 9128F2AD262AA90C00625B42 /* Products */;
 			projectDirPath = "";
@@ -3169,6 +3174,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		91B1F58A26D38C55003F0555 /* Copy "Launch at Login Helper" */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Copy \"Launch at Login Helper\"";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${BUILT_PRODUCTS_DIR}/LaunchAtLogin_LaunchAtLogin.bundle/Contents/Resources/copy-helper-swiftpm.sh\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		9128F2A8262AA90C00625B42 /* Sources */ = {
@@ -5169,6 +5195,14 @@
 				minimumVersion = 2.2.1;
 			};
 		};
+		91B1F58726D38C28003F0555 /* XCRemoteSwiftPackageReference "LaunchAtLogin" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sindresorhus/LaunchAtLogin";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.1.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -5176,6 +5210,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 9106FE0026D155CC009FB108 /* XCRemoteSwiftPackageReference "Preferences" */;
 			productName = Preferences;
+		};
+		91B1F58826D38C28003F0555 /* LaunchAtLogin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 91B1F58726D38C28003F0555 /* XCRemoteSwiftPackageReference "LaunchAtLogin" */;
+			productName = LaunchAtLogin;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
