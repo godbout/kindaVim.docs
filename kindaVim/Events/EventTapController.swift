@@ -21,20 +21,19 @@ struct EventTapController {
         }        
                 
         let keyCombinationPressed = KeyCombinationAdaptor.fromCGEvent(from: event)
-        
-        if GlobalEventsController.handle(keyCombination: keyCombinationPressed) == true {
-            if Defaults[.showCharactersTyped] == true {
-                KindaVimEngine.shared.display.showKeysTyped(lastBeing: keyCombinationPressed)
-
-                if KindaVimEngine.shared.currentMode == .insert {
-                    KindaVimEngine.shared.display.fadeOutCharactersWindow()
-                }
-            }
-
-            return nil
+        guard GlobalEventsController.handle(keyCombination: keyCombinationPressed) == true else {
+            return Unmanaged.passUnretained(event)
         }
         
-        return Unmanaged.passUnretained(event)
+        if Defaults[.showCharactersTyped] == true {
+            KindaVimEngine.shared.display.showKeysTyped(lastBeing: keyCombinationPressed)
+
+            if KindaVimEngine.shared.currentMode == .insert {
+                KindaVimEngine.shared.display.fadeOutCharactersWindow()
+            }
+        }
+
+        return nil
     }
     
     init() {
