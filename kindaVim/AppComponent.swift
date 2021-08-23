@@ -1,10 +1,13 @@
 import SwiftUI
 
+
 class AppComponent {
+
     var statusBarController: StatusBarController!
     var vimEngine: KindaVimEngine!
 
     var accessibilityElementAdaptorTestingWindow: NSWindow!
+
 
     func setUp() {
         setUpStatusBar()

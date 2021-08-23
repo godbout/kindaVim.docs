@@ -6,6 +6,7 @@ extension Preferences.PaneIdentifier {
     
     static let general = Self("general")
     static let strategies = Self("strategies")
+    static let visuals = Self("visuals")
     
 }
 
@@ -47,10 +48,29 @@ struct PreferencesController {
         
         return Preferences.PaneHostingController(pane: paneView)
     }
+    
+    private var VisualsPreferenceController: () -> PreferencePane = {
+        let identifier = Preferences.PaneIdentifier.visuals
+        let title = "Visuals"
+        let toolbarIcon: NSImage
+        
+        if #available(macOS 11.0, *) {
+            toolbarIcon = NSImage(systemSymbolName: "eyeglasses", accessibilityDescription: "Visuals Preferences")!
+        } else {
+            toolbarIcon = NSImage(named: NSImage.quickLookTemplateName)!
+        }
+       
+        let paneView = Preferences.Pane(identifier: identifier, title: title, toolbarIcon: toolbarIcon) {
+            VisualsPane()
+        }
+        
+        return Preferences.PaneHostingController(pane: paneView)
+    }
 
     private lazy var preferences: [PreferencePane] = [
         GeneralPreferenceController(),
-        StrategiesPreferenceController()
+        StrategiesPreferenceController(),
+        VisualsPreferenceController()
     ]
    
     lazy var window = PreferencesWindowController(

@@ -645,6 +645,9 @@
 		9193EBB22674B7C4009AC0AD /* UsingASNM_x_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9193EBB12674B7C4009AC0AD /* UsingASNM_x_Tests.swift */; };
 		9195C6C42681CE4800CC4EAF /* beginningOfWORDForward_.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9195C6C32681CE4800CC4EAF /* beginningOfWORDForward_.swift */; };
 		9196860F26812DDC002BAA55 /* beginningOfWordForward.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9196860E26812DDC002BAA55 /* beginningOfWordForward.swift */; };
+		919764E326D392DE00A4A80E /* VisualsPane.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919764E226D392DE00A4A80E /* VisualsPane.swift */; };
+		919764E626D3944800A4A80E /* Defaults in Frameworks */ = {isa = PBXBuildFile; productRef = 919764E526D3944800A4A80E /* Defaults */; };
+		919764E926D398DC00A4A80E /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919764E826D398DC00A4A80E /* Defaults.swift */; };
 		9197C0852636695A006C696A /* KeyCombinationAdaptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9197C0842636695A006C696A /* KeyCombinationAdaptor.swift */; };
 		9197C08A26366A3B006C696A /* KeyCombinationAdaptorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9197C08926366A3B006C696A /* KeyCombinationAdaptorTests.swift */; };
 		919946932694BF23005D7E89 /* ASUI_VML_$_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919946922694BF23005D7E89 /* ASUI_VML_$_Tests.swift */; };
@@ -1505,6 +1508,8 @@
 		9193EBB12674B7C4009AC0AD /* UsingASNM_x_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsingASNM_x_Tests.swift; sourceTree = "<group>"; };
 		9195C6C32681CE4800CC4EAF /* beginningOfWORDForward_.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = beginningOfWORDForward_.swift; sourceTree = "<group>"; };
 		9196860E26812DDC002BAA55 /* beginningOfWordForward.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = beginningOfWordForward.swift; sourceTree = "<group>"; };
+		919764E226D392DE00A4A80E /* VisualsPane.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualsPane.swift; sourceTree = "<group>"; };
+		919764E826D398DC00A4A80E /* Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
 		9197C0842636695A006C696A /* KeyCombinationAdaptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyCombinationAdaptor.swift; sourceTree = "<group>"; };
 		9197C08926366A3B006C696A /* KeyCombinationAdaptorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyCombinationAdaptorTests.swift; sourceTree = "<group>"; };
 		919946922694BF23005D7E89 /* ASUI_VML_$_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASUI_VML_$_Tests.swift; sourceTree = "<group>"; };
@@ -1812,6 +1817,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				919764E626D3944800A4A80E /* Defaults in Frameworks */,
 				91B1F58926D38C28003F0555 /* LaunchAtLogin in Frameworks */,
 				9106FE0226D155CC009FB108 /* Preferences in Frameworks */,
 			);
@@ -2288,6 +2294,7 @@
 		9179166526D169C50040370A /* Preferences */ = {
 			isa = PBXGroup;
 			children = (
+				919764E726D398CF00A4A80E /* Defaults */,
 				91B2BDD926D2451800E22AE2 /* Panes */,
 				91B2BDD726D23C5C00E22AE2 /* PreferencesController.swift */,
 			);
@@ -2564,6 +2571,14 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		919764E726D398CF00A4A80E /* Defaults */ = {
+			isa = PBXGroup;
+			children = (
+				919764E826D398DC00A4A80E /* Defaults.swift */,
+			);
+			path = Defaults;
+			sourceTree = "<group>";
+		};
 		919DEB612632C8320052D514 /* VimEngine */ = {
 			isa = PBXGroup;
 			children = (
@@ -2685,6 +2700,7 @@
 			children = (
 				9179165E26D167E50040370A /* GeneralPane.swift */,
 				9179167226D16B690040370A /* StrategiesPane.swift */,
+				919764E226D392DE00A4A80E /* VisualsPane.swift */,
 			);
 			path = Panes;
 			sourceTree = "<group>";
@@ -3001,6 +3017,7 @@
 			packageProductDependencies = (
 				9106FE0126D155CC009FB108 /* Preferences */,
 				91B1F58826D38C28003F0555 /* LaunchAtLogin */,
+				919764E526D3944800A4A80E /* Defaults */,
 			);
 			productName = kindaVim;
 			productReference = 9128F2AC262AA90C00625B42 /* kindaVim.app */;
@@ -3120,6 +3137,7 @@
 			packageReferences = (
 				9106FE0026D155CC009FB108 /* XCRemoteSwiftPackageReference "Preferences" */,
 				91B1F58726D38C28003F0555 /* XCRemoteSwiftPackageReference "LaunchAtLogin" */,
+				919764E426D3944800A4A80E /* XCRemoteSwiftPackageReference "Defaults" */,
 			);
 			productRefGroup = 9128F2AD262AA90C00625B42 /* Products */;
 			projectDirPath = "";
@@ -3216,6 +3234,7 @@
 				918F444F2689D5FC003EAEE0 /* ASKV_NM_dj.swift in Sources */,
 				91CF260826A5F6B500CF215D /* String.swift in Sources */,
 				916F741C26B98525007CC8F9 /* KSKV_NM_ciw.swift in Sources */,
+				919764E326D392DE00A4A80E /* VisualsPane.swift in Sources */,
 				916F740E26B984F6007CC8F9 /* KSKV_NM_cgg.swift in Sources */,
 				91AB98B02674D634007682CA /* ASKV_NM_i.swift in Sources */,
 				91AB98882674D5AA007682CA /* ASKV_NM_e.swift in Sources */,
@@ -3304,6 +3323,7 @@
 				91CF55CD2681FC54008094FC /* ASKV_NM_%.swift in Sources */,
 				916F740026B984C8007CC8F9 /* KSKV_NM_cb.swift in Sources */,
 				91AB953426C19C8D00FDEBFC /* ASKV_NM_yi`.swift in Sources */,
+				919764E926D398DC00A4A80E /* Defaults.swift in Sources */,
 				91A155792681CFD9002D0765 /* beginningOfWordBackward.swift in Sources */,
 				91E5B63D26C128CA00B5B60A /* KSKV_VM_d.swift in Sources */,
 				9128F2B0262AA90C00625B42 /* AppDelegate.swift in Sources */,
@@ -5195,6 +5215,14 @@
 				minimumVersion = 2.2.1;
 			};
 		};
+		919764E426D3944800A4A80E /* XCRemoteSwiftPackageReference "Defaults" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sindresorhus/Defaults";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 		91B1F58726D38C28003F0555 /* XCRemoteSwiftPackageReference "LaunchAtLogin" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/sindresorhus/LaunchAtLogin";
@@ -5210,6 +5238,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 9106FE0026D155CC009FB108 /* XCRemoteSwiftPackageReference "Preferences" */;
 			productName = Preferences;
+		};
+		919764E526D3944800A4A80E /* Defaults */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 919764E426D3944800A4A80E /* XCRemoteSwiftPackageReference "Defaults" */;
+			productName = Defaults;
 		};
 		91B1F58826D38C28003F0555 /* LaunchAtLogin */ = {
 			isa = XCSwiftPackageProductDependency;

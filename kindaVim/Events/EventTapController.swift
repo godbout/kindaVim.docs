@@ -1,39 +1,20 @@
 import AppKit
 import Foundation
+import Defaults
+
 
 struct EventTapController {
     
     var eventTapCallback: CGEventTapCallBack = { proxy, _, event, _ in
         KeyboardStrategy.proxy = proxy
-
-//        print(
-//            """
-//            ***
-//            KEY PRESSED IS:
-//            key code: \(event.getIntegerValueField(.keyboardEventKeycode))
-//            KeyCode: \(String(describing: KeyCode(rawValue: event.getIntegerValueField(.keyboardEventKeycode))))
-//            control: \(event.flags.contains(.maskControl))
-//            option: \(event.flags.contains(.maskAlternate))
-//            shift: \(event.flags.contains(.maskShift))
-//            command: \(event.flags.contains(.maskCommand))
-//            fn: \(event.flags.contains(.maskSecondaryFn))
-//            ***
-//            """
-//        )
-        
-//        print(
-//            """
-//            on application: \(String(describing: NSWorkspace.shared.frontmostApplication?.bundleIdentifier))
-//            """
-//        )
         
         guard event.type == .keyDown else {
             if KindaVimEngine.shared.currentMode != .insert {
                 KindaVimEngine.shared.enterInsertMode()
                 
-                #if DEBUG
-                KindaVimEngine.shared.display.fadeOutCharactersWindow()
-                #endif
+                if Defaults[.showCharactersTyped] == true {
+                    KindaVimEngine.shared.display.fadeOutCharactersWindow()
+                }
             }
             
             return Unmanaged.passUnretained(event)
@@ -42,14 +23,14 @@ struct EventTapController {
         let keyCombinationPressed = KeyCombinationAdaptor.fromCGEvent(from: event)
         
         if GlobalEventsController.handle(keyCombination: keyCombinationPressed) == true {
-            #if DEBUG
-            KindaVimEngine.shared.display.showKeysTyped(lastBeing: keyCombinationPressed)
-            
-            if KindaVimEngine.shared.currentMode == .insert {
-                KindaVimEngine.shared.display.fadeOutCharactersWindow()
+            if Defaults[.showCharactersTyped] == true {
+                KindaVimEngine.shared.display.showKeysTyped(lastBeing: keyCombinationPressed)
+
+                if KindaVimEngine.shared.currentMode == .insert {
+                    KindaVimEngine.shared.display.fadeOutCharactersWindow()
+                }
             }
-            #endif
-            
+
             return nil
         }
         
