@@ -1,6 +1,7 @@
 import AppKit
 import Foundation
 import KeyboardShortcuts
+import Defaults
 
 
 struct GlobalEventsController {
@@ -55,7 +56,7 @@ struct GlobalEventsController {
     // if the user set up a custom KeyboardShortcut, use it
     // else we live for escape
     private static func globalVimEngineHotkeyIsPressed(_ keyCombination: KeyCombination) -> Bool {
-        if let customKeyboardShortcut = KeyboardShortcuts.getShortcut(for: .enterNormalMode) {
+        if Defaults[.useCustomShortcutToEnterNormalMode] == true, let customKeyboardShortcut = KeyboardShortcuts.getShortcut(for: .enterNormalMode) {
             return keyCombination.key.rawValue == customKeyboardShortcut.key!.rawValue
                 && keyCombination.control == customKeyboardShortcut.modifiers.contains(.control)
                 && keyCombination.option == customKeyboardShortcut.modifiers.contains(.option)

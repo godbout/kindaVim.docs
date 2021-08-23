@@ -2306,8 +2306,8 @@
 		9179166526D169C50040370A /* Preferences */ = {
 			isa = PBXGroup;
 			children = (
-				9110C8FC26D3D0910010734B /* KeyboardShortcuts */,
 				919764E726D398CF00A4A80E /* Defaults */,
+				9110C8FC26D3D0910010734B /* KeyboardShortcuts */,
 				91B2BDD926D2451800E22AE2 /* Panes */,
 				91B2BDD726D23C5C00E22AE2 /* PreferencesController.swift */,
 			);

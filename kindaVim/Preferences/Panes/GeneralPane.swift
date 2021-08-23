@@ -2,9 +2,12 @@ import SwiftUI
 import Preferences
 import LaunchAtLogin
 import KeyboardShortcuts
+import Defaults
 
 
 struct GeneralPane: View {
+
+    @Default(.useCustomShortcutToEnterNormalMode) var useCustomShortcutToEnterNormalMode
     
     var body: some View {
         Preferences.Container(contentWidth: 450.0) {
@@ -12,8 +15,11 @@ struct GeneralPane: View {
                 LaunchAtLogin.Toggle()
             }
             
-            Preferences.Section(title: "Use custom shortcut") {
-                KeyboardShortcuts.Recorder(for: .enterNormalMode)
+            Preferences.Section(title: "") {
+                HStack {
+                    Toggle("Use custom shortcut to enter Normal Mode:", isOn: $useCustomShortcutToEnterNormalMode)
+                    KeyboardShortcuts.Recorder(for: .enterNormalMode).disabled(!useCustomShortcutToEnterNormalMode)
+                }
             }
         }
     }
