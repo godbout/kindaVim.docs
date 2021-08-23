@@ -10,20 +10,25 @@ struct GeneralPane: View {
     @Default(.useCustomShortcutToEnterNormalMode) var useCustomShortcutToEnterNormalMode
     
     var body: some View {
-        Preferences.Container(contentWidth: 450.0) {
-            Preferences.Section(title: "") {
+        
+        Form {
+            VStack(alignment: .leading) {
                 LaunchAtLogin.Toggle()
-            }
-            
-            Preferences.Section(title: "") {
+                
                 HStack {
                     Toggle("Use custom shortcut to enter Normal Mode:", isOn: $useCustomShortcutToEnterNormalMode)
                     KeyboardShortcuts.Recorder(for: .enterNormalMode).disabled(!useCustomShortcutToEnterNormalMode)
                 }
+                .padding(.top)
+                                
+                Text("by default Escape is used to enter Normal Mode.").preferenceDescription()
+                    .padding(.horizontal)
             }
+            .padding()
+            .padding(.horizontal)
         }
+            
     }
-    
 }
 
 
