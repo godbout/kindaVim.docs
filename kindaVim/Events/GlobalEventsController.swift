@@ -1,5 +1,7 @@
 import AppKit
 import Foundation
+import KeyboardShortcuts
+
 
 struct GlobalEventsController {
     
@@ -50,9 +52,17 @@ struct GlobalEventsController {
             || KindaVimEngine.shared.currentMode == .operatorPendingForVisualMode
     }
     
+    // if the user set up a custom KeyboardShortcut, use it
+    // else we live for escape
     private static func globalVimEngineHotkeyIsPressed(_ keyCombination: KeyCombination) -> Bool {
-        // temporary for escape to enter Normal Mode
-        // and escape again to send escape key to macOS
+        if let customKeyboardShortcut = KeyboardShortcuts.getShortcut(for: .enterNormalMode) {
+            return keyCombination.key.rawValue == customKeyboardShortcut.key!.rawValue
+                && keyCombination.control == customKeyboardShortcut.modifiers.contains(.control)
+                && keyCombination.option == customKeyboardShortcut.modifiers.contains(.option)
+                && keyCombination.shift == customKeyboardShortcut.modifiers.contains(.shift)
+                && keyCombination.command == customKeyboardShortcut.modifiers.contains(.command)
+        }
+
         return keyCombination.key == .escape
             && keyCombination.control == false
             && keyCombination.option == false

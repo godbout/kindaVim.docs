@@ -11,6 +11,15 @@
         }
       },
       {
+        "package": "KeyboardShortcuts",
+        "repositoryURL": "https://github.com/sindresorhus/KeyboardShortcuts",
+        "state": {
+          "branch": null,
+          "revision": "01f89033f8492c2ee581720e2d391dec6b279b85",
+          "version": "1.1.0"
+        }
+      },
+      {
         "package": "LaunchAtLogin",
         "repositoryURL": "https://github.com/sindresorhus/LaunchAtLogin",
         "state": {
