@@ -6,14 +6,6 @@ import Defaults
 
 struct GlobalEventsController {
     
-    static let appsToIgnore: [String] = [
-        "com.sublimetext.4",
-        "com.googlecode.iterm2",
-        "com.microsoft.VSCode",
-        "com.jetbrains.PhpStorm",
-        "com.github.atom",
-    ]
-    
     static func handle(keyCombination: KeyCombination?) -> Bool {
         if onIgnoredApp() {
             return false
@@ -41,7 +33,7 @@ struct GlobalEventsController {
     }
     
     private static func onIgnoredApp() -> Bool {
-        return appsToIgnore.contains(
+        return Defaults[.appsToIgnore].contains(
             NSWorkspace.shared.frontmostApplication?.bundleIdentifier ?? ""
         )
     }
