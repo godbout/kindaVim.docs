@@ -1971,13 +1971,13 @@
 			path = Events;
 			sourceTree = "<group>";
 		};
-		9128B0F2263820C5007DC80B /* VimEngine */ = {
+		9128B0F2263820C5007DC80B /* kindaVimEngine */ = {
 			isa = PBXGroup;
 			children = (
-				91F7A002264FC68500B609FF /* UsingKS */,
+				91F7A002264FC68500B609FF /* EnforcingKS */,
 				91F7A003264FC6E100B609FF /* UsingAS */,
 			);
-			path = VimEngine;
+			path = kindaVimEngine;
 			sourceTree = "<group>";
 		};
 		9128F2A3262AA90C00625B42 = {
@@ -2043,7 +2043,7 @@
 				912687242640634D002E3FB0 /* KeyCombination */,
 				91D7CF1F26A19186002CCF90 /* AccessibilityTextElement */,
 				91482E41263DBF3100F10ADC /* Strategies */,
-				9128B0F2263820C5007DC80B /* VimEngine */,
+				9128B0F2263820C5007DC80B /* kindaVimEngine */,
 				9128F2C7262AA90D00625B42 /* Info.plist */,
 			);
 			path = Unit;
@@ -2981,14 +2981,14 @@
 			path = Others;
 			sourceTree = "<group>";
 		};
-		91F7A002264FC68500B609FF /* UsingKS */ = {
+		91F7A002264FC68500B609FF /* EnforcingKS */ = {
 			isa = PBXGroup;
 			children = (
 				91E304C22643EC48004D9933 /* UsingKS_BaseTests.swift */,
 				916034DB26BBFA0100977AB3 /* NormalMode */,
 				916034DC26BBFA1D00977AB3 /* VisualMode */,
 			);
-			path = UsingKS;
+			path = EnforcingKS;
 			sourceTree = "<group>";
 		};
 		91F7A003264FC6E100B609FF /* UsingAS */ = {

@@ -20,6 +20,14 @@ enum VimEngineMoveStyle {
 }
 
 
+enum VimEngineStrategy {
+    
+    case keyboardStrategy
+    case accessibilityStrategy
+    
+}
+
+
 class KindaVimEngine {
     
     static var shared = KindaVimEngine()
@@ -42,15 +50,19 @@ class KindaVimEngine {
         print("engine started")
     }
     
-    func handle(keyCombination: KeyCombination) {
-        switch currentMode {
-        case .normal:
-            handleNormalMode(with: keyCombination)
-        case .operatorPendingForNormalMode:
-            handleOperatorPendingForNormalMode(with: keyCombination)
-        case .visual:
+    func handle(keyCombination: KeyCombination, enforceKeyboardStrategy: Bool = false) {
+        switch (currentMode, enforceKeyboardStrategy) {
+        case (.normal, false):
+            handleNormalMode(using: .accessibilityStrategy, for: keyCombination)
+        case (.normal, true):
+            handleNormalMode(using: .keyboardStrategy, for: keyCombination)
+        case (.operatorPendingForNormalMode, false):
+            handleOperatorPendingForNormalMode(using: .accessibilityStrategy, for: keyCombination)
+        case (.operatorPendingForNormalMode, true):
+            handleOperatorPendingForNormalMode(using: .keyboardStrategy, for: keyCombination)
+        case (.visual, _):
             handleVisualMode(with: keyCombination)
-        case .operatorPendingForVisualMode:
+        case (.operatorPendingForVisualMode, _):
             handleOperatorPendingForVisualMode(with: keyCombination)
         default:
             ()
@@ -117,7 +129,16 @@ class KindaVimEngine {
 // normal mode
 extension KindaVimEngine {
  
-    func handleNormalMode(with keyCombination: KeyCombination) {
+    private func handleNormalMode(using strategy: VimEngineStrategy, for keyCombination: KeyCombination) {
+        switch strategy {
+        case .accessibilityStrategy:
+            tryHandlingNormalModeUsingAccessibilityStrategyFirst(for: keyCombination)
+        case .keyboardStrategy:
+            handleNormalModeUsingKeyboardStrategy(for: keyCombination)
+        }        
+    }
+    
+    private func tryHandlingNormalModeUsingAccessibilityStrategyFirst(for keyCombination: KeyCombination) {         
         switch keyCombination.vimKey {
         case .a:
             enterInsertMode()
@@ -137,7 +158,7 @@ extension KindaVimEngine {
             }
         case .b:
             if let element = asNormalMode.b(on: focusedTextElement()) {
-               push(element: element)
+                push(element: element)
             } else {
                 post(ksNormalMode.b())
             }
@@ -316,7 +337,7 @@ extension KindaVimEngine {
             enterOperatorPendingForNormalMode(with: keyCombination)
         case .Y:
             lastYankStyle = .linewise
-
+            
             if let element = asNormalMode.yy(on: focusedTextElement()) {
                 push(element: element)
             } else {
@@ -393,24 +414,143 @@ extension KindaVimEngine {
             ()
         }
     }
-        
+    
+    private func handleNormalModeUsingKeyboardStrategy(for keyCombination: KeyCombination) {         
+        switch keyCombination.vimKey {
+        case .a:
+            enterInsertMode()
+            
+            post(ksNormalMode.a())
+        case .A:
+            enterInsertMode()
+            
+            post(ksNormalMode.A())
+        case .b:
+            post(ksNormalMode.b())
+        case .B:
+            post(ksNormalMode.b())
+        case .c:
+            enterOperatorPendingForNormalMode(with: keyCombination)
+        case .C:
+            enterInsertMode()
+            
+            post(ksNormalMode.C())
+        case .d:
+            enterOperatorPendingForNormalMode(with: keyCombination)
+        case .controlD:
+            post(ksNormalMode.controlD())
+        case .f:
+            enterOperatorPendingForNormalMode(with: keyCombination)
+        case .F:
+            enterOperatorPendingForNormalMode(with: keyCombination)
+        case .g:
+            enterOperatorPendingForNormalMode(with: keyCombination)
+        case .G:
+            post(ksNormalMode.G(on: AXEngine.axRole()))
+        case .h:
+            post(ksNormalMode.h())
+        case .i:
+            enterInsertMode()
+        case .I:
+            enterInsertMode()
+            
+            post(ksNormalMode.I())
+        case .j:
+            post(ksNormalMode.j())
+        case .k:
+            post(ksNormalMode.k())
+        case .l:
+            post(ksNormalMode.l())
+        case .o:
+            enterInsertMode()
+            
+            post(ksNormalMode.o())
+        case .O:
+            enterInsertMode()
+            
+            post(ksNormalMode.O())
+        case .p:
+            post(ksNormalMode.p())
+        case .P:
+            post(ksNormalMode.P())
+        case .r:
+            enterOperatorPendingForNormalMode(with: keyCombination)
+        case .controlR:
+            post(ksNormalMode.controlR())
+        case .s:
+            enterInsertMode()
+            
+            post(ksNormalMode.s())
+        case .t:
+            enterOperatorPendingForNormalMode(with: keyCombination)
+        case .T:
+            enterOperatorPendingForNormalMode(with: keyCombination)
+        case .u:
+            post(ksNormalMode.u())
+        case .controlU:
+            post(ksNormalMode.controlU())
+        case .v:
+            enterVisualMode()
+            visualStyle = .characterwise
+        case .V:
+            enterVisualMode()
+            visualStyle = .linewise
+        case .w:
+            post(ksNormalMode.w())
+        case .W:
+            post(ksNormalMode.w())
+        case .x:
+            post(ksNormalMode.x())
+        case .X:
+            post(ksNormalMode.X())
+        case .y:
+            enterOperatorPendingForNormalMode(with: keyCombination)
+        case .Y:
+            lastYankStyle = .linewise
+
+            post(ksNormalMode.yy())
+        case .escape:
+            enterInsertMode()            
+            post(ksNormalMode.escape())
+        case .enter:
+            enterInsertMode()
+            
+            post(ksNormalMode.enter())
+        case .caret:
+            post(ksNormalMode.caret())
+        case .dollarSign:
+            post(ksNormalMode.dollarSign())
+        case .underscore:
+            post(ksNormalMode.underscore())
+        case .zero:
+            post(ksNormalMode.zero())
+        default:
+            ()
+        }
+    }
+    
 }
 
 
 // operator pending for normal mode
 extension KindaVimEngine {
     
-    func handleOperatorPendingForNormalMode(with keyCombination: KeyCombination) {
+    func handleOperatorPendingForNormalMode(using strategy: VimEngineStrategy, for keyCombination: KeyCombination) {
         operatorPendingBuffer.append(keyCombination)
         
-        parseOperatorCommand()
+        switch strategy {
+        case .accessibilityStrategy:
+            tryParsingOperatorPendingForNormalModeUsingAccessibilityStrategyFirst()
+        case .keyboardStrategy:
+            parseOperatorPendingForNormalModeUsingKeyboardStrategy()
+        }
         
         if currentMode != .operatorPendingForNormalMode {
             resetOperatorPendingBuffer()
         }
     }
 
-    private func parseOperatorCommand() {
+    private func tryParsingOperatorPendingForNormalModeUsingAccessibilityStrategyFirst() {
         switch operatorPendingBuffer.map({ $0.vimKey }) {
         case [.c, .a]:
             ()
@@ -871,6 +1011,98 @@ extension KindaVimEngine {
                 }
             }
                         
+            // if we don't recognize any operator move
+            // then we go back to normal mode
+            // and the operator pending buffer will be resetted
+            enterNormalMode()
+        }
+    }
+    
+    private func parseOperatorPendingForNormalModeUsingKeyboardStrategy() {
+        switch operatorPendingBuffer.map({ $0.vimKey }) {
+        case [.c, .b]:
+            enterInsertMode()
+            
+            post(ksNormalMode.cb())
+        case [.c, .c]:
+            enterInsertMode()
+            
+            post(ksNormalMode.cc())
+       case [.c, .f]:
+            ()
+        case [.c, .F]:
+            ()
+        case [.c, .g]:
+            ()
+        case [.c, .g, .g]:
+            enterInsertMode()
+            
+            post(ksNormalMode.cgg())
+        case [.c, .G]:
+            enterInsertMode()
+            
+            post(ksNormalMode.cG())
+        case [.c, .i]:
+            ()
+        case [.c, .i, .w]:
+            enterInsertMode()
+            
+            post(ksNormalMode.ciw())
+        case [.c, .t]:
+            ()
+        case [.c, .T]:
+            ()
+        case [.d, .a]:
+            ()
+        case [.d, .a, .w]:
+            ()
+        case [.d, .b]:
+            enterNormalMode()
+            
+            post(ksNormalMode.db())
+        case [.d, .d]:
+            enterNormalMode()
+            
+            post(ksNormalMode.dd(on: AXEngine.axRole()))
+        case [.d, .g]:
+            ()
+        case [.d, .g, .g]:
+            enterNormalMode()
+            
+            post(ksNormalMode.dgg())
+        case [.d, .G]:
+            enterNormalMode()
+            
+            post(ksNormalMode.dG())
+        case [.d, .j]:
+            enterNormalMode()
+            
+            post(ksNormalMode.dj(on: AXEngine.axRole()))
+        case [.d, .k]:
+            enterNormalMode()
+            
+            post(ksNormalMode.dk(on: AXEngine.axRole()))
+        case [.g, .g]:
+            enterNormalMode()
+            
+            post(ksNormalMode.gg(on: AXEngine.axRole()))
+        case [.y, .i]:
+            ()
+        case [.y, .i, .w]:
+            enterNormalMode()
+            lastYankStyle = .characterwise
+            
+            post(ksNormalMode.yiw())
+        case [.y, .y]:
+            enterNormalMode()
+            lastYankStyle = .linewise
+            
+            post(ksNormalMode.yy())
+        default:
+            if operatorPendingBuffer.first?.vimKey == .r, let replacement = operatorPendingBuffer.last {                
+                post(ksNormalMode.r(with: replacement))
+            }
+            
             // if we don't recognize any operator move
             // then we go back to normal mode
             // and the operator pending buffer will be resetted

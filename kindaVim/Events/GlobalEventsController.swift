@@ -14,7 +14,10 @@ struct GlobalEventsController {
         if inNormalModeOrOperatorPendingModeOrVisualMode() {
             guard let implementedKeyCombination = keyCombination else { return true }
 
-            KindaVimEngine.shared.handle(keyCombination: implementedKeyCombination)
+            KindaVimEngine.shared.handle(
+                keyCombination: implementedKeyCombination,
+                enforceKeyboardStrategy: onAppForWhichToEnforceKeyboardStrategy()
+            )
 
             return true
         }
@@ -34,6 +37,12 @@ struct GlobalEventsController {
     
     private static func onIgnoredApp() -> Bool {
         return Defaults[.appsToIgnore].contains(
+            NSWorkspace.shared.frontmostApplication?.bundleIdentifier ?? ""
+        )
+    }
+    
+    private static func onAppForWhichToEnforceKeyboardStrategy() -> Bool {
+        return Defaults[.appsForWhichToEnforceKeyboardStrategy].contains(
             NSWorkspace.shared.frontmostApplication?.bundleIdentifier ?? ""
         )
     }

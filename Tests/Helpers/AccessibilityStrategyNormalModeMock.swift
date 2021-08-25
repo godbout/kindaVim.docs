@@ -6,337 +6,337 @@ class AccessibilityStrategyNormalModeMock: AccessibilityStrategyNormalModeProtoc
     var functionCalled = ""
     
     static func test(element: AccessibilityTextElement?) -> AccessibilityTextElement? {
-        return nil
+        return element
     }
 
     func a(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
 
-        return nil
+        return element
     }
     
     func A(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
 
-        return nil
+        return element
     }
     
     func b(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         
-        return nil
+        return element
     }
     
     func B(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         
-        return nil
+        return element
     }
     
     func C(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         
-        return nil
+        return element
     }
     
     func cc(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         
-        return nil
+        return element
     }
     
     func cf(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         
-        return nil
+        return element
     }
     
     func cF(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         
-        return nil
+        return element
     }
     
     func cgg(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         
-        return nil
+        return element
     }
     
     func cG(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         
-        return nil
+        return element
     }
     
     func ciw(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         
-        return nil
+        return element
     }
     
     func ciLeftBrace(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         
-        return nil
+        return element
     }
     
     func ciLeftBracket(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         
-        return nil
+        return element
     }
     
     func ciLeftParenthesis(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         
-        return nil
+        return element
     }
     
     func ciRightBrace(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         
-        return nil
+        return element
     }
     
     func ciRightBracket(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         
-        return nil
+        return element
     }
     
     func ciRightParenthesis(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         
-        return nil
+        return element
     }
     
     func ciBacktick(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         
-        return nil
+        return element
     }
     
     func ciDoubleQuote(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         
-        return nil
+        return element
     }
     
     func ciSingleQuote(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         
-        return nil
+        return element
     }
     
     func ct(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         
-        return nil
+        return element
     }
     
     func cT(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         
-        return nil
+        return element
     }
     
     func dd(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         
-        return nil
+        return element
     }
     
     func df(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         
-        return nil
+        return element
     }
     
     func dF(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         
-        return nil
+        return element
     }
     
     func dj(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         
-        return nil
+        return element
     }
     
     func dk(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         
-        return nil
+        return element
     }
     
     func dt(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         
-        return nil
+        return element
     }
     
     func dT(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         
-        return nil
+        return element
     }
     
     func e(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         
-        return nil
+        return element
     }
     
     func E(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         
-        return nil
+        return element
     }
     
     func f(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         
-        return nil
+        return element
     }
     
     func F(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         
-        return nil
+        return element
     }
     
     func ge(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         
-        return nil
+        return element
     }
     
     func gg(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         
-        return nil
+        return element
     }
     
     func gE(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         
-        return nil
+        return element
     }
     
     func G(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         
-        return nil
+        return element
     }
 
     func h(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
 
-        return nil
+        return element
     }
     
     func i(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         
-        return nil
+        return element
     }
     
     func I(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         
-        return nil
+        return element
     }
     
     func j(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
 
-        return nil
+        return element
     }
     
     func k(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
 
-        return nil
+        return element
     }
     
     func l(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
 
-        return nil
+        return element
     }
     
     func o(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         
-        return nil
+        return element
     }
     
     func O(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         
-        return nil
+        return element
     }
     
     func p(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         
-        return nil
+        return element
     }
     
     func P(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         
-        return nil
+        return element
     }
     
     func controlR(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         
-        return nil
+        return element
     }
     
     func r(with replacement: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         
-        return nil
+        return element
     }
     
     func t(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         
-        return nil
+        return element
     }
     
     func T(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         
-        return nil
+        return element
     }
     
     func u(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         
-        return nil
+        return element
     }
 
     func w(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
 
-        return nil
+        return element
     }
     
     func W(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         
-        return nil
+        return element
     }
     
     func x(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         
-        return nil
+        return element
     }
     
     func yf(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
@@ -354,7 +354,7 @@ class AccessibilityStrategyNormalModeMock: AccessibilityStrategyNormalModeProtoc
     func yiw(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         
-        return nil
+        return element
     }
     
     func yiBacktick(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
@@ -426,85 +426,85 @@ class AccessibilityStrategyNormalModeMock: AccessibilityStrategyNormalModeProtoc
     func yy(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         
-        return nil
+        return element
     }
     
     func caret(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         
-        return nil
+        return element
     }
 
     func dollarSign(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
 
-        return nil
+        return element
     }
     
     func leftBrace(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         
-        return nil
+        return element
     }
     
     func leftBracketLeftBrace(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         
-        return nil
+        return element
     }
     
     func leftBracketLeftParenthesis(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         
-        return nil
+        return element
     }
     
     func leftChevronLeftChevron(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         
-        return nil
+        return element
     }
     
     func percent(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         
-        return nil
+        return element
     }
     
     func rightBrace(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         
-        return nil
+        return element
     }
     
     func rightBracketRightBrace(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         
-        return nil
+        return element
     }
     
     func rightBracketRightParenthesis(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         
-        return nil
+        return element
     }
     
     func rightChevronRightChevron(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         
-        return nil
+        return element
     }
     
     func underscore(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         
-        return nil
+        return element
     }
 
     func zero(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
 
-        return nil
+        return element
     }
 
 }

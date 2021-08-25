@@ -12,5 +12,8 @@ extension Defaults.Keys {
         "com.jetbrains.PhpStorm",
         "com.github.atom"
     ])
+    static let appsForWhichToEnforceKeyboardStrategy = Key<Array<String>>("appsForWhichToEnforceKeyboardStrategy", default: [
+        "com.apple.Safari"
+    ])
        
 }
