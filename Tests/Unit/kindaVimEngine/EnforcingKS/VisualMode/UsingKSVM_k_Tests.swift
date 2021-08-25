@@ -7,7 +7,10 @@ class UsingKSVM_k_Tests: UsingKSVM_BaseTests {
     override func setUp() {
         super.setUp()
 
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .k))
+        KindaVimEngine.shared.handle(
+            keyCombination: KeyCombination(key: .k),
+            enforceKeyboardStrategy: true
+        )
     }
 
 }

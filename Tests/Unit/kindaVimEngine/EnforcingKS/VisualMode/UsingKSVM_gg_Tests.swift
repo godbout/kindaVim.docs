@@ -7,8 +7,8 @@ class UsingKSVM_gg_Tests: UsingKSVM_BaseTests {
     override func setUp() {
         super.setUp()
         
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .g))
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .g))
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .g), enforceKeyboardStrategy: true)
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .g), enforceKeyboardStrategy: true)
     }
     
 }

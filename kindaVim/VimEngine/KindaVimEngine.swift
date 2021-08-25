@@ -60,10 +60,14 @@ class KindaVimEngine {
             handleOperatorPendingForNormalMode(using: .accessibilityStrategy, for: keyCombination)
         case (.operatorPendingForNormalMode, true):
             handleOperatorPendingForNormalMode(using: .keyboardStrategy, for: keyCombination)
-        case (.visual, _):
-            handleVisualMode(with: keyCombination)
-        case (.operatorPendingForVisualMode, _):
-            handleOperatorPendingForVisualMode(with: keyCombination)
+        case (.visual, false):
+            handleVisualMode(using: .accessibilityStrategy, for: keyCombination)
+        case (.visual, true):
+            handleVisualMode(using: .keyboardStrategy, for: keyCombination)
+        case (.operatorPendingForVisualMode, false):
+            handleOperatorPendingForVisualMode(using: .accessibilityStrategy, for: keyCombination)
+        case (.operatorPendingForVisualMode, true):
+            handleOperatorPendingForVisualMode(using: .keyboardStrategy, for: keyCombination)
         default:
             ()
         }
@@ -141,47 +145,47 @@ extension KindaVimEngine {
     private func tryHandlingNormalModeUsingAccessibilityStrategyFirst(for keyCombination: KeyCombination) {         
         switch keyCombination.vimKey {
         case .a:
-            enterInsertMode()
-            
             if let element = asNormalMode.a(on: focusedTextElement()) {
+                enterInsertMode()
+                
                 push(element: element)
             } else {
-                post(ksNormalMode.a())
+                handleNormalModeUsingKeyboardStrategy(for: keyCombination)
             }
         case .A:
-            enterInsertMode()
-            
             if let element = asNormalMode.A(on: focusedTextElement()) {
+                enterInsertMode()
+                
                 push(element: element)
             } else {
-                post(ksNormalMode.A())
+                handleNormalModeUsingKeyboardStrategy(for: keyCombination)
             }
         case .b:
             if let element = asNormalMode.b(on: focusedTextElement()) {
                 push(element: element)
             } else {
-                post(ksNormalMode.b())
+                handleNormalModeUsingKeyboardStrategy(for: keyCombination)
             }
         case .B:
             if let element = asNormalMode.B(on: focusedTextElement()) {
                 push(element: element)
             } else {
-                post(ksNormalMode.b())
+                handleNormalModeUsingKeyboardStrategy(for: keyCombination)
             }
         case .c:
             enterOperatorPendingForNormalMode(with: keyCombination)
         case .C:
-            enterInsertMode()
-            
             if let element = asNormalMode.C(on: focusedTextElement()) {
+                enterInsertMode()
+                
                 push(element: element)
             } else {
-                post(ksNormalMode.C())
+                handleNormalModeUsingKeyboardStrategy(for: keyCombination)
             }
         case .d:
             enterOperatorPendingForNormalMode(with: keyCombination)
         case .controlD:
-            post(ksNormalMode.controlD())
+            handleNormalModeUsingKeyboardStrategy(for: keyCombination)
         case .e:
             if let element = asNormalMode.e(on: focusedTextElement()) {
                 push(element: element)
@@ -200,73 +204,73 @@ extension KindaVimEngine {
             if let element = asNormalMode.G(on: focusedTextElement()) {
                 push(element: element)
             } else {
-                post(ksNormalMode.G(on: AXEngine.axRole()))
+                handleNormalModeUsingKeyboardStrategy(for: keyCombination)
             }
         case .h:
             if let element = asNormalMode.h(on: focusedTextElement()) {
                 push(element: element)
             } else {
-                post(ksNormalMode.h())
+                handleNormalModeUsingKeyboardStrategy(for: keyCombination)
             }
         case .i:
             if let element = asNormalMode.i(on: focusedTextElement()) {
                 push(element: element)
+                
+                enterInsertMode()
             }
-            
-            enterInsertMode()
         case .I:
-            enterInsertMode()
-            
             if let element = asNormalMode.I(on: focusedTextElement()) {
+                enterInsertMode()
+                
                 push(element: element)
             } else {
-                post(ksNormalMode.I())
+                handleNormalModeUsingKeyboardStrategy(for: keyCombination)
             }
         case .j:
             if let element = asNormalMode.j(on: focusedTextElement()) {
                 push(element: element)
             } else {
-                post(ksNormalMode.j())
+                handleNormalModeUsingKeyboardStrategy(for: keyCombination)
             }
         case .k:
             if let element = asNormalMode.k(on: focusedTextElement()) {
                 push(element: element)
             } else {
-                post(ksNormalMode.k())
+                handleNormalModeUsingKeyboardStrategy(for: keyCombination)
             }
         case .l:
             if let element = asNormalMode.l(on: focusedTextElement()) {
                 push(element: element)
             } else {
-                post(ksNormalMode.l())
+                handleNormalModeUsingKeyboardStrategy(for: keyCombination)
             }
         case .o:
-            enterInsertMode()
-            
             if let element = asNormalMode.o(on: focusedTextElement()) {
+                enterInsertMode()
+                
                 push(element: element)
             } else {
-                post(ksNormalMode.o())
+                handleNormalModeUsingKeyboardStrategy(for: keyCombination)
             }
         case .O:
-            enterInsertMode()
-            
             if let element = asNormalMode.O(on: focusedTextElement()) {
+                enterInsertMode()
+                
                 push(element: element)
             } else {
-                post(ksNormalMode.O())
+                handleNormalModeUsingKeyboardStrategy(for: keyCombination)
             }
         case .p:
             if let element = asNormalMode.p(on: focusedTextElement()) {
                 push(element: element)
             } else {
-                post(ksNormalMode.p())
+                handleNormalModeUsingKeyboardStrategy(for: keyCombination)
             }
         case .P:
             if let element = asNormalMode.P(on: focusedTextElement()) {
                 push(element: element)
             } else {
-                post(ksNormalMode.P())
+                handleNormalModeUsingKeyboardStrategy(for: keyCombination)
             }
         case .r:
             enterOperatorPendingForNormalMode(with: keyCombination)
@@ -274,13 +278,10 @@ extension KindaVimEngine {
             if asNormalMode.controlR(on: focusedTextElement()) != nil {
                 post(ksNormalMode.controlRForAXElement())
             } else {
-                post(ksNormalMode.controlR())
+                handleNormalModeUsingKeyboardStrategy(for: keyCombination)
             }
-            
         case .s:
-            enterInsertMode()
-            
-            post(ksNormalMode.s())
+            handleNormalModeUsingKeyboardStrategy(for: keyCombination)
         case .t:
             enterOperatorPendingForNormalMode(with: keyCombination)
         case .T:
@@ -289,35 +290,35 @@ extension KindaVimEngine {
             if asNormalMode.u(on: focusedTextElement()) != nil {
                 post(ksNormalMode.uForAXElement())
             } else {
-                post(ksNormalMode.u())
+                handleNormalModeUsingKeyboardStrategy(for: keyCombination)
             }
         case .controlU:
-            post(ksNormalMode.controlU())
+            handleNormalModeUsingKeyboardStrategy(for: keyCombination)
         case .v:
-            enterVisualMode()
-            visualStyle = .characterwise
-            
             if let element = asVisualMode.v(on: focusedTextElement()) {
+                enterVisualMode()
+                visualStyle = .characterwise
+                
                 push(element: element)
             }
         case .V:
-            enterVisualMode()
-            visualStyle = .linewise
-            
             if let element = asVisualMode.V(on: focusedTextElement()) {
+                enterVisualMode()
+                visualStyle = .linewise
+                
                 push(element: element)
             }
         case .w:
             if let element = asNormalMode.w(on: focusedTextElement()) {
                 push(element: element)
             } else {
-                post(ksNormalMode.w())
+                handleNormalModeUsingKeyboardStrategy(for: keyCombination)
             }
         case .W:
             if let element = asNormalMode.W(on: focusedTextElement()) {
                 push(element: element)
             } else {
-                post(ksNormalMode.w())
+                handleNormalModeUsingKeyboardStrategy(for: keyCombination)
             }            
         case .x:
             if let element = asNormalMode.x(on: focusedTextElement()) {
@@ -329,54 +330,45 @@ extension KindaVimEngine {
                     push(element: element)
                 }
             } else {
-                post(ksNormalMode.x())
+                handleNormalModeUsingKeyboardStrategy(for: keyCombination)
             }                
         case .X:
-            post(ksNormalMode.X())
+            handleNormalModeUsingKeyboardStrategy(for: keyCombination)
         case .y:
             enterOperatorPendingForNormalMode(with: keyCombination)
         case .Y:
-            lastYankStyle = .linewise
-            
             if let element = asNormalMode.yy(on: focusedTextElement()) {
+                lastYankStyle = .linewise
                 push(element: element)
             } else {
-                post(ksNormalMode.yy())
+                handleNormalModeUsingKeyboardStrategy(for: keyCombination)
             }
         // to test (can dump info to console, send stuff to AX etc.)
         case .commandD:
             if let element = AccessibilityStrategyNormalMode.test(element: focusedTextElement()) {
                 _ = push(element: element)
             }
-        // temporary for escape to enter Command Mode
-        // and escape again to send escape key to macOS
         case .escape:
-            enterInsertMode()            
-            post(ksNormalMode.escape())
+            handleNormalModeUsingKeyboardStrategy(for: keyCombination)
             
             if var element = focusedTextElement() {
                 element.selectedLength = 0
                 element.selectedText = nil
                 push(element: element)
             }
-        // temporary for pressing enter in Command Mode
-        // to act like an enter in Insert Mode
-        // checking if it feels better (like in Alfred)
         case .enter:
-            enterInsertMode()
-            
-            post(ksNormalMode.enter())
+            handleNormalModeUsingKeyboardStrategy(for: keyCombination)
         case .caret:
             if let element = asNormalMode.caret(on: focusedTextElement()) {
                 push(element: element)
             } else {
-                post(ksNormalMode.caret())
+                handleNormalModeUsingKeyboardStrategy(for: keyCombination)
             }
         case .dollarSign:
             if let element = asNormalMode.dollarSign(on: focusedTextElement()) {
                 push(element: element)
             } else {
-                post(ksNormalMode.dollarSign())
+                handleNormalModeUsingKeyboardStrategy(for: keyCombination)
             }
         case .leftBrace:
             if let element = asNormalMode.leftBrace(on: focusedTextElement()) {
@@ -402,13 +394,13 @@ extension KindaVimEngine {
             if let element = asNormalMode.underscore(on: focusedTextElement()) {
                 push(element: element)
             } else {
-                post(ksNormalMode.underscore())
+                handleNormalModeUsingKeyboardStrategy(for: keyCombination)
             }
         case .zero:
             if let element = asNormalMode.zero(on: focusedTextElement()) {
                 push(element: element)
             } else {
-                post(ksNormalMode.zero())
+                handleNormalModeUsingKeyboardStrategy(for: keyCombination)
             }
         default:
             ()
@@ -540,9 +532,9 @@ extension KindaVimEngine {
         
         switch strategy {
         case .accessibilityStrategy:
-            tryParsingOperatorPendingForNormalModeUsingAccessibilityStrategyFirst()
+            tryParsingOperatorCommandForNormalModeUsingAccessibilityStrategyFirst()
         case .keyboardStrategy:
-            parseOperatorPendingForNormalModeUsingKeyboardStrategy()
+            parseOperatorCommandForNormalModeUsingKeyboardStrategy()
         }
         
         if currentMode != .operatorPendingForNormalMode {
@@ -550,7 +542,7 @@ extension KindaVimEngine {
         }
     }
 
-    private func tryParsingOperatorPendingForNormalModeUsingAccessibilityStrategyFirst() {
+    private func tryParsingOperatorCommandForNormalModeUsingAccessibilityStrategyFirst() {
         switch operatorPendingBuffer.map({ $0.vimKey }) {
         case [.c, .a]:
             ()
@@ -1018,7 +1010,7 @@ extension KindaVimEngine {
         }
     }
     
-    private func parseOperatorPendingForNormalModeUsingKeyboardStrategy() {
+    private func parseOperatorCommandForNormalModeUsingKeyboardStrategy() {
         switch operatorPendingBuffer.map({ $0.vimKey }) {
         case [.c, .b]:
             enterInsertMode()
@@ -1116,7 +1108,16 @@ extension KindaVimEngine {
 // visual mode
 extension KindaVimEngine {
     
-    func handleVisualMode(with keyCombination: KeyCombination) {
+    func handleVisualMode(using strategy: VimEngineStrategy, for keyCombination: KeyCombination) {
+        switch strategy {
+        case .accessibilityStrategy:
+            tryHandlingVisualModeUsingAccessibilityStrategyFirst(for: keyCombination)
+        case .keyboardStrategy:
+            handleVisualModeUsingKeyboardStrategy(for: keyCombination)
+        }
+    }
+    
+    private func tryHandlingVisualModeUsingAccessibilityStrategyFirst(for keyCombination: KeyCombination) {
         switch keyCombination.vimKey {
         case .b:
             if let element = asVisualMode.b(on: focusedTextElement()) {
@@ -1228,30 +1229,85 @@ extension KindaVimEngine {
         }
     }
     
+    private func handleVisualModeUsingKeyboardStrategy(for keyCombination: KeyCombination) {
+        switch keyCombination.vimKey {
+        case .d:
+            post(ksVisualMode.d())
+            
+            enterNormalMode()
+        case .g:
+            enterOperatorPendingForVisualMode(with: keyCombination)
+        case .G:
+            post(ksVisualMode.G())
+        case .j:
+            post(ksVisualMode.j())
+        case .k:
+            post(ksVisualMode.k())
+        case .v:
+            if visualStyle == .characterwise {
+                enterNormalMode()
+            } else {
+                visualStyle = .characterwise
+            }
+        case .V:
+            if visualStyle == .linewise {
+                enterNormalMode()
+            } else {
+                visualStyle = .linewise
+            }
+        case .y:
+            post(ksVisualMode.y())
+            
+            enterNormalMode()
+        case .escape:
+            enterInsertMode()
+        default:
+            ()
+        }
+    }
+    
 }
 
 
 // operator pending for visual mode
 extension KindaVimEngine {
     
-    func handleOperatorPendingForVisualMode(with keyCombination: KeyCombination) {
+    func handleOperatorPendingForVisualMode(using strategy: VimEngineStrategy, for keyCombination: KeyCombination) {
         operatorPendingBuffer.append(keyCombination)
         
-        parseOperatorCommandForVisualMode()
+        switch strategy {
+        case .accessibilityStrategy:
+            tryParsingOperatorCommandForVisualModeUsingAccessibilityStrategyFirst()
+        case .keyboardStrategy:
+            parseOperatorCommandForVisualModeUsingKeyboardStrategy()
+        }
         
         if currentMode != .operatorPendingForVisualMode {
             resetOperatorPendingBuffer()
         }
     }
     
-    private func parseOperatorCommandForVisualMode() {
+    private func tryParsingOperatorCommandForVisualModeUsingAccessibilityStrategyFirst() {
         switch operatorPendingBuffer.map({ $0.vimKey }) {
         case [.g, .g]:
             if let element = asVisualMode.gg(on: focusedTextElement()) {
                 push(element: element)
+                
+                enterVisualMode()
             } else {
-                post(ksVisualMode.gg())
+                parseOperatorCommandForVisualModeUsingKeyboardStrategy()
             }        
+        default:
+            // if we don't recognize any operator move
+            // go back to visual mode
+            enterVisualMode()
+        }
+    }
+    
+    private func parseOperatorCommandForVisualModeUsingKeyboardStrategy() {
+        switch operatorPendingBuffer.map({ $0.vimKey }) {
+        case [.g, .g]:
+            post(ksVisualMode.gg())
             
             enterVisualMode()
         default:
