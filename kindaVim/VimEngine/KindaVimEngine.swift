@@ -295,17 +295,17 @@ extension KindaVimEngine {
         case .controlU:
             handleNormalModeUsingKeyboardStrategy(for: keyCombination)
         case .v:
+            enterVisualMode()
+            visualStyle = .characterwise
+            
             if let element = asVisualMode.v(on: focusedTextElement()) {
-                enterVisualMode()
-                visualStyle = .characterwise
-                
                 push(element: element)
             }
         case .V:
+            enterVisualMode()
+            visualStyle = .linewise
+            
             if let element = asVisualMode.V(on: focusedTextElement()) {
-                enterVisualMode()
-                visualStyle = .linewise
-                
                 push(element: element)
             }
         case .w:
