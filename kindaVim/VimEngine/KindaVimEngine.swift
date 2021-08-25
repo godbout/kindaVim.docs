@@ -92,6 +92,10 @@ class KindaVimEngine {
         display.hazeOver(.on)
     }
     
+    func enterVisualMode() {
+        currentMode = .visual
+    }
+    
     private func enterOperatorPendingForNormalMode(with keyCombination: KeyCombination) {
         currentMode = .operatorPendingForNormalMode
         operatorPendingBuffer.append(keyCombination)
@@ -100,10 +104,6 @@ class KindaVimEngine {
     private func enterOperatorPendingForVisualMode(with keyCombination: KeyCombination) {
         currentMode = .operatorPendingForVisualMode
         operatorPendingBuffer.append(keyCombination)
-    }
-    
-    func enterVisualMode() {
-        currentMode = .visual
     }
     
     private func resetOperatorPendingBuffer() {
@@ -130,7 +130,7 @@ class KindaVimEngine {
 }
 
 
-// normal mode
+// Normal Mode
 extension KindaVimEngine {
  
     private func handleNormalMode(using strategy: VimEngineStrategy, for keyCombination: KeyCombination) {
@@ -524,7 +524,7 @@ extension KindaVimEngine {
 }
 
 
-// operator pending for normal mode
+// Operator Pending for Normal Mode
 extension KindaVimEngine {
     
     func handleOperatorPendingForNormalMode(using strategy: VimEngineStrategy, for keyCombination: KeyCombination) {
@@ -1105,7 +1105,7 @@ extension KindaVimEngine {
 }
 
 
-// visual mode
+// Visual Mode
 extension KindaVimEngine {
     
     func handleVisualMode(using strategy: VimEngineStrategy, for keyCombination: KeyCombination) {
@@ -1269,7 +1269,7 @@ extension KindaVimEngine {
 }
 
 
-// operator pending for visual mode
+// Operator Pending for Visual Mode
 extension KindaVimEngine {
     
     func handleOperatorPendingForVisualMode(using strategy: VimEngineStrategy, for keyCombination: KeyCombination) {
