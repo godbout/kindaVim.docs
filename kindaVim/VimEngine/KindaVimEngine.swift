@@ -217,6 +217,8 @@ extension KindaVimEngine {
                 push(element: element)
                 
                 enterInsertMode()
+            } else {
+                handleNormalModeUsingKeyboardStrategy(for: keyCombination)
             }
         case .I:
             if let element = asNormalMode.I(on: focusedTextElement()) {
