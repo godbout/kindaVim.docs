@@ -12,6 +12,7 @@ class FailingASNM_A__Tests: FailingAS_BaseTests {
     
 }
 
+
 extension FailingASNM_A__Tests {
     
     func test_that_it_calls_the_relevant_KS_function_as_a_fallback() {

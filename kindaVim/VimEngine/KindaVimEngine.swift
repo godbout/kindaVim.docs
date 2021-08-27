@@ -551,16 +551,13 @@ extension KindaVimEngine {
         case [.c, .a, .w]:
             ()
         case [.c, .b]:
-            enterInsertMode()
-            
-            post(ksNormalMode.cb())
+            parseOperatorCommandForNormalModeUsingKeyboardStrategy()
         case [.c, .c]:
-            enterInsertMode()
-            
             if let element = asNormalMode.cc(on: focusedTextElement()) {
+                enterInsertMode()
                 push(element: element)
             } else {
-                post(ksNormalMode.cc())
+                parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
         case [.c, .f]:
             ()
@@ -569,20 +566,18 @@ extension KindaVimEngine {
         case [.c, .g]:
             ()
         case [.c, .g, .g]:
-            enterInsertMode()
-            
             if let element = asNormalMode.cgg(on: focusedTextElement()) {
+                enterInsertMode()
                 push(element: element)
             } else {
-                post(ksNormalMode.cgg())
+                parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
         case [.c, .G]:
-            enterInsertMode()
-            
             if let element = asNormalMode.cG(on: focusedTextElement()) {
+                enterInsertMode()
                 push(element: element)
             } else {
-                post(ksNormalMode.cG())
+                parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
         case [.c, .i]:
             ()
@@ -658,12 +653,11 @@ extension KindaVimEngine {
                 enterInsertMode()
             }
         case [.c, .i, .w]:
-            enterInsertMode()
-            
             if let element = asNormalMode.ciw(on: focusedTextElement()) {
+                enterInsertMode()
                 push(element: element)
             } else {
-                post(ksNormalMode.ciw())
+                parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }           
         case [.c, .t]:
             ()
@@ -674,13 +668,10 @@ extension KindaVimEngine {
         case [.d, .a, .w]:
             ()
         case [.d, .b]:
-            enterNormalMode()
-            
-            post(ksNormalMode.db())
+            parseOperatorCommandForNormalModeUsingKeyboardStrategy()
         case [.d, .d]:
-            enterNormalMode()
-            
             if let element = asNormalMode.dd(on: focusedTextElement()) {
+                enterNormalMode()
                 push(element: element)
                 
                 if var element = focusedTextElement() {
@@ -689,7 +680,7 @@ extension KindaVimEngine {
                     push(element: element)
                 }
             } else {
-                post(ksNormalMode.dd(on: AXEngine.axRole()))
+                parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
         case [.d, .f]:
             ()
@@ -698,21 +689,16 @@ extension KindaVimEngine {
         case [.d, .g]:
             ()
         case [.d, .g, .g]:
-            enterNormalMode()
-            
-            post(ksNormalMode.dgg())
+            parseOperatorCommandForNormalModeUsingKeyboardStrategy()
         case [.d, .G]:
-            enterNormalMode()
-            
-            post(ksNormalMode.dG())
+            parseOperatorCommandForNormalModeUsingKeyboardStrategy()
         case [.d, .i]:
             ()
         case [.d, .i, .w]:
             ()
         case [.d, .j]:
-            enterNormalMode()
-            
             if let element = asNormalMode.dj(on: focusedTextElement()) {
+                enterNormalMode()
                 push(element: element)
                 
                 if var element = focusedTextElement() {
@@ -720,12 +706,11 @@ extension KindaVimEngine {
                     push(element: element)
                 }
             } else {
-                post(ksNormalMode.dj(on: AXEngine.axRole()))
+                parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
         case [.d, .k]:
-            enterNormalMode()
-            
             if let element = asNormalMode.dk(on: focusedTextElement()) {
+                enterNormalMode()
                 push(element: element)
                 
                 if var element = focusedTextElement() {
@@ -733,7 +718,7 @@ extension KindaVimEngine {
                     push(element: element)
                 }
             } else {
-                post(ksNormalMode.dk(on: AXEngine.axRole()))
+                parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
         case [.d, .t]:
             ()
@@ -746,12 +731,11 @@ extension KindaVimEngine {
                 push(element: element)
             }     
         case [.g, .g]:
-            enterNormalMode()
-            
             if let element = asNormalMode.gg(on: focusedTextElement()) {                
+                enterNormalMode()
                 push(element: element)
             } else {
-                post(ksNormalMode.gg(on: AXEngine.axRole()))
+                parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
         case [.g, .E]:
             enterNormalMode()
@@ -859,26 +843,24 @@ extension KindaVimEngine {
                 push(element: element)
             }
         case [.y, .i, .w]:
-            enterNormalMode()
-            lastYankStyle = .characterwise
-            
             if let element = asNormalMode.yiw(on: focusedTextElement()) {
+                enterNormalMode()
+                lastYankStyle = .characterwise
                 push(element: element)
             } else {
-                post(ksNormalMode.yiw())
+                parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
         case [.y, .t]:
             ()
         case [.y, .T]:
             ()        
         case [.y, .y]:
-            enterNormalMode()
-            lastYankStyle = .linewise
-            
             if let element = asNormalMode.yy(on: focusedTextElement()) {
+                enterNormalMode()
+                lastYankStyle = .linewise
                 push(element: element)
             } else {
-                post(ksNormalMode.yy())
+                parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
         default:
             // cf, cF, ct, cT
@@ -963,7 +945,7 @@ extension KindaVimEngine {
                         }                        
                     }
                 } else {
-                    post(ksNormalMode.r(with: replacement))
+                    parseOperatorCommandForNormalModeUsingKeyboardStrategy()
                 }
             }
             
@@ -1140,11 +1122,11 @@ extension KindaVimEngine {
                     element.selectedText = nil
                     push(element: element)
                 }
+                
+                enterNormalMode()
             } else {
-                post(ksVisualMode.d())
+                handleVisualModeUsingKeyboardStrategy(for: keyCombination)
             }
-            
-            enterNormalMode()
         case .e:
             if let element = asVisualMode.e(on: focusedTextElement()) {
                 push(element: element)
@@ -1155,7 +1137,7 @@ extension KindaVimEngine {
             if let element = asVisualMode.G(on: focusedTextElement()) {
                 push(element: element)
             } else {
-                post(ksVisualMode.G())
+                handleVisualModeUsingKeyboardStrategy(for: keyCombination)
             }
         case .h:
             if let element = asVisualMode.h(on: focusedTextElement()) {
@@ -1165,13 +1147,13 @@ extension KindaVimEngine {
             if let element = asVisualMode.j(on: focusedTextElement()) {
                 push(element: element)
             } else {
-                post(ksVisualMode.j())
+                handleVisualModeUsingKeyboardStrategy(for: keyCombination)
             }
         case .k:
             if let element = asVisualMode.k(on: focusedTextElement()) {
                 push(element: element)
             } else {
-                post(ksVisualMode.k())
+                handleVisualModeUsingKeyboardStrategy(for: keyCombination)
             }
         case .l:
             if let element = asVisualMode.l(on: focusedTextElement()) {
@@ -1210,7 +1192,7 @@ extension KindaVimEngine {
             if let element = asVisualMode.y(on: focusedTextElement()) {
                 push(element: element)
             } else {
-                post(ksVisualMode.y())
+                handleVisualModeUsingKeyboardStrategy(for: keyCombination)
             }
             
             enterNormalMode()
