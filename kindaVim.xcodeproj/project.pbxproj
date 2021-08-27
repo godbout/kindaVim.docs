@@ -1973,14 +1973,14 @@
 			path = Events;
 			sourceTree = "<group>";
 		};
-		9128B0F2263820C5007DC80B /* kindaVimEngine */ = {
+		9128B0F2263820C5007DC80B /* VimEngine */ = {
 			isa = PBXGroup;
 			children = (
 				91F7A002264FC68500B609FF /* EnforcingKS */,
 				91F7A003264FC6E100B609FF /* SucceedingAS */,
 				91A2890126D6BB24004F27F1 /* FailingAS */,
 			);
-			path = kindaVimEngine;
+			path = VimEngine;
 			sourceTree = "<group>";
 		};
 		9128F2A3262AA90C00625B42 = {
@@ -2046,7 +2046,7 @@
 				912687242640634D002E3FB0 /* KeyCombination */,
 				91D7CF1F26A19186002CCF90 /* AccessibilityTextElement */,
 				91482E41263DBF3100F10ADC /* Strategies */,
-				9128B0F2263820C5007DC80B /* kindaVimEngine */,
+				9128B0F2263820C5007DC80B /* VimEngine */,
 				9128F2C7262AA90D00625B42 /* Info.plist */,
 			);
 			path = Unit;
