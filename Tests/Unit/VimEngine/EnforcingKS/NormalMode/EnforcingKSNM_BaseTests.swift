@@ -2,7 +2,7 @@
 import XCTest
 
 
-class UsingKSNM_BaseTests: UsingKS_BaseTests {
+class EnforcingKSNM_BaseTests: EnforcingKS_BaseTests {
 
     override func setUp() {
         super.setUp()

@@ -2,12 +2,12 @@
 import XCTest
 
 
-class FailingASNM_BaseTests: FailingAS_BaseTests {
-    
+class EnforcingKSVM_BaseTests: EnforcingKS_BaseTests {
+
     override func setUp() {
         super.setUp()
         
-        KindaVimEngine.shared.enterNormalMode()
+        KindaVimEngine.shared.enterVisualMode()
     }
-    
+
 }

@@ -2,25 +2,28 @@
 import XCTest
 
 
-class FailingASNM_a_Tests: FailingAS_BaseTests {
-    
+class EnforcingKS_a_Tests: EnforcingKSNM_BaseTests {
+
     override func setUp() {
         super.setUp()
-        
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .a))
+
+        KindaVimEngine.shared.handle(
+            keyCombination: KeyCombination(key: .a),
+            enforceKeyboardStrategy: true
+        )
     }
-    
+
 }
 
 
-extension FailingASNM_a_Tests {
+extension EnforcingKS_a_Tests {
     
-    func test_that_it_calls_the_relevant_KS_function_as_a_fallback() {
+    func test_that_a_calls_the_a_function_on_keyboard_strategy() {
         XCTAssertEqual(ksNormalModeMock.functionCalled, "a()")
     }
     
     func test_that_a_switches_Vim_to_insert_mode() {
         XCTAssertEqual(KindaVimEngine.shared.currentMode, .insert)
     }
-    
+
 }
