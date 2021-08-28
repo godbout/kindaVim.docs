@@ -1,4 +1,6 @@
 @testable import kindaVim
+import KeyboardStrategy
+import KeyCombination
 import Foundation
 
 

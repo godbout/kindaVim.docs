@@ -1,4 +1,5 @@
 @testable import kindaVim
+import KeyCombination
 import XCTest
 
 // see dd for blah blah

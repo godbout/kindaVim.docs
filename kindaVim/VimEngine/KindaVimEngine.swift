@@ -1,4 +1,7 @@
 import Foundation
+import KeyCombination
+import KeyboardStrategy
+import AXElementRole
 
 
 enum VimEngineMode {

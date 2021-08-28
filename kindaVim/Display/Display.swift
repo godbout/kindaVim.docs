@@ -1,6 +1,7 @@
 import Foundation
 import AppKit
 import SwiftUI
+import KeyCombination
 
 
 struct Display {

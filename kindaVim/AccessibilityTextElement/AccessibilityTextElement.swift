@@ -1,3 +1,6 @@
+import AXElementRole
+
+
 // REMINDER:
 // internalText if for internal use only
 // which means, mainly to search for where to position the caret
@@ -6,8 +9,6 @@
 // like, for example, in Xcode :D
 // so the way we handle this is by using the SelectedText and SelectedTextRange to remove or add
 // what we need in the current buffer, rather than pushing the full text.
-
-
 struct AccessibilityTextElementLine {
     
     var fullValue: String

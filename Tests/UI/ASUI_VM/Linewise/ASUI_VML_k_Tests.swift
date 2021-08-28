@@ -1,4 +1,5 @@
 import XCTest
+import KeyCombination
 
 
 class ASUI_VML_k_Tests: ASUI_VM_BaseTests {

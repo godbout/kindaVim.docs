@@ -1,4 +1,5 @@
 @testable import kindaVim
+import KeyCombination
 import XCTest
 
 class KS_dG_Tests: KSUT_BaseTests {

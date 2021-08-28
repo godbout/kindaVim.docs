@@ -1,6 +1,8 @@
 import AppKit
 import Foundation
 import Defaults
+import KeyboardStrategy
+import KeyCombination
 
 
 struct EventTapController {

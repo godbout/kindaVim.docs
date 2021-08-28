@@ -2,6 +2,7 @@ import AppKit
 import Foundation
 import KeyboardShortcuts
 import Defaults
+import KeyCombination
 
 
 struct GlobalEventsController {

@@ -1,4 +1,6 @@
 @testable import kindaVim
+import AXElementRole
+import KeyCombination
 import XCTest
 
 // see dd for blah blah

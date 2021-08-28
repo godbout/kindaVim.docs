@@ -1,4 +1,5 @@
 import Foundation
+import AXElementRole
 
 
 struct AXTextElementData {
@@ -9,17 +10,6 @@ struct AXTextElementData {
     let caretLocation: Int
     let selectedLength: Int
     let selectedText: String
-    
-}
-
-
-enum AXElementRole {
-    
-    case scrollArea
-    case textField
-    case textArea
-    case webArea
-    case someOtherShit
     
 }
 
