@@ -1167,12 +1167,14 @@ extension KindaVimEngine {
             if var element = asVisualMode.v(on: focusedTextElement()) {
                 element.selectedLength = element.characterLength
                 push(element: element)
-            }
-            
-            if visualStyle == .characterwise {
-                enterNormalMode()
+                
+                if visualStyle == .characterwise {
+                    enterNormalMode()
+                } else {
+                    visualStyle = .characterwise
+                }
             } else {
-                visualStyle = .characterwise
+                handleVisualModeUsingKeyboardStrategy(for: keyCombination)
             }
         case .V:
             if var element = asVisualMode.V(on: focusedTextElement()) {
@@ -1181,12 +1183,14 @@ extension KindaVimEngine {
                 }
                 
                 push(element: element)
-            }
-            
-            if visualStyle == .linewise {
-                enterNormalMode()
+                
+                if visualStyle == .linewise {
+                    enterNormalMode()
+                } else {
+                    visualStyle = .linewise
+                }
             } else {
-                visualStyle = .linewise
+                handleVisualModeUsingKeyboardStrategy(for: keyCombination)
             }
         case .y:
             if let element = asVisualMode.y(on: focusedTextElement()) {

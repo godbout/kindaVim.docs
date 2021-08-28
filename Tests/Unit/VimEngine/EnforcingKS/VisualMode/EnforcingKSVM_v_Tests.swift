@@ -2,10 +2,11 @@
 import XCTest
 
 
-class FailingASVM_v_Tests: FailingASVM_BaseTests {
+class EnforcingKSVM_v_Tests: EnforcingKSVM_BaseTests {}
+
+
+extension EnforcingKSVM_v_Tests {
     
-    // it's calling the handleblahblahusingKeyboardStrategy but that itself doesn't call anything
-    // those tests are not good
     func test_that_it_does_not_calls_any_KS_function_because_there_is_none_needed_for_that_move() {
         XCTAssertEqual(ksNormalModeMock.functionCalled, "")
     }

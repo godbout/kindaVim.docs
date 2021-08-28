@@ -2,9 +2,11 @@
 import XCTest
 
 
-class FailingASVM_V__Tests: FailingASVM_BaseTests {
+class EnforcingKSVM_V__Tests: EnforcingKSVM_BaseTests {}
+
+
+extension EnforcingKSVM_V__Tests {
     
-    // see v for blah blah
     func test_that_it_does_not_calls_any_KS_function_because_there_is_none_needed_for_that_move() {
         XCTAssertEqual(ksNormalModeMock.functionCalled, "")
     }
