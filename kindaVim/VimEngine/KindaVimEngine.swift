@@ -1,6 +1,7 @@
 import Foundation
 import KeyCombination
 import KeyboardStrategy
+import AccessibilityStrategy
 
 
 enum VimEngineMode {
@@ -10,14 +11,6 @@ enum VimEngineMode {
     case operatorPendingForNormalMode
     case visual
     case operatorPendingForVisualMode
-    
-}
-
-
-enum VimEngineMoveStyle {
-    
-    case characterwise
-    case linewise
     
 }
 
@@ -273,18 +266,19 @@ extension KindaVimEngine {
             } else {
                 handleNormalModeUsingKeyboardStrategy(for: keyCombination)
             }
-        case .p:
-            if let element = asNormalMode.p(on: focusedTextElement()) {
-                push(element: element)
-            } else {
-                handleNormalModeUsingKeyboardStrategy(for: keyCombination)
-            }
-        case .P:
-            if let element = asNormalMode.P(on: focusedTextElement()) {
-                push(element: element)
-            } else {
-                handleNormalModeUsingKeyboardStrategy(for: keyCombination)
-            }
+            // TODO
+//        case .p:
+//            if let element = asNormalMode.p(on: focusedTextElement()) {
+//                push(element: element)
+//            } else {
+//                handleNormalModeUsingKeyboardStrategy(for: keyCombination)
+//            }
+//        case .P:
+//            if let element = asNormalMode.P(on: focusedTextElement()) {
+//                push(element: element)
+//            } else {
+//                handleNormalModeUsingKeyboardStrategy(for: keyCombination)
+//            }
         case .r:
             enterOperatorPendingForNormalMode(with: keyCombination)
         case .controlR:
@@ -307,20 +301,21 @@ extension KindaVimEngine {
             }
         case .controlU:
             handleNormalModeUsingKeyboardStrategy(for: keyCombination)
-        case .v:
-            enterVisualMode()
-            visualStyle = .characterwise
-            
-            if let element = asVisualMode.v(on: focusedTextElement()) {
-                push(element: element)
-            }
-        case .V:
-            enterVisualMode()
-            visualStyle = .linewise
-            
-            if let element = asVisualMode.V(on: focusedTextElement()) {
-                push(element: element)
-            }
+            // TODO
+//        case .v:
+//            enterVisualMode()
+//            visualStyle = .characterwise
+//            
+//            if let element = asVisualMode.v(on: focusedTextElement()) {
+//                push(element: element)
+//            }
+//        case .V:
+//            enterVisualMode()
+//            visualStyle = .linewise
+//            
+//            if let element = asVisualMode.V(on: focusedTextElement()) {
+//                push(element: element)
+//            }
         case .w:
             if let element = asNormalMode.w(on: focusedTextElement()) {
                 push(element: element)
@@ -817,42 +812,43 @@ extension KindaVimEngine {
                 push(element: element)
                 lastYankStyle = .characterwise
             }
-        case [.y, .i, .leftBrace]:
-            enterNormalMode()
-            
-            if let element = asNormalMode.yiLeftBrace(on: focusedTextElement()) {
-                push(element: element)
-            }
-        case [.y, .i, .leftBracket]:
-            enterNormalMode()
-            
-            if let element = asNormalMode.yiLeftBracket(on: focusedTextElement()) {
-                push(element: element)
-            }
-        case [.y, .i, .leftParenthesis]:
-            enterNormalMode()
-            
-            if let element = asNormalMode.yiLeftParenthesis(on: focusedTextElement()) {
-                push(element: element)
-            }
-        case [.y, .i, .rightBrace]:
-            enterNormalMode()
-            
-            if let element = asNormalMode.yiRightBrace(on: focusedTextElement()) {
-                push(element: element)
-            }
-        case [.y, .i, .rightBracket]:
-            enterNormalMode()
-            
-            if let element = asNormalMode.yiRightBracket(on: focusedTextElement()) {
-                push(element: element)
-            }
-        case [.y, .i, .rightParenthesis]:
-            enterNormalMode()
-            
-            if let element = asNormalMode.yiRightParenthesis(on: focusedTextElement()) {
-                push(element: element)
-            }
+            // TODO
+//        case [.y, .i, .leftBrace]:
+//            enterNormalMode()
+//            
+//            if let element = asNormalMode.yiLeftBrace(on: focusedTextElement()) {
+//                push(element: element)
+//            }
+//        case [.y, .i, .leftBracket]:
+//            enterNormalMode()
+//            
+//            if let element = asNormalMode.yiLeftBracket(on: focusedTextElement()) {
+//                push(element: element)
+//            }
+//        case [.y, .i, .leftParenthesis]:
+//            enterNormalMode()
+//            
+//            if let element = asNormalMode.yiLeftParenthesis(on: focusedTextElement()) {
+//                push(element: element)
+//            }
+//        case [.y, .i, .rightBrace]:
+//            enterNormalMode()
+//            
+//            if let element = asNormalMode.yiRightBrace(on: focusedTextElement()) {
+//                push(element: element)
+//            }
+//        case [.y, .i, .rightBracket]:
+//            enterNormalMode()
+//            
+//            if let element = asNormalMode.yiRightBracket(on: focusedTextElement()) {
+//                push(element: element)
+//            }
+//        case [.y, .i, .rightParenthesis]:
+//            enterNormalMode()
+//            
+//            if let element = asNormalMode.yiRightParenthesis(on: focusedTextElement()) {
+//                push(element: element)
+//            }
         case [.y, .i, .w]:
             if let element = asNormalMode.yiw(on: focusedTextElement()) {
                 enterNormalMode()
@@ -1114,115 +1110,116 @@ extension KindaVimEngine {
     
     private func tryHandlingVisualModeUsingAccessibilityStrategyFirst(for keyCombination: KeyCombination) {
         switch keyCombination.vimKey {
-        case .b:
-            if let element = asVisualMode.b(on: focusedTextElement()) {
-                push(element: element)
-            }
-        case .c:
-            enterInsertMode()
-            
-            if let element = asVisualMode.c(on: focusedTextElement()) {                
-                push(element: element)
-            }
-        case .d:
-            if let element = asVisualMode.d(on: focusedTextElement()) {                
-                push(element: element)
-                
-                if var element = focusedTextElement() {
-                    element.selectedLength = element.characterLength
-                    element.selectedText = nil
-                    push(element: element)
-                }
-                
-                enterNormalMode()
-            } else {
-                handleVisualModeUsingKeyboardStrategy(for: keyCombination)
-            }
-        case .e:
-            if let element = asVisualMode.e(on: focusedTextElement()) {
-                push(element: element)
-            }
-        case .g:
-            enterOperatorPendingForVisualMode(with: keyCombination)
-        case .G:
-            if let element = asVisualMode.G(on: focusedTextElement()) {
-                push(element: element)
-            } else {
-                handleVisualModeUsingKeyboardStrategy(for: keyCombination)
-            }
-        case .h:
-            if let element = asVisualMode.h(on: focusedTextElement()) {
-                push(element: element)
-            }
-        case .j:
-            if let element = asVisualMode.j(on: focusedTextElement()) {
-                push(element: element)
-            } else {
-                handleVisualModeUsingKeyboardStrategy(for: keyCombination)
-            }
-        case .k:
-            if let element = asVisualMode.k(on: focusedTextElement()) {
-                push(element: element)
-            } else {
-                handleVisualModeUsingKeyboardStrategy(for: keyCombination)
-            }
-        case .l:
-            if let element = asVisualMode.l(on: focusedTextElement()) {
-                push(element: element)
-            }
-        case .o:
-            if let element = asVisualMode.o(on: focusedTextElement()) {
-                push(element: element)
-            }
-        case .v:
-            if var element = asVisualMode.v(on: focusedTextElement()) {
-                element.selectedLength = element.characterLength
-                push(element: element)
-                
-                if visualStyle == .characterwise {
-                    enterNormalMode()
-                } else {
-                    visualStyle = .characterwise
-                }
-            } else {
-                handleVisualModeUsingKeyboardStrategy(for: keyCombination)
-            }
-        case .V:
-            if var element = asVisualMode.V(on: focusedTextElement()) {
-                if visualStyle == .linewise {
-                    element.selectedLength = element.characterLength
-                }
-                
-                push(element: element)
-                
-                if visualStyle == .linewise {
-                    enterNormalMode()
-                } else {
-                    visualStyle = .linewise
-                }
-            } else {
-                handleVisualModeUsingKeyboardStrategy(for: keyCombination)
-            }
-        case .y:
-            if let element = asVisualMode.y(on: focusedTextElement()) {
-                push(element: element)
-            } else {
-                handleVisualModeUsingKeyboardStrategy(for: keyCombination)
-            }
-            
-            enterNormalMode()
-        case .dollarSign:
-            if let element = asVisualMode.dollarSign(on: focusedTextElement()) {
-                push(element: element)
-            }            
-        case .escape:
-            // currently a hack
-            // so that we can comment multiple lines by keeping the VM selection :D
-            enterInsertMode()
-        case .zero:
-            if let element = asVisualMode.zero(on: focusedTextElement()) {
-                push(element: element)
-            }  
+        // TODO 
+//        case .b:
+//            if let element = asVisualMode.b(on: focusedTextElement()) {
+//                push(element: element)
+//            }
+//        case .c:
+//            enterInsertMode()
+//            
+//            if let element = asVisualMode.c(on: focusedTextElement()) {                
+//                push(element: element)
+//            }
+//        case .d:
+//            if let element = asVisualMode.d(on: focusedTextElement()) {                
+//                push(element: element)
+//                
+//                if var element = focusedTextElement() {
+//                    element.selectedLength = element.characterLength
+//                    element.selectedText = nil
+//                    push(element: element)
+//                }
+//                
+//                enterNormalMode()
+//            } else {
+//                handleVisualModeUsingKeyboardStrategy(for: keyCombination)
+//            }
+//        case .e:
+//            if let element = asVisualMode.e(on: focusedTextElement()) {
+//                push(element: element)
+//            }
+//        case .g:
+//            enterOperatorPendingForVisualMode(with: keyCombination)
+//        case .G:
+//            if let element = asVisualMode.G(on: focusedTextElement()) {
+//                push(element: element)
+//            } else {
+//                handleVisualModeUsingKeyboardStrategy(for: keyCombination)
+//            }
+//        case .h:
+//            if let element = asVisualMode.h(on: focusedTextElement()) {
+//                push(element: element)
+//            }
+//        case .j:
+//            if let element = asVisualMode.j(on: focusedTextElement()) {
+//                push(element: element)
+//            } else {
+//                handleVisualModeUsingKeyboardStrategy(for: keyCombination)
+//            }
+//        case .k:
+//            if let element = asVisualMode.k(on: focusedTextElement()) {
+//                push(element: element)
+//            } else {
+//                handleVisualModeUsingKeyboardStrategy(for: keyCombination)
+//            }
+//        case .l:
+//            if let element = asVisualMode.l(on: focusedTextElement()) {
+//                push(element: element)
+//            }
+//        case .o:
+//            if let element = asVisualMode.o(on: focusedTextElement()) {
+//                push(element: element)
+//            }
+//        case .v:
+//            if var element = asVisualMode.v(on: focusedTextElement()) {
+//                element.selectedLength = element.characterLength
+//                push(element: element)
+//                
+//                if visualStyle == .characterwise {
+//                    enterNormalMode()
+//                } else {
+//                    visualStyle = .characterwise
+//                }
+//            } else {
+//                handleVisualModeUsingKeyboardStrategy(for: keyCombination)
+//            }
+//        case .V:
+//            if var element = asVisualMode.V(on: focusedTextElement()) {
+//                if visualStyle == .linewise {
+//                    element.selectedLength = element.characterLength
+//                }
+//                
+//                push(element: element)
+//                
+//                if visualStyle == .linewise {
+//                    enterNormalMode()
+//                } else {
+//                    visualStyle = .linewise
+//                }
+//            } else {
+//                handleVisualModeUsingKeyboardStrategy(for: keyCombination)
+//            }
+//        case .y:
+//            if let element = asVisualMode.y(on: focusedTextElement()) {
+//                push(element: element)
+//            } else {
+//                handleVisualModeUsingKeyboardStrategy(for: keyCombination)
+//            }
+//            
+//            enterNormalMode()
+//        case .dollarSign:
+//            if let element = asVisualMode.dollarSign(on: focusedTextElement()) {
+//                push(element: element)
+//            }            
+//        case .escape:
+//            // currently a hack
+//            // so that we can comment multiple lines by keeping the VM selection :D
+//            enterInsertMode()
+//        case .zero:
+//            if let element = asVisualMode.zero(on: focusedTextElement()) {
+//                push(element: element)
+//            }  
         default:
             ()
         }
@@ -1288,14 +1285,15 @@ extension KindaVimEngine {
     
     private func tryParsingOperatorCommandForVisualModeUsingAccessibilityStrategyFirst() {
         switch operatorPendingBuffer.map({ $0.vimKey }) {
-        case [.g, .g]:
-            if let element = asVisualMode.gg(on: focusedTextElement()) {
-                push(element: element)
-                
-                enterVisualMode()
-            } else {
-                parseOperatorCommandForVisualModeUsingKeyboardStrategy()
-            }        
+        // TODO
+//        case [.g, .g]:
+//            if let element = asVisualMode.gg(on: focusedTextElement()) {
+//                push(element: element)
+//                
+//                enterVisualMode()
+//            } else {
+//                parseOperatorCommandForVisualModeUsingKeyboardStrategy()
+//            }        
         default:
             // if we don't recognize any operator move
             // go back to visual mode

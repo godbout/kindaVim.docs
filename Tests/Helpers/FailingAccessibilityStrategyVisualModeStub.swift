@@ -1,75 +1,120 @@
 @testable import kindaVim
 import Foundation
+import AccessibilityStrategy
 
 
 struct FailingAccessibilityStrategyVisualModeStub: AccessibilityStrategyVisualModeProtocol {
 
-    func b(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
-        return nil
+    func bForCharacterwise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        return nil 
     }
     
-    func c(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
-        return nil
+    func cForCharacterwise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        return nil 
     }
     
-    func d(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
-        return nil
+    func cForLinewise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        return nil 
     }
     
-    func e(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
-        return nil
+    func dForCharacterwise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        return nil 
     }
     
-    func gg(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
-        return nil
+    func dForLinewise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        return nil 
     }
     
-    func G(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
-        return nil
+    func eForCharacterwise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        return nil 
     }
     
-    func h(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
-        return nil
+    func ggForCharacterwise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        return nil 
     }
     
-    func j(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
-        return nil
+    func ggForLinewise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        return nil 
     }
     
-    func k(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
-        return nil
+    func GForCharacterwise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        return nil 
     }
-        
-    func l(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
-        return nil
+    
+    func GForLinewise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        return nil 
+    }
+    
+    func hForCharacterwise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        return nil 
+    }
+    
+    func jForCharacterwise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        return nil 
+    }
+    
+    func jForLinewise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        return nil 
+    }
+    
+    func kForCharacterwise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        return nil 
+    }
+    
+    func kForLinewise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        return nil 
+    }
+    
+    func lForCharacterwise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        return nil 
     }
     
     func o(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
-        return nil
+        return nil 
     }
     
-    func v(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
-        return nil
+    func vForEnteringFromNormalMode(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        return nil 
     }
     
-    func V(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
-        return nil
+    func vForCharacterwise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        return nil 
     }
     
-    func y(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
-        return nil
+    func vForLinewise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        return nil 
     }
     
-    func dollarSign(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
-        return nil
+    func VForEnteringFromNormalMode(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        return nil 
+    }
+    
+    func VForCharacterwise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        return nil 
+    }
+    
+    func VForLinewise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        return nil 
+    }
+    
+    func yForCharacterwise(on element: AccessibilityTextElement?, _ lastYankStyle: inout VimEngineMoveStyle) -> AccessibilityTextElement? {
+        return nil 
+    }
+    
+    func yForLinewise(on element: AccessibilityTextElement?, _ lastYankStyle: inout VimEngineMoveStyle) -> AccessibilityTextElement? {
+        return nil 
+    }
+        
+    func dollarSignForCharacterwise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        return nil 
     }
     
     func escape(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
-        return nil
+        return nil 
     }
     
-    func zero(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
-        return nil
+    func zeroForCharacterwise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        return nil 
     }
 
 }

@@ -1,4 +1,5 @@
 import AppKit
+import AccessibilityStrategy
 
 
 protocol WindowProtocol {

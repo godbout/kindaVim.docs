@@ -1,107 +1,174 @@
 @testable import kindaVim
 import Foundation
+import AccessibilityStrategy
 
 
 class AccessibilityStrategyVisualModeMock: AccessibilityStrategyVisualModeProtocol {
     
     var functionCalled = ""
-    
-    
-    func b(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
-        functionCalled = #function
-        
-        return element
-    }       
-    
-    func c(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
-        functionCalled = #function
-        
-        return element
-    }     
-    
-    func d(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
-        functionCalled = #function
-        
-        return element
-    }    
 
-    func e(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    
+    func bForCharacterwise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         
         return element
     }
     
-    func gg(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func cForCharacterwise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         
         return element
-    }      
+    }
     
-    func G(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func cForLinewise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         
         return element
-    }      
+    }
     
-    func h(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func dForCharacterwise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         
         return element
-    }   
+    }
     
-    func j(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func dForLinewise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         
         return element
-    }  
+    }
     
-    func k(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func eForCharacterwise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         
         return element
-    }  
+    }
     
-    func l(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func ggForCharacterwise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         
         return element
-    }    
+    }
+    
+    func ggForLinewise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        functionCalled = #function
+        
+        return element
+    }
+    
+    func GForCharacterwise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        functionCalled = #function
+        
+        return element
+    }
+    
+    func GForLinewise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        functionCalled = #function
+        
+        return element
+    }
+    
+    func hForCharacterwise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        functionCalled = #function
+        
+        return element
+    }
+    
+    func jForCharacterwise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        functionCalled = #function
+        
+        return element
+    }
+    
+    func jForLinewise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        functionCalled = #function
+        
+        return element
+    }
+    
+    func kForCharacterwise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        functionCalled = #function
+        
+        return element
+    }
+    
+    func kForLinewise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        functionCalled = #function
+        
+        return element
+    }
+    
+    func lForCharacterwise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        functionCalled = #function
+        
+        return element
+    }
     
     func o(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         
         return element
-    }  
+    }
     
-    func v(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func vForEnteringFromNormalMode(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         
         return element
     }
     
-    func V(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func vForCharacterwise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         
         return element
     }
     
-    func y(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func vForLinewise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         
         return element
     }
     
-    func dollarSign(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func VForEnteringFromNormalMode(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         
         return element
     }
     
-    func zero(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func VForCharacterwise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         
         return element
     }
+    
+    func VForLinewise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        functionCalled = #function
+        
+        return element
+    }
+    
+    func yForCharacterwise(on element: AccessibilityTextElement?, _ lastYankStyle: inout VimEngineMoveStyle) -> AccessibilityTextElement? {
+        functionCalled = #function
+        
+        return element
+    }
+    
+    func yForLinewise(on element: AccessibilityTextElement?, _ lastYankStyle: inout VimEngineMoveStyle) -> AccessibilityTextElement? {
+        functionCalled = #function
+        
+        return element
+    }
+    
+    func dollarSignForCharacterwise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        functionCalled = #function
+        
+        return element
+    }
+    
+    func zeroForCharacterwise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        functionCalled = #function
+        
+        return element
+    }   
     
     func escape(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function

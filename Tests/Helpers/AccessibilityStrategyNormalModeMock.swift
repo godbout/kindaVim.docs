@@ -1,5 +1,7 @@
 @testable import kindaVim
 import Foundation
+import AccessibilityStrategy
+
 
 class AccessibilityStrategyNormalModeMock: AccessibilityStrategyNormalModeProtocol {
     
@@ -279,13 +281,25 @@ class AccessibilityStrategyNormalModeMock: AccessibilityStrategyNormalModeProtoc
         return element
     }
     
-    func p(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func pForCharacterwise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         
         return element
     }
     
-    func P(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func pForLinewise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        functionCalled = #function
+        
+        return element
+    }
+    
+    func PForCharacterwise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        functionCalled = #function
+        
+        return element
+    }
+    
+    func PForLinewise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         
         return element
@@ -375,37 +389,37 @@ class AccessibilityStrategyNormalModeMock: AccessibilityStrategyNormalModeProtoc
         return element
     }
     
-    func yiLeftBrace(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func yiLeftBrace(on element: AccessibilityTextElement?, _ lastYankStyle: inout VimEngineMoveStyle) -> AccessibilityTextElement? {
         functionCalled = #function
         
         return element
     }
     
-    func yiLeftBracket(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func yiLeftBracket(on element: AccessibilityTextElement?, _ lastYankStyle: inout VimEngineMoveStyle) -> AccessibilityTextElement? {
         functionCalled = #function
         
         return element
     }
     
-    func yiLeftParenthesis(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func yiLeftParenthesis(on element: AccessibilityTextElement?, _ lastYankStyle: inout VimEngineMoveStyle) -> AccessibilityTextElement? {
         functionCalled = #function
         
         return element
     }
     
-    func yiRightBrace(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func yiRightBrace(on element: AccessibilityTextElement?, _ lastYankStyle: inout VimEngineMoveStyle) -> AccessibilityTextElement? {
         functionCalled = #function
         
         return element
     }
     
-    func yiRightBracket(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func yiRightBracket(on element: AccessibilityTextElement?, _ lastYankStyle: inout VimEngineMoveStyle) -> AccessibilityTextElement? {
         functionCalled = #function
         
         return element
     }
     
-    func yiRightParenthesis(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func yiRightParenthesis(on element: AccessibilityTextElement?, _ lastYankStyle: inout VimEngineMoveStyle) -> AccessibilityTextElement? {
         functionCalled = #function
         
         return element

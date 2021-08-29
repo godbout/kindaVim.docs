@@ -2,6 +2,15 @@
   "object": {
     "pins": [
       {
+        "package": "AccessibilityStrategy",
+        "repositoryURL": "git@github.com:godbout/AccessibilityStrategy.git",
+        "state": {
+          "branch": null,
+          "revision": "19e2a05b7f244da67e91b54e88b90e9031a7b5ad",
+          "version": "0.0.3"
+        }
+      },
+      {
         "package": "Defaults",
         "repositoryURL": "https://github.com/sindresorhus/Defaults",
         "state": {
