@@ -1,4 +1,5 @@
 import XCTest
+import AccessibilityStrategy
 
 
 class to_TV_selectedTextTests: ATEA_BaseTests {
@@ -10,11 +11,18 @@ of banana
 this time
 """
         let element = AccessibilityTextElement(
+            role: .textArea,
             value: text,
             length: 31,
             caretLocation: 21,
             selectedLength: 0,
-            selectedText: "\nbanana banana 🍌️🍌️🍌️ banana"
+            selectedText: "\nbanana banana 🍌️🍌️🍌️ banana",
+            currentLine: AccessibilityTextElementLine(
+                fullValue: text,
+                number: 2,
+                start: 12,
+                end: 22
+            )
         )
         
         let textInAXFocusedElement = text

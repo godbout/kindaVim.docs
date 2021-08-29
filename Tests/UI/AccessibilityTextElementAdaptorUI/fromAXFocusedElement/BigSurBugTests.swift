@@ -1,4 +1,5 @@
 import XCTest
+import AccessibilityStrategy
 
 
 // bug in Big Sur and Monterey where the character right after

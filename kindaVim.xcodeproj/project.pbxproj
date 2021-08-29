@@ -163,6 +163,7 @@
 		9153E8512662792F00064761 /* SucceedingASNM_b_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9153E8502662792F00064761 /* SucceedingASNM_b_Tests.swift */; };
 		9157B83A268789CB0061BE12 /* SucceedingASVM_d_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9157B839268789CB0061BE12 /* SucceedingASVM_d_Tests.swift */; };
 		9157B862268793010061BE12 /* ASUI_VML_d_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9157B861268793010061BE12 /* ASUI_VML_d_Tests.swift */; };
+		91582B4726DC23B20048E207 /* AccessibilityStrategy in Frameworks */ = {isa = PBXBuildFile; productRef = 91582B4626DC23B20048E207 /* AccessibilityStrategy */; };
 		915AF83726C1362D00E84F73 /* SucceedingASNM_yi(_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915AF83626C1362C00E84F73 /* SucceedingASNM_yi(_Tests.swift */; };
 		915AF83926C1365000E84F73 /* SucceedingASNM_yi)_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915AF83826C1365000E84F73 /* SucceedingASNM_yi)_Tests.swift */; };
 		916034E126BBFABF00977AB3 /* EnforcingKSVM_BaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916034DF26BBFA8800977AB3 /* EnforcingKSVM_BaseTests.swift */; };
@@ -567,6 +568,7 @@
 		9153E8502662792F00064761 /* SucceedingASNM_b_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SucceedingASNM_b_Tests.swift; sourceTree = "<group>"; };
 		9157B839268789CB0061BE12 /* SucceedingASVM_d_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SucceedingASVM_d_Tests.swift; sourceTree = "<group>"; };
 		9157B861268793010061BE12 /* ASUI_VML_d_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASUI_VML_d_Tests.swift; sourceTree = "<group>"; };
+		91582B3626DC1D150048E207 /* AccessibilityStrategy */ = {isa = PBXFileReference; lastKnownFileType = folder; name = AccessibilityStrategy; path = ../AccessibilityStrategy; sourceTree = "<group>"; };
 		915A093B2667DD1A007D7572 /* ASUI_NM_ci"_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ASUI_NM_ci\"_Tests.swift"; sourceTree = "<group>"; };
 		915AF83626C1362C00E84F73 /* SucceedingASNM_yi(_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SucceedingASNM_yi(_Tests.swift"; sourceTree = "<group>"; };
 		915AF83826C1365000E84F73 /* SucceedingASNM_yi)_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SucceedingASNM_yi)_Tests.swift"; sourceTree = "<group>"; };
@@ -842,6 +844,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				91582B4726DC23B20048E207 /* AccessibilityStrategy in Frameworks */,
 				91130DFE26DBE3A30013D863 /* KeyboardStrategy in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -940,6 +943,7 @@
 		9128F2A3262AA90C00625B42 = {
 			isa = PBXGroup;
 			children = (
+				91582B3626DC1D150048E207 /* AccessibilityStrategy */,
 				9128F2AE262AA90C00625B42 /* kindaVim */,
 				91B5A2AF26A2FC9D002516EC /* Tests */,
 				9128F2AD262AA90C00625B42 /* Products */,
@@ -1654,6 +1658,7 @@
 			name = AccessibilityTextElementAdaptorUITests;
 			packageProductDependencies = (
 				91130DFD26DBE3A30013D863 /* KeyboardStrategy */,
+				91582B4626DC23B20048E207 /* AccessibilityStrategy */,
 			);
 			productName = AccessibilityTextElementAdaptorUITests;
 			productReference = 91A147B02661221100D160AD /* AccessibilityTextElementAdaptorUITests.xctest */;
@@ -3121,6 +3126,10 @@
 		913B395B26DC0A3C00C0530C /* AccessibilityStrategy */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 913B395A26DC0A3C00C0530C /* XCRemoteSwiftPackageReference "AccessibilityStrategy" */;
+			productName = AccessibilityStrategy;
+		};
+		91582B4626DC23B20048E207 /* AccessibilityStrategy */ = {
+			isa = XCSwiftPackageProductDependency;
 			productName = AccessibilityStrategy;
 		};
 		919764E526D3944800A4A80E /* Defaults */ = {

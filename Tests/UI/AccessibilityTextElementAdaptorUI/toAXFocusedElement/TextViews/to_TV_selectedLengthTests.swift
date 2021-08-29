@@ -1,4 +1,5 @@
 import XCTest
+import AccessibilityStrategy
 
 
 class to_TV_selectedLengthTests: ATEA_BaseTests {
@@ -17,12 +18,12 @@ TextAreas
             selectedLength: 38,
             selectedText: nil,
             currentLine: AccessibilityTextElementLine(
-            fullValue: text,
-            number: 1,
-            start: 0,
-            end: 27
+                fullValue: text,
+                number: 1,
+                start: 0,
+                end: 27
             )
-            )
+        )
         
         let textInAXFocusedElement = text
         app.textViews.firstMatch.tap()

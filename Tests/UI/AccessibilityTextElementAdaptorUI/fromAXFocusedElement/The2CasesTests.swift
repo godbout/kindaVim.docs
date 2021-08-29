@@ -1,4 +1,5 @@
 import XCTest
+import AccessibilityStrategy
 
 
 // here we test what we really receive or calculate from the Adaptor,

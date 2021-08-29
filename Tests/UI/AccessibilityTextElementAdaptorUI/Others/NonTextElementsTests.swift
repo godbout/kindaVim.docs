@@ -1,4 +1,5 @@
 import XCTest
+import AccessibilityStrategy
 
 
 class NonTextElementsTests: ATEA_BaseTests {}

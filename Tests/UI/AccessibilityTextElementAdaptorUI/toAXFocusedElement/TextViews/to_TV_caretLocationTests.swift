@@ -1,4 +1,5 @@
 import XCTest
+import AccessibilityStrategy
 
 
 class to_TV_caretLocationTests: ATEA_BaseTests {

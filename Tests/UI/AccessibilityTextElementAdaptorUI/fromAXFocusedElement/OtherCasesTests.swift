@@ -1,4 +1,5 @@
 import XCTest
+import AccessibilityStrategy
 
 
 class OtherCasesTests: ATEA_BaseTests {}
