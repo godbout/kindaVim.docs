@@ -1,6 +1,8 @@
 @testable import kindaVim
-import KeyCombination
 import XCTest
+import KeyCombination
+import AccessibilityStrategy
+
 
 
 // this moves uses the shiftCurrentLine blah blah func. the UI tests for that

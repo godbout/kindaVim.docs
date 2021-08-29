@@ -1,6 +1,7 @@
 @testable import kindaVim
-import KeyCombination
 import XCTest
+import KeyCombination
+import AccessibilityStrategy
 
 
 // read p for more blah blah

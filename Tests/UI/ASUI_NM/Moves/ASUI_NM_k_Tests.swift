@@ -1,6 +1,7 @@
 @testable import kindaVim
-import KeyCombination
 import XCTest
+import KeyCombination
+import AccessibilityStrategy
 
 
 // check j for why no TextFields tests here

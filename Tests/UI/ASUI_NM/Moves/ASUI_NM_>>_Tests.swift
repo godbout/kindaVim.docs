@@ -1,6 +1,8 @@
 @testable import kindaVim
-import KeyCombination
 import XCTest
+import KeyCombination
+import AccessibilityStrategy
+
 
 
 // see << for blah blah of why those tests are quite special

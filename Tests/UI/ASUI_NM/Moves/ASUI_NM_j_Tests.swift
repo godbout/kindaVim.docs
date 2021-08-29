@@ -1,6 +1,8 @@
 @testable import kindaVim
-import KeyCombination
 import XCTest
+import KeyCombination
+import AccessibilityStrategy
+
 
 
 // there's no such thing as TextField for j and k as the KS takes over

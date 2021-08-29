@@ -1,6 +1,7 @@
 @testable import kindaVim
-import KeyCombination
 import XCTest
+import KeyCombination
+import AccessibilityStrategy
 
 
 // so p is a special one too because it sets the selectedText,
