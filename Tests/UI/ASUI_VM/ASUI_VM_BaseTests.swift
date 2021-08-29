@@ -1,4 +1,5 @@
 import XCTest
+import AccessibilityStrategy
 
 
 class ASUI_VM_BaseTests: XCTestCase {

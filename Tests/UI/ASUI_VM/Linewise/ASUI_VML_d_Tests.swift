@@ -1,5 +1,6 @@
-import KeyCombination
 import XCTest
+import KeyCombination
+import AccessibilityStrategy
 
 
 class ASUI_VML_d_Tests: ASUI_VM_BaseTests {}

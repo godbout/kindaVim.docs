@@ -1,5 +1,6 @@
-import KeyCombination
 import XCTest
+import KeyCombination
+import AccessibilityStrategy
 
 
 // currently VM escape has been changed to go back to IM

@@ -1,5 +1,6 @@
-import KeyCombination
 import XCTest
+import KeyCombination
+import AccessibilityStrategy
 
 
 // see the other VM escape for explanation

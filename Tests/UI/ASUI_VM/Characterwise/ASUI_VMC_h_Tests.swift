@@ -1,7 +1,7 @@
 @testable import kindaVim
-import KeyCombination
-import KeyCombination
 import XCTest
+import KeyCombination
+import AccessibilityStrategy
 
 
 class ASUI_VMC_h_Tests: ASUI_VM_BaseTests {}

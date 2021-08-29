@@ -1,5 +1,6 @@
-import KeyCombination
 import XCTest
+import KeyCombination
+import AccessibilityStrategy
 
 
 // the 3 cases are already done in Unit Tests. the UI for b is just to test a special case

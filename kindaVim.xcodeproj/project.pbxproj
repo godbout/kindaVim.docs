@@ -165,6 +165,7 @@
 		9157B862268793010061BE12 /* ASUI_VML_d_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9157B861268793010061BE12 /* ASUI_VML_d_Tests.swift */; };
 		91582B4726DC23B20048E207 /* AccessibilityStrategy in Frameworks */ = {isa = PBXBuildFile; productRef = 91582B4626DC23B20048E207 /* AccessibilityStrategy */; };
 		91582B5826DC28DF0048E207 /* AccessibilityStrategy in Frameworks */ = {isa = PBXBuildFile; productRef = 91582B5726DC28DF0048E207 /* AccessibilityStrategy */; };
+		91582B5F26DC2BE40048E207 /* AccessibilityStrategy in Frameworks */ = {isa = PBXBuildFile; productRef = 91582B5E26DC2BE40048E207 /* AccessibilityStrategy */; };
 		915AF83726C1362D00E84F73 /* SucceedingASNM_yi(_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915AF83626C1362C00E84F73 /* SucceedingASNM_yi(_Tests.swift */; };
 		915AF83926C1365000E84F73 /* SucceedingASNM_yi)_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915AF83826C1365000E84F73 /* SucceedingASNM_yi)_Tests.swift */; };
 		916034E126BBFABF00977AB3 /* EnforcingKSVM_BaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916034DF26BBFA8800977AB3 /* EnforcingKSVM_BaseTests.swift */; };
@@ -851,6 +852,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				91582B5F26DC2BE40048E207 /* AccessibilityStrategy in Frameworks */,
 				91130E0C26DBE3D80013D863 /* KeyboardStrategy in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1669,6 +1671,7 @@
 			name = AccessibilityStrategyVisualModeUITests;
 			packageProductDependencies = (
 				91130E0B26DBE3D80013D863 /* KeyboardStrategy */,
+				91582B5E26DC2BE40048E207 /* AccessibilityStrategy */,
 			);
 			productName = AccessibilityStrategyUITests;
 			productReference = 91A147C42661222900D160AD /* AccessibilityStrategyVisualModeUITests.xctest */;
@@ -3120,6 +3123,10 @@
 			productName = AccessibilityStrategy;
 		};
 		91582B5726DC28DF0048E207 /* AccessibilityStrategy */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = AccessibilityStrategy;
+		};
+		91582B5E26DC2BE40048E207 /* AccessibilityStrategy */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = AccessibilityStrategy;
 		};
