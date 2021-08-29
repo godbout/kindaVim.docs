@@ -2,15 +2,6 @@
   "object": {
     "pins": [
       {
-        "package": "AXElementRole",
-        "repositoryURL": "https://github.com/godbout/AXElementRole.git",
-        "state": {
-          "branch": null,
-          "revision": "3164593fb5c5900cc385109276a54eeaf82d7c4c",
-          "version": "1.0.0"
-        }
-      },
-      {
         "package": "Defaults",
         "repositoryURL": "https://github.com/sindresorhus/Defaults",
         "state": {
@@ -30,16 +21,16 @@
       },
       {
         "package": "KeyboardStrategy",
-        "repositoryURL": "git@github.com:godbout/KeyboardStrategy",
+        "repositoryURL": "git@github.com:godbout/KeyboardStrategy.git",
         "state": {
           "branch": null,
-          "revision": "075d8e9cdaf83134b99e07d433160c1d216569d7",
-          "version": "1.0.2"
+          "revision": "c4465569bdd295126537819771c0bfd468388b33",
+          "version": "0.0.1"
         }
       },
       {
         "package": "KeyCombination",
-        "repositoryURL": "https://github.com/godbout/KeyCombination.git",
+        "repositoryURL": "git@github.com:godbout/KeyCombination.git",
         "state": {
           "branch": null,
           "revision": "0d12c4e15668673e9423fb7ad353b1cfb57d39cb",

@@ -1,7 +1,6 @@
 @testable import kindaVim
 import KeyboardStrategy
 import KeyCombination
-import AXElementRole
 import Foundation
 
 
@@ -76,7 +75,7 @@ class KeyboardStrategyNormalModeMock: KeyboardStrategyNormalModeProtocol {
         return []
     }
     
-    func dd(on role: AXElementRole?) -> [KeyCombination] {
+    func dd(on type: ElementType?) -> [KeyCombination] {
         functionCalled = #function
         
         return []
@@ -94,25 +93,25 @@ class KeyboardStrategyNormalModeMock: KeyboardStrategyNormalModeProtocol {
         return []
     }
     
-    func dj(on role: AXElementRole?) -> [KeyCombination] {
+    func dj(on type: ElementType?) -> [KeyCombination] {
         functionCalled = #function
         
         return []
     }
     
-    func dk(on role: AXElementRole?) -> [KeyCombination] {
+    func dk(on type: ElementType?) -> [KeyCombination] {
         functionCalled = #function
         
         return []
     }
     
-    func G(on role: AXElementRole?) -> [KeyCombination] {
+    func G(on type: ElementType?) -> [KeyCombination] {
         functionCalled = #function
         
         return []
     }
     
-    func gg(on role: AXElementRole?) -> [KeyCombination] {
+    func gg(on type: ElementType?) -> [KeyCombination] {
         functionCalled = #function
         
         return []

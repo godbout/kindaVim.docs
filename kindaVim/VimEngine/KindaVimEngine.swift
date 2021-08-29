@@ -1,7 +1,6 @@
 import Foundation
 import KeyCombination
 import KeyboardStrategy
-import AXElementRole
 
 
 enum VimEngineMode {
@@ -119,6 +118,15 @@ class KindaVimEngine {
 
     private func post(_ keyCombinations: [KeyCombination]) {
         keyboardStrategy.post(keyCombinations)
+    }
+    
+    private func elementType(for axRole: AXElementRole?) -> ElementType {
+        switch axRole {
+        case .scrollArea, .webArea:
+            return .textElement
+        default:
+            return .nonTextElement
+        }
     }
 
     private func focusedTextElement() -> AccessibilityTextElement? {
@@ -443,7 +451,7 @@ extension KindaVimEngine {
         case .g:
             enterOperatorPendingForNormalMode(with: keyCombination)
         case .G:
-            post(ksNormalMode.G(on: AXEngine.axRole()))
+            post(ksNormalMode.G(on: elementType(for: AXEngine.axRole())))
         case .h:
             post(ksNormalMode.h())
         case .i:
@@ -1042,7 +1050,7 @@ extension KindaVimEngine {
         case [.d, .d]:
             enterNormalMode()
             
-            post(ksNormalMode.dd(on: AXEngine.axRole()))
+            post(ksNormalMode.dd(on: elementType(for: AXEngine.axRole())))
         case [.d, .g]:
             ()
         case [.d, .g, .g]:
@@ -1056,15 +1064,15 @@ extension KindaVimEngine {
         case [.d, .j]:
             enterNormalMode()
             
-            post(ksNormalMode.dj(on: AXEngine.axRole()))
+            post(ksNormalMode.dj(on: elementType(for: AXEngine.axRole())))
         case [.d, .k]:
             enterNormalMode()
             
-            post(ksNormalMode.dk(on: AXEngine.axRole()))
+            post(ksNormalMode.dk(on: elementType(for: AXEngine.axRole())))
         case [.g, .g]:
             enterNormalMode()
             
-            post(ksNormalMode.gg(on: AXEngine.axRole()))
+            post(ksNormalMode.gg(on: elementType(for: AXEngine.axRole())))
         case [.y, .i]:
             ()
         case [.y, .i, .w]:
