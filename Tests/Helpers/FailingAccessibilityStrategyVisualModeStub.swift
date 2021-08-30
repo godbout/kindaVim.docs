@@ -5,67 +5,67 @@ import AccessibilityStrategy
 
 struct FailingAccessibilityStrategyVisualModeStub: AccessibilityStrategyVisualModeProtocol {
 
-    func bForCharacterwise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func bForVisualStyleCharacterwise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return nil 
     }
     
-    func cForCharacterwise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func cForVisualStyleCharacterwise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return nil 
     }
     
-    func cForLinewise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func cForVisualStyleLinewise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return nil 
     }
     
-    func dForCharacterwise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func dForVisualStyleCharacterwise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return nil 
     }
     
-    func dForLinewise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func dForVisualStyleLinewise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return nil 
     }
     
-    func eForCharacterwise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func eForVisualStyleCharacterwise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return nil 
     }
     
-    func ggForCharacterwise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func ggForVisualStyleCharacterwise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return nil 
     }
     
-    func ggForLinewise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func ggForVisualStyleLinewise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return nil 
     }
     
-    func GForCharacterwise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func GForVisualStyleCharacterwise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return nil 
     }
     
-    func GForLinewise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func GForVisualStyleLinewise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return nil 
     }
     
-    func hForCharacterwise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func hForVisualStyleCharacterwise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return nil 
     }
     
-    func jForCharacterwise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func jForVisualStyleCharacterwise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return nil 
     }
     
-    func jForLinewise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func jForVisualStyleLinewise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return nil 
     }
     
-    func kForCharacterwise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func kForVisualStyleCharacterwise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return nil 
     }
     
-    func kForLinewise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func kForVisualStyleLinewise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return nil 
     }
     
-    func lForCharacterwise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func lForVisualStyleCharacterwise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return nil 
     }
     
@@ -97,15 +97,15 @@ struct FailingAccessibilityStrategyVisualModeStub: AccessibilityStrategyVisualMo
         return nil 
     }
     
-    func yForCharacterwise(on element: AccessibilityTextElement?, _ lastYankStyle: inout VimEngineMoveStyle) -> AccessibilityTextElement? {
+    func yForVisualStyleCharacterwise(on element: AccessibilityTextElement?, _ lastYankStyle: inout VimEngineMoveStyle) -> AccessibilityTextElement? {
         return nil 
     }
     
-    func yForLinewise(on element: AccessibilityTextElement?, _ lastYankStyle: inout VimEngineMoveStyle) -> AccessibilityTextElement? {
+    func yForVisualStyleLinewise(on element: AccessibilityTextElement?, _ lastYankStyle: inout VimEngineMoveStyle) -> AccessibilityTextElement? {
         return nil 
     }
         
-    func dollarSignForCharacterwise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func dollarSignForVisualStyleCharacterwise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return nil 
     }
     
@@ -113,7 +113,7 @@ struct FailingAccessibilityStrategyVisualModeStub: AccessibilityStrategyVisualMo
         return nil 
     }
     
-    func zeroForCharacterwise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func zeroForVisualStyleCharacterwise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return nil 
     }
 

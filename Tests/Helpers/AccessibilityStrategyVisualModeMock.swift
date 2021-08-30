@@ -8,97 +8,97 @@ class AccessibilityStrategyVisualModeMock: AccessibilityStrategyVisualModeProtoc
     var functionCalled = ""
 
     
-    func bForCharacterwise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func bForVisualStyleCharacterwise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         
         return element
     }
     
-    func cForCharacterwise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func cForVisualStyleCharacterwise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         
         return element
     }
     
-    func cForLinewise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func cForVisualStyleLinewise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         
         return element
     }
     
-    func dForCharacterwise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func dForVisualStyleCharacterwise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         
         return element
     }
     
-    func dForLinewise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func dForVisualStyleLinewise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         
         return element
     }
     
-    func eForCharacterwise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func eForVisualStyleCharacterwise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         
         return element
     }
     
-    func ggForCharacterwise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func ggForVisualStyleCharacterwise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         
         return element
     }
     
-    func ggForLinewise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func ggForVisualStyleLinewise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         
         return element
     }
     
-    func GForCharacterwise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func GForVisualStyleCharacterwise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         
         return element
     }
     
-    func GForLinewise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func GForVisualStyleLinewise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         
         return element
     }
     
-    func hForCharacterwise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func hForVisualStyleCharacterwise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         
         return element
     }
     
-    func jForCharacterwise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func jForVisualStyleCharacterwise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         
         return element
     }
     
-    func jForLinewise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func jForVisualStyleLinewise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         
         return element
     }
     
-    func kForCharacterwise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func kForVisualStyleCharacterwise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         
         return element
     }
     
-    func kForLinewise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func kForVisualStyleLinewise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         
         return element
     }
     
-    func lForCharacterwise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func lForVisualStyleCharacterwise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         
         return element
@@ -146,25 +146,25 @@ class AccessibilityStrategyVisualModeMock: AccessibilityStrategyVisualModeProtoc
         return element
     }
     
-    func yForCharacterwise(on element: AccessibilityTextElement?, _ lastYankStyle: inout VimEngineMoveStyle) -> AccessibilityTextElement? {
+    func yForVisualStyleCharacterwise(on element: AccessibilityTextElement?, _ lastYankStyle: inout VimEngineMoveStyle) -> AccessibilityTextElement? {
         functionCalled = #function
         
         return element
     }
     
-    func yForLinewise(on element: AccessibilityTextElement?, _ lastYankStyle: inout VimEngineMoveStyle) -> AccessibilityTextElement? {
+    func yForVisualStyleLinewise(on element: AccessibilityTextElement?, _ lastYankStyle: inout VimEngineMoveStyle) -> AccessibilityTextElement? {
         functionCalled = #function
         
         return element
     }
     
-    func dollarSignForCharacterwise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func dollarSignForVisualStyleCharacterwise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         
         return element
     }
     
-    func zeroForCharacterwise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func zeroForVisualStyleCharacterwise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         
         return element
