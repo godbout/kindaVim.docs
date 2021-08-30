@@ -14,14 +14,14 @@ extension EnforcingKSVM_V__Tests {
     
     func test_that_if_Vim_was_in_visual_mode_linewise_it_switches_into_normal_mode() {
         KindaVimEngine.shared.visualStyle = .linewise
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .V))
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .V), enforceKeyboardStrategy: true)
         
         XCTAssertEqual(KindaVimEngine.shared.currentMode, .normal)
     }
     
     func test_that_if_Vim_was_in_visual_mode_characterwise_it_switches_into_visual_mode_linewise() {
         KindaVimEngine.shared.visualStyle = .characterwise
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .V))
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .V), enforceKeyboardStrategy: true)
         
         XCTAssertEqual(KindaVimEngine.shared.currentMode, .visual)
         XCTAssertEqual(KindaVimEngine.shared.visualStyle, .linewise)
