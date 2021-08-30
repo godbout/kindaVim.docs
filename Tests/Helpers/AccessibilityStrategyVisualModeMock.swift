@@ -116,13 +116,13 @@ class AccessibilityStrategyVisualModeMock: AccessibilityStrategyVisualModeProtoc
         return element
     }
     
-    func vForCharacterwise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func vForVisualStyleCharacterwise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         
         return element
     }
     
-    func vForLinewise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func vForVisualStyleLinewise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         
         return element
@@ -134,13 +134,13 @@ class AccessibilityStrategyVisualModeMock: AccessibilityStrategyVisualModeProtoc
         return element
     }
     
-    func VForCharacterwise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func VForVisualStyleCharacterwise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         
         return element
     }
     
-    func VForLinewise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func VForVisualStyleLinewise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         
         return element
