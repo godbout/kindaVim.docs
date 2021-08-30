@@ -2,6 +2,7 @@ import Foundation
 import KeyCombination
 import KeyboardStrategy
 import AccessibilityStrategy
+import AXEngine
 
 
 enum VimEngineMode {

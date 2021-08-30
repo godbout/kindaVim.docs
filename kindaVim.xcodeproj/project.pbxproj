@@ -308,6 +308,9 @@
 		91C5A934268A60B0002B6DB9 /* The2CasesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C5A933268A60B0002B6DB9 /* The2CasesTests.swift */; };
 		91C7006326930A0C0013C11E /* SucceedingASVM_e_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C7006226930A0C0013C11E /* SucceedingASVM_e_Tests.swift */; };
 		91C7009126930FA20013C11E /* ASUI_VMC_e_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C7009026930FA20013C11E /* ASUI_VMC_e_Tests.swift */; };
+		91C8546726DD62EF00684736 /* AccessibilityStrategy in Frameworks */ = {isa = PBXBuildFile; productRef = 91C8546626DD62EF00684736 /* AccessibilityStrategy */; };
+		91C8546E26DD631B00684736 /* AccessibilityStrategy in Frameworks */ = {isa = PBXBuildFile; productRef = 91C8546D26DD631B00684736 /* AccessibilityStrategy */; };
+		91C8547026DD632500684736 /* AccessibilityStrategy in Frameworks */ = {isa = PBXBuildFile; productRef = 91C8546F26DD632500684736 /* AccessibilityStrategy */; };
 		91CA37DC265E8F47004869EA /* SucceedingASNM_j_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CA37DB265E8F47004869EA /* SucceedingASNM_j_Tests.swift */; };
 		91CC3382267C8A6F00E3145C /* SucceedingASNM_P__.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CC3381267C8A6F00E3145C /* SucceedingASNM_P__.swift */; };
 		91CD1B2A26860A14008DBCBB /* Display.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9118C4E6263F0CE50040C297 /* Display.swift */; };
@@ -830,6 +833,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				91C8546726DD62EF00684736 /* AccessibilityStrategy in Frameworks */,
 				91130E0526DBE3BC0013D863 /* KeyboardStrategy in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -838,6 +842,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				91C8547026DD632500684736 /* AccessibilityStrategy in Frameworks */,
 				91130DFE26DBE3A30013D863 /* KeyboardStrategy in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -846,6 +851,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				91C8546E26DD631B00684736 /* AccessibilityStrategy in Frameworks */,
 				91130E0C26DBE3D80013D863 /* KeyboardStrategy in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -932,6 +938,7 @@
 				9128F2AE262AA90C00625B42 /* kindaVim */,
 				91B5A2AF26A2FC9D002516EC /* Tests */,
 				9128F2AD262AA90C00625B42 /* Products */,
+				91C8546526DD62EF00684736 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1491,6 +1498,13 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		91C8546526DD62EF00684736 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		91D428CB268CDEBE00DAF07A /* Linewise */ = {
 			isa = PBXGroup;
 			children = (
@@ -1611,6 +1625,7 @@
 			name = AccessibilityStrategyNormalModeUITests;
 			packageProductDependencies = (
 				91130E0426DBE3BC0013D863 /* KeyboardStrategy */,
+				91C8546626DD62EF00684736 /* AccessibilityStrategy */,
 			);
 			productName = ASUI_NM_Tests;
 			productReference = 914734E726A1FE0100B20466 /* AccessibilityStrategyNormalModeUITests.xctest */;
@@ -1632,6 +1647,7 @@
 			name = AccessibilityTextElementAdaptorUITests;
 			packageProductDependencies = (
 				91130DFD26DBE3A30013D863 /* KeyboardStrategy */,
+				91C8546F26DD632500684736 /* AccessibilityStrategy */,
 			);
 			productName = AccessibilityTextElementAdaptorUITests;
 			productReference = 91A147B02661221100D160AD /* AccessibilityTextElementAdaptorUITests.xctest */;
@@ -1653,6 +1669,7 @@
 			name = AccessibilityStrategyVisualModeUITests;
 			packageProductDependencies = (
 				91130E0B26DBE3D80013D863 /* KeyboardStrategy */,
+				91C8546D26DD631B00684736 /* AccessibilityStrategy */,
 			);
 			productName = AccessibilityStrategyUITests;
 			productReference = 91A147C42661222900D160AD /* AccessibilityStrategyVisualModeUITests.xctest */;
@@ -1665,7 +1682,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1250;
-				LastUpgradeCheck = 1250;
+				LastUpgradeCheck = 1240;
 				TargetAttributes = {
 					9128F2AB262AA90C00625B42 = {
 						CreatedOnToolsVersion = 12.4;
@@ -3108,6 +3125,21 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 91B1F58726D38C28003F0555 /* XCRemoteSwiftPackageReference "LaunchAtLogin" */;
 			productName = LaunchAtLogin;
+		};
+		91C8546626DD62EF00684736 /* AccessibilityStrategy */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 913B395A26DC0A3C00C0530C /* XCRemoteSwiftPackageReference "AccessibilityStrategy" */;
+			productName = AccessibilityStrategy;
+		};
+		91C8546D26DD631B00684736 /* AccessibilityStrategy */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 913B395A26DC0A3C00C0530C /* XCRemoteSwiftPackageReference "AccessibilityStrategy" */;
+			productName = AccessibilityStrategy;
+		};
+		91C8546F26DD632500684736 /* AccessibilityStrategy */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 913B395A26DC0A3C00C0530C /* XCRemoteSwiftPackageReference "AccessibilityStrategy" */;
+			productName = AccessibilityStrategy;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
