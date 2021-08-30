@@ -5,22 +5,45 @@ import XCTest
 
 class SucceedingASVM_y_Tests: SucceedingASVM_BaseTests {
     
-    override func setUp() {
-        super.setUp()
-        
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .y))
+    private func applyMove() {
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .y))
     }
     
 }
 
 
-extension SucceedingASVM_y_Tests {
+// visualStyle character
+extension SucceedingASVM_y_Tests {    
     
-    func test_that_it_calls_the_correct_function_on_accessibility_strategy_visual_mode() {
-        XCTAssertEqual(asVisualModeMock.functionCalled, "y(on:)")
+    func test_that_it_calls_the_correct_function_on_ASVM_when_visualStyle_is_characterwise() {
+        KindaVimEngine.shared.visualStyle = .characterwise
+        applyMove()
+        
+        XCTAssertEqual(asVisualModeMock.functionCalled, "yForVisualStyleCharacterwise(on:_:)")
     }
     
+}
+
+
+// visualStyle linewise
+extension SucceedingASVM_y_Tests {
+    
+    func test_that_it_calls_the_correct_function_on_ASVM_when_visualStyle_is_linewise() {
+        KindaVimEngine.shared.visualStyle = .linewise
+        applyMove()
+        
+        XCTAssertEqual(asVisualModeMock.functionCalled, "yForVisualStyleLinewise(on:_:)")
+    }
+    
+}
+
+
+// both
+extension SucceedingASVM_y_Tests {
+    
     func test_that_it_switches_Vim_to_Normal_Mode() {
+        applyMove()
+        
         XCTAssertEqual(KindaVimEngine.shared.currentMode, .normal)
     }
     
