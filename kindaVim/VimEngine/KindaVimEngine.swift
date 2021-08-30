@@ -319,21 +319,20 @@ extension KindaVimEngine {
             }
         case .controlU:
             handleNormalModeUsingKeyboardStrategy(for: keyCombination)
-            // TODO
-//        case .v:
-//            enterVisualMode()
-//            visualStyle = .characterwise
-//            
-//            if let element = asVisualMode.v(on: focusedTextElement()) {
-//                push(element: element)
-//            }
-//        case .V:
-//            enterVisualMode()
-//            visualStyle = .linewise
-//            
-//            if let element = asVisualMode.V(on: focusedTextElement()) {
-//                push(element: element)
-//            }
+        case .v:
+            enterVisualMode()
+            visualStyle = .characterwise
+            
+            if let element = asVisualMode.vForEnteringFromNormalMode(on: focusedTextElement()) {
+                push(element: element)
+            }
+        case .V:
+            enterVisualMode()
+            visualStyle = .linewise
+            
+            if let element = asVisualMode.VForEnteringFromNormalMode(on: focusedTextElement()) {
+                push(element: element)
+            }
         case .w:
             if let element = asNormalMode.w(on: focusedTextElement()) {
                 push(element: element)
@@ -830,43 +829,42 @@ extension KindaVimEngine {
                 push(element: element)
                 lastYankStyle = .characterwise
             }
-            // TODO
-//        case [.y, .i, .leftBrace]:
-//            enterNormalMode()
-//            
-//            if let element = asNormalMode.yiLeftBrace(on: focusedTextElement()) {
-//                push(element: element)
-//            }
-//        case [.y, .i, .leftBracket]:
-//            enterNormalMode()
-//            
-//            if let element = asNormalMode.yiLeftBracket(on: focusedTextElement()) {
-//                push(element: element)
-//            }
-//        case [.y, .i, .leftParenthesis]:
-//            enterNormalMode()
-//            
-//            if let element = asNormalMode.yiLeftParenthesis(on: focusedTextElement()) {
-//                push(element: element)
-//            }
-//        case [.y, .i, .rightBrace]:
-//            enterNormalMode()
-//            
-//            if let element = asNormalMode.yiRightBrace(on: focusedTextElement()) {
-//                push(element: element)
-//            }
-//        case [.y, .i, .rightBracket]:
-//            enterNormalMode()
-//            
-//            if let element = asNormalMode.yiRightBracket(on: focusedTextElement()) {
-//                push(element: element)
-//            }
-//        case [.y, .i, .rightParenthesis]:
-//            enterNormalMode()
-//            
-//            if let element = asNormalMode.yiRightParenthesis(on: focusedTextElement()) {
-//                push(element: element)
-//            }
+        case [.y, .i, .leftBrace]:
+            enterNormalMode()
+            
+            if let element = asNormalMode.yiLeftBrace(on: focusedTextElement(), &lastYankStyle) {
+                push(element: element)
+            }
+        case [.y, .i, .leftBracket]:
+            enterNormalMode()
+            
+            if let element = asNormalMode.yiLeftBracket(on: focusedTextElement(), &lastYankStyle) {
+                push(element: element)
+            }
+        case [.y, .i, .leftParenthesis]:
+            enterNormalMode()
+            
+            if let element = asNormalMode.yiLeftParenthesis(on: focusedTextElement(), &lastYankStyle) {
+                push(element: element)
+            }
+        case [.y, .i, .rightBrace]:
+            enterNormalMode()
+            
+            if let element = asNormalMode.yiRightBrace(on: focusedTextElement(), &lastYankStyle) {
+                push(element: element)
+            }
+        case [.y, .i, .rightBracket]:
+            enterNormalMode()
+            
+            if let element = asNormalMode.yiRightBracket(on: focusedTextElement(), &lastYankStyle) {
+                push(element: element)
+            }
+        case [.y, .i, .rightParenthesis]:
+            enterNormalMode()
+            
+            if let element = asNormalMode.yiRightParenthesis(on: focusedTextElement(), &lastYankStyle) {
+                push(element: element)
+            }
         case [.y, .i, .w]:
             if let element = asNormalMode.yiw(on: focusedTextElement()) {
                 enterNormalMode()

@@ -22,7 +22,7 @@ class SucceedingASNM_yiLeftBracket_Tests: SucceedingASNM_BaseTests {
 extension SucceedingASNM_yiLeftBracket_Tests {
     
     func test_that_it_calls_the_correct_function_on_accessibility_strategy() {
-        XCTAssertEqual(asNormalModeMock.functionCalled, "yiLeftBracket(on:)")
+        XCTAssertEqual(asNormalModeMock.functionCalled, "yiLeftBracket(on:_:)")
     }
     
     func test_that_it_keeps_Vim_in_normal_mode() {
