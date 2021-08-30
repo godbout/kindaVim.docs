@@ -189,19 +189,19 @@ struct FailingAccessibilityStrategyNormalModeStub: AccessibilityStrategyNormalMo
         return nil        
     }
     
-    func pForCharacterwise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func pForLastYankStyleCharacterwise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return nil        
     }
     
-    func pForLinewise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func pForLastYankStyleLinewise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return nil        
     }
     
-    func PForCharacterwise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func PForLastYankStyleCharacterwise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return nil        
     }
     
-    func PForLinewise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func PForLastYankStyleLinewise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return nil        
     }
     

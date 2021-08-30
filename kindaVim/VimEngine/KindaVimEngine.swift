@@ -266,19 +266,37 @@ extension KindaVimEngine {
             } else {
                 handleNormalModeUsingKeyboardStrategy(for: keyCombination)
             }
-            // TODO
-//        case .p:
-//            if let element = asNormalMode.p(on: focusedTextElement()) {
-//                push(element: element)
-//            } else {
-//                handleNormalModeUsingKeyboardStrategy(for: keyCombination)
-//            }
-//        case .P:
-//            if let element = asNormalMode.P(on: focusedTextElement()) {
-//                push(element: element)
-//            } else {
-//                handleNormalModeUsingKeyboardStrategy(for: keyCombination)
-//            }
+
+        case .p:
+            switch lastYankStyle {
+            case .characterwise:
+                if let element = asNormalMode.pForLastYankStyleCharacterwise(on: focusedTextElement()) {
+                    push(element: element) 
+                } else {
+                    handleNormalModeUsingKeyboardStrategy(for: keyCombination)
+                }
+            case .linewise:
+                if let element = asNormalMode.pForLastYankStyleLinewise(on: focusedTextElement()) {
+                    push(element: element) 
+                } else {
+                    handleNormalModeUsingKeyboardStrategy(for: keyCombination)
+                }
+            }   
+        case .P:
+            switch lastYankStyle {
+            case .characterwise:
+                if let element = asNormalMode.PForLastYankStyleCharacterwise(on: focusedTextElement()) {
+                   push(element: element) 
+                } else {
+                    handleNormalModeUsingKeyboardStrategy(for: keyCombination)
+                }
+            case .linewise:
+                if let element = asNormalMode.PForLastYankStyleLinewise(on: focusedTextElement()) {
+                    push(element: element) 
+                } else {
+                    handleNormalModeUsingKeyboardStrategy(for: keyCombination)
+                }
+            }
         case .r:
             enterOperatorPendingForNormalMode(with: keyCombination)
         case .controlR:
