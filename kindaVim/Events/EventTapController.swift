@@ -7,10 +7,15 @@ import KeyCombination
 
 struct EventTapController {
     
-    var eventTapCallback: CGEventTapCallBack = { proxy, _, event, _ in
+    private static var eventTap: CFMachPort!
+    private var eventTapCallback: CGEventTapCallBack = { proxy, type, event, _ in
+        if type == .tapDisabledByTimeout {
+            CGEvent.tapEnable(tap: eventTap, enable: true)
+        }
+        
         KeyboardStrategy.proxy = proxy
         
-        guard event.type == .keyDown else {
+        guard type == .keyDown else {
             if KindaVimEngine.shared.currentMode != .insert {
                 KindaVimEngine.shared.enterInsertMode()
                 
@@ -39,10 +44,10 @@ struct EventTapController {
     }
     
     init() {
-        setUpEventTap()
+        Self.eventTap = setUpEventTap()
     }
     
-    private func setUpEventTap() {
+    private func setUpEventTap() -> CFMachPort {
         let eventMask = (1 << CGEventType.keyDown.rawValue) | (1 << CGEventType.leftMouseDown.rawValue) | (1 << CGEventType.rightMouseDown.rawValue)
         
         guard let eventTap = CGEvent.tapCreate(
@@ -58,6 +63,8 @@ struct EventTapController {
 
         let runLoopSource = CFMachPortCreateRunLoopSource(kCFAllocatorDefault, eventTap, 0)
         CFRunLoopAddSource(CFRunLoopGetCurrent(), runLoopSource, .commonModes)
+        
+        return eventTap
     }
 
 }
