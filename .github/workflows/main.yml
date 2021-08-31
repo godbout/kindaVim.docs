@@ -6,8 +6,8 @@ on:
 
 jobs:
   swift:
-    name: on Catalina
-    runs-on: macos-10.15
+    name: on Big Sur
+    runs-on: macos-11
 
     steps:
     - uses: actions/checkout@v2
@@ -34,6 +34,9 @@ jobs:
         # import certificate to keychain
         security import $CERTIFICATE_PATH -P $P12_PASSWORD -A -t cert -f pkcs12 -k $KEYCHAIN_PATH
         security list-keychain -d user -s $KEYCHAIN_PATH
+    - uses: webfactory/ssh-agent@v0.5.3
+      with:
+        ssh-private-key: ${{ secrets.GHA_PRIVATE_SSHKEY }}
     - name: build
       run: xcodebuild clean -scheme "All Tests CI" build
     - name: run all tests (unit and UI)
