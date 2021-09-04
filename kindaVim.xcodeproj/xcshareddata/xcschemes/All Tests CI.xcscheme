@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1240"
+   LastUpgradeVersion = "1250"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -44,31 +44,9 @@
             testExecutionOrdering = "random">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "91A147AF2661221100D160AD"
-               BuildableName = "AccessibilityTextElementAdaptorUITests.xctest"
-               BlueprintName = "AccessibilityTextElementAdaptorUITests"
-               ReferencedContainer = "container:kindaVim.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO"
-            testExecutionOrdering = "random">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "91A147C32661222900D160AD"
-               BuildableName = "AccessibilityStrategyVisualModeUITests.xctest"
-               BlueprintName = "AccessibilityStrategyVisualModeUITests"
-               ReferencedContainer = "container:kindaVim.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO"
-            testExecutionOrdering = "random">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "914734E626A1FE0100B20466"
-               BuildableName = "AccessibilityStrategyNormalModeUITests.xctest"
-               BlueprintName = "AccessibilityStrategyNormalModeUITests"
+               BlueprintIdentifier = "91536B9226E4167F008FB8F2"
+               BuildableName = "UITests.xctest"
+               BlueprintName = "UITests"
                ReferencedContainer = "container:kindaVim.xcodeproj">
             </BuildableReference>
          </TestableReference>
