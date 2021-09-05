@@ -18,6 +18,10 @@ struct EventTapController {
         guard type == .keyDown else {
             if KindaVimEngine.shared.currentMode != .insert {
                 KindaVimEngine.shared.enterInsertMode()
+               
+                if Defaults[.toggleHazeOverWindow] == true {
+                    KindaVimEngine.shared.display.hazeOver(.off)
+                }
                 
                 if Defaults[.showCharactersTyped] == true {
                     KindaVimEngine.shared.display.fadeOutCharactersWindow()
@@ -38,6 +42,12 @@ struct EventTapController {
             if KindaVimEngine.shared.currentMode == .insert {
                 KindaVimEngine.shared.display.fadeOutCharactersWindow()
             }
+        }
+        
+        if Defaults[.toggleHazeOverWindow] == true {
+            KindaVimEngine.shared.currentMode == .insert
+                ? KindaVimEngine.shared.display.hazeOver(.off)
+                : KindaVimEngine.shared.display.hazeOver(.on)
         }
 
         return nil

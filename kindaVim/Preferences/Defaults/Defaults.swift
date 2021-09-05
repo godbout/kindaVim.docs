@@ -3,6 +3,7 @@ import Defaults
 
 extension Defaults.Keys {
     
+    static let toggleHazeOverWindow = Key<Bool>("toggleHazeOverWindow", default: true)
     static let showCharactersTyped = Key<Bool>("showCharactersTyped", default: false)
     static let useCustomShortcutToEnterNormalMode = Key<Bool>("useCustomShortcutToEnterNormalMode", default: false)
     static let appsToIgnore = Key<Array<String>>("appsToIgnore", default: [
