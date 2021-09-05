@@ -31,13 +31,6 @@
 			<key>orderHint</key>
 			<integer>3</integer>
 		</dict>
-		<key>kindaVim.xcscheme_^#shared#^_</key>
-		<dict>
-			<key>isShown</key>
-			<true/>
-			<key>orderHint</key>
-			<integer>1</integer>
-		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
