@@ -956,14 +956,7 @@ extension KindaVimEngine {
             
             if operatorPendingBuffer.first?.vimKey == .r, let replacement = operatorPendingBuffer.last {                
                 if let element = asNormalMode.r(with: replacement.character, on: focusedTextElement()) {
-                    if element.selectedText != nil {
-                        push(element: element)
-                        
-                        if var element = asNormalMode.h(on: focusedTextElement()) {                        
-                            element.selectedLength = element.characterLength
-                            push(element: element)
-                        }                        
-                    }
+                    push(element: element)
                 } else {
                     parseOperatorCommandForNormalModeUsingKeyboardStrategy()
                 }
