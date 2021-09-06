@@ -81,7 +81,6 @@ class KindaVimEngine {
         
         currentMode = .normal
         resetOperatorPendingBuffer()
-        resetVisualMode()
     }
     
     func enterVisualMode() {
@@ -100,10 +99,6 @@ class KindaVimEngine {
     
     private func resetOperatorPendingBuffer() {
         operatorPendingBuffer = []
-    }
-    
-    private func resetVisualMode() {
-        AccessibilityStrategyVisualMode.reset()
     }
 
     private func post(_ keyCombinations: [KeyCombination]) {
