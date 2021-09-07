@@ -25,7 +25,7 @@ struct HazeOverWindow: WindowProtocol {
         )
         
         window.backgroundColor = .black
-        window.animationBehavior = .utilityWindow
+        window.animationBehavior = .none
         window.collectionBehavior = [.canJoinAllSpaces, .transient]
     }
     
@@ -54,7 +54,11 @@ struct HazeOverWindow: WindowProtocol {
     }
   
     func off() {
-        window.orderOut(self)
+        NSAnimationContext.runAnimationGroup({ _ in
+            window.animator().alphaValue = 0
+        }, completionHandler: {
+            window.orderOut(self)
+        })
     }
     
 }
