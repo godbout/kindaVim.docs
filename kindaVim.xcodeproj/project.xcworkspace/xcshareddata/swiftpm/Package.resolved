@@ -6,8 +6,8 @@
         "repositoryURL": "git@github.com:godbout/AccessibilityStrategy.git",
         "state": {
           "branch": null,
-          "revision": "c2971f35002dc873229e89606892164d33fb280c",
-          "version": "0.0.10"
+          "revision": "31581585573fc954d34d6aa8d80ce6206e826015",
+          "version": "0.0.13"
         }
       },
       {
@@ -42,8 +42,8 @@
         "repositoryURL": "git@github.com:godbout/KeyboardStrategy.git",
         "state": {
           "branch": null,
-          "revision": "c4465569bdd295126537819771c0bfd468388b33",
-          "version": "0.0.1"
+          "revision": "b7c463f6060646b84b39b36075ef0f64548bb9eb",
+          "version": "0.0.2"
         }
       },
       {
