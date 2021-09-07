@@ -340,12 +340,6 @@ extension KindaVimEngine {
         case .x:
             if let element = asNormalMode.x(on: focusedTextElement()) {
                 push(element: element)
-                
-                if var element = focusedTextElement() {
-                    element.selectedLength = element.characterLength
-                    element.selectedText = nil
-                    push(element: element)
-                }
             } else {
                 handleNormalModeUsingKeyboardStrategy(for: keyCombination)
             }                
