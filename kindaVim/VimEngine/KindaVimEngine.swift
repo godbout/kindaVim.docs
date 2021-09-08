@@ -682,12 +682,6 @@ extension KindaVimEngine {
             if let element = asNormalMode.dd(on: focusedTextElement()) {
                 enterNormalMode()
                 push(element: element)
-                
-                if var element = focusedTextElement() {
-                    element.selectedLength = element.characterLength
-                    element.selectedText = nil
-                    push(element: element)
-                }
             } else {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
