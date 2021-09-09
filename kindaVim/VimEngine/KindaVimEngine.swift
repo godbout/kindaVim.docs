@@ -909,12 +909,6 @@ extension KindaVimEngine {
                 
                 if let element = element {
                     push(element: element)
-                    
-                    if var element = focusedTextElement() {
-                        element.selectedLength = element.characterLength
-                        element.selectedText = nil
-                        push(element: element)
-                    }
                 }
             }
                             
