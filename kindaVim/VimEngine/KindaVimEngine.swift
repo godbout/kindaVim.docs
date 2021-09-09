@@ -1093,6 +1093,8 @@ extension KindaVimEngine {
     private func tryHandlingVisualModeUsingAccessibilityStrategyFirst(for keyCombination: KeyCombination) {
         switch keyCombination.vimKey {
         case .b:
+            // TODO: write this with a switch, the same than other moves
+            // that will make it very clear that we don't have a linewise move for this one
             if visualStyle == .characterwise, let element = asVisualMode.bForVisualStyleCharacterwise(on: focusedTextElement()) {
                 push(element: element)
             }
@@ -1122,12 +1124,6 @@ extension KindaVimEngine {
             case .linewise:
                 if let element = asVisualMode.dForVisualStyleLinewise(on: focusedTextElement()) {                
                     push(element: element)
-                    
-                    if var element = focusedTextElement() {
-                        element.selectedLength = element.characterLength
-                        element.selectedText = nil
-                        push(element: element)
-                    }
                     
                     enterNormalMode()
                 } else {
