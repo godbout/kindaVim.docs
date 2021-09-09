@@ -362,6 +362,9 @@ extension KindaVimEngine {
         case .escape:
             handleNormalModeUsingKeyboardStrategy(for: keyCombination)
             
+            // special case. we currently are overriding how
+            // escape behaves so that we can comment or indent
+            // whole bunch of lines at the same time.
             if var element = focusedTextElement() {
                 element.selectedLength = 0
                 element.selectedText = nil
@@ -1203,8 +1206,7 @@ extension KindaVimEngine {
         case .v:
             switch visualStyle {
             case .characterwise:
-                if var element = asVisualMode.vForVisualStyleCharacterwise(on: focusedTextElement()) {
-                    element.selectedLength = element.characterLength
+                if let element = asVisualMode.vForVisualStyleCharacterwise(on: focusedTextElement()) {
                     push(element: element)
                     
                     enterNormalMode()
@@ -1212,8 +1214,7 @@ extension KindaVimEngine {
                     handleVisualModeUsingKeyboardStrategy(for: keyCombination)
                 }
             case .linewise:
-                if var element = asVisualMode.vForVisualStyleLinewise(on: focusedTextElement()) {
-                    element.selectedLength = element.characterLength
+                if let element = asVisualMode.vForVisualStyleLinewise(on: focusedTextElement()) {
                     push(element: element)
                     
                     visualStyle = .characterwise
@@ -1232,8 +1233,7 @@ extension KindaVimEngine {
                     handleVisualModeUsingKeyboardStrategy(for: keyCombination)
                 }
             case .linewise:
-                if var element = asVisualMode.VForVisualStyleLinewise(on: focusedTextElement()) {
-                    element.selectedLength = element.characterLength
+                if let element = asVisualMode.VForVisualStyleLinewise(on: focusedTextElement()) {
                     push(element: element)
                     
                     enterNormalMode()
