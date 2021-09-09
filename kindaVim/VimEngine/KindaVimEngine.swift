@@ -1116,7 +1116,6 @@ extension KindaVimEngine {
             case .characterwise:
                 if let element = asVisualMode.dForVisualStyleCharacterwise(on: focusedTextElement()) {                
                     push(element: element)
-
                     enterNormalMode()
                 } else {
                     handleVisualModeUsingKeyboardStrategy(for: keyCombination)
@@ -1124,7 +1123,6 @@ extension KindaVimEngine {
             case .linewise:
                 if let element = asVisualMode.dForVisualStyleLinewise(on: focusedTextElement()) {                
                     push(element: element)
-                    
                     enterNormalMode()
                 } else {
                     handleVisualModeUsingKeyboardStrategy(for: keyCombination)
