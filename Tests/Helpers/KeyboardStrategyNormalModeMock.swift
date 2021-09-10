@@ -75,12 +75,18 @@ class KeyboardStrategyNormalModeMock: KeyboardStrategyNormalModeProtocol {
         return []
     }
     
-    func dd(on type: ElementType?) -> [KeyCombination] {
+    func ddForNonTextElement() -> [KeyCombination] {
         functionCalled = #function
         
         return []
     }
-    
+        
+    func ddForTextElement() -> [KeyCombination] {
+        functionCalled = #function
+        
+        return []
+    }
+
     func dgg() -> [KeyCombination] {
         functionCalled = #function
         
@@ -93,25 +99,49 @@ class KeyboardStrategyNormalModeMock: KeyboardStrategyNormalModeProtocol {
         return []
     }
     
-    func dj(on type: ElementType?) -> [KeyCombination] {
+    func djForNonTextElement() -> [KeyCombination] {
         functionCalled = #function
         
         return []
     }
     
-    func dk(on type: ElementType?) -> [KeyCombination] {
+    func djForTextElement() -> [KeyCombination] {
         functionCalled = #function
         
         return []
     }
     
-    func G(on type: ElementType?) -> [KeyCombination] {
+    func dkForNonTextElement() -> [KeyCombination] {
         functionCalled = #function
         
         return []
     }
     
-    func gg(on type: ElementType?) -> [KeyCombination] {
+    func dkForTextElement() -> [KeyCombination] {
+        functionCalled = #function
+        
+        return []
+    }
+    
+    func GForNonTextElement() -> [KeyCombination] {
+        functionCalled = #function
+        
+        return []
+    }
+    
+    func GForTextElement() -> [KeyCombination] {
+        functionCalled = #function
+        
+        return []
+    }
+    
+    func ggForNonTextElement() -> [KeyCombination] {
+        functionCalled = #function
+        
+        return []
+    }
+    
+    func ggForTextElement() -> [KeyCombination] {
         functionCalled = #function
         
         return []

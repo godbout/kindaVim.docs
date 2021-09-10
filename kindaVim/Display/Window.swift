@@ -12,7 +12,7 @@ protocol WindowProtocol {
 
 
 extension WindowProtocol {
-
+    
     func screenWhereMainWindowIs(using mainWindowInfo: MainWindowInfo) -> NSScreen? {
         guard NSScreen.screens.count > 1 else { return NSScreen.main }
         
@@ -26,7 +26,7 @@ extension WindowProtocol {
     }
     
     func mainWindowIsInFullScreenMode() -> Bool {
-        return AXEngine.axFullScreenStatusOfFocusedWindow()
+        return AXEngine().axFullScreenStatusOfFocusedWindow()
     }
     
     // yes, this is complete madness LMAO

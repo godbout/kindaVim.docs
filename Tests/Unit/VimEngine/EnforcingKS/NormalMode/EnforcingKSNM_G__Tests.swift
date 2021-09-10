@@ -5,13 +5,8 @@ import XCTest
 
 class EnforcingKS_G__Tests: EnforcingKSNM_BaseTests {
 
-    override func setUp() {
-        super.setUp()
-
-        KindaVimEngine.shared.handle(
-            keyCombination: KeyCombination(vimKey: .G),
-            enforceKeyboardStrategy: true
-        )
+    private func applyMoveBeingTested() {
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .G), enforceKeyboardStrategy: true)
     }
 
 }
@@ -19,14 +14,25 @@ class EnforcingKS_G__Tests: EnforcingKSNM_BaseTests {
 
 extension EnforcingKS_G__Tests {
     
-    func test_that_G_calls_the_G_function_on_keyboard_strategy() {
-        XCTAssertEqual(ksNormalModeMock.functionCalled, "G(on:)")
+    func test_that_the_move_calls_the_correct_function_for_TextElements_on_KS() {
+        KindaVimEngine.shared.axEngine = AXEngineTextElementMock()
+        applyMoveBeingTested()
+       
+        XCTAssertEqual(ksNormalModeMock.functionCalled, "GForTextElement()")
     }
     
-    func test_that_G_keeps_Vim_in_normal_mode() {
+    func test_that_the_move_calls_the_correct_function_for_NonTextElements_on_KS() {
+        KindaVimEngine.shared.axEngine = AXEngineNonTextElementMock()
+        applyMoveBeingTested()
+       
+        XCTAssertEqual(ksNormalModeMock.functionCalled, "GForNonTextElement()")
+    }
+    
+    func test_that_G__keeps_Vim_in_normal_mode() {
+        applyMoveBeingTested()
+                
         XCTAssertEqual(KindaVimEngine.shared.currentMode, .normal)
     }
     
 }
-
 
