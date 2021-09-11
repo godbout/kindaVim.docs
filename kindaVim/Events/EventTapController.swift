@@ -9,23 +9,15 @@ struct EventTapController {
     
     private static var eventTap: CFMachPort!
     private var eventTapCallback: CGEventTapCallBack = { proxy, type, event, _ in
+        KeyboardStrategy.proxy = proxy
+        
         if type == .tapDisabledByTimeout {
             CGEvent.tapEnable(tap: eventTap, enable: true)
         }
         
-        KeyboardStrategy.proxy = proxy
-        
         guard type == .keyDown else {
             if KindaVimEngine.shared.currentMode != .insert {
                 KindaVimEngine.shared.enterInsertMode()
-               
-                if Defaults[.toggleHazeOverWindow] == true {
-                    KindaVimEngine.shared.display.hazeOver(.off)
-                }
-                
-                if Defaults[.showCharactersTyped] == true {
-                    KindaVimEngine.shared.display.fadeOutCharactersWindow()
-                }
             }
             
             return Unmanaged.passUnretained(event)
@@ -34,20 +26,6 @@ struct EventTapController {
         let keyCombinationPressed = KeyCombinationAdaptor.fromCGEvent(from: event)
         guard GlobalEventsController.handle(keyCombination: keyCombinationPressed) == true else {
             return Unmanaged.passUnretained(event)
-        }
-        
-        if Defaults[.showCharactersTyped] == true {
-            KindaVimEngine.shared.display.showKeysTyped(lastBeing: keyCombinationPressed)
-
-            if KindaVimEngine.shared.currentMode == .insert {
-                KindaVimEngine.shared.display.fadeOutCharactersWindow()
-            }
-        }
-        
-        if Defaults[.toggleHazeOverWindow] == true {
-            KindaVimEngine.shared.currentMode == .insert
-                ? KindaVimEngine.shared.display.hazeOver(.off)
-                : KindaVimEngine.shared.display.hazeOver(.on)
         }
 
         return nil
