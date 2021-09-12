@@ -16,8 +16,8 @@ class FailingASVM_l_Tests: FailingASVM_BaseTests {
 
 extension FailingASVM_l_Tests {
     
-    func test_that_it_does_not_calls_any_KS_function_because_this_move_is_not_implemented() {
-        XCTAssertEqual(ksNormalModeMock.functionCalled, "")
+    func test_that_it_calls_the_relevant_KS_function_as_a_fallback() {
+        XCTAssertEqual(ksVisualModeMock.functionCalled, "l()")
     }
     
     func test_that_it_keeps_Vim_in_visual_mode() {
