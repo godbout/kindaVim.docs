@@ -239,6 +239,10 @@
 		919764E926D398DC00A4A80E /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919764E826D398DC00A4A80E /* Defaults.swift */; };
 		919CC3A12696C5B3007DD557 /* SucceedingASVM_y_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919CC3A02696C5B3007DD557 /* SucceedingASVM_y_Tests.swift */; };
 		919D3258267F8D2C007817F2 /* SucceedingASNM_yF__Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919D3257267F8D2C007817F2 /* SucceedingASNM_yF__Tests.swift */; };
+		919E4B8126EE63CF00557E71 /* EnforcingKSVM_h_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919E4B8026EE63CF00557E71 /* EnforcingKSVM_h_Tests.swift */; };
+		919E4B8326EE641600557E71 /* EnforcingKSVM_l_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919E4B8226EE641600557E71 /* EnforcingKSVM_l_Tests.swift */; };
+		919E4B8726EE64B300557E71 /* Defaults in Frameworks */ = {isa = PBXBuildFile; productRef = 919E4B8626EE64B300557E71 /* Defaults */; };
+		919E4B8826EE64D500557E71 /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919764E826D398DC00A4A80E /* Defaults.swift */; };
 		919E5A2B26922C3F003E724A /* SucceedingASVM_b_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919E5A2A26922C3F003E724A /* SucceedingASVM_b_Tests.swift */; };
 		91A2890E26D6BC00004F27F1 /* FailingAS_BaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A2890226D6BBEB004F27F1 /* FailingAS_BaseTests.swift */; };
 		91A68BC926B5A60C00F4093E /* SucceedingASNM_ci{_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A68BBD26B5A5CF00F4093E /* SucceedingASNM_ci{_Tests.swift */; };
@@ -573,6 +577,8 @@
 		919764E826D398DC00A4A80E /* Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
 		919CC3A02696C5B3007DD557 /* SucceedingASVM_y_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SucceedingASVM_y_Tests.swift; sourceTree = "<group>"; };
 		919D3257267F8D2C007817F2 /* SucceedingASNM_yF__Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SucceedingASNM_yF__Tests.swift; sourceTree = "<group>"; };
+		919E4B8026EE63CF00557E71 /* EnforcingKSVM_h_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnforcingKSVM_h_Tests.swift; sourceTree = "<group>"; };
+		919E4B8226EE641600557E71 /* EnforcingKSVM_l_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnforcingKSVM_l_Tests.swift; sourceTree = "<group>"; };
 		919E5A2A26922C3F003E724A /* SucceedingASVM_b_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SucceedingASVM_b_Tests.swift; sourceTree = "<group>"; };
 		91A2890226D6BBEB004F27F1 /* FailingAS_BaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FailingAS_BaseTests.swift; sourceTree = "<group>"; };
 		91A68BBD26B5A5CF00F4093E /* SucceedingASNM_ci{_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SucceedingASNM_ci{_Tests.swift"; sourceTree = "<group>"; };
@@ -690,6 +696,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				919E4B8726EE64B300557E71 /* Defaults in Frameworks */,
 				91536BB326E419D2008FB8F2 /* KeyboardStrategy in Frameworks */,
 				91536BA926E418CD008FB8F2 /* KeyCombination in Frameworks */,
 				91536BA726E418BA008FB8F2 /* AccessibilityStrategy in Frameworks */,
@@ -908,12 +915,14 @@
 			children = (
 				916034DF26BBFA8800977AB3 /* EnforcingKSVM_BaseTests.swift */,
 				91BB50D826C127B800F001BF /* EnforcingKSVM_d_Tests.swift */,
-				914371C026C2F4FF00485538 /* EnforcingKSVM_gg_Tests.swift */,
 				91270FC626C1890E00605795 /* EnforcingKSVM_G__Tests.swift */,
+				914371C026C2F4FF00485538 /* EnforcingKSVM_gg_Tests.swift */,
+				919E4B8026EE63CF00557E71 /* EnforcingKSVM_h_Tests.swift */,
+				919E4B8226EE641600557E71 /* EnforcingKSVM_l_Tests.swift */,
 				916034DD26BBFA6100977AB3 /* EnforcingKSVM_j_Tests.swift */,
 				916034F926BC061300977AB3 /* EnforcingKSVM_k_Tests.swift */,
-				91E6E24426DA4AC200689FE9 /* EnforcingKSVM_v_Tests.swift */,
 				91E6E24B26DA4AE400689FE9 /* EnforcingKSVM_V__Tests.swift */,
+				91E6E24426DA4AC200689FE9 /* EnforcingKSVM_v_Tests.swift */,
 				918DD7FF26C1818700EE42E5 /* EnforcingKSVM_y_Tests.swift */,
 			);
 			path = VisualMode;
@@ -1318,6 +1327,8 @@
 				9128F2C3262AA90D00625B42 /* PBXTargetDependency */,
 			);
 			name = UnitTests;
+			packageProductDependencies = (
+			);
 			productName = kindaVimTests;
 			productReference = 9128F2C1262AA90D00625B42 /* UnitTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -1340,6 +1351,7 @@
 				91536BA626E418BA008FB8F2 /* AccessibilityStrategy */,
 				91536BA826E418CD008FB8F2 /* KeyCombination */,
 				91536BB226E419D2008FB8F2 /* KeyboardStrategy */,
+				919E4B8626EE64B300557E71 /* Defaults */,
 			);
 			productName = kindaVimUITests;
 			productReference = 91536B9326E4167F008FB8F2 /* UITests.xctest */;
@@ -1611,7 +1623,9 @@
 				912DD6962675041900E22EE4 /* SucceedingASNM_yi"_Tests.swift in Sources */,
 				91308E3926666F0900D13A13 /* SucceedingASNM_t_Tests.swift in Sources */,
 				914FE4C126D94E4B0030DD2C /* FailingASNM_[(_Tests.swift in Sources */,
+				919E4B8126EE63CF00557E71 /* EnforcingKSVM_h_Tests.swift in Sources */,
 				91E304D92643F1EF004D9933 /* EnforcingKSNM_h_Tests.swift in Sources */,
+				919E4B8326EE641600557E71 /* EnforcingKSVM_l_Tests.swift in Sources */,
 				914E558726D9204800CE1970 /* FailingASNM_b_Tests.swift in Sources */,
 				9146220C26C15CB9007F36D9 /* SucceedingASNM_yi]_Tests.swift in Sources */,
 				913E7C042666803400370A7F /* SucceedingASNM_F__Tests.swift in Sources */,
@@ -1770,6 +1784,7 @@
 				91536BA426E41896008FB8F2 /* ASUI_NM_BaseTests.swift in Sources */,
 				917AB4F726E4C9F100CEBB8A /* ASUI_NM_ci"_Tests.swift in Sources */,
 				91536BB026E419A7008FB8F2 /* Window.swift in Sources */,
+				919E4B8826EE64D500557E71 /* Defaults.swift in Sources */,
 				917AB4F126E4C8C600CEBB8A /* ASUI_NM_cf_Tests.swift in Sources */,
 				917AB4F926E4CA4A00CEBB8A /* ASUI_NM_ci(_Tests.swift in Sources */,
 			);
@@ -2470,6 +2485,11 @@
 			productName = KeyboardStrategy;
 		};
 		919764E526D3944800A4A80E /* Defaults */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 919764E426D3944800A4A80E /* XCRemoteSwiftPackageReference "Defaults" */;
+			productName = Defaults;
+		};
+		919E4B8626EE64B300557E71 /* Defaults */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 919764E426D3944800A4A80E /* XCRemoteSwiftPackageReference "Defaults" */;
 			productName = Defaults;
