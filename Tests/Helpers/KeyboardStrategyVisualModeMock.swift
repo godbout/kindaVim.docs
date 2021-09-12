@@ -50,6 +50,12 @@ class KeyboardStrategyVisualModeMock: KeyboardStrategyVisualModeProtocol {
         
         return []
     }
+    
+    func w() -> [KeyCombination] {
+        functionCalled = #function
+        
+        return []
+    }
    
     func y() -> [KeyCombination] {
         functionCalled = #function
