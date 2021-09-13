@@ -5,22 +5,45 @@ import XCTest
 
 class FailingASVM_j_Tests: FailingASVM_BaseTests {
     
-    override func setUp() {
-        super.setUp()
-        
+    private func applyKeyCombinationBeingTested() {
         KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .j))
     }
     
 }
 
 
+// VisualStyle Characterwise
 extension FailingASVM_j_Tests {
     
-    func test_that_it_calls_the_relevant_KS_function_as_a_fallback() {
+    func test_that_it_calls_the_relevant_KS_function_as_a_fallback_when_in_VisualStyle_Characterwise() {
+        KindaVimEngine.shared.visualStyle = .characterwise
+        applyKeyCombinationBeingTested()
+        
         XCTAssertEqual(ksVisualModeMock.functionCalled, "j()")
     }
+
+}
+
+
+// VisualStyle Linewise
+extension FailingASVM_j_Tests {
     
+    func test_that_it_calls_the_relevant_KS_function_as_a_fallback_when_in_VisualStyle_Linewise() {
+        KindaVimEngine.shared.visualStyle = .linewise
+        applyKeyCombinationBeingTested()
+        
+        XCTAssertEqual(ksVisualModeMock.functionCalled, "j()")
+    }
+
+}
+
+
+// Both
+extension FailingASVM_j_Tests {
+
     func test_that_it_keeps_Vim_in_visual_mode() {
+        applyKeyCombinationBeingTested()
+        
         XCTAssertEqual(KindaVimEngine.shared.currentMode, .visual)
     }
     
