@@ -3,28 +3,49 @@ import KeyCombination
 import XCTest
 
 
-class EnforcingKSVM_v_Tests: EnforcingKSVM_BaseTests {}
-
-
-extension EnforcingKSVM_v_Tests {
+class EnforcingKSVM_v_Tests: EnforcingKSVM_BaseTests {
     
-    func test_that_it_does_not_calls_any_KS_function_because_there_is_none_needed_for_that_move() {
-        XCTAssertEqual(ksNormalModeMock.functionCalled, "")
+    private func applyKeyCombinationBeingTested() {
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .v), enforceKeyboardStrategy: true)
     }
     
-    func test_that_if_Vim_was_in_visual_mode_characterwise_it_switches_into_normal_mode() {
+}
+
+
+// VisualStyle Characterwise
+extension EnforcingKSVM_v_Tests {
+    
+    func test_that_if_Vim_was_in_VisualStyle_Characterwise_it_switches_into_NormalMode() {
         KindaVimEngine.shared.visualStyle = .characterwise
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .v), enforceKeyboardStrategy: true)
+        applyKeyCombinationBeingTested()
         
         XCTAssertEqual(KindaVimEngine.shared.currentMode, .normal)
     }
+        
+}
+
+
+// VisualStyle Linewise
+extension EnforcingKSVM_v_Tests {
     
-    func test_that_if_Vim_was_in_visual_mode_linewise_it_switches_into_visual_mode_characterwise() {
+    func test_that_if_Vim_was_in_VisualStyle_Linewise_it_switches_into_VisualStyle_Characterwise() {
         KindaVimEngine.shared.visualStyle = .linewise
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .v), enforceKeyboardStrategy: true)
+        applyKeyCombinationBeingTested()
         
         XCTAssertEqual(KindaVimEngine.shared.currentMode, .visual)
         XCTAssertEqual(KindaVimEngine.shared.visualStyle, .characterwise)
     }
+
+}
+
+
+// Both
+extension EnforcingKSVM_v_Tests {
     
+    func test_that_it_does_not_calls_any_KS_function_because_there_is_no_need_to_call_a_KS_function_for_that_move() {
+        applyKeyCombinationBeingTested()
+        
+        XCTAssertEqual(ksNormalModeMock.functionCalled, "")
+    }
+   
 }

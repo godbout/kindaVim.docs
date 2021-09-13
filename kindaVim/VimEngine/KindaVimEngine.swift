@@ -1341,13 +1341,23 @@ extension KindaVimEngine {
         case .G:
             post(ksVisualMode.G())
         case .h:
-            post(ksVisualMode.h())
+            switch visualStyle {
+            case .characterwise:
+                post(ksVisualMode.h())
+            case .linewise:
+                ()
+            }
         case .j:
             post(ksVisualMode.j())
         case .k:
             post(ksVisualMode.k())
         case .l:
-            post(ksVisualMode.l())
+            switch visualStyle {
+            case .characterwise:
+                post(ksVisualMode.l())
+            case .linewise:
+                ()
+            }
         case .v:
             if visualStyle == .characterwise {
                 enterNormalMode()
@@ -1361,7 +1371,12 @@ extension KindaVimEngine {
                 visualStyle = .linewise
             }
         case .w:
-            post(ksVisualMode.w())
+            switch visualStyle {
+            case .characterwise:
+                post(ksVisualMode.w())
+            case .linewise:
+                ()
+            }
         case .y:
             post(ksVisualMode.y())
             
