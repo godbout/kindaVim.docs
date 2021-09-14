@@ -49,7 +49,7 @@ jobs:
         directory=${PWD##*/}
         pathCoverage=$GITHUB_WORKSPACE/Build/ProfileData/${directory}/Coverage.profdata
         cd ../../../../
-        xcrun llvm-cov export -format="lcov" -instr-profile $pathCoverage $GITHUB_WORKSPACE/Build/Products/Debug/AccessibilityStrategyTestApp.app/Contents/MacOS/AccessibilityStrategyTestApp > info.lcov
+        xcrun llvm-cov export -format="lcov" -instr-profile $pathCoverage $GITHUB_WORKSPACE/Build/Products/Debug/kindaVim.app/Contents/MacOS/kindaVim > info.lcov
         curl -Os https://uploader.codecov.io/latest/macos/codecov
         chmod +x codecov
         ./codecov -t $CODECOV_TOKEN
