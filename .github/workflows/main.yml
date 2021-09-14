@@ -41,7 +41,7 @@ jobs:
         ssh-private-key: ${{ secrets.GHA_PRIVATE_SSHKEY }}
     - name: build
       run: xcodebuild clean -scheme "All Tests CI" build
-    - name: run all tests (unit and UI)
+    - name: run all tests (Unit and UI)
       run: xcodebuild clean -scheme "All Tests CI" -configuration "CI Testing" test
     - name: upload coverage to codecov
       run: bash <(curl -s https://codecov.io/bash)
