@@ -1148,6 +1148,8 @@ extension KindaVimEngine {
             case .characterwise:
                 if let element = asVisualMode.bForVisualStyleCharacterwise(on: focusedTextElement) {
                     push(element: element)
+                } else {
+                    handleVisualModeUsingKeyboardStrategy(for: keyCombination)
                 }
             case .linewise:
                 ()
@@ -1371,12 +1373,24 @@ extension KindaVimEngine {
     
     private func handleVisualModeUsingKeyboardStrategy(for keyCombination: KeyCombination) {
         switch keyCombination.vimKey {
+        case .b:
+            switch visualStyle {
+            case .characterwise:
+                post(ksVisualMode.b())
+            case .linewise:
+                ()
+            }
         case .d:
             post(ksVisualMode.d())
             
             enterNormalMode()
         case .e:
-            post(ksVisualMode.e())
+            switch visualStyle {
+            case .characterwise:
+                post(ksVisualMode.e())
+            case .linewise:
+                ()
+            }
         case .g:
             enterOperatorPendingForVisualMode(with: keyCombination)
         case .G:

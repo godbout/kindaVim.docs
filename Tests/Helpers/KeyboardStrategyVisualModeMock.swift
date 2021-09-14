@@ -8,7 +8,12 @@ class KeyboardStrategyVisualModeMock: KeyboardStrategyVisualModeProtocol {
     
     var functionCalled = ""
     
-
+    func b() -> [KeyCombination] {
+        functionCalled = #function
+        
+        return []
+    }
+    
     func d() -> [KeyCombination] {
         functionCalled = #function
         
