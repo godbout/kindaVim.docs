@@ -35,7 +35,6 @@ class AppComponent {
             backing: .buffered,
             defer: false
         )
-        accessibilityElementAdaptorTestingWindow.center()
         accessibilityElementAdaptorTestingWindow.contentView = NSHostingView(rootView: contentView)
         accessibilityElementAdaptorTestingWindow.makeKeyAndOrderFront(nil)
     }
