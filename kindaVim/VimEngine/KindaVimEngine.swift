@@ -456,8 +456,6 @@ extension KindaVimEngine {
             post(ksNormalMode.A())
         case .b:
             post(ksNormalMode.b())
-        case .B:
-            post(ksNormalMode.b())
         case .c:
             enterOperatorPendingForNormalMode(with: keyCombination)
         case .C:
