@@ -1,6 +1,7 @@
 name: tests and coverage
 
 on:
+  push: [master]
   schedule:
     - cron:  '28 5 */7 * *'
 
