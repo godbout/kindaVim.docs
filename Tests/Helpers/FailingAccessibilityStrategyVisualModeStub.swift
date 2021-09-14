@@ -29,6 +29,10 @@ struct FailingAccessibilityStrategyVisualModeStub: AccessibilityStrategyVisualMo
         return nil 
     }
     
+    func EForVisualStyleCharacterwise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        return nil
+    }
+    
     func ggForVisualStyleCharacterwise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return nil 
     }
@@ -98,6 +102,10 @@ struct FailingAccessibilityStrategyVisualModeStub: AccessibilityStrategyVisualMo
     }
     
     func wForVisualStyleCharacterwise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        return nil
+    }
+    
+    func WForVisualStyleCharacterwise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return nil
     }
     

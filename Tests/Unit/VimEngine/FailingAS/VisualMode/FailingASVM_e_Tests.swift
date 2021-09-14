@@ -28,7 +28,7 @@ extension FailingASVM_e_Tests {
 // VisualStyle Linewise
 extension FailingASVM_e_Tests {
     
-    func test_that_it_does_not_calls_any_KS_function_because_this_move_does_not_exist_for_VisualStyle_Linewise() {
+    func test_that_it_does_not_call_any_KS_function_because_this_move_does_not_exist_for_VisualStyle_Linewise() {
         KindaVimEngine.shared.visualStyle = .linewise
         applyKeyCombinationBeingTested()
         

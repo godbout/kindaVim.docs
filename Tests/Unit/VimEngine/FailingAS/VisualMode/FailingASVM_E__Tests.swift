@@ -3,30 +3,30 @@ import KeyCombination
 import XCTest
 
 
-class FailingASVM_w_Tests: FailingASVM_BaseTests {
+class FailingASVM_E__Tests: FailingASVM_BaseTests {
     
     private func applyKeyCombinationBeingTested() {
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .w))
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .E))
     }
     
 }
 
 
 // VisualStyle Characterwise
-extension FailingASVM_w_Tests {
+extension FailingASVM_E__Tests {
     
-    func test_that_it_calls_the_relevant_KS_function_as_a_fallback_when_in_VisualStyle_Characterwise() {
+    func test_that_it_does_not_call_any_KS_function_because_this_move_is_not_doable_with_KS() {
         KindaVimEngine.shared.visualStyle = .characterwise
         applyKeyCombinationBeingTested()
         
-        XCTAssertEqual(ksVisualModeMock.functionCalled, "w()")
+        XCTAssertEqual(ksVisualModeMock.functionCalled, "")
     }
-
+    
 }
 
 
 // VisualStyle Linewise
-extension FailingASVM_w_Tests {
+extension FailingASVM_E__Tests {
     
     func test_that_it_does_not_call_any_KS_function_because_this_move_does_not_exist_for_VisualStyle_Linewise() {
         KindaVimEngine.shared.visualStyle = .linewise
@@ -34,18 +34,18 @@ extension FailingASVM_w_Tests {
         
         XCTAssertEqual(ksVisualModeMock.functionCalled, "")
     }
-
+    
 }
 
 
 // Both
-extension FailingASVM_w_Tests {
+extension FailingASVM_E__Tests {
     
     func test_that_it_keeps_Vim_in_visual_mode() {
         applyKeyCombinationBeingTested()
-                
+        
         XCTAssertEqual(KindaVimEngine.shared.currentMode, .visual)
     }
-    
+        
 }
 
