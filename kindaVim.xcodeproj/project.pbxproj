@@ -2047,7 +2047,8 @@
 		91536B9B26E4167F008FB8F2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "Developer ID Application";
+				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = ZX49WKA8QN;
 				INFOPLIST_FILE = Tests/UI/Info.plist;
@@ -2059,6 +2060,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				PRODUCT_BUNDLE_IDENTIFIER = mo.com.sleeplessmind.kindaVimUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TEST_TARGET_NAME = kindaVim;
 			};
@@ -2067,7 +2069,8 @@
 		91536B9C26E4167F008FB8F2 /* UI Testing */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "Developer ID Application";
+				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = ZX49WKA8QN;
 				INFOPLIST_FILE = Tests/UI/Info.plist;
@@ -2079,6 +2082,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				PRODUCT_BUNDLE_IDENTIFIER = mo.com.sleeplessmind.kindaVimUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TEST_TARGET_NAME = kindaVim;
 			};
@@ -2087,7 +2091,8 @@
 		91536B9D26E4167F008FB8F2 /* CI Testing */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "Developer ID Application";
+				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = ZX49WKA8QN;
 				INFOPLIST_FILE = Tests/UI/Info.plist;
@@ -2099,6 +2104,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				PRODUCT_BUNDLE_IDENTIFIER = mo.com.sleeplessmind.kindaVimUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TEST_TARGET_NAME = kindaVim;
 			};
@@ -2107,7 +2113,8 @@
 		91536B9E26E4167F008FB8F2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "Developer ID Application";
+				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = ZX49WKA8QN;
 				INFOPLIST_FILE = Tests/UI/Info.plist;
@@ -2119,6 +2126,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				PRODUCT_BUNDLE_IDENTIFIER = mo.com.sleeplessmind.kindaVimUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TEST_TARGET_NAME = kindaVim;
 			};
