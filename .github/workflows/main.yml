@@ -43,13 +43,13 @@ jobs:
       env:
         CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
       run: |
-        xcodebuild -scheme "All Tests CI" -usePackageSupportBuiltinSCM -derivedDataPath $GITHUB_WORKSPACE -enableCodeCoverage YES clean build test
+        xcodebuild -scheme "All Tests CI" -configuration "CI Testing" -usePackageSupportBuiltinSCM -derivedDataPath $GITHUB_WORKSPACE -enableCodeCoverage YES clean build test
         cd $GITHUB_WORKSPACE/Build/ProfileData
         cd $(ls -d */|head -n 1)
         directory=${PWD##*/}
         pathCoverage=$GITHUB_WORKSPACE/Build/ProfileData/${directory}/Coverage.profdata
         cd ../../../../
-        xcrun llvm-cov export -format="lcov" -instr-profile $pathCoverage $GITHUB_WORKSPACE/Build/Products/Debug/kindaVim.app/Contents/MacOS/kindaVim > info.lcov
+        xcrun llvm-cov export -format="lcov" -instr-profile $pathCoverage "$GITHUB_WORKSPACE/Build/Products/CI Testing/kindaVim.app/Contents/MacOS/kindaVim" > info.lcov
         curl -Os https://uploader.codecov.io/latest/macos/codecov
         chmod +x codecov
         ./codecov -t $CODECOV_TOKEN
