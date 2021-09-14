@@ -229,6 +229,7 @@
 		9188BFC02684BEC5006AFBE9 /* SucceedingASVM_l_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9188BFBF2684BEC5006AFBE9 /* SucceedingASVM_l_Tests.swift */; };
 		9188BFDB2684BF40006AFBE9 /* SucceedingASVM_BaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9188BFDA2684BF40006AFBE9 /* SucceedingASVM_BaseTests.swift */; };
 		9188BFED2684C09A006AFBE9 /* SucceedingAS_BaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9188BFEC2684C09A006AFBE9 /* SucceedingAS_BaseTests.swift */; };
+		9189BA7126F1034D00EC4BB2 /* EnforcingKSNM_e_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9189BA7026F1034D00EC4BB2 /* EnforcingKSNM_e_Tests.swift */; };
 		918AAB5226F0F6F00012D714 /* FailingASVM_B__Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918AAB5126F0F6F00012D714 /* FailingASVM_B__Tests.swift */; };
 		918AAB5426F0F72D0012D714 /* FailingASVM_gE__Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918AAB5326F0F72D0012D714 /* FailingASVM_gE__Tests.swift */; };
 		918AAB5626F0F7920012D714 /* FailingASVM_ge_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918AAB5526F0F7920012D714 /* FailingASVM_ge_Tests.swift */; };
@@ -581,6 +582,9 @@
 		9188BFBF2684BEC5006AFBE9 /* SucceedingASVM_l_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SucceedingASVM_l_Tests.swift; sourceTree = "<group>"; };
 		9188BFDA2684BF40006AFBE9 /* SucceedingASVM_BaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SucceedingASVM_BaseTests.swift; sourceTree = "<group>"; };
 		9188BFEC2684C09A006AFBE9 /* SucceedingAS_BaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SucceedingAS_BaseTests.swift; sourceTree = "<group>"; };
+		9189BA6E26F1030600EC4BB2 /* KeyboardStrategy */ = {isa = PBXFileReference; lastKnownFileType = folder; name = KeyboardStrategy; path = ../KeyboardStrategy; sourceTree = "<group>"; };
+		9189BA6F26F1031700EC4BB2 /* KeyCombination */ = {isa = PBXFileReference; lastKnownFileType = folder; name = KeyCombination; path = ../KeyCombination; sourceTree = "<group>"; };
+		9189BA7026F1034D00EC4BB2 /* EnforcingKSNM_e_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnforcingKSNM_e_Tests.swift; sourceTree = "<group>"; };
 		918AAB5126F0F6F00012D714 /* FailingASVM_B__Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FailingASVM_B__Tests.swift; sourceTree = "<group>"; };
 		918AAB5326F0F72D0012D714 /* FailingASVM_gE__Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FailingASVM_gE__Tests.swift; sourceTree = "<group>"; };
 		918AAB5526F0F7920012D714 /* FailingASVM_ge_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FailingASVM_ge_Tests.swift; sourceTree = "<group>"; };
@@ -789,6 +793,8 @@
 		9128F2A3262AA90C00625B42 = {
 			isa = PBXGroup;
 			children = (
+				9189BA6F26F1031700EC4BB2 /* KeyCombination */,
+				9189BA6E26F1030600EC4BB2 /* KeyboardStrategy */,
 				9128F2AE262AA90C00625B42 /* kindaVim */,
 				91B5A2AF26A2FC9D002516EC /* Tests */,
 				9128F2AD262AA90C00625B42 /* Products */,
@@ -898,6 +904,7 @@
 				9145AA84264545480056976B /* EnforcingKSNM_cG_Tests.swift */,
 				91E304F82643F6D1004D9933 /* EnforcingKSNM_ciw_Tests.swift */,
 				91E304CA2643EF64004D9933 /* EnforcingKSNM_d_Tests.swift */,
+				9189BA7026F1034D00EC4BB2 /* EnforcingKSNM_e_Tests.swift */,
 				91054E902645087A00CC0ACC /* EnforcingKSNM_control_d_Tests.swift */,
 				9107EE182646BD15003575A7 /* EnforcingKSNM_db_Tests.swift */,
 				91E304D02643F05C004D9933 /* EnforcingKSNM_dd_Tests.swift */,
@@ -1638,6 +1645,7 @@
 				914FE53626D953380030DD2C /* FailingASVM_j_Tests.swift in Sources */,
 				91E304E52643F3AC004D9933 /* EnforcingKSNM_o_Tests.swift in Sources */,
 				916B947126D91E8100E70461 /* FailingASNM_a_Tests.swift in Sources */,
+				9189BA7126F1034D00EC4BB2 /* EnforcingKSNM_e_Tests.swift in Sources */,
 				916E99CC26D9471B0088BB8E /* FailingASNM_v_Tests.swift in Sources */,
 				91CA37DC265E8F47004869EA /* SucceedingASNM_j_Tests.swift in Sources */,
 				914E559C26D9232300CE1970 /* FailingASNM_cc_Tests.swift in Sources */,

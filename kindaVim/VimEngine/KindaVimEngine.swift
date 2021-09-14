@@ -206,6 +206,8 @@ extension KindaVimEngine {
         case .e:
             if let element = asNormalMode.e(on: focusedTextElement) {
                 push(element: element)
+            } else {
+                handleNormalModeUsingKeyboardStrategy(for: keyCombination)
             }
         case .E:
             if let element = asNormalMode.E(on: focusedTextElement) {
@@ -466,6 +468,8 @@ extension KindaVimEngine {
             enterOperatorPendingForNormalMode(with: keyCombination)
         case .controlD:
             post(ksNormalMode.controlD())
+        case .e:
+            post(ksNormalMode.e())
         case .f:
             enterOperatorPendingForNormalMode(with: keyCombination)
         case .F:
@@ -528,8 +532,6 @@ extension KindaVimEngine {
             enterVisualMode()
             visualStyle = .linewise
         case .w:
-            post(ksNormalMode.w())
-        case .W:
             post(ksNormalMode.w())
         case .x:
             post(ksNormalMode.x())
@@ -1185,6 +1187,8 @@ extension KindaVimEngine {
             case .characterwise:
                 if let element = asVisualMode.eForVisualStyleCharacterwise(on: focusedTextElement) {
                     push(element: element)
+                } else {
+                    handleVisualModeUsingKeyboardStrategy(for: keyCombination)
                 }
             case .linewise:
                 ()
@@ -1371,6 +1375,8 @@ extension KindaVimEngine {
             post(ksVisualMode.d())
             
             enterNormalMode()
+        case .e:
+            post(ksVisualMode.e())
         case .g:
             enterOperatorPendingForVisualMode(with: keyCombination)
         case .G:
