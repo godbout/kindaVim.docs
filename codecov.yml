@@ -1,3 +1,4 @@
 ignore:
   - "kindaVim/Build/**/*"
   - "kindaVim/SourcePackages/**/*"
+  - "kindazVim/kindaVim/UITestView.swift"
