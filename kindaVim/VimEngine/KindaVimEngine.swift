@@ -1132,11 +1132,23 @@ extension KindaVimEngine {
     
     private func tryHandlingVisualModeUsingAccessibilityStrategyFirst(for keyCombination: KeyCombination) {
         switch keyCombination.vimKey {
+        case .B:
+            switch visualStyle {
+            case .characterwise:
+                if let element = asVisualMode.BForVisualStyleCharacterwise(on: focusedTextElement) {
+                    push(element: element)
+                }
+            case .linewise:
+                ()
+            }
         case .b:
-            // TODO: write this with a switch, the same than other moves
-            // that will make it very clear that we don't have a linewise move for this one
-            if visualStyle == .characterwise, let element = asVisualMode.bForVisualStyleCharacterwise(on: focusedTextElement) {
-                push(element: element)
+            switch visualStyle {
+            case .characterwise:
+                if let element = asVisualMode.bForVisualStyleCharacterwise(on: focusedTextElement) {
+                    push(element: element)
+                }
+            case .linewise:
+                ()
             }
         case .c:
             enterInsertMode()
@@ -1434,6 +1446,28 @@ extension KindaVimEngine {
     
     private func tryParsingOperatorCommandForVisualModeUsingAccessibilityStrategyFirst() {
         switch operatorPendingBuffer.map({ $0.vimKey }) {
+        case [.g, .E]:
+            switch visualStyle {
+            case .characterwise:
+                if let element = asVisualMode.gEForVisualStyleCharacterwise(on: focusedTextElement) {
+                    push(element: element)
+                }
+            case .linewise:
+                ()
+            }
+            
+            enterVisualMode()
+        case [.g, .e]:
+            switch visualStyle {
+            case .characterwise:
+                if let element = asVisualMode.geForVisualStyleCharacterwise(on: focusedTextElement) {
+                    push(element: element)
+                }
+            case .linewise:
+                ()
+            }
+            
+            enterVisualMode()
         case [.g, .g]:
             switch visualStyle {
             case .characterwise:

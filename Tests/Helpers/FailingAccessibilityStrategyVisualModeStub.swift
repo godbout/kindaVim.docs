@@ -5,6 +5,10 @@ import AccessibilityStrategy
 
 struct FailingAccessibilityStrategyVisualModeStub: AccessibilityStrategyVisualModeProtocol {
 
+    func BForVisualStyleCharacterwise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        return nil
+    }
+    
     func bForVisualStyleCharacterwise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return nil 
     }
@@ -47,6 +51,14 @@ struct FailingAccessibilityStrategyVisualModeStub: AccessibilityStrategyVisualMo
     
     func GForVisualStyleLinewise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return nil 
+    }
+    
+    func gEForVisualStyleCharacterwise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        return nil
+    }
+    
+    func geForVisualStyleCharacterwise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        return nil
     }
     
     func hForVisualStyleCharacterwise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
