@@ -65,6 +65,10 @@ struct FailingAccessibilityStrategyVisualModeStub: AccessibilityStrategyVisualMo
         return nil 
     }
     
+    func iwForVisualStyleCharacterwise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        return nil
+    }
+    
     func jForVisualStyleCharacterwise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return nil 
     }

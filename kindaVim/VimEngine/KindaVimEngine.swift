@@ -1211,6 +1211,8 @@ extension KindaVimEngine {
             case .linewise:
                 ()
             }
+        case .i:
+            enterOperatorPendingForVisualMode(with: keyCombination)
         case .j:
             switch visualStyle {
             case .characterwise:
@@ -1381,6 +1383,8 @@ extension KindaVimEngine {
             case .linewise:
                 ()
             }
+        case .i:
+            enterOperatorPendingForVisualMode(with: keyCombination)
         case .j:
             post(ksVisualMode.j())
         case .k:
@@ -1488,6 +1492,17 @@ extension KindaVimEngine {
                     parseOperatorCommandForVisualModeUsingKeyboardStrategy()
                 }       
             }
+        case [.i, .w]:
+            switch visualStyle {
+            case .characterwise:
+                if let element = asVisualMode.iwForVisualStyleCharacterwise(on: focusedTextElement) {
+                    push(element: element)
+                }
+            case .linewise:
+                ()
+            }
+            
+            enterVisualMode()
         default:
             // if we don't recognize any operator move
             // go back to visual mode
