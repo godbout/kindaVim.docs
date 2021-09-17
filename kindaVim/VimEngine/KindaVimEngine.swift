@@ -584,10 +584,6 @@ extension KindaVimEngine {
 
     private func tryParsingOperatorCommandForNormalModeUsingAccessibilityStrategyFirst() {
         switch operatorPendingBuffer.map({ $0.vimKey }) {
-        case [.c, .a]:
-            ()
-        case [.c, .a, .w]:
-            ()
         case [.c, .b]:
             parseOperatorCommandForNormalModeUsingKeyboardStrategy()
         case [.c, .c]:
@@ -701,10 +697,6 @@ extension KindaVimEngine {
             ()
         case [.c, .T]:
             ()
-        case [.d, .a]:
-            ()
-        case [.d, .a, .w]:
-            ()
         case [.d, .b]:
             parseOperatorCommandForNormalModeUsingKeyboardStrategy()
         case [.d, .d]:
@@ -724,10 +716,6 @@ extension KindaVimEngine {
             parseOperatorCommandForNormalModeUsingKeyboardStrategy()
         case [.d, .G]:
             parseOperatorCommandForNormalModeUsingKeyboardStrategy()
-        case [.d, .i]:
-            ()
-        case [.d, .i, .w]:
-            ()
         case [.d, .j]:
             if let element = asNormalMode.dj(on: focusedTextElement) {
                 enterNormalMode()
@@ -1014,10 +1002,6 @@ extension KindaVimEngine {
             enterInsertMode()
             
             post(ksNormalMode.cc())
-       case [.c, .f]:
-            ()
-        case [.c, .F]:
-            ()
         case [.c, .g]:
             ()
         case [.c, .g, .g]:
@@ -1034,14 +1018,6 @@ extension KindaVimEngine {
             enterInsertMode()
             
             post(ksNormalMode.ciw())
-        case [.c, .t]:
-            ()
-        case [.c, .T]:
-            ()
-        case [.d, .a]:
-            ()
-        case [.d, .a, .w]:
-            ()
         case [.d, .b]:
             enterNormalMode()
             
