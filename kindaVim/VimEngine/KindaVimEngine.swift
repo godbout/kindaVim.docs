@@ -1185,6 +1185,8 @@ extension KindaVimEngine {
             }
         case .f:
             enterOperatorPendingForVisualMode(with: keyCombination)
+        case .F:
+            enterOperatorPendingForVisualMode(with: keyCombination)
         case .g:
             enterOperatorPendingForVisualMode(with: keyCombination)
         case .G:
@@ -1260,6 +1262,10 @@ extension KindaVimEngine {
             if let element = asVisualMode.o(on: focusedTextElement) {
                 push(element: element)
             }
+        case .t:
+            enterOperatorPendingForVisualMode(with: keyCombination)
+        case .T:
+            enterOperatorPendingForVisualMode(with: keyCombination)
         case .v:
             switch visualStyle {
             case .characterwise:
@@ -1510,6 +1516,24 @@ extension KindaVimEngine {
             case .characterwise:
                 if operatorPendingBuffer.first?.vimKey == .f, let character = operatorPendingBuffer.last {
                     if let element = asVisualMode.fForVisualStyleCharacterwise(to: character.character, on: focusedTextElement) {
+                        push(element: element)
+                    }
+                }
+                
+                if operatorPendingBuffer.first?.vimKey == .F, let character = operatorPendingBuffer.last {
+                    if let element = asVisualMode.FForVisualStyleCharacterwise(to: character.character, on: focusedTextElement) {
+                        push(element: element)
+                    }
+                }
+                
+                if operatorPendingBuffer.first?.vimKey == .t, let character = operatorPendingBuffer.last {
+                    if let element = asVisualMode.tForVisualStyleCharacterwise(to: character.character, on: focusedTextElement) {
+                        push(element: element)
+                    }
+                }
+                
+                if operatorPendingBuffer.first?.vimKey == .T, let character = operatorPendingBuffer.last {
+                    if let element = asVisualMode.TForVisualStyleCharacterwise(to: character.character, on: focusedTextElement) {
                         push(element: element)
                     }
                 }

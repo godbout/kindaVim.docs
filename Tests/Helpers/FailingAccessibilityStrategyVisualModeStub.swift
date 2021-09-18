@@ -41,6 +41,10 @@ struct FailingAccessibilityStrategyVisualModeStub: AccessibilityStrategyVisualMo
         return nil
     }
     
+    func FForVisualStyleCharacterwise(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        return nil
+    }
+    
     func ggForVisualStyleCharacterwise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return nil 
     }
@@ -95,6 +99,14 @@ struct FailingAccessibilityStrategyVisualModeStub: AccessibilityStrategyVisualMo
     
     func o(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return nil 
+    }
+    
+    func tForVisualStyleCharacterwise(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        return nil
+    }
+    
+    func TForVisualStyleCharacterwise(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        return nil
     }
     
     func vForEnteringFromNormalMode(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
