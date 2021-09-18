@@ -41,6 +41,10 @@ struct FailingAccessibilityStrategyNormalModeStub: AccessibilityStrategyNormalMo
         return nil
     }
     
+    func caw(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        return nil
+    }
+    
     func cgg(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return nil
     }
