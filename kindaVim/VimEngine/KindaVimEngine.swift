@@ -1183,6 +1183,8 @@ extension KindaVimEngine {
             case .linewise:
                 ()
             }
+        case .f:
+            enterOperatorPendingForVisualMode(with: keyCombination)
         case .g:
             enterOperatorPendingForVisualMode(with: keyCombination)
         case .G:
@@ -1504,8 +1506,17 @@ extension KindaVimEngine {
             
             enterVisualMode()
         default:
-            // if we don't recognize any operator move
-            // go back to visual mode
+            switch visualStyle {
+            case .characterwise:
+                if operatorPendingBuffer.first?.vimKey == .f, let character = operatorPendingBuffer.last {
+                    if let element = asVisualMode.fForVisualStyleCharacterwise(to: character.character, on: focusedTextElement) {
+                        push(element: element)
+                    }
+                }
+            case .linewise:
+                ()
+            }
+           
             enterVisualMode()
         }
     }
