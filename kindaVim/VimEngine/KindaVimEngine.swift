@@ -587,7 +587,9 @@ extension KindaVimEngine {
         case [.c, .a]:
             ()
         case [.c, .a, .w]:
-            if let element = asNormalMode.caw(on: focusedTextElement) {
+            enterNormalMode()
+            
+            if let element = asNormalMode.caw(on: focusedTextElement), element.selectedText != nil {
                 enterInsertMode()
                 push(element: element)
             }

@@ -16,14 +16,11 @@ class SucceedingASNM_caw_Tests: SucceedingASNM_BaseTests {
 }
 
 
+// see ci" for blah blah on why no test about Vim mode here but in UI
 extension SucceedingASNM_caw_Tests {
     
     func test_that_it_calls_the_correct_function_on_AS() {
         XCTAssertEqual(asNormalModeMock.functionCalled, "caw(on:)")
-    }
-    
-    func test_that_it_switches_Vim_into_insert_mode() {
-        XCTAssertEqual(KindaVimEngine.shared.currentMode, .insert)
     }
     
 }
