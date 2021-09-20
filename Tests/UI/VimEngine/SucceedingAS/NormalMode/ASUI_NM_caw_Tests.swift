@@ -7,12 +7,10 @@ import AccessibilityStrategy
 // see ci" for blah blah
 class ASUI_NM_caw_Tests: ASUI_NM_BaseTests {
 
-    private func applyMoveAndGetBackAccessibilityElement() -> AccessibilityTextElement? {
+    private func applyKeyCombinationsBeingTested() {
         KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .c))
         KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .a))
         KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .w))
-
-        return AccessibilityTextElementAdaptor.fromAXFocusedElement()
     }
 
 }
@@ -27,9 +25,7 @@ extension ASUI_NM_caw_Tests {
         app.textFields.firstMatch.typeKey(.leftArrow, modifierFlags: [.command])
         KindaVimEngine.shared.enterNormalMode()
         
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .c))
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .a))
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .w))
+        applyKeyCombinationsBeingTested()
 
         XCTAssertEqual(KindaVimEngine.shared.currentMode, .insert)
     }
@@ -41,9 +37,7 @@ extension ASUI_NM_caw_Tests {
         app.textFields.firstMatch.typeKey(.leftArrow, modifierFlags: [])
         KindaVimEngine.shared.enterNormalMode()
 
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .c))
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .a))
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .w))
+        applyKeyCombinationsBeingTested()
 
         XCTAssertEqual(KindaVimEngine.shared.currentMode, .normal)
     }

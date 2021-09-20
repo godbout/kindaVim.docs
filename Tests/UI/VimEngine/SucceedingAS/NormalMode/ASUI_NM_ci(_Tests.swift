@@ -7,12 +7,10 @@ import AccessibilityStrategy
 // see ci" for blah blah
 class ASUI_NM_ciLeftParenthesis_Tests: ASUI_NM_BaseTests {
 
-    private func applyMoveAndGetBackAccessibilityElement() -> AccessibilityTextElement? {
+    private func applyKeyCombinationsBeingTested() {
         KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .c))
         KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .i))
         KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .leftParenthesis))
-
-        return AccessibilityTextElementAdaptor.fromAXFocusedElement()
     }
 
 }
@@ -29,9 +27,7 @@ hoho ( another pile of shit )
         KindaVimEngine.shared.enterNormalMode()
         KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .b))
 
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .c))
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .i))
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .leftParenthesis))
+        applyKeyCombinationsBeingTested()
 
         XCTAssertEqual(KindaVimEngine.shared.currentMode, .insert)
     }
@@ -45,9 +41,7 @@ hoho no bracket on that shit
         app.textFields.firstMatch.typeKey(.leftArrow, modifierFlags: [.option])
         KindaVimEngine.shared.enterNormalMode()
 
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .c))
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .i))
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .leftParenthesis))
+        applyKeyCombinationsBeingTested()
 
         XCTAssertEqual(KindaVimEngine.shared.currentMode, .normal)
     }
