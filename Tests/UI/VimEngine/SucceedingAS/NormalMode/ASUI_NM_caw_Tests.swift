@@ -43,3 +43,26 @@ extension ASUI_NM_caw_Tests {
     }
 
 }
+
+
+// special case. even if failing (selectedText == nil), caw will move the caretLocation (to the end of the text)
+// so push(element) needs to be called. this test makes sure this is called and we end up with the correct element.
+extension ASUI_NM_caw_Tests {
+
+    func test_that_the_element_is_correct_even_if_the_move_returned_a_selectedText_of_nil() {
+        let textInAXFocusedElement = "caw does not work here...               "
+        app.textFields.firstMatch.tap()
+        app.textFields.firstMatch.typeText(textInAXFocusedElement)
+        app.textFields.firstMatch.typeKey(.leftArrow, modifierFlags: [])
+        KindaVimEngine.shared.enterNormalMode()
+
+        applyKeyCombinationsBeingTested()
+        
+        let focusedElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
+
+        XCTAssertEqual(focusedElement?.caretLocation, 39)
+        XCTAssertEqual(focusedElement?.selectedLength, 1)
+        XCTAssertEqual(focusedElement?.selectedText, " ")
+    }
+    
+}
