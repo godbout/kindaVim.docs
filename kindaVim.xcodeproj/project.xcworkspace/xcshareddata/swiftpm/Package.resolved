@@ -6,8 +6,8 @@
         "repositoryURL": "git@github.com:godbout/AccessibilityStrategy.git",
         "state": {
           "branch": null,
-          "revision": "f9a24feb9a62e9ae620a87bf0d91c75b252f8a91",
-          "version": "0.0.41"
+          "revision": "ec66f5d9c28df9145ca523a49751eb4bc984c035",
+          "version": "0.0.42"
         }
       },
       {
@@ -15,8 +15,8 @@
         "repositoryURL": "git@github.com:godbout/AXEngine.git",
         "state": {
           "branch": null,
-          "revision": "9ca2468d392ae0b6bb2a9b756b5285d896e056a5",
-          "version": "0.0.5"
+          "revision": "d26c61c60a8a89131e4a862556151fb07342735e",
+          "version": "0.0.6"
         }
       },
       {
@@ -42,8 +42,8 @@
         "repositoryURL": "git@github.com:godbout/KeyboardStrategy.git",
         "state": {
           "branch": null,
-          "revision": "00e17feac287cfde9cda2b073dbecf05b0a6ad63",
-          "version": "0.0.6"
+          "revision": "62511eb6fc864fd9538bf3e80c855ad06054c5e0",
+          "version": "0.1.0"
         }
       },
       {
@@ -51,8 +51,8 @@
         "repositoryURL": "git@github.com:godbout/KeyCombination.git",
         "state": {
           "branch": null,
-          "revision": "0d12c4e15668673e9423fb7ad353b1cfb57d39cb",
-          "version": "1.0.2"
+          "revision": "3192682f071503e7efa96f0517de2aa24cad2004",
+          "version": "1.1.0"
         }
       },
       {
