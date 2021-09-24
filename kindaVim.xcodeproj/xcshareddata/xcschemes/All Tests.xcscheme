@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "9128F2AB262AA90C00625B42"
+               BlueprintIdentifier = "916ACF8C26FE086B000E9757"
                BuildableName = "kindaVim.app"
                BlueprintName = "kindaVim"
                ReferencedContainer = "container:kindaVim.xcodeproj">
@@ -26,38 +26,25 @@
       buildConfiguration = "UI Testing"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "YES"
-      codeCoverageEnabled = "YES"
-      onlyGenerateCoverageForSpecifiedTargets = "YES">
-      <CodeCoverageTargets>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "9128F2AB262AA90C00625B42"
-            BuildableName = "kindaVim.app"
-            BlueprintName = "kindaVim"
-            ReferencedContainer = "container:kindaVim.xcodeproj">
-         </BuildableReference>
-      </CodeCoverageTargets>
+      shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
          <TestableReference
-            skipped = "NO"
-            testExecutionOrdering = "random">
+            skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "9128F2C0262AA90D00625B42"
-               BuildableName = "UnitTests.xctest"
-               BlueprintName = "UnitTests"
+               BlueprintIdentifier = "916ACF9D26FE086C000E9757"
+               BuildableName = "kindaVimTests.xctest"
+               BlueprintName = "kindaVimTests"
                ReferencedContainer = "container:kindaVim.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
-            skipped = "NO"
-            testExecutionOrdering = "random">
+            skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "91536B9226E4167F008FB8F2"
-               BuildableName = "UITests.xctest"
-               BlueprintName = "UITests"
+               BlueprintIdentifier = "916ACFA726FE086C000E9757"
+               BuildableName = "kindaVimUITests.xctest"
+               BlueprintName = "kindaVimUITests"
                ReferencedContainer = "container:kindaVim.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -77,7 +64,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "9128F2AB262AA90C00625B42"
+            BlueprintIdentifier = "916ACF8C26FE086B000E9757"
             BuildableName = "kindaVim.app"
             BlueprintName = "kindaVim"
             ReferencedContainer = "container:kindaVim.xcodeproj">
@@ -94,7 +81,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "9128F2AB262AA90C00625B42"
+            BlueprintIdentifier = "916ACF8C26FE086B000E9757"
             BuildableName = "kindaVim.app"
             BlueprintName = "kindaVim"
             ReferencedContainer = "container:kindaVim.xcodeproj">

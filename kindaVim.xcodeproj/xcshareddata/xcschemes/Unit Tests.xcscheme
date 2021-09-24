@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "9128F2AB262AA90C00625B42"
+               BlueprintIdentifier = "916ACF8C26FE086B000E9757"
                BuildableName = "kindaVim.app"
                BlueprintName = "kindaVim"
                ReferencedContainer = "container:kindaVim.xcodeproj">
@@ -26,17 +26,16 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "YES"
-      codeCoverageEnabled = "YES">
+      shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
          <TestableReference
             skipped = "NO"
             testExecutionOrdering = "random">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "9128F2C0262AA90D00625B42"
-               BuildableName = "UnitTests.xctest"
-               BlueprintName = "UnitTests"
+               BlueprintIdentifier = "916ACF9D26FE086C000E9757"
+               BuildableName = "kindaVimTests.xctest"
+               BlueprintName = "kindaVimTests"
                ReferencedContainer = "container:kindaVim.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -56,7 +55,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "9128F2AB262AA90C00625B42"
+            BlueprintIdentifier = "916ACF8C26FE086B000E9757"
             BuildableName = "kindaVim.app"
             BlueprintName = "kindaVim"
             ReferencedContainer = "container:kindaVim.xcodeproj">
@@ -73,7 +72,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "9128F2AB262AA90C00625B42"
+            BlueprintIdentifier = "916ACF8C26FE086B000E9757"
             BuildableName = "kindaVim.app"
             BlueprintName = "kindaVim"
             ReferencedContainer = "container:kindaVim.xcodeproj">

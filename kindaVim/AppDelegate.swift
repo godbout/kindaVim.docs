@@ -1,7 +1,6 @@
 import SwiftUI
 
 
-@main
 class AppDelegate: NSObject, NSApplicationDelegate {
     
     lazy var appComponent = AppComponent()
@@ -18,4 +17,3 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
 }
-
