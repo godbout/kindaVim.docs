@@ -348,7 +348,6 @@
 		91840DF826FE096C00E6048E /* GeneralPane.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91840DE526FE096C00E6048E /* GeneralPane.swift */; };
 		91840DF926FE096C00E6048E /* StrategiesPane.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91840DE626FE096C00E6048E /* StrategiesPane.swift */; };
 		91840DFA26FE096C00E6048E /* VisualsPane.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91840DE726FE096C00E6048E /* VisualsPane.swift */; };
-		91840DFB26FE096C00E6048E /* PreferencesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91840DE826FE096C00E6048E /* PreferencesController.swift */; };
 		91840DFC26FE096C00E6048E /* KindaVimEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91840DEA26FE096C00E6048E /* KindaVimEngine.swift */; };
 		91840DFD26FE096C00E6048E /* UITestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91840DEB26FE096C00E6048E /* UITestView.swift */; };
 		91840E0A26FE09A300E6048E /* ASUI_BaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91840E0026FE09A300E6048E /* ASUI_BaseTests.swift */; };
@@ -744,7 +743,6 @@
 		91840DE526FE096C00E6048E /* GeneralPane.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralPane.swift; sourceTree = "<group>"; };
 		91840DE626FE096C00E6048E /* StrategiesPane.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StrategiesPane.swift; sourceTree = "<group>"; };
 		91840DE726FE096C00E6048E /* VisualsPane.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisualsPane.swift; sourceTree = "<group>"; };
-		91840DE826FE096C00E6048E /* PreferencesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesController.swift; sourceTree = "<group>"; };
 		91840DEA26FE096C00E6048E /* KindaVimEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KindaVimEngine.swift; sourceTree = "<group>"; };
 		91840DEB26FE096C00E6048E /* UITestView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITestView.swift; sourceTree = "<group>"; };
 		91840E0026FE09A300E6048E /* ASUI_BaseTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASUI_BaseTests.swift; sourceTree = "<group>"; };
@@ -1330,7 +1328,6 @@
 				91840DE026FE096C00E6048E /* KeyboardShortcuts */,
 				91840DE226FE096C00E6048E /* Defaults */,
 				91840DE426FE096C00E6048E /* Panes */,
-				91840DE826FE096C00E6048E /* PreferencesController.swift */,
 				9118CEA626FEF90A005F0907 /* SettingsView.swift */,
 			);
 			path = Preferences;
@@ -1575,7 +1572,6 @@
 				91840DF626FE096C00E6048E /* KeyboardShortcuts.swift in Sources */,
 				91840DEE26FE096C00E6048E /* CharactersWindow.swift in Sources */,
 				91840DF826FE096C00E6048E /* GeneralPane.swift in Sources */,
-				91840DFB26FE096C00E6048E /* PreferencesController.swift in Sources */,
 				91840DF126FE096C00E6048E /* Display.swift in Sources */,
 				91840DFA26FE096C00E6048E /* VisualsPane.swift in Sources */,
 				91840DF426FE096C00E6048E /* AppComponent.swift in Sources */,
