@@ -1,5 +1,4 @@
 import AppKit
-import Preferences
 
 
 class StatusBarController {
