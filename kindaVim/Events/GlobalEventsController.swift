@@ -1,11 +1,23 @@
-import AppKit
 import Foundation
+import SwiftUI
+import AppKit
 import KeyboardShortcuts
-import Defaults
 import KeyCombination
 
 
 struct GlobalEventsController {
+    
+    @AppStorage(SettingsKeys.useCustomShortcutToEnterNormalMode) private static var useCustomShortcutToEnterNormalMode: Bool = false
+    @AppStorage(SettingsKeys.appsToIgnore) private static var appsToIgnore: [String] = [
+        "com.sublimetext.4",
+        "com.googlecode.iterm2",
+        "com.microsoft.VSCode",
+        "com.jetbrains.PhpStorm",
+        "com.github.atom"
+    ] 
+    @AppStorage(SettingsKeys.appsForWhichToEnforceKeyboardStrategy) private static var appsForWhichToEnforceKeyboardStrategy: [String] = [
+        "com.apple.Safari"
+    ]
     
     static func handle(keyCombination: KeyCombination?) -> Bool {
         if onIgnoredApp() {
@@ -37,13 +49,13 @@ struct GlobalEventsController {
     }
     
     private static func onIgnoredApp() -> Bool {
-        return Defaults[.appsToIgnore].contains(
+        return appsToIgnore.contains(
             NSWorkspace.shared.frontmostApplication?.bundleIdentifier ?? ""
         )
     }
     
     private static func onAppForWhichToEnforceKeyboardStrategy() -> Bool {
-        return Defaults[.appsForWhichToEnforceKeyboardStrategy].contains(
+        return appsForWhichToEnforceKeyboardStrategy.contains(
             NSWorkspace.shared.frontmostApplication?.bundleIdentifier ?? ""
         )
     }
@@ -58,7 +70,7 @@ struct GlobalEventsController {
     // if the user set up a custom KeyboardShortcut, use it
     // else we live for escape
     private static func globalVimEngineHotkeyIsPressed(_ keyCombination: KeyCombination) -> Bool {
-        if Defaults[.useCustomShortcutToEnterNormalMode] == true, let customKeyboardShortcut = KeyboardShortcuts.getShortcut(for: .enterNormalMode) {
+        if Self.useCustomShortcutToEnterNormalMode == true, let customKeyboardShortcut = KeyboardShortcuts.getShortcut(for: .enterNormalMode) {
             return keyCombination.key.rawValue == customKeyboardShortcut.key!.rawValue
                 && keyCombination.control == customKeyboardShortcut.modifiers.contains(.control)
                 && keyCombination.option == customKeyboardShortcut.modifiers.contains(.option)

@@ -344,7 +344,6 @@
 		91840DF326FE096C00E6048E /* GlobalEventsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91840DDC26FE096C00E6048E /* GlobalEventsController.swift */; };
 		91840DF426FE096C00E6048E /* AppComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91840DDD26FE096C00E6048E /* AppComponent.swift */; };
 		91840DF626FE096C00E6048E /* KeyboardShortcuts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91840DE126FE096C00E6048E /* KeyboardShortcuts.swift */; };
-		91840DF726FE096C00E6048E /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91840DE326FE096C00E6048E /* Defaults.swift */; };
 		91840DF826FE096C00E6048E /* GeneralPane.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91840DE526FE096C00E6048E /* GeneralPane.swift */; };
 		91840DF926FE096C00E6048E /* StrategiesPane.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91840DE626FE096C00E6048E /* StrategiesPane.swift */; };
 		91840DFA26FE096C00E6048E /* VisualsPane.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91840DE726FE096C00E6048E /* VisualsPane.swift */; };
@@ -359,7 +358,6 @@
 		91840E1026FE09A300E6048E /* ASUI_NM_cT__Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91840E0726FE09A300E6048E /* ASUI_NM_cT__Tests.swift */; };
 		91840E1126FE09A300E6048E /* ASUI_NM_ci(_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91840E0826FE09A300E6048E /* ASUI_NM_ci(_Tests.swift */; };
 		91840E1226FE09A300E6048E /* ASUI_NM_cf_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91840E0926FE09A300E6048E /* ASUI_NM_cf_Tests.swift */; };
-		91840E1526FE0A3000E6048E /* Defaults in Frameworks */ = {isa = PBXBuildFile; productRef = 91840E1426FE0A3000E6048E /* Defaults */; };
 		91840E1826FE0A4F00E6048E /* KeyboardShortcuts in Frameworks */ = {isa = PBXBuildFile; productRef = 91840E1726FE0A4F00E6048E /* KeyboardShortcuts */; };
 		91840E1B26FE0A6A00E6048E /* KeyCombination in Frameworks */ = {isa = PBXBuildFile; productRef = 91840E1A26FE0A6A00E6048E /* KeyCombination */; };
 		91840E2126FE0AA800E6048E /* KeyboardStrategy in Frameworks */ = {isa = PBXBuildFile; productRef = 91840E2026FE0AA800E6048E /* KeyboardStrategy */; };
@@ -374,9 +372,8 @@
 		91D2230026FE106D00B9AF77 /* CharactersWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91840DD526FE096C00E6048E /* CharactersWindow.swift */; };
 		91D2230126FE107300B9AF77 /* Window.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91840DD326FE096C00E6048E /* Window.swift */; };
 		91D2230226FE108100B9AF77 /* CharactersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91840DD626FE096C00E6048E /* CharactersView.swift */; };
-		91D2230326FE10BD00B9AF77 /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91840DE326FE096C00E6048E /* Defaults.swift */; };
 		91D2230526FE10D300B9AF77 /* KeyboardStrategy in Frameworks */ = {isa = PBXBuildFile; productRef = 91D2230426FE10D300B9AF77 /* KeyboardStrategy */; };
-		91D2230726FE10E000B9AF77 /* Defaults in Frameworks */ = {isa = PBXBuildFile; productRef = 91D2230626FE10E000B9AF77 /* Defaults */; };
+		91D475F926FF67A10007187B /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D475F826FF67A10007187B /* Settings.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -738,7 +735,6 @@
 		91840DDC26FE096C00E6048E /* GlobalEventsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalEventsController.swift; sourceTree = "<group>"; };
 		91840DDD26FE096C00E6048E /* AppComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppComponent.swift; sourceTree = "<group>"; };
 		91840DE126FE096C00E6048E /* KeyboardShortcuts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardShortcuts.swift; sourceTree = "<group>"; };
-		91840DE326FE096C00E6048E /* Defaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
 		91840DE526FE096C00E6048E /* GeneralPane.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralPane.swift; sourceTree = "<group>"; };
 		91840DE626FE096C00E6048E /* StrategiesPane.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StrategiesPane.swift; sourceTree = "<group>"; };
 		91840DE726FE096C00E6048E /* VisualsPane.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisualsPane.swift; sourceTree = "<group>"; };
@@ -755,6 +751,7 @@
 		91840E0926FE09A300E6048E /* ASUI_NM_cf_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASUI_NM_cf_Tests.swift; sourceTree = "<group>"; };
 		91D222F626FE0F2B00B9AF77 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		91D2230826FE112000B9AF77 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		91D475F826FF67A10007187B /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -763,7 +760,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				91840E2426FE0ACB00E6048E /* LaunchAtLogin in Frameworks */,
-				91840E1526FE0A3000E6048E /* Defaults in Frameworks */,
 				91840E2726FE0AF000E6048E /* AccessibilityStrategy in Frameworks */,
 				91840E1826FE0A4F00E6048E /* KeyboardShortcuts in Frameworks */,
 				91840E2126FE0AA800E6048E /* KeyboardStrategy in Frameworks */,
@@ -782,7 +778,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				91D2230726FE10E000B9AF77 /* Defaults in Frameworks */,
 				91D2230526FE10D300B9AF77 /* KeyboardStrategy in Frameworks */,
 				91D222FC26FE104800B9AF77 /* AccessibilityStrategy in Frameworks */,
 				91D222FA26FE103800B9AF77 /* KeyCombination in Frameworks */,
@@ -1324,8 +1319,8 @@
 			isa = PBXGroup;
 			children = (
 				91840DE026FE096C00E6048E /* KeyboardShortcuts */,
-				91840DE226FE096C00E6048E /* Defaults */,
 				91840DE426FE096C00E6048E /* Panes */,
+				91D475F826FF67A10007187B /* Settings.swift */,
 				9118CEA626FEF90A005F0907 /* SettingsView.swift */,
 			);
 			path = Preferences;
@@ -1337,14 +1332,6 @@
 				91840DE126FE096C00E6048E /* KeyboardShortcuts.swift */,
 			);
 			path = KeyboardShortcuts;
-			sourceTree = "<group>";
-		};
-		91840DE226FE096C00E6048E /* Defaults */ = {
-			isa = PBXGroup;
-			children = (
-				91840DE326FE096C00E6048E /* Defaults.swift */,
-			);
-			path = Defaults;
 			sourceTree = "<group>";
 		};
 		91840DE426FE096C00E6048E /* Panes */ = {
@@ -1421,7 +1408,6 @@
 			);
 			name = kindaVim;
 			packageProductDependencies = (
-				91840E1426FE0A3000E6048E /* Defaults */,
 				91840E1726FE0A4F00E6048E /* KeyboardShortcuts */,
 				91840E1A26FE0A6A00E6048E /* KeyCombination */,
 				91840E2026FE0AA800E6048E /* KeyboardStrategy */,
@@ -1468,7 +1454,6 @@
 				91D222F926FE103800B9AF77 /* KeyCombination */,
 				91D222FB26FE104800B9AF77 /* AccessibilityStrategy */,
 				91D2230426FE10D300B9AF77 /* KeyboardStrategy */,
-				91D2230626FE10E000B9AF77 /* Defaults */,
 			);
 			productName = kindaVimUITests;
 			productReference = 916ACFA826FE086C000E9757 /* kindaVimUITests.xctest */;
@@ -1507,7 +1492,6 @@
 			);
 			mainGroup = 916ACF8426FE086A000E9757;
 			packageReferences = (
-				91840E1326FE0A3000E6048E /* XCRemoteSwiftPackageReference "Defaults" */,
 				91840E1626FE0A4F00E6048E /* XCRemoteSwiftPackageReference "KeyboardShortcuts" */,
 				91840E1926FE0A6A00E6048E /* XCRemoteSwiftPackageReference "KeyCombination" */,
 				91840E1F26FE0AA800E6048E /* XCRemoteSwiftPackageReference "KeyboardStrategy" */,
@@ -1556,7 +1540,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				91840DF726FE096C00E6048E /* Defaults.swift in Sources */,
 				91840DF326FE096C00E6048E /* GlobalEventsController.swift in Sources */,
 				91D222F726FE0F2B00B9AF77 /* AppDelegate.swift in Sources */,
 				91840DEC26FE096C00E6048E /* StatusBarController.swift in Sources */,
@@ -1575,6 +1558,7 @@
 				91840DF926FE096C00E6048E /* StrategiesPane.swift in Sources */,
 				91840DFC26FE096C00E6048E /* KindaVimEngine.swift in Sources */,
 				91840DED26FE096C00E6048E /* Window.swift in Sources */,
+				91D475F926FF67A10007187B /* Settings.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1913,7 +1897,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				91D222FD26FE105800B9AF77 /* KindaVimEngine.swift in Sources */,
-				91D2230326FE10BD00B9AF77 /* Defaults.swift in Sources */,
 				91D2230026FE106D00B9AF77 /* CharactersWindow.swift in Sources */,
 				91840E0E26FE09A300E6048E /* ASUI_NM_cF__Tests.swift in Sources */,
 				91840E0A26FE09A300E6048E /* ASUI_BaseTests.swift in Sources */,
@@ -2542,14 +2525,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		91840E1326FE0A3000E6048E /* XCRemoteSwiftPackageReference "Defaults" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "git@github.com:sindresorhus/Defaults.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.0.0;
-			};
-		};
 		91840E1626FE0A4F00E6048E /* XCRemoteSwiftPackageReference "KeyboardShortcuts" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "git@github.com:sindresorhus/KeyboardShortcuts.git";
@@ -2593,11 +2568,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		91840E1426FE0A3000E6048E /* Defaults */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 91840E1326FE0A3000E6048E /* XCRemoteSwiftPackageReference "Defaults" */;
-			productName = Defaults;
-		};
 		91840E1726FE0A4F00E6048E /* KeyboardShortcuts */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 91840E1626FE0A4F00E6048E /* XCRemoteSwiftPackageReference "KeyboardShortcuts" */;
@@ -2637,11 +2607,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 91840E1F26FE0AA800E6048E /* XCRemoteSwiftPackageReference "KeyboardStrategy" */;
 			productName = KeyboardStrategy;
-		};
-		91D2230626FE10E000B9AF77 /* Defaults */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 91840E1326FE0A3000E6048E /* XCRemoteSwiftPackageReference "Defaults" */;
-			productName = Defaults;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

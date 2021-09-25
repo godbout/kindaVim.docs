@@ -20,15 +20,6 @@
         }
       },
       {
-        "package": "Defaults",
-        "repositoryURL": "git@github.com:sindresorhus/Defaults.git",
-        "state": {
-          "branch": null,
-          "revision": "63d93f97ad545c8bceb125a8a36175ea705f7cf5",
-          "version": "5.0.0"
-        }
-      },
-      {
         "package": "KeyboardShortcuts",
         "repositoryURL": "git@github.com:sindresorhus/KeyboardShortcuts.git",
         "state": {
