@@ -18,6 +18,8 @@ struct SettingsView: View {
                     Label("Visuals", systemImage: "eyeglasses")
                 }
         }
+        .frame(width: 500, height: 150, alignment: .leading)
+        .padding(.horizontal, 20)
     }
     
 }

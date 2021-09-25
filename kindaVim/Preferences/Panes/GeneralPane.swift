@@ -1,5 +1,4 @@
 import SwiftUI
-import Preferences
 import LaunchAtLogin
 import KeyboardShortcuts
 import Defaults
@@ -21,7 +20,9 @@ struct GeneralPane: View {
                 }
                 .padding(.top)
                                 
-                Text("by default Escape is used to enter Normal Mode.").preferenceDescription()
+                Text("by default Escape is used to enter Normal Mode.")
+                    .font(.footnote)
+                    .foregroundColor(.gray)
                     .padding(.horizontal)
             }
             .padding()

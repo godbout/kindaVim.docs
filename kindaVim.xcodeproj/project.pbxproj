@@ -362,7 +362,6 @@
 		91840E1526FE0A3000E6048E /* Defaults in Frameworks */ = {isa = PBXBuildFile; productRef = 91840E1426FE0A3000E6048E /* Defaults */; };
 		91840E1826FE0A4F00E6048E /* KeyboardShortcuts in Frameworks */ = {isa = PBXBuildFile; productRef = 91840E1726FE0A4F00E6048E /* KeyboardShortcuts */; };
 		91840E1B26FE0A6A00E6048E /* KeyCombination in Frameworks */ = {isa = PBXBuildFile; productRef = 91840E1A26FE0A6A00E6048E /* KeyCombination */; };
-		91840E1E26FE0A8A00E6048E /* Preferences in Frameworks */ = {isa = PBXBuildFile; productRef = 91840E1D26FE0A8A00E6048E /* Preferences */; };
 		91840E2126FE0AA800E6048E /* KeyboardStrategy in Frameworks */ = {isa = PBXBuildFile; productRef = 91840E2026FE0AA800E6048E /* KeyboardStrategy */; };
 		91840E2426FE0ACB00E6048E /* LaunchAtLogin in Frameworks */ = {isa = PBXBuildFile; productRef = 91840E2326FE0ACB00E6048E /* LaunchAtLogin */; };
 		91840E2726FE0AF000E6048E /* AccessibilityStrategy in Frameworks */ = {isa = PBXBuildFile; productRef = 91840E2626FE0AF000E6048E /* AccessibilityStrategy */; };
@@ -765,7 +764,6 @@
 			files = (
 				91840E2426FE0ACB00E6048E /* LaunchAtLogin in Frameworks */,
 				91840E1526FE0A3000E6048E /* Defaults in Frameworks */,
-				91840E1E26FE0A8A00E6048E /* Preferences in Frameworks */,
 				91840E2726FE0AF000E6048E /* AccessibilityStrategy in Frameworks */,
 				91840E1826FE0A4F00E6048E /* KeyboardShortcuts in Frameworks */,
 				91840E2126FE0AA800E6048E /* KeyboardStrategy in Frameworks */,
@@ -1426,7 +1424,6 @@
 				91840E1426FE0A3000E6048E /* Defaults */,
 				91840E1726FE0A4F00E6048E /* KeyboardShortcuts */,
 				91840E1A26FE0A6A00E6048E /* KeyCombination */,
-				91840E1D26FE0A8A00E6048E /* Preferences */,
 				91840E2026FE0AA800E6048E /* KeyboardStrategy */,
 				91840E2326FE0ACB00E6048E /* LaunchAtLogin */,
 				91840E2626FE0AF000E6048E /* AccessibilityStrategy */,
@@ -1513,7 +1510,6 @@
 				91840E1326FE0A3000E6048E /* XCRemoteSwiftPackageReference "Defaults" */,
 				91840E1626FE0A4F00E6048E /* XCRemoteSwiftPackageReference "KeyboardShortcuts" */,
 				91840E1926FE0A6A00E6048E /* XCRemoteSwiftPackageReference "KeyCombination" */,
-				91840E1C26FE0A8A00E6048E /* XCRemoteSwiftPackageReference "Preferences" */,
 				91840E1F26FE0AA800E6048E /* XCRemoteSwiftPackageReference "KeyboardStrategy" */,
 				91840E2226FE0ACB00E6048E /* XCRemoteSwiftPackageReference "LaunchAtLogin" */,
 				91840E2526FE0AF000E6048E /* XCRemoteSwiftPackageReference "AccessibilityStrategy" */,
@@ -2570,14 +2566,6 @@
 				kind = branch;
 			};
 		};
-		91840E1C26FE0A8A00E6048E /* XCRemoteSwiftPackageReference "Preferences" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "git@github.com:sindresorhus/Preferences.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.0.0;
-			};
-		};
 		91840E1F26FE0AA800E6048E /* XCRemoteSwiftPackageReference "KeyboardStrategy" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "git@github.com:godbout/KeyboardStrategy.git";
@@ -2619,11 +2607,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 91840E1926FE0A6A00E6048E /* XCRemoteSwiftPackageReference "KeyCombination" */;
 			productName = KeyCombination;
-		};
-		91840E1D26FE0A8A00E6048E /* Preferences */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 91840E1C26FE0A8A00E6048E /* XCRemoteSwiftPackageReference "Preferences" */;
-			productName = Preferences;
 		};
 		91840E2026FE0AA800E6048E /* KeyboardStrategy */ = {
 			isa = XCSwiftPackageProductDependency;
