@@ -3,7 +3,6 @@ import KeyCombination
 import KeyboardStrategy
 import AccessibilityStrategy
 import AXEngine
-import Defaults
 
 
 enum VimEngineMode {
@@ -28,6 +27,9 @@ enum VimEngineStrategy {
 class KindaVimEngine {
     
     static var shared = KindaVimEngine()
+
+    var toggleHazeOverWindow: Bool = true
+    var showCharactersTyped: Bool = false
     
     private var lastKeyCombinationPressed: KeyCombination?
     
@@ -65,7 +67,7 @@ class KindaVimEngine {
     }
     
     func handle(keyCombination: KeyCombination, enforceKeyboardStrategy: Bool = false) {
-        if Defaults[.showCharactersTyped] == true {
+        if showCharactersTyped == true {
             display.showKeysTyped(lastBeing: keyCombination)
         }
         
@@ -95,11 +97,11 @@ class KindaVimEngine {
         currentMode = .insert
         resetOperatorPendingBuffer()
         
-        if Defaults[.toggleHazeOverWindow] == true {
+        if toggleHazeOverWindow == true {
             display.hazeOver(.off)
         }
         
-        if Defaults[.showCharactersTyped] == true {
+        if showCharactersTyped == true {
             display.fadeOutCharactersWindow()
         }
     }
@@ -112,7 +114,7 @@ class KindaVimEngine {
         currentMode = .normal
         resetOperatorPendingBuffer()
         
-        if Defaults[.toggleHazeOverWindow] == true {
+        if toggleHazeOverWindow == true {
             display.hazeOver(.on)
         }
     }
