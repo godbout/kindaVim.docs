@@ -32,6 +32,7 @@ class StatusBarController {
     
     @objc func preferences() {
         NSApp.sendAction(Selector(("showPreferencesWindow:")), to: nil, from: nil)
+        NSApp.activate(ignoringOtherApps: true)        
     }
 
     @objc func quit() {
