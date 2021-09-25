@@ -1,12 +1,11 @@
 import SwiftUI
 import LaunchAtLogin
 import KeyboardShortcuts
-import Defaults
 
 
 struct GeneralPane: View {
 
-    @Default(.useCustomShortcutToEnterNormalMode) var useCustomShortcutToEnterNormalMode
+    @AppStorage(SettingsKeys.useCustomShortcutToEnterNormalMode) private var useCustomShortcutToEnterNormalMode: Bool = false
     
     var body: some View {
         

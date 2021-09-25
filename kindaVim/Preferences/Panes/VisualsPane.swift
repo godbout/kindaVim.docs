@@ -1,16 +1,21 @@
 import SwiftUI
-import Defaults
 
 
 struct VisualsPane: View {
 
-    @Default(.toggleHazeOverWindow) var toggleHazeOverWindow
-    @Default(.showCharactersTyped) var showCharactersTyped
+    @AppStorage(SettingsKeys.toggleHazeOverWindow) private var toggleHazeOverWindow: Bool = true
+    @AppStorage(SettingsKeys.showCharactersTyped) private var showCharactersTyped: Bool = false
 
     var body: some View {
         Form {
-            Defaults.Toggle("Focus the window that's Viming", key: .toggleHazeOverWindow)
-            Defaults.Toggle("Show characters typed", key: .showCharactersTyped)
+            Toggle("Focus the window that's Viming", isOn: $toggleHazeOverWindow)
+                .onChange(of: toggleHazeOverWindow) { 
+                    KindaVimEngine.shared.toggleHazeOverWindow = $0
+                }
+            Toggle("Show characters typed", isOn: $showCharactersTyped)
+                .onChange(of: showCharactersTyped) {
+                    KindaVimEngine.shared.showCharactersTyped = $0
+                }
         }
     }
     
