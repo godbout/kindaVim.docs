@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9118CEA726FEF90A005F0907 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9118CEA626FEF90A005F0907 /* SettingsView.swift */; };
 		916ACF9126FE086B000E9757 /* kindaVimApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916ACF9026FE086B000E9757 /* kindaVimApp.swift */; };
 		916ACF9526FE086C000E9757 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 916ACF9426FE086C000E9757 /* Assets.xcassets */; };
 		916ACF9826FE086C000E9757 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 916ACF9726FE086C000E9757 /* Preview Assets.xcassets */; };
@@ -398,6 +399,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9118CEA626FEF90A005F0907 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		916ACF8D26FE086B000E9757 /* kindaVim.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kindaVim.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		916ACF9026FE086B000E9757 /* kindaVimApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kindaVimApp.swift; sourceTree = "<group>"; };
 		916ACF9426FE086C000E9757 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -1329,6 +1331,7 @@
 				91840DE226FE096C00E6048E /* Defaults */,
 				91840DE426FE096C00E6048E /* Panes */,
 				91840DE826FE096C00E6048E /* PreferencesController.swift */,
+				9118CEA626FEF90A005F0907 /* SettingsView.swift */,
 			);
 			path = Preferences;
 			sourceTree = "<group>";
@@ -1565,6 +1568,7 @@
 				91D222F726FE0F2B00B9AF77 /* AppDelegate.swift in Sources */,
 				91840DEC26FE096C00E6048E /* StatusBarController.swift in Sources */,
 				91840DF026FE096C00E6048E /* HazeOverWindow.swift in Sources */,
+				9118CEA726FEF90A005F0907 /* SettingsView.swift in Sources */,
 				91840DF226FE096C00E6048E /* EventTapController.swift in Sources */,
 				91840DEF26FE096C00E6048E /* CharactersView.swift in Sources */,
 				916ACF9126FE086B000E9757 /* kindaVimApp.swift in Sources */,

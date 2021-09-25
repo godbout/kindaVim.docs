@@ -33,7 +33,7 @@ class StatusBarController {
     }
     
     @objc func preferences() {
-        preferencesController.window.show(preferencePane: .general)
+        NSApp.sendAction(Selector(("showPreferencesWindow:")), to: nil, from: nil)
     }
 
     @objc func quit() {
