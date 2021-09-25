@@ -5,7 +5,6 @@ import Preferences
 class StatusBarController {
     
     private var statusItem: NSStatusItem!
-    private lazy var preferencesController = PreferencesController()
     
     init() {
         setUpStatusItem()
