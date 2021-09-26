@@ -719,6 +719,10 @@ extension KindaVimEngine {
             ()
         case [.c, .T]:
             ()
+        case [.d, .a]:
+            ()
+        case [.d, .a, .w]:
+            parseOperatorCommandForNormalModeUsingKeyboardStrategy()
         case [.d, .b]:
             parseOperatorCommandForNormalModeUsingKeyboardStrategy()
         case [.d, .d]:
@@ -1044,6 +1048,10 @@ extension KindaVimEngine {
             enterInsertMode()
             
             post(ksNormalMode.ciw())
+        case [.d, .a]:
+            ()
+        case [.d, .a, .w]:
+            enterNormalMode()
         case [.d, .b]:
             enterNormalMode()
             
