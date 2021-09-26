@@ -722,7 +722,12 @@ extension KindaVimEngine {
         case [.d, .a]:
             ()
         case [.d, .a, .w]:
-            parseOperatorCommandForNormalModeUsingKeyboardStrategy()
+            if let element = asNormalMode.daw(on: focusedTextElement) {
+                enterNormalMode()
+                push(element: element)
+            } else {
+                parseOperatorCommandForNormalModeUsingKeyboardStrategy()
+            }
         case [.d, .b]:
             parseOperatorCommandForNormalModeUsingKeyboardStrategy()
         case [.d, .d]:
