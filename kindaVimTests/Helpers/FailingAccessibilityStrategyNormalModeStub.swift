@@ -101,6 +101,10 @@ struct FailingAccessibilityStrategyNormalModeStub: AccessibilityStrategyNormalMo
         return nil
     }
     
+    func D(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        return nil
+    }
+    
     func dd(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return nil
     }

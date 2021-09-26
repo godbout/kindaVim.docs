@@ -203,6 +203,12 @@ extension KindaVimEngine {
             }
         case .d:
             enterOperatorPendingForNormalMode(with: keyCombination)
+        case .D:
+            if let element = asNormalMode.D(on: focusedTextElement) {
+                push(element: element)
+            } else {
+                handleNormalModeUsingKeyboardStrategy(for: keyCombination)
+            }
         case .controlD:
             handleNormalModeUsingKeyboardStrategy(for: keyCombination)
         case .e:
@@ -466,6 +472,8 @@ extension KindaVimEngine {
             post(ksNormalMode.C())
         case .d:
             enterOperatorPendingForNormalMode(with: keyCombination)
+        case .D:
+            post(ksNormalMode.D())
         case .controlD:
             post(ksNormalMode.controlD())
         case .e:
