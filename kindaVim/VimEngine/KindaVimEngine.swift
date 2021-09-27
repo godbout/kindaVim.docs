@@ -323,8 +323,8 @@ extension KindaVimEngine {
         case .r:
             enterOperatorPendingForNormalMode(with: keyCombination)
         case .controlR:
-            if asNormalMode.controlR(on: focusedTextElement) != nil {
-                post(ksNormalMode.controlRForAXElement())
+            if let element = asNormalMode.controlR(on: focusedTextElement) {
+                push(element: element)
             } else {
                 handleNormalModeUsingKeyboardStrategy(for: keyCombination)
             }
@@ -335,8 +335,8 @@ extension KindaVimEngine {
         case .T:
             enterOperatorPendingForNormalMode(with: keyCombination)
         case .u:
-            if asNormalMode.u(on: focusedTextElement) != nil {
-                post(ksNormalMode.uForAXElement())
+            if let element = asNormalMode.u(on: focusedTextElement) {
+                push(element: element)
             } else {
                 handleNormalModeUsingKeyboardStrategy(for: keyCombination)
             }
