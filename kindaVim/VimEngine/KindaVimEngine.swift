@@ -1509,6 +1509,17 @@ extension KindaVimEngine {
     
     private func tryParsingOperatorCommandForVisualModeUsingAccessibilityStrategyFirst() {
         switch operatorPendingBuffer.map({ $0.vimKey }) {
+        case [.g, .dollarSign]:
+            switch visualStyle {
+            case .characterwise:
+                if let element = asVisualMode.gDollarSignForVisualStyleCharacterwise(on: focusedTextElement) {
+                    push(element: element)
+                }
+            case .linewise:
+                ()
+            }
+            
+            enterVisualMode()
         case [.g, .E]:
             switch visualStyle {
             case .characterwise:
