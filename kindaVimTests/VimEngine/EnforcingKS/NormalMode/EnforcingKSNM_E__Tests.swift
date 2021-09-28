@@ -8,10 +8,7 @@ class EnforcingKS__E__Tests: EnforcingKSNM_BaseTests {
     override func setUp() {
         super.setUp()
 
-        KindaVimEngine.shared.handle(
-            keyCombination: KeyCombination(vimKey: .E),
-            enforceKeyboardStrategy: true
-        )
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .E), enforceKeyboardStrategy: true)
     }
 
 }
