@@ -16,7 +16,7 @@ class EnforcingKS_D__Tests: EnforcingKSNM_BaseTests {
 
 extension EnforcingKS_D__Tests {
     
-    func test_that_it_calls_the_correct_function_on_accessibility_strategy() {
+    func test_that_it_calls_the_correct_function_on_KS() {
         XCTAssertEqual(ksNormalModeMock.functionCalled, "D()")
     }
     

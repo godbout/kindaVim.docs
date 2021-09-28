@@ -767,6 +767,13 @@ extension KindaVimEngine {
             ()
         case [.d, .T]:
             ()
+        case [.g, .dollarSign]:
+            if let element = asNormalMode.gDollarSign(on: focusedTextElement) {
+                enterNormalMode()
+                push(element: element)
+            } else {
+                parseOperatorCommandForNormalModeUsingKeyboardStrategy()
+            }
         case [.g, .E]:
             enterNormalMode()
             
@@ -1100,6 +1107,10 @@ extension KindaVimEngine {
             default:
                 post(ksNormalMode.dkForNonTextElement())
             }
+        case [.g, .dollarSign]:
+            enterNormalMode()
+            
+            post(ksNormalMode.gDollarSign())
         case [.g, .e]:
             enterNormalMode()
             

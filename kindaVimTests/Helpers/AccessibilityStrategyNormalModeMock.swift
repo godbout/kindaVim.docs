@@ -227,6 +227,12 @@ class AccessibilityStrategyNormalModeMock: AccessibilityStrategyNormalModeProtoc
         return element
     }
     
+    func gDollarSign(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        functionCalled = #function
+        
+        return element
+    }
+    
     func ge(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         

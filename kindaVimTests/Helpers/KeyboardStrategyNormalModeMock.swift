@@ -134,6 +134,12 @@ class KeyboardStrategyNormalModeMock: KeyboardStrategyNormalModeProtocol {
         
         return []
     }
+        
+    func gDollarSign() -> [KeyCombination] {
+        functionCalled = #function
+        
+        return []
+    }
     
     func ge() -> [KeyCombination] {
         functionCalled = #function
