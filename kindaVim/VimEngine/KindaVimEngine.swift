@@ -794,6 +794,13 @@ extension KindaVimEngine {
             } else {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
+        case [.g, .zero]:
+            if let element = asNormalMode.gZero(on: focusedTextElement) {
+                enterNormalMode()
+                push(element: element)
+            } else {
+                parseOperatorCommandForNormalModeUsingKeyboardStrategy()
+            }
         case [.leftBracket, .leftBrace]:
             enterNormalMode()
             
@@ -1124,6 +1131,10 @@ extension KindaVimEngine {
             default:
                 post(ksNormalMode.ggForNonTextElement())
             }
+        case [.g, .zero]:
+            enterNormalMode()
+            
+            post(ksNormalMode.gZero())
         case [.y, .i]:
             ()
         case [.y, .i, .w]:

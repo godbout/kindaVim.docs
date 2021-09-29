@@ -233,6 +233,12 @@ class AccessibilityStrategyNormalModeMock: AccessibilityStrategyNormalModeProtoc
         return element
     }
     
+    func gZero(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        functionCalled = #function
+        
+        return element
+    }
+    
     func ge(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         
