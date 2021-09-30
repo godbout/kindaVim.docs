@@ -429,9 +429,7 @@
 		916F10672703616C00423BFC /* SucceedingASVM_g$_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SucceedingASVM_g$_Tests.swift; sourceTree = "<group>"; };
 		916F10692703622D00423BFC /* FailingASVM_g$_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FailingASVM_g$_Tests.swift; sourceTree = "<group>"; };
 		9171481D2705897E00BC4593 /* EnforcingKSNM_g^_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EnforcingKSNM_g^_Tests.swift"; sourceTree = "<group>"; };
-		9171481F27058A2600BC4593 /* KeyboardStrategy */ = {isa = PBXFileReference; lastKnownFileType = folder; name = KeyboardStrategy; path = ../KeyboardStrategy; sourceTree = "<group>"; };
 		9171482027058B0600BC4593 /* SucceedingASNM_g^_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SucceedingASNM_g^_Tests.swift"; sourceTree = "<group>"; };
-		9171482227058B8700BC4593 /* AccessibilityStrategy */ = {isa = PBXFileReference; lastKnownFileType = folder; name = AccessibilityStrategy; path = ../AccessibilityStrategy; sourceTree = "<group>"; };
 		9171482327058C3300BC4593 /* FailingASNM_g^_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FailingASNM_g^_Tests.swift"; sourceTree = "<group>"; };
 		918022A22700C16C0094BF92 /* EnforcingKSNM_daw_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnforcingKSNM_daw_Tests.swift; sourceTree = "<group>"; };
 		918022A42700C24F0094BF92 /* FailingASNM_daw_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FailingASNM_daw_Tests.swift; sourceTree = "<group>"; };
@@ -830,8 +828,6 @@
 		916ACF8426FE086A000E9757 = {
 			isa = PBXGroup;
 			children = (
-				9171482227058B8700BC4593 /* AccessibilityStrategy */,
-				9171481F27058A2600BC4593 /* KeyboardStrategy */,
 				916ACF8F26FE086B000E9757 /* kindaVim */,
 				916ACFA126FE086C000E9757 /* kindaVimTests */,
 				916ACFAB26FE086C000E9757 /* kindaVimUITests */,
