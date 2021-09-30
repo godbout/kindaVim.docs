@@ -153,6 +153,10 @@ struct FailingAccessibilityStrategyNormalModeStub: AccessibilityStrategyNormalMo
         return nil
     }
     
+    func gCaret(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        return nil
+    }
+       
     func gDollarSign(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return nil
     }

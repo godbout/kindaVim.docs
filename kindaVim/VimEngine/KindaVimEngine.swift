@@ -767,6 +767,13 @@ extension KindaVimEngine {
             ()
         case [.d, .T]:
             ()
+        case [.g, .caret]:
+            if let element = asNormalMode.gCaret(on: focusedTextElement) {
+                enterNormalMode()
+                push(element: element)
+            } else {
+                parseOperatorCommandForNormalModeUsingKeyboardStrategy()
+            }
         case [.g, .dollarSign]:
             if let element = asNormalMode.gDollarSign(on: focusedTextElement) {
                 enterNormalMode()
@@ -1114,6 +1121,10 @@ extension KindaVimEngine {
             default:
                 post(ksNormalMode.dkForNonTextElement())
             }
+        case [.g, .caret]:
+            enterNormalMode()
+            
+            post(ksNormalMode.gCaret())
         case [.g, .dollarSign]:
             enterNormalMode()
             
