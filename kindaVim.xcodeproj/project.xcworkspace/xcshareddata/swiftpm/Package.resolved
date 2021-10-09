@@ -6,7 +6,7 @@
         "repositoryURL": "git@github.com:godbout/AccessibilityStrategy.git",
         "state": {
           "branch": "master",
-          "revision": "d2dac43c973549ae8ea932774ec9a630cff9104f",
+          "revision": "877d4790e116598cf489526eefc885cccbd53884",
           "version": null
         }
       },
@@ -51,8 +51,8 @@
         "repositoryURL": "git@github.com:sindresorhus/LaunchAtLogin.git",
         "state": {
           "branch": null,
-          "revision": "6b16bcdf7d45a9d76a768a5c4912dde925cf0e95",
-          "version": "4.1.0"
+          "revision": "e8171b3e38a2816f579f58f3dac1522aa39efe41",
+          "version": "4.2.0"
         }
       }
     ]
