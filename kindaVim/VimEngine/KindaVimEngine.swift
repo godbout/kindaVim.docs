@@ -256,13 +256,13 @@ extension KindaVimEngine {
                 handleNormalModeUsingKeyboardStrategy(for: keyCombination)
             }
         case .j:
-            if let element = asNormalMode.j(on: focusedTextElement) {
+            if let element = asNormalMode.gj(on: focusedTextElement) {
                 push(element: element)
             } else {
                 handleNormalModeUsingKeyboardStrategy(for: keyCombination)
             }
         case .k:
-            if let element = asNormalMode.k(on: focusedTextElement) {
+            if let element = asNormalMode.gk(on: focusedTextElement) {
                 push(element: element)
             } else {
                 handleNormalModeUsingKeyboardStrategy(for: keyCombination)
@@ -1294,13 +1294,13 @@ extension KindaVimEngine {
         case .j:
             switch visualStyle {
             case .characterwise:
-                if let element = asVisualMode.jForVisualStyleCharacterwise(on: focusedTextElement) {
+                if let element = asVisualMode.gjForVisualStyleCharacterwise(on: focusedTextElement) {
                     push(element: element)
                 } else {
                     handleVisualModeUsingKeyboardStrategy(for: keyCombination)
                 }
             case .linewise:
-                if let element = asVisualMode.jForVisualStyleLinewise(on: focusedTextElement) {
+                if let element = asVisualMode.gjForVisualStyleLinewise(on: focusedTextElement) {
                     push(element: element)
                 } else {
                     handleVisualModeUsingKeyboardStrategy(for: keyCombination)
@@ -1309,13 +1309,13 @@ extension KindaVimEngine {
         case .k:
             switch visualStyle {
             case .characterwise:
-                if let element = asVisualMode.kForVisualStyleCharacterwise(on: focusedTextElement) {
+                if let element = asVisualMode.gkForVisualStyleCharacterwise(on: focusedTextElement) {
                     push(element: element)
                 } else {
                     handleVisualModeUsingKeyboardStrategy(for: keyCombination)
                 }
             case .linewise:
-                if let element = asVisualMode.kForVisualStyleLinewise(on: focusedTextElement) {
+                if let element = asVisualMode.gkForVisualStyleLinewise(on: focusedTextElement) {
                     push(element: element)
                 } else {
                     handleVisualModeUsingKeyboardStrategy(for: keyCombination)
