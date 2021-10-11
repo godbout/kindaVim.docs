@@ -3,6 +3,7 @@ import KeyCombination
 import XCTest
 
 
+// see NM j for blah blah
 class SucceedingASVM_k_Tests: SucceedingASVM_BaseTests {
     
     private func applyMove() {
@@ -19,7 +20,7 @@ extension SucceedingASVM_k_Tests {
         KindaVimEngine.shared.visualStyle = .characterwise
         applyMove()
         
-        XCTAssertEqual(asVisualModeMock.functionCalled, "kForVisualStyleCharacterwise(on:)")
+        XCTAssertEqual(asVisualModeMock.functionCalled, "gkForVisualStyleCharacterwise(on:)")
     }
     
 }
@@ -32,7 +33,7 @@ extension SucceedingASVM_k_Tests {
         KindaVimEngine.shared.visualStyle = .linewise
         applyMove()
         
-        XCTAssertEqual(asVisualModeMock.functionCalled, "kForVisualStyleLinewise(on:)")
+        XCTAssertEqual(asVisualModeMock.functionCalled, "gkForVisualStyleLinewise(on:)")
     }
     
 }

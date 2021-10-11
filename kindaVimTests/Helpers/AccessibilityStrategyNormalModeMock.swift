@@ -263,6 +263,18 @@ class AccessibilityStrategyNormalModeMock: AccessibilityStrategyNormalModeProtoc
         return element
     }
     
+    func gj(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        functionCalled = #function
+
+        return element
+    }
+    
+    func gk(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        functionCalled = #function
+
+        return element
+    }
+    
     func G(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         
@@ -284,18 +296,6 @@ class AccessibilityStrategyNormalModeMock: AccessibilityStrategyNormalModeProtoc
     func I(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         
-        return element
-    }
-    
-    func j(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
-        functionCalled = #function
-
-        return element
-    }
-    
-    func k(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
-        functionCalled = #function
-
         return element
     }
     
