@@ -13,7 +13,7 @@ struct AccessibilityStrategyMock: AccessibilityStrategyProtocol {
             caretLocation: 0,
             selectedLength: 0,
             selectedText: "",
-            currentLine: AccessibilityTextElementLine(
+            currentScreenLine: ScreenLine(
                 fullTextValue: "",
                 fullTextLength: 0,
                 number: 1,
