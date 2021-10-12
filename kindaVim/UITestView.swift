@@ -10,6 +10,12 @@ struct TextView: NSViewRepresentable {
         
         nsTextView.font = NSFont.userFixedPitchFont(ofSize: 16)
         nsTextView.isAutomaticQuoteSubstitutionEnabled = false
+        nsTextView.isAutomaticSpellingCorrectionEnabled = false
+        nsTextView.isAutomaticDataDetectionEnabled = false
+        nsTextView.isAutomaticLinkDetectionEnabled = false
+        nsTextView.isAutomaticTextCompletionEnabled = false
+        nsTextView.isAutomaticDashSubstitutionEnabled = false
+        nsTextView.isAutomaticTextReplacementEnabled = false
         
         return nsTextView
     }
@@ -28,14 +34,7 @@ struct UITestView: View {
     var body: some View {
         VStack {
             TextField("single line text field for test", text: $textFieldValue)                
-                
-            if #available(macOS 11.0, *) {
-                TextEditor(text: $textViewValue)
-            } else {
-                TextView(text: $textViewValue)
-                    .frame(minWidth: 0, maxWidth: .infinity, minHeight: 200, maxHeight: .infinity)
-            }
-
+            TextEditor(text: $textViewValue)
             Button("wo'hevah", action: {})
         }
         .font(.system(size: 16, weight: .regular, design: .monospaced))
