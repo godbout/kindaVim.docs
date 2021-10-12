@@ -1187,6 +1187,8 @@ extension KindaVimEngine {
     
     private func tryHandlingVisualModeUsingAccessibilityStrategyFirst(for keyCombination: KeyCombination) {
         switch keyCombination.vimKey {
+        case .a:
+            enterOperatorPendingForVisualMode(with: keyCombination)
         case .B:
             switch visualStyle {
             case .characterwise:
@@ -1436,6 +1438,8 @@ extension KindaVimEngine {
     
     private func handleVisualModeUsingKeyboardStrategy(for keyCombination: KeyCombination) {
         switch keyCombination.vimKey {
+        case .a:
+            enterOperatorPendingForVisualMode(with: keyCombination)
         case .b:
             switch visualStyle {
             case .characterwise:
