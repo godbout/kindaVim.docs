@@ -19,7 +19,7 @@ struct AccessibilityStrategyMock: AccessibilityStrategyProtocol {
                 number: 1,
                 start: 0,
                 end: 0
-            )
+            )!
         )
     }
     
