@@ -261,6 +261,12 @@ extension KindaVimEngine {
             } else {
                 handleNormalModeUsingKeyboardStrategy(for: keyCombination)
             }
+        case .k:
+            if let element = asNormalMode.k(on: focusedTextElement) {
+                push(element: element)
+            } else {
+                handleNormalModeUsingKeyboardStrategy(for: keyCombination)
+            }
         case .l:
             if let element = asNormalMode.l(on: focusedTextElement) {
                 push(element: element)
@@ -495,6 +501,8 @@ extension KindaVimEngine {
             post(ksNormalMode.I())
         case .j:
             post(ksNormalMode.j())
+        case .k:
+            post(ksNormalMode.k())
         case .l:
             post(ksNormalMode.l())
         case .o:
