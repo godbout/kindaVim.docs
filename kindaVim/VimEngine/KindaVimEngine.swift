@@ -255,6 +255,12 @@ extension KindaVimEngine {
             } else {
                 handleNormalModeUsingKeyboardStrategy(for: keyCombination)
             }
+        case .j:
+            if let element = asNormalMode.j(on: focusedTextElement) {
+                push(element: element)
+            } else {
+                handleNormalModeUsingKeyboardStrategy(for: keyCombination)
+            }
         case .l:
             if let element = asNormalMode.l(on: focusedTextElement) {
                 push(element: element)
@@ -487,6 +493,8 @@ extension KindaVimEngine {
             enterInsertMode()
             
             post(ksNormalMode.I())
+        case .j:
+            post(ksNormalMode.j())
         case .l:
             post(ksNormalMode.l())
         case .o:

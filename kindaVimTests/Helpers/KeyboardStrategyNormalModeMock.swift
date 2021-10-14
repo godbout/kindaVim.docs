@@ -207,6 +207,18 @@ class KeyboardStrategyNormalModeMock: KeyboardStrategyNormalModeProtocol {
         return []
     }
     
+    func j() -> [KeyCombination] {
+        functionCalled = #function
+        
+        return []
+    }
+    
+    func k() -> [KeyCombination] {
+        functionCalled = #function
+        
+        return []
+    }
+    
     func l() -> [KeyCombination] {
         functionCalled = #function
         

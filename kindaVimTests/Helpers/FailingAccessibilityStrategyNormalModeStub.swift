@@ -177,6 +177,14 @@ struct FailingAccessibilityStrategyNormalModeStub: AccessibilityStrategyNormalMo
         return nil
     }
     
+    func gj(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        return nil
+    }
+    
+    func gk(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        return nil
+    }
+    
     func G(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return nil
     }
@@ -193,11 +201,7 @@ struct FailingAccessibilityStrategyNormalModeStub: AccessibilityStrategyNormalMo
         return nil
     }
     
-    func gj(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
-        return nil
-    }
-    
-    func gk(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func j(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return nil
     }
     
