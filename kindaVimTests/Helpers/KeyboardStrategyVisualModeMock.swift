@@ -38,6 +38,18 @@ class KeyboardStrategyVisualModeMock: KeyboardStrategyVisualModeProtocol {
         return []
     }
     
+    func gj() -> [KeyCombination] {
+        functionCalled = #function
+        
+        return []
+    }
+    
+    func gk() -> [KeyCombination] {
+        functionCalled = #function
+        
+        return []
+    }
+    
     func G() -> [KeyCombination] {
         functionCalled = #function
         
@@ -50,18 +62,6 @@ class KeyboardStrategyVisualModeMock: KeyboardStrategyVisualModeProtocol {
         return []
     }
        
-    func j() -> [KeyCombination] {
-        functionCalled = #function
-        
-        return []
-    }
-    
-    func k() -> [KeyCombination] {
-        functionCalled = #function
-        
-        return []
-    }
-        
     func l() -> [KeyCombination] {
         functionCalled = #function
         

@@ -3,9 +3,10 @@ import KeyCombination
 import XCTest
 
 
-class FailingASVM_j_Tests: FailingASVM_BaseTests {
+class FailingASVM_gj_Tests: FailingASVM_BaseTests {
     
-    private func applyKeyCombinationBeingTested() {
+    private func applyKeyCombinationsBeingTested() {
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .g))
         KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .j))
     }
     
@@ -13,36 +14,36 @@ class FailingASVM_j_Tests: FailingASVM_BaseTests {
 
 
 // VisualStyle Characterwise
-extension FailingASVM_j_Tests {
+extension FailingASVM_gj_Tests {
     
     func test_that_it_calls_the_relevant_KS_function_as_a_fallback_when_in_VisualStyle_Characterwise() {
         KindaVimEngine.shared.visualStyle = .characterwise
-        applyKeyCombinationBeingTested()
+        applyKeyCombinationsBeingTested()
         
-        XCTAssertEqual(ksVisualModeMock.functionCalled, "j()")
+        XCTAssertEqual(ksVisualModeMock.functionCalled, "gj()")
     }
 
 }
 
 
 // VisualStyle Linewise
-extension FailingASVM_j_Tests {
+extension FailingASVM_gj_Tests {
     
     func test_that_it_calls_the_relevant_KS_function_as_a_fallback_when_in_VisualStyle_Linewise() {
         KindaVimEngine.shared.visualStyle = .linewise
-        applyKeyCombinationBeingTested()
+        applyKeyCombinationsBeingTested()
         
-        XCTAssertEqual(ksVisualModeMock.functionCalled, "j()")
+        XCTAssertEqual(ksVisualModeMock.functionCalled, "gj()")
     }
 
 }
 
 
 // Both
-extension FailingASVM_j_Tests {
+extension FailingASVM_gj_Tests {
 
     func test_that_it_keeps_Vim_in_visual_mode() {
-        applyKeyCombinationBeingTested()
+        applyKeyCombinationsBeingTested()
         
         XCTAssertEqual(KindaVimEngine.shared.currentMode, .visual)
     }
