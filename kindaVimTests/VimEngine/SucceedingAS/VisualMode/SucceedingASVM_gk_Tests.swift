@@ -3,10 +3,11 @@ import KeyCombination
 import XCTest
 
 
-// see NM j for blah blah
-class SucceedingASVM_k_Tests: SucceedingASVM_BaseTests {
+// see NM gj for blah blah
+class SucceedingASVM_gk_Tests: SucceedingASVM_BaseTests {
     
     private func applyMove() {
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .g))
         KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .k))
     }
     
@@ -14,7 +15,7 @@ class SucceedingASVM_k_Tests: SucceedingASVM_BaseTests {
 
 
 // visualStyle character
-extension SucceedingASVM_k_Tests {    
+extension SucceedingASVM_gk_Tests {    
     
     func test_that_it_calls_the_correct_function_on_ASVM_when_visualStyle_is_characterwise() {
         KindaVimEngine.shared.visualStyle = .characterwise
@@ -27,7 +28,7 @@ extension SucceedingASVM_k_Tests {
 
 
 // visualStyle linewise
-extension SucceedingASVM_k_Tests {
+extension SucceedingASVM_gk_Tests {
     
     func test_that_it_calls_the_correct_function_on_ASVM_when_visualStyle_is_linewise() {
         KindaVimEngine.shared.visualStyle = .linewise
@@ -40,7 +41,7 @@ extension SucceedingASVM_k_Tests {
 
 
 // both
-extension SucceedingASVM_k_Tests {
+extension SucceedingASVM_gk_Tests {
     
     func test_that_it_keeps_Vim_in_visual_mode() {
         applyMove()
