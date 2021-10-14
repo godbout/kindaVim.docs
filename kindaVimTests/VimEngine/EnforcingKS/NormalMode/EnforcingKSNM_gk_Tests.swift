@@ -17,11 +17,11 @@ class EnforcingKS_gk_Tests: EnforcingKSNM_BaseTests {
 
 extension EnforcingKS_gk_Tests {
 
-    func test_that_k_calls_the_k_function_on_keyboard_strategy() {
+    func test_that_it_calls_the_correct_function_on_KS() {
         XCTAssertEqual(ksNormalModeMock.functionCalled, "gk()")
     }
     
-    func test_that_k_keeps_Vim_in_normal_mode() {
+    func test_that_it_keeps_Vim_in_normal_mode() {
         XCTAssertEqual(KindaVimEngine.shared.currentMode, .normal)
     }
     
