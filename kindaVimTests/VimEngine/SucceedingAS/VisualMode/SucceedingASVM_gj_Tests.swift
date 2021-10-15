@@ -3,7 +3,6 @@ import KeyCombination
 import XCTest
 
 
-// see NM gj for blah blah
 class SucceedingASVM_gj_Tests: SucceedingASVM_BaseTests {
     
     private func applyMove() {
