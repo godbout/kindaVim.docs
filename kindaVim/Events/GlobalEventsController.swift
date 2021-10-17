@@ -26,7 +26,7 @@ struct GlobalEventsController {
         
         if inNormalModeOrOperatorPendingModeOrVisualMode() {
             guard let implementedKeyCombination = keyCombination else { return true }
-
+            
             KindaVimEngine.shared.handle(
                 keyCombination: implementedKeyCombination,
                 enforceKeyboardStrategy: onAppForWhichToEnforceKeyboardStrategy()
