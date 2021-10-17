@@ -1562,6 +1562,8 @@ extension KindaVimEngine {
             case .characterwise:
                 if let element = asVisualMode.gDollarSignForVisualStyleCharacterwise(on: focusedTextElement) {
                     push(element: element)
+                } else {
+                    parseOperatorCommandForVisualModeUsingKeyboardStrategy()
                 }
             case .linewise:
                 ()
@@ -1654,6 +1656,8 @@ extension KindaVimEngine {
             case .characterwise:
                 if let element = asVisualMode.gZeroForVisualStyleCharacterwise(on: focusedTextElement) {
                     push(element: element)
+                } else {
+                    parseOperatorCommandForVisualModeUsingKeyboardStrategy()
                 }
             case .linewise:
                 ()
@@ -1707,6 +1711,15 @@ extension KindaVimEngine {
     
     private func parseOperatorCommandForVisualModeUsingKeyboardStrategy() {
         switch operatorPendingBuffer.map({ $0.vimKey }) {
+        case [.g, .dollarSign]:
+            switch visualStyle {
+            case .characterwise:
+                post(ksVisualMode.gDollarSign())
+            case .linewise:
+                ()
+            }
+            
+            enterVisualMode()
         case [.g, .e]:
             switch visualStyle {
             case .characterwise:
@@ -1726,6 +1739,15 @@ extension KindaVimEngine {
             enterVisualMode()
         case [.g, .k]:
             post(ksVisualMode.gk())
+            
+            enterVisualMode()
+        case [.g, .zero]:
+            switch visualStyle {
+            case .characterwise:
+                post(ksVisualMode.gZero())
+            case .linewise:
+                ()
+            }
             
             enterVisualMode()
         default:

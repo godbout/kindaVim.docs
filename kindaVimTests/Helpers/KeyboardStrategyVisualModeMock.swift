@@ -14,6 +14,12 @@ class KeyboardStrategyVisualModeMock: KeyboardStrategyVisualModeProtocol {
         return []
     }
     
+    func dollarSign() -> [KeyCombination] {
+        functionCalled = #function
+        
+        return []
+    }
+    
     func d() -> [KeyCombination] {
         functionCalled = #function
         
@@ -26,6 +32,12 @@ class KeyboardStrategyVisualModeMock: KeyboardStrategyVisualModeProtocol {
         return []
     }
     
+    func gDollarSign() -> [KeyCombination] {
+        functionCalled = #function
+        
+        return []
+    }
+        
     func ge() -> [KeyCombination] {
         functionCalled = #function
         
@@ -50,6 +62,12 @@ class KeyboardStrategyVisualModeMock: KeyboardStrategyVisualModeProtocol {
         return []
     }
     
+    func gZero() -> [KeyCombination] {
+        functionCalled = #function
+        
+        return []
+    }
+        
     func G() -> [KeyCombination] {
         functionCalled = #function
         
@@ -87,6 +105,12 @@ class KeyboardStrategyVisualModeMock: KeyboardStrategyVisualModeProtocol {
     }
    
     func y() -> [KeyCombination] {
+        functionCalled = #function
+        
+        return []
+    }
+        
+    func zero() -> [KeyCombination] {
         functionCalled = #function
         
         return []
