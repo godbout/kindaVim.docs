@@ -3,6 +3,7 @@ import KeyCombination
 import XCTest
 
 
+// TODO: now we have KS VM v and V. update accordingly.
 class FailingASVM_v_Tests: FailingASVM_BaseTests {
     
     private func applyKeyCombinationBeingTested() {

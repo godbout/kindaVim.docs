@@ -86,8 +86,10 @@ extension KindaVimEngine {
         case .controlU:
             post(ksNormalMode.controlU())
         case .v:
-            enterVisualMode()
+            enterVisualMode()            
             visualStyle = .characterwise
+            
+            post(ksVisualMode.vForEnteringFromNormalMode())
         case .V:
             enterVisualMode()
             visualStyle = .linewise

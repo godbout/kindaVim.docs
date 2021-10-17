@@ -51,10 +51,13 @@ extension KindaVimEngine {
                 ()
             }
         case .v:
-            if visualStyle == .characterwise {
+            switch visualStyle {
+            case .characterwise:
                 enterNormalMode()
-            } else {
+                post(ksVisualMode.vForVisualStyleCharacterwise())
+            case .linewise:
                 visualStyle = .characterwise
+                post(ksVisualMode.vForVisualStyleLinewise())
             }
         case .V:
             if visualStyle == .linewise {
