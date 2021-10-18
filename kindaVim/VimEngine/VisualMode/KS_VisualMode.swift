@@ -58,15 +58,14 @@ extension KindaVimEngine {
             case .characterwise:
                 post(ksVisualMode.jForVisualStyleCharacterwise())
             case .linewise:
-                ()
+                post(ksVisualMode.jForVisualStyleLinewise())
             }
-            post(ksVisualMode.jForVisualStyleCharacterwise())
         case .k:
             switch visualStyle {
             case .characterwise:
                 post(ksVisualMode.kForVisualStyleCharacterwise())
             case .linewise:
-                ()
+                post(ksVisualMode.kForVisualStyleLinewise())
             }
         case .l:
             switch visualStyle {
@@ -147,11 +146,21 @@ extension KindaVimEngine {
             
             enterVisualMode()
         case [.g, .j]:
-            post(ksVisualMode.gjForVisualStyleCharacterwise())
+            switch visualStyle {
+            case .characterwise:
+                post(ksVisualMode.gjForVisualStyleCharacterwise())
+            case .linewise:
+                post(ksVisualMode.gjForVisualStyleLinewise())
+            }
             
             enterVisualMode()
         case [.g, .k]:
-            post(ksVisualMode.gkForVisualStyleCharacterwise())
+            switch visualStyle {
+            case .characterwise:
+                post(ksVisualMode.gkForVisualStyleCharacterwise())
+            case .linewise:
+                post(ksVisualMode.gkForVisualStyleLinewise())
+            }
             
             enterVisualMode()
         case [.g, .zero]:

@@ -33,7 +33,7 @@ extension FailingASVM_gk_Tests {
         KindaVimEngine.shared.visualStyle = .linewise
         applyKeyCombinationBeingTested()
         
-        XCTAssertEqual(ksVisualModeMock.functionCalled, "gkForVisualStyleCharacterwise()")
+        XCTAssertEqual(ksVisualModeMock.functionCalled, "gkForVisualStyleLinewise()")
     }
 
 }
