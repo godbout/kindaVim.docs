@@ -42,8 +42,12 @@ extension KindaVimEngine {
         case .g:
             enterOperatorPendingForVisualMode(with: keyCombination)
         case .G:
-            // TODO: differentiation between C and L??
-            post(ksVisualMode.GForVisualStyleCharacterwise())
+            switch visualStyle {
+            case .characterwise:
+                post(ksVisualMode.GForVisualStyleCharacterwise())
+            case .linewise:
+                post(ksVisualMode.GForVisualStyleLinewise())
+            }
         case .h:
             switch visualStyle {
             case .characterwise:
@@ -142,7 +146,12 @@ extension KindaVimEngine {
             
             enterVisualMode()
         case [.g, .g]:
-            post(ksVisualMode.ggForVisualStyleCharacterwise())
+            switch visualStyle {
+            case .characterwise:
+                post(ksVisualMode.ggForVisualStyleCharacterwise())
+            case .linewise:
+                post(ksVisualMode.ggForVisualStyleLinewise())
+            }
             
             enterVisualMode()
         case [.g, .j]:

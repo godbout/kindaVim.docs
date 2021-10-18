@@ -33,7 +33,7 @@ extension EnforcingKSVM_gg_Tests {
         KindaVimEngine.shared.visualStyle = .linewise
         applyKeyCombinationsBeingTested()
         
-        XCTAssertEqual(ksVisualModeMock.functionCalled, "ggForVisualStyleCharacterwise()")
+        XCTAssertEqual(ksVisualModeMock.functionCalled, "ggForVisualStyleLinewise()")
     }
 
 }

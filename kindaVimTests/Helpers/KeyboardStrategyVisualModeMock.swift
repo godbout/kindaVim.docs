@@ -56,6 +56,12 @@ class KeyboardStrategyVisualModeMock: KeyboardStrategyVisualModeProtocol {
         return []
     }
     
+    func ggForVisualStyleLinewise() -> [KeyCombination] {
+        functionCalled = #function
+        
+        return []
+    }
+    
     func gjForVisualStyleCharacterwise() -> [KeyCombination] {
         functionCalled = #function
         
@@ -87,6 +93,12 @@ class KeyboardStrategyVisualModeMock: KeyboardStrategyVisualModeProtocol {
     }
         
     func GForVisualStyleCharacterwise() -> [KeyCombination] {
+        functionCalled = #function
+        
+        return []
+    }
+    
+    func GForVisualStyleLinewise() -> [KeyCombination] {
         functionCalled = #function
         
         return []
