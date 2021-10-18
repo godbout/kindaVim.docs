@@ -35,11 +35,15 @@ extension KindaVimEngine {
             case .characterwise:
                 if let element = asVisualMode.cForVisualStyleCharacterwise(on: focusedTextElement) {
                     push(element: element)
-                }       
+                } else {
+                    handleVisualModeUsingKeyboardStrategy(for: keyCombination)
+                }
             case .linewise:
                 if let element = asVisualMode.cForVisualStyleLinewise(on: focusedTextElement) {
                     push(element: element)
-                } 
+                } else {
+                    handleVisualModeUsingKeyboardStrategy(for: keyCombination)
+                }
             }
         case .d:
             switch visualStyle {

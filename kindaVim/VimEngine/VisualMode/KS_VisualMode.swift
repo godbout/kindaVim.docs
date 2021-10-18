@@ -15,6 +15,10 @@ extension KindaVimEngine {
             case .linewise:
                 ()
             }
+        case .c:
+            post(ksVisualMode.c())
+            
+            enterInsertMode()
         case .d:
             post(ksVisualMode.d())
             
