@@ -20,7 +20,7 @@ extension EnforcingKSVM_gg_Tests {
         KindaVimEngine.shared.visualStyle = .characterwise
         applyKeyCombinationsBeingTested()
         
-        XCTAssertEqual(ksVisualModeMock.functionCalled, "gg()")
+        XCTAssertEqual(ksVisualModeMock.functionCalled, "ggForVisualStyleCharacterwise()")
     }
 
 }
@@ -33,7 +33,7 @@ extension EnforcingKSVM_gg_Tests {
         KindaVimEngine.shared.visualStyle = .linewise
         applyKeyCombinationsBeingTested()
         
-        XCTAssertEqual(ksVisualModeMock.functionCalled, "gg()")
+        XCTAssertEqual(ksVisualModeMock.functionCalled, "ggForVisualStyleCharacterwise()")
     }
 
 }

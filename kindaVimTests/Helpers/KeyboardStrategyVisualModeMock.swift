@@ -8,13 +8,13 @@ class KeyboardStrategyVisualModeMock: KeyboardStrategyVisualModeProtocol {
     
     var functionCalled = ""
     
-    func b() -> [KeyCombination] {
+    func bForVisualStyleCharacterwise() -> [KeyCombination] {
         functionCalled = #function
         
         return []
     }
     
-    func dollarSign() -> [KeyCombination] {
+    func c() -> [KeyCombination] {
         functionCalled = #function
         
         return []
@@ -26,73 +26,79 @@ class KeyboardStrategyVisualModeMock: KeyboardStrategyVisualModeProtocol {
         return []
     }
     
-    func e() -> [KeyCombination] {
+    func dollarSignForVisualStyleCharacterwise() -> [KeyCombination] {
         functionCalled = #function
         
         return []
     }
     
-    func gDollarSign() -> [KeyCombination] {
-        functionCalled = #function
-        
-        return []
-    }
-        
-    func ge() -> [KeyCombination] {
+    func eForVisualStyleCharacterwise() -> [KeyCombination] {
         functionCalled = #function
         
         return []
     }
     
-    func gg() -> [KeyCombination] {
+    func gDollarSignForVisualStyleCharacterwise() -> [KeyCombination] {
+        functionCalled = #function
+        
+        return []
+    }
+        
+    func geForVisualStyleCharacterwise() -> [KeyCombination] {
         functionCalled = #function
         
         return []
     }
     
-    func gj() -> [KeyCombination] {
+    func ggForVisualStyleCharacterwise() -> [KeyCombination] {
         functionCalled = #function
         
         return []
     }
     
-    func gk() -> [KeyCombination] {
+    func gjForVisualStyleCharacterwise() -> [KeyCombination] {
         functionCalled = #function
         
         return []
     }
     
-    func gZero() -> [KeyCombination] {
-        functionCalled = #function
-        
-        return []
-    }
-        
-    func G() -> [KeyCombination] {
+    func gkForVisualStyleCharacterwise() -> [KeyCombination] {
         functionCalled = #function
         
         return []
     }
     
-    func h() -> [KeyCombination] {
+    func gZeroForVisualStyleCharacterwise() -> [KeyCombination] {
+        functionCalled = #function
+        
+        return []
+    }
+        
+    func GForVisualStyleCharacterwise() -> [KeyCombination] {
         functionCalled = #function
         
         return []
     }
     
-    func j() -> [KeyCombination] {
+    func hForVisualStyleCharacterwise() -> [KeyCombination] {
+        functionCalled = #function
+        
+        return []
+    }
+    
+    func jForVisualStyleCharacterwise() -> [KeyCombination] {
         functionCalled = #function
         
         return []
     }
        
-    func k() -> [KeyCombination] {
+    func kForVisualStyleCharacterwise() -> [KeyCombination] {
         functionCalled = #function
         
         return []
     }
        
-    func l() -> [KeyCombination] {
+    func lForVisualStyleCharacterwise() -> [KeyCombination] {
         functionCalled = #function
         
         return []
@@ -134,7 +140,7 @@ class KeyboardStrategyVisualModeMock: KeyboardStrategyVisualModeProtocol {
         return []
     }
         
-    func w() -> [KeyCombination] {
+    func wForVisualStyleCharacterwise() -> [KeyCombination] {
         functionCalled = #function
         
         return []
@@ -146,7 +152,7 @@ class KeyboardStrategyVisualModeMock: KeyboardStrategyVisualModeProtocol {
         return []
     }
         
-    func zero() -> [KeyCombination] {
+    func zeroForVisualStyleCharacterwise() -> [KeyCombination] {
         functionCalled = #function
         
         return []

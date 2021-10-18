@@ -20,7 +20,7 @@ extension FailingASVM_g$_Tests {
         KindaVimEngine.shared.visualStyle = .characterwise
         applyKeyCombinationBeingTested()
         
-        XCTAssertEqual(ksVisualModeMock.functionCalled, "gDollarSign()")
+        XCTAssertEqual(ksVisualModeMock.functionCalled, "gDollarSignForVisualStyleCharacterwise()")
     }
 
 }

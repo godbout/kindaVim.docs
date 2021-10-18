@@ -22,7 +22,7 @@ extension EnforcingKSVM_b_Tests {
         KindaVimEngine.shared.visualStyle = .characterwise
         applyKeyCombinationBeingTested()
         
-        XCTAssertEqual(ksVisualModeMock.functionCalled, "b()")
+        XCTAssertEqual(ksVisualModeMock.functionCalled, "bForVisualStyleCharacterwise()")
     }
 
 }

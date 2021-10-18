@@ -19,7 +19,7 @@ extension EnforcingKSVM_j_Tests {
         KindaVimEngine.shared.visualStyle = .characterwise
         applyKeyCombinationsBeingTested()
         
-        XCTAssertEqual(ksVisualModeMock.functionCalled, "j()")
+        XCTAssertEqual(ksVisualModeMock.functionCalled, "jForVisualStyleCharacterwise()")
     }
 
 }
@@ -32,7 +32,7 @@ extension EnforcingKSVM_j_Tests {
         KindaVimEngine.shared.visualStyle = .linewise
         applyKeyCombinationsBeingTested()
         
-        XCTAssertEqual(ksVisualModeMock.functionCalled, "j()")
+        XCTAssertEqual(ksVisualModeMock.functionCalled, "jForVisualStyleCharacterwise()")
     }
 
 }

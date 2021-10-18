@@ -19,7 +19,7 @@ extension FailingASVM_w_Tests {
         KindaVimEngine.shared.visualStyle = .characterwise
         applyKeyCombinationBeingTested()
         
-        XCTAssertEqual(ksVisualModeMock.functionCalled, "w()")
+        XCTAssertEqual(ksVisualModeMock.functionCalled, "wForVisualStyleCharacterwise()")
     }
 
 }
