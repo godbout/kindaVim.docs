@@ -16,8 +16,8 @@ class FailingASNM_i_Tests: FailingAS_BaseTests {
 
 extension FailingASNM_i_Tests {
     
-    func test_that_it_does_not_calls_any_KS_function_because_there_is_none_needed_for_that_move() {
-        XCTAssertEqual(ksNormalModeMock.functionCalled, "")
+    func test_that_it_calls_the_relevant_KS_function_as_a_fallback() {
+        XCTAssertEqual(ksNormalModeMock.functionCalled, "i()")
     }
     
     func test_that_it_switches_Vim_into_insert_mode() {

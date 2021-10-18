@@ -47,6 +47,8 @@ extension KindaVimEngine {
             post(ksNormalMode.h())
         case .i:
             enterInsertMode()
+            
+            post(ksNormalMode.i())
         case .I:
             enterInsertMode()
             
