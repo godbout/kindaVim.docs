@@ -3,19 +3,22 @@ import KeyCombination
 import XCTest
 
 
-class FailingASVM_$_Tests: FailingASVM_BaseTests {
+class EnforcingKSVM_$_Tests: EnforcingKSVM_BaseTests {
     
     private func applyKeyCombinationBeingTested() {
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .dollarSign))
+        KindaVimEngine.shared.handle(
+            keyCombination: KeyCombination(vimKey: .dollarSign),
+            enforceKeyboardStrategy: true
+        )
     }
-    
+
 }
 
 
 // VisualStyle Characterwise
-extension FailingASVM_$_Tests {
-    
-    func test_that_it_calls_the_relevant_KS_function_as_a_fallback_when_in_VisualStyle_Characterwise() {
+extension EnforcingKSVM_$_Tests {
+
+    func test_that_it_calls_the_correct_function_on_KS_when_in_VisualStyle_Characterwise() {
         KindaVimEngine.shared.visualStyle = .characterwise
         applyKeyCombinationBeingTested()
         
@@ -26,9 +29,9 @@ extension FailingASVM_$_Tests {
 
 
 // VisualStyle Linewise
-extension FailingASVM_$_Tests {
-    
-    func test_that_it_does_not_calls_any_KS_function_because_this_move_does_not_exist_for_VisualStyle_Linewise() {
+extension EnforcingKSVM_$_Tests {
+
+    func test_that_it_does_not_call_any_function_on_KS_because_this_move_does_not_exist_for_VisualStyle_Linewise() {
         KindaVimEngine.shared.visualStyle = .linewise
         applyKeyCombinationBeingTested()
         
@@ -39,7 +42,7 @@ extension FailingASVM_$_Tests {
 
 
 // Both
-extension FailingASVM_$_Tests {
+extension EnforcingKSVM_$_Tests {
     
     func test_that_it_keeps_Vim_in_visual_mode() {
         applyKeyCombinationBeingTested()

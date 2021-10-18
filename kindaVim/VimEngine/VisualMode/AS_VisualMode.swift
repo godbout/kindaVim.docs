@@ -62,10 +62,10 @@ extension KindaVimEngine {
                     handleVisualModeUsingKeyboardStrategy(for: keyCombination)
                 }
             }
-        case .e:
+        case .dollarSign:
             switch visualStyle {
             case .characterwise:
-                if let element = asVisualMode.eForVisualStyleCharacterwise(on: focusedTextElement) {
+                if let element = asVisualMode.dollarSignForVisualStyleCharacterwise(on: focusedTextElement) {
                     push(element: element)
                 } else {
                     handleVisualModeUsingKeyboardStrategy(for: keyCombination)
@@ -82,6 +82,21 @@ extension KindaVimEngine {
             case .linewise:
                 ()
             }
+        case .e:
+            switch visualStyle {
+            case .characterwise:
+                if let element = asVisualMode.eForVisualStyleCharacterwise(on: focusedTextElement) {
+                    push(element: element)
+                } else {
+                    handleVisualModeUsingKeyboardStrategy(for: keyCombination)
+                }
+            case .linewise:
+                ()
+            }
+        case .escape:
+            // currently a hack
+            // so that we can comment multiple lines by keeping the VM selection :D
+            enterInsertMode()
         case .f:
             enterOperatorPendingForVisualMode(with: keyCombination)
         case .F:
@@ -242,18 +257,17 @@ extension KindaVimEngine {
                     handleVisualModeUsingKeyboardStrategy(for: keyCombination)
                 }
             }
-        case .dollarSign:
-            if visualStyle == .characterwise, let element = asVisualMode.dollarSignForVisualStyleCharacterwise(on: focusedTextElement) {
-                push(element: element)
-            }           
-        case .escape:
-            // currently a hack
-            // so that we can comment multiple lines by keeping the VM selection :D
-            enterInsertMode()
         case .zero:
-            if visualStyle == .characterwise, let element = asVisualMode.zeroForVisualStyleCharacterwise(on: focusedTextElement) {
-                push(element: element)
-            }  
+            switch visualStyle {
+            case .characterwise:
+                if let element = asVisualMode.zeroForVisualStyleCharacterwise(on: focusedTextElement) {
+                    push(element: element)
+                } else {
+                    handleVisualModeUsingKeyboardStrategy(for: keyCombination)
+                }
+            case .linewise:
+                ()
+            }
         default:
             ()
         }

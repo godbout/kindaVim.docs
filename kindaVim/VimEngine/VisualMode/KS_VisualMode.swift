@@ -23,6 +23,13 @@ extension KindaVimEngine {
             post(ksVisualMode.d())
             
             enterNormalMode()
+        case .dollarSign:
+            switch visualStyle {
+            case .characterwise:
+                post(ksVisualMode.dollarSignForVisualStyleCharacterwise())
+            case .linewise:
+                ()
+            }
         case .e:
             switch visualStyle {
             case .characterwise:
@@ -30,9 +37,12 @@ extension KindaVimEngine {
             case .linewise:
                 ()
             }
+        case .escape:
+            enterInsertMode()
         case .g:
             enterOperatorPendingForVisualMode(with: keyCombination)
         case .G:
+            // TODO: differentiation between C and L??
             post(ksVisualMode.GForVisualStyleCharacterwise())
         case .h:
             switch visualStyle {
@@ -94,8 +104,13 @@ extension KindaVimEngine {
             post(ksVisualMode.y())
             
             enterNormalMode()
-        case .escape:
-            enterInsertMode()
+        case .zero:
+            switch visualStyle {
+            case .characterwise:
+                post(ksVisualMode.zeroForVisualStyleCharacterwise())
+            case .linewise:
+                ()
+            }
         default:
             ()
         }
