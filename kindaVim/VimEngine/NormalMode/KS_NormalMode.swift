@@ -93,6 +93,8 @@ extension KindaVimEngine {
         case .V:
             enterVisualMode()
             visualStyle = .linewise
+            
+            post(ksVisualMode.VForEnteringFromNormalMode())
         case .w:
             post(ksNormalMode.w())
         case .x:

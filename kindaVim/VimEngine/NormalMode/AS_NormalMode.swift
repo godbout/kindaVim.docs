@@ -192,6 +192,8 @@ extension KindaVimEngine {
             
             if let element = asVisualMode.vForEnteringFromNormalMode(on: focusedTextElement) {
                 push(element: element)
+            } else { 
+                handleNormalModeUsingKeyboardStrategy(for: keyCombination)
             }
         case .V:
             enterVisualMode()
@@ -199,6 +201,8 @@ extension KindaVimEngine {
             
             if let element = asVisualMode.VForEnteringFromNormalMode(on: focusedTextElement) {
                 push(element: element)
+            } else { 
+                handleNormalModeUsingKeyboardStrategy(for: keyCombination)
             }
         case .w:
             if let element = asNormalMode.w(on: focusedTextElement) {

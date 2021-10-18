@@ -60,10 +60,13 @@ extension KindaVimEngine {
                 post(ksVisualMode.vForVisualStyleLinewise())
             }
         case .V:
-            if visualStyle == .linewise {
-                enterNormalMode()
-            } else {
+            switch visualStyle {
+            case .characterwise:
                 visualStyle = .linewise
+                post(ksVisualMode.VForVisualStyleCharacterwise())
+            case .linewise:
+                enterNormalMode()
+                post(ksVisualMode.VForVisualStyleLinewise())
             }
         case .w:
             switch visualStyle {
