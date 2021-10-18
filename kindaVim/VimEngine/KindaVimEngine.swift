@@ -154,9 +154,18 @@ class KindaVimEngine {
         }
     }
     
-    func enterNormalMode() {
-        if currentMode == .insert, let element = asNormalMode.h(on: focusedTextElement) {
-            _ = push(element: element)
+    func enterNormalMode(enforceKeyboardStrategy: Bool = false) {
+        if currentMode == .insert {
+            switch enforceKeyboardStrategy {
+            case true:
+                post(ksNormalMode.h())
+            case false:
+                if let element = asNormalMode.h(on: focusedTextElement) {
+                    _ = push(element: element)
+                } else {
+                    post(ksNormalMode.h())
+                }
+            }
         }
         
         currentMode = .normal

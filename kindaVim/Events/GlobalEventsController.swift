@@ -24,12 +24,14 @@ struct GlobalEventsController {
             return false
         }
         
+        let enforceKeyboardStrategy = onAppForWhichToEnforceKeyboardStrategy()
+        
         if inNormalModeOrOperatorPendingModeOrVisualMode() {
             guard let implementedKeyCombination = keyCombination else { return true }
             
             KindaVimEngine.shared.handle(
                 keyCombination: implementedKeyCombination,
-                enforceKeyboardStrategy: onAppForWhichToEnforceKeyboardStrategy()
+                enforceKeyboardStrategy: enforceKeyboardStrategy
             )
 
             return true
@@ -38,7 +40,7 @@ struct GlobalEventsController {
         guard let implementedKeyCombination = keyCombination else { return false }
 
         if globalVimEngineHotkeyIsPressed(implementedKeyCombination) {
-            KindaVimEngine.shared.enterNormalMode()
+            KindaVimEngine.shared.enterNormalMode(enforceKeyboardStrategy: enforceKeyboardStrategy)
             
             print("enter Normal Mode")
             
