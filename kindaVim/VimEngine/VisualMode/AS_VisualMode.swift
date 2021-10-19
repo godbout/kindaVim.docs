@@ -45,6 +45,17 @@ extension KindaVimEngine {
                     handleVisualModeUsingKeyboardStrategy(for: keyCombination)
                 }
             }
+        case .caret:
+            switch visualStyle {
+            case .characterwise:
+                if let element = asVisualMode.caretForVisualStyleCharacterwise(on: focusedTextElement) {
+                    push(element: element)
+                } else {
+                    handleVisualModeUsingKeyboardStrategy(for: keyCombination)
+                }
+            case .linewise:
+                ()
+            }
         case .d:
             switch visualStyle {
             case .characterwise:
@@ -180,6 +191,17 @@ extension KindaVimEngine {
             enterOperatorPendingForVisualMode(with: keyCombination)
         case .T:
             enterOperatorPendingForVisualMode(with: keyCombination)
+        case .underscore:
+            switch visualStyle {
+            case .characterwise:
+                if let element = asVisualMode.underscoreForVisualStyleCharacterwise(on: focusedTextElement) {
+                    push(element: element)
+                } else {
+                    handleVisualModeUsingKeyboardStrategy(for: keyCombination)
+                }
+            case .linewise:
+                ()
+            }
         case .v:
             switch visualStyle {
             case .characterwise:
@@ -283,6 +305,19 @@ extension KindaVimEngine {
     
     func tryParsingOperatorCommandForVisualModeUsingAccessibilityStrategyFirst() {
         switch operatorPendingBuffer.map({ $0.vimKey }) {
+        case [.g, .caret]:
+            switch visualStyle {
+            case .characterwise:
+                if let element = asVisualMode.gCaretForVisualStyleCharacterwise(on: focusedTextElement) {
+                    push(element: element)
+                } else {
+                    parseOperatorCommandForVisualModeUsingKeyboardStrategy()
+                }
+            case .linewise:
+                ()
+            }
+            
+            enterVisualMode()
         case [.g, .dollarSign]:
             switch visualStyle {
             case .characterwise:

@@ -20,6 +20,12 @@ class KeyboardStrategyVisualModeMock: KeyboardStrategyVisualModeProtocol {
         return []
     }
     
+    func caretForVisualStyleCharacterwise() -> [KeyCombination] {
+        functionCalled = #function
+        
+        return []
+    }
+    
     func d() -> [KeyCombination] {
         functionCalled = #function
         
@@ -141,6 +147,12 @@ class KeyboardStrategyVisualModeMock: KeyboardStrategyVisualModeProtocol {
     }
        
     func lForVisualStyleCharacterwise() -> [KeyCombination] {
+        functionCalled = #function
+        
+        return []
+    }
+    
+    func underscoreForVisualStyleCharacterwise() -> [KeyCombination] {
         functionCalled = #function
         
         return []

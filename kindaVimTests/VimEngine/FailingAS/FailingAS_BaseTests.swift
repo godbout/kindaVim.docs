@@ -15,6 +15,9 @@ class FailingAS_BaseTests: XCTestCase {
         KindaVimEngine.shared.asNormalMode = FailingAccessibilityStrategyNormalModeStub()
         KindaVimEngine.shared.asVisualMode = FailingAccessibilityStrategyVisualModeStub()
         KindaVimEngine.shared.enterNormalMode()        
+        
+        ksNormalModeMock.functionCalled = ""
+        ksVisualModeMock.functionCalled = ""
     }
     
 }

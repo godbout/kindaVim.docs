@@ -19,6 +19,13 @@ extension KindaVimEngine {
             post(ksVisualMode.c())
             
             enterInsertMode()
+        case .caret:
+            switch visualStyle {
+            case .characterwise:
+                post(ksVisualMode.caretForVisualStyleCharacterwise())
+            case .linewise:
+                ()
+            }
         case .d:
             post(ksVisualMode.d())
             
@@ -75,6 +82,13 @@ extension KindaVimEngine {
             switch visualStyle {
             case .characterwise:
                 post(ksVisualMode.lForVisualStyleCharacterwise())
+            case .linewise:
+                ()
+            }
+        case .underscore:
+            switch visualStyle {
+            case .characterwise:
+                post(ksVisualMode.underscoreForVisualStyleCharacterwise())
             case .linewise:
                 ()
             }
