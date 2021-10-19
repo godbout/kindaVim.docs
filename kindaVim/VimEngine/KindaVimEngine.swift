@@ -156,16 +156,7 @@ class KindaVimEngine {
     
     func enterNormalMode(enforceKeyboardStrategy: Bool = false) {
         if currentMode == .insert {
-            switch enforceKeyboardStrategy {
-            case true:
-                post(ksNormalMode.h())
-            case false:
-                if let element = asNormalMode.h(on: focusedTextElement) {
-                    _ = push(element: element)
-                } else {
-                    post(ksNormalMode.h())
-                }
-            }
+            goBackOneCharacterForTextElements(enforceKeyboardStrategy: enforceKeyboardStrategy)
         }
         
         currentMode = .normal
@@ -173,6 +164,21 @@ class KindaVimEngine {
         
         if toggleHazeOverWindow == true {
             display.hazeOver(.on)
+        }
+    }
+        
+    private func goBackOneCharacterForTextElements(enforceKeyboardStrategy: Bool) {
+        switch (focusedElementType, enforceKeyboardStrategy) {
+        case (.textElement, true):
+            post(ksNormalMode.h())
+        case (.textElement, false):
+            if let element = asNormalMode.h(on: focusedTextElement) {
+                _ = push(element: element)
+            } else {
+                post(ksNormalMode.h())
+            }
+        default:
+            ()
         }
     }
     
