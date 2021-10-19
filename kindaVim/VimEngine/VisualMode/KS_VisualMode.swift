@@ -127,6 +127,15 @@ extension KindaVimEngine {
     
     func parseOperatorCommandForVisualModeUsingKeyboardStrategy() {
         switch operatorPendingBuffer.map({ $0.vimKey }) {
+        case [.g, .caret]:
+            switch visualStyle {
+            case .characterwise:
+                post(ksVisualMode.gCaretForVisualStyleCharacterwise())
+            case .linewise:
+                ()
+            }
+            
+            enterVisualMode()
         case [.g, .dollarSign]:
             switch visualStyle {
             case .characterwise:

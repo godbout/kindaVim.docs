@@ -37,6 +37,12 @@ class KeyboardStrategyVisualModeMock: KeyboardStrategyVisualModeProtocol {
         
         return []
     }
+        
+    func gCaretForVisualStyleCharacterwise() -> [KeyCombination] {
+        functionCalled = #function
+        
+        return []
+    }
     
     func gDollarSignForVisualStyleCharacterwise() -> [KeyCombination] {
         functionCalled = #function
