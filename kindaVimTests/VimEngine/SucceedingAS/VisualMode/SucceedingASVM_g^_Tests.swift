@@ -16,7 +16,6 @@ class SucceedingASVM_gCaret_Tests: SucceedingASVM_BaseTests {
 // visualStyle character
 extension SucceedingASVM_gCaret_Tests {    
     
-    // TODO: implement
     func test_that_it_calls_the_correct_function_on_ASVM_when_visualStyle_is_characterwise() {
         KindaVimEngine.shared.visualStyle = .characterwise
         applyMove()
