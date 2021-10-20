@@ -6,8 +6,8 @@ import XCTest
 class FailingASNM_dj_Tests: FailingAS_BaseTests {
     
     private func applyMoveBeingTested() {
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .d), enforceKeyboardStrategy: true)
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .j), enforceKeyboardStrategy: true)
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .d))
+        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .j))
     }
 
 }
