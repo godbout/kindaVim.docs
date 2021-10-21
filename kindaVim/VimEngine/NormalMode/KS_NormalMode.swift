@@ -231,6 +231,10 @@ extension KindaVimEngine {
             default:
                 post(ksNormalMode.ggForNonTextElement())
             }
+        case [.g, .I]:
+            enterInsertMode()
+            
+            post(ksNormalMode.gI())
         case [.g, .j]:
             enterNormalMode()
             
