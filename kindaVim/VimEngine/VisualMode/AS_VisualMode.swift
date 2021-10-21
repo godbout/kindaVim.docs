@@ -374,6 +374,19 @@ extension KindaVimEngine {
                     parseOperatorCommandForVisualModeUsingKeyboardStrategy()
                 }       
             }
+        case [.g, .I]:
+            switch visualStyle {
+            case .characterwise:
+                if let element = asVisualMode.gIForVisualStyleCharacterwise(on: focusedTextElement) {
+                    push(element: element)
+                    
+                    enterVisualMode()
+                } else {
+                    parseOperatorCommandForVisualModeUsingKeyboardStrategy()
+                }       
+            case .linewise:
+                ()
+            }
         case [.g, .j]:
             switch visualStyle {
             case .characterwise:

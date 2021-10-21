@@ -177,6 +177,15 @@ extension KindaVimEngine {
             }
             
             enterVisualMode()
+        case [.g, .I]:
+            switch visualStyle {
+            case .characterwise:
+                post(ksVisualMode.gIForVisualStyleCharacterwise())
+            case .linewise:
+                ()
+            }
+            
+            enterVisualMode()
         case [.g, .j]:
             switch visualStyle {
             case .characterwise:
