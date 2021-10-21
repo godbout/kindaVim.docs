@@ -179,6 +179,12 @@ class AccessibilityStrategyNormalModeMock: AccessibilityStrategyNormalModeProtoc
         return element
     }
     
+    func dG(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        functionCalled = #function
+        
+        return element
+    }
+    
     func dgg(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         
