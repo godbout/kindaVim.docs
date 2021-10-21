@@ -525,6 +525,13 @@ extension KindaVimEngine {
             } else {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
+        case [.g, .I]:
+            if let element = asNormalMode.gI(on: focusedTextElement) {
+                enterInsertMode()
+                push(element: element)
+            } else {
+                parseOperatorCommandForNormalModeUsingKeyboardStrategy()
+            }
         case [.g, .j]:
             if let element = asNormalMode.gj(on: focusedTextElement) {
                 enterNormalMode()
