@@ -11,6 +11,8 @@ struct SettingsKeys {
     static let appsToIgnore = "appsToIgnore"
     static let appsForWhichToEnforceKeyboardStrategy = "appsForWhichToEnforceKeyboardStrategy"
     
+    static let jkMapping = "jkMapping"
+    
 }
 
 

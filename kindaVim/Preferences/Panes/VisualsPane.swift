@@ -7,16 +7,22 @@ struct VisualsPane: View {
     @AppStorage(SettingsKeys.showCharactersTyped) private var showCharactersTyped: Bool = false
 
     var body: some View {
+        
         Form {
-            Toggle("Focus the window that's Viming", isOn: $toggleHazeOverWindow)
-                .onChange(of: toggleHazeOverWindow) { 
-                    KindaVimEngine.shared.toggleHazeOverWindow = $0
-                }
-            Toggle("Show characters typed", isOn: $showCharactersTyped)
-                .onChange(of: showCharactersTyped) {
-                    KindaVimEngine.shared.showCharactersTyped = $0
-                }
+            VStack(alignment: .leading) {
+                Toggle("Focus the window that's Viming", isOn: $toggleHazeOverWindow)
+                    .onChange(of: toggleHazeOverWindow) { 
+                        KindaVimEngine.shared.toggleHazeOverWindow = $0
+                    }
+                Toggle("Show characters typed", isOn: $showCharactersTyped)
+                    .onChange(of: showCharactersTyped) {
+                        KindaVimEngine.shared.showCharactersTyped = $0
+                    }
+            }
+            .padding()
+            .padding(.horizontal)
         }
+            
     }
     
 }

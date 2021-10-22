@@ -30,6 +30,7 @@ class KindaVimEngine {
 
     var toggleHazeOverWindow: Bool = true
     var showCharactersTyped: Bool = false
+    var jkMapping: Bool = true
     
     private var lastKeyCombinationPressed: KeyCombination?
     

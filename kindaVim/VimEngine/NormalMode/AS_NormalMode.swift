@@ -100,16 +100,32 @@ extension KindaVimEngine {
                 handleNormalModeUsingKeyboardStrategy(for: keyCombination)
             }
         case .j:
-            if let element = asNormalMode.j(on: focusedTextElement) {
-                push(element: element)
+            if jkMapping == true {
+                if let element = asNormalMode.gj(on: focusedTextElement) {
+                    push(element: element)
+                } else {
+                    handleNormalModeUsingKeyboardStrategy(for: keyCombination)
+                }
             } else {
-                handleNormalModeUsingKeyboardStrategy(for: keyCombination)
+                if let element = asNormalMode.j(on: focusedTextElement) {
+                    push(element: element)
+                } else {
+                    handleNormalModeUsingKeyboardStrategy(for: keyCombination)
+                }    
             }
         case .k:
-            if let element = asNormalMode.k(on: focusedTextElement) {
-                push(element: element)
+            if jkMapping == true {
+                if let element = asNormalMode.gk(on: focusedTextElement) {
+                    push(element: element)
+                } else {
+                    handleNormalModeUsingKeyboardStrategy(for: keyCombination)
+                }
             } else {
-                handleNormalModeUsingKeyboardStrategy(for: keyCombination)
+                if let element = asNormalMode.k(on: focusedTextElement) {
+                    push(element: element)
+                } else {
+                    handleNormalModeUsingKeyboardStrategy(for: keyCombination)
+                }    
             }
         case .l:
             if let element = asNormalMode.l(on: focusedTextElement) {

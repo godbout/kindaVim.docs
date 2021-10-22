@@ -50,10 +50,12 @@ class AppComponent {
     private func setUpVimEngine() {
         @AppStorage(SettingsKeys.toggleHazeOverWindow) var toggleHazeOverWindow: Bool = true
         @AppStorage(SettingsKeys.showCharactersTyped) var showCharactersTyped: Bool = false
+        @AppStorage(SettingsKeys.jkMapping) var jkMapping: Bool = true
         
         vimEngine = KindaVimEngine.shared
         vimEngine.toggleHazeOverWindow = toggleHazeOverWindow
         vimEngine.showCharactersTyped = showCharactersTyped
+        vimEngine.jkMapping = jkMapping
     }
 
 }
