@@ -243,6 +243,10 @@ extension KindaVimEngine {
             enterNormalMode()
             
             post(ksNormalMode.gk())
+        case [.g, .underscore]:
+            enterNormalMode()
+            
+            post(ksNormalMode.gUnderscore())
         case [.g, .zero]:
             enterNormalMode()
             

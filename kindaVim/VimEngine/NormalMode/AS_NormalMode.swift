@@ -546,6 +546,13 @@ extension KindaVimEngine {
             } else {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
+        case [.g, .underscore]:
+            if let element = asNormalMode.gUnderscore(on: focusedTextElement) {
+                enterNormalMode()
+                push(element: element)
+            } else {
+                parseOperatorCommandForNormalModeUsingKeyboardStrategy()
+            }
         case [.g, .zero]:
             if let element = asNormalMode.gZero(on: focusedTextElement) {
                 enterNormalMode()

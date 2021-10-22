@@ -257,6 +257,12 @@ class AccessibilityStrategyNormalModeMock: AccessibilityStrategyNormalModeProtoc
         return element
     }
     
+    func gUnderscore(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        functionCalled = #function
+        
+        return element
+    }
+    
     func gZero(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         

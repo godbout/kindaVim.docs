@@ -173,6 +173,10 @@ struct FailingAccessibilityStrategyNormalModeStub: AccessibilityStrategyNormalMo
         return nil
     }
        
+    func gUnderscore(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        return nil
+    }
+    
     func gZero(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return nil
     }
