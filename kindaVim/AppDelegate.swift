@@ -51,7 +51,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         splashScreenWindow.orderOut(self)
         appComponent.setUpAgainIfNecessary()
-        NSApp.sendAction(Selector(("showPreferencesWindow:")), to: nil, from: nil)
     }
     
     private func disableEventTap() {
