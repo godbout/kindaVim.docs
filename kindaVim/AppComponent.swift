@@ -4,6 +4,7 @@ import SwiftUI
 class AppComponent {
 
     var statusBarController: StatusBarController!
+    var eventTapController: EventTapController!
     var vimEngine: KindaVimEngine!
 
     var accessibilityElementAdaptorTestingWindow: NSWindow!
@@ -21,6 +22,10 @@ class AppComponent {
         #if UITESTING
         setUpUITestingWindow()
         #endif
+    }
+    
+    func setUpAgainIfNecessary() {
+        setUp()
     }
 
     private func setUpUITestingWindow() {
@@ -40,14 +45,24 @@ class AppComponent {
     }
 
     private func setUpStatusBar() {
+        guard statusBarController == nil else { return }
+        
         statusBarController = StatusBarController()
     }
 
     private func setUpEventTap() {
-        _ = EventTapController()
+        guard eventTapController == nil else {
+            CGEvent.tapEnable(tap: EventTapController.eventTap, enable: true)
+            
+            return
+        }
+        
+        eventTapController = EventTapController()
     }
 
     private func setUpVimEngine() {
+        guard vimEngine == nil else { return }
+        
         @AppStorage(SettingsKeys.toggleHazeOverWindow) var toggleHazeOverWindow: Bool = true
         @AppStorage(SettingsKeys.showCharactersTyped) var showCharactersTyped: Bool = false
         @AppStorage(SettingsKeys.jkMapping) var jkMapping: Bool = true

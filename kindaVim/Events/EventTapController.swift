@@ -6,7 +6,7 @@ import KeyCombination
 
 struct EventTapController {
     
-    private static var eventTap: CFMachPort!
+    static var eventTap: CFMachPort!
     private var eventTapCallback: CGEventTapCallBack = { proxy, type, event, _ in
         KeyboardStrategy.proxy = proxy
         
