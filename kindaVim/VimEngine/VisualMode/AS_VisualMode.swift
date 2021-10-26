@@ -379,14 +379,14 @@ extension KindaVimEngine {
             case .characterwise:
                 if let element = asVisualMode.gIForVisualStyleCharacterwise(on: focusedTextElement) {
                     push(element: element)
-                    
-                    enterVisualMode()
                 } else {
                     parseOperatorCommandForVisualModeUsingKeyboardStrategy()
                 }       
             case .linewise:
                 ()
             }
+            
+            enterVisualMode()
         case [.g, .j]:
             switch visualStyle {
             case .characterwise:
