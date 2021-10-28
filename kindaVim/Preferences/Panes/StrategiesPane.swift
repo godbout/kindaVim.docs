@@ -15,9 +15,12 @@ struct StrategiesPane: View {
                     .onChange(of: jkMapping) { 
                         KindaVimEngine.shared.jkMapping = $0
                     }
+                Spacer()
             }
+            .padding(.top, 15)
+            .padding(.bottom, 10)
         }
-        .frame(width: 500, height: 150)
+        .frame(width: 570, height: 300)
     }
     
 }

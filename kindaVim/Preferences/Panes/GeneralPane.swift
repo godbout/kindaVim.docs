@@ -25,7 +25,7 @@ struct GeneralPane: View {
                     .padding(.horizontal)
             }
         }
-        .frame(width: 500, height: 104)
+        .frame(width: 570, height: 104)
             
     }
 }

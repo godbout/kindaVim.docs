@@ -20,7 +20,7 @@ struct VisualsPane: View {
 //                    }
             }
         }
-        .frame(width: 500, height: 40)
+        .frame(width: 570, height: 40)
     }
     
 }
