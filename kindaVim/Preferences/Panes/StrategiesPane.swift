@@ -16,10 +16,8 @@ struct StrategiesPane: View {
                         KindaVimEngine.shared.jkMapping = $0
                     }
             }
-            .padding()
-            .padding(.horizontal)
         }
-        
+        .frame(width: 500, height: 150)
     }
     
 }
