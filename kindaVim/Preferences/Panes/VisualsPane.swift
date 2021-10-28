@@ -14,15 +14,13 @@ struct VisualsPane: View {
                     .onChange(of: toggleHazeOverWindow) { 
                         KindaVimEngine.shared.toggleHazeOverWindow = $0
                     }
-                Toggle("Show characters typed", isOn: $showCharactersTyped)
-                    .onChange(of: showCharactersTyped) {
-                        KindaVimEngine.shared.showCharactersTyped = $0
-                    }
+//                Toggle("Show characters typed", isOn: $showCharactersTyped)
+//                    .onChange(of: showCharactersTyped) {
+//                        KindaVimEngine.shared.showCharactersTyped = $0
+//                    }
             }
-            .padding()
-            .padding(.horizontal)
         }
-            
+        .frame(width: 500, height: 40)
     }
     
 }
