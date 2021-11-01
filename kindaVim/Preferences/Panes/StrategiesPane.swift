@@ -4,18 +4,11 @@ import SwiftUI
 struct StrategiesPane: View {
     
     @AppStorage(SettingsKeys.jkMapping) private var jkMapping: Bool = true
-    @AppStorage(SettingsKeys.appsToIgnore) private var appsToIgnore: [String] = [
-        "com.sublimetext.4",
-        "com.googlecode.iterm2",
-        "com.microsoft.VSCode",
-        "com.jetbrains.PhpStorm",
-        "com.github.atom"
-    ]
-    @AppStorage(SettingsKeys.appsForWhichToEnforceKeyboardStrategy) private var appsForWhichToEnforceKeyboardStrategy: [String] = [
-        "com.apple.Safari"
-    ]
+    @AppStorage(SettingsKeys.appsToIgnore) private var appsToIgnore: Set<String> = []
+    @AppStorage(SettingsKeys.appsForWhichToEnforceKeyboardStrategy) private var appsForWhichToEnforceKeyboardStrategy: Set<String> = []
 
-    @State private var selection = Set<String>()
+    @State private var appsToIgnoreSelection = Set<String>()
+    @State private var appsForWhichToEnforceKeyboardStrategySelection = Set<String>()
     
     var body: some View {
         
@@ -28,12 +21,26 @@ struct StrategiesPane: View {
                         .padding(.leading, 5)
                         .font(.footnote)
                         .foregroundColor(.gray)
-                    List(appsToIgnore, id: \.self, selection: $selection) {
-                        Text($0)
+                    List(Array(appsToIgnore as Set), id: \.self, selection: $appsToIgnoreSelection) { bundleIdentifier in
+                        if let url = NSWorkspace.shared.urlForApplication(withBundleIdentifier: bundleIdentifier), let appName = try? url.resourceValues(forKeys: [.localizedNameKey]).localizedName {
+                            HStack {
+                                Image(nsImage: NSWorkspace.shared.icon(forFile: url.path))
+                                Text(appName)
+                            }
+                        } else {
+                            Text(bundleIdentifier)
+                        }
+                    }
+                    .contextMenu {
+                        Button("Delete") {
+                            for selection in appsToIgnoreSelection {
+                                appsToIgnore.remove(selection)
+                            }
+                        }
                     }
                     .listStyle(.bordered(alternatesRowBackgrounds: true))
-                    .onDrop(of: [.fileURL], delegate: AppsToIgnoreDropDelegate())
-                }
+                    .onDrop(of: [.fileURL], delegate: AppsDropDelegate(strategy: .ignore))
+               }
 
                 Spacer()
 
@@ -44,10 +51,25 @@ struct StrategiesPane: View {
                         .padding(.leading, 5)
                         .font(.footnote)
                         .foregroundColor(.gray)
-                    List(appsForWhichToEnforceKeyboardStrategy, id: \.self) {
-                        Text($0)
+                    List(Array(appsForWhichToEnforceKeyboardStrategy as Set), id: \.self, selection: $appsForWhichToEnforceKeyboardStrategySelection) { bundleIdentifier in
+                        if let url = NSWorkspace.shared.urlForApplication(withBundleIdentifier: bundleIdentifier), let appName = try? url.resourceValues(forKeys: [.localizedNameKey]).localizedName {
+                            HStack {
+                                Image(nsImage: NSWorkspace.shared.icon(forFile: url.path))
+                                Text(appName)
+                            }
+                        } else {
+                            Text(bundleIdentifier)
+                        }
                     }
-                    .listStyle(.bordered)
+                    .contextMenu {
+                        Button("Delete") {
+                            for selection in appsForWhichToEnforceKeyboardStrategySelection {
+                                appsForWhichToEnforceKeyboardStrategy.remove(selection)
+                            }
+                        }
+                    }
+                    .listStyle(.bordered(alternatesRowBackgrounds: true))
+                    .onDrop(of: [.fileURL], delegate: AppsDropDelegate(strategy: .enforceKeyboardStrategy))
                 }
             }
 
@@ -72,8 +94,19 @@ struct StrategiesPane: View {
 }
 
 
-struct AppsToIgnoreDropDelegate: DropDelegate {
-
+struct AppsDropDelegate: DropDelegate {
+    
+    @AppStorage(SettingsKeys.appsToIgnore) private var appsToIgnore: Set<String> = []
+    @AppStorage(SettingsKeys.appsForWhichToEnforceKeyboardStrategy) private var appsForWhichToEnforceKeyboardStrategy: Set<String> = []
+    
+    enum AppStrategy {
+        case ignore
+        case enforceKeyboardStrategy
+    }
+    
+    let strategy: AppStrategy
+    
+    
     func validateDrop(info: DropInfo) -> Bool {
         guard info.hasItemsConforming(to: [.fileURL]) else { return false }
         
@@ -87,8 +120,8 @@ struct AppsToIgnoreDropDelegate: DropDelegate {
                 
                 _ = provider.loadObject(ofClass: URL.self) { url, _ in
                     defer { group.leave() }
-                    let itemIsApplicationBundle = try? url?.resourceValues(forKeys: [.contentTypeKey]).contentType == .applicationBundle
-                    result = result || (itemIsApplicationBundle ?? false)
+                    let itemIsAnApplicationBundle = try? url?.resourceValues(forKeys: [.contentTypeKey]).contentType == .applicationBundle
+                    result = result || (itemIsAnApplicationBundle ?? false)
                 }
                                 
                 _ = group.wait(timeout: .now() + 0.5)
@@ -99,9 +132,37 @@ struct AppsToIgnoreDropDelegate: DropDelegate {
     }
     
     func performDrop(info: DropInfo) -> Bool {
-        return false
-    }
+        let providers = info.itemProviders(for: [.fileURL])
+        var result = false
         
+        for provider in providers {
+            if provider.canLoadObject(ofClass: URL.self) {
+                let group = DispatchGroup()
+                group.enter()
+                
+                _ = provider.loadObject(ofClass: URL.self) { url, _ in
+                    defer { group.leave() }
+                    let itemIsAnApplicationBundle = (try? url?.resourceValues(forKeys: [.contentTypeKey]).contentType == .applicationBundle) ?? false
+                    
+                    if itemIsAnApplicationBundle, let url = url, let app = Bundle(url: url), let bundleIdentifiter = app.bundleIdentifier {
+                        switch strategy {
+                        case .ignore:
+                            appsToIgnore.insert(bundleIdentifiter)
+                        case .enforceKeyboardStrategy:
+                            appsForWhichToEnforceKeyboardStrategy.insert(bundleIdentifiter)
+                        }
+                                                
+                        result = true
+                    }
+                }
+                                
+                _ = group.wait(timeout: .now() + 0.5)
+            }
+        }
+        
+        return result
+    }
+    
 }
 
 

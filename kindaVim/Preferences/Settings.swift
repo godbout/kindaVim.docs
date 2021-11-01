@@ -16,12 +16,12 @@ struct SettingsKeys {
 }
 
 
-// needed for AppStorage to save Arrays
-extension Array: RawRepresentable where Element: Codable {
+// needed for AppStorage to save Sets
+extension Set: RawRepresentable where Element: Codable {
 
     public init?(rawValue: String) {
         guard let data = rawValue.data(using: .utf8) else { return nil }
-        guard let result = try? JSONDecoder().decode([Element].self, from: data) else { return nil}
+        guard let result = try? JSONDecoder().decode(Set<Element>.self, from: data) else { return nil}
         
         self = result
     }
@@ -32,4 +32,5 @@ extension Array: RawRepresentable where Element: Codable {
         
         return result
     }
+    
 }

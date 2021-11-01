@@ -8,16 +8,8 @@ import KeyCombination
 struct GlobalEventsController {
     
     @AppStorage(SettingsKeys.useCustomShortcutToEnterNormalMode) private static var useCustomShortcutToEnterNormalMode: Bool = false
-    @AppStorage(SettingsKeys.appsToIgnore) private static var appsToIgnore: [String] = [
-        "com.sublimetext.4",
-        "com.googlecode.iterm2",
-        "com.microsoft.VSCode",
-        "com.jetbrains.PhpStorm",
-        "com.github.atom"
-    ] 
-    @AppStorage(SettingsKeys.appsForWhichToEnforceKeyboardStrategy) private static var appsForWhichToEnforceKeyboardStrategy: [String] = [
-        "com.apple.Safari"
-    ]
+    @AppStorage(SettingsKeys.appsToIgnore) private static var appsToIgnore: Set<String> = [] 
+    @AppStorage(SettingsKeys.appsForWhichToEnforceKeyboardStrategy) private static var appsForWhichToEnforceKeyboardStrategy: Set<String> = []
     
     static func handle(keyCombination: KeyCombination?) -> Bool {
         if onIgnoredApp() {
