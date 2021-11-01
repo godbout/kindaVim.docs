@@ -32,6 +32,7 @@ struct StrategiesPane: View {
                         Text($0)
                     }
                     .listStyle(.bordered(alternatesRowBackgrounds: true))
+                    .onDrop(of: [.fileURL], delegate: AppsToIgnoreDropDelegate())
                 }
 
                 Spacer()
@@ -68,6 +69,39 @@ struct StrategiesPane: View {
         .frame(width: 570, height: 300)
     }
     
+}
+
+
+struct AppsToIgnoreDropDelegate: DropDelegate {
+
+    func validateDrop(info: DropInfo) -> Bool {
+        guard info.hasItemsConforming(to: [.fileURL]) else { return false }
+        
+        let providers = info.itemProviders(for: [.fileURL])
+        var result = false
+                
+        for provider in providers {
+            if provider.canLoadObject(ofClass: URL.self) {
+                let group = DispatchGroup()
+                group.enter()
+                
+                _ = provider.loadObject(ofClass: URL.self) { url, _ in
+                    defer { group.leave() }
+                    let itemIsApplicationBundle = try? url?.resourceValues(forKeys: [.contentTypeKey]).contentType == .applicationBundle
+                    result = result || (itemIsApplicationBundle ?? false)
+                }
+                                
+                _ = group.wait(timeout: .now() + 0.5)
+            }
+        }
+               
+        return result
+    }
+    
+    func performDrop(info: DropInfo) -> Bool {
+        return false
+    }
+        
 }
 
 
