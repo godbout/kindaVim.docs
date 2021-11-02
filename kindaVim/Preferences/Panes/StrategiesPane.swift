@@ -1,14 +1,39 @@
 import SwiftUI
 
 
+struct AppDropped: Hashable {
+    
+    let bundleIdentifier: String
+    let name: String
+    
+}
+
+
 struct StrategiesPane: View {
     
     @AppStorage(SettingsKeys.jkMapping) private var jkMapping: Bool = true
     @AppStorage(SettingsKeys.appsToIgnore) private var appsToIgnore: Set<String> = []
     @AppStorage(SettingsKeys.appsForWhichToEnforceKeyboardStrategy) private var appsForWhichToEnforceKeyboardStrategy: Set<String> = []
-
+    
     @State private var appsToIgnoreSelection = Set<String>()
     @State private var appsForWhichToEnforceKeyboardStrategySelection = Set<String>()
+    
+    func appsSortedByName(_ apps: Set<String>) -> [AppDropped] {
+        var appsSortedByName: [AppDropped] = []
+        
+        for bundleIdentifier in apps {
+            if let url = NSWorkspace.shared.urlForApplication(withBundleIdentifier: bundleIdentifier), let appName = try? url.resourceValues(forKeys: [.localizedNameKey]).localizedName {
+                appsSortedByName.append(AppDropped(bundleIdentifier: bundleIdentifier, name: appName))
+            }
+        }
+                
+        appsSortedByName.sort { app1, app2 in
+            app1.name.caseInsensitiveCompare(app2.name) == .orderedAscending
+        }
+            
+        return appsSortedByName
+    }
+
     
     var body: some View {
         
@@ -21,14 +46,14 @@ struct StrategiesPane: View {
                         .padding(.leading, 5)
                         .font(.footnote)
                         .foregroundColor(.gray)
-                    List(Array(appsToIgnore as Set), id: \.self, selection: $appsToIgnoreSelection) { bundleIdentifier in
-                        if let url = NSWorkspace.shared.urlForApplication(withBundleIdentifier: bundleIdentifier), let appName = try? url.resourceValues(forKeys: [.localizedNameKey]).localizedName {
+                    List(appsSortedByName(appsToIgnore), id: \.bundleIdentifier, selection: $appsToIgnoreSelection) { app in
+                        if let url = NSWorkspace.shared.urlForApplication(withBundleIdentifier: app.bundleIdentifier) {
                             HStack {
                                 Image(nsImage: NSWorkspace.shared.icon(forFile: url.path))
-                                Text(appName)
+                                Text(app.name)
                             }
                         } else {
-                            Text(bundleIdentifier)
+                            Text(app.bundleIdentifier)
                         }
                     }
                     .contextMenu {
@@ -51,14 +76,14 @@ struct StrategiesPane: View {
                         .padding(.leading, 5)
                         .font(.footnote)
                         .foregroundColor(.gray)
-                    List(Array(appsForWhichToEnforceKeyboardStrategy as Set), id: \.self, selection: $appsForWhichToEnforceKeyboardStrategySelection) { bundleIdentifier in
-                        if let url = NSWorkspace.shared.urlForApplication(withBundleIdentifier: bundleIdentifier), let appName = try? url.resourceValues(forKeys: [.localizedNameKey]).localizedName {
+                    List(appsSortedByName(appsForWhichToEnforceKeyboardStrategy), id: \.bundleIdentifier, selection: $appsForWhichToEnforceKeyboardStrategySelection) { app in
+                        if let url = NSWorkspace.shared.urlForApplication(withBundleIdentifier: app.bundleIdentifier) {
                             HStack {
                                 Image(nsImage: NSWorkspace.shared.icon(forFile: url.path))
-                                Text(appName)
+                                Text(app.name)
                             }
                         } else {
-                            Text(bundleIdentifier)
+                            Text(app.bundleIdentifier)
                         }
                     }
                     .contextMenu {
