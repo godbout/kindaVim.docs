@@ -13,7 +13,7 @@ class StatusBarController {
     
     private func setUpStatusItem() {
         statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
-        statusItem.button?.title = "kV"
+        statusItem.button?.image = NSImage(named: "MenuBarIconFull")
     }
     
     private func setUpStatusItemMenu() {
