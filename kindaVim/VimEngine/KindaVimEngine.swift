@@ -147,7 +147,6 @@ class KindaVimEngine {
             display.hazeOver(.off)
         }
               
-        // ugly af
         // currently we duplicate the code at start, in the statusBarController, in the Settings...
         // we should have some kind of observer here, like some Combine shit? need to investigate.
         if toggleMenuBarIcon == true {
@@ -171,7 +170,7 @@ class KindaVimEngine {
             display.hazeOver(.on)
         }
         
-        // same as a bit above. ugly af.
+        // same as a bit above.
         if toggleMenuBarIcon == true {
             statusItem?.button?.image = NSImage(named: "MenuBarIconFull")
         }
@@ -201,7 +200,7 @@ class KindaVimEngine {
         operatorPendingBuffer.append(keyCombination)
     }
     
-    func enterOperatorPendingForVisualMode(with keyCombination: KeyCombination) {
+    func enterOperatorPendingFojrVisualMode(with keyCombination: KeyCombination) {
         currentMode = .operatorPendingForVisualMode
         operatorPendingBuffer.append(keyCombination)
     }
