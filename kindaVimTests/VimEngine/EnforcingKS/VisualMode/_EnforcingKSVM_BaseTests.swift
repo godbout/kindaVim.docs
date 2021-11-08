@@ -8,7 +8,7 @@ class EnforcingKSVM_BaseTests: EnforcingKS_BaseTests {
     override func setUp() {
         super.setUp()
         
-        KindaVimEngine.shared.enterVisualMode()
+        kindaVimEngine.enterVisualMode()
     }
 
 }

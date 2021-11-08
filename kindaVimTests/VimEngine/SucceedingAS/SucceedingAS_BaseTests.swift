@@ -5,16 +5,18 @@ import XCTest
 
 class SucceedingAS_BaseTests: XCTestCase {
     
+    let kindaVimEngine = KindaVimEngine()
+    
     let asNormalModeMock = AccessibilityStrategyNormalModeMock()
     let asVisualModeMock = AccessibilityStrategyVisualModeMock()
     
     override func setUp() {
         super.setUp()
         
-        KindaVimEngine.shared.ksNormalMode = KeyboardStrategyNormalModeMock()
-        KindaVimEngine.shared.accessibilityStrategy = AccessibilityStrategyMock()
-        KindaVimEngine.shared.asNormalMode = asNormalModeMock
-        KindaVimEngine.shared.asVisualMode = asVisualModeMock
+        kindaVimEngine.ksNormalMode = KeyboardStrategyNormalModeMock()
+        kindaVimEngine.accessibilityStrategy = AccessibilityStrategyMock()
+        kindaVimEngine.asNormalMode = asNormalModeMock
+        kindaVimEngine.asVisualMode = asVisualModeMock
     }
     
 }

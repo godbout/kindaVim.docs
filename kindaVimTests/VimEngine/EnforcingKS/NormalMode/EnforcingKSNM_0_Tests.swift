@@ -8,7 +8,7 @@ class EnforcingKS_0_Tests: EnforcingKSNM_BaseTests {
     override func setUp() {
         super.setUp()
 
-        KindaVimEngine.shared.handle(
+        kindaVimEngine.handle(
             keyCombination: KeyCombination(key: .zero),
             enforceKeyboardStrategy: true
         )
@@ -24,7 +24,7 @@ extension EnforcingKS_0_Tests {
     }
     
     func test_that_0_keeps_Vim_in_normal_mode() {
-        XCTAssertEqual(KindaVimEngine.shared.currentMode, .normal)
+        XCTAssertEqual(kindaVimEngine.currentMode, .normal)
     }
     
 }

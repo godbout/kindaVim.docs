@@ -8,9 +8,9 @@ class FailingASNM_yiLeftParenthesis_Tests: FailingAS_BaseTests {
     override func setUp() {
         super.setUp()
         
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .y))
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .i))
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .leftParenthesis))
+        kindaVimEngine.handle(keyCombination: KeyCombination(key: .y))
+        kindaVimEngine.handle(keyCombination: KeyCombination(key: .i))
+        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .leftParenthesis))
     }
     
 }

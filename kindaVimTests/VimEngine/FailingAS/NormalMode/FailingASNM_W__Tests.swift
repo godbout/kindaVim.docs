@@ -8,7 +8,7 @@ class FailingASNM_W__Tests: FailingAS_BaseTests {
     override func setUp() {
         super.setUp()
         
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .W))
+        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .W))
     }
     
 }

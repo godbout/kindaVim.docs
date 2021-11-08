@@ -8,9 +8,9 @@ class FailingASNM_yiSingleQuote_Tests: FailingASNM_BaseTests {
     override func setUp() {
         super.setUp()
         
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .y))
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .i))
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .singleQuote))
+        kindaVimEngine.handle(keyCombination: KeyCombination(key: .y))
+        kindaVimEngine.handle(keyCombination: KeyCombination(key: .i))
+        kindaVimEngine.handle(keyCombination: KeyCombination(key: .singleQuote))
     }
     
 }

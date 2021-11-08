@@ -8,9 +8,9 @@ class FailingASNM_cF__Tests: FailingAS_BaseTests {
     override func setUp() {
         super.setUp()
         
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .c))
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .F))
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .x))
+        kindaVimEngine.handle(keyCombination: KeyCombination(key: .c))
+        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .F))
+        kindaVimEngine.handle(keyCombination: KeyCombination(key: .x))
     }
     
 }

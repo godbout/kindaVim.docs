@@ -8,8 +8,8 @@ class FailingASNM_leftChevronLeftChevron_Tests: FailingASNM_BaseTests {
     override func setUp() {
         super.setUp()
         
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .leftChevron))
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .leftChevron))
+        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .leftChevron))
+        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .leftChevron))
     }
     
 }

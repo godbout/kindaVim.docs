@@ -8,7 +8,7 @@ class SucceedingASNM_rightBrace_Tests: SucceedingASNM_BaseTests {
     override func setUp() {
         super.setUp()
         
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .rightBrace))
+        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .rightBrace))
     }
     
 }
@@ -21,7 +21,7 @@ extension SucceedingASNM_rightBrace_Tests {
     }
     
     func test_that_it_keeps_Vim_in_normal_mode() {
-        XCTAssertEqual(KindaVimEngine.shared.currentMode, .normal)
+        XCTAssertEqual(kindaVimEngine.currentMode, .normal)
     }
     
 }

@@ -8,8 +8,8 @@ class FailingASNM_g$_Tests: FailingAS_BaseTests {
     override func setUp() {
         super.setUp()
         
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .g))
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .dollarSign))
+        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .g))
+        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .dollarSign))
     }
     
 }
@@ -22,7 +22,7 @@ extension FailingASNM_g$_Tests {
     }
     
     func test_that_it_keeps_Vim_in_normal_mode() {
-        XCTAssertEqual(KindaVimEngine.shared.currentMode, .normal)
+        XCTAssertEqual(kindaVimEngine.currentMode, .normal)
     }
     
 }

@@ -8,8 +8,8 @@ class EnforcingKS_cb_Tests: EnforcingKSNM_BaseTests {
     override func setUp() {
         super.setUp()
 
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .c), enforceKeyboardStrategy: true)
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .b), enforceKeyboardStrategy: true)
+        kindaVimEngine.handle(keyCombination: KeyCombination(key: .c), enforceKeyboardStrategy: true)
+        kindaVimEngine.handle(keyCombination: KeyCombination(key: .b), enforceKeyboardStrategy: true)
     }
 
 }
@@ -22,7 +22,7 @@ extension EnforcingKS_cb_Tests {
     }
 
     func test_that_cb_switches_Vim_to_insert_mode() {
-        XCTAssertEqual(KindaVimEngine.shared.currentMode, .insert)
+        XCTAssertEqual(kindaVimEngine.currentMode, .insert)
     }
 
 }

@@ -4,17 +4,19 @@ import XCTest
 
 
 class EnforcingKS_BaseTests: XCTestCase {
+    
+    let kindaVimEngine = KindaVimEngine()
 
     let ksNormalModeMock = KeyboardStrategyNormalModeMock()
     let ksVisualModeMock = KeyboardStrategyVisualModeMock()
 
     override func setUp() {
-        KindaVimEngine.shared.ksNormalMode = ksNormalModeMock
-        KindaVimEngine.shared.ksVisualMode = ksVisualModeMock
-        KindaVimEngine.shared.accessibilityStrategy = AccessibilityStrategyMock()
-        KindaVimEngine.shared.asNormalMode = AccessibilityStrategyNormalModeMock()
-        KindaVimEngine.shared.asVisualMode = AccessibilityStrategyVisualModeMock()
-        KindaVimEngine.shared.enterNormalMode()
+        kindaVimEngine.ksNormalMode = ksNormalModeMock
+        kindaVimEngine.ksVisualMode = ksVisualModeMock
+        kindaVimEngine.accessibilityStrategy = AccessibilityStrategyMock()
+        kindaVimEngine.asNormalMode = AccessibilityStrategyNormalModeMock()
+        kindaVimEngine.asVisualMode = AccessibilityStrategyVisualModeMock()
+        kindaVimEngine.enterNormalMode()
     }
 
 }

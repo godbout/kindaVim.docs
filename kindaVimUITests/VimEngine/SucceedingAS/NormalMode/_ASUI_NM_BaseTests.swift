@@ -2,4 +2,8 @@ import XCTest
 import AccessibilityStrategy
 
 
-class ASUI_NM_BaseTests: ASUI_BaseTests {}
+class ASUI_NM_BaseTests: ASUI_BaseTests {
+    
+    let kindaVimEngine = KindaVimEngine()
+    
+}

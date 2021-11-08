@@ -8,11 +8,11 @@ class SucceedingASNM_yiLeftParenthesis_Tests: SucceedingASNM_BaseTests {
     override func setUp() {
         super.setUp()
         
-        KindaVimEngine.shared.lastYankStyle = .linewise
+        kindaVimEngine.lastYankStyle = .linewise
         
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .y))
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .i))
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .leftParenthesis))
+        kindaVimEngine.handle(keyCombination: KeyCombination(key: .y))
+        kindaVimEngine.handle(keyCombination: KeyCombination(key: .i))
+        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .leftParenthesis))
     }
     
 }
@@ -28,7 +28,7 @@ extension SucceedingASNM_yiLeftParenthesis_Tests {
     }
     
     func test_that_it_keeps_Vim_in_normal_mode() {
-        XCTAssertEqual(KindaVimEngine.shared.currentMode, .normal)
+        XCTAssertEqual(kindaVimEngine.currentMode, .normal)
     }
 
 }

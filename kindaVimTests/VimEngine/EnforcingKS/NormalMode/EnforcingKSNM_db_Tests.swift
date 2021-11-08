@@ -8,8 +8,8 @@ class EnforcingKS_db_Tests: EnforcingKSNM_BaseTests {
     override func setUp() {
         super.setUp()
 
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .d), enforceKeyboardStrategy: true)
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .b), enforceKeyboardStrategy: true)
+        kindaVimEngine.handle(keyCombination: KeyCombination(key: .d), enforceKeyboardStrategy: true)
+        kindaVimEngine.handle(keyCombination: KeyCombination(key: .b), enforceKeyboardStrategy: true)
     }
 
 }
@@ -22,7 +22,7 @@ extension EnforcingKS_db_Tests {
     }
 
     func test_that_db_keeps_Vim_in_normal_mode() {
-        XCTAssertEqual(KindaVimEngine.shared.currentMode, .normal)
+        XCTAssertEqual(kindaVimEngine.currentMode, .normal)
     }
 
 }

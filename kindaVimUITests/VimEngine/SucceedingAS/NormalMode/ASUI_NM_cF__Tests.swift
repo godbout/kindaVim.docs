@@ -1,4 +1,3 @@
-@testable import kindaVim
 import KeyCombination
 import XCTest
 
@@ -16,12 +15,12 @@ cF is pretty cool
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
         
-        KindaVimEngine.shared.enterNormalMode()
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .c))
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .F))
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .p))
+        kindaVimEngine.enterNormalMode()
+        kindaVimEngine.handle(keyCombination: KeyCombination(key: .c))
+        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .F))
+        kindaVimEngine.handle(keyCombination: KeyCombination(key: .p))
 
-        XCTAssertEqual(KindaVimEngine.shared.currentMode, .insert)
+        XCTAssertEqual(kindaVimEngine.currentMode, .insert)
     }
 
     func test_a_case_where_it_should_not_delete_the_content_stays_in_normal_mode() {
@@ -31,12 +30,12 @@ hehe can't use cF here with the last letter of the alphabet!
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
 
-        KindaVimEngine.shared.enterNormalMode()
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .c))
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .F))
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .z))
+        kindaVimEngine.enterNormalMode()
+        kindaVimEngine.handle(keyCombination: KeyCombination(key: .c))
+        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .F))
+        kindaVimEngine.handle(keyCombination: KeyCombination(key: .z))
 
-        XCTAssertEqual(KindaVimEngine.shared.currentMode, .normal)
+        XCTAssertEqual(kindaVimEngine.currentMode, .normal)
     }
 
 }

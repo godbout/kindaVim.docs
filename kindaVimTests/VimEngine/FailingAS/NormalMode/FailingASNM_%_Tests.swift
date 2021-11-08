@@ -8,7 +8,7 @@ class FailingASNM_percent_Tests: FailingASNM_BaseTests {
     override func setUp() {
         super.setUp()
         
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .percent))
+        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .percent))
     }
     
 }

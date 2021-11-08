@@ -10,8 +10,8 @@ class SucceedingASNM_P__Tests: SucceedingASNM_BaseTests {}
 extension SucceedingASNM_P__Tests {
     
     func test_that_it_calls_the_correct_function_on_AS_when_lastYankStyle_is_characterwise() {
-        KindaVimEngine.shared.lastYankStyle = .characterwise
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .P))
+        kindaVimEngine.lastYankStyle = .characterwise
+        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .P))
         
         XCTAssertEqual(asNormalModeMock.functionCalled, "PForLastYankStyleCharacterwise(on:)")
     }
@@ -23,8 +23,8 @@ extension SucceedingASNM_P__Tests {
 extension SucceedingASNM_P__Tests {
     
     func test_that_it_calls_the_correct_function_on_AS_when_lastYankStyle_is_linewise() {
-        KindaVimEngine.shared.lastYankStyle = .linewise
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .P))
+        kindaVimEngine.lastYankStyle = .linewise
+        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .P))
         
         XCTAssertEqual(asNormalModeMock.functionCalled, "PForLastYankStyleLinewise(on:)")
     }
@@ -36,9 +36,9 @@ extension SucceedingASNM_P__Tests {
 extension SucceedingASNM_P__Tests {
     
     func test_that_it_keeps_Vim_in_normal_mode() {
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .p))
+        kindaVimEngine.handle(keyCombination: KeyCombination(key: .p))
         
-        XCTAssertEqual(KindaVimEngine.shared.currentMode, .normal)
+        XCTAssertEqual(kindaVimEngine.currentMode, .normal)
     }
     
 }

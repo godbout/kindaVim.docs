@@ -8,7 +8,7 @@ class FailingASNM_leftBrace_Tests: FailingASNM_BaseTests {
     override func setUp() {
         super.setUp()
         
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .leftBrace))
+        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .leftBrace))
     }
     
 }

@@ -6,7 +6,7 @@ import XCTest
 class SucceedingASNM_k_Tests: SucceedingASNM_BaseTests {
     
     private func applyMoveBeingTested() {
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .k))
+        kindaVimEngine.handle(keyCombination: KeyCombination(key: .k))
     }
     
 }
@@ -15,14 +15,14 @@ class SucceedingASNM_k_Tests: SucceedingASNM_BaseTests {
 extension SucceedingASNM_k_Tests {
     
     func test_that_if_it_is_not_remap_it_calls_k_on_AS() {
-        KindaVimEngine.shared.jkMapping = false
+        kindaVimEngine.jkMapping = false
         applyMoveBeingTested()
         
         XCTAssertEqual(asNormalModeMock.functionCalled, "k(on:)")
     }
         
     func test_that_if_it_is_remapped_it_calls_gk_on_AS() {
-        KindaVimEngine.shared.jkMapping = true
+        kindaVimEngine.jkMapping = true
         applyMoveBeingTested()
         
         XCTAssertEqual(asNormalModeMock.functionCalled, "gk(on:)")
@@ -37,7 +37,7 @@ extension SucceedingASNM_k_Tests {
     func test_that_it_keeps_Vim_in_normal_mode() {
         applyMoveBeingTested()
         
-        XCTAssertEqual(KindaVimEngine.shared.currentMode, .normal)
+        XCTAssertEqual(kindaVimEngine.currentMode, .normal)
     }
     
 }

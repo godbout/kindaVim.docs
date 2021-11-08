@@ -8,9 +8,9 @@ class SucceedingASNM_cT__Tests: SucceedingASNM_BaseTests {
     override func setUp() {
         super.setUp()
         
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .c))
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .T))
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .a))
+        kindaVimEngine.handle(keyCombination: KeyCombination(key: .c))
+        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .T))
+        kindaVimEngine.handle(keyCombination: KeyCombination(key: .a))
     }
     
 }

@@ -1,9 +1,9 @@
 import SwiftUI
 
 
-class AppState {
+class AppCore {
     
-    static var shared = AppState()
+    static var shared = AppCore()
 
     var statusBarController: StatusBarController!
     var eventTapController: EventTapController!
@@ -68,11 +68,13 @@ class AppState {
         guard vimEngine == nil else { return }
         
         @AppStorage(SettingsKeys.toggleHazeOverWindow) var toggleHazeOverWindow: Bool = true
+        @AppStorage(SettingsKeys.toggleMenuBarIcon) var toggleMenuBarIcon: Bool = true
         @AppStorage(SettingsKeys.showCharactersTyped) var showCharactersTyped: Bool = false
         @AppStorage(SettingsKeys.jkMapping) var jkMapping: Bool = true
         
-        vimEngine = KindaVimEngine.shared
+        vimEngine = KindaVimEngine()
         vimEngine.toggleHazeOverWindow = toggleHazeOverWindow
+        vimEngine.toggleMenuBarIcon = toggleMenuBarIcon
         vimEngine.showCharactersTyped = showCharactersTyped
         vimEngine.jkMapping = jkMapping
     }

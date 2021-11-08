@@ -15,29 +15,29 @@ extension EnforcingKS_NotImplementedOrDontExist_Tests {
     
     func test_that_key_combinations_that_do_not_exist_do_not_call_any_function_on_keyboard_strategy() {
         let optionA = KeyCombination(key: .a, option: true)
-        KindaVimEngine.shared.handle(keyCombination: optionA)
+        kindaVimEngine.handle(keyCombination: optionA)
         XCTAssertEqual(ksNormalModeMock.functionCalled, "")
 
         let commandB = KeyCombination(key: .b, command: true)
-        KindaVimEngine.shared.handle(keyCombination: commandB)
+        kindaVimEngine.handle(keyCombination: commandB)
         XCTAssertEqual(ksNormalModeMock.functionCalled, "")
 
         let controlShiftC = KeyCombination(key: .c, control: true, shift: true)
-        KindaVimEngine.shared.handle(keyCombination: controlShiftC)
+        kindaVimEngine.handle(keyCombination: controlShiftC)
         XCTAssertEqual(ksNormalModeMock.functionCalled, "")
     }
 
     func test_that_key_combinations_that_exist_but_are_not_implemented_do_not_call_any_function_on_keyboard_strategy() {
         let controlA = KeyCombination(key: .a, control: true)
-        KindaVimEngine.shared.handle(keyCombination: controlA)
+        kindaVimEngine.handle(keyCombination: controlA)
         XCTAssertEqual(ksNormalModeMock.functionCalled, "")
 
         let commandB = KeyCombination(key: .b, command: true)
-        KindaVimEngine.shared.handle(keyCombination: commandB)
+        kindaVimEngine.handle(keyCombination: commandB)
         XCTAssertEqual(ksNormalModeMock.functionCalled, "")
 
         let controlJ = KeyCombination(key: .j, control: true)
-        KindaVimEngine.shared.handle(keyCombination: controlJ)
+        kindaVimEngine.handle(keyCombination: controlJ)
         XCTAssertEqual(ksNormalModeMock.functionCalled, "")
     }
 }
@@ -50,32 +50,32 @@ extension EnforcingKS_NotImplementedOrDontExist_Tests {
 extension EnforcingKS_NotImplementedOrDontExist_Tests {
     
     func test_that_operators_that_do_not_exist_do_not_call_any_function_on_keyboard_strategy() {
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .c))
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .o))
+        kindaVimEngine.handle(keyCombination: KeyCombination(key: .c))
+        kindaVimEngine.handle(keyCombination: KeyCombination(key: .o))
         
         XCTAssertEqual(ksNormalModeMock.functionCalled, "")
     }
 
     func test_that_caw_does_not_call_any_function_on_keyboard_strategy() {
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .c))
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .a))
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .w))
+        kindaVimEngine.handle(keyCombination: KeyCombination(key: .c))
+        kindaVimEngine.handle(keyCombination: KeyCombination(key: .a))
+        kindaVimEngine.handle(keyCombination: KeyCombination(key: .w))
 
         XCTAssertEqual(ksNormalModeMock.functionCalled, "")
     }
 
     func test_that_daw_does_not_call_any_function_on_keyboard_strategy() {
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .d))
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .a))
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .w))
+        kindaVimEngine.handle(keyCombination: KeyCombination(key: .d))
+        kindaVimEngine.handle(keyCombination: KeyCombination(key: .a))
+        kindaVimEngine.handle(keyCombination: KeyCombination(key: .w))
 
         XCTAssertEqual(ksNormalModeMock.functionCalled, "")
     }
 
     func test_that_diw_does_not_call_any_function_on_keyboard_strategy() {
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .d))
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .i))
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .w))
+        kindaVimEngine.handle(keyCombination: KeyCombination(key: .d))
+        kindaVimEngine.handle(keyCombination: KeyCombination(key: .i))
+        kindaVimEngine.handle(keyCombination: KeyCombination(key: .w))
 
         XCTAssertEqual(ksNormalModeMock.functionCalled, "")
     }

@@ -8,7 +8,7 @@ class SucceedingASVM_o_Tests: SucceedingASVM_BaseTests {
     override func setUp() {
         super.setUp()
         
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .o))
+        kindaVimEngine.handle(keyCombination: KeyCombination(key: .o))
     }
     
 }
@@ -21,7 +21,7 @@ extension SucceedingASVM_o_Tests {
     }
     
     func test_that_it_keeps_Vim_in_visual_mode() {
-        XCTAssertEqual(KindaVimEngine.shared.currentMode, .visual)
+        XCTAssertEqual(kindaVimEngine.currentMode, .visual)
     }
     
 }

@@ -6,7 +6,7 @@ import XCTest
 class EnforcingKSVM_c_Tests: EnforcingKSVM_BaseTests {
     
     private func applyKeyCombinationBeingTested() {
-        KindaVimEngine.shared.handle(
+        kindaVimEngine.handle(
             keyCombination: KeyCombination(key: .c),
             enforceKeyboardStrategy: true
         )
@@ -19,7 +19,7 @@ class EnforcingKSVM_c_Tests: EnforcingKSVM_BaseTests {
 extension EnforcingKSVM_c_Tests {
 
     func test_that_it_calls_the_correct_function_on_KS_when_in_VisualStyle_Characterwise() {
-        KindaVimEngine.shared.visualStyle = .characterwise
+        kindaVimEngine.visualStyle = .characterwise
         applyKeyCombinationBeingTested()
         
         XCTAssertEqual(ksVisualModeMock.functionCalled, "c()")
@@ -32,7 +32,7 @@ extension EnforcingKSVM_c_Tests {
 extension EnforcingKSVM_c_Tests {
 
     func test_that_it_calls_the_correct_function_on_KS_when_in_VisualStyle_Linewise() {
-        KindaVimEngine.shared.visualStyle = .linewise
+        kindaVimEngine.visualStyle = .linewise
         applyKeyCombinationBeingTested()
         
         XCTAssertEqual(ksVisualModeMock.functionCalled, "c()")
@@ -47,7 +47,7 @@ extension EnforcingKSVM_c_Tests {
     func test_that_it_switches_Vim_into_InsertMode() {
         applyKeyCombinationBeingTested()
         
-        XCTAssertEqual(KindaVimEngine.shared.currentMode, .insert)
+        XCTAssertEqual(kindaVimEngine.currentMode, .insert)
     }
     
 }

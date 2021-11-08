@@ -6,7 +6,7 @@ import XCTest
 class FailingASVM_escape_Tests: FailingASVM_BaseTests {
     
     private func applyKeyCombinationBeingTested() {
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .escape))
+        kindaVimEngine.handle(keyCombination: KeyCombination(key: .escape))
     }
         
 }
@@ -24,7 +24,7 @@ extension FailingASVM_escape_Tests {
     func test_that_if_Vim_was_in_visual_mode_linewise_it_switches_into_insert_mode() {
         applyKeyCombinationBeingTested()
         
-        XCTAssertEqual(KindaVimEngine.shared.currentMode, .insert)
+        XCTAssertEqual(kindaVimEngine.currentMode, .insert)
     }
         
 }

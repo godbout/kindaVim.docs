@@ -383,7 +383,7 @@
 		91840DF126FE096C00E6048E /* Display.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91840DD926FE096C00E6048E /* Display.swift */; };
 		91840DF226FE096C00E6048E /* EventTapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91840DDB26FE096C00E6048E /* EventTapController.swift */; };
 		91840DF326FE096C00E6048E /* GlobalEventsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91840DDC26FE096C00E6048E /* GlobalEventsController.swift */; };
-		91840DF426FE096C00E6048E /* AppComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91840DDD26FE096C00E6048E /* AppComponent.swift */; };
+		91840DF426FE096C00E6048E /* AppCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91840DDD26FE096C00E6048E /* AppCore.swift */; };
 		91840DF626FE096C00E6048E /* KeyboardShortcuts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91840DE126FE096C00E6048E /* KeyboardShortcuts.swift */; };
 		91840DF826FE096C00E6048E /* GeneralPane.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91840DE526FE096C00E6048E /* GeneralPane.swift */; };
 		91840DF926FE096C00E6048E /* StrategiesPane.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91840DE626FE096C00E6048E /* StrategiesPane.swift */; };
@@ -418,18 +418,34 @@
 		91A54BB62718637E00DEB933 /* SucceedingASNM_k_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A54BB52718637E00DEB933 /* SucceedingASNM_k_Tests.swift */; };
 		91A54BB82718639C00DEB933 /* FailingASNM_k_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A54BB72718639C00DEB933 /* FailingASNM_k_Tests.swift */; };
 		91D222F726FE0F2B00B9AF77 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D222F626FE0F2B00B9AF77 /* AppDelegate.swift */; };
-		91D222FA26FE103800B9AF77 /* KeyCombination in Frameworks */ = {isa = PBXBuildFile; productRef = 91D222F926FE103800B9AF77 /* KeyCombination */; };
-		91D222FC26FE104800B9AF77 /* AccessibilityStrategy in Frameworks */ = {isa = PBXBuildFile; productRef = 91D222FB26FE104800B9AF77 /* AccessibilityStrategy */; };
 		91D222FD26FE105800B9AF77 /* KindaVimEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91840DEA26FE096C00E6048E /* KindaVimEngine.swift */; };
 		91D222FE26FE106300B9AF77 /* Display.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91840DD926FE096C00E6048E /* Display.swift */; };
 		91D222FF26FE106D00B9AF77 /* HazeOverWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91840DD826FE096C00E6048E /* HazeOverWindow.swift */; };
 		91D2230026FE106D00B9AF77 /* CharactersWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91840DD526FE096C00E6048E /* CharactersWindow.swift */; };
 		91D2230126FE107300B9AF77 /* Window.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91840DD326FE096C00E6048E /* Window.swift */; };
 		91D2230226FE108100B9AF77 /* CharactersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91840DD626FE096C00E6048E /* CharactersView.swift */; };
-		91D2230526FE10D300B9AF77 /* KeyboardStrategy in Frameworks */ = {isa = PBXBuildFile; productRef = 91D2230426FE10D300B9AF77 /* KeyboardStrategy */; };
-		91D475F926FF67A10007187B /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D475F826FF67A10007187B /* Settings.swift */; };
 		91E3A1BF272073E2003734BE /* SucceedingASNM_dgg_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E3A1BE272073E2003734BE /* SucceedingASNM_dgg_Tests.swift */; };
 		91E3A1C1272074D7003734BE /* FailingASNM_dgg_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E3A1C0272074D7003734BE /* FailingASNM_dgg_Tests.swift */; };
+		91E7DF84273950AA007CC0D5 /* AppCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91840DDD26FE096C00E6048E /* AppCore.swift */; };
+		91E7DF85273950C5007CC0D5 /* StatusBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91840DD126FE096B00E6048E /* StatusBarController.swift */; };
+		91E7DF892739512D007CC0D5 /* UITestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91840DEB26FE096C00E6048E /* UITestView.swift */; };
+		91E7DF8C273952B8007CC0D5 /* EventTapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91840DDB26FE096C00E6048E /* EventTapController.swift */; };
+		91E7DF8D273952C6007CC0D5 /* GlobalEventsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91840DDC26FE096C00E6048E /* GlobalEventsController.swift */; };
+		91E7DF8E2739538D007CC0D5 /* KeyboardShortcuts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91840DE126FE096C00E6048E /* KeyboardShortcuts.swift */; };
+		91E7DF8F273953A7007CC0D5 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9118CEA626FEF90A005F0907 /* SettingsView.swift */; };
+		91E7DF90273953AE007CC0D5 /* VisualsPane.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91840DE726FE096C00E6048E /* VisualsPane.swift */; };
+		91E7DF91273953AE007CC0D5 /* StrategiesPane.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91840DE626FE096C00E6048E /* StrategiesPane.swift */; };
+		91E7DF92273953AE007CC0D5 /* GeneralPane.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91840DE526FE096C00E6048E /* GeneralPane.swift */; };
+		91E7DF93273953BD007CC0D5 /* kindaVimApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916ACF9026FE086B000E9757 /* kindaVimApp.swift */; };
+		91E7DF94273953C3007CC0D5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D222F626FE0F2B00B9AF77 /* AppDelegate.swift */; };
+		91E7DF95273953CB007CC0D5 /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914D662027266467005B9D99 /* SplashScreenView.swift */; };
+		91E7DF9E2739570E007CC0D5 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D475F826FF67A10007187B /* Settings.swift */; };
+		91E7DFA12739578D007CC0D5 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D475F826FF67A10007187B /* Settings.swift */; };
+		91E7DFA327395834007CC0D5 /* LaunchAtLogin in Frameworks */ = {isa = PBXBuildFile; productRef = 91E7DFA227395834007CC0D5 /* LaunchAtLogin */; };
+		91E7DFA527395841007CC0D5 /* KeyCombination in Frameworks */ = {isa = PBXBuildFile; productRef = 91E7DFA427395841007CC0D5 /* KeyCombination */; };
+		91E7DFA72739584E007CC0D5 /* KeyboardStrategy in Frameworks */ = {isa = PBXBuildFile; productRef = 91E7DFA62739584E007CC0D5 /* KeyboardStrategy */; };
+		91E7DFA92739589F007CC0D5 /* KeyboardShortcuts in Frameworks */ = {isa = PBXBuildFile; productRef = 91E7DFA82739589F007CC0D5 /* KeyboardShortcuts */; };
+		91E7DFAB273958AC007CC0D5 /* AccessibilityStrategy in Frameworks */ = {isa = PBXBuildFile; productRef = 91E7DFAA273958AC007CC0D5 /* AccessibilityStrategy */; };
 		91E8F9CF2703090200AD1A0E /* SucceedingASNM_db_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E8F9CE2703090200AD1A0E /* SucceedingASNM_db_Tests.swift */; };
 		91E8F9D127030AF900AD1A0E /* FailingASNM_db_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E8F9D027030AF900AD1A0E /* FailingASNM_db_Tests.swift */; };
 		91EBCDB9271806D000EC07D1 /* EnforcingKSNM_gj_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91EBCDB8271806D000EC07D1 /* EnforcingKSNM_gj_Tests.swift */; };
@@ -838,7 +854,7 @@
 		91840DD926FE096C00E6048E /* Display.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Display.swift; sourceTree = "<group>"; };
 		91840DDB26FE096C00E6048E /* EventTapController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTapController.swift; sourceTree = "<group>"; };
 		91840DDC26FE096C00E6048E /* GlobalEventsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalEventsController.swift; sourceTree = "<group>"; };
-		91840DDD26FE096C00E6048E /* AppComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppComponent.swift; sourceTree = "<group>"; };
+		91840DDD26FE096C00E6048E /* AppCore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppCore.swift; sourceTree = "<group>"; };
 		91840DE126FE096C00E6048E /* KeyboardShortcuts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardShortcuts.swift; sourceTree = "<group>"; };
 		91840DE526FE096C00E6048E /* GeneralPane.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralPane.swift; sourceTree = "<group>"; };
 		91840DE626FE096C00E6048E /* StrategiesPane.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StrategiesPane.swift; sourceTree = "<group>"; };
@@ -910,9 +926,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				91D2230526FE10D300B9AF77 /* KeyboardStrategy in Frameworks */,
-				91D222FC26FE104800B9AF77 /* AccessibilityStrategy in Frameworks */,
-				91D222FA26FE103800B9AF77 /* KeyCombination in Frameworks */,
+				91E7DFA72739584E007CC0D5 /* KeyboardStrategy in Frameworks */,
+				91E7DFA92739589F007CC0D5 /* KeyboardShortcuts in Frameworks */,
+				91E7DFAB273958AC007CC0D5 /* AccessibilityStrategy in Frameworks */,
+				91E7DFA527395841007CC0D5 /* KeyCombination in Frameworks */,
+				91E7DFA327395834007CC0D5 /* LaunchAtLogin in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -968,7 +986,7 @@
 				91840DE926FE096C00E6048E /* VimEngine */,
 				916ACF9026FE086B000E9757 /* kindaVimApp.swift */,
 				91D222F626FE0F2B00B9AF77 /* AppDelegate.swift */,
-				91840DDD26FE096C00E6048E /* AppComponent.swift */,
+				91840DDD26FE096C00E6048E /* AppCore.swift */,
 				914D662027266467005B9D99 /* SplashScreenView.swift */,
 				91840DEB26FE096C00E6048E /* UITestView.swift */,
 				916ACF9426FE086C000E9757 /* Assets.xcassets */,
@@ -1664,9 +1682,11 @@
 			);
 			name = kindaVimUITests;
 			packageProductDependencies = (
-				91D222F926FE103800B9AF77 /* KeyCombination */,
-				91D222FB26FE104800B9AF77 /* AccessibilityStrategy */,
-				91D2230426FE10D300B9AF77 /* KeyboardStrategy */,
+				91E7DFA227395834007CC0D5 /* LaunchAtLogin */,
+				91E7DFA427395841007CC0D5 /* KeyCombination */,
+				91E7DFA62739584E007CC0D5 /* KeyboardStrategy */,
+				91E7DFA82739589F007CC0D5 /* KeyboardShortcuts */,
+				91E7DFAA273958AC007CC0D5 /* AccessibilityStrategy */,
 			);
 			productName = kindaVimUITests;
 			productReference = 916ACFA826FE086C000E9757 /* kindaVimUITests.xctest */;
@@ -1791,12 +1811,12 @@
 				91840DF126FE096C00E6048E /* Display.swift in Sources */,
 				91840DFA26FE096C00E6048E /* VisualsPane.swift in Sources */,
 				9103C596271C7ABA00BDEBD7 /* KS_NormalMode.swift in Sources */,
-				91840DF426FE096C00E6048E /* AppComponent.swift in Sources */,
+				91840DF426FE096C00E6048E /* AppCore.swift in Sources */,
+				91E7DFA12739578D007CC0D5 /* Settings.swift in Sources */,
 				91840DFD26FE096C00E6048E /* UITestView.swift in Sources */,
 				91840DF926FE096C00E6048E /* StrategiesPane.swift in Sources */,
 				91840DFC26FE096C00E6048E /* KindaVimEngine.swift in Sources */,
 				91840DED26FE096C00E6048E /* Window.swift in Sources */,
-				91D475F926FF67A10007187B /* Settings.swift in Sources */,
 				914D662127266467005B9D99 /* SplashScreenView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2195,22 +2215,36 @@
 			buildActionMask = 2147483647;
 			files = (
 				91D222FD26FE105800B9AF77 /* KindaVimEngine.swift in Sources */,
+				91E7DF85273950C5007CC0D5 /* StatusBarController.swift in Sources */,
 				91D2230026FE106D00B9AF77 /* CharactersWindow.swift in Sources */,
+				91E7DF93273953BD007CC0D5 /* kindaVimApp.swift in Sources */,
+				91E7DF91273953AE007CC0D5 /* StrategiesPane.swift in Sources */,
 				91840E0E26FE09A300E6048E /* ASUI_NM_cF__Tests.swift in Sources */,
 				91840E0A26FE09A300E6048E /* ASUI_BaseTests.swift in Sources */,
 				9103C59E271C7F1000BDEBD7 /* KS_NormalMode.swift in Sources */,
+				91E7DF94273953C3007CC0D5 /* AppDelegate.swift in Sources */,
+				91E7DF9E2739570E007CC0D5 /* Settings.swift in Sources */,
+				91E7DF8C273952B8007CC0D5 /* EventTapController.swift in Sources */,
 				91D222FF26FE106D00B9AF77 /* HazeOverWindow.swift in Sources */,
+				91E7DF8E2739538D007CC0D5 /* KeyboardShortcuts.swift in Sources */,
 				91840E0D26FE09A300E6048E /* ASUI_NM_ci"_Tests.swift in Sources */,
 				9103C5A0271C7F1400BDEBD7 /* KS_VisualMode.swift in Sources */,
+				91E7DF8D273952C6007CC0D5 /* GlobalEventsController.swift in Sources */,
 				91840E1226FE09A300E6048E /* ASUI_NM_cf_Tests.swift in Sources */,
 				91D222FE26FE106300B9AF77 /* Display.swift in Sources */,
+				91E7DF90273953AE007CC0D5 /* VisualsPane.swift in Sources */,
 				91840E1126FE09A300E6048E /* ASUI_NM_ci(_Tests.swift in Sources */,
 				91D2230126FE107300B9AF77 /* Window.swift in Sources */,
 				91840E1026FE09A300E6048E /* ASUI_NM_cT__Tests.swift in Sources */,
 				91D2230226FE108100B9AF77 /* CharactersView.swift in Sources */,
+				91E7DF84273950AA007CC0D5 /* AppCore.swift in Sources */,
 				91840E0B26FE09A300E6048E /* _ASUI_NM_BaseTests.swift in Sources */,
+				91E7DF8F273953A7007CC0D5 /* SettingsView.swift in Sources */,
+				91E7DF95273953CB007CC0D5 /* SplashScreenView.swift in Sources */,
 				9103C59F271C7F1400BDEBD7 /* AS_VisualMode.swift in Sources */,
 				91840E0F26FE09A300E6048E /* ASUI_NM_caw_Tests.swift in Sources */,
+				91E7DF92273953AE007CC0D5 /* GeneralPane.swift in Sources */,
+				91E7DF892739512D007CC0D5 /* UITestView.swift in Sources */,
 				91840E0C26FE09A300E6048E /* ASUI_NM_ct_Tests.swift in Sources */,
 				9103C59D271C7F1000BDEBD7 /* AS_NormalMode.swift in Sources */,
 			);
@@ -2919,20 +2953,30 @@
 			package = 91840E2526FE0AF000E6048E /* XCRemoteSwiftPackageReference "AccessibilityStrategy" */;
 			productName = AccessibilityStrategy;
 		};
-		91D222F926FE103800B9AF77 /* KeyCombination */ = {
+		91E7DFA227395834007CC0D5 /* LaunchAtLogin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 91840E2226FE0ACB00E6048E /* XCRemoteSwiftPackageReference "LaunchAtLogin" */;
+			productName = LaunchAtLogin;
+		};
+		91E7DFA427395841007CC0D5 /* KeyCombination */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 91840E1926FE0A6A00E6048E /* XCRemoteSwiftPackageReference "KeyCombination" */;
 			productName = KeyCombination;
 		};
-		91D222FB26FE104800B9AF77 /* AccessibilityStrategy */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 91840E2526FE0AF000E6048E /* XCRemoteSwiftPackageReference "AccessibilityStrategy" */;
-			productName = AccessibilityStrategy;
-		};
-		91D2230426FE10D300B9AF77 /* KeyboardStrategy */ = {
+		91E7DFA62739584E007CC0D5 /* KeyboardStrategy */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 91840E1F26FE0AA800E6048E /* XCRemoteSwiftPackageReference "KeyboardStrategy" */;
 			productName = KeyboardStrategy;
+		};
+		91E7DFA82739589F007CC0D5 /* KeyboardShortcuts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 91840E1626FE0A4F00E6048E /* XCRemoteSwiftPackageReference "KeyboardShortcuts" */;
+			productName = KeyboardShortcuts;
+		};
+		91E7DFAA273958AC007CC0D5 /* AccessibilityStrategy */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 91840E2526FE0AF000E6048E /* XCRemoteSwiftPackageReference "AccessibilityStrategy" */;
+			productName = AccessibilityStrategy;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -1,4 +1,3 @@
-@testable import kindaVim
 import XCTest
 import KeyCombination
 import AccessibilityStrategy
@@ -8,9 +7,9 @@ import AccessibilityStrategy
 class ASUI_NM_caw_Tests: ASUI_NM_BaseTests {
 
     private func applyKeyCombinationsBeingTested() {
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .c))
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .a))
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .w))
+        kindaVimEngine.handle(keyCombination: KeyCombination(key: .c))
+        kindaVimEngine.handle(keyCombination: KeyCombination(key: .a))
+        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .w))
     }
 
 }
@@ -23,11 +22,11 @@ extension ASUI_NM_caw_Tests {
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
         app.textFields.firstMatch.typeKey(.leftArrow, modifierFlags: [.command])
-        KindaVimEngine.shared.enterNormalMode()
+        kindaVimEngine.enterNormalMode()
         
         applyKeyCombinationsBeingTested()
 
-        XCTAssertEqual(KindaVimEngine.shared.currentMode, .insert)
+        XCTAssertEqual(kindaVimEngine.currentMode, .insert)
     }
 
     func test_a_case_where_it_should_not_delete_the_content_and_then_stay_in_normal_mode() {
@@ -35,11 +34,11 @@ extension ASUI_NM_caw_Tests {
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
         app.textFields.firstMatch.typeKey(.leftArrow, modifierFlags: [])
-        KindaVimEngine.shared.enterNormalMode()
+        kindaVimEngine.enterNormalMode()
 
         applyKeyCombinationsBeingTested()
 
-        XCTAssertEqual(KindaVimEngine.shared.currentMode, .normal)
+        XCTAssertEqual(kindaVimEngine.currentMode, .normal)
     }
 
 }
@@ -54,7 +53,7 @@ extension ASUI_NM_caw_Tests {
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
         app.textFields.firstMatch.typeKey(.leftArrow, modifierFlags: [])
-        KindaVimEngine.shared.enterNormalMode()
+        kindaVimEngine.enterNormalMode()
 
         applyKeyCombinationsBeingTested()
         

@@ -8,9 +8,9 @@ class SucceedingASNM_dT__Tests: SucceedingASNM_BaseTests {
     override func setUp() {
         super.setUp()
         
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .d))
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .T))
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .f))
+        kindaVimEngine.handle(keyCombination: KeyCombination(key: .d))
+        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .T))
+        kindaVimEngine.handle(keyCombination: KeyCombination(key: .f))
     }
     
 }
@@ -23,7 +23,7 @@ extension SucceedingASNM_dT__Tests {
     }
     
     func test_that_it_keeps_Vim_in_normal_mode() {
-        XCTAssertEqual(KindaVimEngine.shared.currentMode, .normal)
+        XCTAssertEqual(kindaVimEngine.currentMode, .normal)
     }
     
 }

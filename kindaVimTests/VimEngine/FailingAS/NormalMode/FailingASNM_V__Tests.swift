@@ -8,7 +8,7 @@ class FailingASNM_V__Tests: FailingASNM_BaseTests {
     override func setUp() {
         super.setUp()
         
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .V))
+        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .V))
     }
     
 }
@@ -21,11 +21,11 @@ extension FailingASNM_V__Tests {
     }
     
     func test_that_it_switches_Vim_to_visual_mode() {
-        XCTAssertEqual(KindaVimEngine.shared.currentMode, .visual)
+        XCTAssertEqual(kindaVimEngine.currentMode, .visual)
     }
     
     func test_that_it_sets_the_visual_style_to_characterwise() {
-        XCTAssertEqual(KindaVimEngine.shared.visualStyle, .linewise)
+        XCTAssertEqual(kindaVimEngine.visualStyle, .linewise)
     }
     
 }

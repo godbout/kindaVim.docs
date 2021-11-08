@@ -8,7 +8,7 @@ class FailingASNM_control_r_Tests: FailingAS_BaseTests {
     override func setUp() {
         super.setUp()
         
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .r, control: true))
+        kindaVimEngine.handle(keyCombination: KeyCombination(key: .r, control: true))
     }
     
 }
@@ -21,7 +21,7 @@ extension FailingASNM_control_r_Tests {
     }
     
     func test_that_it_keeps_Vim_in_normal_mode() {
-        XCTAssertEqual(KindaVimEngine.shared.currentMode, .normal)
+        XCTAssertEqual(kindaVimEngine.currentMode, .normal)
     }
     
 }

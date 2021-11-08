@@ -6,8 +6,8 @@ import XCTest
 class EnforcingKSVM_gI_Tests: EnforcingKSVM_BaseTests {
     
     private func applyKeyCombinationBeingTested() {
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .g), enforceKeyboardStrategy: true)
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .I), enforceKeyboardStrategy: true)
+        kindaVimEngine.handle(keyCombination: KeyCombination(key: .g), enforceKeyboardStrategy: true)
+        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .I), enforceKeyboardStrategy: true)
     }
 
 }
@@ -17,7 +17,7 @@ class EnforcingKSVM_gI_Tests: EnforcingKSVM_BaseTests {
 extension EnforcingKSVM_gI_Tests {
 
     func test_that_it_calls_the_correct_function_on_KS_when_in_VisualStyle_Characterwise() {
-        KindaVimEngine.shared.visualStyle = .characterwise
+        kindaVimEngine.visualStyle = .characterwise
         applyKeyCombinationBeingTested()
         
         XCTAssertEqual(ksVisualModeMock.functionCalled, "gIForVisualStyleCharacterwise()")
@@ -30,7 +30,7 @@ extension EnforcingKSVM_gI_Tests {
 extension EnforcingKSVM_gI_Tests {
 
     func test_that_it_does_not_call_any_function_on_KS_because_this_move_does_not_exist_for_VisualStyle_Linewise() {
-        KindaVimEngine.shared.visualStyle = .linewise
+        kindaVimEngine.visualStyle = .linewise
         applyKeyCombinationBeingTested()
         
         XCTAssertEqual(ksVisualModeMock.functionCalled, "")
@@ -45,7 +45,7 @@ extension EnforcingKSVM_gI_Tests {
     func test_that_it_keeps_Vim_in_visual_mode() {
         applyKeyCombinationBeingTested()
         
-        XCTAssertEqual(KindaVimEngine.shared.currentMode, .visual)
+        XCTAssertEqual(kindaVimEngine.currentMode, .visual)
     }
     
 }

@@ -6,7 +6,7 @@ import XCTest
 class EnforcingKSVM_j_Tests: EnforcingKSVM_BaseTests {
     
     private func applyKeyCombinationsBeingTested() {
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .j), enforceKeyboardStrategy: true)
+        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .j), enforceKeyboardStrategy: true)
     }
 
 }
@@ -16,7 +16,7 @@ class EnforcingKSVM_j_Tests: EnforcingKSVM_BaseTests {
 extension EnforcingKSVM_j_Tests {
 
     func test_that_it_calls_the_correct_function_on_KS_when_in_VisualStyle_Characterwise() {
-        KindaVimEngine.shared.visualStyle = .characterwise
+        kindaVimEngine.visualStyle = .characterwise
         applyKeyCombinationsBeingTested()
         
         XCTAssertEqual(ksVisualModeMock.functionCalled, "jForVisualStyleCharacterwise()")
@@ -29,7 +29,7 @@ extension EnforcingKSVM_j_Tests {
 extension EnforcingKSVM_j_Tests {
 
     func test_that_it_calls_the_correct_function_on_KS_when_in_VisualStyle_Linewise() {
-        KindaVimEngine.shared.visualStyle = .linewise
+        kindaVimEngine.visualStyle = .linewise
         applyKeyCombinationsBeingTested()
         
         XCTAssertEqual(ksVisualModeMock.functionCalled, "jForVisualStyleLinewise()")
@@ -44,7 +44,7 @@ extension EnforcingKSVM_j_Tests {
     func test_that_it_keeps_Vim_in_visual_mode() {
         applyKeyCombinationsBeingTested()
         
-        XCTAssertEqual(KindaVimEngine.shared.currentMode, .visual)
+        XCTAssertEqual(kindaVimEngine.currentMode, .visual)
     }
     
 }

@@ -8,11 +8,11 @@ class SucceedingASNM_yt_Tests: SucceedingASNM_BaseTests {
     override func setUp() {
         super.setUp()
         
-        KindaVimEngine.shared.lastYankStyle = .linewise
+        kindaVimEngine.lastYankStyle = .linewise
         
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .y))
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .t))
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .X))
+        kindaVimEngine.handle(keyCombination: KeyCombination(key: .y))
+        kindaVimEngine.handle(keyCombination: KeyCombination(key: .t))
+        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .X))
     }
     
 }
@@ -25,11 +25,11 @@ extension SucceedingASNM_yt_Tests {
     }
     
     func test_that_it_keeps_Vim_in_normal_mode() {
-        XCTAssertEqual(KindaVimEngine.shared.currentMode, .normal)
+        XCTAssertEqual(kindaVimEngine.currentMode, .normal)
     }
     
     func test_that_it_sets_the_last_yank_style_to_characterwise() {
-        XCTAssertEqual(KindaVimEngine.shared.lastYankStyle, .characterwise)
+        XCTAssertEqual(kindaVimEngine.lastYankStyle, .characterwise)
     }
     
 }

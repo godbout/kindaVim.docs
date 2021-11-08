@@ -1,4 +1,3 @@
-@testable import kindaVim
 import XCTest
 import KeyCombination
 import AccessibilityStrategy
@@ -11,9 +10,9 @@ import AccessibilityStrategy
 class UIASNM_ciDoubleQuote_Tests: ASUI_NM_BaseTests {
 
     private func applyKeyCombinationsBeingTested() {
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .c))
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(key: .i))
-        KindaVimEngine.shared.handle(keyCombination: KeyCombination(vimKey: .doubleQuote))
+        kindaVimEngine.handle(keyCombination: KeyCombination(key: .c))
+        kindaVimEngine.handle(keyCombination: KeyCombination(key: .i))
+        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .doubleQuote))
     }
 
 }
@@ -28,11 +27,11 @@ hehe there's gonna be some "double quotes" in that shit
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
         app.textFields.firstMatch.typeKey(.leftArrow, modifierFlags: [.command])
-        KindaVimEngine.shared.enterNormalMode()
+        kindaVimEngine.enterNormalMode()
 
         applyKeyCombinationsBeingTested()
 
-        XCTAssertEqual(KindaVimEngine.shared.currentMode, .insert)
+        XCTAssertEqual(kindaVimEngine.currentMode, .insert)
     }
 
     func test_a_case_where_it_should_not_delete_the_content_and_then_stay_in_normal_mode() {
@@ -42,11 +41,11 @@ huhu only one " in there...
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
         app.textFields.firstMatch.typeKey(.leftArrow, modifierFlags: [.option])
-        KindaVimEngine.shared.enterNormalMode()
+        kindaVimEngine.enterNormalMode()
 
         applyKeyCombinationsBeingTested()
 
-        XCTAssertEqual(KindaVimEngine.shared.currentMode, .normal)
+        XCTAssertEqual(kindaVimEngine.currentMode, .normal)
     }
 
 }
