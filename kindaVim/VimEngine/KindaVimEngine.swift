@@ -200,7 +200,7 @@ class KindaVimEngine {
         operatorPendingBuffer.append(keyCombination)
     }
     
-    func enterOperatorPendingFojrVisualMode(with keyCombination: KeyCombination) {
+    func enterOperatorPendingForVisualMode(with keyCombination: KeyCombination) {
         currentMode = .operatorPendingForVisualMode
         operatorPendingBuffer.append(keyCombination)
     }
