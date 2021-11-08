@@ -97,6 +97,7 @@ struct StrategiesPane: View {
                     .onDrop(of: [.fileURL], delegate: AppsDropDelegate(strategy: .enforceKeyboardStrategy))
                 }
             }
+            .frame(width: nil, height: 250)
 
             Divider()
                 
@@ -110,10 +111,9 @@ struct StrategiesPane: View {
 
                 Spacer()
             }
-            .padding(.top, 15)
-            .padding(.bottom, 10)
+            .padding(.top, 7)
         }
-        .frame(width: 570, height: 300)
+        .frame(width: 570, height: nil)
     }
     
 }

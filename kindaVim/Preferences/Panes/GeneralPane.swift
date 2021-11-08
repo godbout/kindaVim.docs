@@ -17,7 +17,7 @@ struct GeneralPane: View {
                     Toggle("Use custom shortcut to enter Normal Mode:", isOn: $useCustomShortcutToEnterNormalMode)
                     KeyboardShortcuts.Recorder(for: .enterNormalMode).disabled(!useCustomShortcutToEnterNormalMode)
                 }
-                .padding(.top, 15)
+                .padding(.top, 10)
                                 
                 Text("by default Escape is used to enter Normal Mode. press Escape twice to send Escape to macOS.")
                     .font(.footnote)
@@ -25,7 +25,7 @@ struct GeneralPane: View {
                     .padding(.horizontal)
             }
         }
-        .frame(width: 570, height: 104)
+        .frame(width: 570, height: nil)
             
     }
 }

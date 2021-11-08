@@ -29,7 +29,7 @@ struct VisualsPane: View {
                 #endif
             }
         }
-        .frame(width: 570, height: 40)
+        .frame(width: 570, height: nil)
     }
     
 }
