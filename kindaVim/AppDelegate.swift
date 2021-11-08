@@ -6,7 +6,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     lazy var splashScreenWindow: NSWindow = {
         let window = NSWindow(
             contentRect: NSRect(),
-            styleMask: [.titled, .nonactivatingPanel],
+            styleMask: [.titled],
             backing: .buffered,
             defer: true
         )
