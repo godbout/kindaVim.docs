@@ -73,6 +73,7 @@ class AppCore {
         @AppStorage(SettingsKeys.jkMapping) var jkMapping: Bool = true
         
         vimEngine = KindaVimEngine()
+        vimEngine.statusItem = statusBarController.statusItem
         vimEngine.toggleHazeOverWindow = toggleHazeOverWindow
         vimEngine.toggleMenuBarIcon = toggleMenuBarIcon
         vimEngine.showCharactersTyped = showCharactersTyped

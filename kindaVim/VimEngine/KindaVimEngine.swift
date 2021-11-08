@@ -41,6 +41,7 @@ class KindaVimEngine {
     var visualStyle: VimEngineMoveStyle = .characterwise
     
     var display = Display()
+    var statusItem: NSStatusItem?
     var axEngine: AXEngineProtocol = AXEngine()
     
     var focusedElementType: ElementType {
@@ -147,11 +148,10 @@ class KindaVimEngine {
         }
               
         // ugly af
-        // first, using AppCore singleton here...
-        // second, currently we duplicate the code at start, in the statusBarController, in the Settings...
+        // currently we duplicate the code at start, in the statusBarController, in the Settings...
         // we should have some kind of observer here, like some Combine shit? need to investigate.
         if toggleMenuBarIcon == true {
-            AppCore.shared.statusBarController.statusItem.button?.image = NSImage(named: "MenuBarIconEmpty")
+            statusItem?.button?.image = NSImage(named: "MenuBarIconEmpty")
         }
         
         if showCharactersTyped == true {
@@ -173,7 +173,7 @@ class KindaVimEngine {
         
         // same as a bit above. ugly af.
         if toggleMenuBarIcon == true {
-            AppCore.shared.statusBarController.statusItem.button?.image = NSImage(named: "MenuBarIconFull")
+            statusItem?.button?.image = NSImage(named: "MenuBarIconFull")
         }
     }
         
