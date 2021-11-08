@@ -3,7 +3,6 @@ import SwiftUI
 
 class AppDelegate: NSObject, NSApplicationDelegate {
     
-    lazy var appComponent = AppComponent()
     lazy var splashScreenWindow: NSWindow = {
         let window = NSWindow(
             contentRect: NSRect(),
@@ -31,7 +30,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             return
         }
         
-        appComponent.setUp()
+        AppCore.shared.setUp()
     }
         
     private func showSplashScreen() {
@@ -50,7 +49,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
         
         splashScreenWindow.orderOut(self)
-        appComponent.setUpAgainIfNecessary()
+        AppCore.shared.setUpAgainIfNecessary()
     }
     
     private func disableEventTap() {
@@ -62,7 +61,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     @objc func spaceDidChange() {
-        KindaVimEngine.shared.enterInsertMode()
+        AppCore.shared.vimEngine.enterInsertMode()
     }
 
 }

@@ -1,9 +1,11 @@
-import AppKit
+import SwiftUI
 
 
 class StatusBarController {
+
+    @AppStorage(SettingsKeys.toggleMenuBarIcon) private var toggleMenuBarIcon: Bool = false
     
-    private var statusItem: NSStatusItem!
+    var statusItem: NSStatusItem!
     
     init() {
         setUpStatusItem()
@@ -13,7 +15,7 @@ class StatusBarController {
     
     private func setUpStatusItem() {
         statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
-        statusItem.button?.image = NSImage(named: "MenuBarIconFull")
+        statusItem.button?.image = toggleMenuBarIcon == true ? NSImage(named: "MenuBarIconEmpty") : NSImage(named: "MenuBarIconFull")
     }
     
     private func setUpStatusItemMenu() {

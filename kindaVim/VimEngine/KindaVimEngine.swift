@@ -1,3 +1,4 @@
+import AppKit
 import Foundation
 import KeyCombination
 import KeyboardStrategy
@@ -26,9 +27,8 @@ enum VimEngineStrategy {
 
 class KindaVimEngine {
     
-    static var shared = KindaVimEngine()
-
     var toggleHazeOverWindow: Bool = true
+    var toggleMenuBarIcon: Bool = false
     var showCharactersTyped: Bool = false
     var jkMapping: Bool = true
     
@@ -62,10 +62,6 @@ class KindaVimEngine {
     var asNormalMode: AccessibilityStrategyNormalModeProtocol = AccessibilityStrategyNormalMode()
     var asVisualMode: AccessibilityStrategyVisualModeProtocol = AccessibilityStrategyVisualMode()
 
-    
-    private init() {
-        print("engine started")
-    }
     
     func handle(keyCombination: KeyCombination, enforceKeyboardStrategy: Bool = false) {
         if showCharactersTyped == true {
@@ -149,6 +145,14 @@ class KindaVimEngine {
         if toggleHazeOverWindow == true {
             display.hazeOver(.off)
         }
+              
+        // ugly af
+        // first, using AppCore singleton here...
+        // second, currently we duplicate the code at start, in the statusBarController, in the Settings...
+        // we should have some kind of observer here, like some Combine shit? need to investigate.
+        if toggleMenuBarIcon == true {
+            AppCore.shared.statusBarController.statusItem.button?.image = NSImage(named: "MenuBarIconEmpty")
+        }
         
         if showCharactersTyped == true {
             display.fadeOutCharactersWindow()
@@ -165,6 +169,11 @@ class KindaVimEngine {
         
         if toggleHazeOverWindow == true {
             display.hazeOver(.on)
+        }
+        
+        // same as a bit above. ugly af.
+        if toggleMenuBarIcon == true {
+            AppCore.shared.statusBarController.statusItem.button?.image = NSImage(named: "MenuBarIconFull")
         }
     }
         

@@ -105,7 +105,7 @@ struct StrategiesPane: View {
 
                 Toggle("map jk to gj gk for Accessibility Strategy", isOn: $jkMapping)
                     .onChange(of: jkMapping) { 
-                        KindaVimEngine.shared.jkMapping = $0
+                        AppCore.shared.vimEngine.jkMapping = $0
                     }
 
                 Spacer()

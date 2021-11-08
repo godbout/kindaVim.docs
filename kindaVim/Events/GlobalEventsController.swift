@@ -1,6 +1,5 @@
 import Foundation
 import SwiftUI
-import AppKit
 import KeyboardShortcuts
 import KeyCombination
 
@@ -21,7 +20,7 @@ struct GlobalEventsController {
         if inNormalModeOrOperatorPendingModeOrVisualMode() {
             guard let implementedKeyCombination = keyCombination else { return true }
             
-            KindaVimEngine.shared.handle(
+            AppCore.shared.vimEngine.handle(
                 keyCombination: implementedKeyCombination,
                 enforceKeyboardStrategy: enforceKeyboardStrategy
             )
@@ -32,7 +31,7 @@ struct GlobalEventsController {
         guard let implementedKeyCombination = keyCombination else { return false }
 
         if globalVimEngineHotkeyIsPressed(implementedKeyCombination) {
-            KindaVimEngine.shared.enterNormalMode(enforceKeyboardStrategy: enforceKeyboardStrategy)
+            AppCore.shared.vimEngine.enterNormalMode(enforceKeyboardStrategy: enforceKeyboardStrategy)
             
             print("enter Normal Mode")
             
@@ -55,10 +54,10 @@ struct GlobalEventsController {
     }
     
     private static func inNormalModeOrOperatorPendingModeOrVisualMode() -> Bool {
-        return KindaVimEngine.shared.currentMode == .normal
-            || KindaVimEngine.shared.currentMode == .operatorPendingForNormalMode
-            || KindaVimEngine.shared.currentMode == .visual
-            || KindaVimEngine.shared.currentMode == .operatorPendingForVisualMode
+        return AppCore.shared.vimEngine.currentMode == .normal
+            || AppCore.shared.vimEngine.currentMode == .operatorPendingForNormalMode
+            || AppCore.shared.vimEngine.currentMode == .visual
+            || AppCore.shared.vimEngine.currentMode == .operatorPendingForVisualMode
     }
     
     // if the user set up a custom KeyboardShortcut, use it

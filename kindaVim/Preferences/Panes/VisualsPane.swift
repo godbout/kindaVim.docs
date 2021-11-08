@@ -13,13 +13,20 @@ struct VisualsPane: View {
             VStack(alignment: .leading) {
                 Toggle("Highlight the window that is Viming", isOn: $toggleHazeOverWindow)
                     .onChange(of: toggleHazeOverWindow) { 
-                        KindaVimEngine.shared.toggleHazeOverWindow = $0
+                        AppCore.shared.vimEngine.toggleHazeOverWindow = $0
                     }
                 Toggle("Change Menu Bar Icon when not Viming", isOn: $toggleMenuBarIcon)
-//                Toggle("Show characters typed", isOn: $showCharactersTyped)
-//                    .onChange(of: showCharactersTyped) {
-//                        KindaVimEngine.shared.showCharactersTyped = $0
-//                    }
+                    .onChange(of: toggleMenuBarIcon) {
+                        // ugly af. should need some observer in KVE at least?
+                        AppCore.shared.statusBarController.statusItem.button?.image = $0 == true ? NSImage(named: "MenuBarIconEmpty") : NSImage(named: "MenuBarIconFull")
+                        AppCore.shared.vimEngine.toggleMenuBarIcon = $0
+                    }
+                #if DEBUG
+                Toggle("Show characters typed when Viming", isOn: $showCharactersTyped)
+                    .onChange(of: showCharactersTyped) {
+                        AppCore.shared.vimEngine.showCharactersTyped = $0
+                    }
+                #endif
             }
         }
         .frame(width: 570, height: 40)

@@ -1,13 +1,17 @@
 import SwiftUI
 
 
-class AppComponent {
+class AppState {
+    
+    static var shared = AppState()
 
     var statusBarController: StatusBarController!
     var eventTapController: EventTapController!
     var vimEngine: KindaVimEngine!
 
     var accessibilityElementAdaptorTestingWindow: NSWindow!
+    
+    private init() {}
 
 
     func setUp() {
