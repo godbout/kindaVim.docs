@@ -114,6 +114,7 @@ struct StrategiesPane: View {
             .padding(.top, 7)
         }
         .frame(width: 570, height: nil)
+        .padding(10)
     }
     
 }

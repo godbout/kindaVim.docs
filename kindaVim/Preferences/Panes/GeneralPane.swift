@@ -26,8 +26,9 @@ struct GeneralPane: View {
             }
         }
         .frame(width: 570, height: nil)
-            
+        .padding(10)
     }
+        
 }
 
 

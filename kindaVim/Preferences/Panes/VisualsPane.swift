@@ -30,6 +30,7 @@ struct VisualsPane: View {
             }
         }
         .frame(width: 570, height: nil)
+        .padding(10)
     }
     
 }
