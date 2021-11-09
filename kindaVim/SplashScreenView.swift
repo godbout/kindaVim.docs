@@ -1,11 +1,27 @@
-//
-//  SplashScreenView.swift
-//  kindaVim
-//
-//  Created by Guillaume Leclerc on 25/10/2021.
-//
-
 import SwiftUI
+
+
+struct VisualEffectView: NSViewRepresentable {
+
+    let material: NSVisualEffectView.Material
+    let blendingMode: NSVisualEffectView.BlendingMode
+
+    func makeNSView(context: Context) -> NSVisualEffectView {
+        let visualEffectView = NSVisualEffectView()
+        visualEffectView.blendingMode = .behindWindow
+        visualEffectView.state = .active
+        visualEffectView.material = .menu
+
+        return visualEffectView
+    }
+
+    func updateNSView(_ visualEffectView: NSVisualEffectView, context: Context) {
+        visualEffectView.material = material
+        visualEffectView.blendingMode = blendingMode
+    }
+
+}
+
 
 struct SplashScreenView: View {
         
@@ -39,8 +55,10 @@ struct SplashScreenView: View {
                 }        
             }
         }
-        .frame(width: 480, height: 170, alignment: .center)
+        .frame(width: 468, height: 169, alignment: .center)
         .padding()
+        .background(VisualEffectView(material: .menu, blendingMode: .behindWindow))
+        .cornerRadius(15.0)
     }
     
     func showAccessibilityPrivilegesPrompt() {

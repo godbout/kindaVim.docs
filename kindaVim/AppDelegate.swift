@@ -11,9 +11,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             defer: true
         )
         
-        window.title = "kindaVim Accessibility Privileges"
+        window.styleMask.remove(.titled)
+        window.backgroundColor = .clear
         window.isMovableByWindowBackground = true
         window.isRestorable = false
+
         window.center()
         
         return window
@@ -37,7 +39,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let splashScreenView = SplashScreenView()
         
         splashScreenWindow.contentView = NSHostingView(rootView: splashScreenView)
-        splashScreenWindow.makeKeyAndOrderFront(self)
+        splashScreenWindow.orderFrontRegardless()
     }
     
     @objc func accessibilityPrivilegesDidChange() {
