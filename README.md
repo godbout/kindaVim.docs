@@ -1,7 +1,5 @@
-<h1 align="center">kindaVim</h1>
-
 <p align="center">
-    <img src="/assets/icon.png">
+    <img src="https://github.com/godbout/kindaVim.theapp/blob/master/assets/icon.png">
 </p>
 
 ---
