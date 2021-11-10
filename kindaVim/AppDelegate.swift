@@ -63,6 +63,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     @objc func spaceDidChange() {
+        guard AppCore.shared.vimEngine != nil else { return }
+        
         AppCore.shared.vimEngine.enterInsertMode()
     }
 
