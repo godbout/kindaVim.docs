@@ -25,7 +25,7 @@ for any UI Element other than `Text Fields` and `Text Areas` or for apps that do
 
 # HOW 'BOUT THE MONEY
 
-kindaVim will be a subscription of one ☕️ (USD$3) a month. if you want to read more about the rationale being it, you can read more [below](). the beta is free and contains the full set of features. i have no idea when i'll drop the beta. the beta may last 10 years. who knows. or maybe till 2047.
+kindaVim will be a subscription of one ☕️ (USD$3) a month. if you want to read more about the rationale behind it, well, then read more [below](). the beta is free and contains the full set of features. i have no idea when i'll drop the beta. the beta may last 10 years. who knows. or maybe till 2047.
 
 # CURRENT VIM IMPLEMENTATION
 
