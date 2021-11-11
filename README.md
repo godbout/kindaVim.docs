@@ -253,20 +253,32 @@ kindaVim will be a subscription of one ☕️ (USD$3) a month. if you want to re
 
 lol those tables.
 
-# KNOWN ISSUES
-
 # ROADMAP
 * a plethora of missing Vim moves
+* app updater
 * count system
 * hybrid mode: some apps like browsers implement the Accessibility but have restrictions. you can move around perfectly but the Accessibility cannot simulate the `enter` key or delete text. hybrid mode will be a combination of the [Accessibility Strategy]() for some movements and the [Keyboard Strategy]() for some others in order to bypass those restrictions.
-* better handling of broswers and Electron apps
+* better handling of broswers and Electron shit apps
+
+# KNOWN ISSUES
+* kindaVim currently considers escaped quotes as quotes. sad
+* brackets within quotes are also not ignored. double sad
+* some bug with caw, daw and empty lines
+* some moves may not work in some browers, even when enforcing the Keyboard Strategy. hybrid mode will solve this
+* indentation <<, >> is currently not configurable and stuck to 4 spaces (haha)
+
+# REQUESTS
+
+* to request a missing move, open an issue: https://github.com/godbout/kindaVim.theapp/issues/new
+* to request a feature, open an issue: https://github.com/godbout/kindaVim.theapp/issues/new
+* to report a bug, open an issue: https://github.com/godbout/kindaVim.theapp/issues/new
+* in case you just want to open an issue though, open an issue: https://github.com/godbout/kindaVim.theapp/issues/new
 
 # MORE ABOUT THE SUBSCRIPTION MODEL
 
-# ACKNOWLEDGMENT
-* Sindre
-* maestro
-* hammerspoon vim
 
-# REQUEST
+# ACKNOWLEDGMENTS, THANKS, AND OTHERS
 
+* [Takayama Fumihiko](https://github.com/tekezo) for [Karabiner-Elements](https://karabiner-elements.pqrs.org), my first experience of Vim moves on macOS
+* [David Balatero](https://github.com/dbalatero) for [VimMode.spoon](https://github.com/dbalatero/VimMode.spoon), showing there's a way to make that shit work
+* [Sindre Sorhus](https://github.com/sindresorhus) for [LaunchAtLogin](https://github.com/sindresorhus/LaunchAtLogin) and [KeyboardShortcuts](https://github.com/sindresorhus/KeyboardShortcuts), that kindaVim uses
