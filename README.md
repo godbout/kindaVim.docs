@@ -1,6 +1,6 @@
 <div align="center">
     <img src="https://github.com/godbout/kindaVim.theapp/blob/master/assets/icon.png">
-    <h1>brings Vim moves to macOS.</h1>
+    <h1 style="border-bottom: 0 !important">brings Vim moves to macOS.</h1>
 </div>
 
 ---
