@@ -145,18 +145,16 @@ struct AppsDropDelegate: DropDelegate {
 
         for provider in providers {
             if provider.canLoadObject(ofClass: URL.self) {
-                autoreleasepool {
-                    let group = DispatchGroup()
-                    group.enter()
+                let group = DispatchGroup()
+                group.enter()
 
-                    _ = provider.loadObject(ofClass: URL.self) { url, _ in
-                        let itemIsAnApplicationBundle = try? url?.resourceValues(forKeys: [.contentTypeKey]).contentType == .applicationBundle
-                        result = result || (itemIsAnApplicationBundle ?? false)
-                    }
-
-                    _ = group.wait(timeout: .now() + 0.5)
+                _ = provider.loadObject(ofClass: URL.self) { url, _ in
+                    let itemIsAnApplicationBundle = try? url?.resourceValues(forKeys: [.contentTypeKey]).contentType == .applicationBundle
+                    result = result || (itemIsAnApplicationBundle ?? false)    
                     group.leave()
                 }
+                                
+                _ = group.wait(timeout: .now() + 0.5)
             }
         }
 
@@ -169,28 +167,27 @@ struct AppsDropDelegate: DropDelegate {
 
         for provider in providers {
             if provider.canLoadObject(ofClass: URL.self) {
-                autoreleasepool {
-                    let group = DispatchGroup()
-                    group.enter()
+                let group = DispatchGroup()
+                group.enter()
 
-                    _ = provider.loadObject(ofClass: URL.self) { url, _ in
-                        let itemIsAnApplicationBundle = (try? url?.resourceValues(forKeys: [.contentTypeKey]).contentType == .applicationBundle) ?? false
+                _ = provider.loadObject(ofClass: URL.self) { url, _ in
+                    let itemIsAnApplicationBundle = (try? url?.resourceValues(forKeys: [.contentTypeKey]).contentType == .applicationBundle) ?? false
 
-                        if itemIsAnApplicationBundle, let url = url, let app = Bundle(url: url), let bundleIdentifiter = app.bundleIdentifier {
-                            switch strategy {
-                            case .ignore:
-                                appsToIgnore.insert(bundleIdentifiter)
-                            case .enforceKeyboardStrategy:
-                                appsForWhichToEnforceKeyboardStrategy.insert(bundleIdentifiter)
-                            }
-
-                            result = true
+                    if itemIsAnApplicationBundle, let url = url, let app = Bundle(url: url), let bundleIdentifiter = app.bundleIdentifier {
+                        switch strategy {
+                        case .ignore:
+                            appsToIgnore.insert(bundleIdentifiter)
+                        case .enforceKeyboardStrategy:
+                            appsForWhichToEnforceKeyboardStrategy.insert(bundleIdentifiter)
                         }
-                    }
 
-                    _ = group.wait(timeout: .now() + 0.5)
+                        result = result || true
+                    }
+                                        
                     group.leave()
                 }
+
+                _ = group.wait(timeout: .now() + 0.5)
             }
         }
         
