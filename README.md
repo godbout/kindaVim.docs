@@ -25,7 +25,7 @@ for any UI Element other than `Text Fields` and `Text Areas` or for apps that do
 
 # HOW 'BOUT THE MONEY
 
-kindaVim will be a subscription of one ☕️ (USD$3) a month. if you want to read more about the rationale behind this decision, well, then, [read more](#user-content-more-about-the-subscription-model). the beta is free and contains the full set of features. i have no idea when i'll drop the beta. the beta may last 10 years. who knows. or maybe till 2047.
+kindaVim will be a subscription of one ☕️ (USD$3) a month. the beta is free and contains the full set of features. i have no idea when i'll drop the beta. the beta may last 10 years. who knows. or maybe till 2047.
 
 # CURRENT VIM IMPLEMENTATION
 
@@ -273,11 +273,6 @@ lol those tables.
 * to request a feature, open an issue: https://github.com/godbout/kindaVim.theapp/issues/new
 * to report a bug, open an issue: https://github.com/godbout/kindaVim.theapp/issues/new
 * in case you just want to open an issue though, open an issue: https://github.com/godbout/kindaVim.theapp/issues/new
-
-# MORE ABOUT THE SUBSCRIPTION MODEL
-
-ever bought an app and 8 months later there's a new major version because **ENTIRELY REDESIGNED FROM SCRATCH FROM THE GROUND UP FOR YOU OUR LOVELY CUSTOMERS EVEN THO IT LOOKS THE SAME AND BEHAVES THE SAME BUT HEY HERE PUT YOUR CREDIT CARD NUMBER AGAIN HEHE™**? i have. many times. i hate it. as a consumer i don't give a single fuck if you need to rewrite your app. it's none of my business. not my problem. sometimes yes you can update for free but sometimes no you cannot and sometimes you need to bargain the six months period and blah and blah and blah. unnecessary headaches. with a subscription as a consumer you get the latest. you don't need to worry about what's happening behind the scenes (true, usually a lot, but again none of your business). if an app makes you smile when you use it, if it saves you time, or inspires you, then a couple of bucks a month should be a no-brainer **investment**. (that is, assuming that you're loving yourself 😅️😗️❤️.) you deserve it!
-
 
 # ACKNOWLEDGMENTS, THANKS, AND KISSES
 
