@@ -255,7 +255,6 @@ lol those tables.
 
 # ROADMAP
 * a plethora of missing Vim moves
-* app updater
 * count system
 * hybrid mode: some apps like browsers implement the Accessibility but have restrictions. you can move around perfectly but the Accessibility cannot simulate the `enter` key or delete text. hybrid mode will be a combination of the [Accessibility Strategy](#user-content-the-accessibility-strategy) for some movements and the [Keyboard Strategy](#user-content-the-keyboard-strategy) for some others in order to bypass those restrictions
 * better handling of broswers and Electron shit apps
