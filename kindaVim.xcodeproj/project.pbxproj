@@ -54,6 +54,7 @@
 		9177A9F52721B7EE0070A78A /* EnforcingKSVM_gI__Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9177A9F42721B7EE0070A78A /* EnforcingKSVM_gI__Tests.swift */; };
 		9177A9F72721B8470070A78A /* SucceedingASVM_gI__Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9177A9F62721B8470070A78A /* SucceedingASVM_gI__Tests.swift */; };
 		9177A9F92721B86F0070A78A /* FailingASVM_gI__Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9177A9F82721B86F0070A78A /* FailingASVM_gI__Tests.swift */; };
+		917A61EB27410F1100E3654E /* Sparkle in Frameworks */ = {isa = PBXBuildFile; productRef = 917A61EA27410F1100E3654E /* Sparkle */; };
 		918022A32700C16C0094BF92 /* EnforcingKSNM_daw_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918022A22700C16C0094BF92 /* EnforcingKSNM_daw_Tests.swift */; };
 		918022A52700C24F0094BF92 /* FailingASNM_daw_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918022A42700C24F0094BF92 /* FailingASNM_daw_Tests.swift */; };
 		918022A72700C2E50094BF92 /* SucceedingASNM_daw_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918022A62700C2E50094BF92 /* SucceedingASNM_daw_Tests.swift */; };
@@ -422,6 +423,7 @@
 		91A54BB42718628300DEB933 /* EnforcingKSNM_k_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A54BB32718628300DEB933 /* EnforcingKSNM_k_Tests.swift */; };
 		91A54BB62718637E00DEB933 /* SucceedingASNM_k_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A54BB52718637E00DEB933 /* SucceedingASNM_k_Tests.swift */; };
 		91A54BB82718639C00DEB933 /* FailingASNM_k_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A54BB72718639C00DEB933 /* FailingASNM_k_Tests.swift */; };
+		91A967422741447400E1CA7E /* Updater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A967412741447400E1CA7E /* Updater.swift */; };
 		91D222F726FE0F2B00B9AF77 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D222F626FE0F2B00B9AF77 /* AppDelegate.swift */; };
 		91D222FD26FE105800B9AF77 /* KindaVimEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91840DEA26FE096C00E6048E /* KindaVimEngine.swift */; };
 		91E3A1BF272073E2003734BE /* SucceedingASNM_dgg_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E3A1BE272073E2003734BE /* SucceedingASNM_dgg_Tests.swift */; };
@@ -869,6 +871,7 @@
 		91A54BB32718628300DEB933 /* EnforcingKSNM_k_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnforcingKSNM_k_Tests.swift; sourceTree = "<group>"; };
 		91A54BB52718637E00DEB933 /* SucceedingASNM_k_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SucceedingASNM_k_Tests.swift; sourceTree = "<group>"; };
 		91A54BB72718639C00DEB933 /* FailingASNM_k_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FailingASNM_k_Tests.swift; sourceTree = "<group>"; };
+		91A967412741447400E1CA7E /* Updater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Updater.swift; sourceTree = "<group>"; };
 		91D222F626FE0F2B00B9AF77 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		91D2230826FE112000B9AF77 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		91D475F826FF67A10007187B /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
@@ -896,6 +899,7 @@
 				91840E2426FE0ACB00E6048E /* LaunchAtLogin in Frameworks */,
 				91840E2726FE0AF000E6048E /* AccessibilityStrategy in Frameworks */,
 				91840E1826FE0A4F00E6048E /* KeyboardShortcuts in Frameworks */,
+				917A61EB27410F1100E3654E /* Sparkle in Frameworks */,
 				91840E2126FE0AA800E6048E /* KeyboardStrategy in Frameworks */,
 				91840E1B26FE0A6A00E6048E /* KeyCombination in Frameworks */,
 			);
@@ -965,6 +969,7 @@
 		916ACF8F26FE086B000E9757 /* kindaVim */ = {
 			isa = PBXGroup;
 			children = (
+				9176BF332742665700A8449A /* Updater */,
 				91840DD026FE096B00E6048E /* StatusBar */,
 				91840DD226FE096C00E6048E /* Display */,
 				91840DDA26FE096C00E6048E /* Events */,
@@ -1007,6 +1012,14 @@
 				91840DFE26FE09A300E6048E /* VimEngine */,
 			);
 			path = kindaVimUITests;
+			sourceTree = "<group>";
+		};
+		9176BF332742665700A8449A /* Updater */ = {
+			isa = PBXGroup;
+			children = (
+				91A967412741447400E1CA7E /* Updater.swift */,
+			);
+			path = Updater;
 			sourceTree = "<group>";
 		};
 		91840B3E26FE092D00E6048E /* Helpers */ = {
@@ -1630,6 +1643,7 @@
 				91840E2026FE0AA800E6048E /* KeyboardStrategy */,
 				91840E2326FE0ACB00E6048E /* LaunchAtLogin */,
 				91840E2626FE0AF000E6048E /* AccessibilityStrategy */,
+				917A61EA27410F1100E3654E /* Sparkle */,
 			);
 			productName = kindaVim;
 			productReference = 916ACF8D26FE086B000E9757 /* kindaVim.app */;
@@ -1716,6 +1730,7 @@
 				91840E1F26FE0AA800E6048E /* XCRemoteSwiftPackageReference "KeyboardStrategy" */,
 				91840E2226FE0ACB00E6048E /* XCRemoteSwiftPackageReference "LaunchAtLogin" */,
 				91840E2526FE0AF000E6048E /* XCRemoteSwiftPackageReference "AccessibilityStrategy" */,
+				917A61E927410F1100E3654E /* XCRemoteSwiftPackageReference "Sparkle" */,
 			);
 			productRefGroup = 916ACF8E26FE086B000E9757 /* Products */;
 			projectDirPath = "";
@@ -1784,6 +1799,7 @@
 				91D222F726FE0F2B00B9AF77 /* AppDelegate.swift in Sources */,
 				91840DEC26FE096C00E6048E /* StatusBarController.swift in Sources */,
 				9103C59A271C7B5300BDEBD7 /* KS_VisualMode.swift in Sources */,
+				91A967422741447400E1CA7E /* Updater.swift in Sources */,
 				91840DF026FE096C00E6048E /* HazeOverWindow.swift in Sources */,
 				9118CEA726FEF90A005F0907 /* SettingsView.swift in Sources */,
 				91840DF226FE096C00E6048E /* EventTapController.swift in Sources */,
@@ -2362,7 +2378,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 0.9.2;
 				DEVELOPMENT_ASSET_PATHS = "\"kindaVim/Preview Content\"";
 				DEVELOPMENT_TEAM = ZX49WKA8QN;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -2394,7 +2410,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 0.9.2;
 				DEVELOPMENT_ASSET_PATHS = "\"kindaVim/Preview Content\"";
 				DEVELOPMENT_TEAM = ZX49WKA8QN;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -2591,7 +2607,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 0.9.2;
 				DEVELOPMENT_ASSET_PATHS = "\"kindaVim/Preview Content\"";
 				DEVELOPMENT_TEAM = ZX49WKA8QN;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -2736,7 +2752,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 0.9.2;
 				DEVELOPMENT_ASSET_PATHS = "\"kindaVim/Preview Content\"";
 				DEVELOPMENT_TEAM = ZX49WKA8QN;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -2861,6 +2877,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		917A61E927410F1100E3654E /* XCRemoteSwiftPackageReference "Sparkle" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sparkle-project/Sparkle";
+			requirement = {
+				branch = 2.x;
+				kind = branch;
+			};
+		};
 		91840E1626FE0A4F00E6048E /* XCRemoteSwiftPackageReference "KeyboardShortcuts" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "git@github.com:sindresorhus/KeyboardShortcuts.git";
@@ -2904,6 +2928,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		917A61EA27410F1100E3654E /* Sparkle */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 917A61E927410F1100E3654E /* XCRemoteSwiftPackageReference "Sparkle" */;
+			productName = Sparkle;
+		};
 		91840E1726FE0A4F00E6048E /* KeyboardShortcuts */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 91840E1626FE0A4F00E6048E /* XCRemoteSwiftPackageReference "KeyboardShortcuts" */;

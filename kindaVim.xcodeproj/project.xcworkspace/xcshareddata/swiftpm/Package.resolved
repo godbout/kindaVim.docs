@@ -54,6 +54,15 @@
           "revision": "e8171b3e38a2816f579f58f3dac1522aa39efe41",
           "version": "4.2.0"
         }
+      },
+      {
+        "package": "Sparkle",
+        "repositoryURL": "https://github.com/sparkle-project/Sparkle",
+        "state": {
+          "branch": "2.x",
+          "revision": "3a9c2576916ebbe86e884adf9c00a475cb311478",
+          "version": null
+        }
       }
     ]
   },

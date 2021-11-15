@@ -4,5 +4,11 @@
 <dict>
 	<key>LSUIElement</key>
 	<true/>
+	<key>SUEnableAutomaticChecks</key>
+	<true/>
+	<key>SUFeedURL</key>
+	<string>https://kindavim.app/releases/appcast.xml</string>
+	<key>SUPublicEDKey</key>
+	<string>fo4wBavKiDjyzG90lTMvtCPj72VMbfTzrYts1in/a4o=</string>
 </dict>
 </plist>
