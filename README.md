@@ -1,6 +1,6 @@
 <div align="center">
     <img src="https://github.com/godbout/kindaVim.theapp/blob/master/assets/icon.png">
-    <h1>brings Vim moves to macOS input fields. and bit more.</h1>
+    <h1>brings Vim moves to macOS input fields. and a bit more.</h1>
 </div>
 
 ---
