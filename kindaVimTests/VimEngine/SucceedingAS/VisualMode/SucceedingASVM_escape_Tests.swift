@@ -27,4 +27,8 @@ class SucceedingASVM_escape_Tests: SucceedingASVM_BaseTests {
         XCTAssertEqual(kindaVimEngine.currentMode, .insert)
     }
     
+    func test_that_it_resets_the_count() {
+        XCTAssertNil(kindaVimEngine.count)
+    }
+
 }

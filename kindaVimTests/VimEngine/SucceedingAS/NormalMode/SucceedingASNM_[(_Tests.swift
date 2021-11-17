@@ -8,6 +8,7 @@ class SucceedingASNM_leftBracketLeftParenthesis_Tests: SucceedingASNM_BaseTests 
     override func setUp() {
         super.setUp()
         
+        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .eight))
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .leftBracket))
         kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .leftParenthesis))
     }
@@ -23,6 +24,10 @@ extension SucceedingASNM_leftBracketLeftParenthesis_Tests {
     
     func test_that_it_keeps_Vim_in_normal_mode() {
         XCTAssertEqual(kindaVimEngine.currentMode, .normal)
+    }
+    
+    func test_that_it_resets_the_count() {
+        XCTAssertNil(kindaVimEngine.count)
     }
     
 }

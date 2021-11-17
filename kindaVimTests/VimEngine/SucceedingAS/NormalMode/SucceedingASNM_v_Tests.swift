@@ -27,5 +27,9 @@ extension SucceedingASNM_v_Tests {
     func test_that_it_sets_the_visual_style_to_characterwise() {
         XCTAssertEqual(kindaVimEngine.visualStyle, .characterwise)
     }
-        
+    
+    func test_that_it_resets_the_count() {
+        XCTAssertNil(kindaVimEngine.count)
+    }
+
 }

@@ -10,6 +10,7 @@ class SucceedingASNM_yiBacktick_Tests: SucceedingASNM_BaseTests {
         
         kindaVimEngine.lastYankStyle = .linewise
         
+        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .eight))
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .y))
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .i))
         kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .backtick))
@@ -32,4 +33,8 @@ extension SucceedingASNM_yiBacktick_Tests {
         XCTAssertEqual(kindaVimEngine.lastYankStyle, .characterwise)
     }
     
+    func test_that_it_resets_the_count() {
+        XCTAssertNil(kindaVimEngine.count)
+    }
+
 }

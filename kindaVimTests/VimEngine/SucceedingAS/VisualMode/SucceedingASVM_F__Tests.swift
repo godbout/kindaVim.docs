@@ -5,7 +5,8 @@ import XCTest
 
 class SucceedingASVM_F__Tests: SucceedingASVM_BaseTests {
     
-    private func applyMove() {
+    private func applyMoveBeingTested() {
+        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .eight))
         kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .F))
         kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .O))
     }
@@ -18,7 +19,7 @@ extension SucceedingASVM_F__Tests {
     
     func test_that_it_calls_the_correct_function_on_ASVM_when_visualStyle_is_characterwise() {
         kindaVimEngine.visualStyle = .characterwise
-        applyMove()
+        applyMoveBeingTested()
         
         XCTAssertEqual(asVisualModeMock.functionCalled, "FForVisualStyleCharacterwise(to:on:)")
     }
@@ -31,7 +32,7 @@ extension SucceedingASVM_F__Tests {
     
     func test_that_it_does_nothing_because_the_move_does_not_make_sense_on_ASVM_when_visualStyle_is_linewise() {
         kindaVimEngine.visualStyle = .linewise
-        applyMove()
+        applyMoveBeingTested()
         
         XCTAssertEqual(asVisualModeMock.functionCalled, "")
     }
@@ -43,9 +44,13 @@ extension SucceedingASVM_F__Tests {
 extension SucceedingASVM_F__Tests {
     
     func test_that_it_keeps_Vim_in_visual_mode() {
-        applyMove()
+        applyMoveBeingTested()
         
         XCTAssertEqual(kindaVimEngine.currentMode, .visual)
     }
     
+    func test_that_it_resets_the_count() {
+        XCTAssertNil(kindaVimEngine.count)
+    }
+
 }

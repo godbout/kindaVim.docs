@@ -10,6 +10,7 @@ class SucceedingASNM_yiw_Tests: SucceedingASNM_BaseTests {
         
         kindaVimEngine.lastYankStyle = .linewise
         
+        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .eight))
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .y))
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .i))
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .w))
@@ -30,6 +31,10 @@ extension SucceedingASNM_yiw_Tests {
     
     func test_that_it_sets_the_last_yank_style_to_characterwise() {
         XCTAssertEqual(kindaVimEngine.lastYankStyle, .characterwise)
+    }
+    
+    func test_that_it_resets_the_count() {
+        XCTAssertNil(kindaVimEngine.count)
     }
 
 }

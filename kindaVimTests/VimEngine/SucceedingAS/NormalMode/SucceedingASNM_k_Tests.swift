@@ -6,6 +6,7 @@ import XCTest
 class SucceedingASNM_k_Tests: SucceedingASNM_BaseTests {
     
     private func applyMoveBeingTested() {
+        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .eight))
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .k))
     }
     
@@ -40,4 +41,10 @@ extension SucceedingASNM_k_Tests {
         XCTAssertEqual(kindaVimEngine.currentMode, .normal)
     }
     
+    func test_that_it_resets_the_count() {
+        applyMoveBeingTested()
+
+        XCTAssertNil(kindaVimEngine.count)
+    }
+
 }

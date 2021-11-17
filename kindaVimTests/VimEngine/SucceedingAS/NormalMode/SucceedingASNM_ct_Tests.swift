@@ -8,6 +8,7 @@ class SucceedingASNM_ct_Tests: SucceedingASNM_BaseTests {
     override func setUp() {
         super.setUp()
         
+        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .eight))
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .c))
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .t))
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .equal))
@@ -25,4 +26,8 @@ extension SucceedingASNM_ct_Tests {
         XCTAssertEqual(asNormalModeMock.functionCalled, "ct(to:on:)")
     }
     
+    func test_that_it_resets_the_count() {
+        XCTAssertNil(kindaVimEngine.count)
+    }
+ 
 }

@@ -10,6 +10,7 @@ class SucceedingASNM_yiRightParenthesis_Tests: SucceedingASNM_BaseTests {
         
         kindaVimEngine.lastYankStyle = .linewise
         
+        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .eight))
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .y))
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .i))
         kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .rightParenthesis))
@@ -27,6 +28,10 @@ extension SucceedingASNM_yiRightParenthesis_Tests {
     
     func test_that_it_keeps_Vim_in_normal_mode() {
         XCTAssertEqual(kindaVimEngine.currentMode, .normal)
+    }
+    
+    func test_that_it_resets_the_count() {
+        XCTAssertNil(kindaVimEngine.count)
     }
 
 }

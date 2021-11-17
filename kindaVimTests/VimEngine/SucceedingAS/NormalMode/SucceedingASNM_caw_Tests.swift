@@ -8,6 +8,7 @@ class SucceedingASNM_caw_Tests: SucceedingASNM_BaseTests {
     override func setUp() {
         super.setUp()
         
+        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .eight))
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .c))
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .a))
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .w))
@@ -23,4 +24,8 @@ extension SucceedingASNM_caw_Tests {
         XCTAssertEqual(asNormalModeMock.functionCalled, "caw(on:)")
     }
     
+    func test_that_it_resets_the_count() {
+        XCTAssertNil(kindaVimEngine.count)
+    }
+
 }

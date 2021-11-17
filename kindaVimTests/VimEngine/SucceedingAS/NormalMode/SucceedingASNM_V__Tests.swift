@@ -8,6 +8,7 @@ class SucceedingASNM_V__Tests: SucceedingASNM_BaseTests {
     override func setUp() {
         super.setUp()
         
+        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .eight))
         kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .V))
     }
     
@@ -27,5 +28,9 @@ extension SucceedingASNM_V__Tests {
     func test_that_it_sets_the_visual_style_to_linewise() {
         XCTAssertEqual(kindaVimEngine.visualStyle, .linewise)
     }
-        
+    
+    func test_that_it_resets_the_count() {
+        XCTAssertNil(kindaVimEngine.count)
+    }
+   
 }

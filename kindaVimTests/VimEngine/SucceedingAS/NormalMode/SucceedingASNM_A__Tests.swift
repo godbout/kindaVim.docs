@@ -8,6 +8,7 @@ class SucceedingASNM_A__Tests: SucceedingASNM_BaseTests {
     override func setUp() {
         super.setUp()
 
+        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .eight))
         kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .A))
     }
 
@@ -22,6 +23,10 @@ extension SucceedingASNM_A__Tests {
 
     func test_that_it_switches_Vim_into_insert_mode() {
         XCTAssertEqual(kindaVimEngine.currentMode, .insert)
+    }
+    
+    func test_that_it_resets_the_count() {
+        XCTAssertNil(kindaVimEngine.count)
     }
 
 }

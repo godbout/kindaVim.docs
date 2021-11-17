@@ -8,6 +8,7 @@ class SucceedingASNM_ciLeftBracket_Tests: SucceedingASNM_BaseTests {
     override func setUp() {
         super.setUp()
         
+        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .eight))
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .c))
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .i))
         kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .leftBracket))
@@ -23,4 +24,8 @@ extension SucceedingASNM_ciLeftBracket_Tests {
         XCTAssertEqual(asNormalModeMock.functionCalled, "ciLeftBracket(on:)")
     }
     
+    func test_that_it_resets_the_count() {
+        XCTAssertNil(kindaVimEngine.count)
+    }
+  
 }
