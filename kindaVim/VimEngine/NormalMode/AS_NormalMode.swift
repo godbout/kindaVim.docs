@@ -25,14 +25,14 @@ extension KindaVimEngine {
             }
         case .b:
             if let element = asNormalMode.b(on: focusedTextElement) {
-                resetCountBuffer()
+                resetCountBuffers()
                 push(element: element)
             } else {
                 handleNormalModeUsingKeyboardStrategy(for: keyCombination)
             }
         case .B:
             if let element = asNormalMode.B(on: focusedTextElement) {
-                resetCountBuffer()
+                resetCountBuffers()
                 push(element: element)
             } else {
                 handleNormalModeUsingKeyboardStrategy(for: keyCombination)
@@ -51,7 +51,7 @@ extension KindaVimEngine {
             enterOperatorPendingForNormalMode(with: keyCombination)
         case .D:
             if let element = asNormalMode.D(on: focusedTextElement) {
-                resetCountBuffer()
+                resetCountBuffers()
                 push(element: element)
             } else {
                 handleNormalModeUsingKeyboardStrategy(for: keyCombination)
@@ -60,14 +60,14 @@ extension KindaVimEngine {
             handleNormalModeUsingKeyboardStrategy(for: keyCombination)
         case .e:
             if let element = asNormalMode.e(on: focusedTextElement) {
-                resetCountBuffer()
+                resetCountBuffers()
                 push(element: element)
             } else {
                 handleNormalModeUsingKeyboardStrategy(for: keyCombination)
             }
         case .E:
             if let element = asNormalMode.E(on: focusedTextElement) {
-                resetCountBuffer()
+                resetCountBuffers()
                 push(element: element)
             }
         case .f:
@@ -78,14 +78,14 @@ extension KindaVimEngine {
             enterOperatorPendingForNormalMode(with: keyCombination)
         case .G:
             if let element = asNormalMode.G(on: focusedTextElement) {
-                resetCountBuffer()
+                resetCountBuffers()
                 push(element: element)
             } else {
                 handleNormalModeUsingKeyboardStrategy(for: keyCombination)
             }
         case .h:
             if let element = asNormalMode.h(on: focusedTextElement) {
-                resetCountBuffer()
+                resetCountBuffers()
                 push(element: element)
             } else {
                 handleNormalModeUsingKeyboardStrategy(for: keyCombination)
@@ -109,14 +109,14 @@ extension KindaVimEngine {
         case .j:
             if jkMapping == true {
                 if let element = asNormalMode.gj(on: focusedTextElement) {
-                    resetCountBuffer()
+                    resetCountBuffers()
                     push(element: element)
                 } else {
                     handleNormalModeUsingKeyboardStrategy(for: keyCombination)
                 }
             } else {
                 if let element = asNormalMode.j(on: focusedTextElement) {
-                    resetCountBuffer()
+                    resetCountBuffers()
                     push(element: element)
                 } else {
                     handleNormalModeUsingKeyboardStrategy(for: keyCombination)
@@ -125,14 +125,14 @@ extension KindaVimEngine {
         case .k:
             if jkMapping == true {
                 if let element = asNormalMode.gk(on: focusedTextElement) {
-                    resetCountBuffer()
+                    resetCountBuffers()
                     push(element: element)
                 } else {
                     handleNormalModeUsingKeyboardStrategy(for: keyCombination)
                 }
             } else {
                 if let element = asNormalMode.k(on: focusedTextElement) {
-                    resetCountBuffer()
+                    resetCountBuffers()
                     push(element: element)
                 } else {
                     handleNormalModeUsingKeyboardStrategy(for: keyCombination)
@@ -140,7 +140,7 @@ extension KindaVimEngine {
             }
         case .l:
             if let element = asNormalMode.l(on: focusedTextElement) {
-                resetCountBuffer()
+                resetCountBuffers()
                 push(element: element)
             } else {
                 handleNormalModeUsingKeyboardStrategy(for: keyCombination)
@@ -166,14 +166,14 @@ extension KindaVimEngine {
             switch lastYankStyle {
             case .characterwise:
                 if let element = asNormalMode.pForLastYankStyleCharacterwise(on: focusedTextElement) {
-                    resetCountBuffer()
+                    resetCountBuffers()
                     push(element: element) 
                 } else {
                     handleNormalModeUsingKeyboardStrategy(for: keyCombination)
                 }
             case .linewise:
                 if let element = asNormalMode.pForLastYankStyleLinewise(on: focusedTextElement) {
-                    resetCountBuffer()
+                    resetCountBuffers()
                     push(element: element) 
                 } else {
                     handleNormalModeUsingKeyboardStrategy(for: keyCombination)
@@ -183,14 +183,14 @@ extension KindaVimEngine {
             switch lastYankStyle {
             case .characterwise:
                 if let element = asNormalMode.PForLastYankStyleCharacterwise(on: focusedTextElement) {
-                    resetCountBuffer()
+                    resetCountBuffers()
                     push(element: element) 
                 } else {
                     handleNormalModeUsingKeyboardStrategy(for: keyCombination)
                 }
             case .linewise:
                 if let element = asNormalMode.PForLastYankStyleLinewise(on: focusedTextElement) {
-                    resetCountBuffer()
+                    resetCountBuffers()
                     push(element: element) 
                 } else {
                     handleNormalModeUsingKeyboardStrategy(for: keyCombination)
@@ -200,7 +200,7 @@ extension KindaVimEngine {
             enterOperatorPendingForNormalMode(with: keyCombination)
         case .controlR:
             if let element = asNormalMode.controlR(on: focusedTextElement) {
-                resetCountBuffer()
+                resetCountBuffers()
                 push(element: element)
             } else {
                 handleNormalModeUsingKeyboardStrategy(for: keyCombination)
@@ -213,7 +213,7 @@ extension KindaVimEngine {
             enterOperatorPendingForNormalMode(with: keyCombination)
         case .u:
             if let element = asNormalMode.u(on: focusedTextElement) {
-                resetCountBuffer()
+                resetCountBuffers()
                 push(element: element)
             } else {
                 handleNormalModeUsingKeyboardStrategy(for: keyCombination)
@@ -238,21 +238,21 @@ extension KindaVimEngine {
             }
         case .w:
             if let element = asNormalMode.w(on: focusedTextElement) {
-                resetCountBuffer()
+                resetCountBuffers()
                 push(element: element)
             } else {
                 handleNormalModeUsingKeyboardStrategy(for: keyCombination)
             }
         case .W:
             if let element = asNormalMode.W(on: focusedTextElement) {
-                resetCountBuffer()
+                resetCountBuffers()
                 push(element: element)
             } else {
                 handleNormalModeUsingKeyboardStrategy(for: keyCombination)
             }            
         case .x:
             if let element = asNormalMode.x(on: focusedTextElement) {
-                resetCountBuffer()
+                resetCountBuffers()
                 push(element: element)
             } else {
                 handleNormalModeUsingKeyboardStrategy(for: keyCombination)
@@ -264,7 +264,7 @@ extension KindaVimEngine {
         case .Y:
             if let element = asNormalMode.yy(on: focusedTextElement) {
                 lastYankStyle = .linewise
-                resetCountBuffer()
+                resetCountBuffers()
                 push(element: element)
             } else {
                 handleNormalModeUsingKeyboardStrategy(for: keyCombination)
@@ -272,7 +272,7 @@ extension KindaVimEngine {
         // to test (can dump info to console, send stuff to AX etc.)
         case .commandD:
             if let element = AccessibilityStrategyNormalMode.test(element: focusedTextElement) {
-                resetCountBuffer()
+                resetCountBuffers()
                 _ = push(element: element)
             }
         case .escape:
@@ -290,21 +290,21 @@ extension KindaVimEngine {
             handleNormalModeUsingKeyboardStrategy(for: keyCombination)
         case .caret:
             if let element = asNormalMode.caret(on: focusedTextElement) {
-                resetCountBuffer()
+                resetCountBuffers()
                 push(element: element)
             } else {
                 handleNormalModeUsingKeyboardStrategy(for: keyCombination)
             }
         case .dollarSign:
             if let element = asNormalMode.dollarSign(on: focusedTextElement) {
-                resetCountBuffer()
+                resetCountBuffers()
                 push(element: element)
             } else {
                 handleNormalModeUsingKeyboardStrategy(for: keyCombination)
             }
         case .leftBrace:
             if let element = asNormalMode.leftBrace(on: focusedTextElement) {
-                resetCountBuffer()
+                resetCountBuffers()
                 push(element: element)
             }
         case .leftBracket:
@@ -312,13 +312,13 @@ extension KindaVimEngine {
         case .leftChevron:
             enterOperatorPendingForNormalMode(with: KeyCombination(vimKey: .leftChevron))
         case .percent:
-            resetCountBuffer()
+            resetCountBuffers()
             
             if let element = asNormalMode.percent(on: focusedTextElement) {
                 push(element: element)
             }
         case .rightBrace:
-            resetCountBuffer()
+            resetCountBuffers()
             
             if let element = asNormalMode.rightBrace(on: focusedTextElement) {
                 push(element: element)
@@ -336,7 +336,7 @@ extension KindaVimEngine {
             }
         case .zero:
             if let element = asNormalMode.zero(on: focusedTextElement) {
-                resetCountBuffer()
+                resetCountBuffers()
                 push(element: element)
             } else {
                 handleNormalModeUsingKeyboardStrategy(for: keyCombination)

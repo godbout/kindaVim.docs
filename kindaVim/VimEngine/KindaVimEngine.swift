@@ -32,9 +32,26 @@ class KindaVimEngine {
     var showCharactersTyped: Bool = false
     var jkMapping: Bool = true
     
-    private var lastKeyCombinationPressed: KeyCombination?
-    
     private(set) var currentMode: VimEngineMode = .insert
+    
+    private(set) var firstCountBuffer: String = ""
+    private(set) var secondCountBuffer: String = ""
+    var count: Int? {
+        let firstCount = Int(firstCountBuffer)
+        let secondCount = Int(secondCountBuffer)
+        
+        switch (firstCount, secondCount) {
+        case (.none, .none):
+            return nil
+        case (.some, .none):
+            return firstCount
+        case (.none, .some):
+            return secondCount
+        case (.some, .some):
+            return firstCount! * secondCount!
+        }
+    }
+    
     private(set) var operatorPendingBuffer = [KeyCombination]()
     
     var lastYankStyle: VimEngineMoveStyle = .characterwise
@@ -142,6 +159,7 @@ class KindaVimEngine {
     func enterInsertMode() {
         currentMode = .insert
         resetOperatorPendingBuffer()
+        resetCountBuffers()
         
         if toggleHazeOverWindow == true {
             display.hazeOver(.off)
@@ -165,6 +183,7 @@ class KindaVimEngine {
         
         currentMode = .normal
         resetOperatorPendingBuffer()
+        resetCountBuffers()
         
         if toggleHazeOverWindow == true {
             display.hazeOver(.on)
@@ -193,6 +212,7 @@ class KindaVimEngine {
     
     func enterVisualMode() {
         currentMode = .visual
+        resetCountBuffers()
     }
     
     func enterOperatorPendingForNormalMode(with keyCombination: KeyCombination) {
@@ -207,6 +227,11 @@ class KindaVimEngine {
     
     private func resetOperatorPendingBuffer() {
         operatorPendingBuffer = []
+    }
+        
+    func resetCountBuffers() {
+        firstCountBuffer = ""
+        secondCountBuffer = ""
     }
 
     func post(_ keyCombinations: [KeyCombination]) {
