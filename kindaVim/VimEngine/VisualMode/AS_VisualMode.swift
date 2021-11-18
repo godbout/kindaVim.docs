@@ -185,6 +185,7 @@ extension KindaVimEngine {
             }
         case .o:
             if let element = asVisualMode.o(on: focusedTextElement) {
+                resetCountBuffer()
                 push(element: element)
             }
         case .t:
@@ -217,6 +218,7 @@ extension KindaVimEngine {
                     push(element: element)
                     
                     visualStyle = .characterwise
+                    resetCountBuffer()
                 } else {
                     handleVisualModeUsingKeyboardStrategy(for: keyCombination)
                 }
@@ -228,6 +230,7 @@ extension KindaVimEngine {
                     push(element: element)
                     
                     visualStyle = .linewise
+                    resetCountBuffer()
                 } else {
                     handleVisualModeUsingKeyboardStrategy(for: keyCombination)
                 }
