@@ -10,7 +10,7 @@ class SucceedingASNM_r_Tests: SucceedingASNM_BaseTests {
         
         kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .eight))
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .r))
-        kindaVimEngine.handle(keyCombination: KeyCombination(key: .z))
+        kindaVimEngine.handle(keyCombination: KeyCombination(key: .five))
     }
     
 }
