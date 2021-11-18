@@ -3,7 +3,7 @@ import KeyCombination
 import XCTest
 
 
-class SucceedingASNM_command_r_Tests: SucceedingASNM_BaseTests {
+class SucceedingASNM_control_r_Tests: SucceedingASNM_BaseTests {
     
     override func setUp() {
         super.setUp()
@@ -15,7 +15,7 @@ class SucceedingASNM_command_r_Tests: SucceedingASNM_BaseTests {
 }
 
 
-extension SucceedingASNM_command_r_Tests {
+extension SucceedingASNM_control_r_Tests {
     
     func test_that_it_calls_the_correct_function_on_accessibility_strategy() {
         XCTAssertEqual(asNormalModeMock.functionCalled, "controlR(on:)")
