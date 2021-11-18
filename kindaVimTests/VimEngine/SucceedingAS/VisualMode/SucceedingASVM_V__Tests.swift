@@ -31,6 +31,7 @@ extension SucceedingASVM_V__Tests {
     }
     
     func test_that_it_Vim_as_in_VisualMode_Characterwise_it_resets_the_count() {
+        kindaVimEngine.visualStyle = .characterwise
         applyMoveBeingTested()
         
         XCTAssertNil(kindaVimEngine.count)
@@ -57,6 +58,7 @@ extension SucceedingASVM_V__Tests {
     }
     
     func test_that_it_Vim_as_in_VisualMode_Linewise_it_resets_the_count() {
+        kindaVimEngine.visualStyle = .linewise
         applyMoveBeingTested()
         
         XCTAssertNil(kindaVimEngine.count)
