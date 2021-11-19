@@ -23,6 +23,20 @@ extension SucceedingASVM_y_Tests {
         XCTAssertEqual(asVisualModeMock.functionCalled, "yForVisualStyleCharacterwise(on:_:)")
     }
     
+    func test_that_it_switches_Vim_to_NormalMode_when_VisualStyle_is_Characterwise() {
+        kindaVimEngine.visualStyle = .characterwise
+        applyMoveBeingTested()
+        
+        XCTAssertEqual(kindaVimEngine.currentMode, .normal)
+    }     
+        
+    func test_that_it_resets_the_count_when_VisualStyle_is_Characterwise() {
+        kindaVimEngine.visualStyle = .characterwise
+        applyMoveBeingTested()
+        
+        XCTAssertNil(kindaVimEngine.count)
+    }
+    
 }
 
 
@@ -35,21 +49,19 @@ extension SucceedingASVM_y_Tests {
         
         XCTAssertEqual(asVisualModeMock.functionCalled, "yForVisualStyleLinewise(on:_:)")
     }
-    
-}
-
-
-// both
-extension SucceedingASVM_y_Tests {
-    
-    func test_that_it_switches_Vim_to_Normal_Mode() {
+       
+    func test_that_it_switches_Vim_to_NormalMode_when_VisualStyle_is_Linewise() {
+        kindaVimEngine.visualStyle = .linewise
         applyMoveBeingTested()
         
         XCTAssertEqual(kindaVimEngine.currentMode, .normal)
-    }
+    }     
     
-    func test_that_it_resets_the_count() {
+    func test_that_it_resets_the_count_when_VisualStyle_is_Linewise() {
+        kindaVimEngine.visualStyle = .linewise
+        applyMoveBeingTested()
+        
         XCTAssertNil(kindaVimEngine.count)
     }
-
+    
 }

@@ -20,6 +20,13 @@ class SucceedingASVM_escape_Tests: SucceedingASVM_BaseTests {
         XCTAssertEqual(kindaVimEngine.currentMode, .insert)
     }
     
+    func test_that_if_Vim_was_in_visual_mode_characterwise_it_resets_the_count() {
+        kindaVimEngine.visualStyle = .characterwise
+        kindaVimEngine.handle(keyCombination: KeyCombination(key: .escape))
+        
+        XCTAssertNil(kindaVimEngine.count)
+    }
+    
     func test_that_if_Vim_was_in_visual_mode_linewise_it_switches_into_insert_mode() {
         kindaVimEngine.visualStyle = .linewise
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .escape))
@@ -27,7 +34,10 @@ class SucceedingASVM_escape_Tests: SucceedingASVM_BaseTests {
         XCTAssertEqual(kindaVimEngine.currentMode, .insert)
     }
     
-    func test_that_it_resets_the_count() {
+    func test_that_if_Vim_was_in_visual_mode_linewise_it_resets_the_count() {
+        kindaVimEngine.visualStyle = .linewise
+        kindaVimEngine.handle(keyCombination: KeyCombination(key: .escape))
+        
         XCTAssertNil(kindaVimEngine.count)
     }
 
