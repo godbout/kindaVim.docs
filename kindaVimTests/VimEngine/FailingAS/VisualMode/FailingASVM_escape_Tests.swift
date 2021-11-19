@@ -5,7 +5,7 @@ import XCTest
 
 class FailingASVM_escape_Tests: FailingASVM_BaseTests {
     
-    private func applyMoveBeingTested() {
+    private func applyKeyCombinationsBeingTested() {
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .escape))
     }
         
@@ -16,13 +16,13 @@ class FailingASVM_escape_Tests: FailingASVM_BaseTests {
 extension FailingASVM_escape_Tests {
     
     func test_that_it_currently_calls_nothing() {
-        applyMoveBeingTested()
+        applyKeyCombinationsBeingTested()
         
         XCTAssertEqual(ksVisualModeMock.functionCalled, "")
     }
     
     func test_that_if_Vim_was_in_visual_mode_linewise_it_switches_into_insert_mode() {
-        applyMoveBeingTested()
+        applyKeyCombinationsBeingTested()
         
         XCTAssertEqual(kindaVimEngine.currentMode, .insert)
     }

@@ -5,11 +5,11 @@ import XCTest
 
 class SucceedingASNM_P__Tests: SucceedingASNM_BaseTests {
     
-    private func applyMoveBeingTested() {
+    private func applyKeyCombinationsBeingTested() {
         kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .eight))
         kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .P))
         func test_that_it_Vim_as_in_VisualMode_Characterwise_it_resets_the_count() {
-            applyMoveBeingTested()
+            applyKeyCombinationsBeingTested()
             
             XCTAssertNil(kindaVimEngine.count)
         }
@@ -23,7 +23,7 @@ extension SucceedingASNM_P__Tests {
     
     func test_that_it_calls_the_correct_function_on_AS_when_lastYankStyle_is_characterwise() {
         kindaVimEngine.lastYankStyle = .characterwise
-        applyMoveBeingTested()
+        applyKeyCombinationsBeingTested()
         
         XCTAssertEqual(asNormalModeMock.functionCalled, "PForLastYankStyleCharacterwise(on:)")
     }
@@ -36,7 +36,7 @@ extension SucceedingASNM_P__Tests {
     
     func test_that_it_calls_the_correct_function_on_AS_when_lastYankStyle_is_linewise() {
         kindaVimEngine.lastYankStyle = .linewise
-        applyMoveBeingTested()
+        applyKeyCombinationsBeingTested()
         
         XCTAssertEqual(asNormalModeMock.functionCalled, "PForLastYankStyleLinewise(on:)")
     }
@@ -48,13 +48,13 @@ extension SucceedingASNM_P__Tests {
 extension SucceedingASNM_P__Tests {
     
     func test_that_it_keeps_Vim_in_normal_mode() {
-        applyMoveBeingTested()
+        applyKeyCombinationsBeingTested()
         
         XCTAssertEqual(kindaVimEngine.currentMode, .normal)
     }
     
     func test_that_it_resets_the_count() {
-        applyMoveBeingTested()
+        applyKeyCombinationsBeingTested()
         
         XCTAssertNil(kindaVimEngine.count)
     }

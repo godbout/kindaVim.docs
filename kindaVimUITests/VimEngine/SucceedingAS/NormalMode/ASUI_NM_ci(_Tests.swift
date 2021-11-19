@@ -6,7 +6,7 @@ import AccessibilityStrategy
 // see ci" for blah blah
 class ASUI_NM_ciLeftParenthesis_Tests: ASUI_NM_BaseTests {
 
-    private func applyMoveBeingTested() {
+    private func applyKeyCombinationsBeingTested() {
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .c))
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .i))
         kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .leftParenthesis))
@@ -26,7 +26,7 @@ hoho ( another pile of shit )
         kindaVimEngine.enterNormalMode()
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .b))
 
-        applyMoveBeingTested()
+        applyKeyCombinationsBeingTested()
 
         XCTAssertEqual(kindaVimEngine.currentMode, .insert)
     }
@@ -40,7 +40,7 @@ hoho no bracket on that shit
         app.textFields.firstMatch.typeKey(.leftArrow, modifierFlags: [.option])
         kindaVimEngine.enterNormalMode()
 
-        applyMoveBeingTested()
+        applyKeyCombinationsBeingTested()
 
         XCTAssertEqual(kindaVimEngine.currentMode, .normal)
     }

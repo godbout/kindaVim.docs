@@ -5,7 +5,7 @@ import XCTest
 
 class FailingASNM_dj_Tests: FailingAS_BaseTests {
     
-    private func applyMoveBeingTested() {
+    private func applyKeyCombinationsBeingTested() {
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .d))
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .j))
     }
@@ -17,20 +17,20 @@ extension FailingASNM_dj_Tests {
     
     func test_that_the_move_calls_the_correct_function_for_TextElements_on_KS() {
         kindaVimEngine.axEngine = AXEngineTextElementMock()
-        applyMoveBeingTested()
+        applyKeyCombinationsBeingTested()
 
         XCTAssertEqual(ksNormalModeMock.functionCalled, "djForTextElement()")
     }
     
     func test_that_the_move_calls_the_correct_function_for_NonTextElements_on_KS() {
         kindaVimEngine.axEngine = AXEngineNonTextElementMock()
-        applyMoveBeingTested()
+        applyKeyCombinationsBeingTested()
 
         XCTAssertEqual(ksNormalModeMock.functionCalled, "djForNonTextElement()")
     }
     
     func test_that_dj_keeps_Vim_in_normal_mode() {
-        applyMoveBeingTested()
+        applyKeyCombinationsBeingTested()
         
         XCTAssertEqual(kindaVimEngine.currentMode, .normal)
     }

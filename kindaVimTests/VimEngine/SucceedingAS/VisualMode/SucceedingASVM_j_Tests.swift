@@ -5,7 +5,7 @@ import XCTest
 
 class SucceedingASVM_j_Tests: SucceedingASVM_BaseTests {
     
-    private func applyMoveBeingTested() {
+    private func applyKeyCombinationsBeingTested() {
         kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .eight))
         kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .j))
     }
@@ -18,21 +18,21 @@ extension SucceedingASVM_j_Tests {
     
     func test_that_it_calls_the_correct_function_on_ASVM_when_visualStyle_is_characterwise() {
         kindaVimEngine.visualStyle = .characterwise
-        applyMoveBeingTested()
+        applyKeyCombinationsBeingTested()
         
         XCTAssertEqual(asVisualModeMock.functionCalled, "jForVisualStyleCharacterwise(on:)")
     }
     
     func test_that_it_keeps_Vim_in_VisualMode_when_VisualStyle_is_Characterwise() {
         kindaVimEngine.visualStyle = .characterwise
-        applyMoveBeingTested()
+        applyKeyCombinationsBeingTested()
         
         XCTAssertEqual(kindaVimEngine.currentMode, .visual)
     }     
         
     func test_that_it_resets_the_count_when_VisualStyle_is_Characterwise() {
         kindaVimEngine.visualStyle = .characterwise
-        applyMoveBeingTested()
+        applyKeyCombinationsBeingTested()
         
         XCTAssertNil(kindaVimEngine.count)
     }
@@ -45,21 +45,21 @@ extension SucceedingASVM_j_Tests {
     
     func test_that_it_calls_the_correct_function_on_ASVM_when_visualStyle_is_linewise() {
         kindaVimEngine.visualStyle = .linewise
-        applyMoveBeingTested()
+        applyKeyCombinationsBeingTested()
         
         XCTAssertEqual(asVisualModeMock.functionCalled, "jForVisualStyleLinewise(on:)")
     }
        
     func test_that_it_keeps_Vim_in_VisualMode_when_VisualStyle_is_Linewise() {
         kindaVimEngine.visualStyle = .linewise
-        applyMoveBeingTested()
+        applyKeyCombinationsBeingTested()
         
         XCTAssertEqual(kindaVimEngine.currentMode, .visual)
     }     
     
     func test_that_it_resets_the_count_when_VisualStyle_is_Linewise() {
         kindaVimEngine.visualStyle = .linewise
-        applyMoveBeingTested()
+        applyKeyCombinationsBeingTested()
         
         XCTAssertNil(kindaVimEngine.count)
     }

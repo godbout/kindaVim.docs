@@ -16,7 +16,7 @@ class SucceedingASVM_0_Tests: SucceedingASVM_BaseTests {
     // yes, there's no .eight here before the .zero move, because if there was then we
     // would have a count of 80 rather than the 0 move. 0 should only happen as a Vim move
     // if there is no previous digits in the count buffers.
-    private func applyMoveBeingTested() {
+    private func applyKeyCombinationsBeingTested() {
         kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .zero))
     }
     
@@ -28,14 +28,14 @@ extension SucceedingASVM_0_Tests {
     
     func test_that_it_calls_the_correct_function_on_ASVM_when_visualStyle_is_characterwise() {
         kindaVimEngine.visualStyle = .characterwise
-        applyMoveBeingTested()
+        applyKeyCombinationsBeingTested()
         
         XCTAssertEqual(asVisualModeMock.functionCalled, "zeroForVisualStyleCharacterwise(on:)")
     }
     
     func test_that_it_keeps_Vim_in_VisualMode_when_VisualStyle_is_Characterwise() {
         kindaVimEngine.visualStyle = .characterwise
-        applyMoveBeingTested()
+        applyKeyCombinationsBeingTested()
         
         XCTAssertEqual(kindaVimEngine.currentMode, .visual)
     }     
@@ -48,14 +48,14 @@ extension SucceedingASVM_0_Tests {
     
     func test_that_it_does_nothing_because_the_move_does_not_make_sense_on_ASVM_when_visualStyle_is_linewise() {
         kindaVimEngine.visualStyle = .linewise
-        applyMoveBeingTested()
+        applyKeyCombinationsBeingTested()
         
         XCTAssertEqual(asVisualModeMock.functionCalled, "")
     }
     
     func test_that_it_keeps_Vim_in_VisualMode_when_VisualStyle_is_Linewise() {
         kindaVimEngine.visualStyle = .linewise
-        applyMoveBeingTested()
+        applyKeyCombinationsBeingTested()
         
         XCTAssertEqual(kindaVimEngine.currentMode, .visual)
     }     

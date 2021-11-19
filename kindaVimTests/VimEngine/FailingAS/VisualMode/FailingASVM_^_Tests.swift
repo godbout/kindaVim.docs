@@ -5,7 +5,7 @@ import XCTest
 
 class FailingASVM_caret_Tests: FailingASVM_BaseTests {
     
-    private func applyMoveBeingTested() {
+    private func applyKeyCombinationsBeingTested() {
         kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .caret))
     }
     
@@ -17,7 +17,7 @@ extension FailingASVM_caret_Tests {
     
     func test_that_it_calls_the_relevant_KS_function_as_a_fallback_when_in_VisualStyle_Characterwise() {
         kindaVimEngine.visualStyle = .characterwise
-        applyMoveBeingTested()
+        applyKeyCombinationsBeingTested()
         
         XCTAssertEqual(ksVisualModeMock.functionCalled, "caretForVisualStyleCharacterwise()")
     }
@@ -30,7 +30,7 @@ extension FailingASVM_caret_Tests {
     
     func test_that_it_does_not_calls_any_KS_function_because_this_move_does_not_exist_for_VisualStyle_Linewise() {
         kindaVimEngine.visualStyle = .linewise
-        applyMoveBeingTested()
+        applyKeyCombinationsBeingTested()
         
         XCTAssertEqual(ksVisualModeMock.functionCalled, "")
     }
@@ -42,7 +42,7 @@ extension FailingASVM_caret_Tests {
 extension FailingASVM_caret_Tests {
     
     func test_that_it_keeps_Vim_in_visual_mode() {
-        applyMoveBeingTested()
+        applyKeyCombinationsBeingTested()
         
         XCTAssertEqual(kindaVimEngine.currentMode, .visual)
     }
