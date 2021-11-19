@@ -3,15 +3,13 @@ import KeyCombination
 import XCTest
 
 
+// see Succeeding AS NM 0 for blah blah
 class EnforcingKS_0_Tests: EnforcingKSNM_BaseTests {
 
     override func setUp() {
         super.setUp()
 
-        kindaVimEngine.handle(
-            keyCombination: KeyCombination(key: .zero),
-            enforceKeyboardStrategy: true
-        )
+        kindaVimEngine.handle(keyCombination: KeyCombination(key: .zero), enforceKeyboardStrategy: true)
     }
 
 }

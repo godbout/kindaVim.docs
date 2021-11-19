@@ -40,6 +40,14 @@ extension EnforcingKS_NotImplementedOrDontExist_Tests {
         kindaVimEngine.handle(keyCombination: controlJ)
         XCTAssertEqual(ksNormalModeMock.functionCalled, "")
     }
+    
+    func test_that_count_is_reset_for_single_key_combinations_that_are_not_implemented() {
+        let controlA = KeyCombination(key: .a, control: true)
+        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .eight))
+        kindaVimEngine.handle(keyCombination: controlA)
+        
+        XCTAssertNil(kindaVimEngine.count)
+    }
 }
 
 
@@ -78,6 +86,15 @@ extension EnforcingKS_NotImplementedOrDontExist_Tests {
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .w))
 
         XCTAssertEqual(ksNormalModeMock.functionCalled, "")
+    }
+    
+    func test_that_count_is_reset_for_moves_with_operators_that_are_not_implemented() {
+        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .eight))
+        kindaVimEngine.handle(keyCombination: KeyCombination(key: .d))
+        kindaVimEngine.handle(keyCombination: KeyCombination(key: .i))
+        kindaVimEngine.handle(keyCombination: KeyCombination(key: .w))
+
+        XCTAssertNil(kindaVimEngine.count)
     }
 
 }

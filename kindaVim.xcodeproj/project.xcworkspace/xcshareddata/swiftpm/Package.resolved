@@ -33,7 +33,7 @@
         "repositoryURL": "git@github.com:godbout/KeyboardStrategy.git",
         "state": {
           "branch": "master",
-          "revision": "6a9b17c83d3152b23d4cb307448c559aeae69400",
+          "revision": "b9619d4fa854100db3cb45cad32cab27c91e2ddb",
           "version": null
         }
       },
@@ -42,7 +42,7 @@
         "repositoryURL": "git@github.com:godbout/KeyCombination.git",
         "state": {
           "branch": "master",
-          "revision": "3d3fc63c84abd104fd3e9dcbca75c54b3a9daa7b",
+          "revision": "6babd7b21bbb09d4244ac4fa0575457dc6c152d6",
           "version": null
         }
       },
@@ -60,7 +60,7 @@
         "repositoryURL": "https://github.com/sparkle-project/Sparkle",
         "state": {
           "branch": "2.x",
-          "revision": "3a9c2576916ebbe86e884adf9c00a475cb311478",
+          "revision": "18fe269949ae8b132b5bb70cbf8e5359b4fc2fb6",
           "version": null
         }
       }

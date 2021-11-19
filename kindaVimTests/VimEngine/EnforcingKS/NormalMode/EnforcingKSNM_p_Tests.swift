@@ -8,6 +8,7 @@ class EnforcingKSNM_p_Tests: EnforcingKSNM_BaseTests {
     override func setUp() {
         super.setUp()
         
+        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .eight), enforceKeyboardStrategy: true)
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .p), enforceKeyboardStrategy: true)
     }
     
@@ -24,5 +25,9 @@ extension EnforcingKSNM_p_Tests {
         XCTAssertEqual(kindaVimEngine.currentMode, .normal)
     }
     
+    func test_that_it_resets_the_count() {
+        XCTAssertNil(kindaVimEngine.count)
+    }
+
 }
 

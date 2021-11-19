@@ -6,29 +6,30 @@ extension KindaVimEngine {
     
     func handleNormalModeUsingKeyboardStrategy(for keyCombination: KeyCombination) {         
         switch keyCombination.vimKey {
-        case .a:
-            enterInsertMode()
-            
-            post(ksNormalMode.a())
         case .A:
             enterInsertMode()
-            
             post(ksNormalMode.A())
+        case .a:
+            enterInsertMode()
+            post(ksNormalMode.a())
         case .b:
+            resetCountBuffers()
             post(ksNormalMode.b())
         case .c:
             enterOperatorPendingForNormalMode(with: keyCombination)
         case .C:
             enterInsertMode()
-            
             post(ksNormalMode.C())
         case .d:
             enterOperatorPendingForNormalMode(with: keyCombination)
         case .D:
+            resetCountBuffers()
             post(ksNormalMode.D())
         case .controlD:
+            resetCountBuffers()
             post(ksNormalMode.controlD())
         case .e:
+            resetCountBuffers()
             post(ksNormalMode.e())
         case .f:
             enterOperatorPendingForNormalMode(with: keyCombination)
@@ -37,6 +38,8 @@ extension KindaVimEngine {
         case .g:
             enterOperatorPendingForNormalMode(with: keyCombination)
         case .G:
+            resetCountBuffers()
+            
             switch focusedElementType {
             case .textElement:
                 post(ksNormalMode.GForTextElement())
@@ -44,48 +47,52 @@ extension KindaVimEngine {
                 post(ksNormalMode.GForNonTextElement())
             }
         case .h:
+            resetCountBuffers()
             post(ksNormalMode.h())
         case .i:
             enterInsertMode()
-            
             post(ksNormalMode.i())
         case .I:
             enterInsertMode()
-            
             post(ksNormalMode.I())
         case .j:
+            resetCountBuffers()
             post(ksNormalMode.j())
         case .k:
+            resetCountBuffers()
             post(ksNormalMode.k())
         case .l:
+            resetCountBuffers()
             post(ksNormalMode.l())
         case .o:
-            enterInsertMode()
-            
+            enterInsertMode()            
             post(ksNormalMode.o())
         case .O:
             enterInsertMode()
-            
             post(ksNormalMode.O())
         case .p:
+            resetCountBuffers()
             post(ksNormalMode.p())
         case .P:
+            resetCountBuffers()
             post(ksNormalMode.P())
         case .r:
             enterOperatorPendingForNormalMode(with: keyCombination)
         case .controlR:
+            resetCountBuffers()
             post(ksNormalMode.controlR())
         case .s:
             enterInsertMode()
-            
             post(ksNormalMode.s())
         case .t:
             enterOperatorPendingForNormalMode(with: keyCombination)
         case .T:
             enterOperatorPendingForNormalMode(with: keyCombination)
         case .u:
+            resetCountBuffers()
             post(ksNormalMode.u())
         case .controlU:
+            resetCountBuffers()
             post(ksNormalMode.controlU())
         case .v:
             enterVisualMode()            
@@ -98,10 +105,13 @@ extension KindaVimEngine {
             
             post(ksVisualMode.VForEnteringFromNormalMode())
         case .w:
+            resetCountBuffers()
             post(ksNormalMode.w())
         case .x:
+            resetCountBuffers()
             post(ksNormalMode.x())
         case .X:
+            resetCountBuffers()
             post(ksNormalMode.X())
         case .y:
             enterOperatorPendingForNormalMode(with: keyCombination)
@@ -114,18 +124,20 @@ extension KindaVimEngine {
             post(ksNormalMode.escape())
         case .enter:
             enterInsertMode()
-            
             post(ksNormalMode.enter())
         case .caret:
             post(ksNormalMode.caret())
+            resetCountBuffers()
         case .dollarSign:
+            resetCountBuffers()
             post(ksNormalMode.dollarSign())
         case .underscore:
+            resetCountBuffers()
             post(ksNormalMode.underscore())
         case .zero:
             post(ksNormalMode.zero())
         default:
-            ()
+            resetCountBuffers()
         }
     }
     

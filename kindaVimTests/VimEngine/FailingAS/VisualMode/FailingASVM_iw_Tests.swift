@@ -5,7 +5,7 @@ import XCTest
 
 class FailingASVM_iw_Tests: FailingASVM_BaseTests {
     
-    private func applyKeyCombinationsBeingTested() {
+    private func applyMoveBeingTested() {
         kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .i))
         kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .w))
     }
@@ -18,7 +18,7 @@ extension FailingASVM_iw_Tests {
     
     func test_that_it_does_not_call_any_KS_function_because_this_move_is_not_doable_with_KS() {
         kindaVimEngine.visualStyle = .characterwise
-        applyKeyCombinationsBeingTested()
+        applyMoveBeingTested()
         
         XCTAssertEqual(ksVisualModeMock.functionCalled, "")
     }
@@ -31,7 +31,7 @@ extension FailingASVM_iw_Tests {
     
     func test_that_it_does_not_call_any_KS_function_because_this_move_does_not_exist_for_VisualStyle_Linewise() {
         kindaVimEngine.visualStyle = .linewise
-        applyKeyCombinationsBeingTested()
+        applyMoveBeingTested()
         
         XCTAssertEqual(ksVisualModeMock.functionCalled, "")
     }
@@ -43,7 +43,7 @@ extension FailingASVM_iw_Tests {
 extension FailingASVM_iw_Tests {
     
     func test_that_it_keeps_Vim_in_visual_mode() {
-        applyKeyCombinationsBeingTested()
+        applyMoveBeingTested()
         
         XCTAssertEqual(kindaVimEngine.currentMode, .visual)
     }

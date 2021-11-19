@@ -31,6 +31,7 @@ extension KindaVimEngine {
                 resetCountBuffers()
             }
         case .c:
+            // TODO: all those insert mode and stuff should not be on the top as they're gonna be called twice
             enterInsertMode()
             
             switch visualStyle {

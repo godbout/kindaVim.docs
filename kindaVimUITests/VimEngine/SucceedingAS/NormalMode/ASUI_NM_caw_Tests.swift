@@ -6,7 +6,7 @@ import AccessibilityStrategy
 // see ci" for blah blah
 class ASUI_NM_caw_Tests: ASUI_NM_BaseTests {
 
-    private func applyKeyCombinationsBeingTested() {
+    private func applyMoveBeingTested() {
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .c))
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .a))
         kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .w))
@@ -24,7 +24,7 @@ extension ASUI_NM_caw_Tests {
         app.textFields.firstMatch.typeKey(.leftArrow, modifierFlags: [.command])
         kindaVimEngine.enterNormalMode()
         
-        applyKeyCombinationsBeingTested()
+        applyMoveBeingTested()
 
         XCTAssertEqual(kindaVimEngine.currentMode, .insert)
     }
@@ -36,7 +36,7 @@ extension ASUI_NM_caw_Tests {
         app.textFields.firstMatch.typeKey(.leftArrow, modifierFlags: [])
         kindaVimEngine.enterNormalMode()
 
-        applyKeyCombinationsBeingTested()
+        applyMoveBeingTested()
 
         XCTAssertEqual(kindaVimEngine.currentMode, .normal)
     }
@@ -55,7 +55,7 @@ extension ASUI_NM_caw_Tests {
         app.textFields.firstMatch.typeKey(.leftArrow, modifierFlags: [])
         kindaVimEngine.enterNormalMode()
 
-        applyKeyCombinationsBeingTested()
+        applyMoveBeingTested()
         
         let focusedElement = AccessibilityTextElementAdaptor.fromAXFocusedElement()
 

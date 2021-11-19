@@ -5,7 +5,7 @@ import XCTest
 
 class FailingASVM_c_Tests: FailingASVM_BaseTests {
     
-    private func applyKeyCombinationBeingTested() {
+    private func applyMoveBeingTested() {
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .c))
     }
 
@@ -17,7 +17,7 @@ extension FailingASVM_c_Tests {
     
     func test_that_it_calls_the_relevant_KS_function_as_a_fallback_when_in_VisualStyle_Characterwise() {
         kindaVimEngine.visualStyle = .characterwise
-        applyKeyCombinationBeingTested()
+        applyMoveBeingTested()
         
         XCTAssertEqual(ksVisualModeMock.functionCalled, "c()")
     }
@@ -29,7 +29,7 @@ extension FailingASVM_c_Tests {
     
     func test_that_it_calls_the_relevant_KS_function_as_a_fallback_when_in_VisualStyle_Linewise() {
         kindaVimEngine.visualStyle = .linewise
-        applyKeyCombinationBeingTested()
+        applyMoveBeingTested()
         
         XCTAssertEqual(ksVisualModeMock.functionCalled, "c()")
     }
@@ -41,7 +41,7 @@ extension FailingASVM_c_Tests {
 extension FailingASVM_c_Tests {
     
     func test_that_it_switches_Vim_into_InsertMode() {
-        applyKeyCombinationBeingTested()
+        applyMoveBeingTested()
         
         XCTAssertEqual(kindaVimEngine.currentMode, .insert)
     }

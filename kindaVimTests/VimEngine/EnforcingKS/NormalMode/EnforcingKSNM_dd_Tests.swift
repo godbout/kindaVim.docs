@@ -6,6 +6,7 @@ import XCTest
 class EnforcingKS_dd_Tests: EnforcingKSNM_BaseTests {
 
     private func applyMoveBeingTested() {
+        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .eight), enforceKeyboardStrategy: true)
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .d), enforceKeyboardStrategy: true)
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .d), enforceKeyboardStrategy: true)
     }
@@ -33,6 +34,12 @@ extension EnforcingKS_dd_Tests {
         applyMoveBeingTested()
         
         XCTAssertEqual(kindaVimEngine.currentMode, .normal)
+    }
+        
+    func test_that_it_resets_the_count() {
+        applyMoveBeingTested()
+        
+        XCTAssertNil(kindaVimEngine.count)
     }
     
 }

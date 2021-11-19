@@ -9,7 +9,7 @@ import AccessibilityStrategy
 // AXUIElement. if it can't get the AXUIElement, for sure it would stay in normal mode.
 class UIASNM_ciDoubleQuote_Tests: ASUI_NM_BaseTests {
 
-    private func applyKeyCombinationsBeingTested() {
+    private func applyMoveBeingTested() {
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .c))
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .i))
         kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .doubleQuote))
@@ -29,7 +29,7 @@ hehe there's gonna be some "double quotes" in that shit
         app.textFields.firstMatch.typeKey(.leftArrow, modifierFlags: [.command])
         kindaVimEngine.enterNormalMode()
 
-        applyKeyCombinationsBeingTested()
+        applyMoveBeingTested()
 
         XCTAssertEqual(kindaVimEngine.currentMode, .insert)
     }
@@ -43,7 +43,7 @@ huhu only one " in there...
         app.textFields.firstMatch.typeKey(.leftArrow, modifierFlags: [.option])
         kindaVimEngine.enterNormalMode()
 
-        applyKeyCombinationsBeingTested()
+        applyMoveBeingTested()
 
         XCTAssertEqual(kindaVimEngine.currentMode, .normal)
     }

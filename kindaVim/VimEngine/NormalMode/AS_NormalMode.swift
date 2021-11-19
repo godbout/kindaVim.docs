@@ -342,7 +342,7 @@ extension KindaVimEngine {
                 handleNormalModeUsingKeyboardStrategy(for: keyCombination)
             }
         default:
-            ()
+            resetCountBuffers()
         }
     }
     
