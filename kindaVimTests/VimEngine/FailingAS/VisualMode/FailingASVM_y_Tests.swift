@@ -21,6 +21,20 @@ extension FailingASVM_y_Tests {
         
         XCTAssertEqual(ksVisualModeMock.functionCalled, "y()")
     }
+    
+    func test_that_it_switches_Vim_to_NormalMode_when_in_VisualStyle_Characterwise() {
+        kindaVimEngine.visualStyle = .characterwise
+        applyKeyCombinationsBeingTested()
+        
+        XCTAssertEqual(kindaVimEngine.currentMode, .normal)
+    }
+    
+    func test_that_it_resets_the_count_when_VisualStyle_is_Characterwise() {
+        kindaVimEngine.visualStyle = .characterwise
+        applyKeyCombinationsBeingTested()
+        
+        XCTAssertNil(kindaVimEngine.count)
+    }
 
 }
 
@@ -34,17 +48,19 @@ extension FailingASVM_y_Tests {
         
         XCTAssertEqual(ksVisualModeMock.functionCalled, "y()")
     }
-
-}
-
-
-// Both
-extension FailingASVM_y_Tests {
-
-    func test_that_it_switches_Vim_into_NormalMode() {
+    
+    func test_that_it_switches_Vim_to_NormalMode_when_in_VisualStyle_Linewise() {
+        kindaVimEngine.visualStyle = .linewise
         applyKeyCombinationsBeingTested()
         
         XCTAssertEqual(kindaVimEngine.currentMode, .normal)
     }
     
+    func test_that_it_resets_the_count_when_VisualStyle_is_Linewise() {
+        kindaVimEngine.visualStyle = .linewise
+        applyKeyCombinationsBeingTested()
+        
+        XCTAssertNil(kindaVimEngine.count)
+    }
+
 }

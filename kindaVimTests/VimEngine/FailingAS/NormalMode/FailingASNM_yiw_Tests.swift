@@ -32,4 +32,8 @@ extension FailingASNM_yiw_Tests {
         XCTAssertEqual(kindaVimEngine.lastYankStyle, .characterwise)
     }
     
+    func test_that_it_resets_the_count() {
+        XCTAssertNil(kindaVimEngine.count)
+    }
+    
 }

@@ -30,6 +30,13 @@ extension FailingASVM_v_Tests {
         XCTAssertEqual(kindaVimEngine.visualStyle, .characterwise)
     }
     
+    func test_that_it_resets_the_count_when_entering_from_NormalMode() {
+        kindaVimEngine.enterNormalMode()
+        applyKeyCombinationsBeingTested()
+        
+        XCTAssertNil(kindaVimEngine.count)
+    }
+    
 }
 
 
@@ -48,6 +55,13 @@ extension FailingASVM_v_Tests {
         applyKeyCombinationsBeingTested()
         
         XCTAssertEqual(kindaVimEngine.currentMode, .normal)
+    }
+    
+    func test_that_it_resets_the_count_if_Vim_was_in_VisualStyle_Characterwise() {
+        kindaVimEngine.visualStyle = .characterwise
+        applyKeyCombinationsBeingTested()
+        
+        XCTAssertNil(kindaVimEngine.count)
     }
         
 }
@@ -69,6 +83,13 @@ extension FailingASVM_v_Tests {
         
         XCTAssertEqual(kindaVimEngine.currentMode, .visual)
         XCTAssertEqual(kindaVimEngine.visualStyle, .characterwise)
+    }
+    
+    func test_that_it_resets_the_count_if_Vim_was_in_VisualStyle_Linewise() {
+        kindaVimEngine.visualStyle = .linewise
+        applyKeyCombinationsBeingTested()
+        
+        XCTAssertNil(kindaVimEngine.count)
     }
         
 }

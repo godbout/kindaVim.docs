@@ -25,4 +25,8 @@ extension FailingASNM_ge_Tests {
         XCTAssertEqual(kindaVimEngine.currentMode, .normal)
     }
     
+    func test_that_it_resets_the_count() {
+        XCTAssertNil(kindaVimEngine.count)
+    }
+    
 }

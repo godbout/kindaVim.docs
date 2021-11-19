@@ -21,6 +21,20 @@ extension FailingASVM_c_Tests {
         
         XCTAssertEqual(ksVisualModeMock.functionCalled, "c()")
     }
+    
+    func test_that_it_switches_Vim_to_InsertMode_when_in_VisualStyle_Characterwise() {
+        kindaVimEngine.visualStyle = .characterwise
+        applyKeyCombinationsBeingTested()
+        
+        XCTAssertEqual(kindaVimEngine.currentMode, .insert)
+    }
+    
+    func test_that_it_resets_the_count_when_VisualStyle_is_Characterwise() {
+        kindaVimEngine.visualStyle = .characterwise
+        applyKeyCombinationsBeingTested()
+        
+        XCTAssertNil(kindaVimEngine.count)
+    }
 
 }
 
@@ -33,17 +47,19 @@ extension FailingASVM_c_Tests {
         
         XCTAssertEqual(ksVisualModeMock.functionCalled, "c()")
     }
-
-}
-
-
-// Both
-extension FailingASVM_c_Tests {
     
-    func test_that_it_switches_Vim_into_InsertMode() {
+    func test_that_it_switches_Vim_to_InsertMode_when_in_VisualStyle_Linewise() {
+        kindaVimEngine.visualStyle = .linewise
         applyKeyCombinationsBeingTested()
         
         XCTAssertEqual(kindaVimEngine.currentMode, .insert)
     }
-   
+    
+    func test_that_it_resets_the_count_when_VisualStyle_is_Linewise() {
+        kindaVimEngine.visualStyle = .linewise
+        applyKeyCombinationsBeingTested()
+        
+        XCTAssertNil(kindaVimEngine.count)
+    }
+
 }

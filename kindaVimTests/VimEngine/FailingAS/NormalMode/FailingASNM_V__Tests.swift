@@ -28,4 +28,8 @@ extension FailingASNM_V__Tests {
         XCTAssertEqual(kindaVimEngine.visualStyle, .linewise)
     }
     
+    func test_that_it_resets_the_count() {
+        XCTAssertNil(kindaVimEngine.count)
+    }
+    
 }

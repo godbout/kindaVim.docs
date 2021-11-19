@@ -3,6 +3,7 @@ import KeyCombination
 import XCTest
 
 
+// TODO: count
 class FailingASVM_V__Tests: FailingASVM_BaseTests {
     
     private func applyKeyCombinationsBeingTested() {
@@ -30,6 +31,13 @@ extension FailingASVM_V__Tests {
         XCTAssertEqual(kindaVimEngine.visualStyle, .linewise)
     }
     
+    func test_that_it_resets_the_count_when_entering_from_NormalMode() {
+        kindaVimEngine.enterNormalMode()
+        applyKeyCombinationsBeingTested()
+        
+        XCTAssertNil(kindaVimEngine.count)
+    }
+    
 }
 
 
@@ -50,6 +58,13 @@ extension FailingASVM_V__Tests {
         XCTAssertEqual(kindaVimEngine.currentMode, .visual)
         XCTAssertEqual(kindaVimEngine.visualStyle, .linewise)
     }
+    
+    func test_that_it_resets_the_count_if_Vim_was_in_VisualStyle_Characterwise() {
+        kindaVimEngine.visualStyle = .characterwise
+        applyKeyCombinationsBeingTested()
+        
+        XCTAssertNil(kindaVimEngine.count)
+    }
        
 }
 
@@ -69,6 +84,13 @@ extension FailingASVM_V__Tests {
         applyKeyCombinationsBeingTested()
         
         XCTAssertEqual(kindaVimEngine.currentMode, .normal)
+    }
+    
+    func test_that_it_resets_the_count_if_Vim_was_in_VisualStyle_Linewise() {
+        kindaVimEngine.visualStyle = .linewise
+        applyKeyCombinationsBeingTested()
+        
+        XCTAssertNil(kindaVimEngine.count)
     }
 
 }

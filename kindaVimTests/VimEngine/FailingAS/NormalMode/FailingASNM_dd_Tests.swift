@@ -34,5 +34,17 @@ extension FailingASNM_dd_Tests {
         
         XCTAssertEqual(kindaVimEngine.currentMode, .normal)
     }
+    
+    func test_that_it_resets_the_count() {
+        applyKeyCombinationsBeingTested()
+        func test_that_it_keeps_Vim_in_normal_mode() {
+                XCTAssertEqual(kindaVimEngine.currentMode, .normal)
+            }
+            
+            func test_that_it_resets_the_count() {
+                XCTAssertNil(kindaVimEngine.count)
+            }  
+        XCTAssertNil(kindaVimEngine.count)
+    }
    
 }
