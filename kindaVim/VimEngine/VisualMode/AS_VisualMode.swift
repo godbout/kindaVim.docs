@@ -12,21 +12,23 @@ extension KindaVimEngine {
             switch visualStyle {
             case .characterwise:
                 if let element = asVisualMode.BForVisualStyleCharacterwise(on: focusedTextElement) {
+                    resetCountBuffers()
                     push(element: element)
                 }
             case .linewise:
-                ()
+                resetCountBuffers()
             }
         case .b:
             switch visualStyle {
             case .characterwise:
                 if let element = asVisualMode.bForVisualStyleCharacterwise(on: focusedTextElement) {
+                    resetCountBuffers()
                     push(element: element)
                 } else {
                     handleVisualModeUsingKeyboardStrategy(for: keyCombination)
                 }
             case .linewise:
-                ()
+                resetCountBuffers()
             }
         case .c:
             enterInsertMode()
@@ -49,12 +51,13 @@ extension KindaVimEngine {
             switch visualStyle {
             case .characterwise:
                 if let element = asVisualMode.caretForVisualStyleCharacterwise(on: focusedTextElement) {
+                    resetCountBuffers()
                     push(element: element)
                 } else {
                     handleVisualModeUsingKeyboardStrategy(for: keyCombination)
                 }
             case .linewise:
-                ()
+                resetCountBuffers()
             }
         case .d:
             switch visualStyle {
@@ -77,32 +80,35 @@ extension KindaVimEngine {
             switch visualStyle {
             case .characterwise:
                 if let element = asVisualMode.dollarSignForVisualStyleCharacterwise(on: focusedTextElement) {
+                    resetCountBuffers()
                     push(element: element)
                 } else {
                     handleVisualModeUsingKeyboardStrategy(for: keyCombination)
                 }
             case .linewise:
-                ()
+                resetCountBuffers()
             }
         case .E:
             switch visualStyle {
             case .characterwise:
                 if let element = asVisualMode.EForVisualStyleCharacterwise(on: focusedTextElement) {
+                    resetCountBuffers()
                     push(element: element)
                 }
             case .linewise:
-                ()
+                resetCountBuffers()
             }
         case .e:
             switch visualStyle {
             case .characterwise:
                 if let element = asVisualMode.eForVisualStyleCharacterwise(on: focusedTextElement) {
+                    resetCountBuffers()
                     push(element: element)
                 } else {
                     handleVisualModeUsingKeyboardStrategy(for: keyCombination)
                 }
             case .linewise:
-                ()
+                resetCountBuffers()
             }
         case .escape:
             // currently a hack
@@ -118,12 +124,14 @@ extension KindaVimEngine {
             switch visualStyle {
             case .characterwise:
                 if let element = asVisualMode.GForVisualStyleCharacterwise(on: focusedTextElement) {
+                    resetCountBuffers()
                     push(element: element)
                 } else {
                     handleVisualModeUsingKeyboardStrategy(for: keyCombination)
                 }
             case .linewise:
                 if let element = asVisualMode.GForVisualStyleLinewise(on: focusedTextElement) {
+                    resetCountBuffers()
                     push(element: element)
                 } else {
                     handleVisualModeUsingKeyboardStrategy(for: keyCombination)
@@ -133,12 +141,13 @@ extension KindaVimEngine {
             switch visualStyle {
             case .characterwise:
                 if let element = asVisualMode.hForVisualStyleCharacterwise(on: focusedTextElement) {
+                    resetCountBuffers()
                     push(element: element)
                 } else {
                     handleVisualModeUsingKeyboardStrategy(for: keyCombination)
                 }
             case .linewise:
-                ()
+                resetCountBuffers()
             }
         case .i:
             enterOperatorPendingForVisualMode(with: keyCombination)
@@ -146,12 +155,14 @@ extension KindaVimEngine {
             switch visualStyle {
             case .characterwise:
                 if let element = asVisualMode.jForVisualStyleCharacterwise(on: focusedTextElement) {
+                    resetCountBuffers()
                     push(element: element)
                 } else {
                     handleVisualModeUsingKeyboardStrategy(for: keyCombination)
                 }
             case .linewise:
                 if let element = asVisualMode.jForVisualStyleLinewise(on: focusedTextElement) {
+                    resetCountBuffers()
                     push(element: element)
                 } else {
                     handleVisualModeUsingKeyboardStrategy(for: keyCombination)
@@ -161,12 +172,14 @@ extension KindaVimEngine {
             switch visualStyle {
             case .characterwise:
                 if let element = asVisualMode.kForVisualStyleCharacterwise(on: focusedTextElement) {
+                    resetCountBuffers()
                     push(element: element)
                 } else {
                     handleVisualModeUsingKeyboardStrategy(for: keyCombination)
                 }
             case .linewise:
                 if let element = asVisualMode.kForVisualStyleLinewise(on: focusedTextElement) {
+                    resetCountBuffers()
                     push(element: element)
                 } else {
                     handleVisualModeUsingKeyboardStrategy(for: keyCombination)
@@ -176,12 +189,13 @@ extension KindaVimEngine {
             switch visualStyle {
             case .characterwise:
                 if let element = asVisualMode.lForVisualStyleCharacterwise(on: focusedTextElement) {
+                    resetCountBuffers()
                     push(element: element)
                 } else {
                     handleVisualModeUsingKeyboardStrategy(for: keyCombination)
                 }
             case .linewise:
-                ()
+                resetCountBuffers()
             }
         case .o:
             if let element = asVisualMode.o(on: focusedTextElement) {
@@ -196,12 +210,13 @@ extension KindaVimEngine {
             switch visualStyle {
             case .characterwise:
                 if let element = asVisualMode.underscoreForVisualStyleCharacterwise(on: focusedTextElement) {
+                    resetCountBuffers()
                     push(element: element)
                 } else {
                     handleVisualModeUsingKeyboardStrategy(for: keyCombination)
                 }
             case .linewise:
-                ()
+                resetCountBuffers()
             }
         case .v:
             switch visualStyle {
@@ -247,21 +262,23 @@ extension KindaVimEngine {
             switch visualStyle {
             case .characterwise:
                 if let element = asVisualMode.wForVisualStyleCharacterwise(on: focusedTextElement) {
+                    resetCountBuffers()
                     push(element: element)
                 } else {
                     handleVisualModeUsingKeyboardStrategy(for: keyCombination)
                 }
             case .linewise:
-                ()
+                resetCountBuffers()
             }
         case .W:
             switch visualStyle {
             case .characterwise:
                 if let element = asVisualMode.WForVisualStyleCharacterwise(on: focusedTextElement) {
+                    resetCountBuffers()
                     push(element: element)
                 }
             case .linewise:
-                ()
+                resetCountBuffers()
             }
         case .y:
             switch visualStyle {
@@ -283,22 +300,24 @@ extension KindaVimEngine {
                 }
             }
         case .zero:
+            // resetCountBuffers shouldn't be needed because we should reach 0 as
+            // a Vim move rather than part of the count only when the count is already nil
+            // but resetting below just as extra care and extra love.
             switch visualStyle {
             case .characterwise:
                 if let element = asVisualMode.zeroForVisualStyleCharacterwise(on: focusedTextElement) {
+                    resetCountBuffers()
                     push(element: element)
                 } else {
                     handleVisualModeUsingKeyboardStrategy(for: keyCombination)
                 }
             case .linewise:
-                ()
+                resetCountBuffers()
             }
         default:
             ()
         }
     }
-    
-    
     
 }
 
