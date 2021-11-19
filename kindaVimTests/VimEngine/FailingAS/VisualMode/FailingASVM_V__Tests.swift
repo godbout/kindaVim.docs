@@ -3,7 +3,6 @@ import KeyCombination
 import XCTest
 
 
-// TODO: count
 class FailingASVM_V__Tests: FailingASVM_BaseTests {
     
     private func applyKeyCombinationsBeingTested() {
