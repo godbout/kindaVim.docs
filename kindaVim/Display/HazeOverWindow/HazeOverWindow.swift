@@ -36,7 +36,6 @@ struct HazeOverWindow: WindowProtocol {
 
             window.setFrame(NSRect(origin: mainScreen.frame.origin, size: mainScreen.frame.size), display: true)
             window.alphaValue = 0.2
-            window.orderFront(self)
             
             return
         }
@@ -54,11 +53,7 @@ struct HazeOverWindow: WindowProtocol {
     }
   
     func off() {
-        NSAnimationContext.runAnimationGroup({ _ in
-            window.animator().alphaValue = 0
-        }, completionHandler: {
-            window.orderOut(self)
-        })
+        window.animator().alphaValue = 0
     }
     
 }
