@@ -62,8 +62,8 @@ extension KindaVimEngine {
             resetCountBuffers()
             post(ksNormalMode.k())
         case .l:
+            post(ksNormalMode.l(times: count))
             resetCountBuffers()
-            post(ksNormalMode.l())
         case .o:
             enterInsertMode()            
             post(ksNormalMode.o())
