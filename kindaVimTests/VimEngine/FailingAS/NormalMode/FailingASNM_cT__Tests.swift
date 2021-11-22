@@ -27,7 +27,7 @@ extension FailingASNM_cT__Tests {
     }
     
     func test_that_it_resets_the_count() {
-        XCTAssertNil(kindaVimEngine.count)
+        XCTAssertEqual(kindaVimEngine.count, 1)
     }
     
 }

@@ -11,7 +11,7 @@ class SucceedingASNM_P__Tests: SucceedingASNM_BaseTests {
         func test_that_it_Vim_as_in_VisualMode_Characterwise_it_resets_the_count() {
             applyKeyCombinationsBeingTested()
             
-            XCTAssertNil(kindaVimEngine.count)
+            XCTAssertEqual(kindaVimEngine.count, 1)
         }
 }
         
@@ -56,7 +56,7 @@ extension SucceedingASNM_P__Tests {
     func test_that_it_resets_the_count() {
         applyKeyCombinationsBeingTested()
         
-        XCTAssertNil(kindaVimEngine.count)
+        XCTAssertEqual(kindaVimEngine.count, 1)
     }
 
 }

@@ -70,7 +70,7 @@ class CountSystemTests: XCTestCase {
         kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .a))
         kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .two))
         
-        XCTAssertNil(kindaVimEngine.count)
+        XCTAssertEqual(kindaVimEngine.count, 1)
     }
 
 }
@@ -85,7 +85,7 @@ extension CountSystemTests {
         kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .d))
         kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .a))
         
-        XCTAssertNil(kindaVimEngine.count)
+        XCTAssertEqual(kindaVimEngine.count, 1)
     }
     
     func test_that_if_the_command_already_starts_with_digits_and_does_not_have_an_operator_yet_then_0_is_part_of_the_first_count() {
@@ -112,7 +112,7 @@ extension CountSystemTests {
         kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .four))
         kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .a))
         
-        XCTAssertNil(kindaVimEngine.count)
+        XCTAssertEqual(kindaVimEngine.count, 1)
     }
     
     func test_that_if_there_is_a_count_that_includes_a_0_before_and_a_count_that_includes_a_0_after_an_operator_then_the_counts_are_multiplied() {
@@ -135,7 +135,7 @@ extension CountSystemTests {
         kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .a))
         kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .zero))
         
-        XCTAssertNil(kindaVimEngine.count)
+        XCTAssertEqual(kindaVimEngine.count, 1)
     }
         
 }

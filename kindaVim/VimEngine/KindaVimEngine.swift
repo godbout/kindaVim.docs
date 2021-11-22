@@ -36,17 +36,17 @@ class KindaVimEngine {
     
     private(set) var firstCountBuffer: String = ""
     private(set) var secondCountBuffer: String = ""
-    var count: Int? {
+    var count: Int {
         let firstCount = Int(firstCountBuffer)
         let secondCount = Int(secondCountBuffer)
         
         switch (firstCount, secondCount) {
         case (.none, .none):
-            return nil
+            return 1
         case (.some, .none):
-            return firstCount
+            return firstCount!
         case (.none, .some):
-            return secondCount
+            return secondCount!
         case (.some, .some):
             return firstCount! * secondCount!
         }

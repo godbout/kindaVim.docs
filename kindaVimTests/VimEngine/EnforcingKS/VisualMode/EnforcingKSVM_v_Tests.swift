@@ -35,7 +35,7 @@ extension EnforcingKSVM_v_Tests {
         kindaVimEngine.enterNormalMode()
         applyKeyCombinationsBeingTested()
         
-        XCTAssertNil(kindaVimEngine.count)
+        XCTAssertEqual(kindaVimEngine.count, 1)
     }
     
 }
@@ -62,7 +62,7 @@ extension EnforcingKSVM_v_Tests {
         kindaVimEngine.visualStyle = .characterwise
         applyKeyCombinationsBeingTested()
         
-        XCTAssertNil(kindaVimEngine.count)
+        XCTAssertEqual(kindaVimEngine.count, 1)
     }
         
 }
@@ -90,7 +90,7 @@ extension EnforcingKSVM_v_Tests {
         kindaVimEngine.visualStyle = .linewise
         applyKeyCombinationsBeingTested()
         
-        XCTAssertNil(kindaVimEngine.count)
+        XCTAssertEqual(kindaVimEngine.count, 1)
     }
 
 }

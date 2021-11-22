@@ -35,7 +35,7 @@ extension SucceedingASVM_iw_Tests {
         kindaVimEngine.visualStyle = .characterwise
         applyKeyCombinationsBeingTested()
         
-        XCTAssertNil(kindaVimEngine.count)
+        XCTAssertEqual(kindaVimEngine.count, 1)
     }
     
 }
@@ -62,7 +62,7 @@ extension SucceedingASVM_iw_Tests {
         kindaVimEngine.visualStyle = .linewise
         applyKeyCombinationsBeingTested()
         
-        XCTAssertNil(kindaVimEngine.count)
+        XCTAssertEqual(kindaVimEngine.count, 1)
     }
 
 }
@@ -80,7 +80,7 @@ extension SucceedingASVM_iw_Tests {
     func test_that_it_resets_the_count() {
         applyKeyCombinationsBeingTested()
                 
-        XCTAssertNil(kindaVimEngine.count)
+        XCTAssertEqual(kindaVimEngine.count, 1)
     }
 
 }

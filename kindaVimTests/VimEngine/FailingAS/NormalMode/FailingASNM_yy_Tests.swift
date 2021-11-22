@@ -32,7 +32,7 @@ extension FailingASNM_yy_Tests {
     }
     
     func test_that_it_resets_the_count() {
-        XCTAssertNil(kindaVimEngine.count)
+        XCTAssertEqual(kindaVimEngine.count, 1)
     }
     
 }

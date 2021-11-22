@@ -18,7 +18,7 @@ class SucceedingASNM_l_Tests: SucceedingASNM_BaseTests {
 extension SucceedingASNM_l_Tests {
     
     func test_that_it_calls_the_correct_function_on_accessibility_strategy() {
-        XCTAssertEqual(asNormalModeMock.functionCalled, "l(on:)")
+        XCTAssertEqual(asNormalModeMock.functionCalled, "l(times:on:)")
     }
     
     func test_that_it_keeps_Vim_in_normal_mode() {
@@ -26,7 +26,7 @@ extension SucceedingASNM_l_Tests {
     }
     
     func test_that_it_resets_the_count() {
-        XCTAssertNil(kindaVimEngine.count)
+        XCTAssertEqual(kindaVimEngine.count, 1)
     }
 
 }

@@ -24,7 +24,7 @@ class SucceedingASVM_escape_Tests: SucceedingASVM_BaseTests {
         kindaVimEngine.visualStyle = .characterwise
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .escape))
         
-        XCTAssertNil(kindaVimEngine.count)
+        XCTAssertEqual(kindaVimEngine.count, 1)
     }
     
     func test_that_if_Vim_was_in_visual_mode_linewise_it_switches_into_insert_mode() {
@@ -38,7 +38,7 @@ class SucceedingASVM_escape_Tests: SucceedingASVM_BaseTests {
         kindaVimEngine.visualStyle = .linewise
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .escape))
         
-        XCTAssertNil(kindaVimEngine.count)
+        XCTAssertEqual(kindaVimEngine.count, 1)
     }
 
 }
