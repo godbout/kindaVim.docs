@@ -139,7 +139,7 @@ extension KindaVimEngine {
                 }    
             }
         case .l:
-            if let element = asNormalMode.l(on: focusedTextElement) {
+            if let element = asNormalMode.l(times: count, on: focusedTextElement) {
                 resetCountBuffers()
                 push(element: element)
             } else {
