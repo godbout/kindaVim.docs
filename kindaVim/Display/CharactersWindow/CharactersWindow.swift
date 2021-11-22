@@ -19,6 +19,7 @@ struct CharactersWindow: WindowProtocol {
         window.backgroundColor = .clear
         window.alphaValue = 0.7
         window.isMovableByWindowBackground = true
+        window.isRestorable = true
         window.level = .floating
         window.animationBehavior = .utilityWindow
         window.collectionBehavior = [.canJoinAllSpaces, .transient]
@@ -26,10 +27,6 @@ struct CharactersWindow: WindowProtocol {
     
     
     func show(lastKeyCombinationBeing keyCombination: KeyCombination) {
-        guard let screen = screenToShowTheCharactersWindowOnto() else { return }
-        
-        window.setFrame(NSRect(x: screen.frame.origin.x + 50, y: screen.frame.origin.y + 80, width: 269, height: 60), display: true)
-               
         if Self.lettersTyped.count > 10 || Self.lettersTyped.contains("control") {
             Self.lettersTyped = ""
         }
@@ -61,7 +58,7 @@ struct CharactersWindow: WindowProtocol {
         Self.lettersTyped = ""
         
         Timer.scheduledTimer(
-            withTimeInterval: 0.69,
+            withTimeInterval: 1.28,
             repeats: false,
             block: { _ in window.orderOut(self )}
         )
