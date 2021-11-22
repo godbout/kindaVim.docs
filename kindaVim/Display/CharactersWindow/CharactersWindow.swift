@@ -35,7 +35,14 @@ struct CharactersWindow: WindowProtocol {
         if keyCombination.control == true {
             Self.lettersTyped = "control " + String(keyCombination.character)
         } else {
-            Self.lettersTyped.append(keyCombination.character)
+            switch keyCombination.key {
+            case .enter:
+                Self.lettersTyped = "return"
+            case .escape:
+                Self.lettersTyped = "esc"
+            default:
+                Self.lettersTyped.append(keyCombination.character)
+            }
         }
 
         window.contentView = NSHostingView(rootView: CharactersView(lettersTyped: Self.lettersTyped))
