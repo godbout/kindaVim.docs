@@ -7,11 +7,13 @@ import KeyCombination
 struct Display {
 
     private var hazeOverWindow = HazeOverWindow()
-    private var charactersWindow = CharactersWindow()
     enum HazeOverStatus {
         case on
         case off
     }
+    
+    private var charactersWindow = CharactersWindow()
+    private static var  ongoingMove: String = ""
     
     
     func hazeOver(_ status: HazeOverStatus) {
@@ -23,13 +25,19 @@ struct Display {
         }
     }
     
-    func showKeysTyped(lastBeing keyCombination: KeyCombination?) {
-        guard let keyCombination = keyCombination else { return }
+    func ongoingMove(add keyCombination: KeyCombination) {
+        Self.ongoingMove.append(keyCombination.character)
+    }
         
-        charactersWindow.show(lastKeyCombinationBeing: keyCombination)
+    func showOngoingMove() {
+        charactersWindow.show(Self.ongoingMove)
     }
     
-    func fadeOutCharactersWindow() {
+    func resetOngoingMove() {
+        Self.ongoingMove = ""
+    }
+    
+    func fadeOutOngoingMove() {
         charactersWindow.hide()
     }
     

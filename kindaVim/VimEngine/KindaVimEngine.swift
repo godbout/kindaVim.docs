@@ -80,7 +80,8 @@ class KindaVimEngine {
     var asNormalMode: AccessibilityStrategyNormalModeProtocol = AccessibilityStrategyNormalMode()
     var asVisualMode: AccessibilityStrategyVisualModeProtocol = AccessibilityStrategyVisualMode()
     
-       
+    
+    // TODO: rearrange the func orders etc.
     func endCurrentMove() {        
         resetOperatorPendingBuffer()
         resetCountBuffers()
@@ -248,7 +249,7 @@ class KindaVimEngine {
         }
         
         if showCharactersTyped == true {
-            display.fadeOutCharactersWindow()
+            display.fadeOutOngoingMove()
         }
     }
     
