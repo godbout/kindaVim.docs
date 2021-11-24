@@ -9,7 +9,8 @@ class FailingASNM_Y_Tests: FailingASNM_BaseTests {
         super.setUp()
         
         kindaVimEngine.lastYankStyle = .characterwise
-        
+
+        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .eight))
         kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .Y))
     }
     

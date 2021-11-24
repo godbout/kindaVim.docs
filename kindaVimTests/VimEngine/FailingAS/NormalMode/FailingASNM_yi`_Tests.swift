@@ -8,6 +8,7 @@ class FailingASNM_yiBacktick_Tests: FailingASNM_BaseTests {
     override func setUp() {
         super.setUp()
         
+        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .eight))     
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .y))
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .i))
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .backtick))

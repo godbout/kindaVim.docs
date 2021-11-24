@@ -6,6 +6,7 @@ import XCTest
 class FailingASVM_g$_Tests: FailingASVM_BaseTests {
     
     private func applyKeyCombinationsBeingTested() {
+        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .eight))
         kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .g))
         kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .dollarSign))
     }

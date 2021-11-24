@@ -10,6 +10,7 @@ class FailingASNM_yiw_Tests: FailingASNM_BaseTests {
         
         kindaVimEngine.lastYankStyle = .linewise
         
+        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .eight))    
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .y))
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .i))
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .w))

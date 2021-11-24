@@ -8,6 +8,7 @@ class FailingASNM_db_Tests: FailingAS_BaseTests {
     override func setUp() {
         super.setUp()
         
+        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .eight))
         kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .d))
         kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .b))
     }

@@ -8,6 +8,7 @@ class FailingASNM_gCaret_Tests: FailingAS_BaseTests {
     override func setUp() {
         super.setUp()
         
+        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .eight))
         kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .g))
         kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .caret))
     }

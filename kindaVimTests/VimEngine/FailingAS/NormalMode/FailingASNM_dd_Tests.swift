@@ -3,11 +3,13 @@ import KeyCombination
 import XCTest
 
 
+// TODO: review this file
 class FailingASNM_dd_Tests: FailingAS_BaseTests {
     
     private func applyKeyCombinationsBeingTested() {
-        kindaVimEngine.handle(keyCombination: KeyCombination(key: .d), enforceKeyboardStrategy: true)
-        kindaVimEngine.handle(keyCombination: KeyCombination(key: .d), enforceKeyboardStrategy: true)
+        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .eight))
+        kindaVimEngine.handle(keyCombination: KeyCombination(key: .d))
+        kindaVimEngine.handle(keyCombination: KeyCombination(key: .d))
     }
 
 }
@@ -37,13 +39,7 @@ extension FailingASNM_dd_Tests {
     
     func test_that_it_resets_the_count() {
         applyKeyCombinationsBeingTested()
-        func test_that_it_keeps_Vim_in_normal_mode() {
-                XCTAssertEqual(kindaVimEngine.currentMode, .normal)
-            }
-            
-            func test_that_it_resets_the_count() {
-                XCTAssertEqual(kindaVimEngine.count, 1)
-            }  
+        
         XCTAssertEqual(kindaVimEngine.count, 1)
     }
    

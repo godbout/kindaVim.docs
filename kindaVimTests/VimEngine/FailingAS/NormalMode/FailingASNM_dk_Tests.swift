@@ -6,6 +6,7 @@ import XCTest
 class FailingASNM_dk_Tests: FailingAS_BaseTests {
     
     private func applyKeyCombinationsBeingTested() {
+        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .eight))
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .d))
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .k))
     }

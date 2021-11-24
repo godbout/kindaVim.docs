@@ -8,6 +8,7 @@ class FailingASNM_yiRightBrace_Tests: FailingAS_BaseTests {
     override func setUp() {
         super.setUp()
         
+        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .eight))      
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .y))
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .i))
         kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .rightBrace))

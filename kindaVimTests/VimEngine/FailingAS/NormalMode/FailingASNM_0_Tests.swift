@@ -3,6 +3,8 @@ import KeyCombination
 import XCTest
 
 
+// zero cannot have .eight before it in the tests because else
+// the combination of numbers would make 80.
 class FailingASNM_0_Tests: FailingAS_BaseTests {
     
     override func setUp() {

@@ -3,11 +3,14 @@ import KeyCombination
 import XCTest
 
 
+// TODO: all the Failing tests are missing the count in the tests.
+// and once the count is added, the tests should all be failing as the implementation is not correct.
 class FailingASNM_E__Tests: FailingAS_BaseTests {
     
     override func setUp() {
         super.setUp()
         
+        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .eight))
         kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .E))
     }
     
