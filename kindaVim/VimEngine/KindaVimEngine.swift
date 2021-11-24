@@ -79,11 +79,19 @@ class KindaVimEngine {
     var accessibilityStrategy: AccessibilityStrategyProtocol = AccessibilityStrategy()
     var asNormalMode: AccessibilityStrategyNormalModeProtocol = AccessibilityStrategyNormalMode()
     var asVisualMode: AccessibilityStrategyVisualModeProtocol = AccessibilityStrategyVisualMode()
+    
+       
+    func endCurrentMove() {        
+        resetOperatorPendingBuffer()
+        resetCountBuffers()
+        display.resetOngoingMove()
+    }
 
     
     func handle(keyCombination: KeyCombination, enforceKeyboardStrategy: Bool = false) {
         if showCharactersTyped == true {
-            display.showKeysTyped(lastBeing: keyCombination)
+            display.ongoingMove(add: keyCombination)
+            display.showOngoingMove()
         }
         
         // before sending the key combination down the rabbit hole we need to check first
@@ -226,9 +234,8 @@ class KindaVimEngine {
     }
     
     func enterInsertMode() {
+        endCurrentMove()
         currentMode = .insert
-        resetOperatorPendingBuffer()
-        resetCountBuffers()
         
         if toggleHazeOverWindow == true {
             display.hazeOver(.off)
@@ -246,13 +253,13 @@ class KindaVimEngine {
     }
     
     func enterNormalMode(enforceKeyboardStrategy: Bool = false) {
+        endCurrentMove()
+        
         if currentMode == .insert {
             goBackOneCharacterForTextElements(enforceKeyboardStrategy: enforceKeyboardStrategy)
         }
         
-        currentMode = .normal
-        resetOperatorPendingBuffer()
-        resetCountBuffers()
+        currentMode = .normal        
         
         if toggleHazeOverWindow == true {
             display.hazeOver(.on)
@@ -280,8 +287,8 @@ class KindaVimEngine {
     }
     
     func enterVisualMode() {
+        endCurrentMove()
         currentMode = .visual
-        resetCountBuffers()
     }
     
     func enterOperatorPendingForNormalMode(with keyCombination: KeyCombination) {
@@ -298,7 +305,7 @@ class KindaVimEngine {
         operatorPendingBuffer = []
     }
         
-    func resetCountBuffers() {
+    private func resetCountBuffers() {
         firstCountBuffer = ""
         secondCountBuffer = ""
     }

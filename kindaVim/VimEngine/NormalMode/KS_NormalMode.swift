@@ -7,30 +7,30 @@ extension KindaVimEngine {
     func handleNormalModeUsingKeyboardStrategy(for keyCombination: KeyCombination) {         
         switch keyCombination.vimKey {
         case .A:
-            enterInsertMode()
             post(ksNormalMode.A())
-        case .a:
             enterInsertMode()
+        case .a:
             post(ksNormalMode.a())
+            enterInsertMode()
         case .b:
-            resetCountBuffers()
             post(ksNormalMode.b())
+            endCurrentMove()
         case .c:
             enterOperatorPendingForNormalMode(with: keyCombination)
         case .C:
-            enterInsertMode()
             post(ksNormalMode.C())
+            enterInsertMode()
         case .d:
             enterOperatorPendingForNormalMode(with: keyCombination)
         case .D:
-            resetCountBuffers()
             post(ksNormalMode.D())
+            endCurrentMove()
         case .controlD:
-            resetCountBuffers()
             post(ksNormalMode.controlD())
+            endCurrentMove()
         case .e:
-            resetCountBuffers()
             post(ksNormalMode.e())
+            endCurrentMove()
         case .f:
             enterOperatorPendingForNormalMode(with: keyCombination)
         case .F:
@@ -38,106 +38,108 @@ extension KindaVimEngine {
         case .g:
             enterOperatorPendingForNormalMode(with: keyCombination)
         case .G:
-            resetCountBuffers()
-            
             switch focusedElementType {
             case .textElement:
                 post(ksNormalMode.GForTextElement())
             case .nonTextElement:
                 post(ksNormalMode.GForNonTextElement())
             }
+            
+            endCurrentMove()
         case .h:
-            resetCountBuffers()
             post(ksNormalMode.h())
+            endCurrentMove()
         case .i:
-            enterInsertMode()
             post(ksNormalMode.i())
-        case .I:
             enterInsertMode()
+        case .I:
             post(ksNormalMode.I())
+            enterInsertMode()
         case .j:
-            resetCountBuffers()
             post(ksNormalMode.j())
+            endCurrentMove()
         case .k:
-            resetCountBuffers()
             post(ksNormalMode.k())
+            endCurrentMove()
         case .l:
             post(ksNormalMode.l(times: count))
-            resetCountBuffers()
+            endCurrentMove()
         case .o:
-            enterInsertMode()            
             post(ksNormalMode.o())
+            enterInsertMode()            
         case .O:
-            enterInsertMode()
             post(ksNormalMode.O())
+            enterInsertMode()
         case .p:
-            resetCountBuffers()
             post(ksNormalMode.p())
+            endCurrentMove()
         case .P:
-            resetCountBuffers()
             post(ksNormalMode.P())
+            endCurrentMove()
         case .r:
             enterOperatorPendingForNormalMode(with: keyCombination)
         case .controlR:
-            resetCountBuffers()
             post(ksNormalMode.controlR())
+            endCurrentMove()
         case .s:
-            enterInsertMode()
             post(ksNormalMode.s())
+            enterInsertMode()
         case .t:
             enterOperatorPendingForNormalMode(with: keyCombination)
         case .T:
             enterOperatorPendingForNormalMode(with: keyCombination)
         case .u:
-            resetCountBuffers()
             post(ksNormalMode.u())
+            endCurrentMove()
         case .controlU:
-            resetCountBuffers()
             post(ksNormalMode.controlU())
-        case .v:
-            enterVisualMode()            
+            endCurrentMove()
+        case .v:            
             visualStyle = .characterwise
             
             post(ksVisualMode.vForEnteringFromNormalMode())
-        case .V:
             enterVisualMode()
+        case .V:
             visualStyle = .linewise
             
             post(ksVisualMode.VForEnteringFromNormalMode())
+            enterVisualMode()
         case .w:
-            resetCountBuffers()
             post(ksNormalMode.w())
+            endCurrentMove()
         case .x:
-            resetCountBuffers()
             post(ksNormalMode.x())
+            endCurrentMove()
         case .X:
-            resetCountBuffers()
             post(ksNormalMode.X())
+            endCurrentMove()
         case .y:
             enterOperatorPendingForNormalMode(with: keyCombination)
         case .Y:
             lastYankStyle = .linewise
 
             post(ksNormalMode.yy())
+            endCurrentMove()
         case .escape:
-            enterInsertMode()            
             post(ksNormalMode.escape())
+            enterInsertMode()            
         case .enter:
-            enterInsertMode()
             post(ksNormalMode.enter())
+            enterInsertMode()
         case .caret:
             post(ksNormalMode.caret())
-            resetCountBuffers()
+            endCurrentMove()
         case .dollarSign:
-            resetCountBuffers()
             post(ksNormalMode.dollarSign())
+            endCurrentMove()
         case .underscore:
-            resetCountBuffers()
             post(ksNormalMode.underscore())
+            endCurrentMove()
         case .zero:
             post(ksNormalMode.zero())
+            endCurrentMove()
         default:
-            resetCountBuffers()
+            endCurrentMove()
         }
     }
     
@@ -154,127 +156,111 @@ extension KindaVimEngine {
         case [.c, .a, .w]:
             enterNormalMode()
         case [.c, .b]:
-            enterInsertMode()
-            
             post(ksNormalMode.cb())
-        case [.c, .c]:
             enterInsertMode()
-            
+        case [.c, .c]:            
             post(ksNormalMode.cc())
+            enterInsertMode()
         case [.c, .g]:
             ()
         case [.c, .g, .g]:
+            post(ksNormalMode.cgg())            
             enterInsertMode()
-            
-            post(ksNormalMode.cgg())
         case [.c, .G]:
-            enterInsertMode()
-            
             post(ksNormalMode.cG())
+            enterInsertMode()
         case [.c, .i]:
             ()
         case [.c, .i, .w]:
-            enterInsertMode()
-            
             post(ksNormalMode.ciw())
+            enterInsertMode()            
         case [.d, .a]:
             ()
         case [.d, .a, .w]:
             enterNormalMode()
         case [.d, .b]:
-            enterNormalMode()
-            
             post(ksNormalMode.db())
+            enterNormalMode()            
         case [.d, .d]:
-            enterNormalMode()
-            
             switch focusedElementType {
             case .textElement:
                 post(ksNormalMode.ddForTextElement())
             default:
                 post(ksNormalMode.ddForNonTextElement())
             }
+            
+            enterNormalMode()
         case [.d, .g]:
             ()
         case [.d, .g, .g]:
-            enterNormalMode()
-            
             post(ksNormalMode.dgg())
-        case [.d, .G]:
-            enterNormalMode()
-            
+            enterNormalMode()            
+        case [.d, .G]:            
             post(ksNormalMode.dG())
-        case [.d, .j]:
             enterNormalMode()
-            
+        case [.d, .j]:
             switch focusedElementType {
             case .textElement:
                 post(ksNormalMode.djForTextElement())
             default:
                 post(ksNormalMode.djForNonTextElement())
             }
-        case [.d, .k]:
-            enterNormalMode()
             
+            enterNormalMode()
+        case [.d, .k]:
             switch focusedElementType {
             case .textElement:
                 post(ksNormalMode.dkForTextElement())
             default:
                 post(ksNormalMode.dkForNonTextElement())
             }
+            
+            enterNormalMode()
         case [.g, .caret]:
-            enterNormalMode()
-            
             post(ksNormalMode.gCaret())
-        case [.g, .dollarSign]:
             enterNormalMode()
-            
+        case [.g, .dollarSign]:            
             post(ksNormalMode.gDollarSign())
-        case [.g, .e]:
             enterNormalMode()
-            
+        case [.g, .e]:            
             post(ksNormalMode.ge())
-        case [.g, .g]:
             enterNormalMode()
-                    
+        case [.g, .g]:
             switch focusedElementType {
             case .textElement:
                 post(ksNormalMode.ggForTextElement())
             default:
                 post(ksNormalMode.ggForNonTextElement())
             }
+            
+            enterNormalMode()
         case [.g, .I]:
-            enterInsertMode()
-            
             post(ksNormalMode.gI())
-        case [.g, .j]:
-            enterNormalMode()
-            
+            enterInsertMode()
+        case [.g, .j]:            
             post(ksNormalMode.gj())
-        case [.g, .k]:
             enterNormalMode()
-            
+        case [.g, .k]:            
             post(ksNormalMode.gk())
-        case [.g, .underscore]:
             enterNormalMode()
-            
+        case [.g, .underscore]:            
             post(ksNormalMode.gUnderscore())
-        case [.g, .zero]:
             enterNormalMode()
-            
+        case [.g, .zero]:            
             post(ksNormalMode.gZero())
+            enterNormalMode()
         case [.y, .i]:
             ()
         case [.y, .i, .w]:
-            enterNormalMode()
             lastYankStyle = .characterwise
             
             post(ksNormalMode.yiw())
-        case [.y, .y]:
             enterNormalMode()
+        case [.y, .y]:
             lastYankStyle = .linewise
             
             post(ksNormalMode.yy())
+            enterNormalMode()
         default:
             if operatorPendingBuffer.first?.vimKey == .r, let replacement = operatorPendingBuffer.last {                
                 post(ksNormalMode.r(with: replacement))

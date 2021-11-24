@@ -11,10 +11,10 @@ extension KindaVimEngine {
         case .b:
             switch visualStyle {
             case .characterwise:
-                resetCountBuffers()
                 post(ksVisualMode.bForVisualStyleCharacterwise())
+                endCurrentMove()
             case .linewise:
-                resetCountBuffers()
+                endCurrentMove()
             }
         case .c:
             post(ksVisualMode.c())
@@ -22,30 +22,29 @@ extension KindaVimEngine {
         case .caret:
             switch visualStyle {
             case .characterwise:
-                resetCountBuffers()
                 post(ksVisualMode.caretForVisualStyleCharacterwise())
+                endCurrentMove()
             case .linewise:
-                resetCountBuffers()
+                endCurrentMove()
             }
         case .d:
-            post(ksVisualMode.d())
-            
+            post(ksVisualMode.d())            
             enterNormalMode()
         case .dollarSign:
             switch visualStyle {
             case .characterwise:
-                resetCountBuffers()
                 post(ksVisualMode.dollarSignForVisualStyleCharacterwise())
+                endCurrentMove()
             case .linewise:
-                resetCountBuffers()
+                endCurrentMove()
             }
         case .e:
             switch visualStyle {
             case .characterwise:
-                resetCountBuffers()
                 post(ksVisualMode.eForVisualStyleCharacterwise())
+                endCurrentMove()
             case .linewise:
-                resetCountBuffers()
+                endCurrentMove()
             }
         case .escape:
             enterInsertMode()
@@ -54,83 +53,83 @@ extension KindaVimEngine {
         case .G:
             switch visualStyle {
             case .characterwise:
-                resetCountBuffers()
                 post(ksVisualMode.GForVisualStyleCharacterwise())
+                endCurrentMove()
             case .linewise:
-                resetCountBuffers()
                 post(ksVisualMode.GForVisualStyleLinewise())
+                endCurrentMove()
             }
         case .h:
             switch visualStyle {
             case .characterwise:
-                resetCountBuffers()
                 post(ksVisualMode.hForVisualStyleCharacterwise())
+                endCurrentMove()
             case .linewise:
-                resetCountBuffers()
+                endCurrentMove()
             }
         case .i:
             enterOperatorPendingForVisualMode(with: keyCombination)
         case .j:
             switch visualStyle {
             case .characterwise:
-                resetCountBuffers()
                 post(ksVisualMode.jForVisualStyleCharacterwise())
+                endCurrentMove()
             case .linewise:
-                resetCountBuffers()
                 post(ksVisualMode.jForVisualStyleLinewise())
+                endCurrentMove()
             }
         case .k:
             switch visualStyle {
             case .characterwise:
-                resetCountBuffers()
                 post(ksVisualMode.kForVisualStyleCharacterwise())
+                endCurrentMove()
             case .linewise:
-                resetCountBuffers()
                 post(ksVisualMode.kForVisualStyleLinewise())
+                endCurrentMove()
             }
         case .l:
             switch visualStyle {
             case .characterwise:
-                resetCountBuffers()
                 post(ksVisualMode.lForVisualStyleCharacterwise())
+                endCurrentMove()
             case .linewise:
-                resetCountBuffers()
+                endCurrentMove()
             }
         case .underscore:
             switch visualStyle {
             case .characterwise:
-                resetCountBuffers()
                 post(ksVisualMode.underscoreForVisualStyleCharacterwise())
+                endCurrentMove()
             case .linewise:
-                resetCountBuffers()
+                endCurrentMove()
             }
         case .v:
             switch visualStyle {
             case .characterwise:
-                enterNormalMode()
                 post(ksVisualMode.vForVisualStyleCharacterwise())
+                enterNormalMode()
             case .linewise:
                 visualStyle = .characterwise
-                resetCountBuffers()
                 post(ksVisualMode.vForVisualStyleLinewise())
+                endCurrentMove()
             }
         case .V:
             switch visualStyle {
             case .characterwise:
                 visualStyle = .linewise
-                resetCountBuffers()
                 post(ksVisualMode.VForVisualStyleCharacterwise())
+                endCurrentMove()
             case .linewise:
-                enterNormalMode()
                 post(ksVisualMode.VForVisualStyleLinewise())
+                enterNormalMode()
             }
         case .w:    
             switch visualStyle {
             case .characterwise:
-                resetCountBuffers()
                 post(ksVisualMode.wForVisualStyleCharacterwise())
+                endCurrentMove()
             case .linewise:
-                resetCountBuffers()
+                endCurrentMove()
             }
         case .y:
             post(ksVisualMode.y())
@@ -138,13 +137,13 @@ extension KindaVimEngine {
         case .zero:
             switch visualStyle {
             case .characterwise:
-                resetCountBuffers()
-               post(ksVisualMode.zeroForVisualStyleCharacterwise())
+                post(ksVisualMode.zeroForVisualStyleCharacterwise())
+                endCurrentMove()
             case .linewise:
-                resetCountBuffers()
+                endCurrentMove()
             }
         default:
-            resetCountBuffers()
+            endCurrentMove()
         }
     }
     
@@ -160,74 +159,69 @@ extension KindaVimEngine {
             switch visualStyle {
             case .characterwise:
                 post(ksVisualMode.gCaretForVisualStyleCharacterwise())
+                enterVisualMode()
             case .linewise:
-                ()
+                enterVisualMode()
             }
-            
-            enterVisualMode()
         case [.g, .dollarSign]:
             switch visualStyle {
             case .characterwise:
                 post(ksVisualMode.gDollarSignForVisualStyleCharacterwise())
+                enterVisualMode()
             case .linewise:
-                ()
+                enterVisualMode()
             }
-            
-            enterVisualMode()
         case [.g, .e]:
             switch visualStyle {
             case .characterwise:
                 post(ksVisualMode.geForVisualStyleCharacterwise())
+                enterVisualMode()
             case .linewise:
-                ()
+                enterVisualMode()
             }
-            
-            enterVisualMode()
         case [.g, .g]:
             switch visualStyle {
             case .characterwise:
                 post(ksVisualMode.ggForVisualStyleCharacterwise())
+                enterVisualMode()
             case .linewise:
                 post(ksVisualMode.ggForVisualStyleLinewise())
+                enterVisualMode()
             }
-            
-            enterVisualMode()
         case [.g, .I]:
             switch visualStyle {
             case .characterwise:
                 post(ksVisualMode.gIForVisualStyleCharacterwise())
+                enterVisualMode()
             case .linewise:
-                ()
+                enterVisualMode()
             }
-            
-            enterVisualMode()
         case [.g, .j]:
             switch visualStyle {
             case .characterwise:
                 post(ksVisualMode.gjForVisualStyleCharacterwise())
+                enterVisualMode()
             case .linewise:
                 post(ksVisualMode.gjForVisualStyleLinewise())
+                enterVisualMode()
             }
-            
-            enterVisualMode()
         case [.g, .k]:
             switch visualStyle {
             case .characterwise:
                 post(ksVisualMode.gkForVisualStyleCharacterwise())
+                enterVisualMode()
             case .linewise:
                 post(ksVisualMode.gkForVisualStyleLinewise())
+                enterVisualMode()
             }
-            
-            enterVisualMode()
         case [.g, .zero]:
             switch visualStyle {
             case .characterwise:
                 post(ksVisualMode.gZeroForVisualStyleCharacterwise())
+                enterVisualMode()
             case .linewise:
-                ()
+                enterVisualMode()
             }
-            
-            enterVisualMode()
         default:
             // if we don't recognize any operator move
             // go back to visual mode
