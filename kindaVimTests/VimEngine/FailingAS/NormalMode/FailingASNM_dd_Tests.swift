@@ -3,7 +3,6 @@ import KeyCombination
 import XCTest
 
 
-// TODO: review this file
 class FailingASNM_dd_Tests: FailingAS_BaseTests {
     
     private func applyKeyCombinationsBeingTested() {
