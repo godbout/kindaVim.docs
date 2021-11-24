@@ -46,7 +46,7 @@ struct CharactersWindow: WindowProtocol {
         Timer.scheduledTimer(
             withTimeInterval: 1.28,
             repeats: false,
-            block: { _ in window.orderOut(self )}
+            block: { _ in window.orderOut(self)}
         )
     }
     

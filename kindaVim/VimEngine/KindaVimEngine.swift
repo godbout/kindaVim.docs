@@ -80,15 +80,7 @@ class KindaVimEngine {
     var asNormalMode: AccessibilityStrategyNormalModeProtocol = AccessibilityStrategyNormalMode()
     var asVisualMode: AccessibilityStrategyVisualModeProtocol = AccessibilityStrategyVisualMode()
     
-    
-    // TODO: rearrange the func orders etc.
-    func endCurrentMove() {        
-        resetOperatorPendingBuffer()
-        resetCountBuffers()
-        display.resetOngoingMove()
-    }
 
-    
     func handle(keyCombination: KeyCombination, enforceKeyboardStrategy: Bool = false) {
         if showCharactersTyped == true {
             display.ongoingMove(add: keyCombination)
@@ -290,6 +282,12 @@ class KindaVimEngine {
     func enterVisualMode() {
         endCurrentMove()
         currentMode = .visual
+    }
+    
+    func endCurrentMove() {        
+        resetOperatorPendingBuffer()
+        resetCountBuffers()
+        display.resetOngoingMove()
     }
     
     func enterOperatorPendingForNormalMode(with keyCombination: KeyCombination) {
