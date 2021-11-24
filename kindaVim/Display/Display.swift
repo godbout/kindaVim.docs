@@ -26,7 +26,20 @@ struct Display {
     }
     
     func ongoingMove(add keyCombination: KeyCombination) {
-        Self.ongoingMove.append(keyCombination.character)
+        // ok for now we just have VimKeys with control so let's get lazy
+        if keyCombination.control == true {
+            Self.ongoingMove = "control " + String(keyCombination.character)
+        } else {
+            switch keyCombination.key {
+        
+            case .enter:
+                Self.ongoingMove = "return"
+            case .escape:
+                Self.ongoingMove = "esc"
+            default:
+                Self.ongoingMove.append(keyCombination.character)
+            }
+        }
     }
         
     func showOngoingMove() {
