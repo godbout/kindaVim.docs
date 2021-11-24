@@ -5,8 +5,12 @@ import KeyCombination
 
 struct CharactersWindow: WindowProtocol {
     
-    var window: NSWindow
-    var ongoingMove: String = ""
+    private var window: NSWindow
+    private var ongoingMove: String = ""
+    // static here because of mutating and closure and self issue, not sure
+    // yet how to do that better. but it works. and it's not an important part
+    // of the app. but still. will i be able to sleep tonight.
+    private static var timer: Timer?
     
     init() {
         window = NSWindow(
@@ -26,6 +30,8 @@ struct CharactersWindow: WindowProtocol {
     }
     
     func show(_ ongoingMove: String) {
+        Self.timer?.invalidate()
+        
         window.contentView = NSHostingView(rootView: CharactersView(ongoingMove: ongoingMove))
         window.orderFrontRegardless()
     }
@@ -43,10 +49,10 @@ struct CharactersWindow: WindowProtocol {
     }
     
     func hide() {
-        Timer.scheduledTimer(
+        Self.timer = Timer.scheduledTimer(
             withTimeInterval: 1.28,
             repeats: false,
-            block: { _ in window.orderOut(self)}
+            block: { _ in window.orderOut(self) }
         )
     }
     
