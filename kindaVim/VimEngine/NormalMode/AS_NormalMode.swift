@@ -734,7 +734,7 @@ extension KindaVimEngine {
                 }
                 
                 if operatorPendingBuffer[1].vimKey == .t, let character = operatorPendingBuffer.last {
-                    element = asNormalMode.ct(to: character.character, on: focusedTextElement)
+                    element = asNormalMode.ct(times: count, to: character.character, on: focusedTextElement)
                 }
                 
                 if operatorPendingBuffer[1].vimKey == .T, let character = operatorPendingBuffer.last {
@@ -754,7 +754,7 @@ extension KindaVimEngine {
                 var element: AccessibilityTextElement?
                 
                 if operatorPendingBuffer[1].vimKey == .f, let character = operatorPendingBuffer.last {
-                    element = asNormalMode.df(times: count, to: character.character, on: focusedTextElement)
+                    element = asNormalMode.df(to: character.character, on: focusedTextElement)
                 }
                 
                 if operatorPendingBuffer[1].vimKey == .F, let character = operatorPendingBuffer.last {
@@ -795,7 +795,7 @@ extension KindaVimEngine {
             }
             
             if operatorPendingBuffer.first?.vimKey == .t, let character = operatorPendingBuffer.last {
-                if let element = asNormalMode.t(to: character.character, on: focusedTextElement) {
+                if let element = asNormalMode.t(times: count, to: character.character, on: focusedTextElement) {
                     push(element: element)
                 }
             }

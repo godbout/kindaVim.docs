@@ -137,7 +137,7 @@ class AccessibilityStrategyNormalModeMock: AccessibilityStrategyNormalModeProtoc
         return element
     }
     
-    func ct(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func ct(times count: Int = 1, to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         
         return element
@@ -167,7 +167,7 @@ class AccessibilityStrategyNormalModeMock: AccessibilityStrategyNormalModeProtoc
         return element
     }
     
-    func df(times count: Int = 1, to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func df(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         
         return element
@@ -389,7 +389,7 @@ class AccessibilityStrategyNormalModeMock: AccessibilityStrategyNormalModeProtoc
         return element
     }
     
-    func t(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func t(times count: Int, to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         
         return element

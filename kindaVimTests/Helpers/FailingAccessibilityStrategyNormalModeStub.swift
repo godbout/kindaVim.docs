@@ -93,7 +93,7 @@ struct FailingAccessibilityStrategyNormalModeStub: AccessibilityStrategyNormalMo
         return nil
     }
     
-    func ct(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func ct(times count: Int = 1, to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return nil
     }
     
@@ -113,7 +113,7 @@ struct FailingAccessibilityStrategyNormalModeStub: AccessibilityStrategyNormalMo
         return nil
     }
     
-    func df(times count: Int = 1, to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func df(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return nil
     }
     
@@ -261,7 +261,7 @@ struct FailingAccessibilityStrategyNormalModeStub: AccessibilityStrategyNormalMo
         return nil        
     }
     
-    func t(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func t(times count: Int = 1, to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return nil
     }
     
