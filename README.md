@@ -31,231 +31,232 @@ kindaVim will be a subscription of one ☕️ (USD$3) a month. the beta is free 
 
 ## Accessibility Strategy
 
-| Normal Mode |
-| --- |
-| _ | [( |
-| [{ |
-| ]) |
-| ]} |
-| { |
-| } |
-| % |
-| ^ |
-| << |
-| >> |
-| $ |
-| 0 |
-| A |
-| a |
-| B |
-| b |
-| C |
-| caw |
-| cc |
-| cF |
-| cf |
-| cG |
-| cgg |
-| ci' |
-| ci" |
-| ci( |
-| ci) |
-| ci[ |
-| ci] |
-| ci{ |
-| ci} |
-| ci` |
-| ciw |
-| control r |
-| cT |
-| ct |
-| D |
-| daw |
-| dd |
-| dF |
-| df |
-| dG |
-| dgg |
-| dj |
-| dk |
-| dT |
-| dt |
-| E |
-| e |
-| F |
-| f |
-| G |
-| g_ |
-| g^ |
-| g$ |
-| g0 |
-| gE |
-| ge |
-| gg |
-| gI |
-| gj |
-| gk |
-| h |
-| I |
-| i |
-| j |
-| k |
-| l |
-| O |
-| o |
-| P |
-| p |
-| r |
-| T |
-| t |
-| u |
-| W |
-| w |
-| x |
-| yF |
-| yf |
-| yi' |
-| yi" |
-| yi( |
-| yi) |
-| yi[ |
-| yi] |
-| yi{ |
-| yi} |
-| yi` |
-| yiw |
-| yT |
-| yt |
-| yy |
+| Normal Mode | including count |
+| :---: | :---: | 
+| _ | ❌️ | 
+| [( | ❌️ | 
+| [{ | ❌️ | 
+| ]) | ❌️ | 
+| ]} | ❌️ | 
+| { | ❌️ | 
+| } | ❌️ | 
+| % | ❌️ | 
+| ^ | ❌️ | 
+| << | ❌️ | 
+| >> | ❌️ | 
+| $ | ❌️ | 
+| 0 | ❌️ | 
+| A | ❌️ | 
+| a | ❌️ | 
+| B | ❌️ | 
+| b | ❌️ | 
+| C | ❌️ | 
+| caw | ❌️ | 
+| cc | ❌️ | 
+| cF | ❌️ | 
+| cf | ✅️ | 
+| cG | ❌️ | 
+| cgg | ❌️ | 
+| ci' | ❌️ | 
+| ci" | ❌️ | 
+| ci( | ❌️ | 
+| ci) | ❌️ | 
+| ci[ | ❌️ | 
+| ci] | ❌️ | 
+| ci{ | ❌️ | 
+| ci} | ❌️ | 
+| ci` | ❌️ | 
+| ciw | ❌️ | 
+| control r | ❌️ | 
+| cT | ❌️ | 
+| ct | ✅️ | 
+| D | ❌️ | 
+| daw | ❌️ | 
+| dd | ❌️ | 
+| dF | ❌️ | 
+| df | ❌️ | 
+| dG | ❌️ | 
+| dgg | ❌️ | 
+| dj | ❌️ | 
+| dk | ❌️ | 
+| dT | ❌️ | 
+| dt | ❌️ | 
+| E | ❌️ | 
+| e | ❌️ | 
+| F | ❌️ | 
+| f | ✅️ | 
+| G | ❌️ | 
+| g_ | ❌️ | 
+| g^ | ❌️ | 
+| g$ | ❌️ | 
+| g0 | ❌️ | 
+| gE | ❌️ | 
+| ge | ❌️ | 
+| gg | ❌️ | 
+| gI | ❌️ | 
+| gj | ❌️ | 
+| gk | ❌️ | 
+| h | ❌️ | 
+| I | ❌️ | 
+| i | ❌️ | 
+| j | ❌️ | 
+| k | ❌️ | 
+| l | ✅️ | 
+| O | ❌️ | 
+| o | ❌️ | 
+| P | ❌️ | 
+| p | ❌️ | 
+| r | ❌️ | 
+| T | ❌️ | 
+| t | ✅️ | 
+| u | ❌️ | 
+| W | ❌️ | 
+| w | ❌️ | 
+| x | ❌️ | 
+| yF | ❌️ | 
+| yf | ❌️ | 
+| yi' | ❌️ | 
+| yi" | ❌️ | 
+| yi( | ❌️ | 
+| yi) | ❌️ | 
+| yi[ | ❌️ | 
+| yi] | ❌️ | 
+| yi{ | ❌️ | 
+| yi} | ❌️ | 
+| yi` | ❌️ | 
+| yiw | ❌️ | 
+| yT | ❌️ | 
+| yt | ❌️ | 
+| yy | ❌️ | 
 
-| Visual Mode |
-| --- |
-| _ |
-| ^ |
-| $ |
-| 0 |
-| B |
-| b |
-| c |
-| d |
-| E |
-| e |
-| F |
-| f |
-| G |
-| g^ |
-| g$ |
-| g0 |
-| gE |
-| ge |
-| gg |
-| gI |
-| gj |
-| gk |
-| h |
-| iw |
-| j |
-| k |
-| l |
-| o |
-| T |
-| t |
-| V |
-| v |
-| W |
-| w |
-| y |
+| Visual Mode | including count |
+| :---: | :---: |
+| _ | ❌️ |
+| ^ | ❌️ |
+| $ | ❌️ |
+| 0 | ❌️ |
+| B | ❌️ |
+| b | ❌️ |
+| c | ❌️ |
+| d | ❌️ |
+| E | ❌️ |
+| e | ❌️ |
+| F | ❌️ |
+| f | ❌️ |
+| G | ❌️ |
+| g^ | ❌️ |
+| g$ | ❌️ |
+| g0 | ❌️ |
+| gE | ❌️ |
+| ge | ❌️ |
+| gg | ❌️ |
+| gI | ❌️ |
+| gj | ❌️ |
+| gk | ❌️ |
+| h | ❌️ |
+| iw | ❌️ |
+| j | ❌️ |
+| k | ❌️ |
+| l | ❌️ |
+| o | ❌️ |
+| T | ❌️ |
+| t | ❌️ |
+| V | ❌️ |
+| v | ❌️ |
+| W | ❌️ |
+| w | ❌️ |
+| y | ❌️ |
 
 ## Keyboard Strategy
 
-| Normal Mode |
-| --- |
-| _ |
-| ^ |
-| $ |
-| 0 |
-| A |
-| a |
-| b |
-| C |
-| cb |
-| cc |
-| cG |
-| cgg |
-| ciw |
-| control d |
-| control r |
-| control u |
-| D |
-| db |
-| dd |
-| dG |
-| dgg |
-| dj |
-| dk |
-| e |
-| G |
-| g_ |
-| g^ |
-| g$ |
-| g0 |
-| ge |
-| gg |
-| gI |
-| gj |
-| gk |
-| h |
-| l |
-| i |
-| j |
-| k |
-| l |
-| O |
-| o |
-| P |
-| p |
-| r |
-| s |
-| u |
-| w |
-| X |
-| x |
-| yiw |
-| yy |
+| Normal Mode | including count |
+| :---: | :---: |
+| _ | ❌️ |
+| ^ | ❌️ |
+| $ | ❌️ |
+| 0 | ❌️ |
+| A | ❌️ |
+| a | ❌️ |
+| b | ❌️ |
+| C | ❌️ |
+| cb | ❌️ |
+| cc | ❌️ |
+| cG | ❌️ |
+| cgg | ❌️ |
+| ciw | ❌️ |
+| control d | ❌️ |
+| control r | ❌️ |
+| control u | ❌️ |
+| D | ❌️ |
+| db | ❌️ |
+| dd | ❌️ |
+| dG | ❌️ |
+| dgg | ❌️ |
+| dj | ❌️ |
+| dk | ❌️ |
+| e | ❌️ |
+| G | ❌️ |
+| g_ | ❌️ |
+| g^ | ❌️ |
+| g$ | ❌️ |
+| g0 | ❌️ |
+| ge | ❌️ |
+| gg | ❌️ |
+| gI | ❌️ |
+| gj | ❌️ |
+| gk | ❌️ |
+| h | ❌️ |
+| l | ✅️ |
+| i | ❌️ |
+| j | ❌️ |
+| k | ❌️ |
+| l | ❌️ |
+| O | ❌️ |
+| o | ❌️ |
+| P | ❌️ |
+| p | ❌️ |
+| r | ❌️ |
+| s | ❌️ |
+| u | ❌️ |
+| w | ❌️ |
+| X | ❌️ |
+| x | ❌️ |
+| yiw | ❌️ |
+| yy | ❌️ |
 
-| Visual Mode |
-| --- |
-| _ |
-| ^ |
-| $ |
-| 0 |
-| b |
-| c |
-| d |
-| e |
-| G |
-| g^ |
-| g$ |
-| g0 |
-| ge |
-| gg |
-| gI |
-| gj |
-| gk |
-| h |
-| j |
-| k |
-| l |
-| V |
-| v |
-| w |
-| y |
+| Visual Mode | including count |
+| :---: | :---: |
+| _ | ❌️ |
+| ^ | ❌️ |
+| $ | ❌️ |
+| 0 | ❌️ |
+| b | ❌️ |
+| c | ❌️ |
+| d | ❌️ |
+| e | ❌️ |
+| G | ❌️ |
+| g^ | ❌️ |
+| g$ | ❌️ |
+| g0 | ❌️ |
+| ge | ❌️ |
+| gg | ❌️ |
+| gI | ❌️ |
+| gj | ❌️ |
+| gk | ❌️ |
+| h | ❌️ |
+| j | ❌️ |
+| k | ❌️ |
+| l | ❌️ |
+| V | ❌️ |
+| v | ❌️ |
+| w | ❌️ |
+| y | ❌️ |
 
 lol those tables.
 
 # ROADMAP
-* a plethora of missing Vim moves
-* count system
+* a plethora of missing Vim moves ([ask!](https://github.com/godbout/kindaVim.theapp/issues/new))
+* update all moves to support new global count system ([ask!](https://github.com/godbout/kindaVim.theapp/issues/new))
 * hybrid mode: some apps like browsers implement the Accessibility but have restrictions. you can move around perfectly but the Accessibility cannot simulate the `enter` key or delete text. hybrid mode will be a combination of the [Accessibility Strategy](#user-content-the-accessibility-strategy) for some movements and the [Keyboard Strategy](#user-content-the-keyboard-strategy) for some others in order to bypass those restrictions
 * better handling of broswers and Electron shit apps
 
