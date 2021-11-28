@@ -393,7 +393,7 @@
 		91840DF426FE096C00E6048E /* AppCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91840DDD26FE096C00E6048E /* AppCore.swift */; };
 		91840DF626FE096C00E6048E /* KeyboardShortcuts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91840DE126FE096C00E6048E /* KeyboardShortcuts.swift */; };
 		91840DF826FE096C00E6048E /* GeneralPane.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91840DE526FE096C00E6048E /* GeneralPane.swift */; };
-		91840DF926FE096C00E6048E /* StrategiesPane.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91840DE626FE096C00E6048E /* StrategiesPane.swift */; };
+		91840DF926FE096C00E6048E /* ModesPane.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91840DE626FE096C00E6048E /* ModesPane.swift */; };
 		91840DFA26FE096C00E6048E /* VisualsPane.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91840DE726FE096C00E6048E /* VisualsPane.swift */; };
 		91840DFC26FE096C00E6048E /* KindaVimEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91840DEA26FE096C00E6048E /* KindaVimEngine.swift */; };
 		91840DFD26FE096C00E6048E /* UITestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91840DEB26FE096C00E6048E /* UITestView.swift */; };
@@ -847,7 +847,7 @@
 		91840DDD26FE096C00E6048E /* AppCore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppCore.swift; sourceTree = "<group>"; };
 		91840DE126FE096C00E6048E /* KeyboardShortcuts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardShortcuts.swift; sourceTree = "<group>"; };
 		91840DE526FE096C00E6048E /* GeneralPane.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralPane.swift; sourceTree = "<group>"; };
-		91840DE626FE096C00E6048E /* StrategiesPane.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StrategiesPane.swift; sourceTree = "<group>"; };
+		91840DE626FE096C00E6048E /* ModesPane.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModesPane.swift; sourceTree = "<group>"; };
 		91840DE726FE096C00E6048E /* VisualsPane.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisualsPane.swift; sourceTree = "<group>"; };
 		91840DEA26FE096C00E6048E /* KindaVimEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KindaVimEngine.swift; sourceTree = "<group>"; };
 		91840DEB26FE096C00E6048E /* UITestView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITestView.swift; sourceTree = "<group>"; };
@@ -1568,7 +1568,7 @@
 			isa = PBXGroup;
 			children = (
 				91840DE526FE096C00E6048E /* GeneralPane.swift */,
-				91840DE626FE096C00E6048E /* StrategiesPane.swift */,
+				91840DE626FE096C00E6048E /* ModesPane.swift */,
 				91840DE726FE096C00E6048E /* VisualsPane.swift */,
 			);
 			path = Panes;
@@ -1819,7 +1819,7 @@
 				91840DF426FE096C00E6048E /* AppCore.swift in Sources */,
 				91E7DFA12739578D007CC0D5 /* Settings.swift in Sources */,
 				91840DFD26FE096C00E6048E /* UITestView.swift in Sources */,
-				91840DF926FE096C00E6048E /* StrategiesPane.swift in Sources */,
+				91840DF926FE096C00E6048E /* ModesPane.swift in Sources */,
 				91840DFC26FE096C00E6048E /* KindaVimEngine.swift in Sources */,
 				91840DED26FE096C00E6048E /* Window.swift in Sources */,
 				914D662127266467005B9D99 /* SplashScreenView.swift in Sources */,

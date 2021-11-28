@@ -10,6 +10,7 @@ struct SettingsKeys {
     static let showCharactersTyped = "showCharactersTyped"
        
     static let appsToIgnore = "appsToIgnore"
+    static let appsForWhichToUseHybridMode = "appsForWhichToUseHybridMode"
     static let appsForWhichToEnforceKeyboardStrategy = "appsForWhichToEnforceKeyboardStrategy"
     
     static let jkMapping = "jkMapping"

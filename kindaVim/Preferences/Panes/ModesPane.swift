@@ -10,21 +10,27 @@ struct AppDropped: Hashable {
 }
 
 
-struct StrategiesPane: View {
+struct ModesPane: View {
 
     @AppStorage(SettingsKeys.jkMapping) private var jkMapping: Bool = true
     @AppStorage(SettingsKeys.appsToIgnore) private var appsToIgnore: Set<String> = []
+    @AppStorage(SettingsKeys.appsForWhichToUseHybridMode) private var appsForWhichToUseHybridMode: Set<String> = []
     @AppStorage(SettingsKeys.appsForWhichToEnforceKeyboardStrategy) private var appsForWhichToEnforceKeyboardStrategy: Set<String> = []
 
     private var appsToIgnoreSortedByName: [AppDropped] {
         appsSortedByName(appsToIgnore)
     }
 
+    private var appsForWhichToUseHybridModeSortedByName: [AppDropped] {
+        appsSortedByName(appsForWhichToUseHybridMode)
+    }
+        
     private var appsForWhichToEnforceKeyboardStrategySortedByName: [AppDropped] {
         appsSortedByName(appsForWhichToEnforceKeyboardStrategy)
     }
 
     @State private var appsToIgnoreSelection = Set<String>()
+    @State private var appsForWhichToUseHybridModeSelection = Set<String>()
     @State private var appsForWhichToEnforceKeyboardStrategySelection = Set<String>()
 
 
@@ -51,10 +57,11 @@ struct StrategiesPane: View {
 
         Form {
             HStack {
-                VStack(alignment: .leading) {
-                    Text("drop below the apps that you want kV to ignore:")
-                        .padding(.bottom, 1)
-                    Text("useful for apps that already have a Vim mode like Sublime Text, iTerm2, etc.")
+                VStack(alignment: .center) {
+                    Text("Off")
+                        .font(.title)
+                        .padding(.bottom, 10)
+                    Text("drop apps that you want kindaVim to ignore. useful for apps that have their own Vim mode. e.g. Sublime Text, iTerm2, VSCode.")
                         .padding(.leading, 5)
                         .font(.footnote)
                         .foregroundColor(.gray)
@@ -72,15 +79,43 @@ struct StrategiesPane: View {
                         }
                     }
                     .listStyle(.bordered(alternatesRowBackgrounds: true))
-                    .onDrop(of: [.fileURL], delegate: AppsDropDelegate(strategy: .ignore))
+                    .onDrop(of: [.fileURL], delegate: AppsDropDelegate(mode: .ignore))
                 }
-
+                
+                Spacer()
+                
+                VStack(alignment: .center) {
+                    Text("Hybrid")
+                        .font(.title)
+                        .padding(.bottom, 10)
+                    Text("drop apps where moving around works but modifying text doesn't. needed for apps that have security restrictions. mostly browsers.")
+                        .padding(.leading, 5)
+                        .font(.footnote)
+                        .foregroundColor(.gray)
+                    List(appsForWhichToUseHybridModeSortedByName, id: \.bundleIdentifier, selection: $appsForWhichToUseHybridModeSelection) { app in
+                        HStack {
+                            Image(nsImage: app.icon)
+                            Text(app.name)
+                        }
+                    }
+                    .contextMenu {
+                        Button("Delete") {
+                            for selection in appsForWhichToUseHybridModeSelection {
+                                appsForWhichToUseHybridMode.remove(selection)
+                            }
+                        }
+                    }
+                    .listStyle(.bordered(alternatesRowBackgrounds: true))
+                    .onDrop(of: [.fileURL], delegate: AppsDropDelegate(mode: .hybrid))
+                }
+                
                 Spacer()
 
-                VStack(alignment: .leading) {
-                    Text("drop below the apps for which you want kV to enforce the Keyboard Strategy:")
-                        .padding(.bottom, 1)
-                    Text("currently useful for fake shit pretending apps like all Electron apps, and restricted apps like browsers.")
+                VStack(alignment: .center) {
+                    Text("Keyboard")
+                        .font(.title)
+                        .padding(.bottom, 10)
+                    Text("drop fucking lying apps that say they handle the macOS Accessibility but send you back a pile of useless shit. i.e. all Electron apps.")
                         .padding(.leading, 5)
                         .font(.footnote)
                         .foregroundColor(.gray)
@@ -98,10 +133,10 @@ struct StrategiesPane: View {
                         }
                     }
                     .listStyle(.bordered(alternatesRowBackgrounds: true))
-                    .onDrop(of: [.fileURL], delegate: AppsDropDelegate(strategy: .enforceKeyboardStrategy))
+                    .onDrop(of: [.fileURL], delegate: AppsDropDelegate(mode: .enforceKeyboardStrategy))
                 }
             }
-            .frame(width: nil, height: 250)
+            .frame(width: nil, height: 300)
 
             Divider()
 
@@ -127,14 +162,16 @@ struct StrategiesPane: View {
 struct AppsDropDelegate: DropDelegate {
 
     @AppStorage(SettingsKeys.appsToIgnore) private var appsToIgnore: Set<String> = []
+    @AppStorage(SettingsKeys.appsForWhichToUseHybridMode) private var appsForWhichToUseHybridMode: Set<String> = []
     @AppStorage(SettingsKeys.appsForWhichToEnforceKeyboardStrategy) private var appsForWhichToEnforceKeyboardStrategy: Set<String> = []
 
-    enum AppStrategy {
+    enum Mode {
         case ignore
+        case hybrid
         case enforceKeyboardStrategy
     }
 
-    let strategy: AppStrategy
+    let mode: Mode
 
 
     func validateDrop(info: DropInfo) -> Bool {
@@ -174,9 +211,11 @@ struct AppsDropDelegate: DropDelegate {
                     let itemIsAnApplicationBundle = (try? url?.resourceValues(forKeys: [.contentTypeKey]).contentType == .applicationBundle) ?? false
 
                     if itemIsAnApplicationBundle, let url = url, let app = Bundle(url: url), let bundleIdentifiter = app.bundleIdentifier {
-                        switch strategy {
+                        switch mode {
                         case .ignore:
                             appsToIgnore.insert(bundleIdentifiter)
+                        case .hybrid:
+                            appsForWhichToUseHybridMode.insert(bundleIdentifiter)
                         case .enforceKeyboardStrategy:
                             appsForWhichToEnforceKeyboardStrategy.insert(bundleIdentifiter)
                         }
@@ -197,9 +236,9 @@ struct AppsDropDelegate: DropDelegate {
 }
 
 
-struct StrategiesPane_Previews: PreviewProvider {
+struct ModesPane_Previews: PreviewProvider {
     
     static var previews: some View {
-        StrategiesPane()
+        ModesPane()
     }
 }

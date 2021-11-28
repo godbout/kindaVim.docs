@@ -9,9 +9,9 @@ struct SettingsView: View {
                 .tabItem {
                     Label("General", systemImage: "gearshape")
                 }
-            StrategiesPane()
+            ModesPane()
                 .tabItem {
-                    Label("Strategies", systemImage: "keyboard")
+                    Label("Modes", systemImage: "keyboard")
                 }
             VisualsPane()
                 .tabItem {
