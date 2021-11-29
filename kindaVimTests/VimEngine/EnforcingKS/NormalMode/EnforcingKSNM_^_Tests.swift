@@ -8,8 +8,8 @@ class EnforcingKS_caret_Tests: EnforcingKSNM_BaseTests {
     override func setUp() {
         super.setUp()
 
-        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .eight), enforceKeyboardStrategy: true)
-        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .caret), enforceKeyboardStrategy: true)
+        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .eight), appMode: .enforceKeyboardStrategy)
+        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .caret), appMode: .enforceKeyboardStrategy)
     }
 
 }

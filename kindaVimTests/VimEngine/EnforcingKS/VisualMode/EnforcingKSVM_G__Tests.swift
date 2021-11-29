@@ -7,7 +7,7 @@ class EnforcingKSVM_G__Tests: EnforcingKSVM_BaseTests {
     
     private func applyKeyCombinationsBeingTested() {
         kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .eight))
-        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .G), enforceKeyboardStrategy: true)
+        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .G), appMode: .enforceKeyboardStrategy)
     }
 
 }

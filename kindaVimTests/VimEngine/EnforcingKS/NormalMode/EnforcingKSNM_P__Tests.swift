@@ -8,8 +8,8 @@ class EnforcingKSNM_P__Tests: EnforcingKSNM_BaseTests {
     override func setUp() {
         super.setUp()
         
-        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .eight), enforceKeyboardStrategy: true)
-        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .P), enforceKeyboardStrategy: true)
+        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .eight), appMode: .enforceKeyboardStrategy)
+        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .P), appMode: .enforceKeyboardStrategy)
     }
     
 }

@@ -7,7 +7,7 @@ import XCTest
 class EnforcingKSVM_0_Tests: EnforcingKSVM_BaseTests {
     
     private func applyKeyCombinationsBeingTested() {
-        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .zero), enforceKeyboardStrategy: true)
+        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .zero), appMode: .enforceKeyboardStrategy)
     }
 
 }
