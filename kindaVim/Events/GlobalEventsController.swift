@@ -4,15 +4,6 @@ import KeyboardShortcuts
 import KeyCombination
 
 
-enum AppMode {
-    
-    case auto
-    case off
-    case pgR
-    case keyMapping
-    
-}
-
 struct GlobalEventsController {
     
     @AppStorage(SettingsKeys.useCustomShortcutToEnterNormalMode) private static var useCustomShortcutToEnterNormalMode: Bool = false
