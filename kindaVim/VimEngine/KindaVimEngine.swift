@@ -81,7 +81,7 @@ class KindaVimEngine {
     var asVisualMode: AccessibilityStrategyVisualModeProtocol = AccessibilityStrategyVisualMode()
     
 
-    func handle(keyCombination: KeyCombination, enforceKeyboardStrategy: Bool = false) {
+    func handle(keyCombination: KeyCombination, appMode: AppMode = .auto) {
         if showCharactersTyped == true {
             display.ongoingMove(add: keyCombination)
             display.showOngoingMove()
@@ -91,23 +91,31 @@ class KindaVimEngine {
         // if it's a digit and if this digit will be used for counts. in that case the digit
         // is not used for a move so we don't send it. else it is (like for example `r5`) and we do.
         if grabDigitForCounts(keyCombination: keyCombination) == false {
-            switch (currentMode, enforceKeyboardStrategy) {
-            case (.normal, false):
-                handleNormalMode(using: .accessibilityStrategy, for: keyCombination)
-            case (.normal, true):
-                handleNormalMode(using: .keyboardStrategy, for: keyCombination)
-            case (.operatorPendingForNormalMode, false):
-                handleOperatorPendingForNormalMode(using: .accessibilityStrategy, for: keyCombination)
-            case (.operatorPendingForNormalMode, true):
-                handleOperatorPendingForNormalMode(using: .keyboardStrategy, for: keyCombination)
-            case (.visual, false):
-                handleVisualMode(using: .accessibilityStrategy, for: keyCombination)
-            case (.visual, true):
-                handleVisualMode(using: .keyboardStrategy, for: keyCombination)
-            case (.operatorPendingForVisualMode, false):
-                handleOperatorPendingForVisualMode(using: .accessibilityStrategy, for: keyCombination)
-            case (.operatorPendingForVisualMode, true):
-                handleOperatorPendingForVisualMode(using: .keyboardStrategy, for: keyCombination)
+            switch currentMode {
+            case .normal:
+                if appMode == .enforceKeyboardStrategy {
+                    handleNormalMode(using: .keyboardStrategy, for: keyCombination)
+                } else {
+                    handleNormalMode(using: .accessibilityStrategy, for: keyCombination, appMode: appMode)
+                }
+            case .operatorPendingForNormalMode:
+                if appMode == .enforceKeyboardStrategy {
+                    handleOperatorPendingForNormalMode(using: .keyboardStrategy, for: keyCombination)
+                } else {
+                    handleOperatorPendingForNormalMode(using: .accessibilityStrategy, for: keyCombination)
+                }
+            case .visual:
+                if appMode == .enforceKeyboardStrategy {
+                    handleVisualMode(using: .keyboardStrategy, for: keyCombination)
+                } else {
+                    handleVisualMode(using: .accessibilityStrategy, for: keyCombination)
+                }
+            case .operatorPendingForVisualMode:
+                if appMode == .enforceKeyboardStrategy {
+                    handleOperatorPendingForVisualMode(using: .keyboardStrategy, for: keyCombination)
+                } else {
+                    handleOperatorPendingForVisualMode(using: .accessibilityStrategy, for: keyCombination)
+                }
             default:
                 ()
             }
@@ -178,10 +186,10 @@ class KindaVimEngine {
         return vimOperators.contains(vimKey)
     }
     
-    private func handleNormalMode(using strategy: VimEngineStrategy, for keyCombination: KeyCombination) {
+    private func handleNormalMode(using strategy: VimEngineStrategy, for keyCombination: KeyCombination, appMode: AppMode = .auto) {
         switch strategy {
         case .accessibilityStrategy:
-            tryHandlingNormalModeUsingAccessibilityStrategyFirst(for: keyCombination)
+            tryHandlingNormalModeUsingAccessibilityStrategyFirst(for: keyCombination, appMode: appMode)
         case .keyboardStrategy:
             handleNormalModeUsingKeyboardStrategy(for: keyCombination)
         }        
@@ -245,11 +253,11 @@ class KindaVimEngine {
         }
     }
     
-    func enterNormalMode(enforceKeyboardStrategy: Bool = false) {
+    func enterNormalMode(appMode: AppMode = .auto) {
         endCurrentMove()
         
         if currentMode == .insert {
-            goBackOneCharacterForTextElements(enforceKeyboardStrategy: enforceKeyboardStrategy)
+            goBackOneCharacterForTextElements(appMode: appMode)
         }
         
         currentMode = .normal        
@@ -264,11 +272,11 @@ class KindaVimEngine {
         }
     }
         
-    private func goBackOneCharacterForTextElements(enforceKeyboardStrategy: Bool) {
-        switch (focusedElementType, enforceKeyboardStrategy) {
-        case (.textElement, true):
+    private func goBackOneCharacterForTextElements(appMode: AppMode) {
+        switch (focusedElementType, appMode) {
+        case (.textElement, .enforceKeyboardStrategy):
             post(ksNormalMode.h())
-        case (.textElement, false):
+        case (.textElement, _):
             if let element = asNormalMode.h(on: focusedTextElement) {
                 _ = push(element: element)
             } else {
