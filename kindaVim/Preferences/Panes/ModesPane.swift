@@ -57,6 +57,14 @@ struct ModesPane: View {
 
         Form {
             HStack {
+                Spacer()
+                Text("by default kindaVim will automatically do its magic and detect whether to use the macOS Accessibility or to remap keys. that will work well for most apps. still, you may need some tweaking for apps with restrictions, or apps that are just pure evil liars. see below.")
+                Spacer()
+            }
+            .fixedSize(horizontal: false, vertical: true)
+            .padding(.bottom)
+            
+            HStack {
                 VStack(alignment: .center) {
                     Text("Off")
                         .font(.title)
@@ -85,7 +93,7 @@ struct ModesPane: View {
                 Spacer()
                 
                 VStack(alignment: .center) {
-                    Text("Hybrid")
+                    Text("PG-R")
                         .font(.title)
                         .padding(.bottom, 10)
                     Text("drop apps where moving around works but modifying text doesn't. needed for apps that have security restrictions. mostly browsers.")
@@ -112,10 +120,10 @@ struct ModesPane: View {
                 Spacer()
 
                 VStack(alignment: .center) {
-                    Text("Keyboard")
+                    Text("Key Mapping")
                         .font(.title)
                         .padding(.bottom, 10)
-                    Text("drop fucking lying apps that say they handle the macOS Accessibility but send you back a pile of useless shit. i.e. all Electron apps.")
+                    Text("drop fucking lying apps that say they implement the macOS Accessibility but actually send you back a big pile of rubbish. i.e. all Electron apps.")
                         .padding(.leading, 5)
                         .font(.footnote)
                         .foregroundColor(.gray)
