@@ -93,25 +93,25 @@ class KindaVimEngine {
         if grabDigitForCounts(keyCombination: keyCombination) == false {
             switch currentMode {
             case .normal:
-                if appMode == .enforceKeyboardStrategy {
+                if appMode == .keyMapping {
                     handleNormalMode(using: .keyboardStrategy, for: keyCombination)
                 } else {
                     handleNormalMode(using: .accessibilityStrategy, for: keyCombination, appMode: appMode)
                 }
             case .operatorPendingForNormalMode:
-                if appMode == .enforceKeyboardStrategy {
+                if appMode == .keyMapping {
                     handleOperatorPendingForNormalMode(using: .keyboardStrategy, for: keyCombination)
                 } else {
                     handleOperatorPendingForNormalMode(using: .accessibilityStrategy, for: keyCombination, appMode: appMode)
                 }
             case .visual:
-                if appMode == .enforceKeyboardStrategy {
+                if appMode == .keyMapping {
                     handleVisualMode(using: .keyboardStrategy, for: keyCombination)
                 } else {
                     handleVisualMode(using: .accessibilityStrategy, for: keyCombination)
                 }
             case .operatorPendingForVisualMode:
-                if appMode == .enforceKeyboardStrategy {
+                if appMode == .keyMapping {
                     handleOperatorPendingForVisualMode(using: .keyboardStrategy, for: keyCombination)
                 } else {
                     handleOperatorPendingForVisualMode(using: .accessibilityStrategy, for: keyCombination)
@@ -274,7 +274,7 @@ class KindaVimEngine {
         
     private func goBackOneCharacterForTextElements(appMode: AppMode) {
         switch (focusedElementType, appMode) {
-        case (.textElement, .enforceKeyboardStrategy):
+        case (.textElement, .keyMapping):
             post(ksNormalMode.h())
         case (.textElement, _):
             if let element = asNormalMode.h(on: focusedTextElement) {

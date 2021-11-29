@@ -13,7 +13,6 @@ enum AppMode {
     
 }
 
-
 struct GlobalEventsController {
     
     @AppStorage(SettingsKeys.useCustomShortcutToEnterNormalMode) private static var useCustomShortcutToEnterNormalMode: Bool = false
@@ -53,11 +52,11 @@ struct GlobalEventsController {
         }
         
         if onAppForWhichToUseHybridMode() {
-            return .hybrid
+            return .pgR
         }
         
         if onAppForWhichToEnforceKeyboardStrategy() {
-            return .enforceKeyboardStrategy
+            return .keyMapping
         }
         
         return .auto
