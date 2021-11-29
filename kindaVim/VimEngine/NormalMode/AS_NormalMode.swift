@@ -437,6 +437,13 @@ extension KindaVimEngine {
             // if element.selectedText is nil that means that the move didn't find a pair of "something" to empty
             if let element = asNormalMode.ciLeftParenthesis(on: focusedTextElement), element.selectedText != nil {
                 push(element: element)
+                
+                if appMode == .pgR {
+                    for cgEvent in KeyCombinationAdaptor.toCGEvents(from: KeyCombination(key: .delete)) {
+                        cgEvent.post(tap: .cgSessionEventTap)
+                    }
+                }
+                
                 enterInsertMode()
             }
         case [.c, .i, .rightBrace]:
