@@ -87,7 +87,7 @@ struct ModesPane: View {
                         }
                     }
                     .listStyle(.bordered(alternatesRowBackgrounds: true))
-                    .onDrop(of: [.fileURL], delegate: AppsDropDelegate(mode: .ignore))
+                    .onDrop(of: [.fileURL], delegate: AppsDropDelegate(appMode: .off))
                 }
                 
                 Spacer()
@@ -114,7 +114,7 @@ struct ModesPane: View {
                         }
                     }
                     .listStyle(.bordered(alternatesRowBackgrounds: true))
-                    .onDrop(of: [.fileURL], delegate: AppsDropDelegate(mode: .hybrid))
+                    .onDrop(of: [.fileURL], delegate: AppsDropDelegate(appMode: .pgR))
                 }
                 
                 Spacer()
@@ -141,7 +141,7 @@ struct ModesPane: View {
                         }
                     }
                     .listStyle(.bordered(alternatesRowBackgrounds: true))
-                    .onDrop(of: [.fileURL], delegate: AppsDropDelegate(mode: .enforceKeyboardStrategy))
+                    .onDrop(of: [.fileURL], delegate: AppsDropDelegate(appMode: .keyMapping))
                 }
             }
             .frame(width: nil, height: 300)
@@ -173,13 +173,7 @@ struct AppsDropDelegate: DropDelegate {
     @AppStorage(SettingsKeys.appsForWhichToUseHybridMode) private var appsForWhichToUseHybridMode: Set<String> = []
     @AppStorage(SettingsKeys.appsForWhichToEnforceKeyboardStrategy) private var appsForWhichToEnforceKeyboardStrategy: Set<String> = []
 
-    enum Mode {
-        case ignore
-        case hybrid
-        case enforceKeyboardStrategy
-    }
-
-    let mode: Mode
+    let appMode: AppMode
 
 
     func validateDrop(info: DropInfo) -> Bool {
@@ -219,13 +213,15 @@ struct AppsDropDelegate: DropDelegate {
                     let itemIsAnApplicationBundle = (try? url?.resourceValues(forKeys: [.contentTypeKey]).contentType == .applicationBundle) ?? false
 
                     if itemIsAnApplicationBundle, let url = url, let app = Bundle(url: url), let bundleIdentifiter = app.bundleIdentifier {
-                        switch mode {
-                        case .ignore:
+                        switch appMode {
+                        case .off:
                             appsToIgnore.insert(bundleIdentifiter)
-                        case .hybrid:
+                        case .pgR:
                             appsForWhichToUseHybridMode.insert(bundleIdentifiter)
-                        case .enforceKeyboardStrategy:
+                        case .keyMapping:
                             appsForWhichToEnforceKeyboardStrategy.insert(bundleIdentifiter)
+                        default:
+                            ()
                         }
 
                         result = result || true
