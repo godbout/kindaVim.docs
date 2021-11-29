@@ -8,9 +8,9 @@ class EnforcingKS_cG_Tests: EnforcingKSNM_BaseTests {
     override func setUp() {
         super.setUp()
 
-        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .eight), appMode: .enforceKeyboardStrategy)
-        kindaVimEngine.handle(keyCombination: KeyCombination(key: .c), appMode: .enforceKeyboardStrategy)
-        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .G), appMode: .enforceKeyboardStrategy)
+        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .eight), appMode: .keyMapping)
+        kindaVimEngine.handle(keyCombination: KeyCombination(key: .c), appMode: .keyMapping)
+        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .G), appMode: .keyMapping)
     }
 
 }

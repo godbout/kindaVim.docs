@@ -6,8 +6,8 @@ import XCTest
 class EnforcingKSVM_w_Tests: EnforcingKSVM_BaseTests {
     
     private func applyKeyCombinationsBeingTested() {
-        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .eight), appMode: .enforceKeyboardStrategy)
-        kindaVimEngine.handle(keyCombination: KeyCombination(key: .w), appMode: .enforceKeyboardStrategy)
+        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .eight), appMode: .keyMapping)
+        kindaVimEngine.handle(keyCombination: KeyCombination(key: .w), appMode: .keyMapping)
     }
 
 }

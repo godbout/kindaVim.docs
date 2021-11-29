@@ -9,7 +9,7 @@ class EnforcingKS_0_Tests: EnforcingKSNM_BaseTests {
     override func setUp() {
         super.setUp()
 
-        kindaVimEngine.handle(keyCombination: KeyCombination(key: .zero), appMode: .enforceKeyboardStrategy)
+        kindaVimEngine.handle(keyCombination: KeyCombination(key: .zero), appMode: .keyMapping)
     }
 
 }

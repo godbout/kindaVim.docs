@@ -9,8 +9,8 @@ class HybridNM_o_Tests: HybridNM_BaseTests {
     override func setUp() {
         super.setUp()
         
-        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .eight), appMode: .hybrid)
-        kindaVimEngine.handle(keyCombination: KeyCombination(key: .o), appMode: .hybrid)
+        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .eight), appMode: .pgR)
+        kindaVimEngine.handle(keyCombination: KeyCombination(key: .o), appMode: .pgR)
     }
     
 }

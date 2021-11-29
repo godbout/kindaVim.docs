@@ -8,9 +8,9 @@ class EnforcingKS_yy_Tests: EnforcingKSNM_BaseTests {
     override func setUp() {
         super.setUp()
         
-        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .eight), appMode: .enforceKeyboardStrategy)
-        kindaVimEngine.handle(keyCombination: KeyCombination(key: .y), appMode: .enforceKeyboardStrategy)
-        kindaVimEngine.handle(keyCombination: KeyCombination(key: .y), appMode: .enforceKeyboardStrategy)
+        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .eight), appMode: .keyMapping)
+        kindaVimEngine.handle(keyCombination: KeyCombination(key: .y), appMode: .keyMapping)
+        kindaVimEngine.handle(keyCombination: KeyCombination(key: .y), appMode: .keyMapping)
     }
 
 }

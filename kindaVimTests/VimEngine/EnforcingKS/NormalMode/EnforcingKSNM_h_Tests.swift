@@ -9,7 +9,7 @@ class EnforcingKS_h_Tests: EnforcingKSNM_BaseTests {
         super.setUp()
 
         kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .eight))
-        kindaVimEngine.handle(keyCombination: KeyCombination(key: .h), appMode: .enforceKeyboardStrategy)
+        kindaVimEngine.handle(keyCombination: KeyCombination(key: .h), appMode: .keyMapping)
     }
 
 }

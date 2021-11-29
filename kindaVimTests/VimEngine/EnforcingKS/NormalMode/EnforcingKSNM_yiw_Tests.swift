@@ -8,10 +8,10 @@ class EnforcingKS_yiw_Tests: EnforcingKSNM_BaseTests {
     override func setUp() {
         super.setUp()
         
-        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .eight), appMode: .enforceKeyboardStrategy)
-        kindaVimEngine.handle(keyCombination: KeyCombination(key: .y), appMode: .enforceKeyboardStrategy)
-        kindaVimEngine.handle(keyCombination: KeyCombination(key: .i), appMode: .enforceKeyboardStrategy)
-        kindaVimEngine.handle(keyCombination: KeyCombination(key: .w), appMode: .enforceKeyboardStrategy)
+        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .eight), appMode: .keyMapping)
+        kindaVimEngine.handle(keyCombination: KeyCombination(key: .y), appMode: .keyMapping)
+        kindaVimEngine.handle(keyCombination: KeyCombination(key: .i), appMode: .keyMapping)
+        kindaVimEngine.handle(keyCombination: KeyCombination(key: .w), appMode: .keyMapping)
     }
 
 }
