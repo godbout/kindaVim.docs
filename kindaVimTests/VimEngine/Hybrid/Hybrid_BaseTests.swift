@@ -1,8 +1,25 @@
-//
-//  Hybrid_BaseTests.swift
-//  kindaVimTests
-//
-//  Created by Guillaume Leclerc on 29/11/2021.
-//
+@testable import kindaVim
+import KeyCombination
+import XCTest
 
-import Foundation
+
+class Hybrid_BaseTests: XCTestCase {
+    
+    let kindaVimEngine = KindaVimEngine()
+    
+    let asNormalModeMock = AccessibilityStrategyNormalModeMock()
+    let asVisualModeMock = AccessibilityStrategyVisualModeMock()
+    let ksNormalModeMock = KeyboardStrategyNormalModeMock()
+    let ksVisualModeMock = KeyboardStrategyVisualModeMock()
+    
+    override func setUp() {
+        super.setUp()
+        
+        kindaVimEngine.accessibilityStrategy = AccessibilityStrategyMock()
+        kindaVimEngine.asNormalMode = asNormalModeMock
+        kindaVimEngine.asVisualMode = asVisualModeMock
+        kindaVimEngine.ksNormalMode = ksNormalModeMock
+        kindaVimEngine.ksVisualMode = ksVisualModeMock
+    }
+    
+}

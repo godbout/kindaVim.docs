@@ -2,10 +2,20 @@ import KeyCombination
 import AccessibilityStrategy
 
 
+enum AppMode {
+    
+    case auto
+    case off
+    case hybrid
+    case enforceKeyboardStrategy
+    
+}
+
+
 // AS Normal Mode
 extension KindaVimEngine {
  
-    func tryHandlingNormalModeUsingAccessibilityStrategyFirst(for keyCombination: KeyCombination) {         
+    func tryHandlingNormalModeUsingAccessibilityStrategyFirst(for keyCombination: KeyCombination, appMode: AppMode) {         
         switch keyCombination.vimKey {
         case .a:
             if let element = asNormalMode.a(on: focusedTextElement) {
@@ -142,14 +152,14 @@ extension KindaVimEngine {
                 handleNormalModeUsingKeyboardStrategy(for: keyCombination)
             }
         case .o:
-            if let element = asNormalMode.o(on: focusedTextElement) {
+            if appMode != .hybrid, let element = asNormalMode.o(on: focusedTextElement) {
                 push(element: element)
                 enterInsertMode()                
             } else {
                 handleNormalModeUsingKeyboardStrategy(for: keyCombination)
             }
         case .O:
-            if let element = asNormalMode.O(on: focusedTextElement) {
+            if appMode != .hybrid, let element = asNormalMode.O(on: focusedTextElement) {
                 push(element: element)
                 enterInsertMode()                
             } else {

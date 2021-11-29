@@ -3,7 +3,7 @@ import KeyCombination
 import XCTest
 
 
-class HybridASNM_BaseTests: SucceedingAS_BaseTests {
+class HybridNM_BaseTests: Hybrid_BaseTests {
 
     override func setUp() {
         super.setUp()
