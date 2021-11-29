@@ -2,16 +2,6 @@ import KeyCombination
 import AccessibilityStrategy
 
 
-enum AppMode {
-    
-    case auto
-    case off
-    case hybrid
-    case enforceKeyboardStrategy
-    
-}
-
-
 // AS Normal Mode
 extension KindaVimEngine {
  
@@ -159,14 +149,14 @@ extension KindaVimEngine {
                 handleNormalModeUsingKeyboardStrategy(for: keyCombination)
             }
         case .o:
-            if appMode != .hybrid, let element = asNormalMode.o(on: focusedTextElement) {
+            if appMode != .pgR, let element = asNormalMode.o(on: focusedTextElement) {
                 push(element: element)
                 enterInsertMode()                
             } else {
                 handleNormalModeUsingKeyboardStrategy(for: keyCombination)
             }
         case .O:
-            if appMode != .hybrid, let element = asNormalMode.O(on: focusedTextElement) {
+            if appMode != .pgR, let element = asNormalMode.O(on: focusedTextElement) {
                 push(element: element)
                 enterInsertMode()                
             } else {
@@ -384,7 +374,7 @@ extension KindaVimEngine {
             if let element = asNormalMode.cc(on: focusedTextElement) {
                 push(element: element)
                 
-                if appMode == .hybrid {
+                if appMode == .pgR {
                     for cgEvent in KeyCombinationAdaptor.toCGEvents(from: KeyCombination(key: .delete)) {
                         cgEvent.post(tap: .cgSessionEventTap)
                     }
@@ -491,7 +481,7 @@ extension KindaVimEngine {
             if let element = asNormalMode.ciw(on: focusedTextElement) {
                 push(element: element)
                 
-                if appMode == .hybrid {
+                if appMode == .pgR {
                     for cgEvent in KeyCombinationAdaptor.toCGEvents(from: KeyCombination(key: .delete)) {
                         cgEvent.post(tap: .cgSessionEventTap)
                     }
