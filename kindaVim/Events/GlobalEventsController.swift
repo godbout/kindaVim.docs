@@ -8,22 +8,18 @@ struct GlobalEventsController {
     
     @AppStorage(SettingsKeys.useCustomShortcutToEnterNormalMode) private static var useCustomShortcutToEnterNormalMode: Bool = false
     @AppStorage(SettingsKeys.appsToIgnore) private static var appsToIgnore: Set<String> = [] 
+    @AppStorage(SettingsKeys.appsForWhichToUseHybridMode) private static var appsForWhichToUseHybridMode: Set<String> = []
     @AppStorage(SettingsKeys.appsForWhichToEnforceKeyboardStrategy) private static var appsForWhichToEnforceKeyboardStrategy: Set<String> = []
     
     static func handle(keyCombination: KeyCombination?) -> Bool {
-        if onIgnoredApp() {
-            return false
-        }
+        let appMode = appModeForCurrentApp()
         
-        let enforceKeyboardStrategy = onAppForWhichToEnforceKeyboardStrategy()
+        guard appMode != .off else { return false }
         
         if inNormalModeOrOperatorPendingModeOrVisualMode() {
             guard let implementedKeyCombination = keyCombination else { return true }
             
-            AppCore.shared.vimEngine.handle(
-                keyCombination: implementedKeyCombination,
-                enforceKeyboardStrategy: enforceKeyboardStrategy
-            )
+            AppCore.shared.vimEngine.handle(keyCombination: implementedKeyCombination, appMode: appMode)
 
             return true
         }
@@ -31,7 +27,7 @@ struct GlobalEventsController {
         guard let implementedKeyCombination = keyCombination else { return false }
 
         if globalVimEngineHotkeyIsPressed(implementedKeyCombination) {
-            AppCore.shared.vimEngine.enterNormalMode(enforceKeyboardStrategy: enforceKeyboardStrategy)
+            AppCore.shared.vimEngine.enterNormalMode(appMode: appMode)
             
             print("enter Normal Mode")
             
@@ -41,8 +37,30 @@ struct GlobalEventsController {
         return false
     }
     
-    private static func onIgnoredApp() -> Bool {
+    private static func appModeForCurrentApp() -> AppMode {
+        if onAppToIgnore() {
+            return .off
+        }
+        
+        if onAppForWhichToUseHybridMode() {
+            return .hybrid
+        }
+        
+        if onAppForWhichToEnforceKeyboardStrategy() {
+            return .enforceKeyboardStrategy
+        }
+        
+        return .auto
+    }
+    
+    private static func onAppToIgnore() -> Bool {
         return appsToIgnore.contains(
+            NSWorkspace.shared.frontmostApplication?.bundleIdentifier ?? ""
+        )
+    }
+    
+    private static func onAppForWhichToUseHybridMode() -> Bool {
+        return appsForWhichToUseHybridMode.contains(
             NSWorkspace.shared.frontmostApplication?.bundleIdentifier ?? ""
         )
     }
