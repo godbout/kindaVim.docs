@@ -476,6 +476,13 @@ extension KindaVimEngine {
         case [.c, .i, .w]:
             if let element = asNormalMode.ciw(on: focusedTextElement) {
                 push(element: element)
+                
+                if appMode == .hybrid {
+                    for cgEvent in KeyCombinationAdaptor.toCGEvents(from: KeyCombination(key: .delete)) {
+                        cgEvent.post(tap: .cgSessionEventTap)
+                    }
+                }
+                
                 enterInsertMode()
             } else {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
