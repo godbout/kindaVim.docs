@@ -25,6 +25,16 @@ enum VimEngineStrategy {
 }
 
 
+enum AppMode {
+    
+    case auto
+    case off
+    case pgR
+    case keyMapping
+    
+}
+
+
 class KindaVimEngine {
     
     var toggleHazeOverWindow: Bool = true
