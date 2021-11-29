@@ -357,7 +357,7 @@ extension KindaVimEngine {
 // Operator Pending for AS Normal Mode
 extension KindaVimEngine {
 
-    func tryParsingOperatorCommandForNormalModeUsingAccessibilityStrategyFirst() {
+    func tryParsingOperatorCommandForNormalModeUsingAccessibilityStrategyFirst(appMode: AppMode) {
         switch operatorPendingBuffer.map({ $0.vimKey }) {
         case [.c, .a]:
             ()

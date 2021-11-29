@@ -102,7 +102,7 @@ class KindaVimEngine {
                 if appMode == .enforceKeyboardStrategy {
                     handleOperatorPendingForNormalMode(using: .keyboardStrategy, for: keyCombination)
                 } else {
-                    handleOperatorPendingForNormalMode(using: .accessibilityStrategy, for: keyCombination)
+                    handleOperatorPendingForNormalMode(using: .accessibilityStrategy, for: keyCombination, appMode: appMode)
                 }
             case .visual:
                 if appMode == .enforceKeyboardStrategy {
@@ -195,12 +195,12 @@ class KindaVimEngine {
         }        
     }
     
-    private func handleOperatorPendingForNormalMode(using strategy: VimEngineStrategy, for keyCombination: KeyCombination) {
+    private func handleOperatorPendingForNormalMode(using strategy: VimEngineStrategy, for keyCombination: KeyCombination, appMode: AppMode = .auto) {
         operatorPendingBuffer.append(keyCombination)
         
         switch strategy {
         case .accessibilityStrategy:
-            tryParsingOperatorCommandForNormalModeUsingAccessibilityStrategyFirst()
+            tryParsingOperatorCommandForNormalModeUsingAccessibilityStrategyFirst(appMode: appMode)
         case .keyboardStrategy:
             parseOperatorCommandForNormalModeUsingKeyboardStrategy()
         }
