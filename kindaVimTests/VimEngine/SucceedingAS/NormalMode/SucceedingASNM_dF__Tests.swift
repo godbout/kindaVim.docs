@@ -3,24 +3,24 @@ import KeyCombination
 import XCTest
 
 
-class SucceedingASNM_dT__Tests: SucceedingASNM_BaseTests {
+class SucceedingASNM_dF__Tests: SucceedingASNM_BaseTests {
     
     override func setUp() {
         super.setUp()
         
         kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .eight))
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .d))
-        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .T))
-        kindaVimEngine.handle(keyCombination: KeyCombination(key: .f))
+        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .F))
+        kindaVimEngine.handle(keyCombination: KeyCombination(key: .x))
     }
     
 }
 
 
-extension SucceedingASNM_dT__Tests {
+extension SucceedingASNM_dF__Tests {
     
     func test_that_it_calls_the_correct_function_on_accessibility_strategy() {
-        XCTAssertEqual(asNormalModeMock.functionCalled, "dT(to:on:)")
+        XCTAssertEqual(asNormalModeMock.functionCalled, "dF(to:on:pgR:)")
     }
     
     func test_that_it_keeps_Vim_in_normal_mode() {
@@ -30,5 +30,5 @@ extension SucceedingASNM_dT__Tests {
     func test_that_it_resets_the_count() {
         XCTAssertEqual(kindaVimEngine.count, 1)
     }
-
+ 
 }

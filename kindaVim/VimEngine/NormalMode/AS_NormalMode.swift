@@ -876,19 +876,19 @@ extension KindaVimEngine {
                 var element: AccessibilityTextElement?
                 
                 if operatorPendingBuffer[1].vimKey == .f, let character = operatorPendingBuffer.last {
-                    element = asNormalMode.df(to: character.character, on: focusedTextElement)
+                    element = asNormalMode.df(to: character.character, on: focusedTextElement, pgR: appMode == .pgR)
                 }
                 
                 if operatorPendingBuffer[1].vimKey == .F, let character = operatorPendingBuffer.last {
-                    element = asNormalMode.dF(to: character.character, on: focusedTextElement)
+                    element = asNormalMode.dF(to: character.character, on: focusedTextElement, pgR: appMode == .pgR)
                 }
                 
                 if operatorPendingBuffer[1].vimKey == .t, let character = operatorPendingBuffer.last {
-                    element = asNormalMode.dt(to: character.character, on: focusedTextElement)
+                    element = asNormalMode.dt(to: character.character, on: focusedTextElement, pgR: appMode == .pgR)
                 }
                 
                 if operatorPendingBuffer[1].vimKey == .T, let character = operatorPendingBuffer.last {
-                    element = asNormalMode.dT(to: character.character, on: focusedTextElement)
+                    element = asNormalMode.dT(to: character.character, on: focusedTextElement, pgR: appMode == .pgR)
                 }
                 
                 if let element = element {

@@ -149,7 +149,7 @@ class AccessibilityStrategyNormalModeMock: AccessibilityStrategyNormalModeProtoc
         return element
     }
     
-    func D(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func D(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
         functionCalled = #function
         
         return element
@@ -167,13 +167,13 @@ class AccessibilityStrategyNormalModeMock: AccessibilityStrategyNormalModeProtoc
         return element
     }
     
-    func df(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func df(to character: Character, on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
         functionCalled = #function
         
         return element
     }
     
-    func dF(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func dF(to character: Character, on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
         functionCalled = #function
         
         return element
@@ -203,13 +203,13 @@ class AccessibilityStrategyNormalModeMock: AccessibilityStrategyNormalModeProtoc
         return element
     }
     
-    func dt(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func dt(to character: Character, on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
         functionCalled = #function
         
         return element
     }
     
-    func dT(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func dT(to character: Character, on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
         functionCalled = #function
         
         return element
