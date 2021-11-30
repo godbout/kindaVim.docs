@@ -489,6 +489,13 @@ extension KindaVimEngine {
             
             if let element = asNormalMode.ciSingleQuote(on: focusedTextElement), element.selectedText != nil {
                 push(element: element)
+                
+                if appMode == .pgR {
+                    for cgEvent in KeyCombinationAdaptor.toCGEvents(from: KeyCombination(key: .delete)) {
+                        cgEvent.post(tap: .cgSessionEventTap)
+                    }
+                }
+                
                 enterInsertMode()
             }            
         case [.c, .i, .backtick]:
