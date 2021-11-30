@@ -167,8 +167,18 @@ extension KindaVimEngine {
                 handleNormalModeUsingKeyboardStrategy(for: keyCombination)
             }
         case .O:
-            if appMode != .pgR, let element = asNormalMode.O(on: focusedTextElement) {
+            if let element = asNormalMode.O(on: focusedTextElement, pgR: appMode == .pgR) {
                 push(element: element)
+                
+                if appMode == .pgR {
+                    NSPasteboard.general.clearContents()
+                    NSPasteboard.general.setString(element.selectedText ?? "", forType: .string)
+                        
+                    for cgEvent in KeyCombinationAdaptor.toCGEvents(from: KeyCombination(key: .v, command: true)) {
+                        cgEvent.post(tap: .cgSessionEventTap)
+                    }                        
+                }
+                
                 enterInsertMode()                
             } else {
                 handleNormalModeUsingKeyboardStrategy(for: keyCombination)
