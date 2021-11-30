@@ -503,6 +503,13 @@ extension KindaVimEngine {
             
             if let element = asNormalMode.ciBacktick(on: focusedTextElement), element.selectedText != nil {
                 push(element: element)
+                
+                if appMode == .pgR {
+                    for cgEvent in KeyCombinationAdaptor.toCGEvents(from: KeyCombination(key: .delete)) {
+                        cgEvent.post(tap: .cgSessionEventTap)
+                    }
+                }
+
                 enterInsertMode()
             }
         case [.c, .i, .w]:
