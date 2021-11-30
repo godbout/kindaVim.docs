@@ -55,7 +55,7 @@ extension KindaVimEngine {
         case .d:
             enterOperatorPendingForNormalMode(with: keyCombination)
         case .D:
-            if let element = asNormalMode.D(on: focusedTextElement) {
+            if let element = asNormalMode.D(on: focusedTextElement, pgR: appMode == .pgR) {
                 push(element: element)
                 endCurrentMove()
             } else {
