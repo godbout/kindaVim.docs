@@ -105,7 +105,7 @@ struct FailingAccessibilityStrategyNormalModeStub: AccessibilityStrategyNormalMo
         return nil
     }
     
-    func daw(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func daw(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
         return nil
     }
     
@@ -121,11 +121,11 @@ struct FailingAccessibilityStrategyNormalModeStub: AccessibilityStrategyNormalMo
         return nil
     }
     
-    func dG(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func dG(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
         return nil
     }
     
-    func dgg(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func dgg(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
         return nil
     }
     
@@ -233,7 +233,7 @@ struct FailingAccessibilityStrategyNormalModeStub: AccessibilityStrategyNormalMo
         return nil        
     }
     
-    func O(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func O(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
         return nil        
     }
     

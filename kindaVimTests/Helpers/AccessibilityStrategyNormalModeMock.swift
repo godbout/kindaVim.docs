@@ -155,7 +155,7 @@ class AccessibilityStrategyNormalModeMock: AccessibilityStrategyNormalModeProtoc
         return element
     }
     
-    func daw(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func daw(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
         functionCalled = #function
         
         return element
@@ -179,13 +179,13 @@ class AccessibilityStrategyNormalModeMock: AccessibilityStrategyNormalModeProtoc
         return element
     }
     
-    func dG(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func dG(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
         functionCalled = #function
         
         return element
     }
     
-    func dgg(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func dgg(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
         functionCalled = #function
         
         return element
@@ -347,7 +347,7 @@ class AccessibilityStrategyNormalModeMock: AccessibilityStrategyNormalModeProtoc
         return element
     }
     
-    func O(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func O(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
         functionCalled = #function
         
         return element
