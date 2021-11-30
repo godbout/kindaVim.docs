@@ -393,6 +393,13 @@ extension KindaVimEngine {
         case [.c, .g, .g]:
             if let element = asNormalMode.cgg(on: focusedTextElement) {
                 push(element: element)
+                
+                if appMode == .pgR {
+                    for cgEvent in KeyCombinationAdaptor.toCGEvents(from: KeyCombination(key: .delete)) {
+                        cgEvent.post(tap: .cgSessionEventTap)
+                    }
+                }
+
                 enterInsertMode()
             } else {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
