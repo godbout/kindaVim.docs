@@ -602,7 +602,7 @@ extension KindaVimEngine {
         case [.d, .a]:
             ()
         case [.d, .a, .w]:
-            if let element = asNormalMode.daw(on: focusedTextElement) {
+            if let element = asNormalMode.daw(on: focusedTextElement, pgR: appMode == .pgR) {
                 push(element: element)
                 enterNormalMode()
             } else {
