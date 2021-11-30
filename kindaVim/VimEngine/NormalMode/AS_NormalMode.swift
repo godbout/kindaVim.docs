@@ -631,11 +631,11 @@ extension KindaVimEngine {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
         case [.d, .G]:
-           if let element = asNormalMode.dG(on: focusedTextElement) {
-               push(element: element)
-               enterNormalMode()
+            if let element = asNormalMode.dG(on: focusedTextElement, pgR: appMode == .pgR) {
+                push(element: element)
+                enterNormalMode()
            } else {
-               parseOperatorCommandForNormalModeUsingKeyboardStrategy()
+                parseOperatorCommandForNormalModeUsingKeyboardStrategy()
            }
         case [.d, .i]:
             ()
