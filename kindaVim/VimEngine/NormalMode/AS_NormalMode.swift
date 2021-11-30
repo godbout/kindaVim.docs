@@ -624,7 +624,7 @@ extension KindaVimEngine {
         case [.d, .g]:
             ()
         case [.d, .g, .g]:
-            if let element = asNormalMode.dgg(on: focusedTextElement) {
+            if let element = asNormalMode.dgg(on: focusedTextElement, pgR: appMode == .pgR) {
                 push(element: element)
                 enterNormalMode()
             } else {
