@@ -365,6 +365,12 @@ extension KindaVimEngine {
                 push(element: element)
                 
                 if element.selectedText != nil {
+                    if appMode == .pgR {
+                        for cgEvent in KeyCombinationAdaptor.toCGEvents(from: KeyCombination(key: .delete)) {
+                            cgEvent.post(tap: .cgSessionEventTap)
+                        }
+                    }
+
                     enterInsertMode()
                 }
             }
