@@ -17,19 +17,19 @@ struct FailingAccessibilityStrategyVisualModeStub: AccessibilityStrategyVisualMo
         return nil 
     }
     
-    func cForVisualStyleCharacterwise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func cForVisualStyleCharacterwise(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
         return nil 
     }
     
-    func cForVisualStyleLinewise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func cForVisualStyleLinewise(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
         return nil 
     }
     
-    func dForVisualStyleCharacterwise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func dForVisualStyleCharacterwise(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
         return nil 
     }
     
-    func dForVisualStyleLinewise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func dForVisualStyleLinewise(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
         return nil 
     }
     

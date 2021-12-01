@@ -5,9 +5,9 @@ import XCTest
 
 class SucceedingASVM_d_Tests: SucceedingASVM_BaseTests {
     
-    private func applyKeyCombinationsBeingTested() {
+    private func applyKeyCombinationsBeingTested(appMode: AppMode = .auto) {
         kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .eight))
-        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .d))
+        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .d), appMode: appMode)
     }
     
 }
@@ -16,11 +16,20 @@ class SucceedingASVM_d_Tests: SucceedingASVM_BaseTests {
 // visualStyle character
 extension SucceedingASVM_d_Tests {    
     
-    func test_that_it_calls_the_correct_function_on_ASVM_when_visualStyle_is_characterwise() {
+    func test_that_in_Auto_Mode_it_calls_the_correct_function_on_AS_with_PGR_off_when_visualStyle_is_characterwise() {
         kindaVimEngine.visualStyle = .characterwise
         applyKeyCombinationsBeingTested()
         
-        XCTAssertEqual(asVisualModeMock.functionCalled, "dForVisualStyleCharacterwise(on:)")
+        XCTAssertEqual(asVisualModeMock.functionCalled, "dForVisualStyleCharacterwise(on:pgR:)")
+        XCTAssertEqual(asVisualModeMock.pgRPassed, false)
+    }
+    
+    func test_that_in_PGR_Mode_it_calls_the_correct_function_on_AS_with_PGR_on_when_VisualStyle_is_Characterwise() {
+        kindaVimEngine.visualStyle = .characterwise
+        applyKeyCombinationsBeingTested(appMode: .pgR)
+        
+        XCTAssertEqual(asVisualModeMock.functionCalled, "dForVisualStyleCharacterwise(on:pgR:)")
+        XCTAssertEqual(asVisualModeMock.pgRPassed, true)
     }
        
     func test_that_it_switches_Vim_to_NormalMode_when_VisualStyle_is_Characterwise() {
@@ -43,11 +52,20 @@ extension SucceedingASVM_d_Tests {
 // visualStyle linewise
 extension SucceedingASVM_d_Tests {
     
-    func test_that_it_calls_the_correct_function_on_ASVM_when_visualStyle_is_linewise() {
+    func test_that_in_Auto_Mode_it_calls_the_correct_function_on_AS_with_PGR_off_when_visualStyle_is_Linewise() {
         kindaVimEngine.visualStyle = .linewise
         applyKeyCombinationsBeingTested()
         
-        XCTAssertEqual(asVisualModeMock.functionCalled, "dForVisualStyleLinewise(on:)")
+        XCTAssertEqual(asVisualModeMock.functionCalled, "dForVisualStyleLinewise(on:pgR:)")
+        XCTAssertEqual(asVisualModeMock.pgRPassed, false)
+    }
+    
+    func test_that_in_PGR_Mode_it_calls_the_correct_function_on_AS_with_PGR_on_when_VisualStyle_is_Linewise() {
+        kindaVimEngine.visualStyle = .linewise
+        applyKeyCombinationsBeingTested(appMode: .pgR)
+        
+        XCTAssertEqual(asVisualModeMock.functionCalled, "dForVisualStyleLinewise(on:pgR:)")
+        XCTAssertEqual(asVisualModeMock.pgRPassed, true)
     }
     
     func test_that_it_switches_Vim_to_NormalMode_when_VisualStyle_is_Linewise() {

@@ -25,79 +25,79 @@ struct FailingAccessibilityStrategyNormalModeStub: AccessibilityStrategyNormalMo
         return nil
     }
     
-    func C(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func C(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
         return nil
     }
     
-    func cc(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func caw(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
         return nil
     }
     
-    func cf(times count: Int = 1, to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func cc(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
         return nil
     }
     
-    func cF(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func cF(to character: Character, on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
         return nil
     }
     
-    func caw(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func cf(times count: Int = 1, to character: Character, on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
         return nil
     }
     
-    func cgg(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func cG(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
         return nil
     }
     
-    func cG(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func cgg(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
         return nil
     }
     
-    func ciw(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func ciw(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
         return nil
     }
     
-    func ciBacktick(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func ciBacktick(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
         return nil
     }
     
-    func ciDoubleQuote(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func ciDoubleQuote(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
         return nil
     }
     
-    func ciLeftBrace(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func ciLeftBrace(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
         return nil
     }
     
-    func ciLeftBracket(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func ciLeftBracket(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
         return nil
     }
     
-    func ciLeftParenthesis(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func ciLeftParenthesis(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
         return nil
     }
     
-    func ciRightBrace(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func ciRightBrace(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
         return nil
     }
     
-    func ciRightBracket(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func ciRightBracket(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
         return nil
     }
     
-    func ciRightParenthesis(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func ciRightParenthesis(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
         return nil
     }
     
-    func ciSingleQuote(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func ciSingleQuote(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
         return nil
     }
     
-    func ct(times count: Int = 1, to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func cT(to character: Character, on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
         return nil
     }
     
-    func cT(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func ct(times count: Int = 1, to character: Character, on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
         return nil
     }
     
@@ -109,7 +109,7 @@ struct FailingAccessibilityStrategyNormalModeStub: AccessibilityStrategyNormalMo
         return nil
     }
     
-    func dd(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func dd(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
         return nil
     }
     
@@ -129,11 +129,11 @@ struct FailingAccessibilityStrategyNormalModeStub: AccessibilityStrategyNormalMo
         return nil
     }
     
-    func dj(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func dj(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
         return nil
     }
     
-    func dk(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func dk(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
         return nil
     }
     
@@ -229,7 +229,7 @@ struct FailingAccessibilityStrategyNormalModeStub: AccessibilityStrategyNormalMo
         return nil        
     }
     
-    func o(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func o(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
         return nil        
     }
     
@@ -237,23 +237,23 @@ struct FailingAccessibilityStrategyNormalModeStub: AccessibilityStrategyNormalMo
         return nil        
     }
     
-    func pForLastYankStyleCharacterwise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func PForLastYankStyleCharacterwise(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
         return nil        
     }
     
-    func pForLastYankStyleLinewise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func PForLastYankStyleLinewise(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
         return nil        
     }
     
-    func PForLastYankStyleCharacterwise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func pForLastYankStyleCharacterwise(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
         return nil        
     }
     
-    func PForLastYankStyleLinewise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func pForLastYankStyleLinewise(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
         return nil        
     }
     
-    func r(with replacement: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func r(with replacement: Character, on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
         return nil        
     }
     
@@ -289,7 +289,7 @@ struct FailingAccessibilityStrategyNormalModeStub: AccessibilityStrategyNormalMo
         return nil
     }
     
-    func x(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func x(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
         return nil
     }
     
@@ -373,7 +373,7 @@ struct FailingAccessibilityStrategyNormalModeStub: AccessibilityStrategyNormalMo
         return nil
     }
     
-    func leftChevronLeftChevron(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func leftChevronLeftChevron(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
         return nil
     }
     
@@ -393,7 +393,7 @@ struct FailingAccessibilityStrategyNormalModeStub: AccessibilityStrategyNormalMo
         return nil
     }
     
-    func rightChevronRightChevron(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func rightChevronRightChevron(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
         return nil
     }
     

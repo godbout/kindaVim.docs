@@ -5,15 +5,10 @@ import XCTest
 
 class SucceedingASNM_P__Tests: SucceedingASNM_BaseTests {
     
-    private func applyKeyCombinationsBeingTested() {
+    private func applyKeyCombinationsBeingTested(appMode: AppMode = .auto) {
         kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .eight))
-        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .P))
-        func test_that_it_Vim_as_in_VisualMode_Characterwise_it_resets_the_count() {
-            applyKeyCombinationsBeingTested()
-            
-            XCTAssertEqual(kindaVimEngine.count, 1)
-        }
-}
+        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .P), appMode: appMode)
+    }
         
 }
 
@@ -21,24 +16,42 @@ class SucceedingASNM_P__Tests: SucceedingASNM_BaseTests {
 // lastYankStyle characterwise
 extension SucceedingASNM_P__Tests {
     
-    func test_that_it_calls_the_correct_function_on_AS_when_lastYankStyle_is_characterwise() {
+    func test_that_in_Auto_Mode_it_calls_the_correct_function_on_AS_with_PGR_off_when_LastYankStyle_is_Characterwise() {
         kindaVimEngine.lastYankStyle = .characterwise
         applyKeyCombinationsBeingTested()
         
-        XCTAssertEqual(asNormalModeMock.functionCalled, "PForLastYankStyleCharacterwise(on:)")
+        XCTAssertEqual(asNormalModeMock.functionCalled, "PForLastYankStyleCharacterwise(on:pgR:)")
+        XCTAssertEqual(asNormalModeMock.pgRPassed, false)
+    }
+    
+    func test_that_in_PGR_Mode_it_calls_the_correct_function_on_AS_with_PGR_on_when_LastYankStyle_is_Characterwise() {
+        kindaVimEngine.lastYankStyle = .characterwise
+        applyKeyCombinationsBeingTested(appMode: .pgR)
+        
+        XCTAssertEqual(asNormalModeMock.functionCalled, "PForLastYankStyleCharacterwise(on:pgR:)")
+        XCTAssertEqual(asNormalModeMock.pgRPassed, true)
     }
     
 }
 
 
-// lastYankStyle characterwise
+// lastYankStyle linewise
 extension SucceedingASNM_P__Tests {
     
-    func test_that_it_calls_the_correct_function_on_AS_when_lastYankStyle_is_linewise() {
+    func test_that_in_Auto_Mode_it_calls_the_correct_function_on_AS_with_PGR_off_when_LastYankStyle_is_Linewise() {
         kindaVimEngine.lastYankStyle = .linewise
         applyKeyCombinationsBeingTested()
         
-        XCTAssertEqual(asNormalModeMock.functionCalled, "PForLastYankStyleLinewise(on:)")
+        XCTAssertEqual(asNormalModeMock.functionCalled, "PForLastYankStyleLinewise(on:pgR:)")
+        XCTAssertEqual(asNormalModeMock.pgRPassed, false)
+    }
+    
+    func test_that_in_PGR_Mode_it_calls_the_correct_function_on_AS_with_PGR_on_when_LastYankStyle_is_Linewise() {
+        kindaVimEngine.lastYankStyle = .linewise
+        applyKeyCombinationsBeingTested(appMode: .pgR)
+        
+        XCTAssertEqual(asNormalModeMock.functionCalled, "PForLastYankStyleLinewise(on:pgR:)")
+        XCTAssertEqual(asNormalModeMock.pgRPassed, true)
     }
     
 }

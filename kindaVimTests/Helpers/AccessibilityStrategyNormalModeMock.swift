@@ -6,6 +6,8 @@ import AccessibilityStrategy
 class AccessibilityStrategyNormalModeMock: AccessibilityStrategyNormalModeProtocol {
     
     var functionCalled = ""
+    var pgRPassed = false
+    
     
     static func test(element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return element
@@ -35,182 +37,212 @@ class AccessibilityStrategyNormalModeMock: AccessibilityStrategyNormalModeProtoc
         return element
     }
     
-    func C(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func C(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
         functionCalled = #function
+        pgRPassed = pgR
         
         return element
     }
     
-    func cc(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func caw(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
         functionCalled = #function
+        pgRPassed = pgR
         
         return element
     }
     
-    func cf(times count: Int = 1, to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func cc(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
         functionCalled = #function
+        pgRPassed = pgR
         
         return element
     }
     
-    func cF(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func cF(to character: Character, on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
         functionCalled = #function
+        pgRPassed = pgR
         
         return element
     }
     
-    func caw(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func cf(times count: Int = 1, to character: Character, on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
         functionCalled = #function
+        pgRPassed = pgR
         
         return element
     }
     
-    func cgg(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func cG(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
         functionCalled = #function
+        pgRPassed = pgR
         
         return element
     }
     
-    func cG(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func cgg(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
         functionCalled = #function
+        pgRPassed = pgR
         
         return element
     }
     
-    func ciw(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func ciw(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
         functionCalled = #function
+        pgRPassed = pgR
         
         return element
     }
     
-    func ciLeftBrace(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func ciLeftBrace(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
         functionCalled = #function
+        pgRPassed = pgR
         
         return element
     }
     
-    func ciLeftBracket(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func ciLeftBracket(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
         functionCalled = #function
+        pgRPassed = pgR
         
         return element
     }
     
-    func ciLeftParenthesis(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func ciLeftParenthesis(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
         functionCalled = #function
+        pgRPassed = pgR
         
         return element
     }
     
-    func ciRightBrace(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func ciRightBrace(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
         functionCalled = #function
+        pgRPassed = pgR
         
         return element
     }
     
-    func ciRightBracket(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func ciRightBracket(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
         functionCalled = #function
+        pgRPassed = pgR
         
         return element
     }
     
-    func ciRightParenthesis(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func ciRightParenthesis(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
         functionCalled = #function
+        pgRPassed = pgR
         
         return element
     }
     
-    func ciBacktick(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func ciBacktick(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
         functionCalled = #function
+        pgRPassed = pgR
         
         return element
     }
     
-    func ciDoubleQuote(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func ciDoubleQuote(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
         functionCalled = #function
+        pgRPassed = pgR
         
         return element
     }
     
-    func ciSingleQuote(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func ciSingleQuote(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
         functionCalled = #function
+        pgRPassed = pgR
         
         return element
     }
     
-    func ct(times count: Int = 1, to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func cT(to character: Character, on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
         functionCalled = #function
+        pgRPassed = pgR
         
         return element
     }
     
-    func cT(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func ct(times count: Int = 1, to character: Character, on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
         functionCalled = #function
+        pgRPassed = pgR
         
         return element
     }
     
     func D(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
         functionCalled = #function
+        pgRPassed = pgR
         
         return element
     }
     
     func daw(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
         functionCalled = #function
+        pgRPassed = pgR
         
         return element
     }
     
-    func dd(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func dd(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
         functionCalled = #function
+        pgRPassed = pgR
         
         return element
     }
     
     func df(to character: Character, on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
         functionCalled = #function
+        pgRPassed = pgR
         
         return element
     }
     
     func dF(to character: Character, on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
         functionCalled = #function
+        pgRPassed = pgR
         
         return element
     }
     
     func dG(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
         functionCalled = #function
+        pgRPassed = pgR
         
         return element
     }
     
     func dgg(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
         functionCalled = #function
+        pgRPassed = pgR
         
         return element
     }
     
-    func dj(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func dj(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
         functionCalled = #function
+        pgRPassed = pgR
         
         return element
     }
     
-    func dk(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func dk(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
         functionCalled = #function
+        pgRPassed = pgR
         
         return element
     }
     
     func dt(to character: Character, on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
         functionCalled = #function
+        pgRPassed = pgR
         
         return element
     }
     
     func dT(to character: Character, on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
         functionCalled = #function
+        pgRPassed = pgR
         
         return element
     }
@@ -341,38 +373,44 @@ class AccessibilityStrategyNormalModeMock: AccessibilityStrategyNormalModeProtoc
         return element
     }
     
-    func o(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func o(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
         functionCalled = #function
+        pgRPassed = pgR
         
         return element
     }
     
     func O(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
         functionCalled = #function
+        pgRPassed = pgR
         
         return element
     }
     
-    func pForLastYankStyleCharacterwise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func PForLastYankStyleCharacterwise(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
         functionCalled = #function
+        pgRPassed = pgR
         
         return element
     }
     
-    func pForLastYankStyleLinewise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func PForLastYankStyleLinewise(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
         functionCalled = #function
+        pgRPassed = pgR
         
         return element
     }
     
-    func PForLastYankStyleCharacterwise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func pForLastYankStyleCharacterwise(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
         functionCalled = #function
+        pgRPassed = pgR
         
         return element
     }
     
-    func PForLastYankStyleLinewise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func pForLastYankStyleLinewise(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
         functionCalled = #function
+        pgRPassed = pgR
         
         return element
     }
@@ -383,8 +421,9 @@ class AccessibilityStrategyNormalModeMock: AccessibilityStrategyNormalModeProtoc
         return element
     }
     
-    func r(with replacement: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func r(with replacement: Character, on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
         functionCalled = #function
+        pgRPassed = pgR
         
         return element
     }
@@ -419,8 +458,9 @@ class AccessibilityStrategyNormalModeMock: AccessibilityStrategyNormalModeProtoc
         return element
     }
     
-    func x(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func x(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
         functionCalled = #function
+        pgRPassed = pgR
         
         return element
     }
@@ -545,8 +585,9 @@ class AccessibilityStrategyNormalModeMock: AccessibilityStrategyNormalModeProtoc
         return element
     }
     
-    func leftChevronLeftChevron(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func leftChevronLeftChevron(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
         functionCalled = #function
+        pgRPassed = pgR
         
         return element
     }
@@ -575,8 +616,9 @@ class AccessibilityStrategyNormalModeMock: AccessibilityStrategyNormalModeProtoc
         return element
     }
     
-    func rightChevronRightChevron(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func rightChevronRightChevron(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
         functionCalled = #function
+        pgRPassed = pgR
         
         return element
     }

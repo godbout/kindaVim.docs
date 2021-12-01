@@ -6,7 +6,8 @@ import AccessibilityStrategy
 class AccessibilityStrategyVisualModeMock: AccessibilityStrategyVisualModeProtocol {
     
     var functionCalled = ""
-
+    var pgRPassed = false
+    
     
     func BForVisualStyleCharacterwise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
@@ -26,26 +27,30 @@ class AccessibilityStrategyVisualModeMock: AccessibilityStrategyVisualModeProtoc
         return element
     }
     
-    func cForVisualStyleCharacterwise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func cForVisualStyleCharacterwise(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
         functionCalled = #function
+        pgRPassed = pgR
         
         return element
     }
     
-    func cForVisualStyleLinewise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func cForVisualStyleLinewise(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
         functionCalled = #function
+        pgRPassed = pgR
         
         return element
     }
     
-    func dForVisualStyleCharacterwise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func dForVisualStyleCharacterwise(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
         functionCalled = #function
+        pgRPassed = pgR
         
         return element
     }
     
-    func dForVisualStyleLinewise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func dForVisualStyleLinewise(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
         functionCalled = #function
+        pgRPassed = pgR
         
         return element
     }
