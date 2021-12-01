@@ -39,15 +39,8 @@ extension KindaVimEngine {
         case .c:
             enterOperatorPendingForNormalMode(with: keyCombination)
         case .C:
-            if let element = asNormalMode.C(on: focusedTextElement) {                
+            if let element = asNormalMode.C(on: focusedTextElement, pgR: appMode == .pgR) {                
                 push(element: element)
-                
-                if appMode == .pgR {
-                    for cgEvent in KeyCombinationAdaptor.toCGEvents(from: KeyCombination(key: .delete)) {
-                        cgEvent.post(tap: .cgSessionEventTap)
-                    }
-                }
-                
                 enterInsertMode()
             } else {
                 handleNormalModeUsingKeyboardStrategy(for: keyCombination)
@@ -150,18 +143,8 @@ extension KindaVimEngine {
                 handleNormalModeUsingKeyboardStrategy(for: keyCombination)
             }
         case .o:
-            if let element = asNormalMode.o(on: focusedTextElement) {
+            if let element = asNormalMode.o(on: focusedTextElement, pgR: appMode == .pgR) {
                 push(element: element)
-                
-                if appMode == .pgR {
-                    NSPasteboard.general.clearContents()
-                    NSPasteboard.general.setString(element.selectedText ?? "", forType: .string)
-                        
-                    for cgEvent in KeyCombinationAdaptor.toCGEvents(from: KeyCombination(key: .v, command: true)) {
-                        cgEvent.post(tap: .cgSessionEventTap)
-                    }                        
-                }
-                
                 enterInsertMode()                
             } else {
                 handleNormalModeUsingKeyboardStrategy(for: keyCombination)
@@ -186,14 +169,14 @@ extension KindaVimEngine {
         case .p:
             switch lastYankStyle {
             case .characterwise:
-                if let element = asNormalMode.pForLastYankStyleCharacterwise(on: focusedTextElement) {
+                if let element = asNormalMode.pForLastYankStyleCharacterwise(on: focusedTextElement, pgR: appMode == .pgR) {
                     push(element: element) 
                     endCurrentMove()
                 } else {
                     handleNormalModeUsingKeyboardStrategy(for: keyCombination)
                 }
             case .linewise:
-                if let element = asNormalMode.pForLastYankStyleLinewise(on: focusedTextElement) {
+                if let element = asNormalMode.pForLastYankStyleLinewise(on: focusedTextElement, pgR: appMode == .pgR) {
                     push(element: element) 
                     endCurrentMove()
                 } else {
@@ -203,14 +186,14 @@ extension KindaVimEngine {
         case .P:
             switch lastYankStyle {
             case .characterwise:
-                if let element = asNormalMode.PForLastYankStyleCharacterwise(on: focusedTextElement) {
+                if let element = asNormalMode.PForLastYankStyleCharacterwise(on: focusedTextElement, pgR: appMode == .pgR) {
                     push(element: element) 
                     endCurrentMove()
                 } else {
                     handleNormalModeUsingKeyboardStrategy(for: keyCombination)
                 }
             case .linewise:
-                if let element = asNormalMode.PForLastYankStyleLinewise(on: focusedTextElement) {
+                if let element = asNormalMode.PForLastYankStyleLinewise(on: focusedTextElement, pgR: appMode == .pgR) {
                     push(element: element) 
                     endCurrentMove()
                 } else {
@@ -272,7 +255,7 @@ extension KindaVimEngine {
                 handleNormalModeUsingKeyboardStrategy(for: keyCombination)
             }            
         case .x:
-            if let element = asNormalMode.x(on: focusedTextElement) {
+            if let element = asNormalMode.x(on: focusedTextElement, pgR: appMode == .pgR) {
                 push(element: element)
                 endCurrentMove()
             } else {
@@ -382,65 +365,38 @@ extension KindaVimEngine {
         case [.c, .a, .w]:
             enterNormalMode()
             
-            if let element = asNormalMode.caw(on: focusedTextElement) {
+            if let element = asNormalMode.caw(on: focusedTextElement, pgR: appMode == .pgR) {
                 push(element: element)
                 
                 if element.selectedText != nil {
-                    if appMode == .pgR {
-                        for cgEvent in KeyCombinationAdaptor.toCGEvents(from: KeyCombination(key: .delete)) {
-                            cgEvent.post(tap: .cgSessionEventTap)
-                        }
-                    }
-
                     enterInsertMode()
                 }
             }
         case [.c, .b]:
             parseOperatorCommandForNormalModeUsingKeyboardStrategy()
         case [.c, .c]:
-            if let element = asNormalMode.cc(on: focusedTextElement) {
+            if let element = asNormalMode.cc(on: focusedTextElement, pgR: appMode == .pgR) {
                 push(element: element)
-                
-                if appMode == .pgR {
-                    for cgEvent in KeyCombinationAdaptor.toCGEvents(from: KeyCombination(key: .delete)) {
-                        cgEvent.post(tap: .cgSessionEventTap)
-                    }
-                }
-                
                 enterInsertMode()
             } else {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
-        case [.c, .f]:
-            ()
         case [.c, .F]:
             ()
+        case [.c, .f]:
+            ()
+        case [.c, .G]:
+            if let element = asNormalMode.cG(on: focusedTextElement, pgR: appMode == .pgR) {
+                push(element: element)
+                enterInsertMode()
+            } else {
+                parseOperatorCommandForNormalModeUsingKeyboardStrategy()
+            }
         case [.c, .g]:
             ()
         case [.c, .g, .g]:
-            if let element = asNormalMode.cgg(on: focusedTextElement) {
+            if let element = asNormalMode.cgg(on: focusedTextElement, pgR: appMode == .pgR) {
                 push(element: element)
-                
-                if appMode == .pgR {
-                    for cgEvent in KeyCombinationAdaptor.toCGEvents(from: KeyCombination(key: .delete)) {
-                        cgEvent.post(tap: .cgSessionEventTap)
-                    }
-                }
-
-                enterInsertMode()
-            } else {
-                parseOperatorCommandForNormalModeUsingKeyboardStrategy()
-            }
-        case [.c, .G]:
-            if let element = asNormalMode.cG(on: focusedTextElement) {
-                push(element: element)
-                
-                if appMode == .pgR {
-                    for cgEvent in KeyCombinationAdaptor.toCGEvents(from: KeyCombination(key: .delete)) {
-                        cgEvent.post(tap: .cgSessionEventTap)
-                    }
-                }
-
                 enterInsertMode()
             } else {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
@@ -451,15 +407,8 @@ extension KindaVimEngine {
             enterNormalMode()
                         
             // if element.selectedText is nil that means that the move didn't find a pair of "something" to empty
-            if let element = asNormalMode.ciDoubleQuote(on: focusedTextElement), element.selectedText != nil {
+            if let element = asNormalMode.ciDoubleQuote(on: focusedTextElement, pgR: appMode == .pgR), element.selectedText != nil {
                 push(element: element)
-                
-                if appMode == .pgR {
-                    for cgEvent in KeyCombinationAdaptor.toCGEvents(from: KeyCombination(key: .delete)) {
-                        cgEvent.post(tap: .cgSessionEventTap)
-                    }
-                }
-
                 lastYankStyle = .characterwise
                 enterInsertMode()
             }
@@ -467,130 +416,67 @@ extension KindaVimEngine {
             enterNormalMode()
             
             // if element.selectedText is nil that means that the move didn't find a pair of "something" to empty
-            if let element = asNormalMode.ciLeftBrace(on: focusedTextElement), element.selectedText != nil {
+            if let element = asNormalMode.ciLeftBrace(on: focusedTextElement, pgR: appMode == .pgR), element.selectedText != nil {
                 push(element: element)
-                
-                if appMode == .pgR {
-                    for cgEvent in KeyCombinationAdaptor.toCGEvents(from: KeyCombination(key: .delete)) {
-                        cgEvent.post(tap: .cgSessionEventTap)
-                    }
-                }
-
                 enterInsertMode()
             }
         case [.c, .i, .leftBracket]:
             enterNormalMode()
             
             // if element.selectedText is nil that means that the move didn't find a pair of "something" to empty
-            if let element = asNormalMode.ciLeftBracket(on: focusedTextElement), element.selectedText != nil {
+            if let element = asNormalMode.ciLeftBracket(on: focusedTextElement, pgR: appMode == .pgR), element.selectedText != nil {
                 push(element: element)
-                
-                if appMode == .pgR {
-                    for cgEvent in KeyCombinationAdaptor.toCGEvents(from: KeyCombination(key: .delete)) {
-                        cgEvent.post(tap: .cgSessionEventTap)
-                    }
-                }
-                
                 enterInsertMode()
             }
         case [.c, .i, .leftParenthesis]:
             enterNormalMode()
             
             // if element.selectedText is nil that means that the move didn't find a pair of "something" to empty
-            if let element = asNormalMode.ciLeftParenthesis(on: focusedTextElement), element.selectedText != nil {
+            if let element = asNormalMode.ciLeftParenthesis(on: focusedTextElement, pgR: appMode == .pgR), element.selectedText != nil {
                 push(element: element)
-                
-                if appMode == .pgR {
-                    for cgEvent in KeyCombinationAdaptor.toCGEvents(from: KeyCombination(key: .delete)) {
-                        cgEvent.post(tap: .cgSessionEventTap)
-                    }
-                }
-                
                 enterInsertMode()
             }
         case [.c, .i, .rightBrace]:
             enterNormalMode()
             
             // if element.selectedText is nil that means that the move didn't find a pair of "something" to empty
-            if let element = asNormalMode.ciRightBrace(on: focusedTextElement), element.selectedText != nil {
+            if let element = asNormalMode.ciRightBrace(on: focusedTextElement, pgR: appMode == .pgR), element.selectedText != nil {
                 push(element: element)
-                
-                if appMode == .pgR {
-                    for cgEvent in KeyCombinationAdaptor.toCGEvents(from: KeyCombination(key: .delete)) {
-                        cgEvent.post(tap: .cgSessionEventTap)
-                    }
-                }
-                
                 enterInsertMode()
             }
         case [.c, .i, .rightBracket]:
             enterNormalMode()
             
             // if element.selectedText is nil that means that the move didn't find a pair of "something" to empty
-            if let element = asNormalMode.ciRightBracket(on: focusedTextElement), element.selectedText != nil {
+            if let element = asNormalMode.ciRightBracket(on: focusedTextElement, pgR: appMode == .pgR), element.selectedText != nil {
                 push(element: element)
-                
-                if appMode == .pgR {
-                    for cgEvent in KeyCombinationAdaptor.toCGEvents(from: KeyCombination(key: .delete)) {
-                        cgEvent.post(tap: .cgSessionEventTap)
-                    }
-                }
-
                 enterInsertMode()
             }
         case [.c, .i, .rightParenthesis]:
             enterNormalMode()
             
             // if element.selectedText is nil that means that the move didn't find a pair of "something" to empty
-            if let element = asNormalMode.ciRightParenthesis(on: focusedTextElement), element.selectedText != nil {
+            if let element = asNormalMode.ciRightParenthesis(on: focusedTextElement, pgR: appMode == .pgR), element.selectedText != nil {
                 push(element: element)
-                
-                if appMode == .pgR {
-                    for cgEvent in KeyCombinationAdaptor.toCGEvents(from: KeyCombination(key: .delete)) {
-                        cgEvent.post(tap: .cgSessionEventTap)
-                    }
-                }
-                
                 enterInsertMode()
             }
         case [.c, .i, .singleQuote]:
             enterNormalMode()
             
-            if let element = asNormalMode.ciSingleQuote(on: focusedTextElement), element.selectedText != nil {
+            if let element = asNormalMode.ciSingleQuote(on: focusedTextElement, pgR: appMode == .pgR), element.selectedText != nil {
                 push(element: element)
-                
-                if appMode == .pgR {
-                    for cgEvent in KeyCombinationAdaptor.toCGEvents(from: KeyCombination(key: .delete)) {
-                        cgEvent.post(tap: .cgSessionEventTap)
-                    }
-                }
-                
                 enterInsertMode()
             }            
         case [.c, .i, .backtick]:
             enterNormalMode()
             
-            if let element = asNormalMode.ciBacktick(on: focusedTextElement), element.selectedText != nil {
+            if let element = asNormalMode.ciBacktick(on: focusedTextElement, pgR: appMode == .pgR), element.selectedText != nil {
                 push(element: element)
-                
-                if appMode == .pgR {
-                    for cgEvent in KeyCombinationAdaptor.toCGEvents(from: KeyCombination(key: .delete)) {
-                        cgEvent.post(tap: .cgSessionEventTap)
-                    }
-                }
-
                 enterInsertMode()
             }
         case [.c, .i, .w]:
-            if let element = asNormalMode.ciw(on: focusedTextElement) {
+            if let element = asNormalMode.ciw(on: focusedTextElement, pgR: appMode == .pgR) {
                 push(element: element)
-                
-                if appMode == .pgR {
-                    for cgEvent in KeyCombinationAdaptor.toCGEvents(from: KeyCombination(key: .delete)) {
-                        cgEvent.post(tap: .cgSessionEventTap)
-                    }
-                }
-                
                 enterInsertMode()
             } else {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
@@ -611,7 +497,7 @@ extension KindaVimEngine {
         case [.d, .b]:
             enterNormalMode()
         case [.d, .d]:
-            if let element = asNormalMode.dd(on: focusedTextElement) {
+            if let element = asNormalMode.dd(on: focusedTextElement, pgR: appMode == .pgR) {
                 push(element: element)
                 enterNormalMode()
             } else {
@@ -640,14 +526,14 @@ extension KindaVimEngine {
         case [.d, .i]:
             ()
         case [.d, .j]:
-            if let element = asNormalMode.dj(on: focusedTextElement) {
+            if let element = asNormalMode.dj(on: focusedTextElement, pgR: appMode == .pgR) {
                 push(element: element)
                 enterNormalMode()
             } else {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
         case [.d, .k]:
-            if let element = asNormalMode.dk(on: focusedTextElement) {
+            if let element = asNormalMode.dk(on: focusedTextElement, pgR: appMode == .pgR) {
                 push(element: element)
                 enterNormalMode()
             } else {
@@ -739,7 +625,7 @@ extension KindaVimEngine {
             
             enterNormalMode()
         case [.leftChevron, .leftChevron]:
-            if let element = asNormalMode.leftChevronLeftChevron(on: focusedTextElement) {
+            if let element = asNormalMode.leftChevronLeftChevron(on: focusedTextElement, pgR: appMode == .pgR) {
                 push(element: element)
             }
             
@@ -757,7 +643,7 @@ extension KindaVimEngine {
             
             enterNormalMode()
         case [.rightChevron, .rightChevron]:
-            if let element = asNormalMode.rightChevronRightChevron(on: focusedTextElement) {
+            if let element = asNormalMode.rightChevronRightChevron(on: focusedTextElement, pgR: appMode == .pgR) {
                 push(element: element)
             }
             
@@ -851,30 +737,23 @@ extension KindaVimEngine {
                 var element: AccessibilityTextElement?
                 
                 if operatorPendingBuffer[1].vimKey == .f, let character = operatorPendingBuffer.last {
-                    element = asNormalMode.cf(times: count, to: character.character, on: focusedTextElement)
+                    element = asNormalMode.cf(times: count, to: character.character, on: focusedTextElement, pgR: appMode == .pgR)
                 }
                 
                 if operatorPendingBuffer[1].vimKey == .F, let character = operatorPendingBuffer.last {
-                    element = asNormalMode.cF(to: character.character, on: focusedTextElement)
+                    element = asNormalMode.cF(to: character.character, on: focusedTextElement, pgR: appMode == .pgR)
                 }
                 
                 if operatorPendingBuffer[1].vimKey == .t, let character = operatorPendingBuffer.last {
-                    element = asNormalMode.ct(times: count, to: character.character, on: focusedTextElement)
+                    element = asNormalMode.ct(times: count, to: character.character, on: focusedTextElement, pgR: appMode == .pgR)
                 }
                 
                 if operatorPendingBuffer[1].vimKey == .T, let character = operatorPendingBuffer.last {
-                    element = asNormalMode.cT(to: character.character, on: focusedTextElement)
+                    element = asNormalMode.cT(to: character.character, on: focusedTextElement, pgR: appMode == .pgR)
                 }
                 
                 if let element = element, element.selectedText != nil {
                     push(element: element)
-                    
-                    if appMode == .pgR {
-                        for cgEvent in KeyCombinationAdaptor.toCGEvents(from: KeyCombination(key: .delete)) {
-                            cgEvent.post(tap: .cgSessionEventTap)
-                        }
-                    }
-
                     enterInsertMode()
                     
                     return
@@ -919,7 +798,7 @@ extension KindaVimEngine {
             }
             
             if operatorPendingBuffer.first?.vimKey == .r, let replacement = operatorPendingBuffer.last {                
-                if let element = asNormalMode.r(with: replacement.character, on: focusedTextElement) {
+                if let element = asNormalMode.r(with: replacement.character, on: focusedTextElement, pgR: appMode == .pgR) {
                     push(element: element)
                 } else {
                     parseOperatorCommandForNormalModeUsingKeyboardStrategy()
