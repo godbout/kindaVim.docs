@@ -4,7 +4,7 @@ import KeyCombination
 // AS Visual Mode
 extension KindaVimEngine {
     
-    func tryHandlingVisualModeUsingAccessibilityStrategyFirst(for keyCombination: KeyCombination) {
+    func tryHandlingVisualModeUsingAccessibilityStrategyFirst(for keyCombination: KeyCombination, appMode: AppMode) {
         switch keyCombination.vimKey {
         case .a:
             enterOperatorPendingForVisualMode(with: keyCombination)

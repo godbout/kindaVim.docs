@@ -118,7 +118,7 @@ class KindaVimEngine {
                 if appMode == .keyMapping {
                     handleVisualMode(using: .keyboardStrategy, for: keyCombination)
                 } else {
-                    handleVisualMode(using: .accessibilityStrategy, for: keyCombination)
+                    handleVisualMode(using: .accessibilityStrategy, for: keyCombination, appMode: appMode)
                 }
             case .operatorPendingForVisualMode:
                 if appMode == .keyMapping {
@@ -220,10 +220,10 @@ class KindaVimEngine {
         }
     }
     
-    private func handleVisualMode(using strategy: VimEngineStrategy, for keyCombination: KeyCombination) {
+    private func handleVisualMode(using strategy: VimEngineStrategy, for keyCombination: KeyCombination, appMode: AppMode = .auto) {
         switch strategy {
         case .accessibilityStrategy:
-            tryHandlingVisualModeUsingAccessibilityStrategyFirst(for: keyCombination)
+            tryHandlingVisualModeUsingAccessibilityStrategyFirst(for: keyCombination, appMode: appMode)
         case .keyboardStrategy:
             handleVisualModeUsingKeyboardStrategy(for: keyCombination)
         }
