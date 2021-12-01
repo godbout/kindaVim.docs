@@ -34,14 +34,14 @@ extension KindaVimEngine {
         case .c:
             switch visualStyle {
             case .characterwise:
-                if let element = asVisualMode.cForVisualStyleCharacterwise(on: focusedTextElement) {
+                if let element = asVisualMode.cForVisualStyleCharacterwise(on: focusedTextElement, pgR: appMode == .pgR) {
                     push(element: element)
                     enterInsertMode()
                 } else {
                     handleVisualModeUsingKeyboardStrategy(for: keyCombination)
                 }
             case .linewise:
-                if let element = asVisualMode.cForVisualStyleLinewise(on: focusedTextElement) {
+                if let element = asVisualMode.cForVisualStyleLinewise(on: focusedTextElement, pgR: appMode == .pgR) {
                     push(element: element)
                     enterInsertMode()
                 } else {
@@ -63,14 +63,14 @@ extension KindaVimEngine {
         case .d:
             switch visualStyle {
             case .characterwise:
-                if let element = asVisualMode.dForVisualStyleCharacterwise(on: focusedTextElement) {
+                if let element = asVisualMode.dForVisualStyleCharacterwise(on: focusedTextElement, pgR: appMode == .pgR) {
                     push(element: element)
                     enterNormalMode()
                 } else {
                     handleVisualModeUsingKeyboardStrategy(for: keyCombination)
                 }
             case .linewise:
-                if let element = asVisualMode.dForVisualStyleLinewise(on: focusedTextElement) {
+                if let element = asVisualMode.dForVisualStyleLinewise(on: focusedTextElement, pgR: appMode == .pgR) {
                     push(element: element)
                     enterNormalMode()
                 } else {
