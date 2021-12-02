@@ -31,6 +31,8 @@ kindaVim will be a subscription of one ☕️ (USD$3) a month. the beta is free 
 
 ## Accessibility Strategy
 
+(P.S.: the Unit and UI Tests for the Accessibility Strategy are now [open source](https://github.com/godbout/AccessibilityStrategyTestApp).)
+
 | Normal Mode | including count |
 | :---: | :---: | 
 | _ | ❌️ | 
