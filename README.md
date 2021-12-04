@@ -15,11 +15,11 @@ and also it's fucking cool.
 
 by default kindaVim runs in `Auto Mode` and tries to read the text of the focused app:
 
-1. if it can read and modify the text, it uses the [Accessibility Strategy](#user-content-the-accessibility-strategy). theoritically you can have a full Vim experience. pragmatically some stuff will currently be missing so please [ask](https://github.com/godbout/kindaVim.theapp/issues/new) for what you need!
-2. if it can't read the text, it uses the [Keyboard Strategy](#user-content-the-keyboard-strategy) and tries to impersonate Vim through key remapping. it's a little more wonky than the [Accessibility Strategy](#user-content-the-accessibility-strategy).
+1. if it can read and modify the text, it uses the [Accessibility Strategy](#user-content-accessibility-strategy). theoritically you can have a full Vim experience. pragmatically some stuff will currently be missing so please [ask](https://github.com/godbout/kindaVim.theapp/issues/new) for what you need!
+2. if it can't read the text, it uses the [Keyboard Strategy](#user-content-keyboard-strategy) and tries to impersonate Vim through key remapping. it's a little more wonky than the [Accessibility Strategy](#user-content-accessibility-strategy).
 
 you can ask kindaVim to ignore an app in the `Preferences`.
-some apps also have macOS Accessibility restrictions (mostly browsers) where you can read the text but not modify it. some other apps are just plain liars (like all Electron apps). so you can enforce the [Keyboard Strategy](#user-content-the-keyboard-strategy) for those in the `Preferences`.
+some apps also have macOS Accessibility restrictions (mostly browsers) where you can read the text but not modify it. some other apps are just plain liars (like all Electron apps). so you can enforce the [Keyboard Strategy](#user-content-keyboard-strategy) for those in the `Preferences`.
 
 # HOW 'BOUT THE MONEY
 
