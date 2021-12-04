@@ -13,15 +13,13 @@ and also it's fucking cool.
 
 # HOW DOES IT WORK
 
-kindaVim uses two strategies:
+by default kindaVim runs in `Auto Mode` and tries to read the text of the focused app:
 
-## the Accessibility Strategy
+1. if it can read and modify the text, it uses the [Accessibility Strategy](#user-content-the-accessibility-strategy). theoritically you can have a full Vim experience. pragmatically some stuff will currently be missing so please [ask](https://github.com/godbout/kindaVim.theapp/issues/new) for what you need!
+2. if it can't read the text, it uses the [Keyboard Strategy](#user-content-the-keyboard-strategy) and tries to impersonate Vim through key remapping. it's a little more wonky than the [Accessibility Strategy](#user-content-the-accessibility-strategy).
 
-for `Text Fields` and `Text Areas`, kindaVim will try to access the text through the [macOS Accessibility](https://support.apple.com/en-gb/guide/mac-help/mh35884/mac). if the application that holds the text implements the Accessibility properly then you have top black magic. a character-precision sniper. anything is possible (except some things). if the application does not implement the Accessibility, then kindaVim will fall back to using the [Keyboard Strategy](#user-content-the-keyboard-strategy).
-
-## the Keyboard Strategy
-
-for any UI Element other than `Text Fields` and `Text Areas` or for apps that don't implement the macOS Accessibility kindaVim will remap key presses. for Non Text UI Elements like `Dropdowns`, `Lists`, `Tables` etc. this works beautifully. for `Text Fields` and `Text Areas` on apps that don't implement the Accessibility kindaVim tries its best to reproduce the original Vim move through key remapping. but it's a little more wonky than the [Accessibility Strategy](#user-content-the-accessibility-strategy).
+you can ask kindaVim to ignore an app in the `Preferences`.
+some apps also have macOS Accessibility restrictions (mostly browsers) where you can read the text but not modify it. some other apps are just plain liars (like all Electron apps). so you can enforce the [Keyboard Strategy](#user-content-the-keyboard-strategy) for those in the `Preferences`.
 
 # HOW 'BOUT THE MONEY
 
