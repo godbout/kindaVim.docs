@@ -13,7 +13,7 @@ brain space and energy are limited. why learning six hundred thousand new keyboa
 
 and also it's fucking cool.
 
-# LIKED THE GIF?
+# LOVED THE GIF?
 
 maybe [watch the videos](https://www.youtube.com/channel/UC3ZP3QFMhNn3ivJgqoEW4Ug) first if you're not sure you wanna read further.
 
