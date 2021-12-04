@@ -13,6 +13,10 @@ brain space and energy are limited. why learning six hundred thousand new keyboa
 
 and also it's fucking cool.
 
+# LIKED THE GIF?
+
+maybe [watch the videos](https://www.youtube.com/channel/UC3ZP3QFMhNn3ivJgqoEW4Ug) first if you're not sure you wanna read further.
+
 # HOW DOES IT WORK
 
 by default kindaVim runs in `Auto Mode` and tries to read the text of the focused app:
