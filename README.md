@@ -35,7 +35,7 @@ kindaVim will be a subscription of one ☕️ (USD$3) a month. the beta is free 
 
 # CURRENT VIM IMPLEMENTATION
 
-## Accessibility Strategy
+## kV Accessibility Strategy
 
 (P.S.: the Unit and UI Tests for the Accessibility Strategy are now [open source](https://github.com/godbout/AccessibilityStrategyTestApp).)
 
@@ -175,7 +175,7 @@ kindaVim will be a subscription of one ☕️ (USD$3) a month. the beta is free 
 | w | ❌️ |
 | y | ❌️ |
 
-## Keyboard Strategy
+## kV Keyboard Strategy
 
 | Normal Mode | including count |
 | :---: | :---: |
