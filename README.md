@@ -263,17 +263,15 @@ kindaVim will be a subscription of one ☕️ (USD$3) a month. the beta is free 
 lol those tables.
 
 # ROADMAP
-* a plethora of missing Vim moves ([ask!](https://github.com/godbout/kindaVim.theapp/issues/new))
+* add a plethora of missing Vim moves ([ask!](https://github.com/godbout/kindaVim.theapp/issues/new))
 * update all moves to support new global count system ([ask!](https://github.com/godbout/kindaVim.theapp/issues/new))
-* hybrid mode: some apps like browsers implement the Accessibility but have restrictions. you can move around perfectly but the Accessibility cannot simulate the `enter` key or delete text. hybrid mode will be a combination of the [Accessibility Strategy](#user-content-the-accessibility-strategy) for some movements and the [Keyboard Strategy](#user-content-the-keyboard-strategy) for some others in order to bypass those restrictions
-* better handling of broswers and Electron shit apps
+* better handling of Electron shit apps
 
 # KNOWN ISSUES
-* kindaVim currently considers escaped quotes as quotes. sad
-* brackets within quotes are also not ignored. double sad
-* some bug with caw, daw and empty lines. will fix when bored
-* some moves may not work in some browers, even when enforcing the Keyboard Strategy. hybrid mode will solve this
-* indentation <<, >> is currently not configurable and stuck to 4 spaces (haha)
+
+* issues regarding End User Experience will be reported here: https://github.com/godbout/kindaVim.theapp/issues
+
+kindaVim uses the macOS Accessibility API extensively. it's an old and buggy API. unfortunately there's a lot that we don't control. the API sometimes sends back wrong data. it also requires apps to implement the Accessibility in order to work. so even if i strive to make things consistent as much as possible, it is not always a success. all API bugs are reported to, and talked with Apple. please report if something does not seem to work properly, and i'll see what i can do.
 
 # REQUESTS
 
