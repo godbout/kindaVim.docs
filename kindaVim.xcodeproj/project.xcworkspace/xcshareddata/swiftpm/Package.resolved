@@ -6,7 +6,7 @@
         "repositoryURL": "git@github.com:godbout/AccessibilityStrategy.git",
         "state": {
           "branch": "master",
-          "revision": "f72ace6457e16689a83da477704a9cb26c0a357b",
+          "revision": "a93375442972eb0166abca1afefca9631cd3cb8c",
           "version": null
         }
       },
@@ -15,7 +15,7 @@
         "repositoryURL": "git@github.com:godbout/AXEngine.git",
         "state": {
           "branch": "master",
-          "revision": "9779943bc3fc9ffa175b94be12a3ab28c79fb8eb",
+          "revision": "ddb2862b8660c7218c526f0e1358060e23984834",
           "version": null
         }
       },
@@ -33,7 +33,7 @@
         "repositoryURL": "git@github.com:godbout/KeyboardStrategy.git",
         "state": {
           "branch": "master",
-          "revision": "be56d25c254e141c480a43a6e4d2dad6b36b7f78",
+          "revision": "736fe3238f05930af4442bff761cc399f1ad63a9",
           "version": null
         }
       },
@@ -60,7 +60,7 @@
         "repositoryURL": "https://github.com/sparkle-project/Sparkle",
         "state": {
           "branch": "2.x",
-          "revision": "1ef42e9d1c34e9ba3a071ebd2e051becaae8ab5a",
+          "revision": "3a64116913bcd1fe50c7cb904e2110231f783e2c",
           "version": null
         }
       }
