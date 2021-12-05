@@ -58,7 +58,7 @@ struct ModesPane: View {
         Form {
             HStack {
                 Spacer()
-                Text("by default kindaVim will automatically do its magic and detect whether to use the macOS Accessibility or to remap keys. that will work well for most apps. still, you may need some tweaking for apps with restrictions, or apps that are just pure evil liars. see below.")
+                Text("by default kindaVim will use Auto Mode and detect whether to use the macOS Accessibility or to remap keys in order to achieve a Vim move. that works well for most apps. still, you may need some tweaking for apps with restrictions, or apps that are just pure evil liars. see below.") 
                 Spacer()
             }
             .fixedSize(horizontal: false, vertical: true)
