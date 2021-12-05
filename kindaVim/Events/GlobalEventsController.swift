@@ -27,6 +27,9 @@ struct GlobalEventsController {
         guard let implementedKeyCombination = keyCombination else { return false }
 
         if globalVimEngineHotkeyIsPressed(implementedKeyCombination) {
+            AppCore.shared.vimEngine.display.ongoingMove(add: implementedKeyCombination)
+            AppCore.shared.vimEngine.display.showOngoingMove()
+            
             AppCore.shared.vimEngine.enterNormalMode(appMode: appMode)
             
             print("enter Normal Mode")
