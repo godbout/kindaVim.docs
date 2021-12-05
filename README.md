@@ -19,7 +19,7 @@ maybe [watch the videos](https://www.youtube.com/channel/UC3ZP3QFMhNn3ivJgqoEW4U
 
 # HOW DOES IT WORK
 
-by default kindaVim runs in `Auto Mode` and tries to read the text of the focused app:
+by default kindaVim runs in `Auto Mode` and tries to read the text of the app focused:
 
 1. if it can read and modify the text, it uses the [kV Accessibility Strategy](#user-content-kv-accessibility-strategy). theoritically you can have a full Vim experience. pragmatically some stuff will currently be missing so please [ask](https://github.com/godbout/kindaVim.theapp/issues/new) for what you need!
 2. if it can't read the text, it uses the [kV Keyboard Strategy](#user-content-kv-keyboard-strategy) and tries to impersonate Vim through key remapping. it's a little more wonky than the kV Accessibility Strategy.
