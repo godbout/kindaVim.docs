@@ -21,13 +21,13 @@ maybe [watch the videos](https://www.youtube.com/channel/UC3ZP3QFMhNn3ivJgqoEW4U
 
 by default kindaVim runs in `Auto Mode` and tries to read the text of the focused app:
 
-1. if it can read and modify the text, it uses the [kV Accessibility Strategy](#user-content-accessibility-strategy). theoritically you can have a full Vim experience. pragmatically some stuff will currently be missing so please [ask](https://github.com/godbout/kindaVim.theapp/issues/new) for what you need!
-2. if it can't read the text, it uses the [kV Keyboard Strategy](#user-content-keyboard-strategy) and tries to impersonate Vim through key remapping. it's a little more wonky than the kV Accessibility Strategy.
+1. if it can read and modify the text, it uses the [kV Accessibility Strategy](#user-content-kv-accessibility-strategy). theoritically you can have a full Vim experience. pragmatically some stuff will currently be missing so please [ask](https://github.com/godbout/kindaVim.theapp/issues/new) for what you need!
+2. if it can't read the text, it uses the [kV Keyboard Strategy](#user-content-kv-keyboard-strategy) and tries to impersonate Vim through key remapping. it's a little more wonky than the kV Accessibility Strategy.
 
 in the `Preferences` you can also:
 * ask kindaVim to ignore any app completely
 * bypass macOS Accessibility restrictions with the `PG-R` Mode for apps where you can read the text but not modify it. you'll experience this mostly in browsers
-* enforce the [kV Keyboard Strategy](#user-content-keyboard-strategy) for big fat liars apps that tell you they're implementing the macOS Accessibility but actually no no (all Electron apps)
+* enforce the [kV Keyboard Strategy](#user-content-kv-keyboard-strategy) for big fat liars apps that tell you they're implementing the macOS Accessibility but actually no no (all Electron apps)
 
 # HOW 'BOUT THE MONEY
 
@@ -275,10 +275,10 @@ kindaVim uses the macOS Accessibility API extensively. it's an old and buggy API
 
 # REQUESTS
 
-* to request a missing move, open an issue: https://github.com/godbout/kindaVim.theapp/issues/new
-* to request a feature, open an issue: https://github.com/godbout/kindaVim.theapp/issues/new
-* to report a bug, open an issue: https://github.com/godbout/kindaVim.theapp/issues/new
-* in case you just want to open an issue though, open an issue: https://github.com/godbout/kindaVim.theapp/issues/new
+* to request a missing move, [open an issue](https://github.com/godbout/kindaVim.theapp/issues/new)
+* to request a feature, [open an issue](https://github.com/godbout/kindaVim.theapp/issues/new)
+* to report a bug, wait. yes, [open an issue](https://github.com/godbout/kindaVim.theapp/issues/new)
+* in case you just want to open an issue though, [open an issue](https://github.com/godbout/kindaVim.theapp/issues/new)
 
 # ACKNOWLEDGMENTS, THANKS, AND KISSES
 
