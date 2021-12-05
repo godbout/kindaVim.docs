@@ -151,7 +151,7 @@ struct ModesPane: View {
             HStack {
                 Spacer()
 
-                Toggle("map jk to gj gk for Accessibility Strategy", isOn: $jkMapping)
+                Toggle("map jk to gj gk for Auto and PG-R Modes", isOn: $jkMapping)
                     .onChange(of: jkMapping) {
                         AppCore.shared.vimEngine.jkMapping = $0
                     }
