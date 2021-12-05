@@ -271,7 +271,9 @@ lol those tables.
 
 * issues regarding End User Experience will be reported here: https://github.com/godbout/kindaVim.theapp/issues
 
-kindaVim uses the macOS Accessibility API extensively. it's an old and buggy API. unfortunately there's a lot that we don't control. the API sometimes sends back wrong data. it also requires apps to implement the Accessibility in order to work. so even if i strive to make things consistent as much as possible, it is not always a success. all API bugs are reported to, and talked with Apple. please report if something does not seem to work properly, and i'll see what i can do.
+kindaVim uses the macOS Accessibility API extensively. it's an old and buggy API. unfortunately there's a lot that we don't control. the API sometimes sends back wrong data. it also requires macOS apps to implement the Accessibility in order to work. so even if i strive to make things consistent as much as possible, it is not always a success. all API bugs are reported to, and talked with Apple. please report if something does not seem to work properly, and i'll see what i can do.
+
+in native apps that implement the macOS Accessibility the experience is consistent and we could basically build a whole Vim. in browsers, Electron apps and other native apps that don't implement the macOS Accessibility results may, well, vary. 😬️
 
 # REQUESTS
 
