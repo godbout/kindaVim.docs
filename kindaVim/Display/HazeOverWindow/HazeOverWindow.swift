@@ -27,6 +27,7 @@ struct HazeOverWindow: WindowProtocol {
         window.backgroundColor = .black
         window.animationBehavior = .none
         window.collectionBehavior = [.canJoinAllSpaces, .transient]
+        window.ignoresMouseEvents = true
     }
     
     
