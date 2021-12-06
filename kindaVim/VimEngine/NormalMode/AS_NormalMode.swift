@@ -396,8 +396,9 @@ extension KindaVimEngine {
         case [.c, .i, .doubleQuote]:
             enterNormalMode()
                         
-            // if element.selectedText is nil that means that the move didn't find a pair of "something" to empty
-            if let element = asNormalMode.ciDoubleQuote(on: focusedTextElement, pgR: appMode == .pgR), element.selectedText != nil {
+            // if element.selectedLength is equal to 0 that means that a pair was found and deleted, so we can carry on
+            // else we don't do shit
+            if let element = asNormalMode.ciDoubleQuote(on: focusedTextElement, pgR: appMode == .pgR), element.selectedLength == 0 {
                 push(element: element)
                 lastYankStyle = .characterwise
                 enterInsertMode()
@@ -453,14 +454,16 @@ extension KindaVimEngine {
         case [.c, .i, .singleQuote]:
             enterNormalMode()
             
-            if let element = asNormalMode.ciSingleQuote(on: focusedTextElement, pgR: appMode == .pgR), element.selectedText != nil {
+            // see ciDoubleQuote
+            if let element = asNormalMode.ciSingleQuote(on: focusedTextElement, pgR: appMode == .pgR), element.selectedLength == 0 {
                 push(element: element)
                 enterInsertMode()
             }            
         case [.c, .i, .backtick]:
             enterNormalMode()
             
-            if let element = asNormalMode.ciBacktick(on: focusedTextElement, pgR: appMode == .pgR), element.selectedText != nil {
+            // see ciDoubleQuote
+            if let element = asNormalMode.ciBacktick(on: focusedTextElement, pgR: appMode == .pgR), element.selectedLength == 0 {
                 push(element: element)
                 enterInsertMode()
             }
