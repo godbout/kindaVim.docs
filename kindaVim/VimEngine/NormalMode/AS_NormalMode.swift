@@ -745,7 +745,7 @@ extension KindaVimEngine {
                     element = asNormalMode.cT(to: character.character, on: focusedTextElement, pgR: appMode == .pgR)
                 }
                 
-                if let element = element, element.selectedText != nil {
+                if let element = element, element.selectedLength == 0 {
                     push(element: element)
                     enterInsertMode()
                     
