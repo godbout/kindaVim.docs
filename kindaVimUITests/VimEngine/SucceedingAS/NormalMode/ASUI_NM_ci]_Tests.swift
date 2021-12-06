@@ -4,22 +4,22 @@ import AccessibilityStrategy
 
 
 // see ci' for blah blah
-class ASUI_NM_ciLeftParenthesis_Tests: ASUI_NM_BaseTests {
+class ASUI_NM_ciRightBracket_Tests: ASUI_NM_BaseTests {
 
     private func applyKeyCombinationsBeingTested() {
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .c))
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .i))
-        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .leftParenthesis))
+        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .rightBracket))
     }
 
 }
 
 
-extension ASUI_NM_ciLeftParenthesis_Tests {
+extension ASUI_NM_ciRightBracket_Tests {
 
     func test_that_in_normal_setting_it_succeeds_and_switches_to_insert_mode() {
         let textInAXFocusedElement = """
-hoho ( another pile of shit )
+hoho [ another pile of shit ]
 """
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)

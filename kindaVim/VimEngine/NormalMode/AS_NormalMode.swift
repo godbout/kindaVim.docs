@@ -406,48 +406,48 @@ extension KindaVimEngine {
         case [.c, .i, .leftBrace]:
             enterNormalMode()
             
-            // if element.selectedText is nil that means that the move didn't find a pair of "something" to empty
-            if let element = asNormalMode.ciLeftBrace(on: focusedTextElement, pgR: appMode == .pgR), element.selectedText != nil {
+            // same as above. if element.selectedLength is equal to 0 that means the move found a pair and deleted it
+            if let element = asNormalMode.ciLeftBrace(on: focusedTextElement, pgR: appMode == .pgR), element.selectedLength == 0 {
                 push(element: element)
                 enterInsertMode()
             }
         case [.c, .i, .leftBracket]:
             enterNormalMode()
             
-            // if element.selectedText is nil that means that the move didn't find a pair of "something" to empty
-            if let element = asNormalMode.ciLeftBracket(on: focusedTextElement, pgR: appMode == .pgR), element.selectedText != nil {
+            // see ciLeftBrace
+            if let element = asNormalMode.ciLeftBracket(on: focusedTextElement, pgR: appMode == .pgR), element.selectedLength == 0 {
                 push(element: element)
                 enterInsertMode()
             }
         case [.c, .i, .leftParenthesis]:
             enterNormalMode()
             
-            // if element.selectedText is nil that means that the move didn't find a pair of "something" to empty
-            if let element = asNormalMode.ciLeftParenthesis(on: focusedTextElement, pgR: appMode == .pgR), element.selectedText != nil {
+            // see ciLeftBrace
+            if let element = asNormalMode.ciLeftParenthesis(on: focusedTextElement, pgR: appMode == .pgR), element.selectedLength == 0 {
                 push(element: element)
                 enterInsertMode()
             }
         case [.c, .i, .rightBrace]:
             enterNormalMode()
             
-            // if element.selectedText is nil that means that the move didn't find a pair of "something" to empty
-            if let element = asNormalMode.ciRightBrace(on: focusedTextElement, pgR: appMode == .pgR), element.selectedText != nil {
+            // see ciLeftBrace
+            if let element = asNormalMode.ciRightBrace(on: focusedTextElement, pgR: appMode == .pgR), element.selectedLength == 0 {
                 push(element: element)
                 enterInsertMode()
             }
         case [.c, .i, .rightBracket]:
             enterNormalMode()
             
-            // if element.selectedText is nil that means that the move didn't find a pair of "something" to empty
-            if let element = asNormalMode.ciRightBracket(on: focusedTextElement, pgR: appMode == .pgR), element.selectedText != nil {
+            // see ciLeftBrace
+            if let element = asNormalMode.ciRightBracket(on: focusedTextElement, pgR: appMode == .pgR), element.selectedLength == 0 {
                 push(element: element)
                 enterInsertMode()
             }
         case [.c, .i, .rightParenthesis]:
             enterNormalMode()
             
-            // if element.selectedText is nil that means that the move didn't find a pair of "something" to empty
-            if let element = asNormalMode.ciRightParenthesis(on: focusedTextElement, pgR: appMode == .pgR), element.selectedText != nil {
+            // see ciLeftBrace
+            if let element = asNormalMode.ciRightParenthesis(on: focusedTextElement, pgR: appMode == .pgR), element.selectedLength == 0 {
                 push(element: element)
                 enterInsertMode()
             }
