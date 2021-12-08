@@ -43,8 +43,6 @@ kindaVim will be a subscription of one ☕️ (USD$3) a month. the beta is free 
 
 ## kV Accessibility Strategy
 
-(P.S.: the Unit and UI Tests for the Accessibility Strategy are now [open source](https://github.com/godbout/AccessibilityStrategyTestApp).)
-
 | Normal Mode | including count |
 | :---: | :---: | 
 | _ | ❌️ | 
@@ -287,6 +285,10 @@ in native apps that implement the macOS Accessibility the experience is consiste
 * to request a feature, [open an issue](https://github.com/godbout/kindaVim.theapp/issues/new)
 * to report a bug, wait. yes, [open an issue](https://github.com/godbout/kindaVim.theapp/issues/new)
 * in case you just want to open an issue though, [open an issue](https://github.com/godbout/kindaVim.theapp/issues/new)
+
+# OPEN SOURCE
+
+the [tests](https://github.com/godbout/AccessibilityStrategyTestApp) describing the Vim moves are open source. you can use those to build your own implementation, or if you just want to learn more about Vim moves, or if you just can't get enough good self-induced migraines.
 
 # ACKNOWLEDGMENTS, THANKS, AND KISSES
 
