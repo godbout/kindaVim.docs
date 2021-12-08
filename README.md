@@ -29,6 +29,12 @@ in the `Preferences` you can also:
 * bypass macOS Accessibility restrictions with the `PG-R` Mode for apps where you can read the text but not modify it. you'll experience this mostly in browsers
 * enforce the [kV Keyboard Strategy](#user-content-kv-keyboard-strategy) for big fat liars apps that tell you they're implementing the macOS Accessibility but actually no no (all Electron apps)
 
+# WAIT A MINUTE. WHAT DATA DO YOU STEAL???
+
+to do its magic kindaVim needs to read/write text, and capture/forward key presses. so technically yes, i could steal your girlfriend's (or boyfriend's) phone number. but the app is [notarized by Apple](https://developer.apple.com/documentation/security/notarizing_macos_software_before_distribution), which means they checked it and agreed i'm a good boy.
+
+also honestly i personally don't give a single flying fuck about data. that's noise to me. i don't even track the [kindaVim.app](https://kindavim.app) website. i want to use my time and energy to create great products, and i truly believe that it'll be enough. yes. i'm that dumb.
+
 # HOW 'BOUT THE MONEY
 
 kindaVim will be a subscription of one ☕️ (USD$3) a month. the beta is free and contains the full set of features. i have no idea when i'll drop the beta. the beta may last 10 years. who knows. or maybe till 2047.
