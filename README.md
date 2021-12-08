@@ -37,7 +37,7 @@ also honestly i personally don't give a single flying fuck about data. that's no
 
 # HOW 'BOUT THE $$$
 
-kindaVim will be a subscription of one ☕️ (USD$3) a month. the beta is free and contains the full set of features. i have no idea when i'll drop the beta. the beta may last 10 years. who knows. or maybe till 2047.
+kindaVim will be a subscription of one ☕️ (USD$3) a month. the beta is free and contains the full set of features. i have no idea when i'll drop the beta. the beta may last 10 years. who knows. or maybe till 2049.
 
 # CURRENT VIM IMPLEMENTATION
 
