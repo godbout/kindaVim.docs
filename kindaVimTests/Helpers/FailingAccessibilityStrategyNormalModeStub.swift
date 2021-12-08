@@ -157,7 +157,7 @@ struct FailingAccessibilityStrategyNormalModeStub: AccessibilityStrategyNormalMo
         return nil
     }
     
-    func F(to: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func F(times count: Int = 1, to: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return nil
     }
     
@@ -265,7 +265,7 @@ struct FailingAccessibilityStrategyNormalModeStub: AccessibilityStrategyNormalMo
         return nil
     }
     
-    func T(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func T(times count: Int = 1, to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return nil
     }
     
