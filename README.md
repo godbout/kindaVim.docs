@@ -33,7 +33,7 @@ in the `Preferences` you can also:
 
 to do its magic kindaVim needs to read/write text, and capture/forward key presses. so technically yes, i could steal your girlfriend's (or boyfriend's) phone number. but the app is [notarized by Apple](https://developer.apple.com/documentation/security/notarizing_macos_software_before_distribution), which means they've checked it and agreed i'm a good boy.
 
-also honestly i personally don't give a single flying fuck about data. that's noise to me. i don't even track the [kindaVim.app](https://kindavim.app) website. i want to use my time and energy to create great products, and i truly believe that it'll be enough. yes. i'm that dumb.
+also honestly i personally don't give a single flying fuck about data. that's noise to me. i don't even track the [kindaVim.app](https://kindavim.app) website. i want to use my time and energy to create great products, and i believe the rest will take care of itself. yes. i'm that dumb.
 
 # HOW 'BOUT THE MONEY
 
