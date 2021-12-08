@@ -805,7 +805,7 @@ extension KindaVimEngine {
             }
             
             if operatorPendingBuffer.first?.vimKey == .T, let character = operatorPendingBuffer.last {
-                if let element = asNormalMode.T(to: character.character, on: focusedTextElement) {
+                if let element = asNormalMode.T(times: count, to: character.character, on: focusedTextElement) {
                     push(element: element)
                 }
             }
