@@ -492,6 +492,9 @@ extension KindaVimEngine {
                     
                     enterVisualMode()
                 }
+                
+                // if nothing gets caught, stop operator pending and go back to VM
+                enterVisualMode()
             case .linewise:
                 enterVisualMode()
             }
