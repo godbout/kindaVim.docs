@@ -35,7 +35,7 @@ to do its magic kindaVim needs to read/write text, and capture/forward key press
 
 also honestly i personally don't give a single flying fuck about data. that's noise to me. i don't even track the [kindaVim.app](https://kindavim.app) website. i want to use my time and energy to create great products, and i believe the rest will take care of itself. yes. i'm that dumb.
 
-# HOW 'BOUT THE MONEY
+# HOW 'BOUT THE $$$
 
 kindaVim will be a subscription of one ☕️ (USD$3) a month. the beta is free and contains the full set of features. i have no idea when i'll drop the beta. the beta may last 10 years. who knows. or maybe till 2047.
 
