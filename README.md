@@ -269,6 +269,7 @@ kindaVim will be a subscription of one ☕️ (USD$3) a month. the beta is free 
 lol those tables.
 
 # ROADMAP
+* support all keyboard layouts (currently stuck to US QWERTY layout. lame. i know.)
 * add a plethora of missing Vim moves ([ask!](https://github.com/godbout/kindaVim.theapp/issues/new))
 * update all moves to support new global count system ([ask!](https://github.com/godbout/kindaVim.theapp/issues/new))
 * better handling of Electron shit apps
