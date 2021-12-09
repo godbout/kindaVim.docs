@@ -766,7 +766,7 @@ extension KindaVimEngine {
                 }
                 
                 if operatorPendingBuffer[1].vimKey == .t, let character = operatorPendingBuffer.last {
-                    element = asNormalMode.dt(to: character.character, on: focusedTextElement, pgR: appMode == .pgR)
+                    element = asNormalMode.dt(times: count, to: character.character, on: focusedTextElement, pgR: appMode == .pgR)
                 }
                 
                 if operatorPendingBuffer[1].vimKey == .T, let character = operatorPendingBuffer.last {
