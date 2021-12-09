@@ -37,11 +37,11 @@ struct FailingAccessibilityStrategyNormalModeStub: AccessibilityStrategyNormalMo
         return nil
     }
     
-    func cF(times count: Int = 1, to character: Character, on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
+    func cF(times count: Int? = 1, to character: Character, on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
         return nil
     }
     
-    func cf(times count: Int = 1, to character: Character, on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
+    func cf(times count: Int? = 1, to character: Character, on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
         return nil
     }
     
@@ -93,11 +93,11 @@ struct FailingAccessibilityStrategyNormalModeStub: AccessibilityStrategyNormalMo
         return nil
     }
     
-    func cT(times count: Int = 1, to character: Character, on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
+    func cT(times count: Int? = 1, to character: Character, on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
         return nil
     }
     
-    func ct(times count: Int = 1, to character: Character, on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
+    func ct(times count: Int? = 1, to character: Character, on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
         return nil
     }
     
@@ -113,11 +113,11 @@ struct FailingAccessibilityStrategyNormalModeStub: AccessibilityStrategyNormalMo
         return nil
     }
     
-    func df(times count: Int = 1, to character: Character, on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
+    func df(times count: Int? = 1, to character: Character, on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
         return nil
     }
     
-    func dF(times count: Int = 1, to character: Character, on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
+    func dF(times count: Int? = 1, to character: Character, on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
         return nil
     }
     
@@ -137,11 +137,11 @@ struct FailingAccessibilityStrategyNormalModeStub: AccessibilityStrategyNormalMo
         return nil
     }
     
-    func dt(times count: Int = 1, to character: Character, on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
+    func dt(times count: Int? = 1, to character: Character, on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
         return nil
     }
     
-    func dT(times count: Int = 1, to character: Character, on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
+    func dT(times count: Int? = 1, to character: Character, on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
         return nil
     }
     
@@ -153,11 +153,11 @@ struct FailingAccessibilityStrategyNormalModeStub: AccessibilityStrategyNormalMo
         return nil
     }
     
-    func f(times count: Int = 1, to: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func f(times count: Int? = 1, to: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return nil
     }
     
-    func F(times count: Int = 1, to: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func F(times count: Int? = 1, to: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return nil
     }
     
@@ -201,7 +201,7 @@ struct FailingAccessibilityStrategyNormalModeStub: AccessibilityStrategyNormalMo
         return nil
     }
     
-    func G(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func G(times count: Int? = nil, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return nil
     }
     
@@ -225,7 +225,7 @@ struct FailingAccessibilityStrategyNormalModeStub: AccessibilityStrategyNormalMo
         return nil
     }
     
-    func l(times count: Int = 1, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func l(times count: Int? = 1, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return nil        
     }
     
@@ -261,11 +261,11 @@ struct FailingAccessibilityStrategyNormalModeStub: AccessibilityStrategyNormalMo
         return nil        
     }
     
-    func t(times count: Int = 1, to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func t(times count: Int? = 1, to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return nil
     }
     
-    func T(times count: Int = 1, to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func T(times count: Int? = 1, to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return nil
     }
     
@@ -293,11 +293,11 @@ struct FailingAccessibilityStrategyNormalModeStub: AccessibilityStrategyNormalMo
         return nil
     }
     
-    func yf(times count: Int = 1, to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func yf(times count: Int? = 1, to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return nil
     }
     
-    func yF(times count: Int = 1, to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func yF(times count: Int? = 1, to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return nil
     }
     
@@ -341,11 +341,11 @@ struct FailingAccessibilityStrategyNormalModeStub: AccessibilityStrategyNormalMo
         return nil
     }
     
-    func yt(times count: Int = 1, to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func yt(times count: Int? = 1, to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return nil
     }
     
-    func yT(times count: Int = 1, to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func yT(times count: Int? = 1, to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return nil
     }
     
