@@ -827,7 +827,7 @@ extension KindaVimEngine {
                 }
                 
                 if operatorPendingBuffer[1].vimKey == .T, let character = operatorPendingBuffer.last {
-                    element = asNormalMode.yT(to: character.character, on: focusedTextElement)
+                    element = asNormalMode.yT(times: count, to: character.character, on: focusedTextElement)
                 }
                 
                 if let element = element {
