@@ -20,7 +20,7 @@ class SucceedingASNM_df_Tests: SucceedingASNM_BaseTests {
 extension SucceedingASNM_df_Tests {
     
     func test_that_in_Auto_Mode_it_calls_the_correct_function_on_AS_with_PGR_off() {
-        XCTAssertEqual(asNormalModeMock.functionCalled, "df(to:on:pgR:)")
+        XCTAssertEqual(asNormalModeMock.functionCalled, "df(times:to:on:pgR:)")
         XCTAssertEqual(asNormalModeMock.pgRPassed, false)
     }
     
@@ -30,7 +30,7 @@ extension SucceedingASNM_df_Tests {
         kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .f))
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .f), appMode: .pgR)
         
-        XCTAssertEqual(asNormalModeMock.functionCalled, "df(to:on:pgR:)")
+        XCTAssertEqual(asNormalModeMock.functionCalled, "df(times:to:on:pgR:)")
         XCTAssertEqual(asNormalModeMock.pgRPassed, true)
     }
     
