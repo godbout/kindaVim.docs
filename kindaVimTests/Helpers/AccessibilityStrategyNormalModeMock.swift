@@ -471,7 +471,7 @@ class AccessibilityStrategyNormalModeMock: AccessibilityStrategyNormalModeProtoc
         return element
     }
     
-    func yF(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func yF(times count: Int = 1, to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         
         return element
