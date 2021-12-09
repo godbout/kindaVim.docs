@@ -17,6 +17,12 @@ class CountSystemTests: XCTestCase {
     }
     
     
+    func test_that_if_there_is_not_digit_then_the_count_is_nil() {
+        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .l))
+        
+        XCTAssertNil(kindaVimEngine.count)
+    }
+        
     func test_that_the_count_is_correct_when_the_command_starts_with_a_digit() {
         kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .five))
         kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .c))
@@ -70,7 +76,7 @@ class CountSystemTests: XCTestCase {
         kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .a))
         kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .two))
         
-        XCTAssertEqual(kindaVimEngine.count, 1)
+        XCTAssertNil(kindaVimEngine.count)
     }
 
 }
@@ -85,7 +91,7 @@ extension CountSystemTests {
         kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .d))
         kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .a))
         
-        XCTAssertEqual(kindaVimEngine.count, 1)
+        XCTAssertNil(kindaVimEngine.count)
     }
     
     func test_that_if_the_command_already_starts_with_digits_and_does_not_have_an_operator_yet_then_0_is_part_of_the_first_count() {
@@ -112,7 +118,7 @@ extension CountSystemTests {
         kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .four))
         kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .a))
         
-        XCTAssertEqual(kindaVimEngine.count, 1)
+        XCTAssertNil(kindaVimEngine.count)
     }
     
     func test_that_if_there_is_a_count_that_includes_a_0_before_and_a_count_that_includes_a_0_after_an_operator_then_the_counts_are_multiplied() {
@@ -135,7 +141,7 @@ extension CountSystemTests {
         kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .a))
         kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .zero))
         
-        XCTAssertEqual(kindaVimEngine.count, 1)
+        XCTAssertNil(kindaVimEngine.count)
     }
         
 }
