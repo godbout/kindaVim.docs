@@ -46,7 +46,7 @@ extension EnforcingKS_NotImplementedOrDontExist_Tests {
         kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .eight))
         kindaVimEngine.handle(keyCombination: controlA)
         
-        XCTAssertEqual(kindaVimEngine.count, 1)
+        XCTAssertNil(kindaVimEngine.count)
     }
 }
 
@@ -94,7 +94,7 @@ extension EnforcingKS_NotImplementedOrDontExist_Tests {
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .i))
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .w))
 
-        XCTAssertEqual(kindaVimEngine.count, 1)
+        XCTAssertNil(kindaVimEngine.count)
     }
 
 }

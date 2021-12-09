@@ -34,7 +34,7 @@ extension EnforcingKSVM_$_Tests {
         kindaVimEngine.visualStyle = .characterwise
         applyKeyCombinationsBeingTested()
         
-        XCTAssertEqual(kindaVimEngine.count, 1)
+        XCTAssertNil(kindaVimEngine.count)
     }
 
 }
@@ -61,7 +61,7 @@ extension EnforcingKSVM_$_Tests {
         kindaVimEngine.visualStyle = .linewise
         applyKeyCombinationsBeingTested()
         
-        XCTAssertEqual(kindaVimEngine.count, 1)
+        XCTAssertNil(kindaVimEngine.count)
     }
 
 }

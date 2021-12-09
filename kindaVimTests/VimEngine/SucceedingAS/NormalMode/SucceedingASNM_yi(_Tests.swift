@@ -33,7 +33,7 @@ extension SucceedingASNM_yiLeftParenthesis_Tests {
     }
     
     func test_that_it_resets_the_count() {
-        XCTAssertEqual(kindaVimEngine.count, 1)
+        XCTAssertNil(kindaVimEngine.count)
     }
 
 }
