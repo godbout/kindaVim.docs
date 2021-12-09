@@ -815,7 +815,7 @@ extension KindaVimEngine {
                 var element: AccessibilityTextElement?
                 
                 if operatorPendingBuffer[1].vimKey == .f, let character = operatorPendingBuffer.last {
-                    element = asNormalMode.yf(to: character.character, on: focusedTextElement)
+                    element = asNormalMode.yf(times: count, to: character.character, on: focusedTextElement)
                 }
                 
                 if operatorPendingBuffer[1].vimKey == .F, let character = operatorPendingBuffer.last {
