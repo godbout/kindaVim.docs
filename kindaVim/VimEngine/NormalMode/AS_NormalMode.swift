@@ -823,7 +823,7 @@ extension KindaVimEngine {
                 }
                 
                 if operatorPendingBuffer[1].vimKey == .t, let character = operatorPendingBuffer.last {
-                    element = asNormalMode.yt(to: character.character, on: focusedTextElement)
+                    element = asNormalMode.yt(times: count, to: character.character, on: focusedTextElement)
                 }
                 
                 if operatorPendingBuffer[1].vimKey == .T, let character = operatorPendingBuffer.last {
