@@ -76,7 +76,7 @@ extension KindaVimEngine {
         case .g:
             enterOperatorPendingForNormalMode(with: keyCombination)
         case .G:
-            if let element = asNormalMode.G(on: focusedTextElement) {
+            if let element = asNormalMode.G(times: count, on: focusedTextElement) {
                 push(element: element)
                 endCurrentMove()
             } else {
