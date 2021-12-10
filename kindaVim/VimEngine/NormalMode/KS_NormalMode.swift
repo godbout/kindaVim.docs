@@ -176,7 +176,10 @@ extension KindaVimEngine {
             ()
         case [.c, .i, .w]:
             post(ksNormalMode.ciw())
-            enterInsertMode()            
+            enterInsertMode()    
+        case [.c, .w]:
+            post(ksNormalMode.cw())
+            enterInsertMode()
         case [.d, .a]:
             ()
         case [.d, .a, .w]:
