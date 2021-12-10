@@ -67,7 +67,9 @@ kindaVim will be a subscription of one ☕️ (USD$3) a month. the beta is free 
 | C | ❌️ | 
 | caw | ❌️ | 
 | cc | ❌️ | 
-| cF | ❌️ | 
+| cE | ❌️ | 
+| ce | ❌️ | 
+| cF | ✅️ | 
 | cf | ✅️ | 
 | cG | ❌️ | 
 | cgg | ❌️ | 
@@ -82,31 +84,33 @@ kindaVim will be a subscription of one ☕️ (USD$3) a month. the beta is free 
 | ci` | ❌️ | 
 | ciw | ❌️ | 
 | control r | ❌️ | 
-| cT | ❌️ | 
+| cT | ✅️ | 
 | ct | ✅️ | 
+| cW | ❌️ | 
+| cw | ❌️ | 
 | D | ❌️ | 
 | daw | ❌️ | 
 | dd | ❌️ | 
-| dF | ❌️ | 
-| df | ❌️ | 
+| dF | ✅️ | 
+| df | ✅️ | 
 | dG | ❌️ | 
 | dgg | ❌️ | 
 | dj | ❌️ | 
 | dk | ❌️ | 
-| dT | ❌️ | 
-| dt | ❌️ | 
+| dT | ✅️ | 
+| dt | ✅️ | 
 | E | ❌️ | 
 | e | ❌️ | 
-| F | ❌️ | 
+| F | ✅️ | 
 | f | ✅️ | 
-| G | ❌️ | 
+| G | ✅️ | 
 | g_ | ❌️ | 
 | g^ | ❌️ | 
 | g$ | ❌️ | 
 | g0 | ❌️ | 
 | gE | ❌️ | 
 | ge | ❌️ | 
-| gg | ❌️ | 
+| gg | ✅️ | 
 | gI | ❌️ | 
 | gj | ❌️ | 
 | gk | ❌️ | 
@@ -121,14 +125,14 @@ kindaVim will be a subscription of one ☕️ (USD$3) a month. the beta is free 
 | P | ❌️ | 
 | p | ❌️ | 
 | r | ❌️ | 
-| T | ❌️ | 
+| T | ✅️ | 
 | t | ✅️ | 
 | u | ❌️ | 
 | W | ❌️ | 
 | w | ❌️ | 
 | x | ❌️ | 
-| yF | ❌️ | 
-| yf | ❌️ | 
+| yF | ✅️ | 
+| yf | ✅️ | 
 | yi' | ❌️ | 
 | yi" | ❌️ | 
 | yi( | ❌️ | 
@@ -139,8 +143,8 @@ kindaVim will be a subscription of one ☕️ (USD$3) a month. the beta is free 
 | yi} | ❌️ | 
 | yi` | ❌️ | 
 | yiw | ❌️ | 
-| yT | ❌️ | 
-| yt | ❌️ | 
+| yT | ✅️ | 
+| yt | ✅️ | 
 | yy | ❌️ | 
 
 | Visual Mode | including count |
@@ -195,12 +199,14 @@ kindaVim will be a subscription of one ☕️ (USD$3) a month. the beta is free 
 | C | ❌️ |
 | cb | ❌️ |
 | cc | ❌️ |
+| ce | ❌️ | 
 | cG | ❌️ |
 | cgg | ❌️ |
 | ciw | ❌️ |
 | control d | ❌️ |
 | control r | ❌️ |
 | control u | ❌️ |
+| cw | ❌️ | 
 | D | ❌️ |
 | db | ❌️ |
 | dd | ❌️ |
