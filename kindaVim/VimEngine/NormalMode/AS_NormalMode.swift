@@ -358,14 +358,16 @@ extension KindaVimEngine {
         case [.c, .a]:
             ()
         case [.c, .a, .w]:
-            enterNormalMode()
-            
             if let element = asNormalMode.caw(on: focusedTextElement, pgR: appMode == .pgR) {
                 push(element: element)
                 
                 if element.selectedLength == 0 {
                     enterInsertMode()
+                } else {
+                    enterNormalMode()
                 }
+            } else {
+                parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
         case [.c, .b]:
             parseOperatorCommandForNormalModeUsingKeyboardStrategy()
@@ -377,11 +379,11 @@ extension KindaVimEngine {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
         case [.c, .E]:
-            enterNormalMode()
-            
             if let element = asNormalMode.cE(on: focusedTextElement, pgR: appMode == .pgR) {
                 push(element: element)
                 enterInsertMode()
+            } else {
+                parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
         case [.c, .e]:
             if let element = asNormalMode.ce(on: focusedTextElement, pgR: appMode == .pgR) {
@@ -413,78 +415,114 @@ extension KindaVimEngine {
         case [.c, .i]:
             ()
         case [.c, .i, .doubleQuote]:
-            enterNormalMode()
-                        
-            // if element.selectedLength is equal to 0 that means that a pair was found and deleted, so we can carry on
-            // else we don't do shit
-            if let element = asNormalMode.ciDoubleQuote(on: focusedTextElement, pgR: appMode == .pgR), element.selectedLength == 0 {
+            if let element = asNormalMode.ciDoubleQuote(on: focusedTextElement, pgR: appMode == .pgR) {
                 push(element: element)
                 lastYankStyle = .characterwise
-                enterInsertMode()
+                            
+                if element.selectedLength == 0 {
+                    enterInsertMode()
+                } else {
+                    enterNormalMode()
+                }
+            } else {
+                parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
         case [.c, .i, .leftBrace]:
-            enterNormalMode()
-            
-            // same as above. if element.selectedLength is equal to 0 that means the move found a pair and deleted it
-            if let element = asNormalMode.ciLeftBrace(on: focusedTextElement, pgR: appMode == .pgR), element.selectedLength == 0 {
+            if let element = asNormalMode.ciLeftBrace(on: focusedTextElement, pgR: appMode == .pgR) {
                 push(element: element)
-                enterInsertMode()
+                
+                if element.selectedLength == 0 {
+                    enterInsertMode()
+                } else {
+                    enterNormalMode()
+                }
+            } else {
+                parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
         case [.c, .i, .leftBracket]:
-            enterNormalMode()
-            
-            // see ciLeftBrace
-            if let element = asNormalMode.ciLeftBracket(on: focusedTextElement, pgR: appMode == .pgR), element.selectedLength == 0 {
+            if let element = asNormalMode.ciLeftBracket(on: focusedTextElement, pgR: appMode == .pgR) {
                 push(element: element)
-                enterInsertMode()
+                
+                if element.selectedLength == 0 {
+                    enterInsertMode()
+                } else {
+                    enterNormalMode()
+                }
+            } else {
+                parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
         case [.c, .i, .leftParenthesis]:
-            enterNormalMode()
-            
-            // see ciLeftBrace
-            if let element = asNormalMode.ciLeftParenthesis(on: focusedTextElement, pgR: appMode == .pgR), element.selectedLength == 0 {
+            if let element = asNormalMode.ciLeftParenthesis(on: focusedTextElement, pgR: appMode == .pgR) {
                 push(element: element)
-                enterInsertMode()
+                
+                if element.selectedLength == 0 {
+                    enterInsertMode()
+                } else {
+                    enterNormalMode()
+                }
+            } else {
+                parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
         case [.c, .i, .rightBrace]:
-            enterNormalMode()
-            
-            // see ciLeftBrace
-            if let element = asNormalMode.ciRightBrace(on: focusedTextElement, pgR: appMode == .pgR), element.selectedLength == 0 {
+            if let element = asNormalMode.ciRightBrace(on: focusedTextElement, pgR: appMode == .pgR) {
                 push(element: element)
-                enterInsertMode()
+                                
+                if element.selectedLength == 0 {
+                    enterInsertMode()
+                } else {
+                    enterNormalMode()
+                }
+            } else {
+                parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
         case [.c, .i, .rightBracket]:
-            enterNormalMode()
-            
-            // see ciLeftBrace
-            if let element = asNormalMode.ciRightBracket(on: focusedTextElement, pgR: appMode == .pgR), element.selectedLength == 0 {
+            if let element = asNormalMode.ciRightBracket(on: focusedTextElement, pgR: appMode == .pgR) {
                 push(element: element)
-                enterInsertMode()
+                
+                if element.selectedLength == 0 {
+                    enterInsertMode()
+                } else {
+                    enterNormalMode()
+                }
+            } else {
+                parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
         case [.c, .i, .rightParenthesis]:
-            enterNormalMode()
-            
-            // see ciLeftBrace
-            if let element = asNormalMode.ciRightParenthesis(on: focusedTextElement, pgR: appMode == .pgR), element.selectedLength == 0 {
+            if let element = asNormalMode.ciRightParenthesis(on: focusedTextElement, pgR: appMode == .pgR) {
                 push(element: element)
-                enterInsertMode()
+                
+                if element.selectedLength == 0 {
+                    enterInsertMode()
+                } else {
+                    enterNormalMode()
+                }
+            } else {
+                parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
         case [.c, .i, .singleQuote]:
-            enterNormalMode()
-            
-            // see ciDoubleQuote
-            if let element = asNormalMode.ciSingleQuote(on: focusedTextElement, pgR: appMode == .pgR), element.selectedLength == 0 {
+            if let element = asNormalMode.ciSingleQuote(on: focusedTextElement, pgR: appMode == .pgR) {
                 push(element: element)
-                enterInsertMode()
-            }            
+                
+                if element.selectedLength == 0 {
+                    enterInsertMode()
+                } else {
+                    enterNormalMode()
+                }
+            } else {
+                parseOperatorCommandForNormalModeUsingKeyboardStrategy()
+            }
         case [.c, .i, .backtick]:
-            enterNormalMode()
-            
-            // see ciDoubleQuote
-            if let element = asNormalMode.ciBacktick(on: focusedTextElement, pgR: appMode == .pgR), element.selectedLength == 0 {
+            if let element = asNormalMode.ciBacktick(on: focusedTextElement, pgR: appMode == .pgR) {
                 push(element: element)
-                enterInsertMode()
+                
+                // TODO: check what happens if move is done on empty text
+                if element.selectedLength == 0 {
+                    enterInsertMode()
+                } else {
+                    enterNormalMode()
+                }
+            } else {
+                parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
         case [.c, .i, .w]:
             if let element = asNormalMode.ciw(on: focusedTextElement, pgR: appMode == .pgR) {
@@ -498,11 +536,11 @@ extension KindaVimEngine {
         case [.c, .T]:
             ()
         case [.c, .W]:
-            enterNormalMode()
-            
             if let element = asNormalMode.cW(on: focusedTextElement, pgR: appMode == .pgR) {
                 push(element: element)
                 enterInsertMode()
+            } else {
+                parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
         case [.c, .w]:
             if let element = asNormalMode.cw(on: focusedTextElement, pgR: appMode == .pgR) {
@@ -586,9 +624,10 @@ extension KindaVimEngine {
         case [.g, .E]:
             if let element = asNormalMode.gE(on: focusedTextElement) {
                 push(element: element)
+                enterNormalMode()
+            } else {
+                parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
-            
-            enterNormalMode()
         case [.g, .e]:
             if let element = asNormalMode.ge(on: focusedTextElement) {
                 push(element: element)
@@ -641,39 +680,45 @@ extension KindaVimEngine {
         case [.leftBracket, .leftBrace]:
             if let element = asNormalMode.leftBracketLeftBrace(on: focusedTextElement) {
                 push(element: element)
+                enterNormalMode()
+            } else {
+                parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
-            
-            enterNormalMode()
         case [.leftBracket, .leftParenthesis]:
             if let element = asNormalMode.leftBracketLeftParenthesis(on: focusedTextElement) {
                 push(element: element)
+                enterNormalMode()
+            } else {
+                parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
-            
-            enterNormalMode()
         case [.leftChevron, .leftChevron]:
             if let element = asNormalMode.leftChevronLeftChevron(on: focusedTextElement, pgR: appMode == .pgR) {
                 push(element: element)
+                enterNormalMode()
+            } else {
+                parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
-            
-            enterNormalMode()
         case [.rightBracket, .rightBrace]:
             if let element = asNormalMode.rightBracketRightBrace(on: focusedTextElement) {
                 push(element: element)
+                enterNormalMode()
+            } else {
+                parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
-            
-            enterNormalMode()
         case [.rightBracket, .rightParenthesis]:
             if let element = asNormalMode.rightBracketRightParenthesis(on: focusedTextElement) {
                 push(element: element)
+                enterNormalMode()
+            } else {
+                parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
-            
-            enterNormalMode()
         case [.rightChevron, .rightChevron]:
             if let element = asNormalMode.rightChevronRightChevron(on: focusedTextElement, pgR: appMode == .pgR) {
                 push(element: element)
+                enterNormalMode()
+            } else {
+                parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
-            
-            enterNormalMode()
         case [.y, .f]:
             ()
         case [.y, .F]:
@@ -684,59 +729,68 @@ extension KindaVimEngine {
             if let element = asNormalMode.yiBacktick(on: focusedTextElement) {
                 push(element: element)
                 lastYankStyle = .characterwise
+                enterNormalMode()
+            } else {
+                parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
-            
-            enterNormalMode()
         case [.y, .i, .doubleQuote]:
             if let element = asNormalMode.yiDoubleQuote(on: focusedTextElement) {
                 push(element: element)
                 lastYankStyle = .characterwise
+                enterNormalMode()
+            } else {
+                parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
-            
-            enterNormalMode()
         case [.y, .i, .singleQuote]:
             if let element = asNormalMode.yiSingleQuote(on: focusedTextElement) {
                 push(element: element)
                 lastYankStyle = .characterwise
+                enterNormalMode()
+            } else {
+                parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
-            
-            enterNormalMode()
         case [.y, .i, .leftBrace]:
             if let element = asNormalMode.yiLeftBrace(on: focusedTextElement, &lastYankStyle) {
                 push(element: element)
+                enterNormalMode()
+            } else {
+                parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
-            
-            enterNormalMode()
         case [.y, .i, .leftBracket]:
             if let element = asNormalMode.yiLeftBracket(on: focusedTextElement, &lastYankStyle) {
                 push(element: element)
+                enterNormalMode()
+            } else {
+                parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
-            
-            enterNormalMode()
         case [.y, .i, .leftParenthesis]:
             if let element = asNormalMode.yiLeftParenthesis(on: focusedTextElement, &lastYankStyle) {
                 push(element: element)
+                enterNormalMode()
+            } else {
+                parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
-            
-            enterNormalMode()
         case [.y, .i, .rightBrace]:
             if let element = asNormalMode.yiRightBrace(on: focusedTextElement, &lastYankStyle) {
                 push(element: element)
+                enterNormalMode()
+            } else {
+                parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
-            
-            enterNormalMode()
         case [.y, .i, .rightBracket]:
             if let element = asNormalMode.yiRightBracket(on: focusedTextElement, &lastYankStyle) {
                 push(element: element)
+                enterNormalMode()
+            } else {
+                parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
-            
-            enterNormalMode()
         case [.y, .i, .rightParenthesis]:
             if let element = asNormalMode.yiRightParenthesis(on: focusedTextElement, &lastYankStyle) {
                 push(element: element)
+                enterNormalMode()
+            } else {
+                parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
-            
-            enterNormalMode()
         case [.y, .i, .w]:
             if let element = asNormalMode.yiw(on: focusedTextElement) {
                 push(element: element)
@@ -758,6 +812,7 @@ extension KindaVimEngine {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
         default:
+            // TODO: refactor this. 
             // cf, cF, ct, cT
             if operatorPendingBuffer.first?.vimKey == .c {
                 var element: AccessibilityTextElement?
