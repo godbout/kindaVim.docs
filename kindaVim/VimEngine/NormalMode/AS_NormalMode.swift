@@ -360,12 +360,7 @@ extension KindaVimEngine {
         case [.c, .a, .w]:
             if let element = asNormalMode.caw(on: focusedTextElement, pgR: appMode == .pgR) {
                 push(element: element)
-                
-                if element.selectedLength == 0 {
-                    enterInsertMode()
-                } else {
-                    enterNormalMode()
-                }
+                element.selectedLength == 0 ? enterInsertMode() : enterNormalMode()
             } else {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
@@ -417,110 +412,63 @@ extension KindaVimEngine {
         case [.c, .i, .doubleQuote]:
             if let element = asNormalMode.ciDoubleQuote(on: focusedTextElement, pgR: appMode == .pgR) {
                 push(element: element)
-                lastYankStyle = .characterwise
-                            
-                if element.selectedLength == 0 {
-                    enterInsertMode()
-                } else {
-                    enterNormalMode()
-                }
+                element.selectedLength == 0 ? enterInsertMode() : enterNormalMode()
             } else {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
         case [.c, .i, .leftBrace]:
             if let element = asNormalMode.ciLeftBrace(on: focusedTextElement, pgR: appMode == .pgR) {
                 push(element: element)
-                
-                if element.selectedLength == 0 {
-                    enterInsertMode()
-                } else {
-                    enterNormalMode()
-                }
+                element.selectedLength == 0 ? enterInsertMode() : enterNormalMode()
             } else {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
         case [.c, .i, .leftBracket]:
             if let element = asNormalMode.ciLeftBracket(on: focusedTextElement, pgR: appMode == .pgR) {
                 push(element: element)
-                
-                if element.selectedLength == 0 {
-                    enterInsertMode()
-                } else {
-                    enterNormalMode()
-                }
+                element.selectedLength == 0 ? enterInsertMode() : enterNormalMode()
             } else {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
         case [.c, .i, .leftParenthesis]:
             if let element = asNormalMode.ciLeftParenthesis(on: focusedTextElement, pgR: appMode == .pgR) {
                 push(element: element)
-                
-                if element.selectedLength == 0 {
-                    enterInsertMode()
-                } else {
-                    enterNormalMode()
-                }
+                element.selectedLength == 0 ? enterInsertMode() : enterNormalMode()
             } else {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
         case [.c, .i, .rightBrace]:
             if let element = asNormalMode.ciRightBrace(on: focusedTextElement, pgR: appMode == .pgR) {
                 push(element: element)
-                                
-                if element.selectedLength == 0 {
-                    enterInsertMode()
-                } else {
-                    enterNormalMode()
-                }
+                element.selectedLength == 0 ? enterInsertMode() : enterNormalMode()
             } else {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
         case [.c, .i, .rightBracket]:
             if let element = asNormalMode.ciRightBracket(on: focusedTextElement, pgR: appMode == .pgR) {
                 push(element: element)
-                
-                if element.selectedLength == 0 {
-                    enterInsertMode()
-                } else {
-                    enterNormalMode()
-                }
+                element.selectedLength == 0 ? enterInsertMode() : enterNormalMode()
             } else {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
         case [.c, .i, .rightParenthesis]:
             if let element = asNormalMode.ciRightParenthesis(on: focusedTextElement, pgR: appMode == .pgR) {
                 push(element: element)
-                
-                if element.selectedLength == 0 {
-                    enterInsertMode()
-                } else {
-                    enterNormalMode()
-                }
+                element.selectedLength == 0 ? enterInsertMode() : enterNormalMode()
             } else {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
         case [.c, .i, .singleQuote]:
             if let element = asNormalMode.ciSingleQuote(on: focusedTextElement, pgR: appMode == .pgR) {
                 push(element: element)
-                
-                if element.selectedLength == 0 {
-                    enterInsertMode()
-                } else {
-                    enterNormalMode()
-                }
+                element.selectedLength == 0 ? enterInsertMode() : enterNormalMode()
             } else {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
         case [.c, .i, .backtick]:
             if let element = asNormalMode.ciBacktick(on: focusedTextElement, pgR: appMode == .pgR) {
                 push(element: element)
-                
-                // TODO: check what happens if move is done on empty text
-                if element.selectedLength == 0 {
-                    enterInsertMode()
-                } else {
-                    enterNormalMode()
-                }
+                element.selectedLength == 0 ? enterInsertMode() : enterNormalMode()
             } else {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
@@ -812,116 +760,163 @@ extension KindaVimEngine {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
         default:
-            // TODO: refactor this. 
             // cf, cF, ct, cT
-            if operatorPendingBuffer.first?.vimKey == .c {
+            guard operatorPendingBuffer.first?.vimKey != .c else {
                 var element: AccessibilityTextElement?
                 
-                if operatorPendingBuffer[1].vimKey == .f, let character = operatorPendingBuffer.last {
-                    element = asNormalMode.cf(times: count, to: character.character, on: focusedTextElement, pgR: appMode == .pgR)
-                }
-                
-                if operatorPendingBuffer[1].vimKey == .F, let character = operatorPendingBuffer.last {
-                    element = asNormalMode.cF(times: count, to: character.character, on: focusedTextElement, pgR: appMode == .pgR)
-                }
-                
-                if operatorPendingBuffer[1].vimKey == .t, let character = operatorPendingBuffer.last {
-                    element = asNormalMode.ct(times: count, to: character.character, on: focusedTextElement, pgR: appMode == .pgR)
-                }
-                
-                if operatorPendingBuffer[1].vimKey == .T, let character = operatorPendingBuffer.last {
-                    element = asNormalMode.cT(times: count, to: character.character, on: focusedTextElement, pgR: appMode == .pgR)
-                }
-                
-                if let element = element, element.selectedLength == 0 {
-                    push(element: element)
-                    enterInsertMode()
-                    
-                    return
-                }
-            }
-            
-            // df, dF, dt, dT
-            if operatorPendingBuffer.first?.vimKey == .d {
-                var element: AccessibilityTextElement?
-                
-                if operatorPendingBuffer[1].vimKey == .f, let character = operatorPendingBuffer.last {
-                    element = asNormalMode.df(times: count, to: character.character, on: focusedTextElement, pgR: appMode == .pgR)
-                }
-                
-                if operatorPendingBuffer[1].vimKey == .F, let character = operatorPendingBuffer.last {
-                    element = asNormalMode.dF(times: count, to: character.character, on: focusedTextElement, pgR: appMode == .pgR)
-                }
-                
-                if operatorPendingBuffer[1].vimKey == .t, let character = operatorPendingBuffer.last {
-                    element = asNormalMode.dt(times: count, to: character.character, on: focusedTextElement, pgR: appMode == .pgR)
-                }
-                
-                if operatorPendingBuffer[1].vimKey == .T, let character = operatorPendingBuffer.last {
-                    element = asNormalMode.dT(times: count, to: character.character, on: focusedTextElement, pgR: appMode == .pgR)
+                switch operatorPendingBuffer[1].vimKey {
+                case .F:
+                    if let character = operatorPendingBuffer.last {
+                        element = asNormalMode.cF(times: count, to: character.character, on: focusedTextElement, pgR: appMode == .pgR)
+                    }
+                case .f:
+                    if let character = operatorPendingBuffer.last {
+                        element = asNormalMode.cf(times: count, to: character.character, on: focusedTextElement, pgR: appMode == .pgR)
+                    }
+                case .T:
+                    if let character = operatorPendingBuffer.last {
+                        element = asNormalMode.cT(times: count, to: character.character, on: focusedTextElement, pgR: appMode == .pgR)
+                    }
+                case .t:
+                    if let character = operatorPendingBuffer.last {
+                        element = asNormalMode.ct(times: count, to: character.character, on: focusedTextElement, pgR: appMode == .pgR)
+                    }
+                default: ()
                 }
                 
                 if let element = element {
                     push(element: element)
-                }
-            }
-                            
-            if operatorPendingBuffer.first?.vimKey == .f, let character = operatorPendingBuffer.last {
-                if let element = asNormalMode.f(times: count, to: character.character, on: focusedTextElement) {
-                    push(element: element)
-                }
-            }
-            
-            if operatorPendingBuffer.first?.vimKey == .F, let character = operatorPendingBuffer.last {
-                if let element = asNormalMode.F(times: count, to: character.character, on: focusedTextElement) {
-                    push(element: element)
-                }
-            }
-            
-            if operatorPendingBuffer.first?.vimKey == .r, let replacement = operatorPendingBuffer.last {                
-                if let element = asNormalMode.r(with: replacement.character, on: focusedTextElement, pgR: appMode == .pgR) {
-                    push(element: element)
+                    element.selectedLength == 0 ? enterInsertMode() : enterNormalMode()
                 } else {
                     parseOperatorCommandForNormalModeUsingKeyboardStrategy()
                 }
+                                
+                return
             }
             
-            if operatorPendingBuffer.first?.vimKey == .t, let character = operatorPendingBuffer.last {
-                if let element = asNormalMode.t(times: count, to: character.character, on: focusedTextElement) {
-                    push(element: element)
-                }
-            }
-            
-            if operatorPendingBuffer.first?.vimKey == .T, let character = operatorPendingBuffer.last {
-                if let element = asNormalMode.T(times: count, to: character.character, on: focusedTextElement) {
-                    push(element: element)
-                }
-            }
-            
-            // yf, yF, yt, yT
-            if operatorPendingBuffer.first?.vimKey == .y {
+            // df, dF, dt, dT
+            guard operatorPendingBuffer.first?.vimKey != .d else {
                 var element: AccessibilityTextElement?
                 
-                if operatorPendingBuffer[1].vimKey == .f, let character = operatorPendingBuffer.last {
-                    element = asNormalMode.yf(times: count, to: character.character, on: focusedTextElement)
+                switch operatorPendingBuffer[1].vimKey {
+                case .F:
+                    if let character = operatorPendingBuffer.last {
+                        element = asNormalMode.dF(times: count, to: character.character, on: focusedTextElement, pgR: appMode == .pgR)
+                    }
+                case .f:
+                    if let character = operatorPendingBuffer.last {
+                        element = asNormalMode.df(times: count, to: character.character, on: focusedTextElement, pgR: appMode == .pgR)
+                    }
+                case .T:
+                    if let character = operatorPendingBuffer.last {
+                        element = asNormalMode.dT(times: count, to: character.character, on: focusedTextElement, pgR: appMode == .pgR)
+                    }
+                case .t:
+                    if let character = operatorPendingBuffer.last {
+                        element = asNormalMode.dt(times: count, to: character.character, on: focusedTextElement, pgR: appMode == .pgR)
+                    }
+                default: ()
                 }
                 
-                if operatorPendingBuffer[1].vimKey == .F, let character = operatorPendingBuffer.last {
-                    element = asNormalMode.yF(times: count, to: character.character, on: focusedTextElement)
+                if let element = element {
+                    push(element: element)
+                    enterNormalMode()
+                } else {
+                    parseOperatorCommandForNormalModeUsingKeyboardStrategy()
                 }
-                
-                if operatorPendingBuffer[1].vimKey == .t, let character = operatorPendingBuffer.last {
-                    element = asNormalMode.yt(times: count, to: character.character, on: focusedTextElement)
+                                
+                return
+            }
+                       
+            guard operatorPendingBuffer.first?.vimKey != .F else {
+                if let character = operatorPendingBuffer.last, let element = asNormalMode.F(times: count, to: character.character, on: focusedTextElement) {
+                    push(element: element)
+                    enterNormalMode()
+                } else {
+                    parseOperatorCommandForNormalModeUsingKeyboardStrategy()
                 }
+                                
+                return
+            }
+            
+            guard operatorPendingBuffer.first?.vimKey != .f else {
+                if let character = operatorPendingBuffer.last, let element = asNormalMode.f(times: count, to: character.character, on: focusedTextElement) {
+                    push(element: element)
+                    enterNormalMode()
+                } else {
+                    parseOperatorCommandForNormalModeUsingKeyboardStrategy()
+                }
+                                
+                return
+            }
+            
+            guard operatorPendingBuffer.first?.vimKey != .r else {
+                if let replacement = operatorPendingBuffer.last, let element = asNormalMode.r(with: replacement.character, on: focusedTextElement, pgR: appMode == .pgR) {
+                    push(element: element)
+                    enterNormalMode()
+                } else {
+                    parseOperatorCommandForNormalModeUsingKeyboardStrategy()
+                }
+                                
+                return
+            }
+            
+            guard operatorPendingBuffer.first?.vimKey != .T else {
+                if let character = operatorPendingBuffer.last, let element = asNormalMode.T(times: count, to: character.character, on: focusedTextElement) {
+                    push(element: element)
+                    enterNormalMode()
+                } else {
+                    parseOperatorCommandForNormalModeUsingKeyboardStrategy()
+                }
+                                
+                return
+            }
+            
+            guard operatorPendingBuffer.first?.vimKey != .t else {
+                if let character = operatorPendingBuffer.last, let element = asNormalMode.t(times: count, to: character.character, on: focusedTextElement) {
+                    push(element: element)
+                    enterNormalMode()
+                } else {
+                    parseOperatorCommandForNormalModeUsingKeyboardStrategy()
+                }
+                                
+                return
+            }
+            
+            
+            // yf, yF, yt, yT
+            guard operatorPendingBuffer.first?.vimKey != .y else {
+                var element: AccessibilityTextElement?
                 
-                if operatorPendingBuffer[1].vimKey == .T, let character = operatorPendingBuffer.last {
-                    element = asNormalMode.yT(times: count, to: character.character, on: focusedTextElement)
+                switch operatorPendingBuffer[1].vimKey {
+                case .F:
+                    if let character = operatorPendingBuffer.last {
+                        element = asNormalMode.yF(times: count, to: character.character, on: focusedTextElement)
+                    }
+                case .f:
+                    if let character = operatorPendingBuffer.last {
+                        element = asNormalMode.yf(times: count, to: character.character, on: focusedTextElement)
+                    }
+                case .T:
+                    if let character = operatorPendingBuffer.last {
+                        element = asNormalMode.yT(times: count, to: character.character, on: focusedTextElement)
+                    }
+                case .t:
+                    if let character = operatorPendingBuffer.last {
+                        element = asNormalMode.yt(times: count, to: character.character, on: focusedTextElement)
+                    }
+                default: ()
                 }
                 
                 if let element = element {
                     push(element: element)
                     lastYankStyle = .characterwise                    
+                    enterNormalMode()
+                } else {
+                    parseOperatorCommandForNormalModeUsingKeyboardStrategy()
                 }
+                                
+                return
             }
                         
             // if we don't recognize any operator move
