@@ -122,7 +122,13 @@ extension KindaVimEngine {
             
             endCurrentMove()
         case .X:
-            post(ksNormalMode.X())
+            switch focusedElementType {
+            case .textElement:
+                post(ksNormalMode.XForTextElement())
+            case .nonTextElement:
+                post(ksNormalMode.XForNonTextElement())
+            }
+            
             endCurrentMove()
         case .y:
             enterOperatorPendingForNormalMode(with: keyCombination)
