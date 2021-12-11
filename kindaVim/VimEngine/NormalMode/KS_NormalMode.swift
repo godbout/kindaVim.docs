@@ -100,9 +100,14 @@ extension KindaVimEngine {
             post(ksVisualMode.vForEnteringFromNormalMode())
             enterVisualMode()
         case .V:
+            switch focusedElementType {
+            case .textElement:
+                post(ksVisualMode.VForTextElementWhenEnteringFromNormalMode())
+            case .nonTextElement:
+                post(ksVisualMode.VForNonTextElementWhenEnteringFromNormalMode())
+            }
+                        
             visualStyle = .linewise
-            
-            post(ksVisualMode.VForEnteringFromNormalMode())
             enterVisualMode()
         case .w:
             post(ksNormalMode.w())
