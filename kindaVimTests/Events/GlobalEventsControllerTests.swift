@@ -32,7 +32,7 @@ extension GlobalEventsControllerTests {
     func test_that_in_insert_mode_the_events_that_we_implemented_are_just_passed_back_to_macOS() {
         AppCore.shared.vimEngine.enterInsertMode()
         
-        guard let jEvent = CGEvent(keyboardEventSource: nil, virtualKey: 38, keyDown: true) else { return XCTFail() }
+        guard let jEvent = CGEvent(keyboardEventSource: nil, virtualKey: 4, keyDown: true) else { return XCTFail() }
         
         let implementedKeyCombination = KeyCombinationAdaptor.fromCGEvent(from: jEvent)
         let handled = GlobalEventsController.handle(keyCombination: implementedKeyCombination)
@@ -43,7 +43,7 @@ extension GlobalEventsControllerTests {
     func test_that_in_insert_mode_the_events_that_we_did_not_implement_are_just_passed_back_to_macOS() {
         AppCore.shared.vimEngine.enterInsertMode()
         
-        guard let pEvent = CGEvent(keyboardEventSource: nil, virtualKey: 35, keyDown: true) else { return XCTFail() }
+        guard let pEvent = CGEvent(keyboardEventSource: nil, virtualKey: 37, keyDown: true) else { return XCTFail() }
         
         let nomImplementedKeyCombination = KeyCombinationAdaptor.fromCGEvent(from: pEvent)
         let handled = GlobalEventsController.handle(keyCombination: nomImplementedKeyCombination)
@@ -68,7 +68,7 @@ extension GlobalEventsControllerTests {
     func test_that_in_normal_mode_the_events_that_we_implemented_are_captured() {
         AppCore.shared.vimEngine.enterNormalMode()
         
-        guard let jEvent = CGEvent(keyboardEventSource: nil, virtualKey: 38, keyDown: true) else { return XCTFail() }
+        guard let jEvent = CGEvent(keyboardEventSource: nil, virtualKey: 4, keyDown: true) else { return XCTFail() }
 
         let implementedKeyCombination = KeyCombinationAdaptor.fromCGEvent(from: jEvent)
         let handled = GlobalEventsController.handle(keyCombination: implementedKeyCombination)
@@ -79,7 +79,7 @@ extension GlobalEventsControllerTests {
     func test_that_in_normal_mode_the_events_that_we_did_not_implement_are_captured() {
         AppCore.shared.vimEngine.enterNormalMode()
         
-        guard let pEvent = CGEvent(keyboardEventSource: nil, virtualKey: 35, keyDown: true) else { return XCTFail() }
+        guard let pEvent = CGEvent(keyboardEventSource: nil, virtualKey: 37, keyDown: true) else { return XCTFail() }
         
         let nomImplementedKeyCombination = KeyCombinationAdaptor.fromCGEvent(from: pEvent)
         let handled = GlobalEventsController.handle(keyCombination: nomImplementedKeyCombination)
@@ -104,7 +104,7 @@ extension GlobalEventsControllerTests {
     func test_that_in_visual_mode_the_events_that_we_implemented_are_captured() {
         AppCore.shared.vimEngine.enterVisualMode()
         
-        guard let jEvent = CGEvent(keyboardEventSource: nil, virtualKey: 38, keyDown: true) else { return XCTFail() }
+        guard let jEvent = CGEvent(keyboardEventSource: nil, virtualKey: 4, keyDown: true) else { return XCTFail() }
         
         let implementedKeyCombination = KeyCombinationAdaptor.fromCGEvent(from: jEvent)
         let handled = GlobalEventsController.handle(keyCombination: implementedKeyCombination)
@@ -115,7 +115,7 @@ extension GlobalEventsControllerTests {
     func test_that_in_visual_mode_the_events_that_we_did_not_implement_are_captured() {
         AppCore.shared.vimEngine.enterVisualMode()
         
-        guard let pEvent = CGEvent(keyboardEventSource: nil, virtualKey: 35, keyDown: true) else { return XCTFail() }
+        guard let pEvent = CGEvent(keyboardEventSource: nil, virtualKey: 37, keyDown: true) else { return XCTFail() }
         
         let nomImplementedKeyCombination = KeyCombinationAdaptor.fromCGEvent(from: pEvent)
         let handled = GlobalEventsController.handle(keyCombination: nomImplementedKeyCombination)
