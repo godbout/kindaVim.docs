@@ -121,7 +121,7 @@ extension KindaVimEngine {
                 if focusedElementType == .textElement {
                     post(ksVisualMode.vForTextElementWhenInVisualStyleCharacterwise())
                 } else {
-                    post(ksVisualMode.vForNonTextElementWhenInVisualStyleCharacterwise())
+                    post(ksVisualMode.vForNonTextElement())
                 }
                 
                 enterNormalMode()
@@ -129,7 +129,7 @@ extension KindaVimEngine {
                 if focusedElementType == .textElement {
                     post(ksVisualMode.vForTextElementWhenInVisualStyleLinewise())
                 } else {
-                    post(ksVisualMode.vForNonTextElementWhenInVisualStyleLinewise())
+                    post(ksVisualMode.vForNonTextElement())
                 }
                 
                 visualStyle = .characterwise
@@ -141,7 +141,7 @@ extension KindaVimEngine {
                 if focusedElementType == .textElement {
                     post(ksVisualMode.VForTextElementWhenInVisualStyleCharacterwise())
                 } else {
-                    post(ksVisualMode.VForNonTextElementWhenInVisualStyleCharacterwise())
+                    post(ksVisualMode.VForNonTextElement())
                 }
                                 
                 visualStyle = .linewise
@@ -150,7 +150,7 @@ extension KindaVimEngine {
                 if focusedElementType == .textElement {
                     post(ksVisualMode.VForTextElementWhenInVisualStyleLinewise())
                 } else {
-                    post(ksVisualMode.VForNonTextElementWhenInVisualStyleLinewise())
+                    post(ksVisualMode.VForNonTextElement())
                 }
                                 
                 enterNormalMode()

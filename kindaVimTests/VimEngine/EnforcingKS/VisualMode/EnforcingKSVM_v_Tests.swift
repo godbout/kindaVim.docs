@@ -29,7 +29,7 @@ extension EnforcingKSVM_v_Tests {
         kindaVimEngine.enterNormalMode()
         applyKeyCombinationsBeingTested()
         
-        XCTAssertEqual(ksVisualModeMock.functionCalled, "vForNonTextElementWhenEnteringFromNormalMode()")
+        XCTAssertEqual(ksVisualModeMock.functionCalled, "vForNonTextElement()")
     }
     
     func test_that_it_resets_the_count_when_entering_from_NormalMode() {
@@ -58,7 +58,7 @@ extension EnforcingKSVM_v_Tests {
         kindaVimEngine.visualStyle = .characterwise
         applyKeyCombinationsBeingTested()
         
-        XCTAssertEqual(ksVisualModeMock.functionCalled, "vForNonTextElementWhenInVisualStyleCharacterwise()")
+        XCTAssertEqual(ksVisualModeMock.functionCalled, "vForNonTextElement()")
     }
     
     func test_that_it_resets_the_count_if_Vim_was_in_VisualStyle_Characterwise() {
@@ -87,7 +87,7 @@ extension EnforcingKSVM_v_Tests {
         kindaVimEngine.visualStyle = .linewise
         applyKeyCombinationsBeingTested()
         
-        XCTAssertEqual(ksVisualModeMock.functionCalled, "vForNonTextElementWhenInVisualStyleLinewise()")
+        XCTAssertEqual(ksVisualModeMock.functionCalled, "vForNonTextElement()")
     }
     
     func test_that_if_Vim_was_in_VisualStyle_Linewise_it_switches_into_VisualStyle_Characterwise() {

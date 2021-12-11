@@ -99,7 +99,7 @@ extension KindaVimEngine {
             case .textElement:
                 post(ksVisualMode.vForTextElementWhenEnteringFromNormalMode())
             case .nonTextElement:
-                post(ksVisualMode.vForNonTextElementWhenEnteringFromNormalMode())
+                post(ksVisualMode.vForNonTextElement())
             }
             
             visualStyle = .characterwise
@@ -109,7 +109,7 @@ extension KindaVimEngine {
             case .textElement:
                 post(ksVisualMode.VForTextElementWhenEnteringFromNormalMode())
             case .nonTextElement:
-                post(ksVisualMode.VForNonTextElementWhenEnteringFromNormalMode())
+                post(ksVisualMode.VForNonTextElement())
             }
                         
             visualStyle = .linewise

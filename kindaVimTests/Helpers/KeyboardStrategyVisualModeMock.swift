@@ -176,19 +176,7 @@ class KeyboardStrategyVisualModeMock: KeyboardStrategyVisualModeProtocol {
         return []
     }
     
-    func VForNonTextElementWhenEnteringFromNormalMode() -> [KeyCombination] {
-        functionCalled = #function
-        
-        return []
-    }
-        
-    func VForNonTextElementWhenInVisualStyleCharacterwise() -> [KeyCombination] {
-        functionCalled = #function
-        
-        return []
-    }
-        
-    func VForNonTextElementWhenInVisualStyleLinewise() -> [KeyCombination] {
+    func VForNonTextElement() -> [KeyCombination] {
         functionCalled = #function
         
         return []
@@ -212,19 +200,7 @@ class KeyboardStrategyVisualModeMock: KeyboardStrategyVisualModeProtocol {
         return []
     }
         
-    func vForNonTextElementWhenEnteringFromNormalMode() -> [KeyCombination] {
-        functionCalled = #function
-        
-        return []
-    }
-        
-    func vForNonTextElementWhenInVisualStyleCharacterwise() -> [KeyCombination] {
-        functionCalled = #function
-        
-        return []
-    }
-        
-    func vForNonTextElementWhenInVisualStyleLinewise() -> [KeyCombination] {
+    func vForNonTextElement() -> [KeyCombination] {
         functionCalled = #function
         
         return []
