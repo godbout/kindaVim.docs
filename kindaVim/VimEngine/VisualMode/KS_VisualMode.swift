@@ -17,7 +17,13 @@ extension KindaVimEngine {
                 endCurrentMove()
             }
         case .c:
-            post(ksVisualMode.c())
+            switch focusedElementType {
+            case .textElement:
+                post(ksVisualMode.cForTextElement())
+            default:
+                post(ksVisualMode.cForNonTextElement())
+            }
+            
             enterInsertMode()
         case .caret:
             switch visualStyle {
