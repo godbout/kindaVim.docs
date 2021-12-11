@@ -66,9 +66,10 @@ extension KindaVimEngine {
         case .E:
             if let element = asNormalMode.E(on: focusedTextElement) {
                 push(element: element)                
+                endCurrentMove()
+            } else {
+                handleNormalModeUsingKeyboardStrategy(for: keyCombination)
             }
-            
-            endCurrentMove()
         case .f:
             enterOperatorPendingForNormalMode(with: keyCombination)
         case .F:
@@ -267,9 +268,10 @@ extension KindaVimEngine {
         case .commandD:
             if let element = AccessibilityStrategyNormalMode.test(element: focusedTextElement) {
                 push(element: element)
+                endCurrentMove()
+            } else {
+                handleNormalModeUsingKeyboardStrategy(for: keyCombination)
             }
-            
-            endCurrentMove()
         case .escape:
             handleNormalModeUsingKeyboardStrategy(for: keyCombination)
             
@@ -300,9 +302,10 @@ extension KindaVimEngine {
         case .leftBrace:
             if let element = asNormalMode.leftBrace(on: focusedTextElement) {
                 push(element: element)
+                endCurrentMove()
+            } else {
+                handleNormalModeUsingKeyboardStrategy(for: keyCombination)
             }
-            
-            endCurrentMove()
         case .leftBracket:
             enterOperatorPendingForNormalMode(with: KeyCombination(key: .leftBracket))
         case .leftChevron:
@@ -310,15 +313,17 @@ extension KindaVimEngine {
         case .percent:
             if let element = asNormalMode.percent(on: focusedTextElement) {
                 push(element: element)
+                endCurrentMove()
+            } else {
+                handleNormalModeUsingKeyboardStrategy(for: keyCombination)
             }
-            
-            endCurrentMove()
         case .rightBrace:
             if let element = asNormalMode.rightBrace(on: focusedTextElement) {
                 push(element: element)
+                endCurrentMove()
+            } else {
+                handleNormalModeUsingKeyboardStrategy(for: keyCombination)
             }
-            
-            endCurrentMove()
         case .rightBracket:
             enterOperatorPendingForNormalMode(with: KeyCombination(key: .rightBracket))
         case .rightChevron:
