@@ -159,7 +159,13 @@ extension KindaVimEngine {
             post(ksNormalMode.cb())
             enterInsertMode()
         case [.c, .c]:            
-            post(ksNormalMode.cc())
+            switch focusedElementType {
+            case .textElement:
+                post(ksNormalMode.ccForTextElement())
+            default:
+                post(ksNormalMode.ccForNonTextElement())
+            }
+                        
             enterInsertMode()
         case [.c, .e]:
             post(ksNormalMode.ce())
