@@ -34,7 +34,13 @@ extension KindaVimEngine {
                 endCurrentMove()
             }
         case .d:
-            post(ksVisualMode.d())            
+            switch focusedElementType {
+            case .textElement:
+                post(ksVisualMode.dForTextElement())
+            default:
+                post(ksVisualMode.dForNonTextElement())
+            }
+            
             enterNormalMode()
         case .dollarSign:
             switch visualStyle {
