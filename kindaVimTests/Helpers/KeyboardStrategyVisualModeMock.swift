@@ -74,13 +74,19 @@ class KeyboardStrategyVisualModeMock: KeyboardStrategyVisualModeProtocol {
         return []
     }
     
-    func ggForVisualStyleCharacterwise() -> [KeyCombination] {
+    func ggForNonTextElement() -> [KeyCombination] {
         functionCalled = #function
         
         return []
     }
     
-    func ggForVisualStyleLinewise() -> [KeyCombination] {
+    func ggForTextElementWhenInVisualStyleCharacterwise() -> [KeyCombination] {
+        functionCalled = #function
+        
+        return []
+    }
+    
+    func ggForTextElementWhenInVisualStyleLinewise() -> [KeyCombination] {
         functionCalled = #function
         
         return []

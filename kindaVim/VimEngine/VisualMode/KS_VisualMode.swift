@@ -224,10 +224,20 @@ extension KindaVimEngine {
         case [.g, .g]:
             switch visualStyle {
             case .characterwise:
-                post(ksVisualMode.ggForVisualStyleCharacterwise())
+                if focusedElementType == .nonTextElement {
+                    post(ksVisualMode.ggForNonTextElement())
+                } else {
+                    post(ksVisualMode.ggForTextElementWhenInVisualStyleCharacterwise())
+                }
+                
                 enterVisualMode()
             case .linewise:
-                post(ksVisualMode.ggForVisualStyleLinewise())
+                if focusedElementType == .nonTextElement {
+                    post(ksVisualMode.ggForNonTextElement())
+                } else {
+                    post(ksVisualMode.ggForTextElementWhenInVisualStyleLinewise())
+                }
+                
                 enterVisualMode()
             }
         case [.g, .I]:
