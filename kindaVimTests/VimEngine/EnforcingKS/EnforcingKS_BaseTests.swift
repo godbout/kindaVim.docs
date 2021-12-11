@@ -16,8 +16,6 @@ class EnforcingKS_BaseTests: XCTestCase {
         kindaVimEngine.accessibilityStrategy = AccessibilityStrategyMock()
         kindaVimEngine.asNormalMode = AccessibilityStrategyNormalModeMock()
         kindaVimEngine.asVisualMode = AccessibilityStrategyVisualModeMock()
-        kindaVimEngine.enterNormalMode()
-        // TODO: remove the line above?
     }
 
 }
