@@ -16,11 +16,20 @@ class FailingASVM_v_Tests: FailingASVM_BaseTests {
 // Entering from Normal Mode
 extension FailingASVM_v_Tests {
     
-    func test_that_it_calls_the_relevant_KS_function_as_a_fallback_when_in_Normal_Mode() {
+    func test_that_it_calls_the_relevant_KS_function_for_TextElements_as_a_fallback_when_in_Normal_Mode() {
+        kindaVimEngine.axEngine = AXEngineTextElementMock()
         kindaVimEngine.enterNormalMode()
         applyKeyCombinationsBeingTested()
         
-        XCTAssertEqual(ksVisualModeMock.functionCalled, "vForEnteringFromNormalMode()")
+        XCTAssertEqual(ksVisualModeMock.functionCalled, "vForTextElementWhenEnteringFromNormalMode()")
+    }
+    
+    func test_that_it_calls_the_relevant_KS_function_for_NonTextElements_as_a_fallback_when_in_Normal_Mode() {
+        kindaVimEngine.axEngine = AXEngineNonTextElementMock()
+        kindaVimEngine.enterNormalMode()
+        applyKeyCombinationsBeingTested()
+        
+        XCTAssertEqual(ksVisualModeMock.functionCalled, "vForNonTextElementWhenEnteringFromNormalMode()")
     }
     
     func test_that_if_Vim_was_in_NormalMode_it_switches_into_VisualMode_Characterwise() {
@@ -44,11 +53,20 @@ extension FailingASVM_v_Tests {
 // VisualStyle Characterwise
 extension FailingASVM_v_Tests {
     
-    func test_that_it_calls_the_relevant_KS_function_as_a_fallback_when_in_VisualStyle_Characterwise() {
+    func test_that_it_calls_the_relevant_KS_function_for_TextElements_as_a_fallback_when_in_VisualStyle_Characterwise() {        
+        kindaVimEngine.axEngine = AXEngineTextElementMock()
         kindaVimEngine.visualStyle = .characterwise
         applyKeyCombinationsBeingTested()
         
-        XCTAssertEqual(ksVisualModeMock.functionCalled, "vForVisualStyleCharacterwise()")
+        XCTAssertEqual(ksVisualModeMock.functionCalled, "vForTextElementWhenInVisualStyleCharacterwise()")
+    }
+    
+    func test_that_it_calls_the_relevant_KS_function_for_NonTextElements_as_a_fallback_when_in_VisualStyle_Characterwise() {
+        kindaVimEngine.axEngine = AXEngineNonTextElementMock()
+        kindaVimEngine.visualStyle = .characterwise
+        applyKeyCombinationsBeingTested()
+        
+        XCTAssertEqual(ksVisualModeMock.functionCalled, "vForNonTextElementWhenInVisualStyleCharacterwise()")
     }
     
     func test_that_if_Vim_was_VisualStyle_Characterwise_it_switches_into_normal_mode() {
@@ -71,11 +89,20 @@ extension FailingASVM_v_Tests {
 // VisualStyle Linewise
 extension FailingASVM_v_Tests {
     
-    func test_that_it_calls_the_relevant_KS_function_as_a_fallback_when_in_VisualStyle_Linewise() {
+    func test_that_it_calls_the_relevant_KS_function_for_TextElements_as_a_fallback_when_in_VisualStyle_Linewise() {
+        kindaVimEngine.axEngine = AXEngineTextElementMock()
         kindaVimEngine.visualStyle = .linewise
         applyKeyCombinationsBeingTested()
         
-        XCTAssertEqual(ksVisualModeMock.functionCalled, "vForVisualStyleLinewise()")
+        XCTAssertEqual(ksVisualModeMock.functionCalled, "vForTextElementWhenInVisualStyleLinewise()")
+    }
+    
+    func test_that_it_calls_the_relevant_KS_function_as_a_fallback_when_in_VisualStyle_Linewise() {
+        kindaVimEngine.axEngine = AXEngineNonTextElementMock()
+        kindaVimEngine.visualStyle = .linewise
+        applyKeyCombinationsBeingTested()
+        
+        XCTAssertEqual(ksVisualModeMock.functionCalled, "vForNonTextElementWhenInVisualStyleLinewise()")
     }
 
     func test_that_if_Vim_was_in_VisualStyle_Linewise_it_switches_into_visual_mode_characterwise() {

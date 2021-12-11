@@ -95,9 +95,14 @@ extension KindaVimEngine {
             post(ksNormalMode.controlU())
             endCurrentMove()
         case .v:            
-            visualStyle = .characterwise
+            switch focusedElementType {
+            case .textElement:
+                post(ksVisualMode.vForTextElementWhenEnteringFromNormalMode())
+            case .nonTextElement:
+                post(ksVisualMode.vForNonTextElementWhenEnteringFromNormalMode())
+            }
             
-            post(ksVisualMode.vForEnteringFromNormalMode())
+            visualStyle = .characterwise
             enterVisualMode()
         case .V:
             switch focusedElementType {
