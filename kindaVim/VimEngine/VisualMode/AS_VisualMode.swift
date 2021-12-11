@@ -466,37 +466,48 @@ extension KindaVimEngine {
         default:
             switch visualStyle {
             case .characterwise:
-                // TODO: also refactor this
-                if operatorPendingBuffer.first?.vimKey == .f, let character = operatorPendingBuffer.last {
-                    if let element = asVisualMode.fForVisualStyleCharacterwise(to: character.character, on: focusedTextElement) {
+                guard operatorPendingBuffer.first?.vimKey != .F else {
+                    if let character = operatorPendingBuffer.last, let element = asVisualMode.FForVisualStyleCharacterwise(to: character.character, on: focusedTextElement) {
                         push(element: element)                        
+                        enterVisualMode()
+                    } else {
+                        parseOperatorCommandForVisualModeUsingKeyboardStrategy()
                     }
-                    
-                    enterVisualMode()
+                                        
+                    return
+                }
+                                
+                guard operatorPendingBuffer.first?.vimKey != .f else {
+                    if let character = operatorPendingBuffer.last, let element = asVisualMode.fForVisualStyleCharacterwise(to: character.character, on: focusedTextElement) {
+                        push(element: element)                        
+                        enterVisualMode()
+                    } else {
+                        parseOperatorCommandForVisualModeUsingKeyboardStrategy()
+                    }
+                                        
+                    return
                 }
                 
-                if operatorPendingBuffer.first?.vimKey == .F, let character = operatorPendingBuffer.last {
-                    if let element = asVisualMode.FForVisualStyleCharacterwise(to: character.character, on: focusedTextElement) {
-                        push(element: element)
+                guard operatorPendingBuffer.first?.vimKey != .T else {
+                    if let character = operatorPendingBuffer.last, let element = asVisualMode.TForVisualStyleCharacterwise(to: character.character, on: focusedTextElement) {
+                        push(element: element)                        
+                        enterVisualMode()
+                    } else {
+                        parseOperatorCommandForVisualModeUsingKeyboardStrategy()
                     }
-                    
-                    enterVisualMode()
+                                        
+                    return
                 }
                 
-                if operatorPendingBuffer.first?.vimKey == .t, let character = operatorPendingBuffer.last {
-                    if let element = asVisualMode.tForVisualStyleCharacterwise(to: character.character, on: focusedTextElement) {
-                        push(element: element)
+                guard operatorPendingBuffer.first?.vimKey != .t else {
+                    if let character = operatorPendingBuffer.last, let element = asVisualMode.tForVisualStyleCharacterwise(to: character.character, on: focusedTextElement) {
+                        push(element: element)                        
+                        enterVisualMode()
+                    } else {
+                        parseOperatorCommandForVisualModeUsingKeyboardStrategy()
                     }
-                    
-                    enterVisualMode()
-                }
-                
-                if operatorPendingBuffer.first?.vimKey == .T, let character = operatorPendingBuffer.last {
-                    if let element = asVisualMode.TForVisualStyleCharacterwise(to: character.character, on: focusedTextElement) {
-                        push(element: element)
-                    }
-                    
-                    enterVisualMode()
+                                        
+                    return
                 }
                 
                 // if nothing gets caught, stop operator pending and go back to VM
