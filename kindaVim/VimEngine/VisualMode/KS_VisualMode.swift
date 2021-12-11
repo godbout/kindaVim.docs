@@ -65,10 +65,20 @@ extension KindaVimEngine {
         case .G:
             switch visualStyle {
             case .characterwise:
-                post(ksVisualMode.GForVisualStyleCharacterwise())
+                if focusedElementType == .nonTextElement {
+                    post(ksVisualMode.GForNonTextElement())
+                } else {
+                    post(ksVisualMode.GForTextElementWhenInVisualStyleCharacterwise())
+                }
+                
                 endCurrentMove()
             case .linewise:
-                post(ksVisualMode.GForVisualStyleLinewise())
+                if focusedElementType == .nonTextElement {
+                    post(ksVisualMode.GForNonTextElement())
+                } else {
+                    post(ksVisualMode.GForTextElementWhenInVisualStyleLinewise())
+                }
+                
                 endCurrentMove()
             }
         case .h:
@@ -118,18 +128,18 @@ extension KindaVimEngine {
         case .v:
             switch visualStyle {
             case .characterwise:
-                if focusedElementType == .textElement {
-                    post(ksVisualMode.vForTextElementWhenInVisualStyleCharacterwise())
-                } else {
+                if focusedElementType == .nonTextElement {
                     post(ksVisualMode.vForNonTextElement())
+                } else {
+                    post(ksVisualMode.vForTextElementWhenInVisualStyleCharacterwise())
                 }
                 
                 enterNormalMode()
             case .linewise:
-                if focusedElementType == .textElement {
-                    post(ksVisualMode.vForTextElementWhenInVisualStyleLinewise())
-                } else {
+                if focusedElementType == .nonTextElement {
                     post(ksVisualMode.vForNonTextElement())
+                } else {
+                    post(ksVisualMode.vForTextElementWhenInVisualStyleLinewise())
                 }
                 
                 visualStyle = .characterwise
@@ -138,19 +148,19 @@ extension KindaVimEngine {
         case .V:
             switch visualStyle {
             case .characterwise:
-                if focusedElementType == .textElement {
-                    post(ksVisualMode.VForTextElementWhenInVisualStyleCharacterwise())
-                } else {
+                if focusedElementType == .nonTextElement {
                     post(ksVisualMode.VForNonTextElement())
+                } else {
+                    post(ksVisualMode.VForTextElementWhenInVisualStyleCharacterwise())
                 }
                                 
                 visualStyle = .linewise
                 endCurrentMove()
             case .linewise:
-                if focusedElementType == .textElement {
-                    post(ksVisualMode.VForTextElementWhenInVisualStyleLinewise())
-                } else {
+                if focusedElementType == .nonTextElement {
                     post(ksVisualMode.VForNonTextElement())
+                } else {
+                    post(ksVisualMode.VForTextElementWhenInVisualStyleLinewise())
                 }
                                 
                 enterNormalMode()

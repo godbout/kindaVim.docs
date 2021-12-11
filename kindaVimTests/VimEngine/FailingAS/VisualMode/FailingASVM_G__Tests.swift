@@ -16,11 +16,20 @@ class FailingASVM_G__Tests: FailingASVM_BaseTests {
 // VisualStyle Characterwise
 extension FailingASVM_G__Tests {
     
-    func test_that_it_calls_the_relevant_KS_function_as_a_fallback_when_in_VisualStyle_Characterwise() {
+    func test_that_it_calls_the_correct_function_for_NonTextElements_on_KS_when_in_VisualStyle_Characterwise() {
+        kindaVimEngine.axEngine = AXEngineNonTextElementMock()
+        kindaVimEngine.visualStyle = .characterwise
+        applyKeyCombinationsBeingTested()
+
+        XCTAssertEqual(ksVisualModeMock.functionCalled, "GForNonTextElement()")
+    }
+    
+    func test_that_it_calls_the_relevant_KS_function_for_TextElements_as_a_fallback_when_in_VisualStyle_Characterwise() {
+        kindaVimEngine.axEngine = AXEngineTextElementMock()
         kindaVimEngine.visualStyle = .characterwise
         applyKeyCombinationsBeingTested()
         
-        XCTAssertEqual(ksVisualModeMock.functionCalled, "GForVisualStyleCharacterwise()")
+        XCTAssertEqual(ksVisualModeMock.functionCalled, "GForTextElementWhenInVisualStyleCharacterwise()")
     }
     
     func test_that_it_keeps_Vim_in_visual_mode_when_in_VisualStyle_Characterwise() {
@@ -43,11 +52,20 @@ extension FailingASVM_G__Tests {
 // VisualStyle Linewise
 extension FailingASVM_G__Tests {
     
-    func test_that_it_calls_the_relevant_KS_function_as_a_fallback_when_in_VisualStyle_Linewise() {
+    func test_that_it_calls_the_correct_function_for_NonTextElements_on_KS_when_in_VisualStyle_Linewise() {
+        kindaVimEngine.axEngine = AXEngineNonTextElementMock()
+        kindaVimEngine.visualStyle = .linewise
+        applyKeyCombinationsBeingTested()
+
+        XCTAssertEqual(ksVisualModeMock.functionCalled, "GForNonTextElement()")
+    }
+    
+    func test_that_it_calls_the_relevant_KS_function_for_TextElements_as_a_fallback_when_in_VisualStyle_Linewise() {
+        kindaVimEngine.axEngine = AXEngineTextElementMock()
         kindaVimEngine.visualStyle = .linewise
         applyKeyCombinationsBeingTested()
         
-        XCTAssertEqual(ksVisualModeMock.functionCalled, "GForVisualStyleLinewise()")
+        XCTAssertEqual(ksVisualModeMock.functionCalled, "GForTextElementWhenInVisualStyleLinewise()")
     }
     
     func test_that_it_keeps_Vim_in_visual_mode_when_in_VisualStyle_Linewise() {
