@@ -57,7 +57,13 @@ class KeyboardStrategyNormalModeMock: KeyboardStrategyNormalModeProtocol {
         return []
     }
     
-    func cgg() -> [KeyCombination] {
+    func cggForNonTextElement() -> [KeyCombination] {
+        functionCalled = #function
+        
+        return []
+    }
+    
+    func cggForTextElement() -> [KeyCombination] {
         functionCalled = #function
         
         return []
@@ -117,7 +123,13 @@ class KeyboardStrategyNormalModeMock: KeyboardStrategyNormalModeProtocol {
         return []
     }
 
-    func dgg() -> [KeyCombination] {
+    func dggForNonTextElement() -> [KeyCombination] {
+        functionCalled = #function
+        
+        return []
+    }
+    
+    func dggForTextElement() -> [KeyCombination] {
         functionCalled = #function
         
         return []
