@@ -212,6 +212,13 @@ class AccessibilityStrategyNormalModeMock: AccessibilityStrategyNormalModeProtoc
         return element
     }
     
+    func db(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
+        functionCalled = #function
+        pgRPassed = pgR
+        
+        return element
+    }
+    
     func dd(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
         functionCalled = #function
         pgRPassed = pgR
