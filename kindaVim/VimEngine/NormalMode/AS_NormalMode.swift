@@ -581,6 +581,13 @@ extension KindaVimEngine {
             } else {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
+        case [.d, .w]:
+            if let element = asNormalMode.dw(on: focusedTextElement, pgR: appMode == .pgR) {
+                push(element: element)
+                enterNormalMode()
+            } else {
+                parseOperatorCommandForNormalModeUsingKeyboardStrategy()
+            }
         case [.g, .caret]:
             if let element = asNormalMode.gCaret(on: focusedTextElement) {
                 push(element: element)

@@ -277,6 +277,9 @@ extension KindaVimEngine {
             }
             
             enterNormalMode()
+        case [.d, .w]:
+            post(ksNormalMode.dw())
+            enterNormalMode()
         case [.g, .caret]:
             post(ksNormalMode.gCaret())
             enterNormalMode()
