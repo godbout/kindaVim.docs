@@ -520,6 +520,13 @@ extension KindaVimEngine {
             } else {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
+        case [.d, .e]:
+            if let element = asNormalMode.de(on: focusedTextElement, pgR: appMode == .pgR) {
+                push(element: element)
+                enterNormalMode()
+            } else {
+                parseOperatorCommandForNormalModeUsingKeyboardStrategy()
+            }
         case [.d, .f]:
             ()
         case [.d, .F]:

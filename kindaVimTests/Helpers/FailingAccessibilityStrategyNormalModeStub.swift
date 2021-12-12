@@ -133,6 +133,10 @@ struct FailingAccessibilityStrategyNormalModeStub: AccessibilityStrategyNormalMo
         return nil
     }
     
+    func de(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
+        return nil
+    }
+    
     func df(times count: Int? = 1, to character: Character, on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
         return nil
     }

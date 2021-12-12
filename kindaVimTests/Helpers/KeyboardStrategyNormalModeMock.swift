@@ -123,6 +123,12 @@ class KeyboardStrategyNormalModeMock: KeyboardStrategyNormalModeProtocol {
         return []
     }
 
+    func de() -> [KeyCombination] {
+        functionCalled = #function
+        
+        return []
+    }
+    
     func dggForNonTextElement() -> [KeyCombination] {
         functionCalled = #function
         

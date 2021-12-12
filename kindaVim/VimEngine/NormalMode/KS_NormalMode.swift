@@ -236,6 +236,9 @@ extension KindaVimEngine {
             }
             
             enterNormalMode()
+        case [.d, .e]:
+            post(ksNormalMode.de())
+            enterNormalMode()    
         case [.d, .g]:
             ()
         case [.d, .g, .g]:

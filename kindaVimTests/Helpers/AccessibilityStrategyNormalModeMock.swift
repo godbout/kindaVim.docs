@@ -226,6 +226,13 @@ class AccessibilityStrategyNormalModeMock: AccessibilityStrategyNormalModeProtoc
         return element
     }
     
+    func de(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
+        functionCalled = #function
+        pgRPassed = pgR
+        
+        return element
+    }
+    
     func df(times count: Int? = 1, to character: Character, on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
         functionCalled = #function
         pgRPassed = pgR
