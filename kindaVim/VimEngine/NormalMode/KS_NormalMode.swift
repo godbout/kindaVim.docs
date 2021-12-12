@@ -198,7 +198,13 @@ extension KindaVimEngine {
             post(ksNormalMode.cgg())            
             enterInsertMode()
         case [.c, .G]:
-            post(ksNormalMode.cG())
+            switch focusedElementType {
+            case .textElement:
+                post(ksNormalMode.cGForTextElement())
+            default:
+                post(ksNormalMode.cGForNonTextElement())
+            }
+            
             enterInsertMode()
         case [.c, .i]:
             ()
@@ -230,7 +236,13 @@ extension KindaVimEngine {
             post(ksNormalMode.dgg())
             enterNormalMode()            
         case [.d, .G]:            
-            post(ksNormalMode.dG())
+            switch focusedElementType {
+            case .textElement:
+                post(ksNormalMode.dGForTextElement())
+            default:
+                post(ksNormalMode.dGForNonTextElement())
+            }
+            
             enterNormalMode()
         case [.d, .j]:
             switch focusedElementType {
