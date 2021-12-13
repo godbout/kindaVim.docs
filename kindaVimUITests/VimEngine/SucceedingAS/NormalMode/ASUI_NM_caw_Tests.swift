@@ -28,8 +28,19 @@ extension ASUI_NM_caw_Tests {
 
         XCTAssertEqual(kindaVimEngine.currentMode, .insert)
     }
+    
+    func test_that_when_the_text_is_empty_it_stays_in_Normal_Mode() {
+        let textInAXFocusedElement = ""
+        app.textFields.firstMatch.tap()
+        app.textFields.firstMatch.typeText(textInAXFocusedElement)
+        kindaVimEngine.enterNormalMode()
+        
+        applyKeyCombinationsBeingTested()
 
-    func test_a_case_where_it_should_not_delete_the_content_and_then_stay_in_normal_mode() {
+        XCTAssertEqual(kindaVimEngine.currentMode, .normal)
+    }
+
+    func test_that_when_the_text_is_not_empty_and_the_caret_is_on_a_space_and_all_the_rest_of_the_text_is_spaces_it_stays_in_Normal_Mode() {
         let textInAXFocusedElement = "caw does not work here...               "
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)

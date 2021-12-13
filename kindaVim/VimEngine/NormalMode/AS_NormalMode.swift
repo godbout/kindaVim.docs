@@ -365,21 +365,22 @@ extension KindaVimEngine {
         case [.c, .a, .w]:
             if let element = asNormalMode.caw(on: focusedTextElement, pgR: appMode == .pgR) {
                 push(element: element)
-                element.selectedLength == 0 ? enterInsertMode() : enterNormalMode()
+                (element.selectedLength == 0 && element.isNotEmpty) ? enterInsertMode() : enterNormalMode()
             } else {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
         case [.c, .B]:
             if let element = asNormalMode.cB(on: focusedTextElement, pgR: appMode == .pgR) {
                 push(element: element)
-                enterInsertMode()
+                (element.selectedLength == 0 && element.isNotEmpty) ? enterInsertMode() : enterNormalMode()
             } else {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
         case [.c, .b]:
             if let element = asNormalMode.cb(on: focusedTextElement, pgR: appMode == .pgR) {
                 push(element: element)
-                enterInsertMode()
+                (element.selectedLength == 0 && element.isNotEmpty) ? enterInsertMode() : enterNormalMode()
+                
             } else {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
@@ -429,63 +430,63 @@ extension KindaVimEngine {
         case [.c, .i, .doubleQuote]:
             if let element = asNormalMode.ciDoubleQuote(on: focusedTextElement, pgR: appMode == .pgR) {
                 push(element: element)
-                element.selectedLength == 0 ? enterInsertMode() : enterNormalMode()
+                (element.selectedLength == 0 && element.isNotEmpty) ? enterInsertMode() : enterNormalMode()
             } else {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
         case [.c, .i, .leftBrace]:
             if let element = asNormalMode.ciLeftBrace(on: focusedTextElement, pgR: appMode == .pgR) {
                 push(element: element)
-                element.selectedLength == 0 ? enterInsertMode() : enterNormalMode()
+                (element.selectedLength == 0 && element.isNotEmpty) ? enterInsertMode() : enterNormalMode()
             } else {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
         case [.c, .i, .leftBracket]:
             if let element = asNormalMode.ciLeftBracket(on: focusedTextElement, pgR: appMode == .pgR) {
                 push(element: element)
-                element.selectedLength == 0 ? enterInsertMode() : enterNormalMode()
+                (element.selectedLength == 0 && element.isNotEmpty) ? enterInsertMode() : enterNormalMode()
             } else {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
         case [.c, .i, .leftParenthesis]:
             if let element = asNormalMode.ciLeftParenthesis(on: focusedTextElement, pgR: appMode == .pgR) {
                 push(element: element)
-                element.selectedLength == 0 ? enterInsertMode() : enterNormalMode()
+                (element.selectedLength == 0 && element.isNotEmpty) ? enterInsertMode() : enterNormalMode()
             } else {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
         case [.c, .i, .rightBrace]:
             if let element = asNormalMode.ciRightBrace(on: focusedTextElement, pgR: appMode == .pgR) {
                 push(element: element)
-                element.selectedLength == 0 ? enterInsertMode() : enterNormalMode()
+                (element.selectedLength == 0 && element.isNotEmpty) ? enterInsertMode() : enterNormalMode()
             } else {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
         case [.c, .i, .rightBracket]:
             if let element = asNormalMode.ciRightBracket(on: focusedTextElement, pgR: appMode == .pgR) {
                 push(element: element)
-                element.selectedLength == 0 ? enterInsertMode() : enterNormalMode()
+                (element.selectedLength == 0 && element.isNotEmpty) ? enterInsertMode() : enterNormalMode()
             } else {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
         case [.c, .i, .rightParenthesis]:
             if let element = asNormalMode.ciRightParenthesis(on: focusedTextElement, pgR: appMode == .pgR) {
                 push(element: element)
-                element.selectedLength == 0 ? enterInsertMode() : enterNormalMode()
+                (element.selectedLength == 0 && element.isNotEmpty) ? enterInsertMode() : enterNormalMode()
             } else {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
         case [.c, .i, .singleQuote]:
             if let element = asNormalMode.ciSingleQuote(on: focusedTextElement, pgR: appMode == .pgR) {
                 push(element: element)
-                element.selectedLength == 0 ? enterInsertMode() : enterNormalMode()
+                (element.selectedLength == 0 && element.isNotEmpty) ? enterInsertMode() : enterNormalMode()
             } else {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
         case [.c, .i, .backtick]:
             if let element = asNormalMode.ciBacktick(on: focusedTextElement, pgR: appMode == .pgR) {
                 push(element: element)
-                element.selectedLength == 0 ? enterInsertMode() : enterNormalMode()
+                (element.selectedLength == 0 && element.isNotEmpty) ? enterInsertMode() : enterNormalMode()
             } else {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
@@ -857,7 +858,7 @@ extension KindaVimEngine {
                 
                 if let element = element {
                     push(element: element)
-                    element.selectedLength == 0 ? enterInsertMode() : enterNormalMode()
+                    (element.selectedLength == 0 && element.isNotEmpty) ? enterInsertMode() : enterNormalMode()
                 } else {
                     parseOperatorCommandForNormalModeUsingKeyboardStrategy()
                 }

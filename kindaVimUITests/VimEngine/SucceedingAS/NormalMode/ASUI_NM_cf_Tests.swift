@@ -23,8 +23,21 @@ cf is pretty cool
 
         XCTAssertEqual(kindaVimEngine.currentMode, .insert)
     }
+    
+    func test_that_when_the_text_is_empty_it_stays_in_Normal_Mode() {
+        let textInAXFocusedElement = ""
+        app.textFields.firstMatch.tap()
+        app.textFields.firstMatch.typeText(textInAXFocusedElement)
+        kindaVimEngine.enterNormalMode()
+        
+        kindaVimEngine.handle(keyCombination: KeyCombination(key: .c))
+        kindaVimEngine.handle(keyCombination: KeyCombination(key: .f))
+        kindaVimEngine.handle(keyCombination: KeyCombination(key: .z))
 
-    func test_a_case_where_it_should_not_delete_the_content_stays_in_normal_mode() {
+        XCTAssertEqual(kindaVimEngine.currentMode, .normal)
+    }
+
+    func test_that_when_the_text_is_not_empty_and_it_does_not_find_what_it_is_looking_for_it_stays_in_Normal_Mode() {
         let textInAXFocusedElement = """
 hehe can't use cf here with the last letter of the alphabet!
 """
