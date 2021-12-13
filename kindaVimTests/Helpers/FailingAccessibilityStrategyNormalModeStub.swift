@@ -345,6 +345,10 @@ struct FailingAccessibilityStrategyNormalModeStub: AccessibilityStrategyNormalMo
         return nil
     }
     
+    func X(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
+        return nil
+    }
+    
     func x(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
         return nil
     }

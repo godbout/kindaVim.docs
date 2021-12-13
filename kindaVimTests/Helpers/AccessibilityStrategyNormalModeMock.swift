@@ -556,6 +556,13 @@ class AccessibilityStrategyNormalModeMock: AccessibilityStrategyNormalModeProtoc
         return element
     }
     
+    func X(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
+        functionCalled = #function
+        pgRPassed = pgR
+        
+        return element
+    }
+    
     func x(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
         functionCalled = #function
         pgRPassed = pgR

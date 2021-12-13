@@ -253,7 +253,12 @@ extension KindaVimEngine {
                 handleNormalModeUsingKeyboardStrategy(for: keyCombination)
             }                
         case .X:
-            handleNormalModeUsingKeyboardStrategy(for: keyCombination)
+            if let element = asNormalMode.X(on: focusedTextElement, pgR: appMode == .pgR) {
+                push(element: element)
+                endCurrentMove()
+            } else {
+                handleNormalModeUsingKeyboardStrategy(for: keyCombination)
+            }  
         case .y:
             enterOperatorPendingForNormalMode(with: keyCombination)
         case .Y:
