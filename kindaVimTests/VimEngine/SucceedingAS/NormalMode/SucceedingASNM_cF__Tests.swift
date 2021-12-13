@@ -5,13 +5,11 @@ import XCTest
 
 class SucceedingASNM_cF__Tests: SucceedingASNM_BaseTests {
     
-    override func setUp() {
-        super.setUp()
-        
+    private func applyKeyCombinationsBeingTested(pgR: Bool = false) {
         kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .eight))
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .c))
         kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .F))
-        kindaVimEngine.handle(keyCombination: KeyCombination(key: .x))
+        kindaVimEngine.handle(keyCombination: KeyCombination(key: .x), appMode: pgR == true ? .pgR : .auto)
     }
     
 }
@@ -21,22 +19,22 @@ class SucceedingASNM_cF__Tests: SucceedingASNM_BaseTests {
 extension SucceedingASNM_cF__Tests {
     
     func test_that_in_Auto_Mode_it_calls_the_correct_function_on_AS_with_PGR_off() {
+        applyKeyCombinationsBeingTested()
+                
         XCTAssertEqual(asNormalModeMock.functionCalled, "cF(times:to:on:pgR:)")
         XCTAssertEqual(asNormalModeMock.pgRPassed, false)
     }
     
     func test_that_in_PGR_Mode_it_calls_the_correct_function_on_AS_with_PGR_on() {
-        kindaVimEngine.enterNormalMode()
-        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .eight))
-        kindaVimEngine.handle(keyCombination: KeyCombination(key: .c))
-        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .F))
-        kindaVimEngine.handle(keyCombination: KeyCombination(key: .x), appMode: .pgR)
+        applyKeyCombinationsBeingTested(pgR: true)
         
         XCTAssertEqual(asNormalModeMock.functionCalled, "cF(times:to:on:pgR:)")
         XCTAssertEqual(asNormalModeMock.pgRPassed, true)
     }
     
     func test_that_it_resets_the_count() {
+        applyKeyCombinationsBeingTested()
+                
         XCTAssertNil(kindaVimEngine.count)
     }
  

@@ -5,13 +5,11 @@ import XCTest
 
 class SucceedingASNM_ciDoubleQuote_Tests: SucceedingASNM_BaseTests {
     
-    override func setUp() {
-        super.setUp()
-        
+    private func applyKeyCombinationsBeingTested(pgR: Bool = false) {
         kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .eight))
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .c))
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .i))
-        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .doubleQuote))
+        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .doubleQuote), appMode: pgR == true ? .pgR : .auto)
     }
     
 }
@@ -25,22 +23,22 @@ class SucceedingASNM_ciDoubleQuote_Tests: SucceedingASNM_BaseTests {
 extension SucceedingASNM_ciDoubleQuote_Tests {
     
     func test_that_in_Auto_Mode_it_calls_the_correct_function_on_AS_with_PGR_off() {
+        applyKeyCombinationsBeingTested()
+                
         XCTAssertEqual(asNormalModeMock.functionCalled, "ciDoubleQuote(on:pgR:)")
         XCTAssertEqual(asNormalModeMock.pgRPassed, false)
     }
     
     func test_that_in_PGR_Mode_it_calls_the_correct_function_on_AS_with_PGR_on() {
-        kindaVimEngine.enterNormalMode()
-        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .eight))
-        kindaVimEngine.handle(keyCombination: KeyCombination(key: .c))
-        kindaVimEngine.handle(keyCombination: KeyCombination(key: .i))
-        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .doubleQuote), appMode: .pgR)
+        applyKeyCombinationsBeingTested(pgR: true)
         
         XCTAssertEqual(asNormalModeMock.functionCalled, "ciDoubleQuote(on:pgR:)")
         XCTAssertEqual(asNormalModeMock.pgRPassed, true)
     }
     
     func test_that_it_resets_the_count() {
+        applyKeyCombinationsBeingTested()
+                
         XCTAssertNil(kindaVimEngine.count)
     }
         
