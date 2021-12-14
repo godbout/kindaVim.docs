@@ -68,7 +68,7 @@ class AppCore {
         guard vimEngine == nil else { return }
         
         @AppStorage(SettingsKeys.toggleHazeOverWindow) var toggleHazeOverWindow: Bool = true
-        @AppStorage(SettingsKeys.toggleMenuBarIcon) var toggleMenuBarIcon: Bool = true
+        @AppStorage(SettingsKeys.toggleMenuBarIcon) var toggleMenuBarIcon: Bool = false
         @AppStorage(SettingsKeys.showCharactersTyped) var showCharactersTyped: Bool = false
         @AppStorage(SettingsKeys.jkMapping) var jkMapping: Bool = true
         
