@@ -73,7 +73,7 @@ class KindaVimEngine {
     
     var focusedElementType: ElementType {
         switch axEngine.axRole() {
-        case .textField, .textArea, .scrollArea, .webArea:
+        case .comboBox, .textField, .textArea, .scrollArea, .webArea:
             return .textElement
         default:
             return .nonTextElement
