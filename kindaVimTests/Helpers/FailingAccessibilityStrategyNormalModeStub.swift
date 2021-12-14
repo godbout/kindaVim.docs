@@ -337,7 +337,7 @@ struct FailingAccessibilityStrategyNormalModeStub: AccessibilityStrategyNormalMo
         return nil
     }
 
-    func w(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func w(times count: Int?, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return nil
     }
     

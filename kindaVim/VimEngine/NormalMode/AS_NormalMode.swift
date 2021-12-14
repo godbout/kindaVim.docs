@@ -232,7 +232,7 @@ extension KindaVimEngine {
                 handleNormalModeUsingKeyboardStrategy(for: keyCombination)
             }
         case .w:
-            if let element = asNormalMode.w(on: focusedTextElement) {
+            if let element = asNormalMode.w(times: count, on: focusedTextElement) {
                 push(element: element)
                 endCurrentMove()
             } else {
