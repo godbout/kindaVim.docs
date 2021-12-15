@@ -291,6 +291,7 @@ lol those tables.
 
 # ROADMAP
 * support all keyboard layouts (currently stuck to US QWERTY layout. lame. i know.)
+* let non Vim moves pass through and go back to macOS (so that you can run your PH shortcut)
 * add a plethora of missing Vim moves ([ask!](https://github.com/godbout/kindaVim.theapp/issues/new))
 * update all moves to support new global count system ([ask!](https://github.com/godbout/kindaVim.theapp/issues/new))
 * better handling of Electron shit apps
