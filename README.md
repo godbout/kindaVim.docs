@@ -289,6 +289,10 @@ kindaVim will be a subscription of one ☕️ (USD$3) a month. the beta is free 
 
 lol those tables.
 
+# DID YOU KNOW?
+
+![bye bye caps lock](https://raw.githubusercontent.com/godbout/kindaVim.theapp/master/assets/did-you-know.png "haha")
+
 # ROADMAP
 * support all keyboard layouts (currently stuck to US QWERTY layout. lame. i know.)
 * let non Vim moves pass through and go back to macOS (so that you can run your PH shortcut)
