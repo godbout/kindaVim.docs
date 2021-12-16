@@ -11,7 +11,7 @@ class FailingASNM_ciBacktick_Tests: FailingASNM_BaseTests {
         kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .eight))
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .c))
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .i))
-        kindaVimEngine.handle(keyCombination: KeyCombination(key: .backtick))
+        kindaVimEngine.handle(keyCombination: KeyCombination(key: .grave))
     }
     
 }

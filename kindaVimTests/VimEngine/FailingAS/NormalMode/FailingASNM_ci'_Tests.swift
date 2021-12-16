@@ -11,7 +11,7 @@ class FailingASNM_ciSingleQuote_Tests: FailingASNM_BaseTests {
         kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .eight))
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .c))
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .i))
-        kindaVimEngine.handle(keyCombination: KeyCombination(key: .singleQuote))
+        kindaVimEngine.handle(keyCombination: KeyCombination(key: .quote))
     }
     
 }

@@ -31,8 +31,7 @@ struct Display {
             Self.ongoingMove = "control " + String(keyCombination.character)
         } else {
             switch keyCombination.key {
-        
-            case .enter:
+            case .return:
                 Self.ongoingMove = "return"
             case .escape:
                 Self.ongoingMove = "esc"

@@ -289,7 +289,7 @@ extension KindaVimEngine {
                 element.selectedText = nil
                 push(element: element)
             }
-        case .enter:
+        case .return:
             handleNormalModeUsingKeyboardStrategy(for: keyCombination)
         case .caret:
             if let element = asNormalMode.caret(on: focusedTextElement) {

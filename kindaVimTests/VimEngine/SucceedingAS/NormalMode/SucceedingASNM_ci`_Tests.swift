@@ -9,7 +9,7 @@ class SucceedingASNM_ciBacktick_Tests: SucceedingASNM_BaseTests {
         kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .eight))
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .c))
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .i))
-        kindaVimEngine.handle(keyCombination: KeyCombination(key: .backtick), appMode: pgR == true ? .pgR : .auto)
+        kindaVimEngine.handle(keyCombination: KeyCombination(key: .grave), appMode: pgR == true ? .pgR : .auto)
     }
     
 }

@@ -9,7 +9,7 @@ class SucceedingASNM_ciSingleQuote_Tests: SucceedingASNM_BaseTests {
         kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .eight))
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .c))
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .i))
-        kindaVimEngine.handle(keyCombination: KeyCombination(key: .singleQuote), appMode: pgR == true ? .pgR : .auto)
+        kindaVimEngine.handle(keyCombination: KeyCombination(key: .quote), appMode: pgR == true ? .pgR : .auto)
     }
     
 }

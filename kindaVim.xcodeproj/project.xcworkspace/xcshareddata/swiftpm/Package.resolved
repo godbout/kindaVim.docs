@@ -29,30 +29,21 @@
         }
       },
       {
-        "package": "KeyboardStrategy",
-        "repositoryURL": "git@github.com:godbout/KeyboardStrategy.git",
-        "state": {
-          "branch": "master",
-          "revision": "8151ba3c2ab54d37be93673f92291e75afc60cb2",
-          "version": null
-        }
-      },
-      {
-        "package": "KeyCombination",
-        "repositoryURL": "git@github.com:godbout/KeyCombination.git",
-        "state": {
-          "branch": "master",
-          "revision": "6babd7b21bbb09d4244ac4fa0575457dc6c152d6",
-          "version": null
-        }
-      },
-      {
         "package": "LaunchAtLogin",
         "repositoryURL": "git@github.com:sindresorhus/LaunchAtLogin.git",
         "state": {
           "branch": null,
           "revision": "e8171b3e38a2816f579f58f3dac1522aa39efe41",
           "version": "4.2.0"
+        }
+      },
+      {
+        "package": "Sauce",
+        "repositoryURL": "git@github.com:Clipy/Sauce.git",
+        "state": {
+          "branch": null,
+          "revision": "2fcf7e43a242b183fdea3f2275ebec0d773b65f5",
+          "version": "2.2.0"
         }
       },
       {

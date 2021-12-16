@@ -145,7 +145,7 @@ extension KindaVimEngine {
         case .escape:
             post(ksNormalMode.escape())
             enterInsertMode()            
-        case .enter:
+        case .return:
             post(ksNormalMode.enter())
             enterInsertMode()
         case .caret:

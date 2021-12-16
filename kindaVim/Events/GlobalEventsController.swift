@@ -87,7 +87,7 @@ struct GlobalEventsController {
     // else we live for escape
     private static func globalVimEngineHotkeyIsPressed(_ keyCombination: KeyCombination) -> Bool {
         if Self.useCustomShortcutToEnterNormalMode == true, let customKeyboardShortcut = KeyboardShortcuts.getShortcut(for: .enterNormalMode) {
-            return keyCombination.key.rawValue == customKeyboardShortcut.key!.rawValue
+            return keyCombination.key.QWERTYKeyCode == customKeyboardShortcut.key!.rawValue
                 && keyCombination.control == customKeyboardShortcut.modifiers.contains(.control)
                 && keyCombination.option == customKeyboardShortcut.modifiers.contains(.option)
                 && keyCombination.shift == customKeyboardShortcut.modifiers.contains(.shift)
