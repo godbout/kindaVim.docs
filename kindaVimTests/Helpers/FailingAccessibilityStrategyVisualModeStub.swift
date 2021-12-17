@@ -41,11 +41,11 @@ struct FailingAccessibilityStrategyVisualModeStub: AccessibilityStrategyVisualMo
         return nil
     }
     
-    func fForVisualStyleCharacterwise(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func FForVisualStyleCharacterwise(times count: Int?, to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return nil
     }
     
-    func FForVisualStyleCharacterwise(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func fForVisualStyleCharacterwise(times count: Int?, to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return nil
     }
     
@@ -137,11 +137,11 @@ struct FailingAccessibilityStrategyVisualModeStub: AccessibilityStrategyVisualMo
         return nil 
     }
     
-    func tForVisualStyleCharacterwise(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func TForVisualStyleCharacterwise(times count: Int?, to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return nil
     }
     
-    func TForVisualStyleCharacterwise(to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func tForVisualStyleCharacterwise(times count: Int?, to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return nil
     }
     

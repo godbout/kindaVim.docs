@@ -21,7 +21,7 @@ extension SucceedingASVM_f_Tests {
         kindaVimEngine.visualStyle = .characterwise
         applyKeyCombinationsBeingTested()
         
-        XCTAssertEqual(asVisualModeMock.functionCalled, "fForVisualStyleCharacterwise(to:on:)")
+        XCTAssertEqual(asVisualModeMock.functionCalled, "fForVisualStyleCharacterwise(times:to:on:)")
     }
     
     func test_that_it_keeps_Vim_in_VisualMode_when_VisualStyle_is_Characterwise() {

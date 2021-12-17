@@ -467,7 +467,7 @@ extension KindaVimEngine {
             switch visualStyle {
             case .characterwise:
                 guard operatorPendingBuffer.first?.vimKey != .F else {
-                    if let character = operatorPendingBuffer.last, let element = asVisualMode.FForVisualStyleCharacterwise(to: character.character, on: focusedTextElement) {
+                    if let character = operatorPendingBuffer.last, let element = asVisualMode.FForVisualStyleCharacterwise(times: count, to: character.character, on: focusedTextElement) {
                         push(element: element)                        
                         enterVisualMode()
                     } else {
@@ -478,7 +478,7 @@ extension KindaVimEngine {
                 }
                                 
                 guard operatorPendingBuffer.first?.vimKey != .f else {
-                    if let character = operatorPendingBuffer.last, let element = asVisualMode.fForVisualStyleCharacterwise(to: character.character, on: focusedTextElement) {
+                    if let character = operatorPendingBuffer.last, let element = asVisualMode.fForVisualStyleCharacterwise(times: count, to: character.character, on: focusedTextElement) {
                         push(element: element)                        
                         enterVisualMode()
                     } else {
@@ -489,7 +489,7 @@ extension KindaVimEngine {
                 }
                 
                 guard operatorPendingBuffer.first?.vimKey != .T else {
-                    if let character = operatorPendingBuffer.last, let element = asVisualMode.TForVisualStyleCharacterwise(to: character.character, on: focusedTextElement) {
+                    if let character = operatorPendingBuffer.last, let element = asVisualMode.TForVisualStyleCharacterwise(times: count, to: character.character, on: focusedTextElement) {
                         push(element: element)                        
                         enterVisualMode()
                     } else {
@@ -500,7 +500,7 @@ extension KindaVimEngine {
                 }
                 
                 guard operatorPendingBuffer.first?.vimKey != .t else {
-                    if let character = operatorPendingBuffer.last, let element = asVisualMode.tForVisualStyleCharacterwise(to: character.character, on: focusedTextElement) {
+                    if let character = operatorPendingBuffer.last, let element = asVisualMode.tForVisualStyleCharacterwise(times: count, to: character.character, on: focusedTextElement) {
                         push(element: element)                        
                         enterVisualMode()
                     } else {
