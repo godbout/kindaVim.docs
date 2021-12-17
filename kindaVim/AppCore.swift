@@ -1,4 +1,5 @@
 import SwiftUI
+import Sauce
 
 
 class AppCore {
@@ -19,7 +20,9 @@ class AppCore {
         #if !CITESTING
         setUpEventTap()
         #endif
+        setUpKeyboardLayoutsKeyCodes()
         setUpVimEngine()
+        
         
         NSApplication.shared.hide(self)
         
@@ -63,6 +66,12 @@ class AppCore {
         
         eventTapController = EventTapController()
     }
+        
+    private func setUpKeyboardLayoutsKeyCodes() {
+        // lol
+        _ = Sauce.shared.keyCode(for: .six)
+        _ = Sauce.shared.keyCode(for: .nine)
+    }
 
     private func setUpVimEngine() {
         guard vimEngine == nil else { return }
@@ -81,3 +90,4 @@ class AppCore {
     }
 
 }
+
