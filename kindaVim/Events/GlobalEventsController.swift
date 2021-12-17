@@ -2,6 +2,7 @@ import Foundation
 import SwiftUI
 import KeyboardShortcuts
 import KeyCombination
+import Sauce
 
 
 struct GlobalEventsController {
@@ -87,7 +88,7 @@ struct GlobalEventsController {
     // else we live for escape
     private static func globalVimEngineHotkeyIsPressed(_ keyCombination: KeyCombination) -> Bool {
         if Self.useCustomShortcutToEnterNormalMode == true, let customKeyboardShortcut = KeyboardShortcuts.getShortcut(for: .enterNormalMode) {
-            return keyCombination.key.QWERTYKeyCode == customKeyboardShortcut.key!.rawValue
+            return Sauce.shared.keyCode(for: keyCombination.key) == customKeyboardShortcut.key!.rawValue
                 && keyCombination.control == customKeyboardShortcut.modifiers.contains(.control)
                 && keyCombination.option == customKeyboardShortcut.modifiers.contains(.option)
                 && keyCombination.shift == customKeyboardShortcut.modifiers.contains(.shift)
