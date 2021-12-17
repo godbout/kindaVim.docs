@@ -29,6 +29,24 @@
         }
       },
       {
+        "package": "KeyboardStrategy",
+        "repositoryURL": "git@github.com:godbout/KeyboardStrategy.git",
+        "state": {
+          "branch": "master",
+          "revision": "86cf819851b0c905f0b75ed008e291b7f75ddb0f",
+          "version": null
+        }
+      },
+      {
+        "package": "KeyCombination",
+        "repositoryURL": "git@github.com:godbout/KeyCombination.git",
+        "state": {
+          "branch": "master",
+          "revision": "b99e796c7156883cde4c588aaa1010d895b2b632",
+          "version": null
+        }
+      },
+      {
         "package": "LaunchAtLogin",
         "repositoryURL": "git@github.com:sindresorhus/LaunchAtLogin.git",
         "state": {
