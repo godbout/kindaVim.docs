@@ -232,8 +232,7 @@ extension KindaVimEngine {
                 handleNormalModeUsingKeyboardStrategy(for: keyCombination)
             }
         case .w:
-            // TODO: back to `count` once 1b10 is published
-            if let element = asNormalMode.w(times: 1, on: focusedTextElement) {
+            if let element = asNormalMode.w(times: count, on: focusedTextElement) {
                 push(element: element)
                 endCurrentMove()
             } else {
