@@ -18,6 +18,7 @@ extension WindowProtocol {
         
         // the calculation is different for when in fullScreen
         // and when not because the mac APIs are bonkers
+        // FB9464169 on Aug 7, 2021
         if mainWindowIsInFullScreenMode() {
             return screenWhereMainWindowIsWhenInFullScreenMode(using: mainWindowInfo) 
         } else {
