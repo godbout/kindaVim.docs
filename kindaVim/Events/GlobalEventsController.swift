@@ -43,7 +43,9 @@ struct GlobalEventsController {
         // have to enter IM from here, not from within kVEngine. why not doing the same for `escape`? because as much as
         // we can, those things have to be handled by the kVEngine, not by the GEC.
         case .normal, .operatorPendingForNormalMode, .visual, .operatorPendingForVisualMode:
+            #if DEBUG
             doTheKeystrokeSubscriptionShit()
+            #endif
             
             if globalVimEngineHotkeyIsPressed(implementedKeyCombination), implementedKeyCombination != KeyCombination(key: .escape) {
                 AppCore.shared.vimEngine.enterInsertMode()
@@ -119,6 +121,7 @@ struct GlobalEventsController {
     }
     
     private static func doTheKeystrokeSubscriptionShit() {
+        #if DEBUG
         numberOfKeystrokes += 1
         print(numberOfKeystrokes)
         
@@ -129,6 +132,7 @@ struct GlobalEventsController {
             alert.addButton(withTitle: "OK")
             _ = alert.runModal()
         }
+        #endif
     }
     
 }
