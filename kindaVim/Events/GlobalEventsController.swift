@@ -12,6 +12,10 @@ struct GlobalEventsController {
     @AppStorage(SettingsKeys.appsForWhichToUseHybridMode) private static var appsForWhichToUseHybridMode: Set<String> = []
     @AppStorage(SettingsKeys.appsForWhichToEnforceKeyboardStrategy) private static var appsForWhichToEnforceKeyboardStrategy: Set<String> = []
     
+    // to start thinking about how to charge :D
+    // the first idea is you can type 69 characters before kV start functioning LMAO
+    static var numberOfKeystrokes: Int = 0
+    
     static func handle(keyCombination: KeyCombination?) -> Bool {
         let appMode = appModeForCurrentApp()        
         guard appMode != .off else { return false }
@@ -27,7 +31,7 @@ struct GlobalEventsController {
                     AppCore.shared.vimEngine.display.showOngoingMove()
                 }
                 #endif
-                
+               
                 AppCore.shared.vimEngine.enterNormalMode(appMode: appMode)
                 
                 return true
@@ -39,6 +43,8 @@ struct GlobalEventsController {
         // have to enter IM from here, not from within kVEngine. why not doing the same for `escape`? because as much as
         // we can, those things have to be handled by the kVEngine, not by the GEC.
         case .normal, .operatorPendingForNormalMode, .visual, .operatorPendingForVisualMode:
+            doTheKeystrokeSubscriptionShit()
+            
             if globalVimEngineHotkeyIsPressed(implementedKeyCombination), implementedKeyCombination != KeyCombination(key: .escape) {
                 AppCore.shared.vimEngine.enterInsertMode()
             } else {
@@ -110,6 +116,19 @@ struct GlobalEventsController {
             && keyCombination.option == false
             && keyCombination.shift == false
             && keyCombination.command == false
+    }
+    
+    private static func doTheKeystrokeSubscriptionShit() {
+        numberOfKeystrokes += 1
+        print(numberOfKeystrokes)
+        
+        if numberOfKeystrokes > 689 {
+            let alert: NSAlert = NSAlert()
+            alert.messageText = String(numberOfKeystrokes)
+            numberOfKeystrokes = 0
+            alert.addButton(withTitle: "OK")
+            _ = alert.runModal()
+        }
     }
     
 }
