@@ -279,15 +279,6 @@ extension KindaVimEngine {
             }
         case .escape:
             handleNormalModeUsingKeyboardStrategy(for: keyCombination)
-            
-            // special case. we currently are overriding how
-            // escape behaves so that we can comment or indent
-            // whole bunch of lines at the same time.
-            if var element = focusedTextElement {
-                element.selectedLength = 0
-                element.selectedText = nil
-                push(element: element)
-            }
         case .return:
             handleNormalModeUsingKeyboardStrategy(for: keyCombination)
         case .caret:
