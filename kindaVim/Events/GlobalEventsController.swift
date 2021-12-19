@@ -18,7 +18,8 @@ struct GlobalEventsController {
         
         guard let implementedKeyCombination = keyCombination else { return true }
         
-        if inInsertMode() {
+        switch AppCore.shared.vimEngine.currentMode {
+        case .insert:
             if globalVimEngineHotkeyIsPressed(implementedKeyCombination) {
                 #if DEBUG
                 if AppCore.shared.vimEngine.showCharactersTyped == true {
@@ -33,19 +34,19 @@ struct GlobalEventsController {
             } else {
                 return false
             }
-        }
-        
-        if inNormalModeOrOperatorPendingModeOrVisualMode() {
-            if globalVimEngineHotkeyIsPressed(implementedKeyCombination) {
+        // there's a difference here between the custom KeyboardShortcut and the default `escape` one because in
+        // the kindaVimEngine we can grab `escape`, but we can't grab a dynamic custom one. so for the custom one we
+        // have to enter IM from here, not from within kVEngine. why not doing the same for `escape`? because as much as
+        // we can, those things have to be handled by the kVEngine, not by the GEC.
+        case .normal, .operatorPendingForNormalMode, .visual, .operatorPendingForVisualMode:
+            if globalVimEngineHotkeyIsPressed(implementedKeyCombination), implementedKeyCombination != KeyCombination(key: .escape) {
                 AppCore.shared.vimEngine.enterInsertMode()
             } else {
                 AppCore.shared.vimEngine.handle(keyCombination: implementedKeyCombination, appMode: appMode)
-            }
-                        
-            return true
+            }            
+            
+            return true       
         }
-        
-        return false
     }
     
     private static func appModeForCurrentApp() -> AppMode {
