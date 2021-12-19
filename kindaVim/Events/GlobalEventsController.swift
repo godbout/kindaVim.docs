@@ -7,39 +7,44 @@ import Sauce
 
 struct GlobalEventsController {
     
-    @AppStorage(SettingsKeys.useCustomShortcutToEnterNormalMode) private static var useCustomShortcutToEnterNormalMode: Bool = false
+    @AppStorage(SettingsKeys.useCustomShortcutToEnterNormalMode) static var useCustomShortcutToEnterNormalMode: Bool = false
     @AppStorage(SettingsKeys.appsToIgnore) private static var appsToIgnore: Set<String> = [] 
     @AppStorage(SettingsKeys.appsForWhichToUseHybridMode) private static var appsForWhichToUseHybridMode: Set<String> = []
     @AppStorage(SettingsKeys.appsForWhichToEnforceKeyboardStrategy) private static var appsForWhichToEnforceKeyboardStrategy: Set<String> = []
     
     static func handle(keyCombination: KeyCombination?) -> Bool {
-        let appMode = appModeForCurrentApp()
-        
+        let appMode = appModeForCurrentApp()        
         guard appMode != .off else { return false }
         
-        if inNormalModeOrOperatorPendingModeOrVisualMode() {
-            guard let implementedKeyCombination = keyCombination else { return true }
-            
-            AppCore.shared.vimEngine.handle(keyCombination: implementedKeyCombination, appMode: appMode)
-
-            return true
-        }
-
-        guard let implementedKeyCombination = keyCombination else { return false }
-
-        if globalVimEngineHotkeyIsPressed(implementedKeyCombination) {
-            if AppCore.shared.vimEngine.showCharactersTyped == true {
-                AppCore.shared.vimEngine.display.ongoingMove(add: implementedKeyCombination)
-                AppCore.shared.vimEngine.display.showOngoingMove()
+        guard let implementedKeyCombination = keyCombination else { return true }
+        
+        if inInsertMode() {
+            if globalVimEngineHotkeyIsPressed(implementedKeyCombination) {
+                #if DEBUG
+                if AppCore.shared.vimEngine.showCharactersTyped == true {
+                    AppCore.shared.vimEngine.display.ongoingMove(add: implementedKeyCombination)
+                    AppCore.shared.vimEngine.display.showOngoingMove()
+                }
+                #endif
+                
+                AppCore.shared.vimEngine.enterNormalMode(appMode: appMode)
+                
+                return true
+            } else {
+                return false
             }
-            
-            AppCore.shared.vimEngine.enterNormalMode(appMode: appMode)
-            
-            print("enter Normal Mode")
-            
+        }
+        
+        if inNormalModeOrOperatorPendingModeOrVisualMode() {
+            if globalVimEngineHotkeyIsPressed(implementedKeyCombination) {
+                AppCore.shared.vimEngine.enterInsertMode()
+            } else {
+                AppCore.shared.vimEngine.handle(keyCombination: implementedKeyCombination, appMode: appMode)
+            }
+                        
             return true
         }
-
+        
         return false
     }
     
@@ -82,6 +87,10 @@ struct GlobalEventsController {
             || AppCore.shared.vimEngine.currentMode == .operatorPendingForNormalMode
             || AppCore.shared.vimEngine.currentMode == .visual
             || AppCore.shared.vimEngine.currentMode == .operatorPendingForVisualMode
+    }
+    
+    private static func inInsertMode() -> Bool {
+        return AppCore.shared.vimEngine.currentMode == .insert
     }
     
     // if the user set up a custom KeyboardShortcut, use it
