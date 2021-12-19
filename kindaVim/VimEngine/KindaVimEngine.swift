@@ -92,10 +92,12 @@ class KindaVimEngine {
     
 
     func handle(keyCombination: KeyCombination, appMode: AppMode = .auto) {
+        #if DEBUG
         if showCharactersTyped == true {
             display.ongoingMove(add: keyCombination)
             display.showOngoingMove()
         }
+        #endif
         
         // before sending the key combination down the rabbit hole we need to check first
         // if it's a digit and if this digit will be used for counts. in that case the digit
@@ -258,9 +260,11 @@ class KindaVimEngine {
             statusItem?.button?.image = NSImage(named: "MenuBarIconEmpty")
         }
         
+        #if DEBUG
         if showCharactersTyped == true {
             display.fadeOutOngoingMove()
         }
+        #endif
     }
     
     func enterNormalMode(appMode: AppMode = .auto) {

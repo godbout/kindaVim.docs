@@ -1,15 +1,25 @@
 @testable import kindaVim
 import KeyCombination
 import XCTest
+import KeyboardShortcuts
 
 
+// we test here both for the default global shortcut (escape)
+// and for the custom one chosen by the user.
 class GlobalEventsControllerTests: XCTestCase {
 
-    let globalHotkeyCombination = KeyCombination(key: .escape)
+    let defaultGlobalHotKeyCombination = KeyCombination(key: .escape)
+    let customGlobalHotKeyCombination = KeyboardShortcuts.getShortcut(for: .enterNormalMode)
 
 }
 
 
+// default global shortcut
+extension GlobalEventsControllerTests {
+    
+    
+    
+}
 // insert mode
 extension GlobalEventsControllerTests {
     
