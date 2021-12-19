@@ -4,40 +4,17 @@ import XCTest
 import KeyboardShortcuts
 
 
-// we test here both for the default global shortcut (escape)
-// and for the custom one chosen by the user.
+// here are the tests that don't care if we're using the default keyboard shortcut
+// or a custom one.
 class GlobalEventsControllerTests: XCTestCase {
 
-    let defaultGlobalHotKeyCombination = KeyCombination(key: .escape)
-    let customGlobalHotKeyCombination = KeyboardShortcuts.getShortcut(for: .enterNormalMode)
+    let globalHotkeyCombination = KeyCombination(key: .escape)
 
 }
 
 
-// default global shortcut
-extension GlobalEventsControllerTests {
-    
-    
-    
-}
 // insert mode
 extension GlobalEventsControllerTests {
-    
-    func test_that_when_in_insert_mode_the_global_hotkey_press_sets_Vim_in_normal_mode() {
-        AppCore.shared.vimEngine.enterInsertMode()
-
-        _ = GlobalEventsController.handle(keyCombination: globalHotkeyCombination)        
-
-        XCTAssertEqual(AppCore.shared.vimEngine.currentMode, .normal)
-    }
-
-    func test_that_when_in_insert_mode_the_global_hotkey_press_is_captured_and_not_sent_back_to_macOS() {
-        AppCore.shared.vimEngine.enterInsertMode()
-
-        let captured = GlobalEventsController.handle(keyCombination: globalHotkeyCombination)
-
-        XCTAssertTrue(captured)
-    }
     
     func test_that_in_insert_mode_the_events_that_we_implemented_are_just_passed_back_to_macOS() {
         AppCore.shared.vimEngine.enterInsertMode()
@@ -67,14 +44,6 @@ extension GlobalEventsControllerTests {
 // normal mode
 extension GlobalEventsControllerTests {
 
-    func test_that_when_in_normal_mode_the_global_hotkey_press_is_captured_and_not_sent_back_to_macOS() {
-        AppCore.shared.vimEngine.enterNormalMode()
-
-        let captured = GlobalEventsController.handle(keyCombination: globalHotkeyCombination)
-
-        XCTAssertTrue(captured)
-    }
-        
     func test_that_in_normal_mode_the_events_that_we_implemented_are_captured() {
         AppCore.shared.vimEngine.enterNormalMode()
         
@@ -102,14 +71,6 @@ extension GlobalEventsControllerTests {
 
 // visual mode
 extension GlobalEventsControllerTests {
-    
-    func test_that_when_in_visual_mode_the_global_hotkey_press_is_captured_and_not_sent_back_to_macOS() {
-        AppCore.shared.vimEngine.enterVisualMode()
-        
-        let captured = GlobalEventsController.handle(keyCombination: globalHotkeyCombination)
-        
-        XCTAssertTrue(captured)
-    }
     
     func test_that_in_visual_mode_the_events_that_we_implemented_are_captured() {
         AppCore.shared.vimEngine.enterVisualMode()
