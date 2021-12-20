@@ -425,6 +425,13 @@ extension KindaVimEngine {
             }
         case [.c, .i]:
             ()
+        case [.c, .i, .B]:
+            if let element = asNormalMode.ciB(on: focusedTextElement, pgR: appMode == .pgR) {
+                push(element: element)
+                (element.selectedLength == 0 && element.isNotEmpty) ? enterInsertMode() : enterNormalMode()
+            } else {
+                parseOperatorCommandForNormalModeUsingKeyboardStrategy()
+            }
         case [.c, .i, .doubleQuote]:
             if let element = asNormalMode.ciDoubleQuote(on: focusedTextElement, pgR: appMode == .pgR) {
                 push(element: element)
