@@ -353,6 +353,13 @@ extension KindaVimEngine {
         switch operatorPendingBuffer.map({ $0.vimKey }) {
         case [.c, .a]:
             ()
+        case [.c, .a, .W]:
+            if let element = asNormalMode.caW(on: focusedTextElement, pgR: appMode == .pgR) {
+                push(element: element)
+                (element.selectedLength == 0 && element.isNotEmpty) ? enterInsertMode() : enterNormalMode()
+            } else {
+                parseOperatorCommandForNormalModeUsingKeyboardStrategy()
+            }
         case [.c, .a, .w]:
             if let element = asNormalMode.caw(on: focusedTextElement, pgR: appMode == .pgR) {
                 push(element: element)
