@@ -123,7 +123,6 @@ struct GlobalEventsController {
     private static func doTheKeystrokeSubscriptionShit() {
         #if DEBUG
         numberOfKeystrokes += 1
-        print(numberOfKeystrokes)
         
         if numberOfKeystrokes > 689 {
             let alert: NSAlert = NSAlert()
