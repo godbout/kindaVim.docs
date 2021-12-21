@@ -273,7 +273,7 @@ struct FailingAccessibilityStrategyNormalModeStub: AccessibilityStrategyNormalMo
         return nil
     }
     
-    func gE(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func gE(times count: Int? = 1, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return nil
     }
     
