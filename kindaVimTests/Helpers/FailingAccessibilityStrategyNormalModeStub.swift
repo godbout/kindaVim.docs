@@ -197,6 +197,10 @@ struct FailingAccessibilityStrategyNormalModeStub: AccessibilityStrategyNormalMo
         return nil
     }
     
+    func diw(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
+        return nil
+    }
+    
     func dj(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
         return nil
     }
