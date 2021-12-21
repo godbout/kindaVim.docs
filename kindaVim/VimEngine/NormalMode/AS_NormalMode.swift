@@ -614,6 +614,13 @@ extension KindaVimEngine {
             }
         case [.d, .i]:
             ()
+        case [.d, .i, .W]:
+            if let element = asNormalMode.diW(on: focusedTextElement, pgR: appMode == .pgR) {
+                push(element: element)
+                enterNormalMode()
+            } else {
+                parseOperatorCommandForNormalModeUsingKeyboardStrategy()
+            }
         case [.d, .j]:
             if let element = asNormalMode.dj(on: focusedTextElement, pgR: appMode == .pgR) {
                 push(element: element)

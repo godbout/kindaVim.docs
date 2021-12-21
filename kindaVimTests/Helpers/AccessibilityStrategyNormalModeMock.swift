@@ -331,6 +331,13 @@ class AccessibilityStrategyNormalModeMock: AccessibilityStrategyNormalModeProtoc
         return element
     }
     
+    func diW(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
+        functionCalled = #function
+        pgRPassed = pgR
+        
+        return element
+    }
+    
     func dj(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
         functionCalled = #function
         pgRPassed = pgR
