@@ -30,7 +30,7 @@ extension KindaVimEngine {
                 handleNormalModeUsingKeyboardStrategy(for: keyCombination)
             }
         case .B:
-            if let element = asNormalMode.B(on: focusedTextElement) {
+            if let element = asNormalMode.B(times: count, on: focusedTextElement) {
                 push(element: element)
                 endCurrentMove()
             } else {
