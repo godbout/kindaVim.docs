@@ -33,6 +33,8 @@ struct Display {
             switch keyCombination.key {
             case .escape:
                 Self.ongoingMove = "esc"
+            case .return:
+                Self.ongoingMove = "return"
             default:
                 Self.ongoingMove.append(keyCombination.character)
             }
