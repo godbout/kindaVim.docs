@@ -239,7 +239,7 @@ extension KindaVimEngine {
                 handleNormalModeUsingKeyboardStrategy(for: keyCombination)
             }
         case .W:
-            if let element = asNormalMode.W(on: focusedTextElement) {
+            if let element = asNormalMode.W(times: count, on: focusedTextElement) {
                 push(element: element)
                 endCurrentMove()
             } else {
