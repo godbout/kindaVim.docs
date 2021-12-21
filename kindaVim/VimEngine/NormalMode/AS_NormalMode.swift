@@ -689,7 +689,7 @@ extension KindaVimEngine {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
         case [.g, .e]:
-            if let element = asNormalMode.ge(on: focusedTextElement) {
+            if let element = asNormalMode.ge(times: count, on: focusedTextElement) {
                 push(element: element)
                 enterNormalMode()
             } else {
