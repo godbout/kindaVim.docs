@@ -23,18 +23,18 @@ extension SucceedingASNM_diW__Tests {
         XCTAssertEqual(asNormalModeMock.functionCalled, "diW(on:pgR:)")
         XCTAssertEqual(asNormalModeMock.pgRPassed, false)
     }
-        
+    
     func test_that_in_PGR_Mode_it_calls_the_correct_function_on_AS_with_PGR_on() {
         applyKeyCombinationsBeingTested(pgR: true)
-        
+                
         XCTAssertEqual(asNormalModeMock.functionCalled, "diW(on:pgR:)")
         XCTAssertEqual(asNormalModeMock.pgRPassed, true)
     }
     
-    func test_that_it_switches_Vim_into_insert_mode() {
+    func test_that_it_keeps_Vim_in_normal_mode() {
         applyKeyCombinationsBeingTested()
                 
-        XCTAssertEqual(kindaVimEngine.currentMode, .insert)
+        XCTAssertEqual(kindaVimEngine.currentMode, .normal)
     }
     
     func test_that_it_resets_the_count() {
@@ -42,5 +42,5 @@ extension SucceedingASNM_diW__Tests {
                 
         XCTAssertNil(kindaVimEngine.count)
     }
- 
+  
 }
