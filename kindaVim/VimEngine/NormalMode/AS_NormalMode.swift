@@ -57,7 +57,7 @@ extension KindaVimEngine {
         case .controlD:
             handleNormalModeUsingKeyboardStrategy(for: keyCombination)
         case .e:
-            if let element = asNormalMode.e(on: focusedTextElement) {
+            if let element = asNormalMode.e(times: count, on: focusedTextElement) {
                 push(element: element)
                 endCurrentMove()
             } else {

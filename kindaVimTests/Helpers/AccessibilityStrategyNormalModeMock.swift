@@ -400,7 +400,7 @@ class AccessibilityStrategyNormalModeMock: AccessibilityStrategyNormalModeProtoc
         return element
     }
     
-    func e(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func e(times count: Int? = 1, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         
         return element
