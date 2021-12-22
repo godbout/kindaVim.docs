@@ -37,6 +37,8 @@ struct Display {
                 Self.ongoingMove = "return"
             case .space:
                 Self.ongoingMove = "space"
+            case .tab:
+                Self.ongoingMove = "tab"
             default:
                 Self.ongoingMove.append(keyCombination.character)
             }
