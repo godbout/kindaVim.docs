@@ -62,8 +62,8 @@ kindaVim will be a subscription of one ☕️ (USD$3) a month. the beta is free 
 | 0 | ❌️ | 
 | A | ❌️ | 
 | a | ❌️ | 
-| B | ❌️ | 
-| b | ❌️ | 
+| B | ✅️️ | 
+| b | ✅️️ | 
 | C | ❌️ | 
 | caW | ❌️ | 
 | caw | ❌️ | 
@@ -116,8 +116,8 @@ kindaVim will be a subscription of one ☕️ (USD$3) a month. the beta is free 
 | dt | ✅️ | 
 | dW | ❌️ | 
 | dw | ❌️ | 
-| E | ❌️ | 
-| e | ❌️ | 
+| E | ✅️️ | 
+| e | ✅️️ | 
 | F | ✅️ | 
 | f | ✅️ | 
 | G | ✅️ | 
@@ -125,8 +125,8 @@ kindaVim will be a subscription of one ☕️ (USD$3) a month. the beta is free 
 | g^ | ❌️ | 
 | g$ | ❌️ | 
 | g0 | ❌️ | 
-| gE | ❌️ | 
-| ge | ❌️ | 
+| gE | ✅️️ | 
+| ge | ✅️️ | 
 | gg | ✅️ | 
 | gI | ❌️ | 
 | gj | ❌️ | 
@@ -145,7 +145,7 @@ kindaVim will be a subscription of one ☕️ (USD$3) a month. the beta is free 
 | T | ✅️ | 
 | t | ✅️ | 
 | u | ❌️ | 
-| W | ❌️ | 
+| W | ✅️️ | 
 | w | ✅️️ | 
 | X | ❌️ | 
 | x | ❌️ | 
