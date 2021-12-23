@@ -305,7 +305,6 @@ lol those tables.
 * add a plethora of missing Vim moves ([ask!](https://github.com/godbout/kindaVim.theapp/issues/new))
 * update all moves to support new global count system ([ask!](https://github.com/godbout/kindaVim.theapp/issues/new))
 * let non Vim moves pass through and go back to macOS (so that you can run your PH shortcut in Normal Mode)
-* better handling (than Apple) of Catalyst apps
 * better handling of Electron shit apps
 
 # KNOWN ISSUES
