@@ -29,15 +29,6 @@
         }
       },
       {
-        "package": "KeyboardStrategy",
-        "repositoryURL": "git@github.com:godbout/KeyboardStrategy.git",
-        "state": {
-          "branch": "master",
-          "revision": "dd76159ccd5eed657ab832ae5eda34f1bedda9b7",
-          "version": null
-        }
-      },
-      {
         "package": "KeyCombination",
         "repositoryURL": "git@github.com:godbout/KeyCombination.git",
         "state": {

@@ -18,7 +18,13 @@ extension KindaVimEngine {
         case .c:
             enterOperatorPendingForNormalMode(with: keyCombination)
         case .C:
-            post(ksNormalMode.C())
+            switch focusedElementType {
+            case .textElement:
+                post(ksNormalMode.CForTextElement())
+            default:
+                post(ksNormalMode.CForNonTextElement())
+            }
+            
             enterInsertMode()
         case .d:
             enterOperatorPendingForNormalMode(with: keyCombination)
