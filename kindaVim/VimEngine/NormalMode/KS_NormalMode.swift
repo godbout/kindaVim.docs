@@ -95,10 +95,22 @@ extension KindaVimEngine {
             post(ksNormalMode.O())
             enterInsertMode()
         case .p:
-            post(ksNormalMode.p())
+            switch focusedElementType {
+            case .textElement:
+                post(ksNormalMode.pForTextElement())
+            case .nonTextElement:
+                post(ksNormalMode.pForNonTextElement())
+            }
+            
             endCurrentMove()
         case .P:
-            post(ksNormalMode.P())
+            switch focusedElementType {
+            case .textElement:
+                post(ksNormalMode.PForTextElement())
+            case .nonTextElement:
+                post(ksNormalMode.PForNonTextElement())
+            }
+            
             endCurrentMove()
         case .r:
             enterOperatorPendingForNormalMode(with: keyCombination)
