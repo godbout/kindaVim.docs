@@ -89,10 +89,22 @@ extension KindaVimEngine {
             post(ksNormalMode.l(times: count))
             endCurrentMove()
         case .o:
-            post(ksNormalMode.o())
-            enterInsertMode()            
+            switch focusedElementType {
+            case .textElement:
+                post(ksNormalMode.oForTextElement())
+            default:
+                post(ksNormalMode.oForNonTextElement())
+            }
+                        
+            enterInsertMode()
         case .O:
-            post(ksNormalMode.O())
+            switch focusedElementType {
+            case .textElement:
+                post(ksNormalMode.OForTextElement())
+            default:
+                post(ksNormalMode.OForNonTextElement())
+            }
+                        
             enterInsertMode()
         case .p:
             switch focusedElementType {
