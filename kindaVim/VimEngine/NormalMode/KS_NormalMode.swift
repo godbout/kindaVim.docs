@@ -150,9 +150,14 @@ extension KindaVimEngine {
         case .y:
             enterOperatorPendingForNormalMode(with: keyCombination)
         case .Y:
-            lastYankStyle = .linewise
+            switch focusedElementType {
+            case .textElement:
+                post(ksNormalMode.yyForTextElement())
+            default:
+                post(ksNormalMode.yyForNonTextElement())
+            }
 
-            post(ksNormalMode.yy())
+            lastYankStyle = .linewise
             endCurrentMove()
         case .escape:
             post(ksNormalMode.escape())
@@ -393,9 +398,14 @@ extension KindaVimEngine {
             post(ksNormalMode.yiw())
             enterNormalMode()
         case [.y, .y]:
+            switch focusedElementType {
+            case .textElement:
+                post(ksNormalMode.yyForTextElement())
+            default:
+                post(ksNormalMode.yyForNonTextElement())
+            }
+                        
             lastYankStyle = .linewise
-            
-            post(ksNormalMode.yy())
             enterNormalMode()
         default:
             if operatorPendingBuffer.first?.vimKey == .r, let replacement = operatorPendingBuffer.last {                

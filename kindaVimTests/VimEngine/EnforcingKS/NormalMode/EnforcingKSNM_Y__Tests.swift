@@ -3,7 +3,7 @@ import KeyCombination
 import XCTest
 
 
-class FailingASNM_Y_Tests: FailingASNM_BaseTests {
+class EnforcingKSNM_Y__Tests: FailingASNM_BaseTests {
     
     private func applyKeyCombinationsBeingTested() {
         kindaVimEngine.lastYankStyle = .characterwise
@@ -15,7 +15,7 @@ class FailingASNM_Y_Tests: FailingASNM_BaseTests {
 }
 
 
-extension FailingASNM_Y_Tests {
+extension EnforcingKSNM_Y__Tests {
     
     func test_that_the_move_calls_the_correct_function_for_TextElements_on_KS() {
         kindaVimEngine.axEngine = AXEngineTextElementMock()
