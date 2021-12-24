@@ -5,9 +5,7 @@ import XCTest
 
 class EnforcingKS_yiw_Tests: EnforcingKSNM_BaseTests {
 
-    override func setUp() {
-        super.setUp()
-        
+    private func applyKeyCombinationsBeingTested() {
         kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .eight), appMode: .keyMapping)
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .y), appMode: .keyMapping)
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .i), appMode: .keyMapping)
@@ -19,15 +17,35 @@ class EnforcingKS_yiw_Tests: EnforcingKSNM_BaseTests {
 
 extension EnforcingKS_yiw_Tests {
 
-    func test_that_yiw_calls_the_ciw_function_on_keyboard_strategy() {
-        XCTAssertEqual(ksNormalModeMock.functionCalled, "yiw()")
+    func test_that_the_move_calls_the_correct_function_for_TextElements_on_KS() {
+        kindaVimEngine.axEngine = AXEngineTextElementMock()
+        applyKeyCombinationsBeingTested()
+       
+        XCTAssertEqual(ksNormalModeMock.functionCalled, "yiwForTextElement()")
     }
 
-    func test_that_yiw_keeps_Vim_in_normal_mode() {
+    func test_that_the_move_calls_the_correct_function_for_NonTextElements_on_KS() {
+        kindaVimEngine.axEngine = AXEngineNonTextElementMock()
+        applyKeyCombinationsBeingTested()
+       
+        XCTAssertEqual(ksNormalModeMock.functionCalled, "yiwForNonTextElement()")
+    }
+    
+    func test_that_l_keeps_Vim_in_normal_mode() {
+        applyKeyCombinationsBeingTested()
+                
         XCTAssertEqual(kindaVimEngine.currentMode, .normal)
     }
     
+    func test_that_it_sets_the_last_yank_style_to_characterwise() {
+        applyKeyCombinationsBeingTested()
+                
+        XCTAssertEqual(kindaVimEngine.lastYankStyle, .characterwise)
+    }
+    
     func test_that_it_resets_the_count() {
+        applyKeyCombinationsBeingTested()
+                
         XCTAssertNil(kindaVimEngine.count)
     }
 

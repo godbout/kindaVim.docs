@@ -483,7 +483,13 @@ class KeyboardStrategyNormalModeMock: KeyboardStrategyNormalModeProtocol {
         return []
     }
     
-    func yiw() -> [KeyCombination] {
+    func yiwForNonTextElement() -> [KeyCombination] {
+        functionCalled = #function
+        
+        return []
+    }
+    
+    func yiwForTextElement() -> [KeyCombination] {
         functionCalled = #function
         
         return []

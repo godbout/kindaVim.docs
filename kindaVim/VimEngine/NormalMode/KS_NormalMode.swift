@@ -393,9 +393,14 @@ extension KindaVimEngine {
         case [.y, .i]:
             ()
         case [.y, .i, .w]:
-            lastYankStyle = .characterwise
+            switch focusedElementType {
+            case .textElement:
+                post(ksNormalMode.yiwForTextElement())
+            default:
+                post(ksNormalMode.yiwForNonTextElement())
+            }
             
-            post(ksNormalMode.yiw())
+            lastYankStyle = .characterwise
             enterNormalMode()
         case [.y, .y]:
             switch focusedElementType {
