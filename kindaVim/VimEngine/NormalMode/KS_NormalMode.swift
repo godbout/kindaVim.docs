@@ -41,7 +41,13 @@ extension KindaVimEngine {
             post(ksNormalMode.controlD())
             endCurrentMove()
         case .e:
-            post(ksNormalMode.e())
+            switch focusedElementType {
+            case .textElement:
+                post(ksNormalMode.eForTextElement())
+            case .nonTextElement:
+                post(ksNormalMode.eForNonTextElement())
+            }
+            
             endCurrentMove()
         case .f:
             enterOperatorPendingForNormalMode(with: keyCombination)
