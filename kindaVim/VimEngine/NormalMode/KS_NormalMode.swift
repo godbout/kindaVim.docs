@@ -127,7 +127,13 @@ extension KindaVimEngine {
             visualStyle = .linewise
             enterVisualMode()
         case .w:
-            post(ksNormalMode.w())
+            switch focusedElementType {
+            case .textElement:
+                post(ksNormalMode.wForTextElement())
+            case .nonTextElement:
+                post(ksNormalMode.wForNonTextElement())
+            }
+            
             endCurrentMove()
         case .x:
             switch focusedElementType {
