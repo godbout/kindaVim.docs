@@ -5,9 +5,7 @@ import XCTest
 
 class EnforcingKS_r_Tests: EnforcingKSNM_BaseTests {
 
-    override func setUp() {
-        super.setUp()
-        
+    private func applyKeyCombinationsBeingTested() {
         kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .eight), appMode: .keyMapping)
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .r), appMode: .keyMapping)
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .g), appMode: .keyMapping)
@@ -18,18 +16,30 @@ class EnforcingKS_r_Tests: EnforcingKSNM_BaseTests {
 
 extension EnforcingKS_r_Tests {
 
-    func test_that_r_calls_the_r_function_on_keyboard_strategy() {
-        XCTAssertEqual(ksNormalModeMock.functionCalled, "r(with:)")
-    }
+    func test_that_the_move_calls_the_correct_function_for_TextElements_on_KS() {
+        kindaVimEngine.axEngine = AXEngineTextElementMock()
+        applyKeyCombinationsBeingTested()
 
-    func test_that_k_keeps_Vim_in_normal_mode() {
+        XCTAssertEqual(ksNormalModeMock.functionCalled, "rForTextElement(with:)")
+    }
+    
+    func test_that_the_move_calls_the_correct_function_for_NonTextElements_on_KS() {
+        kindaVimEngine.axEngine = AXEngineNonTextElementMock()
+        applyKeyCombinationsBeingTested()
+
+        XCTAssertEqual(ksNormalModeMock.functionCalled, "rForNonTextElement(with:)")
+    }
+    
+    func test_that_dj_keeps_Vim_in_normal_mode() {
+        applyKeyCombinationsBeingTested()
+        
         XCTAssertEqual(kindaVimEngine.currentMode, .normal)
     }
     
     func test_that_it_resets_the_count() {
+        applyKeyCombinationsBeingTested()
+        
         XCTAssertNil(kindaVimEngine.count)
     }
 
 }
-
-

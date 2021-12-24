@@ -426,7 +426,12 @@ extension KindaVimEngine {
             enterNormalMode()
         default:
             if operatorPendingBuffer.first?.vimKey == .r, let replacement = operatorPendingBuffer.last {                
-                post(ksNormalMode.r(with: replacement))
+                switch focusedElementType {
+                case .textElement:
+                    post(ksNormalMode.rForTextElement(with: replacement))
+                default:
+                    post(ksNormalMode.rForNonTextElement(with: replacement))
+                }
             }
             
             // if we don't recognize any operator move
