@@ -266,3 +266,6 @@ the [tests](https://github.com/godbout/AccessibilityStrategyTestApp) describing 
 * [Sparkle](https://sparkle-project.org) for the Sofware Updater. this is good shit
 * [Clipy](https://github.com/Clipy) for [Sauce](https://github.com/Clipy/Sauce), a magnificent Swift package to handle Keyboard Layouts headaches shits
  
+# CAN YOU TONE DOWN THE LANGUAGE PLEASE?
+
+no.
