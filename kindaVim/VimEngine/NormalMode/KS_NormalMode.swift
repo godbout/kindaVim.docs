@@ -259,7 +259,13 @@ extension KindaVimEngine {
             
             endCurrentMove()
         case .zero:
-            post(ksNormalMode.zero())
+            switch focusedElementType {
+            case .textElement:
+                post(ksNormalMode.zeroForTextElement())
+            case .nonTextElement:
+                post(ksNormalMode.zeroForNonTextElement())
+            }
+            
             endCurrentMove()
         default:
             endCurrentMove()

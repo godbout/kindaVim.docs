@@ -603,6 +603,18 @@ class KeyboardStrategyNormalModeMock: KeyboardStrategyNormalModeProtocol {
         return []
     }
     
+    func zeroForNonTextElement() -> [KeyCombination] {
+        functionCalled = #function
+        
+        return []
+    }
+    
+    func zeroForTextElement() -> [KeyCombination] {
+        functionCalled = #function
+        
+        return []
+    }
+    
     // temporary for escape to enter Command Mode
     // and escape again to send escape key to macOS
     func escape() -> [KeyCombination] {
@@ -615,12 +627,6 @@ class KeyboardStrategyNormalModeMock: KeyboardStrategyNormalModeProtocol {
     // to act like an enter in Insert Mode
     // checking if it feels better (like in Alfred)
     func enter() -> [KeyCombination] {
-        functionCalled = #function
-        
-        return []
-    }
-    
-    func zero() -> [KeyCombination] {
         functionCalled = #function
         
         return []
