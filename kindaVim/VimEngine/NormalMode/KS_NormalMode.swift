@@ -475,7 +475,13 @@ extension KindaVimEngine {
             post(ksNormalMode.gk())
             enterNormalMode()
         case [.g, .underscore]:            
-            post(ksNormalMode.gUnderscore())
+            switch focusedElementType {
+            case .textElement:
+                post(ksNormalMode.gUnderscoreForTextElement())
+            default:
+                post(ksNormalMode.gUnderscoreForNonTextElement())
+            }
+            
             enterNormalMode()
         case [.g, .zero]:            
             post(ksNormalMode.gZero())

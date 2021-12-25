@@ -327,7 +327,13 @@ class KeyboardStrategyNormalModeMock: KeyboardStrategyNormalModeProtocol {
         return []
     }
     
-    func gUnderscore() -> [KeyCombination] {
+    func gUnderscoreForNonTextElement() -> [KeyCombination] {
+        functionCalled = #function
+        
+        return []
+    }
+    
+    func gUnderscoreForTextElement() -> [KeyCombination] {
         functionCalled = #function
         
         return []
