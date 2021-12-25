@@ -513,6 +513,18 @@ class KeyboardStrategyNormalModeMock: KeyboardStrategyNormalModeProtocol {
         return []
     }
     
+    func underscoreForNonTextElement() -> [KeyCombination] {
+        functionCalled = #function
+        
+        return []
+    }
+    
+    func underscoreForTextElement() -> [KeyCombination] {
+        functionCalled = #function
+        
+        return []
+    }
+    
     func controlU() -> [KeyCombination] {
         functionCalled = #function
         
@@ -597,12 +609,6 @@ class KeyboardStrategyNormalModeMock: KeyboardStrategyNormalModeProtocol {
     // to act like an enter in Insert Mode
     // checking if it feels better (like in Alfred)
     func enter() -> [KeyCombination] {
-        functionCalled = #function
-        
-        return []
-    }
-    
-    func underscore() -> [KeyCombination] {
         functionCalled = #function
         
         return []
