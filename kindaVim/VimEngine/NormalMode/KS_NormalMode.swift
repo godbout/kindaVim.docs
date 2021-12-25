@@ -448,7 +448,13 @@ extension KindaVimEngine {
             
             enterNormalMode()
         case [.g, .caret]:
-            post(ksNormalMode.gCaret())
+            switch focusedElementType {
+            case .textElement:
+                post(ksNormalMode.gCaretForTextElement())
+            default:
+                post(ksNormalMode.gCaretForNonTextElement())
+            }
+            
             enterNormalMode()
         case [.g, .dollarSign]:            
             post(ksNormalMode.gDollarSign())

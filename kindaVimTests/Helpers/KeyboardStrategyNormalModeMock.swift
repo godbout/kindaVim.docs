@@ -315,7 +315,13 @@ class KeyboardStrategyNormalModeMock: KeyboardStrategyNormalModeProtocol {
         return []
     }
         
-    func gCaret() -> [KeyCombination] {
+    func gCaretForNonTextElement() -> [KeyCombination] {
+        functionCalled = #function
+        
+        return []
+    }
+    
+    func gCaretForTextElement() -> [KeyCombination] {
         functionCalled = #function
         
         return []
