@@ -232,7 +232,13 @@ extension KindaVimEngine {
             post(ksNormalMode.enter())
             enterInsertMode()
         case .caret:
-            post(ksNormalMode.caret())
+            switch focusedElementType {
+            case .textElement:
+                post(ksNormalMode.caretForTextElement())
+            case .nonTextElement:
+                post(ksNormalMode.caretForNonTextElement())
+            }
+            
             endCurrentMove()
         case .dollarSign:
             post(ksNormalMode.dollarSign())

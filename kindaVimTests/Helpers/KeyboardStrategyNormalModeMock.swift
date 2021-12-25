@@ -57,6 +57,18 @@ class KeyboardStrategyNormalModeMock: KeyboardStrategyNormalModeProtocol {
         return []
     }
     
+    func caretForNonTextElement() -> [KeyCombination] {
+        functionCalled = #function
+        
+        return []
+    }
+    
+    func caretForTextElement() -> [KeyCombination] {
+        functionCalled = #function
+        
+        return []
+    }
+    
     func cbForNonTextElement() -> [KeyCombination] {
         functionCalled = #function
         
@@ -562,12 +574,6 @@ class KeyboardStrategyNormalModeMock: KeyboardStrategyNormalModeProtocol {
     }
     
     func yiwForTextElement() -> [KeyCombination] {
-        functionCalled = #function
-        
-        return []
-    }
-    
-    func caret() -> [KeyCombination] {
         functionCalled = #function
         
         return []
