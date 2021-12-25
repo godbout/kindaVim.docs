@@ -279,6 +279,18 @@ class KeyboardStrategyNormalModeMock: KeyboardStrategyNormalModeProtocol {
         return []
     }
     
+    func dollarSignForNonTextElement() -> [KeyCombination] {
+        functionCalled = #function
+        
+        return []
+    }
+    
+    func dollarSignForTextElement() -> [KeyCombination] {
+        functionCalled = #function
+        
+        return []
+    }
+    
     func dwForNonTextElement() -> [KeyCombination] {
         functionCalled = #function
         
@@ -586,12 +598,6 @@ class KeyboardStrategyNormalModeMock: KeyboardStrategyNormalModeProtocol {
     }
     
     func yiwForTextElement() -> [KeyCombination] {
-        functionCalled = #function
-        
-        return []
-    }
-    
-    func dollarSign() -> [KeyCombination] {
         functionCalled = #function
         
         return []

@@ -241,7 +241,13 @@ extension KindaVimEngine {
             
             endCurrentMove()
         case .dollarSign:
-            post(ksNormalMode.dollarSign())
+            switch focusedElementType {
+            case .textElement:
+                post(ksNormalMode.dollarSignForTextElement())
+            case .nonTextElement:
+                post(ksNormalMode.dollarSignForNonTextElement())
+            }
+            
             endCurrentMove()
         case .underscore:
             switch focusedElementType {
