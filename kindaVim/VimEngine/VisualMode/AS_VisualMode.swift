@@ -285,6 +285,25 @@ extension KindaVimEngine {
             case .linewise:
                 endCurrentMove()
             }
+        case .x:
+            switch visualStyle {
+            case .characterwise:
+                if let element = asVisualMode.xForVisualStyleCharacterwise(on: focusedTextElement, pgR: appMode == .pgR) {
+                    push(element: element)
+                    lastYankStyle = .characterwise
+                    enterNormalMode()
+                } else {
+                    handleVisualModeUsingKeyboardStrategy(for: keyCombination)
+                }
+            case .linewise:
+                if let element = asVisualMode.xForVisualStyleLinewise(on: focusedTextElement, pgR: appMode == .pgR) {
+                    push(element: element)
+                    lastYankStyle = .linewise
+                    enterNormalMode()
+                } else {
+                    handleVisualModeUsingKeyboardStrategy(for: keyCombination)
+                }
+            }
         case .y:
             switch visualStyle {
             case .characterwise:

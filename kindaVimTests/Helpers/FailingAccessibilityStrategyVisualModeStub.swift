@@ -33,12 +33,20 @@ struct FailingAccessibilityStrategyVisualModeStub: AccessibilityStrategyVisualMo
         return nil 
     }
     
-    func eForVisualStyleCharacterwise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func dollarSignForVisualStyleCharacterwise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return nil 
     }
     
     func EForVisualStyleCharacterwise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return nil
+    }
+    
+    func eForVisualStyleCharacterwise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        return nil 
+    }
+    
+    func escape(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        return nil 
     }
     
     func FForVisualStyleCharacterwise(times count: Int?, to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
@@ -185,6 +193,14 @@ struct FailingAccessibilityStrategyVisualModeStub: AccessibilityStrategyVisualMo
         return nil
     }
     
+    func xForVisualStyleCharacterwise(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
+        return nil 
+    }
+    
+    func xForVisualStyleLinewise(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
+        return nil 
+    }
+    
     func yForVisualStyleCharacterwise(on element: AccessibilityTextElement?, _ lastYankStyle: inout VimEngineMoveStyle) -> AccessibilityTextElement? {
         return nil 
     }
@@ -193,14 +209,6 @@ struct FailingAccessibilityStrategyVisualModeStub: AccessibilityStrategyVisualMo
         return nil 
     }
         
-    func dollarSignForVisualStyleCharacterwise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
-        return nil 
-    }
-    
-    func escape(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
-        return nil 
-    }
-    
     func zeroForVisualStyleCharacterwise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return nil 
     }
