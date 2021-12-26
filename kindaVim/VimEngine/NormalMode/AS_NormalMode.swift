@@ -252,6 +252,7 @@ extension KindaVimEngine {
         case .x:
             if let element = asNormalMode.x(on: focusedTextElement, pgR: appMode == .pgR) {
                 push(element: element)
+                lastYankStyle = .characterwise
                 endCurrentMove()
             } else {
                 handleNormalModeUsingKeyboardStrategy(for: keyCombination)
@@ -259,6 +260,7 @@ extension KindaVimEngine {
         case .X:
             if let element = asNormalMode.X(on: focusedTextElement, pgR: appMode == .pgR) {
                 push(element: element)
+                lastYankStyle = .characterwise
                 endCurrentMove()
             } else {
                 handleNormalModeUsingKeyboardStrategy(for: keyCombination)
@@ -612,6 +614,7 @@ extension KindaVimEngine {
         case [.d, .h]:
             if let element = asNormalMode.dh(on: focusedTextElement, pgR: appMode == .pgR) {
                 push(element: element)
+                lastYankStyle = .characterwise
                 enterNormalMode()
             } else {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
@@ -649,6 +652,7 @@ extension KindaVimEngine {
         case [.d, .l]:
             if let element = asNormalMode.dl(on: focusedTextElement, pgR: appMode == .pgR) {
                 push(element: element)
+                lastYankStyle = .characterwise
                 enterNormalMode()
             } else {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
