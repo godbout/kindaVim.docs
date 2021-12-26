@@ -457,7 +457,13 @@ extension KindaVimEngine {
             
             enterNormalMode()
         case [.g, .dollarSign]:            
-            post(ksNormalMode.gDollarSign())
+            switch focusedElementType {
+            case .textElement:
+                post(ksNormalMode.gDollarSignForTextElement())
+            default:
+                post(ksNormalMode.gDollarSignForNonTextElement())
+            }
+            
             enterNormalMode()
         case [.g, .e]:            
             post(ksNormalMode.ge())
