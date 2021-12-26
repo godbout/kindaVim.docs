@@ -33,8 +33,6 @@ extension KindaVimEngine {
             }
             
             endCurrentMove()
-        case .c:
-            enterOperatorPendingForNormalMode(with: keyCombination)
         case .C:
             switch focusedElementType {
             case .textElement:
@@ -44,6 +42,14 @@ extension KindaVimEngine {
             }
             
             enterInsertMode()
+        case .c:
+            enterOperatorPendingForNormalMode(with: keyCombination)
+        case .controlB:
+            post(ksNormalMode.controlB())
+            endCurrentMove()
+        case .controlF:
+            post(ksNormalMode.controlF())
+            endCurrentMove()
         case .d:
             enterOperatorPendingForNormalMode(with: keyCombination)
         case .D:

@@ -33,16 +33,7 @@
         "repositoryURL": "git@github.com:godbout/KeyboardStrategy.git",
         "state": {
           "branch": "master",
-          "revision": "9d0b59ba1652ecff991cfcf34fea2ff96b918d29",
-          "version": null
-        }
-      },
-      {
-        "package": "KeyCombination",
-        "repositoryURL": "git@github.com:godbout/KeyCombination.git",
-        "state": {
-          "branch": "master",
-          "revision": "460c5ffd99557f58e366ee4ad69111bb2d8733cb",
+          "revision": "fd695812f0989f37655541babdef7df66f8fcb2a",
           "version": null
         }
       },
