@@ -39,6 +39,13 @@ extension EnforcingKSVM_c_Tests {
         XCTAssertEqual(kindaVimEngine.currentMode, .insert)
     }
     
+    func test_that_it_sets_the_LastYankStyle_to_Characterwise_when_VisualStyle_is_Characterwise() {
+        kindaVimEngine.visualStyle = .characterwise
+        applyKeyCombinationsBeingTested()
+        
+        XCTAssertEqual(kindaVimEngine.lastYankStyle, .characterwise)
+    }
+    
     func test_that_it_resets_the_count_when_VisualStyle_is_Characterwise() {
         kindaVimEngine.visualStyle = .characterwise
         applyKeyCombinationsBeingTested()
@@ -73,6 +80,13 @@ extension EnforcingKSVM_c_Tests {
         applyKeyCombinationsBeingTested()
         
         XCTAssertEqual(kindaVimEngine.currentMode, .insert)
+    }
+    
+    func test_that_it_sets_the_LastYankStyle_to_Linewise_when_VisualStyle_is_Linewise() {
+        kindaVimEngine.visualStyle = .linewise
+        applyKeyCombinationsBeingTested()
+
+        XCTAssertEqual(kindaVimEngine.lastYankStyle, .linewise)
     }
     
     func test_that_it_resets_the_count_when_VisualStyle_is_Linewise() {

@@ -36,6 +36,7 @@ extension KindaVimEngine {
             case .characterwise:
                 if let element = asVisualMode.cForVisualStyleCharacterwise(on: focusedTextElement, pgR: appMode == .pgR) {
                     push(element: element)
+                    lastYankStyle = .characterwise
                     enterInsertMode()
                 } else {
                     handleVisualModeUsingKeyboardStrategy(for: keyCombination)
@@ -43,6 +44,7 @@ extension KindaVimEngine {
             case .linewise:
                 if let element = asVisualMode.cForVisualStyleLinewise(on: focusedTextElement, pgR: appMode == .pgR) {
                     push(element: element)
+                    lastYankStyle = .linewise
                     enterInsertMode()
                 } else {
                     handleVisualModeUsingKeyboardStrategy(for: keyCombination)

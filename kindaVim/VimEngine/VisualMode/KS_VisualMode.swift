@@ -29,6 +29,7 @@ extension KindaVimEngine {
                 post(ksVisualMode.cForNonTextElement())
             }
             
+            lastYankStyle = visualStyle == .characterwise ? .characterwise : .linewise
             enterInsertMode()
         case .caret:
             switch visualStyle {
