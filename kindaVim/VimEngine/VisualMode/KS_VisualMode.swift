@@ -309,7 +309,12 @@ extension KindaVimEngine {
         case [.g, .zero]:
             switch visualStyle {
             case .characterwise:
-                post(ksVisualMode.gZeroForVisualStyleCharacterwise())
+                if focusedElementType == .nonTextElement {
+                    post(ksVisualMode.gZeroForNonTextElementWhenInVisualStyleCharacterwise())
+                } else {
+                    post(ksVisualMode.gZeroForTextElementWhenInVisualStyleCharacterwise())
+                }
+                
                 enterVisualMode()
             case .linewise:
                 enterVisualMode()
