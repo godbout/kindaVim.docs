@@ -242,6 +242,7 @@ extension KindaVimEngine {
                 post(ksNormalMode.XForNonTextElement())
             }
             
+            lastYankStyle = .characterwise
             endCurrentMove()
         case .x:
             switch focusedElementType {
@@ -251,6 +252,7 @@ extension KindaVimEngine {
                 post(ksNormalMode.xForNonTextElement())
             }
             
+            lastYankStyle = .characterwise
             endCurrentMove()
         case .Y:
             switch focusedElementType {
@@ -416,6 +418,7 @@ extension KindaVimEngine {
                 post(ksNormalMode.dhForNonTextElement())
             }
             
+            lastYankStyle = .characterwise
             enterNormalMode()
         case [.d, .j]:
             switch focusedElementType {
@@ -443,6 +446,7 @@ extension KindaVimEngine {
                 post(ksNormalMode.dlForNonTextElement())
             }
             
+            lastYankStyle = .characterwise
             enterNormalMode()
         case [.d, .w]:
             switch focusedElementType {

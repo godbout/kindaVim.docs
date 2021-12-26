@@ -51,6 +51,7 @@ extension KindaVimEngine {
                 post(ksVisualMode.dForNonTextElement())
             }
             
+            lastYankStyle = visualStyle == .characterwise ? .characterwise : .linewise
             enterNormalMode()
         case .dollarSign:
             switch visualStyle {

@@ -30,10 +30,16 @@ extension EnforcingKS_dl_Tests {
         XCTAssertEqual(ksNormalModeMock.functionCalled, "dlForNonTextElement()")
     }
     
-    func test_that_dk_keeps_Vim_in_normal_mode() {
+    func test_that_it_keeps_Vim_in_normal_mode() {
         applyKeyCombinationsBeingTested()
                 
         XCTAssertEqual(kindaVimEngine.currentMode, .normal)
+    }
+    
+    func test_that_it_sets_the_last_yank_style_to_characterwise() {
+        applyKeyCombinationsBeingTested()
+                
+        XCTAssertEqual(kindaVimEngine.lastYankStyle, .characterwise)
     }
         
     func test_that_it_resets_the_count() {
