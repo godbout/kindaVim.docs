@@ -553,7 +553,6 @@
 		910540E72763783800C79F2D /* EnforcingKSNM_cW__Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnforcingKSNM_cW__Tests.swift; sourceTree = "<group>"; };
 		9106475B276F400E00B1E0C0 /* GECDefaultKeyboardShortcutTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GECDefaultKeyboardShortcutTests.swift; sourceTree = "<group>"; };
 		9106475D276F402A00B1E0C0 /* GECCustomKeyboardShortcutTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GECCustomKeyboardShortcutTests.swift; sourceTree = "<group>"; };
-		91105E782774D20200ED8EA6 /* KeyboardStrategy */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = KeyboardStrategy; path = ../KeyboardStrategy; sourceTree = "<group>"; };
 		91105E792775EFA200ED8EA6 /* EnforcingKSNM_Y__Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnforcingKSNM_Y__Tests.swift; sourceTree = "<group>"; };
 		91105E7B2775F6EB00ED8EA6 /* FailingASNM_s_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FailingASNM_s_Tests.swift; sourceTree = "<group>"; };
 		9118CEA626FEF90A005F0907 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
@@ -1087,7 +1086,6 @@
 		916ACF8426FE086A000E9757 = {
 			isa = PBXGroup;
 			children = (
-				91105E782774D20200ED8EA6 /* KeyboardStrategy */,
 				916ACF8F26FE086B000E9757 /* kindaVim */,
 				916ACFA126FE086C000E9757 /* kindaVimTests */,
 				916ACFAB26FE086C000E9757 /* kindaVimUITests */,

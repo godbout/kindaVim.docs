@@ -29,6 +29,15 @@
         }
       },
       {
+        "package": "KeyboardStrategy",
+        "repositoryURL": "git@github.com:godbout/KeyboardStrategy.git",
+        "state": {
+          "branch": "master",
+          "revision": "9d0b59ba1652ecff991cfcf34fea2ff96b918d29",
+          "version": null
+        }
+      },
+      {
         "package": "KeyCombination",
         "repositoryURL": "git@github.com:godbout/KeyCombination.git",
         "state": {
@@ -60,7 +69,7 @@
         "repositoryURL": "https://github.com/sparkle-project/Sparkle",
         "state": {
           "branch": "2.x",
-          "revision": "2195ee0883efc92828a0cf33b830f43f9bd7e01b",
+          "revision": "26f1209fe94fb918788a0f6dbe8e19f5ee66d3fc",
           "version": null
         }
       }
