@@ -5,9 +5,7 @@ import XCTest
 
 class FailingASNM_ge_Tests: FailingASNM_BaseTests {
     
-    override func setUp() {
-        super.setUp()
-        
+    private func applyKeyCombinationsBeingTested() {
         kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .eight))
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .g))
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .e))
@@ -18,15 +16,29 @@ class FailingASNM_ge_Tests: FailingASNM_BaseTests {
 
 extension FailingASNM_ge_Tests {
     
-    func test_that_it_calls_the_relevant_KS_function_as_a_fallback() {
-        XCTAssertEqual(ksNormalModeMock.functionCalled, "ge()")
+    func test_that_it_calls_the_correct_function_for_TextElements_on_KS() {
+        kindaVimEngine.axEngine = AXEngineTextElementMock()
+        applyKeyCombinationsBeingTested()
+
+        XCTAssertEqual(ksNormalModeMock.functionCalled, "geForTextElement()")
+    }
+    
+    func test_that_it_calls_the_correct_function_for_NonTextElements_on_KS() {
+        kindaVimEngine.axEngine = AXEngineNonTextElementMock()
+        applyKeyCombinationsBeingTested()
+
+        XCTAssertEqual(ksNormalModeMock.functionCalled, "geForNonTextElement()")
     }
     
     func test_that_it_keeps_Vim_in_normal_mode() {
+        applyKeyCombinationsBeingTested()
+        
         XCTAssertEqual(kindaVimEngine.currentMode, .normal)
     }
     
     func test_that_it_resets_the_count() {
+        applyKeyCombinationsBeingTested()
+        
         XCTAssertNil(kindaVimEngine.count)
     }
     
