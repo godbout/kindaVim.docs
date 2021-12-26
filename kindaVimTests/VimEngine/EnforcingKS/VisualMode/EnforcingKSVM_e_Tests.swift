@@ -24,6 +24,14 @@ extension EnforcingKSVM_e_Tests {
         XCTAssertEqual(ksVisualModeMock.functionCalled, "eForNonTextElementWhenInVisualStyleCharacterwise()")
     }
     
+    func test_that_it_calls_the_relevant_KS_function_for_TextElements_as_a_fallback_when_in_VisualStyle_Characterwise() {
+        kindaVimEngine.axEngine = AXEngineTextElementMock()
+        kindaVimEngine.visualStyle = .characterwise
+        applyKeyCombinationsBeingTested()
+        
+        XCTAssertEqual(ksVisualModeMock.functionCalled, "eForTextElementWhenInVisualStyleCharacterwise()")
+    }
+    
     func test_that_it_keeps_Vim_in_visual_mode_when_in_VisualStyle_Characterwise() {
         kindaVimEngine.visualStyle = .characterwise
         applyKeyCombinationsBeingTested()

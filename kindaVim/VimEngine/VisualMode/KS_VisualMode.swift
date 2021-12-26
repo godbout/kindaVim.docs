@@ -193,7 +193,12 @@ extension KindaVimEngine {
         case .w:    
             switch visualStyle {
             case .characterwise:
-                post(ksVisualMode.wForVisualStyleCharacterwise())
+                if focusedElementType == .nonTextElement {
+                    post(ksVisualMode.wForNonTextElementWhenInVisualStyleCharacterwise())
+                } else {
+                    post(ksVisualMode.wForTextElementWhenInVisualStyleCharacterwise())
+                }
+                                
                 endCurrentMove()
             case .linewise:
                 endCurrentMove()
