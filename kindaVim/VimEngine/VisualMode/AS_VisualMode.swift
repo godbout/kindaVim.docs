@@ -119,11 +119,9 @@ extension KindaVimEngine {
             // currently a hack
             // so that we can comment multiple lines by keeping the VM selection :D
             enterInsertMode()
-        case .f:
-            enterOperatorPendingForVisualMode(with: keyCombination)
         case .F:
             enterOperatorPendingForVisualMode(with: keyCombination)
-        case .g:
+        case .f:
             enterOperatorPendingForVisualMode(with: keyCombination)
         case .G:
             switch visualStyle {
@@ -142,6 +140,8 @@ extension KindaVimEngine {
                     handleVisualModeUsingKeyboardStrategy(for: keyCombination)
                 }
             }
+        case .g:
+            enterOperatorPendingForVisualMode(with: keyCombination)
         case .h:
             switch visualStyle {
             case .characterwise:
@@ -209,9 +209,9 @@ extension KindaVimEngine {
             } else {
                 handleVisualModeUsingKeyboardStrategy(for: keyCombination)
             }
-        case .t:
-            enterOperatorPendingForVisualMode(with: keyCombination)
         case .T:
+            enterOperatorPendingForVisualMode(with: keyCombination)
+        case .t:
             enterOperatorPendingForVisualMode(with: keyCombination)
         case .underscore:
             switch visualStyle {
@@ -224,24 +224,6 @@ extension KindaVimEngine {
                 }
             case .linewise:
                 endCurrentMove()
-            }
-        case .v:
-            switch visualStyle {
-            case .characterwise:
-                if let element = asVisualMode.vForVisualStyleCharacterwise(on: focusedTextElement) {
-                    push(element: element)
-                    enterNormalMode()
-                } else {
-                    handleVisualModeUsingKeyboardStrategy(for: keyCombination)
-                }
-            case .linewise:
-                if let element = asVisualMode.vForVisualStyleLinewise(on: focusedTextElement) {
-                    push(element: element)
-                    visualStyle = .characterwise
-                    endCurrentMove()
-                } else {
-                    handleVisualModeUsingKeyboardStrategy(for: keyCombination)
-                }
             }
         case .V:
             switch visualStyle {
@@ -261,10 +243,28 @@ extension KindaVimEngine {
                     handleVisualModeUsingKeyboardStrategy(for: keyCombination)
                 }
             }
-        case .w:
+        case .v:
             switch visualStyle {
             case .characterwise:
-                if let element = asVisualMode.wForVisualStyleCharacterwise(on: focusedTextElement) {
+                if let element = asVisualMode.vForVisualStyleCharacterwise(on: focusedTextElement) {
+                    push(element: element)
+                    enterNormalMode()
+                } else {
+                    handleVisualModeUsingKeyboardStrategy(for: keyCombination)
+                }
+            case .linewise:
+                if let element = asVisualMode.vForVisualStyleLinewise(on: focusedTextElement) {
+                    push(element: element)
+                    visualStyle = .characterwise
+                    endCurrentMove()
+                } else {
+                    handleVisualModeUsingKeyboardStrategy(for: keyCombination)
+                }
+            }
+        case .W:
+            switch visualStyle {
+            case .characterwise:
+                if let element = asVisualMode.WForVisualStyleCharacterwise(on: focusedTextElement) {
                     push(element: element)
                     endCurrentMove()
                 } else {
@@ -273,10 +273,10 @@ extension KindaVimEngine {
             case .linewise:
                 endCurrentMove()
             }
-        case .W:
+        case .w:
             switch visualStyle {
             case .characterwise:
-                if let element = asVisualMode.WForVisualStyleCharacterwise(on: focusedTextElement) {
+                if let element = asVisualMode.wForVisualStyleCharacterwise(on: focusedTextElement) {
                     push(element: element)
                     endCurrentMove()
                 } else {
