@@ -50,7 +50,13 @@ class KeyboardStrategyVisualModeMock: KeyboardStrategyVisualModeProtocol {
         return []
     }
     
-    func dollarSignForVisualStyleCharacterwise() -> [KeyCombination] {
+    func dollarSignForNonTextElementWhenInVisualStyleCharacterwise() -> [KeyCombination] {
+        functionCalled = #function
+        
+        return []
+    }
+    
+    func dollarSignForTextElementWhenInVisualStyleCharacterwise() -> [KeyCombination] {
         functionCalled = #function
         
         return []

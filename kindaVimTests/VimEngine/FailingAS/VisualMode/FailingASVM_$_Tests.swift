@@ -16,11 +16,20 @@ class FailingASVM_$_Tests: FailingASVM_BaseTests {
 // VisualStyle Characterwise
 extension FailingASVM_$_Tests {
     
-    func test_that_it_calls_the_relevant_KS_function_as_a_fallback_when_in_VisualStyle_Characterwise() {
+    func test_that_it_calls_the_correct_function_for_NonTextElements_on_KS_when_in_VisualStyle_Characterwise() {
+        kindaVimEngine.axEngine = AXEngineNonTextElementMock()
         kindaVimEngine.visualStyle = .characterwise
         applyKeyCombinationsBeingTested()
         
-        XCTAssertEqual(ksVisualModeMock.functionCalled, "dollarSignForVisualStyleCharacterwise()")
+        XCTAssertEqual(ksVisualModeMock.functionCalled, "dollarSignForNonTextElementWhenInVisualStyleCharacterwise()")
+    }
+    
+    func test_that_it_calls_the_relevant_KS_function_for_TextElements_as_a_fallback_when_in_VisualStyle_Characterwise() {
+        kindaVimEngine.axEngine = AXEngineTextElementMock()
+        kindaVimEngine.visualStyle = .characterwise
+        applyKeyCombinationsBeingTested()
+        
+        XCTAssertEqual(ksVisualModeMock.functionCalled, "dollarSignForTextElementWhenInVisualStyleCharacterwise()")
     }
     
     func test_that_it_keeps_Vim_in_visual_mode_when_in_VisualStyle_Characterwise() {

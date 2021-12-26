@@ -50,7 +50,12 @@ extension KindaVimEngine {
         case .dollarSign:
             switch visualStyle {
             case .characterwise:
-                post(ksVisualMode.dollarSignForVisualStyleCharacterwise())
+                if focusedElementType == .nonTextElement {
+                    post(ksVisualMode.dollarSignForNonTextElementWhenInVisualStyleCharacterwise())
+                } else {
+                    post(ksVisualMode.dollarSignForTextElementWhenInVisualStyleCharacterwise())
+                }
+                                
                 endCurrentMove()
             case .linewise:
                 endCurrentMove()
