@@ -204,7 +204,13 @@ extension KindaVimEngine {
                 endCurrentMove()
             }
         case .y:
-            post(ksVisualMode.y())
+            switch focusedElementType {
+            case .textElement:
+                post(ksVisualMode.yForTextElement())
+            default:
+                post(ksVisualMode.yForNonTextElement())
+            }
+            
             enterNormalMode()
         case .zero:
             switch visualStyle {
