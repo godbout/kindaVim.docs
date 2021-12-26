@@ -243,7 +243,12 @@ extension KindaVimEngine {
         case [.g, .dollarSign]:
             switch visualStyle {
             case .characterwise:
-                post(ksVisualMode.gDollarSignForVisualStyleCharacterwise())
+                if focusedElementType == .nonTextElement {
+                    post(ksVisualMode.gDollarSignForNonTextElementWhenInVisualStyleCharacterwise())
+                } else {
+                    post(ksVisualMode.gDollarSignForTextElementWhenInVisualStyleCharacterwise())
+                }
+                
                 enterVisualMode()
             case .linewise:
                 enterVisualMode()
