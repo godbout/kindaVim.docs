@@ -120,7 +120,12 @@ extension KindaVimEngine {
         case .underscore:
             switch visualStyle {
             case .characterwise:
-                post(ksVisualMode.underscoreForVisualStyleCharacterwise())
+                if focusedElementType == .nonTextElement {
+                    post(ksVisualMode.underscoreForNonTextElementWhenInVisualStyleCharacterwise())
+                } else {
+                    post(ksVisualMode.underscoreForTextElementWhenInVisualStyleCharacterwise())
+                }
+                                
                 endCurrentMove()
             case .linewise:
                 endCurrentMove()

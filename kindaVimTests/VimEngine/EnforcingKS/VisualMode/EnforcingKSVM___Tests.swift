@@ -15,12 +15,21 @@ class EnforcingKSVM___Tests: EnforcingKSVM_BaseTests {
 
 // VisualStyle Characterwise
 extension EnforcingKSVM___Tests {
+    
+    func test_that_it_calls_the_correct_function_for_NonTextElements_on_KS_when_in_VisualStyle_Characterwise() {
+        kindaVimEngine.axEngine = AXEngineNonTextElementMock()
+        kindaVimEngine.visualStyle = .characterwise
+        applyKeyCombinationsBeingTested()
 
-    func test_that_it_calls_the_correct_function_on_KS_when_in_VisualStyle_Characterwise() {
+        XCTAssertEqual(ksVisualModeMock.functionCalled, "underscoreForNonTextElementWhenInVisualStyleCharacterwise()")
+    }
+    
+    func test_that_it_calls_the_relevant_KS_function_for_TextElements_as_a_fallback_when_in_VisualStyle_Characterwise() {
+        kindaVimEngine.axEngine = AXEngineTextElementMock()
         kindaVimEngine.visualStyle = .characterwise
         applyKeyCombinationsBeingTested()
         
-        XCTAssertEqual(ksVisualModeMock.functionCalled, "underscoreForVisualStyleCharacterwise()")
+        XCTAssertEqual(ksVisualModeMock.functionCalled, "underscoreForTextElementWhenInVisualStyleCharacterwise()")
     }
     
     func test_that_it_keeps_Vim_in_visual_mode_when_in_VisualStyle_Characterwise() {
@@ -42,7 +51,7 @@ extension EnforcingKSVM___Tests {
 
 // VisualStyle Linewise
 extension EnforcingKSVM___Tests {
-
+    
     func test_that_it_does_not_call_any_function_on_KS_because_this_move_does_not_exist_for_VisualStyle_Linewise() {
         kindaVimEngine.visualStyle = .linewise
         applyKeyCombinationsBeingTested()
@@ -65,4 +74,3 @@ extension EnforcingKSVM___Tests {
     }
 
 }
-
