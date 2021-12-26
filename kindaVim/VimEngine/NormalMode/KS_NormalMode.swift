@@ -496,7 +496,13 @@ extension KindaVimEngine {
             
             enterNormalMode()
         case [.g, .zero]:            
-            post(ksNormalMode.gZero())
+            switch focusedElementType {
+            case .textElement:
+                post(ksNormalMode.gZeroForTextElement())
+            default:
+                post(ksNormalMode.gZeroForNonTextElement())
+            }
+            
             enterNormalMode()
         case [.y, .i]:
             ()
