@@ -28,7 +28,12 @@ extension KindaVimEngine {
         case .caret:
             switch visualStyle {
             case .characterwise:
-                post(ksVisualMode.caretForVisualStyleCharacterwise())
+                if focusedElementType == .nonTextElement {
+                    post(ksVisualMode.caretForNonTextElementWhenInVisualStyleCharacterwise())
+                } else {
+                    post(ksVisualMode.caretForTextElementWhenInVisualStyleCharacterwise())
+                }
+                                
                 endCurrentMove()
             case .linewise:
                 endCurrentMove()
