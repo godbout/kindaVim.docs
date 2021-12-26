@@ -80,8 +80,6 @@ extension KindaVimEngine {
             }
         case .escape:
             enterInsertMode()
-        case .g:
-            enterOperatorPendingForVisualMode(with: keyCombination)
         case .G:
             switch visualStyle {
             case .characterwise:
@@ -101,6 +99,8 @@ extension KindaVimEngine {
                 
                 endCurrentMove()
             }
+        case .g:
+            enterOperatorPendingForVisualMode(with: keyCombination)
         case .h:
             switch visualStyle {
             case .characterwise:
@@ -150,26 +150,6 @@ extension KindaVimEngine {
             case .linewise:
                 endCurrentMove()
             }
-        case .v:
-            switch visualStyle {
-            case .characterwise:
-                if focusedElementType == .nonTextElement {
-                    post(ksVisualMode.vForNonTextElement())
-                } else {
-                    post(ksVisualMode.vForTextElementWhenInVisualStyleCharacterwise())
-                }
-                
-                enterNormalMode()
-            case .linewise:
-                if focusedElementType == .nonTextElement {
-                    post(ksVisualMode.vForNonTextElement())
-                } else {
-                    post(ksVisualMode.vForTextElementWhenInVisualStyleLinewise())
-                }
-                
-                visualStyle = .characterwise
-                endCurrentMove()
-            }
         case .V:
             switch visualStyle {
             case .characterwise:
@@ -189,6 +169,26 @@ extension KindaVimEngine {
                 }
                                 
                 enterNormalMode()
+            }
+        case .v:
+            switch visualStyle {
+            case .characterwise:
+                if focusedElementType == .nonTextElement {
+                    post(ksVisualMode.vForNonTextElement())
+                } else {
+                    post(ksVisualMode.vForTextElementWhenInVisualStyleCharacterwise())
+                }
+                
+                enterNormalMode()
+            case .linewise:
+                if focusedElementType == .nonTextElement {
+                    post(ksVisualMode.vForNonTextElement())
+                } else {
+                    post(ksVisualMode.vForTextElementWhenInVisualStyleLinewise())
+                }
+                
+                visualStyle = .characterwise
+                endCurrentMove()
             }
         case .w:    
             switch visualStyle {
