@@ -68,7 +68,13 @@ class KeyboardStrategyVisualModeMock: KeyboardStrategyVisualModeProtocol {
         return []
     }
     
-    func eForVisualStyleCharacterwise() -> [KeyCombination] {
+    func eForNonTextElementWhenInVisualStyleCharacterwise() -> [KeyCombination] {
+        functionCalled = #function
+        
+        return []
+    }
+        
+    func eForTextElementWhenInVisualStyleCharacterwise() -> [KeyCombination] {
         functionCalled = #function
         
         return []

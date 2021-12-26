@@ -16,11 +16,12 @@ class EnforcingKSVM_e_Tests: EnforcingKSVM_BaseTests {
 // VisualStyle Characterwise
 extension EnforcingKSVM_e_Tests {
 
-    func test_that_it_calls_the_correct_function_on_KS_when_in_VisualStyle_Characterwise() {
+    func test_that_it_calls_the_correct_function_for_NonTextElements_on_KS_when_in_VisualStyle_Characterwise() {
+        kindaVimEngine.axEngine = AXEngineNonTextElementMock()
         kindaVimEngine.visualStyle = .characterwise
         applyKeyCombinationsBeingTested()
         
-        XCTAssertEqual(ksVisualModeMock.functionCalled, "eForVisualStyleCharacterwise()")
+        XCTAssertEqual(ksVisualModeMock.functionCalled, "eForNonTextElementWhenInVisualStyleCharacterwise()")
     }
     
     func test_that_it_keeps_Vim_in_visual_mode_when_in_VisualStyle_Characterwise() {
