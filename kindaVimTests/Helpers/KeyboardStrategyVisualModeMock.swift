@@ -8,7 +8,13 @@ class KeyboardStrategyVisualModeMock: KeyboardStrategyVisualModeProtocol {
     
     var functionCalled = ""
     
-    func bForVisualStyleCharacterwise() -> [KeyCombination] {
+    func bForNonTextElementWhenInVisualStyleCharacterwise() -> [KeyCombination] {
+        functionCalled = #function
+        
+        return []
+    }
+    
+    func bForTextElementWhenInVisualStyleCharacterwise() -> [KeyCombination] {
         functionCalled = #function
         
         return []

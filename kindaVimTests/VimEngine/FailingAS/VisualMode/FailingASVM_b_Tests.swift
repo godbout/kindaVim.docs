@@ -16,18 +16,20 @@ class FailingASVM_b_Tests: FailingASVM_BaseTests {
 // VisualStyle Characterwise
 extension FailingASVM_b_Tests {
     
-    func test_that_it_calls_the_relevant_KS_function_as_a_fallback_when_in_VisualStyle_Characterwise() {
+    func test_that_it_calls_the_correct_function_for_NonTextElements_on_KS_when_in_VisualStyle_Characterwise() {
+        kindaVimEngine.axEngine = AXEngineNonTextElementMock()
         kindaVimEngine.visualStyle = .characterwise
         applyKeyCombinationsBeingTested()
         
-        XCTAssertEqual(ksVisualModeMock.functionCalled, "bForVisualStyleCharacterwise()")
+        XCTAssertEqual(ksVisualModeMock.functionCalled, "bForNonTextElementWhenInVisualStyleCharacterwise()")
     }
     
-    func test_that_it_keeps_Vim_in_visual_mode_when_in_VisualStyle_Characterwise() {
+    func test_that_it_calls_the_relevant_KS_function_for_TextElements_as_a_fallback_when_in_VisualStyle_Characterwise() {
+        kindaVimEngine.axEngine = AXEngineTextElementMock()
         kindaVimEngine.visualStyle = .characterwise
         applyKeyCombinationsBeingTested()
         
-        XCTAssertEqual(kindaVimEngine.currentMode, .visual)
+        XCTAssertEqual(ksVisualModeMock.functionCalled, "bForTextElementWhenInVisualStyleCharacterwise()")
     }
     
     func test_that_it_resets_the_count_when_VisualStyle_is_Characterwise() {

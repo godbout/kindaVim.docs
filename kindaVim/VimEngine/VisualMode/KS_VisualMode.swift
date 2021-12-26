@@ -11,7 +11,12 @@ extension KindaVimEngine {
         case .b:
             switch visualStyle {
             case .characterwise:
-                post(ksVisualMode.bForVisualStyleCharacterwise())
+                if focusedElementType == .nonTextElement {
+                    post(ksVisualMode.bForNonTextElementWhenInVisualStyleCharacterwise())
+                } else {
+                    post(ksVisualMode.bForTextElementWhenInVisualStyleCharacterwise())
+                }
+                                
                 endCurrentMove()
             case .linewise:
                 endCurrentMove()
