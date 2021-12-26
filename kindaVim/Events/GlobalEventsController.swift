@@ -122,15 +122,16 @@ struct GlobalEventsController {
     
     private static func doTheKeystrokeSubscriptionShit() {
         #if DEBUG
-        numberOfKeystrokes += 1
-        
-        if numberOfKeystrokes > 689 {
-            let alert: NSAlert = NSAlert()
-            alert.messageText = String(numberOfKeystrokes)
-            numberOfKeystrokes = 0
-            alert.addButton(withTitle: "OK")
-            _ = alert.runModal()
-        }
+        // you sleep for now. annoying LOL
+//        numberOfKeystrokes += 1
+//        
+//        if numberOfKeystrokes > 689 {
+//            let alert: NSAlert = NSAlert()
+//            alert.messageText = String(numberOfKeystrokes)
+//            numberOfKeystrokes = 0
+//            alert.addButton(withTitle: "OK")
+//            _ = alert.runModal()
+//        }
         #endif
     }
     
