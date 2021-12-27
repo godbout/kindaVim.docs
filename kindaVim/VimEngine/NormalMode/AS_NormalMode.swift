@@ -60,10 +60,12 @@ extension KindaVimEngine {
             } else {
                 handleNormalModeUsingKeyboardStrategy(for: keyCombination)
             }
-        // currently for controlB, F, D, U we will send to KS as AS is not implemented yet
+        // currently for controlB, D, F, U we will send to KS as AS is not implemented yet
         case .controlB:
             handleNormalModeUsingKeyboardStrategy(for: keyCombination)
         case .controlD:
+            handleNormalModeUsingKeyboardStrategy(for: keyCombination)
+        case .controlF:
             handleNormalModeUsingKeyboardStrategy(for: keyCombination)
         case .controlR:
             if let element = asNormalMode.controlR(on: focusedTextElement) {
