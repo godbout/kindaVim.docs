@@ -380,6 +380,7 @@ extension KindaVimEngine {
                 post(ksNormalMode.ddForNonTextElement())
             }
             
+            lastYankStyle = .linewise
             enterNormalMode()
         case [.d, .e]:
             switch focusedElementType {

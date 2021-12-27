@@ -35,6 +35,12 @@ extension EnforcingKS_dd_Tests {
         
         XCTAssertEqual(kindaVimEngine.currentMode, .normal)
     }
+    
+    func test_that_it_sets_the_LastYankStyle_to_Linewise() {
+        applyKeyCombinationsBeingTested()
+                
+        XCTAssertEqual(kindaVimEngine.lastYankStyle, .linewise)
+    }
         
     func test_that_it_resets_the_count() {
         applyKeyCombinationsBeingTested()
