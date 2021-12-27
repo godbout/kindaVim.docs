@@ -70,6 +70,7 @@ class KindaVimEngine {
     var display = Display()
     var statusItem: NSStatusItem?
     var axEngine: AXEngineProtocol = AXEngine()
+    var inputFieldObserver = InputFieldObserver()
     
     var focusedElementType: ElementType {
         switch axEngine.axRole() {
@@ -259,6 +260,8 @@ class KindaVimEngine {
         if toggleMenuBarIcon == true {
             statusItem?.button?.image = NSImage(named: "MenuBarIconEmpty")
         }
+                
+        inputFieldObserver.stopObserving()
         
         #if DEBUG
         if showCharactersTyped == true {
@@ -284,6 +287,8 @@ class KindaVimEngine {
         if toggleMenuBarIcon == true {
             statusItem?.button?.image = NSImage(named: "MenuBarIconFull")
         }
+            
+        inputFieldObserver.startObserving()
     }
         
     private func goBackOneCharacterForTextElements(appMode: AppMode) {
