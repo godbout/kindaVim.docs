@@ -17,7 +17,6 @@ struct InputFieldObserver {
             axApplicationElement = AXUIElementCreateApplication(pid)
             
             if AXObserverAddNotification(axObserver!, axApplicationElement!, kAXFocusedUIElementChangedNotification as CFString, nil) == .success {
-                AXObserverAddNotification(axObserver!, axApplicationElement!, kAXUIElementDestroyedNotification as CFString, nil)
                 print("notification added to run loop")
                 CFRunLoopAddSource(CFRunLoopGetCurrent(), AXObserverGetRunLoopSource(axObserver!), .commonModes)
             }
