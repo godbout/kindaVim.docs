@@ -359,6 +359,21 @@ extension KindaVimEngine {
             }
                         
             enterInsertMode()
+        case [.colon, .q]:
+            ()
+        case [.colon, .q, .return]:
+            post(commandLineMode.q())
+            enterInsertMode()
+        case [.colon, .w]:
+            ()
+        case [.colon, .w, .return]:
+            post(commandLineMode.w())
+            enterNormalMode()
+        case [.colon, .w, .q]:
+            ()
+        case [.colon, .w, .q, .return]:
+            post(commandLineMode.wq())
+            enterInsertMode()
         case [.d, .a]:
             ()
         case [.d, .a, .w]:

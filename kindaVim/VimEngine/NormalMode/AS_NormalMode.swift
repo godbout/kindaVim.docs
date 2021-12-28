@@ -52,6 +52,8 @@ extension KindaVimEngine {
             } else {
                 handleNormalModeUsingKeyboardStrategy(for: keyCombination)
             }
+        case .colon:
+            enterOperatorPendingForNormalMode(with: keyCombination)
         // to test (can dump info to console, send stuff to AX etc.)
         case .commandD:
             if let element = AccessibilityStrategyNormalMode.test(element: focusedTextElement) {
@@ -541,6 +543,18 @@ extension KindaVimEngine {
             } else {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
+        case [.colon, .q]:
+            ()
+        case [.colon, .q, .return]:
+            parseOperatorCommandForNormalModeUsingKeyboardStrategy()
+        case [.colon, .w]:
+            ()
+        case [.colon, .w, .return]:
+            parseOperatorCommandForNormalModeUsingKeyboardStrategy()
+        case [.colon, .w, .q]:
+            ()
+        case [.colon, .w, .q, .return]:
+            parseOperatorCommandForNormalModeUsingKeyboardStrategy()
         case [.d, .a]:
             ()
         case [.d, .a, .W]:

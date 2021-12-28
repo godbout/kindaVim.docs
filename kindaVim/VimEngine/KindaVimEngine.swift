@@ -92,6 +92,7 @@ class KindaVimEngine {
     var accessibilityStrategy: AccessibilityStrategyProtocol = AccessibilityStrategy()
     var asNormalMode: AccessibilityStrategyNormalModeProtocol = AccessibilityStrategyNormalMode()
     var asVisualMode: AccessibilityStrategyVisualModeProtocol = AccessibilityStrategyVisualMode()
+    var commandLineMode: CommandLineModeProtocol = CommandLineMode()
        
     init(axEngine: AXEngine = AXEngine(), inputFieldObserver: InputFieldObserver = InputFieldObserver()) {
         self.axEngine = axEngine
