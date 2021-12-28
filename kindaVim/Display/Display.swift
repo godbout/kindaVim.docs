@@ -16,10 +16,10 @@ struct Display {
     private static var  ongoingMove: String = ""
     
     
-    func hazeOver(_ status: HazeOverStatus) {
+    func hazeOver(_ status: HazeOverStatus, fullScreenMode: HazeOverFullScreenMode = .auto) {
         switch status {
         case .on:
-            hazeOverWindow.on()
+            hazeOverWindow.on(fullScreenMode: fullScreenMode)
         case .off:
             hazeOverWindow.off()
         }
