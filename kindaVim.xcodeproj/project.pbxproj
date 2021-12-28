@@ -482,6 +482,14 @@
 		91A54BB62718637E00DEB933 /* SucceedingASNM_k_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A54BB52718637E00DEB933 /* SucceedingASNM_k_Tests.swift */; };
 		91A54BB82718639C00DEB933 /* FailingASNM_k_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A54BB72718639C00DEB933 /* FailingASNM_k_Tests.swift */; };
 		91A967422741447400E1CA7E /* Updater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A967412741447400E1CA7E /* Updater.swift */; };
+		91C26B34277B2E27002C3CED /* AppCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91840DDD26FE096C00E6048E /* AppCore.swift */; };
+		91C26B35277B2E34002C3CED /* StatusBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91840DD126FE096B00E6048E /* StatusBarController.swift */; };
+		91C26B36277B2E3B002C3CED /* EventTapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91840DDB26FE096C00E6048E /* EventTapController.swift */; };
+		91C26B37277B2E58002C3CED /* Updater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A967412741447400E1CA7E /* Updater.swift */; };
+		91C26B38277B2E67002C3CED /* UITestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91840DEB26FE096C00E6048E /* UITestView.swift */; };
+		91C26B39277B2E71002C3CED /* GlobalEventsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91840DDC26FE096C00E6048E /* GlobalEventsController.swift */; };
+		91C26B3A277B2E7E002C3CED /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D475F826FF67A10007187B /* Settings.swift */; };
+		91C26B3B277B2E8D002C3CED /* KeyboardShortcuts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91840DE126FE096C00E6048E /* KeyboardShortcuts.swift */; };
 		91D222F726FE0F2B00B9AF77 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D222F626FE0F2B00B9AF77 /* AppDelegate.swift */; };
 		91D222FD26FE105800B9AF77 /* KindaVimEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91840DEA26FE096C00E6048E /* KindaVimEngine.swift */; };
 		91D72B59275E1F8400CC46B4 /* ASUI_NM_ci'_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D72B58275E1F8400CC46B4 /* ASUI_NM_ci'_Tests.swift */; };
@@ -1005,6 +1013,7 @@
 		91A54BB52718637E00DEB933 /* SucceedingASNM_k_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SucceedingASNM_k_Tests.swift; sourceTree = "<group>"; };
 		91A54BB72718639C00DEB933 /* FailingASNM_k_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FailingASNM_k_Tests.swift; sourceTree = "<group>"; };
 		91A967412741447400E1CA7E /* Updater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Updater.swift; sourceTree = "<group>"; };
+		91C26B33277B1887002C3CED /* AXEngine */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = AXEngine; path = ../AXEngine; sourceTree = "<group>"; };
 		91D222F626FE0F2B00B9AF77 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		91D2230826FE112000B9AF77 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		91D475F826FF67A10007187B /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
@@ -1107,6 +1116,7 @@
 		916ACF8426FE086A000E9757 = {
 			isa = PBXGroup;
 			children = (
+				91C26B33277B1887002C3CED /* AXEngine */,
 				916ACF8F26FE086B000E9757 /* kindaVim */,
 				916ACFA126FE086C000E9757 /* kindaVimTests */,
 				916ACFAB26FE086C000E9757 /* kindaVimUITests */,
@@ -2517,15 +2527,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				91D222FD26FE105800B9AF77 /* KindaVimEngine.swift in Sources */,
+				91C26B39277B2E71002C3CED /* GlobalEventsController.swift in Sources */,
 				91840E0E26FE09A300E6048E /* ASUI_NM_cF__Tests.swift in Sources */,
+				91C26B38277B2E67002C3CED /* UITestView.swift in Sources */,
 				912A798B2739907C007CEF8C /* CharactersView.swift in Sources */,
 				91EC8C5F276759C800E40F27 /* ASUI_NM_cB__Tests.swift in Sources */,
+				91C26B3A277B2E7E002C3CED /* Settings.swift in Sources */,
 				912A798C273990B2007CEF8C /* KS_VisualMode.swift in Sources */,
 				91840E0A26FE09A300E6048E /* ASUI_BaseTests.swift in Sources */,
 				91D72B63275E261900CC46B4 /* ASUI_NM_ci)_Tests.swift in Sources */,
 				912A79892739906B007CEF8C /* CharactersWindow.swift in Sources */,
 				91D72B5B275E1FA100CC46B4 /* ASUI_NM_ci`_Tests.swift in Sources */,
 				91D72B5F275E260700CC46B4 /* ASUI_NM_ci[_Tests.swift in Sources */,
+				91C26B3B277B2E8D002C3CED /* KeyboardShortcuts.swift in Sources */,
 				9103C59E271C7F1000BDEBD7 /* KS_NormalMode.swift in Sources */,
 				912A798A27399072007CEF8C /* Window.swift in Sources */,
 				91840E0D26FE09A300E6048E /* ASUI_NM_ci"_Tests.swift in Sources */,
@@ -2533,17 +2547,21 @@
 				912A79882739905D007CEF8C /* HazeOverWindow.swift in Sources */,
 				91D72B65275E262300CC46B4 /* ASUI_NM_ci]_Tests.swift in Sources */,
 				91840E1126FE09A300E6048E /* ASUI_NM_ci(_Tests.swift in Sources */,
+				91C26B37277B2E58002C3CED /* Updater.swift in Sources */,
 				912A798727399054007CEF8C /* Display.swift in Sources */,
 				9127330F277AFD85001749CD /* InputFieldObserver.swift in Sources */,
 				91840E1026FE09A300E6048E /* ASUI_NM_cT__Tests.swift in Sources */,
 				91D72B61275E260F00CC46B4 /* ASUI_NM_ci}_Tests.swift in Sources */,
+				91C26B35277B2E34002C3CED /* StatusBarController.swift in Sources */,
 				91840E0B26FE09A300E6048E /* _ASUI_NM_BaseTests.swift in Sources */,
 				91D72B5D275E25FE00CC46B4 /* ASUI_NM_ci{_Tests.swift in Sources */,
 				9103C59F271C7F1400BDEBD7 /* AS_VisualMode.swift in Sources */,
+				91C26B34277B2E27002C3CED /* AppCore.swift in Sources */,
 				91EC8C6127675AB000E40F27 /* ASUI_NM_cb_Tests.swift in Sources */,
 				91840E0F26FE09A300E6048E /* ASUI_NM_caw_Tests.swift in Sources */,
 				91840E0C26FE09A300E6048E /* ASUI_NM_ct_Tests.swift in Sources */,
 				91D72B59275E1F8400CC46B4 /* ASUI_NM_ci'_Tests.swift in Sources */,
+				91C26B36277B2E3B002C3CED /* EventTapController.swift in Sources */,
 				9103C59D271C7F1000BDEBD7 /* AS_NormalMode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
