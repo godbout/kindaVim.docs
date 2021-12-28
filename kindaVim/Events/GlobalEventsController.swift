@@ -33,6 +33,7 @@ struct GlobalEventsController {
                 #endif
                
                 AppCore.shared.vimEngine.enterNormalMode(appMode: appMode)
+                AppCore.shared.inputFieldObserver.startObserving()
                 
                 return true
             } else {

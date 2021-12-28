@@ -1,13 +1,13 @@
 import AppKit
 
 
-struct InputFieldObserver {
+class InputFieldObserver {
 
     var axObserver: AXObserver?
     var axApplicationElement: AXUIElement?
     
     
-    mutating func startObserving() {
+    func startObserving() {
         guard let pid = NSWorkspace.shared.frontmostApplication?.processIdentifier else { return }
         
         if AXObserverCreate(pid, { _, _, _, _ in
@@ -25,7 +25,7 @@ struct InputFieldObserver {
     
     func stopObserving() {
         guard let observer = axObserver, let applicationElement = axApplicationElement else { return }
-        
+              
         if AXObserverRemoveNotification(observer, applicationElement, kAXFocusedUIElementChangedNotification as CFString) == .success {
             print("notification removed from run loop")
             CFRunLoopRemoveSource(CFRunLoopGetCurrent(), AXObserverGetRunLoopSource(observer), .commonModes)

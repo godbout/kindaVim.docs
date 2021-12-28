@@ -8,6 +8,7 @@ class AppCore {
 
     var statusBarController: StatusBarController!
     var eventTapController: EventTapController!
+    var inputFieldObserver: InputFieldObserver!
     var vimEngine: KindaVimEngine!
 
     var accessibilityElementAdaptorTestingWindow: NSWindow!
@@ -21,8 +22,8 @@ class AppCore {
         setUpEventTap()
         #endif
         setUpKeyboardLayoutsKeyCodes()
+        setUpInputFieldObserver()
         setUpVimEngine()
-        
         
         NSApplication.shared.hide(self)
         
@@ -72,6 +73,12 @@ class AppCore {
         _ = Sauce.shared.keyCode(for: .six)
         _ = Sauce.shared.keyCode(for: .nine)
     }
+        
+    private func setUpInputFieldObserver() {
+        guard inputFieldObserver == nil else { return }
+        
+        inputFieldObserver = InputFieldObserver()
+    }
 
     private func setUpVimEngine() {
         guard vimEngine == nil else { return }
@@ -81,7 +88,7 @@ class AppCore {
         @AppStorage(SettingsKeys.showCharactersTyped) var showCharactersTyped: Bool = false
         @AppStorage(SettingsKeys.jkMapping) var jkMapping: Bool = true
         
-        vimEngine = KindaVimEngine()
+        vimEngine = KindaVimEngine(inputFieldObserver: inputFieldObserver)
         vimEngine.statusItem = statusBarController.statusItem
         vimEngine.toggleHazeOverWindow = toggleHazeOverWindow
         vimEngine.toggleMenuBarIcon = toggleMenuBarIcon

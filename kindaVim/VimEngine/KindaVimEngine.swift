@@ -70,7 +70,7 @@ class KindaVimEngine {
     var display = Display()
     var statusItem: NSStatusItem?
     var axEngine: AXEngineProtocol = AXEngine()
-    var inputFieldObserver = InputFieldObserver()
+    var inputFieldObserver: InputFieldObserver
     
     var focusedElementType: ElementType {
         switch axEngine.axRole() {
@@ -90,6 +90,10 @@ class KindaVimEngine {
     var accessibilityStrategy: AccessibilityStrategyProtocol = AccessibilityStrategy()
     var asNormalMode: AccessibilityStrategyNormalModeProtocol = AccessibilityStrategyNormalMode()
     var asVisualMode: AccessibilityStrategyVisualModeProtocol = AccessibilityStrategyVisualMode()
+       
+    init(inputFieldObserver: InputFieldObserver = InputFieldObserver()) {
+        self.inputFieldObserver = inputFieldObserver
+    }
     
 
     func handle(keyCombination: KeyCombination, appMode: AppMode = .auto) {
@@ -287,8 +291,6 @@ class KindaVimEngine {
         if toggleMenuBarIcon == true {
             statusItem?.button?.image = NSImage(named: "MenuBarIconFull")
         }
-            
-        inputFieldObserver.startObserving()
     }
         
     private func goBackOneCharacterForTextElements(appMode: AppMode) {
