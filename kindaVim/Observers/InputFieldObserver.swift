@@ -1,5 +1,6 @@
 import AppKit
 
+
 class InputFieldObserver {
 
     var axObserver: AXObserver?

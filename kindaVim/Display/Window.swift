@@ -27,7 +27,7 @@ extension WindowProtocol {
     }
     
     func mainWindowIsInFullScreenMode() -> Bool {
-        return AXEngine().axFullScreenStatusOfFocusedWindow()
+        return AppCore.shared.axEngine.axFullScreenStatusOfFocusedWindow()
     }
     
     // yes, this is complete madness LMAO
@@ -68,7 +68,7 @@ extension WindowProtocol {
     }
 
     func mainWindowInfo() -> MainWindowInfo? {
-        guard let pid = NSWorkspace.shared.frontmostApplication?.processIdentifier else { return nil }
+        guard let pid = AppCore.shared.axEngine.axFrontmostApplicationPID() else { return nil }
         guard let tooManyWindows = CGWindowListCopyWindowInfo([.optionOnScreenOnly, .excludeDesktopElements], kCGNullWindowID) as NSArray? else { return nil }
         guard let mainWindowData = tooManyWindows.filtered(using: NSPredicate(format: "kCGWindowOwnerPID = \(pid)")).first as? NSDictionary else { return nil }
         

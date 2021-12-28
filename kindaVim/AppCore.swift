@@ -1,5 +1,6 @@
 import SwiftUI
 import Sauce
+import AXEngine
 
 
 class AppCore {
@@ -8,6 +9,7 @@ class AppCore {
 
     var statusBarController: StatusBarController!
     var eventTapController: EventTapController!
+    var axEngine: AXEngine!
     var inputFieldObserver: InputFieldObserver!
     var vimEngine: KindaVimEngine!
 
@@ -22,6 +24,7 @@ class AppCore {
         setUpEventTap()
         #endif
         setUpKeyboardLayoutsKeyCodes()
+        setUpAXEngine()
         setUpInputFieldObserver()
         setUpVimEngine()
         
@@ -73,6 +76,12 @@ class AppCore {
         _ = Sauce.shared.keyCode(for: .six)
         _ = Sauce.shared.keyCode(for: .nine)
     }
+    
+    private func setUpAXEngine() {
+        guard axEngine == nil else { return }
+        
+        axEngine = AXEngine()
+    }
         
     private func setUpInputFieldObserver() {
         guard inputFieldObserver == nil else { return }
@@ -88,7 +97,7 @@ class AppCore {
         @AppStorage(SettingsKeys.showCharactersTyped) var showCharactersTyped: Bool = false
         @AppStorage(SettingsKeys.jkMapping) var jkMapping: Bool = true
         
-        vimEngine = KindaVimEngine(inputFieldObserver: inputFieldObserver)
+        vimEngine = KindaVimEngine(axEngine: axEngine, inputFieldObserver: inputFieldObserver)
         vimEngine.statusItem = statusBarController.statusItem
         vimEngine.toggleHazeOverWindow = toggleHazeOverWindow
         vimEngine.toggleMenuBarIcon = toggleMenuBarIcon
