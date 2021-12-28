@@ -12,10 +12,12 @@ class ASUI_BaseTests: XCTestCase {
     
     override func setUpWithError() throws {
         continueAfterFailure = false
-
+        
+        AppCore.shared.setUp()
+        
         app = XCUIApplication()
         app.launch()
-        
+                
         // new one for every test coz anchor and head are static instance properties
         asVisualMode = AccessibilityStrategyVisualMode()
     }
