@@ -1,8 +1,13 @@
-//
-//  _ASCL_BaseTests.swift
-//  kindaVimTests
-//
-//  Created by Guillaume Leclerc on 28/12/2021.
-//
+@testable import kindaVim
+import KeyCombination
 
-import Foundation
+
+class ASCL_BaseTests: Commands_BaseTests {
+    
+    override func setUp() {
+        super.setUp()
+        
+        kindaVimEngine.enterNormalMode()
+    }
+
+}

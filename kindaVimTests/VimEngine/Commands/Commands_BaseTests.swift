@@ -1,8 +1,17 @@
-//
-//  ASCL_BaseTests.swift
-//  kindaVimTests
-//
-//  Created by Guillaume Leclerc on 28/12/2021.
-//
+@testable import kindaVim
+import KeyCombination
+import XCTest
 
-import Foundation
+
+class Commands_BaseTests: XCTestCase {
+    
+    let kindaVimEngine = KindaVimEngine()
+    let commandLineModeMock = CommandLineModeMock()
+    let asNormalModeMock = AccessibilityStrategyNormalModeMock()
+
+    override func setUp() {
+        kindaVimEngine.commandLineMode = commandLineModeMock
+        kindaVimEngine.asNormalMode = asNormalModeMock
+    }
+
+}
