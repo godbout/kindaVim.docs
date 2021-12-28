@@ -59,37 +59,33 @@ struct GlobalEventsController {
     }
     
     private static func appModeForCurrentApp() -> AppMode {
-        if onAppToIgnore() {
+        guard let pid = AppCore.shared.axEngine.axFrontmostApplicationPID(), let frontmostApp = NSRunningApplication(processIdentifier: pid) else { return .auto }
+
+        if onAppToIgnore(appBeing: frontmostApp) {
             return .off
         }
         
-        if onAppForWhichToUseHybridMode() {
+        if onAppForWhichToUseHybridMode(appBeing: frontmostApp) {
             return .pgR
         }
         
-        if onAppForWhichToEnforceKeyboardStrategy() {
+        if onAppForWhichToEnforceKeyboardStrategy(appBeing: frontmostApp) {
             return .keyMapping
         }
         
         return .auto
     }
     
-    private static func onAppToIgnore() -> Bool {
-        return appsToIgnore.contains(
-            NSWorkspace.shared.frontmostApplication?.bundleIdentifier ?? ""
-        )
+    private static func onAppToIgnore(appBeing app: NSRunningApplication) -> Bool {
+        return appsToIgnore.contains(app.bundleIdentifier ?? "")
     }
     
-    private static func onAppForWhichToUseHybridMode() -> Bool {
-        return appsForWhichToUseHybridMode.contains(
-            NSWorkspace.shared.frontmostApplication?.bundleIdentifier ?? ""
-        )
+    private static func onAppForWhichToUseHybridMode(appBeing app: NSRunningApplication) -> Bool {
+        return appsForWhichToUseHybridMode.contains(app.bundleIdentifier ?? "")
     }
     
-    private static func onAppForWhichToEnforceKeyboardStrategy() -> Bool {
-        return appsForWhichToEnforceKeyboardStrategy.contains(
-            NSWorkspace.shared.frontmostApplication?.bundleIdentifier ?? ""
-        )
+    private static func onAppForWhichToEnforceKeyboardStrategy(appBeing app: NSRunningApplication) -> Bool {
+        return appsForWhichToEnforceKeyboardStrategy.contains(app.bundleIdentifier ?? "")
     }
     
     private static func inNormalModeOrOperatorPendingModeOrVisualMode() -> Bool {
