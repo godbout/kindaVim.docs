@@ -6,6 +6,8 @@ struct SettingsKeys {
     static let useCustomShortcutToEnterNormalMode = "useCustomShortcutToEnterNormalMode"
     
     static let toggleHazeOverWindow = "toggleHazeOverWindow"
+    static let hazeOverWindowFullScreenOpacity = "hazeOverWindowFullScreenOpacity"
+    static let hazeOverWindowNonFullScreenOpacity = "hazeOverWindowNonFullScreenOpacity"
     static let toggleMenuBarIcon = "toggleMenuBarIcon"
     static let showCharactersTyped = "showCharactersTyped"
        
