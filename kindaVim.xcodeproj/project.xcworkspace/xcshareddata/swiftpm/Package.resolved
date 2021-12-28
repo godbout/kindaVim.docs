@@ -33,7 +33,7 @@
         "repositoryURL": "git@github.com:godbout/KeyboardStrategy.git",
         "state": {
           "branch": "master",
-          "revision": "b02397b314f721e74f44f469fa98bfcc7bb3d40c",
+          "revision": "0ebf7b8cbab859a0f3f259ad38f05d845dd9238a",
           "version": null
         }
       },
@@ -42,7 +42,7 @@
         "repositoryURL": "git@github.com:godbout/KeyCombination.git",
         "state": {
           "branch": "master",
-          "revision": "0750b5b8858c8122a70d28f2d38644e8f0152fe8",
+          "revision": "faf8389b13f264605e078f179661a1b1ceec4a43",
           "version": null
         }
       },

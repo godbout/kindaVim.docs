@@ -13,6 +13,12 @@ class CommandLineModeMock: CommandLineModeProtocol {
         return []
     }
     
+    func qExclamationMark() -> [KeyCombination] {
+        functionCalled = #function
+        
+        return []
+    }
+    
     func w() -> [KeyCombination] {
         functionCalled = #function
         

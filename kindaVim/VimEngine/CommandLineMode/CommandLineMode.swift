@@ -4,6 +4,7 @@ import KeyCombination
 protocol CommandLineModeProtocol {
     
     func q() -> [KeyCombination]
+    func qExclamationMark() -> [KeyCombination]
     func w() -> [KeyCombination]
     func wq() -> [KeyCombination]
     
@@ -16,6 +17,10 @@ struct CommandLineMode: CommandLineModeProtocol {
         return [
             KeyCombination(key: .q, command: true)
         ]
+    }
+    
+    func qExclamationMark() -> [KeyCombination] {
+        return q()
     }
         
     func w() -> [KeyCombination] {

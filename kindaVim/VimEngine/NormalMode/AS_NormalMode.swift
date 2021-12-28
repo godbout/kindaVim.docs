@@ -547,6 +547,10 @@ extension KindaVimEngine {
             ()
         case [.colon, .q, .return]:
             parseOperatorCommandForNormalModeUsingKeyboardStrategy()
+        case [.colon, .q, .exclamationMark]:
+            ()
+        case [.colon, .q, .exclamationMark, .return]:
+            parseOperatorCommandForNormalModeUsingKeyboardStrategy()        
         case [.colon, .w]:
             ()
         case [.colon, .w, .return]:
