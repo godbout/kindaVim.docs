@@ -69,11 +69,13 @@ class KindaVimEngine {
     
     var display = Display()
     var statusItem: NSStatusItem?
-    var axEngine: AXEngineProtocol = AXEngine()
+    var axEngine: AXEngineProtocol
     var inputFieldObserver: InputFieldObserver
     
     var focusedElementType: ElementType {
-        switch axEngine.axRole() {
+        // this is used only for KS to detect if it's TE or NTE
+        // hence we can't use focusedTextElement coz it's nil (no AS).
+        switch axEngine.axRole(of: axEngine.axFocusedElement()) {
         case .comboBox, .textField, .textArea, .scrollArea, .webArea:
             return .textElement
         default:
@@ -91,7 +93,8 @@ class KindaVimEngine {
     var asNormalMode: AccessibilityStrategyNormalModeProtocol = AccessibilityStrategyNormalMode()
     var asVisualMode: AccessibilityStrategyVisualModeProtocol = AccessibilityStrategyVisualMode()
        
-    init(inputFieldObserver: InputFieldObserver = InputFieldObserver()) {
+    init(axEngine: AXEngine = AXEngine(), inputFieldObserver: InputFieldObserver = InputFieldObserver()) {
+        self.axEngine = axEngine
         self.inputFieldObserver = inputFieldObserver
     }
     
