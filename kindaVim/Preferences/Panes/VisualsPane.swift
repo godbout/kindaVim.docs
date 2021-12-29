@@ -33,7 +33,7 @@ struct VisualsPane: View {
                                     
                             Self.timer?.invalidate()                                
                             Self.timer = Timer.scheduledTimer(
-                                withTimeInterval: 1.28,
+                                withTimeInterval: 0.28,
                                 repeats: false,
                                 block: { _ in
                                     AppCore.shared.vimEngine.display.hazeOver(.off)
@@ -49,7 +49,7 @@ struct VisualsPane: View {
                                     
                             Self.timer?.invalidate()                                
                             Self.timer = Timer.scheduledTimer(
-                                withTimeInterval: 1.28,
+                                withTimeInterval: 0.28,
                                 repeats: false,
                                 block: { _ in
                                     AppCore.shared.vimEngine.display.hazeOver(.off)
