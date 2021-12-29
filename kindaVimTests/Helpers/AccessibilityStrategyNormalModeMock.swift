@@ -502,6 +502,12 @@ class AccessibilityStrategyNormalModeMock: AccessibilityStrategyNormalModeProtoc
         return element
     }
     
+    func J(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
+        functionCalled = #function
+
+        return element
+    }
+    
     func j(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
 

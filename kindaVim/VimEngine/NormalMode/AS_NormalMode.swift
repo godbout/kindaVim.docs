@@ -144,6 +144,13 @@ extension KindaVimEngine {
             } else {
                 handleNormalModeUsingKeyboardStrategy(for: keyCombination)
             }
+        case .J:
+            if let element = asNormalMode.J(on: focusedTextElement, pgR: appMode == .pgR) {
+                push(element: element)
+                endCurrentMove()                
+            } else {
+                handleNormalModeUsingKeyboardStrategy(for: keyCombination)
+            }
         case .j:
             if jkMapping == true {
                 if let element = asNormalMode.gj(on: focusedTextElement) {

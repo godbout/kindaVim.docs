@@ -301,6 +301,10 @@ struct FailingAccessibilityStrategyNormalModeStub: AccessibilityStrategyNormalMo
         return nil
     }
     
+    func J(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
+        return nil
+    }
+    
     func j(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return nil
     }
