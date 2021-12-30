@@ -43,7 +43,9 @@ kindaVim will be a subscription of one ☕️ (USD$3) a month. the beta is free 
 
 # CURRENT VIM IMPLEMENTATION
 
-## kV Accessibility Strategy
+## Motions
+
+### kV Accessibility Strategy
 
 | Normal Mode | including count | copies deletion | &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; | Visual Mode | including count | copies deletion 
 | :---:       | :---:           |  :---:          | :---:                                | :---:       | :---:           | :---:           
@@ -167,7 +169,7 @@ kindaVim will be a subscription of one ☕️ (USD$3) a month. the beta is free 
 | `yt` | ✅️ | 
 | `yy` | ❌️ | 
 
-## kV Keyboard Strategy
+### kV Keyboard Strategy
 
 | Normal Mode | including count | copies deletion | &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; | Visual Mode | including count | copies deletion
 | :---:       | :---:           |  :---:          | :---:                                | :---:       |     :---:       | :---:
@@ -232,6 +234,15 @@ kindaVim will be a subscription of one ☕️ (USD$3) a month. the beta is free 
 | `x`         | ❌️              |✅️️
 | `yiw`       | ❌️              |
 | `yy`       | ❌️               |
+
+### Commands
+
+| Command |
+| :---:   |
+| `:q`       
+| `:q!`
+| `:w`         
+| `:wq`        
 
 # DID YOU KNOW?
 
