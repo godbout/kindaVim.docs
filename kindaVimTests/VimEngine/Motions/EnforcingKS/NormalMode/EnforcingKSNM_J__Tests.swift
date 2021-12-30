@@ -7,7 +7,6 @@ class EnforcingKS_J__Tests: EnforcingKSNM_BaseTests {
 
     private func applyKeyCombinationsBeingTested() {
         kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .eight), appMode: .keyMapping)
-        kindaVimEngine.handle(keyCombination: KeyCombination(key: .d), appMode: .keyMapping)
         kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .J), appMode: .keyMapping)
     }
 
