@@ -21,8 +21,8 @@ maybe [watch the videos](https://www.youtube.com/channel/UC3ZP3QFMhNn3ivJgqoEW4U
 
 by default kindaVim runs in `Auto Mode` and tries to read the text of the app focused:
 
-1. if it can read and modify the text, it uses the [kV Accessibility Strategy](#user-content-kv-accessibility-strategy). theoritically you can have a full Vim experience. pragmatically some stuff will currently be missing so please [ask](https://github.com/godbout/kindaVim.theapp/issues/new) for what you need!
-2. if it can't read the text, it uses the [kV Keyboard Strategy](#user-content-kv-keyboard-strategy) and tries to impersonate Vim through key remapping. it's a little more wonky than the kV Accessibility Strategy.
+1. if it can read and modify the text, it uses the [kV Accessibility Strategy](#user-content-kv-accessibility-strategy). it's text manipulation. theoritically you can have a full Vim experience. pragmatically some stuff will currently be missing so please [ask](https://github.com/godbout/kindaVim.theapp/issues/new) for what you need!
+2. if it can't read the text, it uses the [kV Keyboard Strategy](#user-content-kv-keyboard-strategy) and tries to impersonate Vim through keys remapping. it's a little more wonky than the kV Accessibility Strategy.
 3. if it's not text, it also uses the [kV Keyboard Strategy](#user-content-kv-keyboard-strategy), remap keys, and if the app uses the default macOS keyboard shortcuts you should just get what you expect (e.g. `G` scrolls to the end of a webpage, reaches the last email of a list, goes to the last item of a dropdown, etc.)
 
 
