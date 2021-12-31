@@ -393,15 +393,15 @@ struct FailingAccessibilityStrategyNormalModeStub: AccessibilityStrategyNormalMo
         return nil
     }
     
-    func yiBacktick(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func yiBacktick(on element: AccessibilityTextElement?, _ lastYankStyle: inout VimEngineMoveStyle) -> AccessibilityTextElement? {
         return nil
     }
     
-    func yiDoubleQuote(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func yiDoubleQuote(on element: AccessibilityTextElement?, _ lastYankStyle: inout VimEngineMoveStyle) -> AccessibilityTextElement? {
         return nil
     }
         
-    func yiSingleQuote(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func yiSingleQuote(on element: AccessibilityTextElement?, _ lastYankStyle: inout VimEngineMoveStyle) -> AccessibilityTextElement? {
         return nil
     }
     

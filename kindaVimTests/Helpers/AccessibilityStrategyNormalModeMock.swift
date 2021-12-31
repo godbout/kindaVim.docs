@@ -643,19 +643,19 @@ class AccessibilityStrategyNormalModeMock: AccessibilityStrategyNormalModeProtoc
         return element
     }
     
-    func yiBacktick(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func yiBacktick(on element: AccessibilityTextElement?, _ lastYankStyle: inout VimEngineMoveStyle) -> AccessibilityTextElement? {
         functionCalled = #function
         
         return element
     }
     
-    func yiDoubleQuote(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func yiDoubleQuote(on element: AccessibilityTextElement?, _ lastYankStyle: inout VimEngineMoveStyle) -> AccessibilityTextElement? {
         functionCalled = #function
         
         return element
     }
         
-    func yiSingleQuote(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func yiSingleQuote(on element: AccessibilityTextElement?, _ lastYankStyle: inout VimEngineMoveStyle) -> AccessibilityTextElement? {
         functionCalled = #function
         
         return element

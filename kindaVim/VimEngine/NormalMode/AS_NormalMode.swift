@@ -860,26 +860,22 @@ extension KindaVimEngine {
         case [.y, .i]:
             ()
         case [.y, .i, .backtick]:
-            if let element = asNormalMode.yiBacktick(on: focusedTextElement) {
+            if let element = asNormalMode.yiBacktick(on: focusedTextElement, &lastYankStyle) {
                 push(element: element)
-                lastYankStyle = .characterwise
                 enterNormalMode()
             } else {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
         case [.y, .i, .doubleQuote]:
-            if let element = asNormalMode.yiDoubleQuote(on: focusedTextElement) {
+            if let element = asNormalMode.yiDoubleQuote(on: focusedTextElement, &lastYankStyle) {
                 push(element: element)
-                // TODO: same. if if there's no double quote string copied, LYS shouldn't change
-                lastYankStyle = .characterwise
                 enterNormalMode()
             } else {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
         case [.y, .i, .singleQuote]:
-            if let element = asNormalMode.yiSingleQuote(on: focusedTextElement) {
+            if let element = asNormalMode.yiSingleQuote(on: focusedTextElement, &lastYankStyle) {
                 push(element: element)
-                lastYankStyle = .characterwise
                 enterNormalMode()
             } else {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
