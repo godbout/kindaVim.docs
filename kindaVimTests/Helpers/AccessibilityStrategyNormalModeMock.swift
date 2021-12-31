@@ -51,7 +51,7 @@ class AccessibilityStrategyNormalModeMock: AccessibilityStrategyNormalModeProtoc
         return element
     }
     
-    func caw(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
+    func caw(on element: AccessibilityTextElement?, pgR: Bool, _: inout Bool) -> AccessibilityTextElement? {
         functionCalled = #function
         pgRPassed = pgR
         
