@@ -34,6 +34,12 @@ extension FailingASNM_C__Tests {
         XCTAssertEqual(kindaVimEngine.currentMode, .insert)
     }
     
+    func test_that_it_sets_the_last_yank_style_to_characterwise() {
+        applyKeyCombinationsBeingTested()
+                
+        XCTAssertEqual(kindaVimEngine.lastYankStyle, .characterwise)
+    }
+    
     func test_that_it_resets_the_count() {
         applyKeyCombinationsBeingTested()
         XCTAssertNil(kindaVimEngine.count)

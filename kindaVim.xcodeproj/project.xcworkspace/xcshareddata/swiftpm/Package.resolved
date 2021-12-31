@@ -2,15 +2,6 @@
   "object": {
     "pins": [
       {
-        "package": "AccessibilityStrategy",
-        "repositoryURL": "git@github.com:godbout/AccessibilityStrategy.git",
-        "state": {
-          "branch": "master",
-          "revision": "6a7161721aea66777e16560b57a3f57216de7c17",
-          "version": null
-        }
-      },
-      {
         "package": "AXEngine",
         "repositoryURL": "git@github.com:godbout/AXEngine.git",
         "state": {
@@ -69,7 +60,7 @@
         "repositoryURL": "https://github.com/sparkle-project/Sparkle",
         "state": {
           "branch": "2.x",
-          "revision": "85d3fa2e0e2b7871866eb1a92231847cff4162fd",
+          "revision": "a1add127eb9f41b469893354fd86d29dcbf7723d",
           "version": null
         }
       }

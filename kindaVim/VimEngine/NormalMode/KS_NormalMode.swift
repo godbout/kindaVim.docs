@@ -41,6 +41,7 @@ extension KindaVimEngine {
                 post(ksNormalMode.CForNonTextElement())
             }
             
+            lastYankStyle = .characterwise
             enterInsertMode()
         case .c:
             enterOperatorPendingForNormalMode(with: keyCombination)
@@ -358,6 +359,7 @@ extension KindaVimEngine {
                 post(ksNormalMode.ciwForNonTextElement())
             }
                         
+            lastYankStyle = .characterwise
             enterInsertMode()
         case [.c, .w]:
             switch focusedElementType {
