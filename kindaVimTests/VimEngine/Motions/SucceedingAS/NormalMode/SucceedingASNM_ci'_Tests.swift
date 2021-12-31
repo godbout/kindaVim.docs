@@ -20,14 +20,14 @@ extension SucceedingASNM_ciSingleQuote_Tests {
     func test_that_in_Auto_Mode_it_calls_the_correct_function_on_AS_with_PGR_off() {
         applyKeyCombinationsBeingTested()
                 
-        XCTAssertEqual(asNormalModeMock.functionCalled, "ciSingleQuote(on:pgR:)")
+        XCTAssertEqual(asNormalModeMock.functionCalled, "ciSingleQuote(on:pgR:_:)")
         XCTAssertEqual(asNormalModeMock.pgRPassed, false)
     }
     
     func test_that_in_PGR_Mode_it_calls_the_correct_function_on_AS_with_PGR_on() {
         applyKeyCombinationsBeingTested(pgR: true)
 
-        XCTAssertEqual(asNormalModeMock.functionCalled, "ciSingleQuote(on:pgR:)")
+        XCTAssertEqual(asNormalModeMock.functionCalled, "ciSingleQuote(on:pgR:_:)")
         XCTAssertEqual(asNormalModeMock.pgRPassed, true)
     }
     
