@@ -39,7 +39,6 @@ extension SucceedingASVM_c_Tests {
         XCTAssertEqual(kindaVimEngine.currentMode, .insert)
     }
     
-    // TODO: does below make sense?
     func test_that_it_sets_the_LastYankStyle_to_Characterwise_when_VisualStyle_is_Characterwise() {
         kindaVimEngine.visualStyle = .characterwise
         applyKeyCombinationsBeingTested()

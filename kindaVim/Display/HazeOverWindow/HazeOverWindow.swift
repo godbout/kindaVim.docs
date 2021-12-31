@@ -56,7 +56,6 @@ struct HazeOverWindow: WindowProtocol {
         
         window.setFrame(NSRect(origin: screen.frame.origin, size: screen.frame.size), display: true)
         
-        // TODO: refactor
         switch fullScreenMode {
         case .auto:
             if mainWindowIsInFullScreenMode() {
