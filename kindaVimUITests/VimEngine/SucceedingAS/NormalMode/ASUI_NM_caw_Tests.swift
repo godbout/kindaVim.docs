@@ -15,9 +15,41 @@ class ASUI_NM_caw_Tests: ASUI_NM_BaseTests {
 }
 
 
+// LastYankStyle
+extension ASUI_NM_caw_Tests {
+    
+    func test_that_when_it_finds_aWord_it_sets_the_LastYankStyle_to_Characterwise() {
+        let textInAXFocusedElement = "    of course we can find aWord in here!"
+        app.textFields.firstMatch.tap()
+        app.textFields.firstMatch.typeText(textInAXFocusedElement)
+        app.textFields.firstMatch.typeKey(.leftArrow, modifierFlags: [.command])
+        kindaVimEngine.enterNormalMode()
+        kindaVimEngine.lastYankStyle = .linewise
+               
+        applyKeyCombinationsBeingTested()
+
+        XCTAssertEqual(kindaVimEngine.lastYankStyle, .characterwise)
+    }
+    
+    func test_that_when_it_does_not_find_aWord_it_does_not_touch_the_LastYankStyle() {
+        let textInAXFocusedElement = "caw does not work here...               "
+        app.textFields.firstMatch.tap()
+        app.textFields.firstMatch.typeText(textInAXFocusedElement)
+        app.textFields.firstMatch.typeKey(.leftArrow, modifierFlags: [])
+        kindaVimEngine.enterNormalMode()
+        kindaVimEngine.lastYankStyle = .linewise
+               
+        applyKeyCombinationsBeingTested()
+
+        XCTAssertEqual(kindaVimEngine.lastYankStyle, .linewise)
+    }
+    
+}
+
+
 extension ASUI_NM_caw_Tests {
 
-    func test_that_in_normal_setting_it_succeeds_and_switches_to_insert_mode() {
+    func test_that_in_normal_setting_it_succeeds_and_switches_to_InsertMode() {
         let textInAXFocusedElement = "    of course we can find aWord in here!"
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
@@ -29,7 +61,7 @@ extension ASUI_NM_caw_Tests {
         XCTAssertEqual(kindaVimEngine.currentMode, .insert)
     }
     
-    func test_that_when_the_text_is_empty_it_stays_in_Normal_Mode() {
+    func test_that_when_the_text_is_empty_it_stays_in_NormalMode() {
         let textInAXFocusedElement = ""
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
