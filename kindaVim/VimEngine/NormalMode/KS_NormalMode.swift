@@ -318,7 +318,8 @@ extension KindaVimEngine {
             default:
                 post(ksNormalMode.ccForNonTextElement())
             }
-                        
+            
+            lastYankStyle = .linewise
             enterInsertMode()
         case [.c, .e]:
             switch focusedElementType {
