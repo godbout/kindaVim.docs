@@ -18,7 +18,7 @@ class ASUI_NM_caw_Tests: ASUI_NM_BaseTests {
 // LastYankStyle
 extension ASUI_NM_caw_Tests {
     
-    func test_that_when_it_finds_aWord_it_sets_the_LastYankStyle_to_Characterwise() {
+    func test_that_when_it_finds_it_sets_the_LastYankStyle_to_Characterwise() {
         let textInAXFocusedElement = "    of course we can find aWord in here!"
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
@@ -31,7 +31,7 @@ extension ASUI_NM_caw_Tests {
         XCTAssertEqual(kindaVimEngine.lastYankStyle, .characterwise)
     }
     
-    func test_that_when_it_does_not_find_aWord_it_does_not_touch_the_LastYankStyle() {
+    func test_that_when_it_does_not_find_it_does_not_touch_the_LastYankStyle() {
         let textInAXFocusedElement = "caw does not work here...               "
         app.textFields.firstMatch.tap()
         app.textFields.firstMatch.typeText(textInAXFocusedElement)

@@ -3,8 +3,8 @@ import KeyCombination
 import AccessibilityStrategy
 
 
-// here we're just testing whether ci' returns in insert mode when successful, or in
-// normal mode when it cannot apply the change
+// here we're just testing whether ci' returns in Insert Mode when successful or in Normal Mode when it cannot apply the change
+// and that LYS is changed to Characterwise only if it found something to change
 class ASUI_NM_ciSingleQuote_Tests: ASUI_NM_BaseTests {
 
     private func applyKeyCombinationsBeingTested() {
@@ -13,6 +13,42 @@ class ASUI_NM_ciSingleQuote_Tests: ASUI_NM_BaseTests {
         kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .singleQuote))
     }
 
+}
+
+
+// LastYankStyle
+extension ASUI_NM_ciSingleQuote_Tests {
+    
+    func test_that_when_it_finds_it_sets_the_LastYankStyle_to_Characterwise() {
+        let textInAXFocusedElement = """
+hehe there's gonna be some 'single quotes' in that shit
+"""
+        app.textFields.firstMatch.tap()
+        app.textFields.firstMatch.typeText(textInAXFocusedElement)
+        app.textFields.firstMatch.typeKey(.leftArrow, modifierFlags: [.command])
+        kindaVimEngine.enterNormalMode()
+        kindaVimEngine.lastYankStyle = .linewise
+               
+        applyKeyCombinationsBeingTested()
+
+        XCTAssertEqual(kindaVimEngine.lastYankStyle, .characterwise)
+    }
+    
+    func test_that_when_it_does_not_find_it_does_not_touch_the_LastYankStyle() {
+        let textInAXFocusedElement = """
+huhu only one ' in there...
+"""
+        app.textFields.firstMatch.tap()
+        app.textFields.firstMatch.typeText(textInAXFocusedElement)
+        app.textFields.firstMatch.typeKey(.leftArrow, modifierFlags: [.option])
+        kindaVimEngine.enterNormalMode()
+        kindaVimEngine.lastYankStyle = .linewise
+               
+        applyKeyCombinationsBeingTested()
+
+        XCTAssertEqual(kindaVimEngine.lastYankStyle, .linewise)
+    }
+    
 }
 
 

@@ -31,14 +31,6 @@ extension SucceedingASNM_ciBacktick_Tests {
         XCTAssertEqual(asNormalModeMock.pgRPassed, true)
     }
     
-    // TODO: this is wrong. will depend. should be moved to UIT.
-    func test_that_it_sets_the_LastYankStyle_to_Characterwise() {
-        kindaVimEngine.lastYankStyle = .linewise
-        applyKeyCombinationsBeingTested()
-                
-        XCTAssertEqual(kindaVimEngine.lastYankStyle, .characterwise)
-    }
-    
     func test_that_it_resets_the_count() {
         applyKeyCombinationsBeingTested()
                 

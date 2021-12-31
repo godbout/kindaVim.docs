@@ -466,9 +466,13 @@ extension KindaVimEngine {
         case [.c, .i, .doubleQuote]:
             if let element = asNormalMode.ciDoubleQuote(on: focusedTextElement, pgR: appMode == .pgR) {
                 push(element: element)
-                // TODO: below is wrong. LYS should be set only if ci" is successful
-                lastYankStyle = .characterwise
-                (element.selectedLength == 0 && element.isNotEmpty) ? enterInsertMode() : enterNormalMode()
+                
+                if element.selectedLength == 0, element.isNotEmpty {
+                    lastYankStyle = .characterwise
+                    enterInsertMode()
+                } else {
+                    enterNormalMode()
+                }
             } else {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
@@ -517,16 +521,26 @@ extension KindaVimEngine {
         case [.c, .i, .singleQuote]:
             if let element = asNormalMode.ciSingleQuote(on: focusedTextElement, pgR: appMode == .pgR) {
                 push(element: element)
-                lastYankStyle = .characterwise
-                (element.selectedLength == 0 && element.isNotEmpty) ? enterInsertMode() : enterNormalMode()
+                
+                if element.selectedLength == 0, element.isNotEmpty {
+                    lastYankStyle = .characterwise
+                    enterInsertMode()
+                } else {
+                    enterNormalMode()
+                }
             } else {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
         case [.c, .i, .backtick]:
             if let element = asNormalMode.ciBacktick(on: focusedTextElement, pgR: appMode == .pgR) {
                 push(element: element)
-                lastYankStyle = .characterwise
-                (element.selectedLength == 0 && element.isNotEmpty) ? enterInsertMode() : enterNormalMode()
+                
+                if element.selectedLength == 0, element.isNotEmpty {
+                    lastYankStyle = .characterwise
+                    enterInsertMode()
+                } else {
+                    enterNormalMode()
+                }
             } else {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
