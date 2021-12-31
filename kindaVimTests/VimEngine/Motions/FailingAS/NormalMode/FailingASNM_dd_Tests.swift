@@ -37,6 +37,7 @@ extension FailingASNM_dd_Tests {
     }
     
     func test_that_it_sets_the_LastYankStyle_to_Linewise() {
+        kindaVimEngine.lastYankStyle = .characterwise
         applyKeyCombinationsBeingTested()
                 
         XCTAssertEqual(kindaVimEngine.lastYankStyle, .linewise)

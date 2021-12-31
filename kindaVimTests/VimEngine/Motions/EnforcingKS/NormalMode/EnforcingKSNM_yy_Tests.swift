@@ -36,7 +36,8 @@ extension EnforcingKS_yy_Tests {
         XCTAssertEqual(kindaVimEngine.currentMode, .normal)
     }
     
-    func test_that_it_sets_the_last_yank_style_to_linewise() {
+    func test_that_it_sets_the_LastYankStyle_to_Linewise() {
+        kindaVimEngine.lastYankStyle = .characterwise
         applyKeyCombinationsBeingTested()
                 
         XCTAssertEqual(kindaVimEngine.lastYankStyle, .linewise)
