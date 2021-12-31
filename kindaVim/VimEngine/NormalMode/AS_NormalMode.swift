@@ -581,6 +581,7 @@ extension KindaVimEngine {
         case [.c, .w]:
             if let element = asNormalMode.cw(on: focusedTextElement, pgR: appMode == .pgR) {
                 push(element: element)
+                lastYankStyle = .characterwise
                 enterInsertMode()
             } else {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()

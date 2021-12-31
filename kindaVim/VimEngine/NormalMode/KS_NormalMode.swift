@@ -369,7 +369,8 @@ extension KindaVimEngine {
             default:
                 post(ksNormalMode.cwForNonTextElement())
             }
-                        
+                    
+            lastYankStyle = .characterwise
             enterInsertMode()
         case [.colon, .q]:
             ()
