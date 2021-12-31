@@ -89,11 +89,11 @@ struct FailingAccessibilityStrategyNormalModeStub: AccessibilityStrategyNormalMo
         return nil
     }
     
-    func ciBacktick(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
+    func ciBacktick(on element: AccessibilityTextElement?, pgR: Bool, _: inout Bool) -> AccessibilityTextElement? {
         return nil
     }
     
-    func ciDoubleQuote(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
+    func ciDoubleQuote(on element: AccessibilityTextElement?, pgR: Bool, _: inout Bool) -> AccessibilityTextElement? {
         return nil
     }
     
@@ -121,7 +121,7 @@ struct FailingAccessibilityStrategyNormalModeStub: AccessibilityStrategyNormalMo
         return nil
     }
     
-    func ciSingleQuote(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
+    func ciSingleQuote(on element: AccessibilityTextElement?, pgR: Bool, _: inout Bool) -> AccessibilityTextElement? {
         return nil
     }
     

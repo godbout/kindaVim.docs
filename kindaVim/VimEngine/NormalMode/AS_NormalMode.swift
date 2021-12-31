@@ -466,10 +466,12 @@ extension KindaVimEngine {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
         case [.c, .i, .doubleQuote]:
-            if let element = asNormalMode.ciDoubleQuote(on: focusedTextElement, pgR: appMode == .pgR) {
+            var bipped = false
+            
+            if let element = asNormalMode.ciDoubleQuote(on: focusedTextElement, pgR: appMode == .pgR, &bipped) {
                 push(element: element)
                 
-                if element.selectedLength == 0, element.isNotEmpty {
+                if bipped == false {
                     lastYankStyle = .characterwise
                     enterInsertMode()
                 } else {
@@ -521,10 +523,12 @@ extension KindaVimEngine {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
         case [.c, .i, .singleQuote]:
-            if let element = asNormalMode.ciSingleQuote(on: focusedTextElement, pgR: appMode == .pgR) {
+            var bipped = false
+            
+            if let element = asNormalMode.ciSingleQuote(on: focusedTextElement, pgR: appMode == .pgR, &bipped) {
                 push(element: element)
                 
-                if element.selectedLength == 0, element.isNotEmpty {
+                if bipped == false {
                     lastYankStyle = .characterwise
                     enterInsertMode()
                 } else {
@@ -534,10 +538,12 @@ extension KindaVimEngine {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
         case [.c, .i, .backtick]:
-            if let element = asNormalMode.ciBacktick(on: focusedTextElement, pgR: appMode == .pgR) {
+            var bipped = false
+            
+            if let element = asNormalMode.ciBacktick(on: focusedTextElement, pgR: appMode == .pgR, &bipped) {
                 push(element: element)
                 
-                if element.selectedLength == 0, element.isNotEmpty {
+                if bipped == false {
                     lastYankStyle = .characterwise
                     enterInsertMode()
                 } else {

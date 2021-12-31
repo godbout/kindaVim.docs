@@ -191,21 +191,21 @@ class AccessibilityStrategyNormalModeMock: AccessibilityStrategyNormalModeProtoc
         return element
     }
     
-    func ciBacktick(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
+    func ciBacktick(on element: AccessibilityTextElement?, pgR: Bool, _: inout Bool) -> AccessibilityTextElement? {
         functionCalled = #function
         pgRPassed = pgR
         
         return element
     }
     
-    func ciDoubleQuote(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
+    func ciDoubleQuote(on element: AccessibilityTextElement?, pgR: Bool, _: inout Bool) -> AccessibilityTextElement? {
         functionCalled = #function
         pgRPassed = pgR
         
         return element
     }
     
-    func ciSingleQuote(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
+    func ciSingleQuote(on element: AccessibilityTextElement?, pgR: Bool, _: inout Bool) -> AccessibilityTextElement? {
         functionCalled = #function
         pgRPassed = pgR
         

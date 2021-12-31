@@ -27,6 +27,8 @@ extension FailingASNM_ciBacktick_Tests {
         XCTAssertEqual(kindaVimEngine.currentMode, .normal)
     }
     
+    // TODO: should we test here that it does not touch the LYS?
+    
     func test_that_it_resets_the_count() {
         XCTAssertNil(kindaVimEngine.count)
     }
