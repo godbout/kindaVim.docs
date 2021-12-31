@@ -378,10 +378,12 @@ extension KindaVimEngine {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
         case [.c, .a, .w]:
-            if let element = asNormalMode.caw(on: focusedTextElement, pgR: appMode == .pgR) {
+            var bipped = false
+            
+            if let element = asNormalMode.caw(on: focusedTextElement, pgR: appMode == .pgR, &bipped) {
                 push(element: element)
                 
-                if element.selectedLength == 0, element.isNotEmpty {
+                if bipped == false {
                     lastYankStyle = .characterwise
                     enterInsertMode()
                 } else {
