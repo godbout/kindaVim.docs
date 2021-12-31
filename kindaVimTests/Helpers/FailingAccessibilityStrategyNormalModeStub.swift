@@ -385,11 +385,11 @@ struct FailingAccessibilityStrategyNormalModeStub: AccessibilityStrategyNormalMo
         return nil
     }
     
-    func yf(times count: Int? = 1, to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func yF(times count: Int? = 1, to character: Character, on element: AccessibilityTextElement?, _ lastYankStyle: inout VimEngineMoveStyle) -> AccessibilityTextElement? {
         return nil
     }
-    
-    func yF(times count: Int? = 1, to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        
+    func yf(times count: Int? = 1, to character: Character, on element: AccessibilityTextElement?, _ lastYankStyle: inout VimEngineMoveStyle) -> AccessibilityTextElement? {
         return nil
     }
     
@@ -433,11 +433,11 @@ struct FailingAccessibilityStrategyNormalModeStub: AccessibilityStrategyNormalMo
         return nil
     }
     
-    func yt(times count: Int? = 1, to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func yT(times count: Int? = 1, to character: Character, on element: AccessibilityTextElement?, _ lastYankStyle: inout VimEngineMoveStyle) -> AccessibilityTextElement? {
         return nil
     }
     
-    func yT(times count: Int? = 1, to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func yt(times count: Int? = 1, to character: Character, on element: AccessibilityTextElement?, _ lastYankStyle: inout VimEngineMoveStyle) -> AccessibilityTextElement? {
         return nil
     }
     

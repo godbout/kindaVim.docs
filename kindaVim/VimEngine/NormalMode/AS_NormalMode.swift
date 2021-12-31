@@ -1073,27 +1073,25 @@ extension KindaVimEngine {
                 switch operatorPendingBuffer[1].vimKey {
                 case .F:
                     if let character = operatorPendingBuffer.last {
-                        element = asNormalMode.yF(times: count, to: character.character, on: focusedTextElement)
+                        element = asNormalMode.yF(times: count, to: character.character, on: focusedTextElement, &lastYankStyle)
                     }
                 case .f:
                     if let character = operatorPendingBuffer.last {
-                        element = asNormalMode.yf(times: count, to: character.character, on: focusedTextElement)
+                        element = asNormalMode.yf(times: count, to: character.character, on: focusedTextElement, &lastYankStyle)
                     }
                 case .T:
                     if let character = operatorPendingBuffer.last {
-                        element = asNormalMode.yT(times: count, to: character.character, on: focusedTextElement)
+                        element = asNormalMode.yT(times: count, to: character.character, on: focusedTextElement, &lastYankStyle)
                     }
                 case .t:
                     if let character = operatorPendingBuffer.last {
-                        element = asNormalMode.yt(times: count, to: character.character, on: focusedTextElement)
+                        element = asNormalMode.yt(times: count, to: character.character, on: focusedTextElement, &lastYankStyle)
                     }
                 default: ()
                 }
                 
                 if let element = element {
                     push(element: element)
-                    // TODO: if the move hasn't found anything, we shouldn't change the LYS
-                    lastYankStyle = .characterwise                    
                     enterNormalMode()
                 } else {
                     parseOperatorCommandForNormalModeUsingKeyboardStrategy()

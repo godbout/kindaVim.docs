@@ -625,13 +625,13 @@ class AccessibilityStrategyNormalModeMock: AccessibilityStrategyNormalModeProtoc
         return element
     }
     
-    func yf(times count: Int? = 1, to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func yF(times count: Int? = 1, to character: Character, on element: AccessibilityTextElement?, _ lastYankStyle: inout VimEngineMoveStyle) -> AccessibilityTextElement? {
         functionCalled = #function
         
         return element
     }
     
-    func yF(times count: Int? = 1, to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func yf(times count: Int? = 1, to character: Character, on element: AccessibilityTextElement?, _ lastYankStyle: inout VimEngineMoveStyle) -> AccessibilityTextElement? {
         functionCalled = #function
         
         return element
@@ -697,13 +697,13 @@ class AccessibilityStrategyNormalModeMock: AccessibilityStrategyNormalModeProtoc
         return element
     }
     
-    func yt(times count: Int? = 1, to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func yT(times count: Int? = 1, to character: Character, on element: AccessibilityTextElement?, _ lastYankStyle: inout VimEngineMoveStyle) -> AccessibilityTextElement? {
         functionCalled = #function
         
         return element
     }
     
-    func yT(times count: Int? = 1, to character: Character, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func yt(times count: Int? = 1, to character: Character, on element: AccessibilityTextElement?, _ lastYankStyle: inout VimEngineMoveStyle) -> AccessibilityTextElement? {
         functionCalled = #function
         
         return element
