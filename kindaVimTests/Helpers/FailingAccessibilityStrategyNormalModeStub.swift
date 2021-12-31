@@ -149,7 +149,7 @@ struct FailingAccessibilityStrategyNormalModeStub: AccessibilityStrategyNormalMo
         return nil
     }
     
-    func daw(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
+    func daw(on element: AccessibilityTextElement?, pgR: Bool, _ bipped: inout Bool) -> AccessibilityTextElement? {
         return nil
     }
     

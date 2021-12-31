@@ -611,12 +611,11 @@ extension KindaVimEngine {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
         case [.d, .a, .w]:
-            if let element = asNormalMode.daw(on: focusedTextElement, pgR: appMode == .pgR) {
+            var bipped = false
+            
+            if let element = asNormalMode.daw(on: focusedTextElement, pgR: appMode == .pgR, &bipped) {
                 push(element: element)
-                // TODO: LYS will change depending on whether this moved found something or not. how to know???
-                // if add the end of text on whitespaces, the move "fails" so YLS does not change, but the
-                // caret moves to the end of text. so, how can we get that we shouldn't change YLS? caret location is
-                // not enough.
+                bipped == false ? lastYankStyle = .characterwise : ()
                 enterNormalMode()
             } else {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
