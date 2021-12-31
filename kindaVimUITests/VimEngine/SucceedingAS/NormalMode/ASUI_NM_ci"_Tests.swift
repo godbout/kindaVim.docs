@@ -33,7 +33,7 @@ hehe there's gonna be some "double quotes" in that shit
         XCTAssertEqual(kindaVimEngine.lastYankStyle, .characterwise)
     }
     
-    func test_that_when_it_does_not_find_it_does_not_touch_the_LastYankStyle() {
+    func test_that_when_it_does_not_find_it_does_not_change_the_LastYankStyle() {
         let textInAXFocusedElement = """
 huhu only one " in there...
 """
