@@ -29,6 +29,7 @@ extension SucceedingASNM_yiBacktick_Tests {
         XCTAssertEqual(kindaVimEngine.currentMode, .normal)
     }
     
+    // TODO: if move fails it shouldn't change the LYS no? :sweat:
     func test_that_it_sets_the_last_yank_style_to_characterwise() {
         XCTAssertEqual(kindaVimEngine.lastYankStyle, .characterwise)
     }

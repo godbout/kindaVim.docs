@@ -466,6 +466,7 @@ extension KindaVimEngine {
         case [.c, .i, .doubleQuote]:
             if let element = asNormalMode.ciDoubleQuote(on: focusedTextElement, pgR: appMode == .pgR) {
                 push(element: element)
+                // TODO: below is wrong. LYS should be set only if ci" is successful
                 lastYankStyle = .characterwise
                 (element.selectedLength == 0 && element.isNotEmpty) ? enterInsertMode() : enterNormalMode()
             } else {
@@ -843,6 +844,7 @@ extension KindaVimEngine {
         case [.y, .i, .doubleQuote]:
             if let element = asNormalMode.yiDoubleQuote(on: focusedTextElement) {
                 push(element: element)
+                // TODO: same. if if there's no double quote string copied, LYS shouldn't change
                 lastYankStyle = .characterwise
                 enterNormalMode()
             } else {
@@ -1069,6 +1071,7 @@ extension KindaVimEngine {
                 
                 if let element = element {
                     push(element: element)
+                    // TODO: if the move hasn't found anything, we shouldn't change the LYS
                     lastYankStyle = .characterwise                    
                     enterNormalMode()
                 } else {
