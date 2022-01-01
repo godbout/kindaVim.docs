@@ -205,6 +205,10 @@ struct FailingAccessibilityStrategyVisualModeStub: AccessibilityStrategyVisualMo
         return nil 
     }
     
+    func Y(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+        return nil 
+    }
+    
     func yForVisualStyleCharacterwise(on element: AccessibilityTextElement?, _ lastYankStyle: inout VimEngineMoveStyle) -> AccessibilityTextElement? {
         return nil 
     }

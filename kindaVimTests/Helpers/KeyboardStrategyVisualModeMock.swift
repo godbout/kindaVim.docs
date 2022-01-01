@@ -332,6 +332,18 @@ class KeyboardStrategyVisualModeMock: KeyboardStrategyVisualModeProtocol {
         return []
     }
     
+    func YForNonTextElement() -> [KeyCombination] {
+        functionCalled = #function
+        
+        return []
+    }
+        
+    func YForTextElement() -> [KeyCombination] {
+        functionCalled = #function
+        
+        return []
+    }
+        
     func yForNonTextElement() -> [KeyCombination] {
         functionCalled = #function
         

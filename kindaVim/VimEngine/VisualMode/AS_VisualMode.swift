@@ -314,9 +314,18 @@ extension KindaVimEngine {
                     handleVisualModeUsingKeyboardStrategy(for: keyCombination)
                 }
             }
+        case .Y:
+            if let element = asVisualMode.Y(on: focusedTextElement) {
+                push(element: element)
+                lastYankStyle = .linewise
+                enterNormalMode()
+            } else {
+                handleVisualModeUsingKeyboardStrategy(for: keyCombination)
+            }
         case .y:
             switch visualStyle {
             case .characterwise:
+                // TODO: do we really need the lastYankStyle here? or should we pass it really on when change may happen?
                 if let element = asVisualMode.yForVisualStyleCharacterwise(on: focusedTextElement, &lastYankStyle) {
                     push(element: element)
                     enterNormalMode()

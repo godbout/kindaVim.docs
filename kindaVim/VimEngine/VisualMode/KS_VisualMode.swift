@@ -224,6 +224,16 @@ extension KindaVimEngine {
             }
             
             enterNormalMode()
+        case .Y:
+            switch focusedElementType {
+            case .textElement:
+                post(ksVisualMode.YForTextElement())
+            default:
+                post(ksVisualMode.YForNonTextElement())
+            }
+            
+            lastYankStyle = .linewise
+            enterNormalMode()
         case .y:
             switch focusedElementType {
             case .textElement:
