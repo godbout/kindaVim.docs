@@ -70,6 +70,14 @@ extension KindaVimEngine {
             case .linewise:
                 endCurrentMove()
             }
+        case .D:
+            if let element = asVisualMode.D(on: focusedTextElement, pgR: appMode == .pgR) {
+                push(element: element)
+                lastYankStyle = .linewise
+                enterNormalMode()
+            } else {
+                handleVisualModeUsingKeyboardStrategy(for: keyCombination)
+            }
         case .d:
             switch visualStyle {
             case .characterwise:
