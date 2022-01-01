@@ -664,6 +664,7 @@ extension KindaVimEngine {
         case [.d, .G]:
             if let element = asNormalMode.dG(on: focusedTextElement, pgR: appMode == .pgR) {
                 push(element: element)
+                lastYankStyle = .linewise
                 enterNormalMode()
            } else {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
