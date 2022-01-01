@@ -36,8 +36,6 @@ extension SucceedingASNM_cw_Tests {
         XCTAssertEqual(kindaVimEngine.currentMode, .insert)
     }
     
-    // this is not totally correct. in some cases (when cw deletes nothing)
-    // the LastYankStyle is kept to what it was before.
     func test_that_it_sets_the_LastYankStyle_to_Characterwise() {
         kindaVimEngine.lastYankStyle = .linewise
         applyKeyCombinationsBeingTested()
