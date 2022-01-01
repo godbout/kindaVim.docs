@@ -36,6 +36,13 @@ extension SucceedingASNM_cG_Tests {
         XCTAssertEqual(kindaVimEngine.currentMode, .insert)
     }
     
+    func test_that_it_sets_the_LastYankStyle_to_Linewise() {
+        kindaVimEngine.lastYankStyle = .characterwise
+        applyKeyCombinationsBeingTested()
+                
+        XCTAssertEqual(kindaVimEngine.lastYankStyle, .linewise)
+    }
+    
     func test_that_it_resets_the_count() {
         applyKeyCombinationsBeingTested()
                 
