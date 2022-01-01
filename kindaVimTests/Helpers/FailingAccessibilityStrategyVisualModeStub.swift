@@ -13,6 +13,10 @@ struct FailingAccessibilityStrategyVisualModeStub: AccessibilityStrategyVisualMo
         return nil 
     }
     
+    func C(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
+        return nil 
+    }
+    
     func caretForVisualStyleCharacterwise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return nil 
     }

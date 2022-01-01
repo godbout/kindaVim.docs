@@ -21,6 +21,16 @@ extension KindaVimEngine {
             case .linewise:
                 endCurrentMove()
             }
+        case .C:
+            switch focusedElementType {
+            case .textElement:
+                post(ksVisualMode.CForTextElement())
+            default:
+                post(ksVisualMode.CForNonTextElement())
+            }
+            
+            lastYankStyle = .linewise
+            enterInsertMode()
         case .c:
             switch focusedElementType {
             case .textElement:

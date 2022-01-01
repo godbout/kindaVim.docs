@@ -21,6 +21,13 @@ class AccessibilityStrategyVisualModeMock: AccessibilityStrategyVisualModeProtoc
         return element
     }
     
+    func C(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
+        functionCalled = #function
+        pgRPassed = pgR
+        
+        return element
+    }
+    
     func caretForVisualStyleCharacterwise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         
