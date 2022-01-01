@@ -303,6 +303,14 @@ extension KindaVimEngine {
             case .linewise:
                 endCurrentMove()
             }
+        case .X:
+            if let element = asVisualMode.X(on: focusedTextElement, pgR: appMode == .pgR) {
+                push(element: element)
+                lastYankStyle = .linewise
+                enterNormalMode()
+            } else {
+                handleVisualModeUsingKeyboardStrategy(for: keyCombination)
+            }
         case .x:
             switch visualStyle {
             case .characterwise:

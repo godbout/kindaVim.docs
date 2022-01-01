@@ -201,6 +201,10 @@ struct FailingAccessibilityStrategyVisualModeStub: AccessibilityStrategyVisualMo
         return nil
     }
     
+    func X(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
+        return nil 
+    }
+    
     func xForVisualStyleCharacterwise(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
         return nil 
     }
