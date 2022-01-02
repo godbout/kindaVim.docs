@@ -20,7 +20,7 @@ extension SucceedingASVM_y_Tests {
         kindaVimEngine.visualStyle = .characterwise
         applyKeyCombinationsBeingTested()
         
-        XCTAssertEqual(asVisualModeMock.functionCalled, "yForVisualStyleCharacterwise(on:_:)")
+        XCTAssertEqual(asVisualModeMock.functionCalled, "yForVisualStyleCharacterwise(on:)")
     }
     
     func test_that_it_switches_Vim_to_NormalMode_when_VisualStyle_is_Characterwise() {
@@ -47,7 +47,7 @@ extension SucceedingASVM_y_Tests {
         kindaVimEngine.visualStyle = .linewise
         applyKeyCombinationsBeingTested()
         
-        XCTAssertEqual(asVisualModeMock.functionCalled, "yForVisualStyleLinewise(on:_:)")
+        XCTAssertEqual(asVisualModeMock.functionCalled, "yForVisualStyleLinewise(on:)")
     }
        
     func test_that_it_switches_Vim_to_NormalMode_when_VisualStyle_is_Linewise() {
