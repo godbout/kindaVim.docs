@@ -611,6 +611,10 @@ extension KindaVimEngine {
             ()
         case [.colon, .w, .q, .return]:
             parseOperatorCommandForNormalModeUsingKeyboardStrategy()
+        case [.colon, .x]:
+            ()
+        case [.colon, .x, .return]:
+            parseOperatorCommandForNormalModeUsingKeyboardStrategy()
         case [.d, .a]:
             ()
         case [.d, .a, .W]:

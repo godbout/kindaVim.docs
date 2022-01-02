@@ -7,10 +7,13 @@ protocol CommandLineModeProtocol {
     func qExclamationMark() -> [KeyCombination]
     func w() -> [KeyCombination]
     func wq() -> [KeyCombination]
+    func x() -> [KeyCombination]
     
 }
 
 
+// TODO: should we do a CommandLine package?
+// current what those moves return are not tested.
 struct CommandLineMode: CommandLineModeProtocol {
 
     func q() -> [KeyCombination] {
@@ -34,6 +37,10 @@ struct CommandLineMode: CommandLineModeProtocol {
             KeyCombination(key: .s, command: true),
             KeyCombination(key: .q, command: true)
         ]
+    }
+    
+    func x() -> [KeyCombination] {
+        return wq()
     }
     
 }

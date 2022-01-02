@@ -31,4 +31,10 @@ class CommandLineModeMock: CommandLineModeProtocol {
         return []
     }
     
+    func x() -> [KeyCombination] {
+        functionCalled = #function
+        
+        return []
+    }
+    
 } 
