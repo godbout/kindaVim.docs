@@ -46,8 +46,8 @@
 		91255C25277F65B700771E7F /* ASUI_NM_daw_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91255C24277F65B700771E7F /* ASUI_NM_daw_Tests.swift */; };
 		91255C27277F70DC00771E7F /* EnforcingKSNM_yF__Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91255C26277F70DC00771E7F /* EnforcingKSNM_yF__Tests.swift */; };
 		91255C29277F70F300771E7F /* EnforcingKSNM_yf_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91255C28277F70F300771E7F /* EnforcingKSNM_yf_Tests.swift */; };
-		91255C2B277F713400771E7F /* EnforcingASNM_yT__Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91255C2A277F713400771E7F /* EnforcingASNM_yT__Tests.swift */; };
-		91255C2D277F713F00771E7F /* EnforcingASNM_yt_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91255C2C277F713F00771E7F /* EnforcingASNM_yt_Tests.swift */; };
+		91255C2B277F713400771E7F /* EnforcingKSNM_yT__Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91255C2A277F713400771E7F /* EnforcingKSNM_yT__Tests.swift */; };
+		91255C2D277F713F00771E7F /* EnforcingKSNM_yt_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91255C2C277F713F00771E7F /* EnforcingKSNM_yt_Tests.swift */; };
 		91255C2F277F739C00771E7F /* ASUI_NM_yF__Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91255C2E277F739C00771E7F /* ASUI_NM_yF__Tests.swift */; };
 		91255C31277F754400771E7F /* ASUI_NM_yf_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91255C30277F754400771E7F /* ASUI_NM_yf_Tests.swift */; };
 		91255C33277F754F00771E7F /* ASUI_NM_yT__Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91255C32277F754F00771E7F /* ASUI_NM_yT__Tests.swift */; };
@@ -495,6 +495,9 @@
 		9192CF9C2780B1190082F5A5 /* SucceedingASVM_X__Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9192CF9B2780B1190082F5A5 /* SucceedingASVM_X__Tests.swift */; };
 		9192CF9E2780B1410082F5A5 /* FailingASVM_X__Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9192CF9D2780B1410082F5A5 /* FailingASVM_X__Tests.swift */; };
 		9192CFA02780B15E0082F5A5 /* EnforcingKSVM_X__Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9192CF9F2780B15E0082F5A5 /* EnforcingKSVM_X__Tests.swift */; };
+		9192CFA52780BBE60082F5A5 /* SucceedingASNM_~_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9192CFA42780BBE60082F5A5 /* SucceedingASNM_~_Tests.swift */; };
+		9192CFA82780BCF10082F5A5 /* FailingASNM_~_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9192CFA72780BCF10082F5A5 /* FailingASNM_~_Tests.swift */; };
+		9192CFAA2780BD280082F5A5 /* EnforcingKSNM_~_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9192CFA92780BD280082F5A5 /* EnforcingKSNM_~_Tests.swift */; };
 		919AB61727217B3E0000591C /* EnforcingKSNM_gI__Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919AB61627217B3E0000591C /* EnforcingKSNM_gI__Tests.swift */; };
 		919AB61A27217D780000591C /* SucceedingASNM_gI__Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919AB61927217D780000591C /* SucceedingASNM_gI__Tests.swift */; };
 		919AB61C27217E040000591C /* FailingASNM_gI__Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919AB61B27217E040000591C /* FailingASNM_gI__Tests.swift */; };
@@ -633,8 +636,8 @@
 		91255C24277F65B700771E7F /* ASUI_NM_daw_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASUI_NM_daw_Tests.swift; sourceTree = "<group>"; };
 		91255C26277F70DC00771E7F /* EnforcingKSNM_yF__Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnforcingKSNM_yF__Tests.swift; sourceTree = "<group>"; };
 		91255C28277F70F300771E7F /* EnforcingKSNM_yf_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnforcingKSNM_yf_Tests.swift; sourceTree = "<group>"; };
-		91255C2A277F713400771E7F /* EnforcingASNM_yT__Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnforcingASNM_yT__Tests.swift; sourceTree = "<group>"; };
-		91255C2C277F713F00771E7F /* EnforcingASNM_yt_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnforcingASNM_yt_Tests.swift; sourceTree = "<group>"; };
+		91255C2A277F713400771E7F /* EnforcingKSNM_yT__Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnforcingKSNM_yT__Tests.swift; sourceTree = "<group>"; };
+		91255C2C277F713F00771E7F /* EnforcingKSNM_yt_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnforcingKSNM_yt_Tests.swift; sourceTree = "<group>"; };
 		91255C2E277F739C00771E7F /* ASUI_NM_yF__Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASUI_NM_yF__Tests.swift; sourceTree = "<group>"; };
 		91255C30277F754400771E7F /* ASUI_NM_yf_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASUI_NM_yf_Tests.swift; sourceTree = "<group>"; };
 		91255C32277F754F00771E7F /* ASUI_NM_yT__Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASUI_NM_yT__Tests.swift; sourceTree = "<group>"; };
@@ -1073,6 +1076,11 @@
 		9192CF9B2780B1190082F5A5 /* SucceedingASVM_X__Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SucceedingASVM_X__Tests.swift; sourceTree = "<group>"; };
 		9192CF9D2780B1410082F5A5 /* FailingASVM_X__Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FailingASVM_X__Tests.swift; sourceTree = "<group>"; };
 		9192CF9F2780B15E0082F5A5 /* EnforcingKSVM_X__Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnforcingKSVM_X__Tests.swift; sourceTree = "<group>"; };
+		9192CFA42780BBE60082F5A5 /* SucceedingASNM_~_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SucceedingASNM_~_Tests.swift"; sourceTree = "<group>"; };
+		9192CFA62780BC0F0082F5A5 /* KeyCombination */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = KeyCombination; path = ../KeyCombination; sourceTree = "<group>"; };
+		9192CFA72780BCF10082F5A5 /* FailingASNM_~_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FailingASNM_~_Tests.swift"; sourceTree = "<group>"; };
+		9192CFA92780BD280082F5A5 /* EnforcingKSNM_~_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EnforcingKSNM_~_Tests.swift"; sourceTree = "<group>"; };
+		9192CFAB2780BD830082F5A5 /* AccessibilityStrategy */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = AccessibilityStrategy; path = ../AccessibilityStrategy; sourceTree = "<group>"; };
 		919AB61627217B3E0000591C /* EnforcingKSNM_gI__Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnforcingKSNM_gI__Tests.swift; sourceTree = "<group>"; };
 		919AB61927217D780000591C /* SucceedingASNM_gI__Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SucceedingASNM_gI__Tests.swift; sourceTree = "<group>"; };
 		919AB61B27217E040000591C /* FailingASNM_gI__Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FailingASNM_gI__Tests.swift; sourceTree = "<group>"; };
@@ -1208,6 +1216,8 @@
 		916ACF8426FE086A000E9757 = {
 			isa = PBXGroup;
 			children = (
+				9192CFAB2780BD830082F5A5 /* AccessibilityStrategy */,
+				9192CFA62780BC0F0082F5A5 /* KeyCombination */,
 				916ACF8F26FE086B000E9757 /* kindaVim */,
 				916ACFA126FE086C000E9757 /* kindaVimTests */,
 				916ACFAB26FE086C000E9757 /* kindaVimUITests */,
@@ -1345,6 +1355,7 @@
 				91840B7226FE094300E6048E /* FailingASNM_^_Tests.swift */,
 				91840B7126FE094300E6048E /* FailingASNM_<<_Tests.swift */,
 				91840B8226FE094300E6048E /* FailingASNM_>>_Tests.swift */,
+				9192CFA72780BCF10082F5A5 /* FailingASNM_~_Tests.swift */,
 				91840B6526FE094300E6048E /* FailingASNM_$_Tests.swift */,
 				91840BA626FE094300E6048E /* FailingASNM_0_Tests.swift */,
 				91840B8026FE094300E6048E /* FailingASNM_A__Tests.swift */,
@@ -1532,6 +1543,7 @@
 				91840BDF26FE094300E6048E /* SucceedingASNM_^_Tests.swift */,
 				91840C1126FE094300E6048E /* SucceedingASNM_<<_Tests.swift */,
 				91840C1F26FE094400E6048E /* SucceedingASNM_>>_Tests.swift */,
+				9192CFA42780BBE60082F5A5 /* SucceedingASNM_~_Tests.swift */,
 				91840BEF26FE094300E6048E /* SucceedingASNM_$_Tests.swift */,
 				91840C0026FE094300E6048E /* SucceedingASNM_0_Tests.swift */,
 				91840C1C26FE094400E6048E /* SucceedingASNM_A__Tests.swift */,
@@ -1707,10 +1719,9 @@
 			isa = PBXGroup;
 			children = (
 				91840C5026FE094400E6048E /* _EnforcingKSNM_BaseTests.swift */,
-				91255C2A277F713400771E7F /* EnforcingASNM_yT__Tests.swift */,
-				91255C2C277F713F00771E7F /* EnforcingASNM_yt_Tests.swift */,
 				91840C5126FE094400E6048E /* EnforcingKSNM___Tests.swift */,
 				91840C6326FE094400E6048E /* EnforcingKSNM_^_Tests.swift */,
+				9192CFA92780BD280082F5A5 /* EnforcingKSNM_~_Tests.swift */,
 				91840C7526FE094400E6048E /* EnforcingKSNM_$_Tests.swift */,
 				91840C4F26FE094400E6048E /* EnforcingKSNM_0_Tests.swift */,
 				91840C5626FE094400E6048E /* EnforcingKSNM_A__Tests.swift */,
@@ -1795,6 +1806,8 @@
 				91255C20277F63AA00771E7F /* EnforcingKSNM_yi"_Tests.swift */,
 				91255C22277F63C700771E7F /* EnforcingKSNM_yi`_Tests.swift */,
 				91840C5D26FE094400E6048E /* EnforcingKSNM_yiw_Tests.swift */,
+				91255C2A277F713400771E7F /* EnforcingKSNM_yT__Tests.swift */,
+				91255C2C277F713F00771E7F /* EnforcingKSNM_yt_Tests.swift */,
 				91840C6A26FE094400E6048E /* EnforcingKSNM_yy_Tests.swift */,
 			);
 			path = NormalMode;
@@ -2312,6 +2325,7 @@
 				91840D7C26FE094500E6048E /* SucceedingASVM_f_Tests.swift in Sources */,
 				91316D2B27678F9800968EA7 /* FailingASNM_X__Tests.swift in Sources */,
 				91840CE526FE094400E6048E /* FailingASNM_dt_Tests.swift in Sources */,
+				9192CFA52780BBE60082F5A5 /* SucceedingASNM_~_Tests.swift in Sources */,
 				9171482427058C3300BC4593 /* FailingASNM_g^_Tests.swift in Sources */,
 				91840D3A26FE094500E6048E /* SucceedingASNM_dk_Tests.swift in Sources */,
 				91E3A1BF272073E2003734BE /* SucceedingASNM_dgg_Tests.swift in Sources */,
@@ -2327,6 +2341,7 @@
 				910540C6276361B000C79F2D /* SucceedingASNM_ce_Tests.swift in Sources */,
 				91840CE726FE094400E6048E /* FailingASNM_0_Tests.swift in Sources */,
 				91840D0126FE094400E6048E /* FailingASVM_c_Tests.swift in Sources */,
+				9192CFA82780BCF10082F5A5 /* FailingASNM_~_Tests.swift in Sources */,
 				91840D6B26FE094500E6048E /* SucceedingASVM_h_Tests.swift in Sources */,
 				91F4182F277B5EF200E58117 /* ASCL_q!_Tests.swift in Sources */,
 				91840DB826FE094500E6048E /* EnforcingKSVM_iw_Tests.swift in Sources */,
@@ -2410,7 +2425,7 @@
 				91840D1026FE094400E6048E /* SucceedingASNM_e_Tests.swift in Sources */,
 				916C6FD6276620EB004624CB /* EnforcingKSNM_dE__Tests.swift in Sources */,
 				91840CEB26FE094400E6048E /* FailingASNM_dk_Tests.swift in Sources */,
-				91255C2D277F713F00771E7F /* EnforcingASNM_yt_Tests.swift in Sources */,
+				91255C2D277F713F00771E7F /* EnforcingKSNM_yt_Tests.swift in Sources */,
 				91F3B6C32719AC0E00D209F4 /* FailingASVM_k_Tests.swift in Sources */,
 				91840DC726FE094500E6048E /* EnforcingKSVM_h_Tests.swift in Sources */,
 				910540DD276368B900C79F2D /* EnforcingKSNM_cw_Tests.swift in Sources */,
@@ -2591,6 +2606,7 @@
 				91840D2B26FE094400E6048E /* SucceedingASNM_yiw_Tests.swift in Sources */,
 				91840D0726FE094400E6048E /* _FailingASVM_BaseTests.swift in Sources */,
 				915BB10F271AF88500E064E3 /* FailingASVM_g0_Tests.swift in Sources */,
+				9192CFAA2780BD280082F5A5 /* EnforcingKSNM_~_Tests.swift in Sources */,
 				91840CE026FE094400E6048E /* FailingASNM_yi`_Tests.swift in Sources */,
 				91840D8026FE094500E6048E /* SucceedingASVM_E__Tests.swift in Sources */,
 				913232EB271EC1A000C50A19 /* EnforcingKSVM_g0_Tests.swift in Sources */,
@@ -2698,7 +2714,7 @@
 				91840D4826FE094500E6048E /* SucceedingASNM_yT__Tests.swift in Sources */,
 				91840B5026FE092D00E6048E /* FailingAccessibilityStrategyVisualModeStub.swift in Sources */,
 				91840DB526FE094500E6048E /* EnforcingKSNM_O__Tests.swift in Sources */,
-				91255C2B277F713400771E7F /* EnforcingASNM_yT__Tests.swift in Sources */,
+				91255C2B277F713400771E7F /* EnforcingKSNM_yT__Tests.swift in Sources */,
 				91840CC026FE094400E6048E /* FailingASNM_F__Tests.swift in Sources */,
 				91326E8B271EF6410091B912 /* SucceedingASVM___Tests.swift in Sources */,
 				91840CE926FE094400E6048E /* FailingASNM_yF__Tests.swift in Sources */,
