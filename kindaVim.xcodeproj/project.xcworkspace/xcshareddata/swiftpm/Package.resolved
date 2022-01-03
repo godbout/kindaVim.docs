@@ -2,15 +2,6 @@
   "object": {
     "pins": [
       {
-        "package": "AccessibilityStrategy",
-        "repositoryURL": "git@github.com:godbout/AccessibilityStrategy.git",
-        "state": {
-          "branch": "master",
-          "revision": "e166050b8de0a12f4d4fd0b828781d8f12c058c3",
-          "version": null
-        }
-      },
-      {
         "package": "AXEngine",
         "repositoryURL": "git@github.com:godbout/AXEngine.git",
         "state": {
@@ -26,15 +17,6 @@
           "branch": null,
           "revision": "0d77aa6851615007a84c9ca77c420dbd13bbad8a",
           "version": "1.3.0"
-        }
-      },
-      {
-        "package": "KeyboardStrategy",
-        "repositoryURL": "git@github.com:godbout/KeyboardStrategy.git",
-        "state": {
-          "branch": "master",
-          "revision": "ceff46eca3ed65babbdfc756f2c2dcb323d1abdf",
-          "version": null
         }
       },
       {
