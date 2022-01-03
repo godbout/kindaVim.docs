@@ -385,17 +385,9 @@ extension KindaVimEngine {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
         case [.c, .a, .w]:
-            var bipped = false
-            
-            if let element = asNormalMode.caw(on: focusedTextElement, pgR: appMode == .pgR, &bipped) {
+            if let element = asNormalMode.caw(on: focusedTextElement, pgR: appMode == .pgR, &state) {
                 push(element: element)
-                
-                if bipped == false {
-                    lastYankStyle = .characterwise
-                    enterInsertMode()
-                } else {
-                    enterNormalMode()
-                }
+                state.lastMoveBipped == false ? enterInsertMode() : enterNormalMode()
             } else {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
@@ -505,17 +497,9 @@ extension KindaVimEngine {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
         case [.c, .i, .doubleQuote]:
-            var bipped = false
-            
-            if let element = asNormalMode.ciDoubleQuote(on: focusedTextElement, pgR: appMode == .pgR, &bipped) {
+            if let element = asNormalMode.ciDoubleQuote(on: focusedTextElement, pgR: appMode == .pgR, &state) {
                 push(element: element)
-                
-                if bipped == false {
-                    lastYankStyle = .characterwise
-                    enterInsertMode()
-                } else {
-                    enterNormalMode()
-                }
+                state.lastMoveBipped == false ? enterInsertMode() : enterNormalMode()
             } else {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
@@ -607,32 +591,16 @@ extension KindaVimEngine {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
         case [.c, .i, .singleQuote]:
-            var bipped = false
-            
-            if let element = asNormalMode.ciSingleQuote(on: focusedTextElement, pgR: appMode == .pgR, &bipped) {
+            if let element = asNormalMode.ciSingleQuote(on: focusedTextElement, pgR: appMode == .pgR, &state) {
                 push(element: element)
-                
-                if bipped == false {
-                    lastYankStyle = .characterwise
-                    enterInsertMode()
-                } else {
-                    enterNormalMode()
-                }
+                state.lastMoveBipped == false ? enterInsertMode() : enterNormalMode()
             } else {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
         case [.c, .i, .backtick]:
-            var bipped = false
-            
-            if let element = asNormalMode.ciBacktick(on: focusedTextElement, pgR: appMode == .pgR, &bipped) {
+            if let element = asNormalMode.ciBacktick(on: focusedTextElement, pgR: appMode == .pgR, &state) {
                 push(element: element)
-                
-                if bipped == false {
-                    lastYankStyle = .characterwise
-                    enterInsertMode()
-                } else {
-                    enterNormalMode()
-                }
+                state.lastMoveBipped == false ? enterInsertMode() : enterNormalMode()
             } else {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
@@ -700,11 +668,9 @@ extension KindaVimEngine {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
         case [.d, .a, .w]:
-            var bipped = false
-            
-            if let element = asNormalMode.daw(on: focusedTextElement, pgR: appMode == .pgR, &bipped) {
+            if let element = asNormalMode.daw(on: focusedTextElement, pgR: appMode == .pgR, &state) {
                 push(element: element)
-                bipped == false ? lastYankStyle = .characterwise : ()
+                state.lastMoveBipped == false ? lastYankStyle = .characterwise : ()
                 enterNormalMode()
             } else {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()

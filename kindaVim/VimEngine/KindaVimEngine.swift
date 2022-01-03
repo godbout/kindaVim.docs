@@ -64,6 +64,8 @@ class KindaVimEngine {
     
     private(set) var operatorPendingBuffer = [KeyCombination]()
     
+    var state = VimEngineState(lastMoveBipped: false, lastYankStyle: .characterwise)
+    
     var lastYankStyle: VimEngineMoveStyle = .characterwise
     var visualStyle: VimEngineMoveStyle = .characterwise
     

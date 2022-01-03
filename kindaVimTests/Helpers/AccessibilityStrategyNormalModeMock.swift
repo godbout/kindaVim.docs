@@ -51,7 +51,7 @@ class AccessibilityStrategyNormalModeMock: AccessibilityStrategyNormalModeProtoc
         return element
     }
     
-    func caw(on element: AccessibilityTextElement?, pgR: Bool, _: inout Bool) -> AccessibilityTextElement? {
+    func caw(on element: AccessibilityTextElement?, pgR: Bool, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement? {
         functionCalled = #function
         pgRPassed = pgR
         
@@ -135,14 +135,14 @@ class AccessibilityStrategyNormalModeMock: AccessibilityStrategyNormalModeProtoc
         return element
     }
     
-    func ciBacktick(on element: AccessibilityTextElement?, pgR: Bool, _: inout Bool) -> AccessibilityTextElement? {
+    func ciBacktick(on element: AccessibilityTextElement?, pgR: Bool, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement? {
         functionCalled = #function
         pgRPassed = pgR
         
         return element
     }
     
-    func ciDoubleQuote(on element: AccessibilityTextElement?, pgR: Bool, _: inout Bool) -> AccessibilityTextElement? {
+    func ciDoubleQuote(on element: AccessibilityTextElement?, pgR: Bool, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement? {
         functionCalled = #function
         pgRPassed = pgR
         
@@ -191,7 +191,7 @@ class AccessibilityStrategyNormalModeMock: AccessibilityStrategyNormalModeProtoc
         return element
     }
     
-    func ciSingleQuote(on element: AccessibilityTextElement?, pgR: Bool, _: inout Bool) -> AccessibilityTextElement? {
+    func ciSingleQuote(on element: AccessibilityTextElement?, pgR: Bool, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement? {
         functionCalled = #function
         pgRPassed = pgR
         
@@ -254,7 +254,7 @@ class AccessibilityStrategyNormalModeMock: AccessibilityStrategyNormalModeProtoc
         return element
     }
     
-    func daw(on element: AccessibilityTextElement?, pgR: Bool, _ bipped: inout Bool) -> AccessibilityTextElement? {
+    func daw(on element: AccessibilityTextElement?, pgR: Bool, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement? {
         functionCalled = #function
         pgRPassed = pgR
         

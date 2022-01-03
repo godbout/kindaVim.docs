@@ -628,6 +628,8 @@
 		910C18682778B29A000A00E2 /* EnforcingKSVM_x_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnforcingKSVM_x_Tests.swift; sourceTree = "<group>"; };
 		91105E792775EFA200ED8EA6 /* EnforcingKSNM_Y__Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnforcingKSNM_Y__Tests.swift; sourceTree = "<group>"; };
 		91105E7B2775F6EB00ED8EA6 /* FailingASNM_s_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FailingASNM_s_Tests.swift; sourceTree = "<group>"; };
+		91147501278334C50065CFE3 /* AccessibilityStrategy */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = AccessibilityStrategy; path = ../AccessibilityStrategy; sourceTree = "<group>"; };
+		91147502278335570065CFE3 /* KeyboardStrategy */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = KeyboardStrategy; path = ../KeyboardStrategy; sourceTree = "<group>"; };
 		9118CEA626FEF90A005F0907 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		912282302781C330006531CB /* ASCL_x_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASCL_x_Tests.swift; sourceTree = "<group>"; };
 		912282322781C33D006531CB /* KSCL_x_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSCL_x_Tests.swift; sourceTree = "<group>"; };
@@ -1224,6 +1226,8 @@
 		916ACF8426FE086A000E9757 = {
 			isa = PBXGroup;
 			children = (
+				91147502278335570065CFE3 /* KeyboardStrategy */,
+				91147501278334C50065CFE3 /* AccessibilityStrategy */,
 				916ACF8F26FE086B000E9757 /* kindaVim */,
 				916ACFA126FE086C000E9757 /* kindaVimTests */,
 				916ACFAB26FE086C000E9757 /* kindaVimUITests */,
@@ -2962,7 +2966,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 0.9.18;
+				CURRENT_PROJECT_VERSION = 0.9.19;
 				DEVELOPMENT_ASSET_PATHS = "\"kindaVim/Preview Content\"";
 				DEVELOPMENT_TEAM = ZX49WKA8QN;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -2976,7 +2980,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
-				MARKETING_VERSION = 1b18;
+				MARKETING_VERSION = 1b19;
 				PRODUCT_BUNDLE_IDENTIFIER = mo.com.sleeplessmind.kindaVim;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -2994,7 +2998,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 0.9.18;
+				CURRENT_PROJECT_VERSION = 0.9.19;
 				DEVELOPMENT_ASSET_PATHS = "\"kindaVim/Preview Content\"";
 				DEVELOPMENT_TEAM = ZX49WKA8QN;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -3008,7 +3012,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
-				MARKETING_VERSION = 1b18;
+				MARKETING_VERSION = 1b19;
 				PRODUCT_BUNDLE_IDENTIFIER = mo.com.sleeplessmind.kindaVim;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -3191,7 +3195,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 0.9.18;
+				CURRENT_PROJECT_VERSION = 0.9.19;
 				DEVELOPMENT_ASSET_PATHS = "\"kindaVim/Preview Content\"";
 				DEVELOPMENT_TEAM = ZX49WKA8QN;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -3205,7 +3209,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
-				MARKETING_VERSION = 1b18;
+				MARKETING_VERSION = 1b19;
 				PRODUCT_BUNDLE_IDENTIFIER = mo.com.sleeplessmind.kindaVim;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -3336,7 +3340,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 0.9.18;
+				CURRENT_PROJECT_VERSION = 0.9.19;
 				DEVELOPMENT_ASSET_PATHS = "\"kindaVim/Preview Content\"";
 				DEVELOPMENT_TEAM = ZX49WKA8QN;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -3350,7 +3354,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
-				MARKETING_VERSION = 1b18;
+				MARKETING_VERSION = 1b19;
 				PRODUCT_BUNDLE_IDENTIFIER = mo.com.sleeplessmind.kindaVim;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
