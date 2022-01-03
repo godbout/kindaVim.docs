@@ -341,7 +341,7 @@ struct FailingAccessibilityStrategyNormalModeStub: AccessibilityStrategyNormalMo
         return nil        
     }
     
-    func r(with replacement: Character, on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
+    func r(times count: Int? = 1, with replacement: Character, on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
         return nil        
     }
     

@@ -255,6 +255,13 @@ class AccessibilityStrategyVisualModeMock: AccessibilityStrategyVisualModeProtoc
         return element
     }
     
+    func tilde(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
+        functionCalled = #function
+        pgRPassed = pgR
+        
+        return element
+    }
+    
     func underscoreForVisualStyleCharacterwise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         functionCalled = #function
         

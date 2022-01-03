@@ -231,6 +231,13 @@ extension KindaVimEngine {
             enterOperatorPendingForVisualMode(with: keyCombination)
         case .t:
             enterOperatorPendingForVisualMode(with: keyCombination)
+        case .tilde:
+            if let element = asVisualMode.tilde(on: focusedTextElement, pgR: appMode == .pgR) {
+                push(element: element)
+                enterNormalMode()
+            } else {
+                handleVisualModeUsingKeyboardStrategy(for: keyCombination)
+            }
         case .underscore:
             switch visualStyle {
             case .characterwise:

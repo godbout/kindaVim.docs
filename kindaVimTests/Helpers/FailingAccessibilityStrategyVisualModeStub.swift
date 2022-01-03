@@ -165,6 +165,10 @@ struct FailingAccessibilityStrategyVisualModeStub: AccessibilityStrategyVisualMo
         return nil
     }
     
+    func tilde(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
+        return nil
+    }
+    
     func underscoreForVisualStyleCharacterwise(on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return nil 
     }
