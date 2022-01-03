@@ -475,17 +475,32 @@ extension KindaVimEngine {
             }
         case [.c, .i]:
             ()
+            // TODO: same as ci{ etc
         case [.c, .i, .B]:
-            if let element = asNormalMode.ciB(on: focusedTextElement, pgR: appMode == .pgR) {
+            var bipped = false
+            
+            if let element = asNormalMode.ciB(on: focusedTextElement, pgR: appMode == .pgR, &bipped) {
                 push(element: element)
-                (element.selectedLength == 0 && element.isNotEmpty) ? enterInsertMode() : enterNormalMode()
+                
+                if bipped == false {
+                    enterInsertMode()
+                } else {
+                    enterNormalMode()
+                }
             } else {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
         case [.c, .i, .b]:
-            if let element = asNormalMode.cib(on: focusedTextElement, pgR: appMode == .pgR) {
+            var bipped = false
+            
+            if let element = asNormalMode.cib(on: focusedTextElement, pgR: appMode == .pgR, &bipped) {
                 push(element: element)
-                (element.selectedLength == 0 && element.isNotEmpty) ? enterInsertMode() : enterNormalMode()
+                
+                if bipped == false {
+                    enterInsertMode()
+                } else {
+                    enterNormalMode()
+                }
             } else {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
@@ -504,45 +519,90 @@ extension KindaVimEngine {
             } else {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
+        // TODO: only the bipped has been managed here. we still need to handle the
+            // copy and the YLS
+        // no tests have been made for those as we will have to change this soon
         case [.c, .i, .leftBrace]:
-            if let element = asNormalMode.ciLeftBrace(on: focusedTextElement, pgR: appMode == .pgR) {
+            var bipped = false
+            
+            if let element = asNormalMode.ciLeftBrace(on: focusedTextElement, pgR: appMode == .pgR, &bipped) {
                 push(element: element)
-                (element.selectedLength == 0 && element.isNotEmpty) ? enterInsertMode() : enterNormalMode()
+                
+                if bipped == false {
+                    enterInsertMode()
+                } else {
+                    enterNormalMode()
+                }
             } else {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
         case [.c, .i, .leftBracket]:
-            if let element = asNormalMode.ciLeftBracket(on: focusedTextElement, pgR: appMode == .pgR) {
+            var bipped = false
+            
+            if let element = asNormalMode.ciLeftBracket(on: focusedTextElement, pgR: appMode == .pgR, &bipped) {
                 push(element: element)
-                (element.selectedLength == 0 && element.isNotEmpty) ? enterInsertMode() : enterNormalMode()
+                
+                if bipped == false {
+                    enterInsertMode()
+                } else {
+                    enterNormalMode()
+                }
             } else {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
         case [.c, .i, .leftParenthesis]:
-            if let element = asNormalMode.ciLeftParenthesis(on: focusedTextElement, pgR: appMode == .pgR) {
+            var bipped = false
+            
+            if let element = asNormalMode.ciLeftParenthesis(on: focusedTextElement, pgR: appMode == .pgR, &bipped) {
                 push(element: element)
-                (element.selectedLength == 0 && element.isNotEmpty) ? enterInsertMode() : enterNormalMode()
+                
+                if bipped == false {
+                    enterInsertMode()
+                } else {
+                    enterNormalMode()
+                }
             } else {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
         case [.c, .i, .rightBrace]:
-            if let element = asNormalMode.ciRightBrace(on: focusedTextElement, pgR: appMode == .pgR) {
+            var bipped = false
+            
+            if let element = asNormalMode.ciRightBrace(on: focusedTextElement, pgR: appMode == .pgR, &bipped) {
                 push(element: element)
-                (element.selectedLength == 0 && element.isNotEmpty) ? enterInsertMode() : enterNormalMode()
+                
+                if bipped == false {
+                    enterInsertMode()
+                } else {
+                    enterNormalMode()
+                }
             } else {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
         case [.c, .i, .rightBracket]:
-            if let element = asNormalMode.ciRightBracket(on: focusedTextElement, pgR: appMode == .pgR) {
+            var bipped = false
+            
+            if let element = asNormalMode.ciRightBracket(on: focusedTextElement, pgR: appMode == .pgR, &bipped) {
                 push(element: element)
-                (element.selectedLength == 0 && element.isNotEmpty) ? enterInsertMode() : enterNormalMode()
+                
+                if bipped == false {
+                    enterInsertMode()
+                } else {
+                    enterNormalMode()
+                }
             } else {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
         case [.c, .i, .rightParenthesis]:
-            if let element = asNormalMode.ciRightParenthesis(on: focusedTextElement, pgR: appMode == .pgR) {
+            var bipped = false
+            
+            if let element = asNormalMode.ciRightParenthesis(on: focusedTextElement, pgR: appMode == .pgR, &bipped) {
                 push(element: element)
-                (element.selectedLength == 0 && element.isNotEmpty) ? enterInsertMode() : enterNormalMode()
+                
+                if bipped == false {
+                    enterInsertMode()
+                } else {
+                    enterNormalMode()
+                }
             } else {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }

@@ -81,11 +81,11 @@ struct FailingAccessibilityStrategyNormalModeStub: AccessibilityStrategyNormalMo
         return nil
     }
     
-    func ciB(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
+    func ciB(on element: AccessibilityTextElement?, pgR: Bool, _ bipped: inout Bool) -> AccessibilityTextElement? {
         return nil
     }
     
-    func cib(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
+    func cib(on element: AccessibilityTextElement?, pgR: Bool, _ bipped: inout Bool) -> AccessibilityTextElement? {
         return nil
     }
     
@@ -97,27 +97,27 @@ struct FailingAccessibilityStrategyNormalModeStub: AccessibilityStrategyNormalMo
         return nil
     }
     
-    func ciLeftBrace(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
+    func ciLeftBrace(on element: AccessibilityTextElement?, pgR: Bool, _ bipped: inout Bool) -> AccessibilityTextElement? {
         return nil
     }
     
-    func ciLeftBracket(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
+    func ciLeftBracket(on element: AccessibilityTextElement?, pgR: Bool, _ bipped: inout Bool) -> AccessibilityTextElement? {
         return nil
     }
     
-    func ciLeftParenthesis(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
+    func ciLeftParenthesis(on element: AccessibilityTextElement?, pgR: Bool, _ bipped: inout Bool) -> AccessibilityTextElement? {
         return nil
     }
     
-    func ciRightBrace(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
+    func ciRightBrace(on element: AccessibilityTextElement?, pgR: Bool, _ bipped: inout Bool) -> AccessibilityTextElement? {
         return nil
     }
     
-    func ciRightBracket(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
+    func ciRightBracket(on element: AccessibilityTextElement?, pgR: Bool, _ bipped: inout Bool) -> AccessibilityTextElement? {
         return nil
     }
     
-    func ciRightParenthesis(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
+    func ciRightParenthesis(on element: AccessibilityTextElement?, pgR: Bool, _ bipped: inout Bool) -> AccessibilityTextElement? {
         return nil
     }
     
