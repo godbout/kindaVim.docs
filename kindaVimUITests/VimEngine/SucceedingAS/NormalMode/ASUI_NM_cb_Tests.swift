@@ -3,7 +3,7 @@ import XCTest
 
 
 // see `cB` for blah blah
-class UIASNM_cb_Tests: ASUI_NM_BaseTests {
+class ASUI_NM_cb_Tests: ASUI_NM_BaseTests {
     
     private func applyKeyCombinationsBeingTested() {
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .c))
@@ -13,7 +13,7 @@ class UIASNM_cb_Tests: ASUI_NM_BaseTests {
 
 
 // Both
-extension UIASNM_cb_Tests {
+extension ASUI_NM_cb_Tests {
 
     func test_that_in_normal_setting_it_succeeds_and_switches_to_insert_mode() {
         let textInAXFocusedElement = """

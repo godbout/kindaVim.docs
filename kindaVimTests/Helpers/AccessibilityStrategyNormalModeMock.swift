@@ -58,7 +58,7 @@ class AccessibilityStrategyNormalModeMock: AccessibilityStrategyNormalModeProtoc
         return element
     }
     
-    func cB(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
+    func cB(on element: AccessibilityTextElement?, pgR: Bool, _ bipped: inout Bool) -> AccessibilityTextElement? {
         functionCalled = #function
         pgRPassed = pgR
         

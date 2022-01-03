@@ -5,7 +5,7 @@ import XCTest
 // this is only for `cB` and `cb`. if text is empty or if caret on first character, those moves don't work
 // and Vim stays in `Normal Mode`. this does not happen for `ce/E`, `cw/W`. for those ones, Vim returns in
 // `Insert Mode` LMAO. usual lack of consistency shit.
-class UIASNM_cB__Tests: ASUI_NM_BaseTests {
+class ASUI_NM_cB__Tests: ASUI_NM_BaseTests {
     
     private func applyKeyCombinationsBeingTested() {
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .c))
@@ -14,9 +14,10 @@ class UIASNM_cB__Tests: ASUI_NM_BaseTests {
     
 }
 
+// TODO: LYS
 
 // Both
-extension UIASNM_cB__Tests {
+extension ASUI_NM_cB__Tests {
 
     func test_that_in_normal_setting_it_succeeds_and_switches_to_insert_mode() {
         let textInAXFocusedElement = """
