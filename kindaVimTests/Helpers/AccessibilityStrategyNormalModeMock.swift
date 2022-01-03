@@ -58,14 +58,14 @@ class AccessibilityStrategyNormalModeMock: AccessibilityStrategyNormalModeProtoc
         return element
     }
     
-    func cB(on element: AccessibilityTextElement?, pgR: Bool, _ bipped: inout Bool) -> AccessibilityTextElement? {
+    func cB(on element: AccessibilityTextElement?, pgR: Bool, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement? {
         functionCalled = #function
         pgRPassed = pgR
         
         return element
     }
     
-    func cb(on element: AccessibilityTextElement?, pgR: Bool, _ bipped: inout Bool) -> AccessibilityTextElement? {
+    func cb(on element: AccessibilityTextElement?, pgR: Bool, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement? {
         functionCalled = #function
         pgRPassed = pgR
         

@@ -37,11 +37,11 @@ struct FailingAccessibilityStrategyNormalModeStub: AccessibilityStrategyNormalMo
         return nil
     }
     
-    func cB(on element: AccessibilityTextElement?, pgR: Bool, _ bipped: inout Bool) -> AccessibilityTextElement? {
+    func cB(on element: AccessibilityTextElement?, pgR: Bool, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement? {
         return nil
     }
     
-    func cb(on element: AccessibilityTextElement?, pgR: Bool, _ bipped: inout Bool) -> AccessibilityTextElement? {
+    func cb(on element: AccessibilityTextElement?, pgR: Bool, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement? {
         return nil
     }
     

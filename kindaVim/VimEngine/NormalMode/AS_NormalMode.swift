@@ -392,32 +392,16 @@ extension KindaVimEngine {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
         case [.c, .B]:
-            var bipped = false
-            
-            if let element = asNormalMode.cB(on: focusedTextElement, pgR: appMode == .pgR, &bipped) {
+            if let element = asNormalMode.cB(on: focusedTextElement, pgR: appMode == .pgR, &state) {
                 push(element: element)
-                
-                if bipped == false {
-                    lastYankStyle = .characterwise
-                    enterInsertMode()
-                } else {
-                    enterNormalMode()
-                }
+                state.lastMoveBipped == false ? enterInsertMode() : enterNormalMode()
             } else {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
         case [.c, .b]:
-            var bipped = false
-            
-            if let element = asNormalMode.cb(on: focusedTextElement, pgR: appMode == .pgR, &bipped) {
+            if let element = asNormalMode.cb(on: focusedTextElement, pgR: appMode == .pgR, &state) {
                 push(element: element)
-                
-                if bipped == false {
-                    lastYankStyle = .characterwise
-                    enterInsertMode()
-                } else {
-                    enterNormalMode()
-                }
+                state.lastMoveBipped == false ? enterInsertMode() : enterNormalMode()
             } else {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
