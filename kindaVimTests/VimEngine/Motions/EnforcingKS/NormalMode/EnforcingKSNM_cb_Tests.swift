@@ -34,6 +34,13 @@ extension EnforcingKS_cb_Tests {
         applyKeyCombinationsBeingTested()
         XCTAssertEqual(kindaVimEngine.currentMode, .insert)
     }
+    
+    func test_that_it_sets_the_LastYankStyle_to_Characterwise() {
+        kindaVimEngine.lastYankStyle = .linewise
+        applyKeyCombinationsBeingTested()
+                
+        XCTAssertEqual(kindaVimEngine.lastYankStyle, .characterwise)
+    }
 
     func test_that_it_resets_the_count() {
         applyKeyCombinationsBeingTested()
