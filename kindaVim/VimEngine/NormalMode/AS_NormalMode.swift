@@ -6,6 +6,7 @@ import AppKit
 // AS Normal Mode
 extension KindaVimEngine {
  
+    // TODO: later we can remove all appMode once all the moves use &state
     func tryHandlingNormalModeUsingAccessibilityStrategyFirst(for keyCombination: KeyCombination, appMode: AppMode) {         
         switch keyCombination.vimKey {
         case .A:
@@ -37,9 +38,8 @@ extension KindaVimEngine {
                 handleNormalModeUsingKeyboardStrategy(for: keyCombination)
             }
         case .C:
-            if let element = asNormalMode.C(on: focusedTextElement, pgR: appMode == .pgR) {                
+            if let element = asNormalMode.C(on: focusedTextElement, &state) {                
                 push(element: element)
-                state.lastYankStyle = .characterwise
                 enterInsertMode()
             } else {
                 handleNormalModeUsingKeyboardStrategy(for: keyCombination)
@@ -80,7 +80,7 @@ extension KindaVimEngine {
         case .controlU:
             handleNormalModeUsingKeyboardStrategy(for: keyCombination)
         case .D:
-            if let element = asNormalMode.D(on: focusedTextElement, pgR: appMode == .pgR) {
+            if let element = asNormalMode.D(on: focusedTextElement, &state) {
                 push(element: element)
                 endCurrentMove()
             } else {

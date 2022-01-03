@@ -37,9 +37,9 @@ class AccessibilityStrategyNormalModeMock: AccessibilityStrategyNormalModeProtoc
         return element
     }
     
-    func C(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
+    // TODO: we gonna be able to remove all the PGR here
+    func C(on element: AccessibilityTextElement?, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement? {
         functionCalled = #function
-        pgRPassed = pgR
         
         return element
     }
@@ -240,9 +240,9 @@ class AccessibilityStrategyNormalModeMock: AccessibilityStrategyNormalModeProtoc
         return element
     }
     
-    func D(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
+    func D(on element: AccessibilityTextElement?, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement? {
         functionCalled = #function
-        pgRPassed = pgR
+        pgRPassed = vimEngineState.pgR
         
         return element
     }

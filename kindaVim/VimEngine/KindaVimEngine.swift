@@ -64,7 +64,7 @@ class KindaVimEngine {
     
     private(set) var operatorPendingBuffer = [KeyCombination]()
     
-    var state = VimEngineState(lastMoveBipped: false, lastYankStyle: .characterwise)
+    var state = VimEngineState(lastYankStyle: .characterwise, pgR: false, lastMoveBipped: false)
     
     var visualStyle: VimEngineMoveStyle = .characterwise
     
@@ -108,6 +108,8 @@ class KindaVimEngine {
             display.showOngoingMove()
         }
         #endif
+        
+        state.pgR = appMode == .pgR
         
         // before sending the key combination down the rabbit hole we need to check first
         // if it's a digit and if this digit will be used for counts. in that case the digit
