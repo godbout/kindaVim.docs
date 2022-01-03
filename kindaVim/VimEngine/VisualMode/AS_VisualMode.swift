@@ -40,6 +40,9 @@ extension KindaVimEngine {
                 handleVisualModeUsingKeyboardStrategy(for: keyCombination)
             }
         case .c:
+            // TODO: push visualStyle into VimEngineState? then no need to separate like this. can separate within the AS
+            // itself.
+            // we are able to do that now because we're putting setting the state LYS within the moves themselves.
             switch visualStyle {
             case .characterwise:
                 if let element = asVisualMode.cForVisualStyleCharacterwise(on: focusedTextElement, pgR: appMode == .pgR) {

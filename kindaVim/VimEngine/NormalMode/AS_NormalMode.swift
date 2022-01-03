@@ -316,6 +316,7 @@ extension KindaVimEngine {
                 handleNormalModeUsingKeyboardStrategy(for: keyCombination)
             }            
         case .w:
+            // TODO: push count into VimEngineState?
             if let element = asNormalMode.w(times: count, on: focusedTextElement) {
                 push(element: element)
                 endCurrentMove()
