@@ -105,8 +105,8 @@ kindaVim will be a subscription of one ☕️ (USD$3) a month. the beta is free 
 | `dd`     | ❌️               | ✅️️
 | `dE`     | ❌️               | ❌
 | `de`     | ❌️               | ❌
-| `dF`     | ✅️               | ❌
-| `df`     | ✅️               | ❌
+| `dF`     | ✅️               | ✅️
+| `df`     | ✅️               | ✅️
 | `dG`     | ❌️               | ✅️️
 | `dgg`     | ❌️               | ❌
 | `dh`     | ❌️               | ✅️️
@@ -115,8 +115,8 @@ kindaVim will be a subscription of one ☕️ (USD$3) a month. the beta is free 
 | `dj`     | ❌️               | ❌
 | `dk`     | ❌️               | ❌
 | `dl`     | ❌️               | ✅️️
-| `dT`     | ✅️               | ❌ 
-| `dt`     | ✅️               | ❌
+| `dT`     | ✅️               | ✅️ 
+| `dt`     | ✅️               | ✅️
 | `dW`     | ❌️                | ❌
 | `dw`     | ❌️                | ❌
 | `E`     | ✅️️                 
