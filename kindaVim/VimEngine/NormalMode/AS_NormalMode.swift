@@ -316,7 +316,6 @@ extension KindaVimEngine {
                 handleNormalModeUsingKeyboardStrategy(for: keyCombination)
             }            
         case .w:
-            // TODO: push count into VimEngineState?
             if let element = asNormalMode.w(times: count, on: focusedTextElement) {
                 push(element: element)
                 endCurrentMove()
@@ -324,17 +323,15 @@ extension KindaVimEngine {
                 handleNormalModeUsingKeyboardStrategy(for: keyCombination)
             }
         case .X:
-            if let element = asNormalMode.X(on: focusedTextElement, pgR: appMode == .pgR) {
+            if let element = asNormalMode.X(on: focusedTextElement, &state) {
                 push(element: element)
-                state.lastYankStyle = .characterwise
                 endCurrentMove()
             } else {
                 handleNormalModeUsingKeyboardStrategy(for: keyCombination)
             }  
         case .x:
-            if let element = asNormalMode.x(on: focusedTextElement, pgR: appMode == .pgR) {
+            if let element = asNormalMode.x(on: focusedTextElement, &state) {
                 push(element: element)
-                state.lastYankStyle = .characterwise
                 endCurrentMove()
             } else {
                 handleNormalModeUsingKeyboardStrategy(for: keyCombination)
@@ -718,9 +715,8 @@ extension KindaVimEngine {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
         case [.d, .h]:
-            if let element = asNormalMode.dh(on: focusedTextElement, pgR: appMode == .pgR) {
+            if let element = asNormalMode.dh(on: focusedTextElement, &state) {
                 push(element: element)
-                state.lastYankStyle = .characterwise
                 enterNormalMode()
             } else {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
@@ -756,9 +752,8 @@ extension KindaVimEngine {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
         case [.d, .l]:
-            if let element = asNormalMode.dl(on: focusedTextElement, pgR: appMode == .pgR) {
+            if let element = asNormalMode.dl(on: focusedTextElement, &state) {
                 push(element: element)
-                state.lastYankStyle = .characterwise
                 enterNormalMode()
             } else {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()

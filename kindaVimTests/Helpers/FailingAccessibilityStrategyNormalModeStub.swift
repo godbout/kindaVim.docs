@@ -189,7 +189,7 @@ struct FailingAccessibilityStrategyNormalModeStub: AccessibilityStrategyNormalMo
         return nil
     }
     
-    func dh(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
+    func dh(on element: AccessibilityTextElement?, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement? {
         return nil
     }
     
@@ -209,7 +209,7 @@ struct FailingAccessibilityStrategyNormalModeStub: AccessibilityStrategyNormalMo
         return nil
     }
     
-    func dl(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
+    func dl(on element: AccessibilityTextElement?, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement? {
         return nil
     }
     
@@ -381,11 +381,11 @@ struct FailingAccessibilityStrategyNormalModeStub: AccessibilityStrategyNormalMo
         return nil
     }
     
-    func X(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
+    func X(on element: AccessibilityTextElement?, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement? {
         return nil
     }
     
-    func x(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
+    func x(on element: AccessibilityTextElement?, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement? {
         return nil
     }
     
