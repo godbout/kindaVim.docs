@@ -30,10 +30,10 @@ extension FailingASNM_yf_Tests {
     }
     
     func test_that_it_does_not_change_the_LastYankingStyle() {
-        kindaVimEngine.lastYankStyle = .linewise
+        kindaVimEngine.state.lastYankStyle = .linewise
         applyKeyCombinationsBeingTested()
                 
-        XCTAssertEqual(kindaVimEngine.lastYankStyle, .linewise)
+        XCTAssertEqual(kindaVimEngine.state.lastYankStyle, .linewise)
     }
     
     func test_that_it_resets_the_count() {

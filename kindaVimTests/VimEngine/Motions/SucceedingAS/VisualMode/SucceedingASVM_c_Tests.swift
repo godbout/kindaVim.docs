@@ -43,7 +43,7 @@ extension SucceedingASVM_c_Tests {
         kindaVimEngine.visualStyle = .characterwise
         applyKeyCombinationsBeingTested()
         
-        XCTAssertEqual(kindaVimEngine.lastYankStyle, .characterwise)
+        XCTAssertEqual(kindaVimEngine.state.lastYankStyle, .characterwise)
     }
         
     func test_that_it_resets_the_count_when_VisualStyle_is_Characterwise() {
@@ -79,7 +79,7 @@ extension SucceedingASVM_c_Tests {
         kindaVimEngine.visualStyle = .linewise
         applyKeyCombinationsBeingTested()
 
-        XCTAssertEqual(kindaVimEngine.lastYankStyle, .linewise)
+        XCTAssertEqual(kindaVimEngine.state.lastYankStyle, .linewise)
     }
         
     func test_that_it_resets_the_count_when_VisualStyle_is_Linewise() {

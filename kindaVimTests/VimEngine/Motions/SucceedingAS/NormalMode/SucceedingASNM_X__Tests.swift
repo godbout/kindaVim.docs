@@ -36,10 +36,10 @@ extension SucceedingASNM_X__Tests {
     }
     
     func test_that_it_sets_the_LastYankStyle_to_Characterwise() {
-        kindaVimEngine.lastYankStyle = .linewise
+        kindaVimEngine.state.lastYankStyle = .linewise
         applyKeyCombinationsBeingTested()
                 
-        XCTAssertEqual(kindaVimEngine.lastYankStyle, .characterwise)
+        XCTAssertEqual(kindaVimEngine.state.lastYankStyle, .characterwise)
     }
     
     func test_that_it_resets_the_count() {

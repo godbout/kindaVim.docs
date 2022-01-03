@@ -29,7 +29,7 @@ extension KindaVimEngine {
                 post(ksVisualMode.CForNonTextElement())
             }
             
-            lastYankStyle = .linewise
+            state.lastYankStyle = .linewise
             enterInsertMode()
         case .c:
             switch focusedElementType {
@@ -39,7 +39,7 @@ extension KindaVimEngine {
                 post(ksVisualMode.cForNonTextElement())
             }
             
-            lastYankStyle = visualStyle == .characterwise ? .characterwise : .linewise
+            state.lastYankStyle = visualStyle == .characterwise ? .characterwise : .linewise
             enterInsertMode()
         case .caret:
             switch visualStyle {
@@ -62,7 +62,7 @@ extension KindaVimEngine {
                 post(ksVisualMode.DForNonTextElement())
             }
             
-            lastYankStyle = .linewise
+            state.lastYankStyle = .linewise
             enterNormalMode()
         case .d:
             switch focusedElementType {
@@ -72,7 +72,7 @@ extension KindaVimEngine {
                 post(ksVisualMode.dForNonTextElement())
             }
             
-            lastYankStyle = visualStyle == .characterwise ? .characterwise : .linewise
+            state.lastYankStyle = visualStyle == .characterwise ? .characterwise : .linewise
             enterNormalMode()
         case .dollarSign:
             switch visualStyle {
@@ -233,7 +233,7 @@ extension KindaVimEngine {
                 post(ksVisualMode.XForNonTextElement())
             }
             
-            lastYankStyle = .linewise
+            state.lastYankStyle = .linewise
             enterNormalMode()
         case .x:
             switch focusedElementType {
@@ -252,7 +252,7 @@ extension KindaVimEngine {
                 post(ksVisualMode.YForNonTextElement())
             }
             
-            lastYankStyle = .linewise
+            state.lastYankStyle = .linewise
             enterNormalMode()
         case .y:
             switch focusedElementType {

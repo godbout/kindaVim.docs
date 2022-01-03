@@ -26,11 +26,11 @@ there's a % in here
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
         app.textFields.firstMatch.typeKey(.leftArrow, modifierFlags: [])
         kindaVimEngine.enterNormalMode()
-        kindaVimEngine.lastYankStyle = .linewise
+        kindaVimEngine.state.lastYankStyle = .linewise
                
         applyKeyCombinationsBeingTested()
 
-        XCTAssertEqual(kindaVimEngine.lastYankStyle, .characterwise)
+        XCTAssertEqual(kindaVimEngine.state.lastYankStyle, .characterwise)
     }
     
     func test_that_when_it_does_not_find_it_does_not_change_the_LastYankStyle() {
@@ -41,11 +41,11 @@ there's no... hahahha in here
         app.textFields.firstMatch.typeText(textInAXFocusedElement)
         app.textFields.firstMatch.typeKey(.leftArrow, modifierFlags: [])
         kindaVimEngine.enterNormalMode()
-        kindaVimEngine.lastYankStyle = .linewise
+        kindaVimEngine.state.lastYankStyle = .linewise
                
         applyKeyCombinationsBeingTested()
 
-        XCTAssertEqual(kindaVimEngine.lastYankStyle, .linewise)
+        XCTAssertEqual(kindaVimEngine.state.lastYankStyle, .linewise)
     }
     
 }

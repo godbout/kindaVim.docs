@@ -8,7 +8,7 @@ class SucceedingASNM_yiLeftParenthesis_Tests: SucceedingASNM_BaseTests {
     override func setUp() {
         super.setUp()
         
-        kindaVimEngine.lastYankStyle = .linewise
+        kindaVimEngine.state.lastYankStyle = .linewise
         
         kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .eight))
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .y))

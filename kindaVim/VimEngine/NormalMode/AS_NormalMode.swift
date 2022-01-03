@@ -39,7 +39,7 @@ extension KindaVimEngine {
         case .C:
             if let element = asNormalMode.C(on: focusedTextElement, pgR: appMode == .pgR) {                
                 push(element: element)
-                lastYankStyle = .characterwise
+                state.lastYankStyle = .characterwise
                 enterInsertMode()
             } else {
                 handleNormalModeUsingKeyboardStrategy(for: keyCombination)
@@ -210,7 +210,7 @@ extension KindaVimEngine {
                 handleNormalModeUsingKeyboardStrategy(for: keyCombination)
             }
         case .P:
-            switch lastYankStyle {
+            switch state.lastYankStyle {
             case .characterwise:
                 if let element = asNormalMode.PForLastYankStyleCharacterwise(on: focusedTextElement, pgR: appMode == .pgR) {
                     push(element: element) 
@@ -227,7 +227,7 @@ extension KindaVimEngine {
                 }
             }
         case .p:
-            switch lastYankStyle {
+            switch state.lastYankStyle {
             case .characterwise:
                 if let element = asNormalMode.pForLastYankStyleCharacterwise(on: focusedTextElement, pgR: appMode == .pgR) {
                     push(element: element) 
@@ -325,7 +325,7 @@ extension KindaVimEngine {
         case .X:
             if let element = asNormalMode.X(on: focusedTextElement, pgR: appMode == .pgR) {
                 push(element: element)
-                lastYankStyle = .characterwise
+                state.lastYankStyle = .characterwise
                 endCurrentMove()
             } else {
                 handleNormalModeUsingKeyboardStrategy(for: keyCombination)
@@ -333,7 +333,7 @@ extension KindaVimEngine {
         case .x:
             if let element = asNormalMode.x(on: focusedTextElement, pgR: appMode == .pgR) {
                 push(element: element)
-                lastYankStyle = .characterwise
+                state.lastYankStyle = .characterwise
                 endCurrentMove()
             } else {
                 handleNormalModeUsingKeyboardStrategy(for: keyCombination)
@@ -341,7 +341,7 @@ extension KindaVimEngine {
         case .Y:
             if let element = asNormalMode.yy(on: focusedTextElement) {
                 push(element: element)
-                lastYankStyle = .linewise
+                state.lastYankStyle = .linewise
                 endCurrentMove()
             } else {
                 handleNormalModeUsingKeyboardStrategy(for: keyCombination)
@@ -408,7 +408,7 @@ extension KindaVimEngine {
         case [.c, .c]:
             if let element = asNormalMode.cc(on: focusedTextElement, pgR: appMode == .pgR) {
                 push(element: element)
-                lastYankStyle = .linewise
+                state.lastYankStyle = .linewise
                 enterInsertMode()
             } else {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
@@ -423,7 +423,7 @@ extension KindaVimEngine {
         case [.c, .e]:
             if let element = asNormalMode.ce(on: focusedTextElement, pgR: appMode == .pgR) {
                 push(element: element)
-                lastYankStyle = .characterwise
+                state.lastYankStyle = .characterwise
                 enterInsertMode()
             } else {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
@@ -435,7 +435,7 @@ extension KindaVimEngine {
         case [.c, .G]:
             if let element = asNormalMode.cG(on: focusedTextElement, pgR: appMode == .pgR) {
                 push(element: element)
-                lastYankStyle = .linewise
+                state.lastYankStyle = .linewise
                 enterInsertMode()
             } else {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
@@ -598,7 +598,7 @@ extension KindaVimEngine {
         case [.c, .i, .w]:
             if let element = asNormalMode.ciw(on: focusedTextElement, pgR: appMode == .pgR) {
                 push(element: element)
-                lastYankStyle = .characterwise
+                state.lastYankStyle = .characterwise
                 enterInsertMode()
             } else {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
@@ -617,7 +617,7 @@ extension KindaVimEngine {
         case [.c, .w]:
             if let element = asNormalMode.cw(on: focusedTextElement, pgR: appMode == .pgR) {
                 push(element: element)
-                lastYankStyle = .characterwise
+                state.lastYankStyle = .characterwise
                 enterInsertMode()
             } else {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
@@ -654,7 +654,7 @@ extension KindaVimEngine {
         case [.d, .a, .w]:
             if let element = asNormalMode.daw(on: focusedTextElement, pgR: appMode == .pgR, &state) {
                 push(element: element)
-                state.lastMoveBipped == false ? lastYankStyle = .characterwise : ()
+                state.lastMoveBipped == false ? state.lastYankStyle = .characterwise : ()
                 enterNormalMode()
             } else {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
@@ -676,7 +676,7 @@ extension KindaVimEngine {
         case [.d, .d]:
             if let element = asNormalMode.dd(on: focusedTextElement, pgR: appMode == .pgR) {
                 push(element: element)
-                lastYankStyle = .linewise
+                state.lastYankStyle = .linewise
                 enterNormalMode()
             } else {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
@@ -702,7 +702,7 @@ extension KindaVimEngine {
         case [.d, .G]:
             if let element = asNormalMode.dG(on: focusedTextElement, pgR: appMode == .pgR) {
                 push(element: element)
-                lastYankStyle = .linewise
+                state.lastYankStyle = .linewise
                 enterNormalMode()
            } else {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
@@ -719,7 +719,7 @@ extension KindaVimEngine {
         case [.d, .h]:
             if let element = asNormalMode.dh(on: focusedTextElement, pgR: appMode == .pgR) {
                 push(element: element)
-                lastYankStyle = .characterwise
+                state.lastYankStyle = .characterwise
                 enterNormalMode()
             } else {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
@@ -757,7 +757,7 @@ extension KindaVimEngine {
         case [.d, .l]:
             if let element = asNormalMode.dl(on: focusedTextElement, pgR: appMode == .pgR) {
                 push(element: element)
-                lastYankStyle = .characterwise
+                state.lastYankStyle = .characterwise
                 enterNormalMode()
             } else {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
@@ -899,63 +899,63 @@ extension KindaVimEngine {
         case [.y, .i]:
             ()
         case [.y, .i, .backtick]:
-            if let element = asNormalMode.yiBacktick(on: focusedTextElement, &lastYankStyle) {
+            if let element = asNormalMode.yiBacktick(on: focusedTextElement, &state.lastYankStyle) {
                 push(element: element)
                 enterNormalMode()
             } else {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
         case [.y, .i, .doubleQuote]:
-            if let element = asNormalMode.yiDoubleQuote(on: focusedTextElement, &lastYankStyle) {
+            if let element = asNormalMode.yiDoubleQuote(on: focusedTextElement, &state.lastYankStyle) {
                 push(element: element)
                 enterNormalMode()
             } else {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
         case [.y, .i, .singleQuote]:
-            if let element = asNormalMode.yiSingleQuote(on: focusedTextElement, &lastYankStyle) {
+            if let element = asNormalMode.yiSingleQuote(on: focusedTextElement, &state.lastYankStyle) {
                 push(element: element)
                 enterNormalMode()
             } else {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
         case [.y, .i, .leftBrace]:
-            if let element = asNormalMode.yiLeftBrace(on: focusedTextElement, &lastYankStyle) {
+            if let element = asNormalMode.yiLeftBrace(on: focusedTextElement, &state.lastYankStyle) {
                 push(element: element)
                 enterNormalMode()
             } else {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
         case [.y, .i, .leftBracket]:
-            if let element = asNormalMode.yiLeftBracket(on: focusedTextElement, &lastYankStyle) {
+            if let element = asNormalMode.yiLeftBracket(on: focusedTextElement, &state.lastYankStyle) {
                 push(element: element)
                 enterNormalMode()
             } else {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
         case [.y, .i, .leftParenthesis]:
-            if let element = asNormalMode.yiLeftParenthesis(on: focusedTextElement, &lastYankStyle) {
+            if let element = asNormalMode.yiLeftParenthesis(on: focusedTextElement, &state.lastYankStyle) {
                 push(element: element)
                 enterNormalMode()
             } else {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
         case [.y, .i, .rightBrace]:
-            if let element = asNormalMode.yiRightBrace(on: focusedTextElement, &lastYankStyle) {
+            if let element = asNormalMode.yiRightBrace(on: focusedTextElement, &state.lastYankStyle) {
                 push(element: element)
                 enterNormalMode()
             } else {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
         case [.y, .i, .rightBracket]:
-            if let element = asNormalMode.yiRightBracket(on: focusedTextElement, &lastYankStyle) {
+            if let element = asNormalMode.yiRightBracket(on: focusedTextElement, &state.lastYankStyle) {
                 push(element: element)
                 enterNormalMode()
             } else {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
         case [.y, .i, .rightParenthesis]:
-            if let element = asNormalMode.yiRightParenthesis(on: focusedTextElement, &lastYankStyle) {
+            if let element = asNormalMode.yiRightParenthesis(on: focusedTextElement, &state.lastYankStyle) {
                 push(element: element)
                 enterNormalMode()
             } else {
@@ -964,7 +964,7 @@ extension KindaVimEngine {
         case [.y, .i, .w]:
             if let element = asNormalMode.yiw(on: focusedTextElement) {
                 push(element: element)
-                lastYankStyle = .characterwise
+                state.lastYankStyle = .characterwise
                 enterNormalMode()
             } else {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
@@ -976,7 +976,7 @@ extension KindaVimEngine {
         case [.y, .y]:
             if let element = asNormalMode.yy(on: focusedTextElement) {
                 push(element: element)
-                lastYankStyle = .linewise
+                state.lastYankStyle = .linewise
                 enterNormalMode()
             } else {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
@@ -1113,19 +1113,19 @@ extension KindaVimEngine {
                 switch operatorPendingBuffer[1].vimKey {
                 case .F:
                     if let character = operatorPendingBuffer.last {
-                        element = asNormalMode.yF(times: count, to: character.character, on: focusedTextElement, &lastYankStyle)
+                        element = asNormalMode.yF(times: count, to: character.character, on: focusedTextElement, &state.lastYankStyle)
                     }
                 case .f:
                     if let character = operatorPendingBuffer.last {
-                        element = asNormalMode.yf(times: count, to: character.character, on: focusedTextElement, &lastYankStyle)
+                        element = asNormalMode.yf(times: count, to: character.character, on: focusedTextElement, &state.lastYankStyle)
                     }
                 case .T:
                     if let character = operatorPendingBuffer.last {
-                        element = asNormalMode.yT(times: count, to: character.character, on: focusedTextElement, &lastYankStyle)
+                        element = asNormalMode.yT(times: count, to: character.character, on: focusedTextElement, &state.lastYankStyle)
                     }
                 case .t:
                     if let character = operatorPendingBuffer.last {
-                        element = asNormalMode.yt(times: count, to: character.character, on: focusedTextElement, &lastYankStyle)
+                        element = asNormalMode.yt(times: count, to: character.character, on: focusedTextElement, &state.lastYankStyle)
                     }
                 default: ()
                 }

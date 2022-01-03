@@ -6,7 +6,7 @@ import XCTest
 class FailingASNM_yy_Tests: FailingASNM_BaseTests {
     
     private func applyKeyCombinationsBeingTested() {
-        kindaVimEngine.lastYankStyle = .characterwise
+        kindaVimEngine.state.lastYankStyle = .characterwise
         
         kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .eight))     
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .y))
@@ -39,10 +39,10 @@ extension FailingASNM_yy_Tests {
     }
     
     func test_that_it_sets_the_LastYankStyle_to_Linewise() {
-        kindaVimEngine.lastYankStyle = .characterwise
+        kindaVimEngine.state.lastYankStyle = .characterwise
         applyKeyCombinationsBeingTested()
                 
-        XCTAssertEqual(kindaVimEngine.lastYankStyle, .linewise)
+        XCTAssertEqual(kindaVimEngine.state.lastYankStyle, .linewise)
     }
     
     func test_that_it_resets_the_count() {

@@ -9,7 +9,7 @@ class SucceedingASNM_Y__Tests: SucceedingASNM_BaseTests {
     override func setUp() {
         super.setUp()
         
-        kindaVimEngine.lastYankStyle = .characterwise
+        kindaVimEngine.state.lastYankStyle = .characterwise
         
         kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .eight))
         kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .Y))
@@ -29,7 +29,7 @@ extension SucceedingASNM_Y__Tests {
     }
     
     func test_that_it_sets_the_last_yank_style_to_linewise() {
-        XCTAssertEqual(kindaVimEngine.lastYankStyle, .linewise)
+        XCTAssertEqual(kindaVimEngine.state.lastYankStyle, .linewise)
     }
     
     func test_that_it_resets_the_count() {
