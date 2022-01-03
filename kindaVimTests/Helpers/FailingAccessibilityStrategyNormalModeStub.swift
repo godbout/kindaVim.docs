@@ -389,47 +389,47 @@ struct FailingAccessibilityStrategyNormalModeStub: AccessibilityStrategyNormalMo
         return nil
     }
     
-    func yF(times count: Int? = 1, to character: Character, on element: AccessibilityTextElement?, _ lastYankStyle: inout VimEngineMoveStyle) -> AccessibilityTextElement? {
+    func yF(times count: Int? = 1, to character: Character, on element: AccessibilityTextElement?, _ vimEnginState: inout VimEngineState) -> AccessibilityTextElement? {
         return nil
     }
         
-    func yf(times count: Int? = 1, to character: Character, on element: AccessibilityTextElement?, _ lastYankStyle: inout VimEngineMoveStyle) -> AccessibilityTextElement? {
+    func yf(times count: Int? = 1, to character: Character, on element: AccessibilityTextElement?, _ vimEnginState: inout VimEngineState) -> AccessibilityTextElement? {
         return nil
     }
     
-    func yiBacktick(on element: AccessibilityTextElement?, _ lastYankStyle: inout VimEngineMoveStyle) -> AccessibilityTextElement? {
+    func yiBacktick(on element: AccessibilityTextElement?, _ vimEnginState: inout VimEngineState) -> AccessibilityTextElement? {
         return nil
     }
     
-    func yiDoubleQuote(on element: AccessibilityTextElement?, _ lastYankStyle: inout VimEngineMoveStyle) -> AccessibilityTextElement? {
+    func yiDoubleQuote(on element: AccessibilityTextElement?, _ vimEnginState: inout VimEngineState) -> AccessibilityTextElement? {
         return nil
     }
         
-    func yiSingleQuote(on element: AccessibilityTextElement?, _ lastYankStyle: inout VimEngineMoveStyle) -> AccessibilityTextElement? {
+    func yiSingleQuote(on element: AccessibilityTextElement?, _ vimEnginState: inout VimEngineState) -> AccessibilityTextElement? {
         return nil
     }
     
-    func yiLeftBrace(on element: AccessibilityTextElement?, _ lastYankStyle: inout VimEngineMoveStyle) -> AccessibilityTextElement? {
+    func yiLeftBrace(on element: AccessibilityTextElement?, _ vimEnginState: inout VimEngineState) -> AccessibilityTextElement? {
         return nil
     }
     
-    func yiLeftBracket(on element: AccessibilityTextElement?, _ lastYankStyle: inout VimEngineMoveStyle) -> AccessibilityTextElement? {
+    func yiLeftBracket(on element: AccessibilityTextElement?, _ vimEnginState: inout VimEngineState) -> AccessibilityTextElement? {
         return nil
     }
     
-    func yiLeftParenthesis(on element: AccessibilityTextElement?, _ lastYankStyle: inout VimEngineMoveStyle) -> AccessibilityTextElement? {
+    func yiLeftParenthesis(on element: AccessibilityTextElement?, _ vimEnginState: inout VimEngineState) -> AccessibilityTextElement? {
         return nil
     }
         
-    func yiRightBrace(on element: AccessibilityTextElement?, _ lastYankStyle: inout VimEngineMoveStyle) -> AccessibilityTextElement? {
+    func yiRightBrace(on element: AccessibilityTextElement?, _ vimEnginState: inout VimEngineState) -> AccessibilityTextElement? {
         return nil
     }
     
-    func yiRightBracket(on element: AccessibilityTextElement?, _ lastYankStyle: inout VimEngineMoveStyle) -> AccessibilityTextElement? {
+    func yiRightBracket(on element: AccessibilityTextElement?, _ vimEnginState: inout VimEngineState) -> AccessibilityTextElement? {
         return nil
     }
     
-    func yiRightParenthesis(on element: AccessibilityTextElement?, _ lastYankStyle: inout VimEngineMoveStyle) -> AccessibilityTextElement? {
+    func yiRightParenthesis(on element: AccessibilityTextElement?, _ vimEnginState: inout VimEngineState) -> AccessibilityTextElement? {
         return nil
     }
     
@@ -437,11 +437,11 @@ struct FailingAccessibilityStrategyNormalModeStub: AccessibilityStrategyNormalMo
         return nil
     }
     
-    func yT(times count: Int? = 1, to character: Character, on element: AccessibilityTextElement?, _ lastYankStyle: inout VimEngineMoveStyle) -> AccessibilityTextElement? {
+    func yT(times count: Int? = 1, to character: Character, on element: AccessibilityTextElement?, _ vimEnginState: inout VimEngineState) -> AccessibilityTextElement? {
         return nil
     }
     
-    func yt(times count: Int? = 1, to character: Character, on element: AccessibilityTextElement?, _ lastYankStyle: inout VimEngineMoveStyle) -> AccessibilityTextElement? {
+    func yt(times count: Int? = 1, to character: Character, on element: AccessibilityTextElement?, _ vimEnginState: inout VimEngineState) -> AccessibilityTextElement? {
         return nil
     }
     

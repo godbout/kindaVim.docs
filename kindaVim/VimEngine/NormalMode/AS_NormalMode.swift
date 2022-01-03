@@ -899,63 +899,63 @@ extension KindaVimEngine {
         case [.y, .i]:
             ()
         case [.y, .i, .backtick]:
-            if let element = asNormalMode.yiBacktick(on: focusedTextElement, &state.lastYankStyle) {
+            if let element = asNormalMode.yiBacktick(on: focusedTextElement, &state) {
                 push(element: element)
                 enterNormalMode()
             } else {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
         case [.y, .i, .doubleQuote]:
-            if let element = asNormalMode.yiDoubleQuote(on: focusedTextElement, &state.lastYankStyle) {
+            if let element = asNormalMode.yiDoubleQuote(on: focusedTextElement, &state) {
                 push(element: element)
                 enterNormalMode()
             } else {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
         case [.y, .i, .singleQuote]:
-            if let element = asNormalMode.yiSingleQuote(on: focusedTextElement, &state.lastYankStyle) {
+            if let element = asNormalMode.yiSingleQuote(on: focusedTextElement, &state) {
                 push(element: element)
                 enterNormalMode()
             } else {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
         case [.y, .i, .leftBrace]:
-            if let element = asNormalMode.yiLeftBrace(on: focusedTextElement, &state.lastYankStyle) {
+            if let element = asNormalMode.yiLeftBrace(on: focusedTextElement, &state) {
                 push(element: element)
                 enterNormalMode()
             } else {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
         case [.y, .i, .leftBracket]:
-            if let element = asNormalMode.yiLeftBracket(on: focusedTextElement, &state.lastYankStyle) {
+            if let element = asNormalMode.yiLeftBracket(on: focusedTextElement, &state) {
                 push(element: element)
                 enterNormalMode()
             } else {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
         case [.y, .i, .leftParenthesis]:
-            if let element = asNormalMode.yiLeftParenthesis(on: focusedTextElement, &state.lastYankStyle) {
+            if let element = asNormalMode.yiLeftParenthesis(on: focusedTextElement, &state) {
                 push(element: element)
                 enterNormalMode()
             } else {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
         case [.y, .i, .rightBrace]:
-            if let element = asNormalMode.yiRightBrace(on: focusedTextElement, &state.lastYankStyle) {
+            if let element = asNormalMode.yiRightBrace(on: focusedTextElement, &state) {
                 push(element: element)
                 enterNormalMode()
             } else {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
         case [.y, .i, .rightBracket]:
-            if let element = asNormalMode.yiRightBracket(on: focusedTextElement, &state.lastYankStyle) {
+            if let element = asNormalMode.yiRightBracket(on: focusedTextElement, &state) {
                 push(element: element)
                 enterNormalMode()
             } else {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
         case [.y, .i, .rightParenthesis]:
-            if let element = asNormalMode.yiRightParenthesis(on: focusedTextElement, &state.lastYankStyle) {
+            if let element = asNormalMode.yiRightParenthesis(on: focusedTextElement, &state) {
                 push(element: element)
                 enterNormalMode()
             } else {
@@ -1113,19 +1113,19 @@ extension KindaVimEngine {
                 switch operatorPendingBuffer[1].vimKey {
                 case .F:
                     if let character = operatorPendingBuffer.last {
-                        element = asNormalMode.yF(times: count, to: character.character, on: focusedTextElement, &state.lastYankStyle)
+                        element = asNormalMode.yF(times: count, to: character.character, on: focusedTextElement, &state)
                     }
                 case .f:
                     if let character = operatorPendingBuffer.last {
-                        element = asNormalMode.yf(times: count, to: character.character, on: focusedTextElement, &state.lastYankStyle)
+                        element = asNormalMode.yf(times: count, to: character.character, on: focusedTextElement, &state)
                     }
                 case .T:
                     if let character = operatorPendingBuffer.last {
-                        element = asNormalMode.yT(times: count, to: character.character, on: focusedTextElement, &state.lastYankStyle)
+                        element = asNormalMode.yT(times: count, to: character.character, on: focusedTextElement, &state)
                     }
                 case .t:
                     if let character = operatorPendingBuffer.last {
-                        element = asNormalMode.yt(times: count, to: character.character, on: focusedTextElement, &state.lastYankStyle)
+                        element = asNormalMode.yt(times: count, to: character.character, on: focusedTextElement, &state)
                     }
                 default: ()
                 }
