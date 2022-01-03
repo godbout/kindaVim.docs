@@ -960,12 +960,14 @@ extension KindaVimEngine {
             // cf, cF, ct, cT
             guard operatorPendingBuffer.first?.vimKey != .c else {
                 var element: AccessibilityTextElement?
+                var bipped = false
                 
                 switch operatorPendingBuffer[1].vimKey {
                 case .F:
                     if let character = operatorPendingBuffer.last {
-                        element = asNormalMode.cF(times: count, to: character.character, on: focusedTextElement, pgR: appMode == .pgR)
+                        element = asNormalMode.cF(times: count, to: character.character, on: focusedTextElement, pgR: appMode == .pgR, &bipped)
                     }
+                    // TODO: for all
                 case .f:
                     if let character = operatorPendingBuffer.last {
                         element = asNormalMode.cf(times: count, to: character.character, on: focusedTextElement, pgR: appMode == .pgR)
@@ -983,7 +985,13 @@ extension KindaVimEngine {
                 
                 if let element = element {
                     push(element: element)
-                    (element.selectedLength == 0 && element.isNotEmpty) ? enterInsertMode() : enterNormalMode()
+                    
+                    if bipped == false {
+                        lastYankStyle = .characterwise
+                        enterInsertMode()
+                    } else {
+                        enterNormalMode()
+                    }
                 } else {
                     parseOperatorCommandForNormalModeUsingKeyboardStrategy()
                 }

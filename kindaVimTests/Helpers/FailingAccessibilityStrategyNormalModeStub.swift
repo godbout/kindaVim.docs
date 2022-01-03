@@ -57,7 +57,7 @@ struct FailingAccessibilityStrategyNormalModeStub: AccessibilityStrategyNormalMo
         return nil
     }
     
-    func cF(times count: Int? = 1, to character: Character, on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
+    func cF(times count: Int? = 1, to character: Character, on element: AccessibilityTextElement?, pgR: Bool, _: inout Bool) -> AccessibilityTextElement? {
         return nil
     }
     
