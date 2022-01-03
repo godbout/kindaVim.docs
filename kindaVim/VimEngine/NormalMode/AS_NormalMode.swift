@@ -660,14 +660,14 @@ extension KindaVimEngine {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
         case [.d, .B]:
-            if let element = asNormalMode.dB(on: focusedTextElement, pgR: appMode == .pgR) {
+            if let element = asNormalMode.dB(on: focusedTextElement, pgR: appMode == .pgR, &state) {
                 push(element: element)
                 enterNormalMode()
             } else {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
         case [.d, .b]:
-            if let element = asNormalMode.db(on: focusedTextElement, pgR: appMode == .pgR) {
+            if let element = asNormalMode.db(on: focusedTextElement, pgR: appMode == .pgR, &state) {
                 push(element: element)
                 enterNormalMode()
             } else {
@@ -1023,19 +1023,19 @@ extension KindaVimEngine {
                 switch operatorPendingBuffer[1].vimKey {
                 case .F:
                     if let character = operatorPendingBuffer.last {
-                        element = asNormalMode.dF(times: count, to: character.character, on: focusedTextElement, pgR: appMode == .pgR)
+                        element = asNormalMode.dF(times: count, to: character.character, on: focusedTextElement, pgR: appMode == .pgR, &state)
                     }
                 case .f:
                     if let character = operatorPendingBuffer.last {
-                        element = asNormalMode.df(times: count, to: character.character, on: focusedTextElement, pgR: appMode == .pgR)
+                        element = asNormalMode.df(times: count, to: character.character, on: focusedTextElement, pgR: appMode == .pgR, &state)
                     }
                 case .T:
                     if let character = operatorPendingBuffer.last {
-                        element = asNormalMode.dT(times: count, to: character.character, on: focusedTextElement, pgR: appMode == .pgR)
+                        element = asNormalMode.dT(times: count, to: character.character, on: focusedTextElement, pgR: appMode == .pgR, &state)
                     }
                 case .t:
                     if let character = operatorPendingBuffer.last {
-                        element = asNormalMode.dt(times: count, to: character.character, on: focusedTextElement, pgR: appMode == .pgR)
+                        element = asNormalMode.dt(times: count, to: character.character, on: focusedTextElement, pgR: appMode == .pgR, &state)
                     }
                 default: ()
                 }
