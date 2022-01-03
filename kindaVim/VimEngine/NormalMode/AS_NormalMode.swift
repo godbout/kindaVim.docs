@@ -974,7 +974,7 @@ extension KindaVimEngine {
                     }
                 case .T:
                     if let character = operatorPendingBuffer.last {
-                        element = asNormalMode.cT(times: count, to: character.character, on: focusedTextElement, pgR: appMode == .pgR)
+                        element = asNormalMode.cT(times: count, to: character.character, on: focusedTextElement, pgR: appMode == .pgR, &bipped)
                     }
                 case .t:
                     if let character = operatorPendingBuffer.last {
