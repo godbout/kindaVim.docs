@@ -75,8 +75,8 @@ kindaVim will be a subscription of one ☕️ (USD$3) a month. the beta is free 
 | `cc`      | ❌️              |        ✅️️         |                                      | `iW`          | ❌️              |
 | `cE`      | ❌️              |        ❌️         |                                      | `iw`          | ❌️              |
 | `ce`      | ❌️              |        ❌️         |                                      | `j`          | ❌️              |
-| `cF`      | ✅️              |        ❌️         |                                      | `k`          | ❌️              |
-| `cf`      | ✅️              |        ❌️         |                                      | `l`          | ❌️              |
+| `cF`      | ✅️              |        ✅️         |                                      | `k`          | ❌️              |
+| `cf`      | ✅️              |        ✅️         |                                      | `l`          | ❌️              |
 | `cG`      | ❌️              |        ✅️️         |                                      | `o`          |               |
 | `cgg`      | ❌️              |       ❌️         |                                      | `T`          | ✅️              |
 | `ci'`      | ❌️              |       ✅️️         |                                      | `t`          | ✅️️              |
@@ -93,8 +93,8 @@ kindaVim will be a subscription of one ☕️ (USD$3) a month. the beta is free 
 | `ciW`      |   ❌️            | ❌ 
 | `ciw`      |   ❌️            | ✅️️ 
 | `CTRL-R`   | ❌️              |  
-| `cT`       | ✅️              | ❌ 
-| `ct`       | ✅️              | ❌ 
+| `cT`       | ✅️              | ✅️ 
+| `ct`       | ✅️              | ✅️ 
 | `cW`       | ❌️              | ❌ 
 | `cw`       | ❌️              | ✅️️ 
 | `D`       | ❌️              | ❌
