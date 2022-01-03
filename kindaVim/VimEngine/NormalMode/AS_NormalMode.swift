@@ -1001,37 +1001,30 @@ extension KindaVimEngine {
             // cf, cF, ct, cT
             guard operatorPendingBuffer.first?.vimKey != .c else {
                 var element: AccessibilityTextElement?
-                var bipped = false
                 
                 switch operatorPendingBuffer[1].vimKey {
                 case .F:
                     if let character = operatorPendingBuffer.last {
-                        element = asNormalMode.cF(times: count, to: character.character, on: focusedTextElement, pgR: appMode == .pgR, &bipped)
+                        element = asNormalMode.cF(times: count, to: character.character, on: focusedTextElement, pgR: appMode == .pgR, &state)
                     }
                 case .f:
                     if let character = operatorPendingBuffer.last {
-                        element = asNormalMode.cf(times: count, to: character.character, on: focusedTextElement, pgR: appMode == .pgR, &bipped)
+                        element = asNormalMode.cf(times: count, to: character.character, on: focusedTextElement, pgR: appMode == .pgR, &state)
                     }
                 case .T:
                     if let character = operatorPendingBuffer.last {
-                        element = asNormalMode.cT(times: count, to: character.character, on: focusedTextElement, pgR: appMode == .pgR, &bipped)
+                        element = asNormalMode.cT(times: count, to: character.character, on: focusedTextElement, pgR: appMode == .pgR, &state)
                     }
                 case .t:
                     if let character = operatorPendingBuffer.last {
-                        element = asNormalMode.ct(times: count, to: character.character, on: focusedTextElement, pgR: appMode == .pgR, &bipped)
+                        element = asNormalMode.ct(times: count, to: character.character, on: focusedTextElement, pgR: appMode == .pgR, &state)
                     }
                 default: ()
                 }
                 
                 if let element = element {
                     push(element: element)
-                    
-                    if bipped == false {
-                        lastYankStyle = .characterwise
-                        enterInsertMode()
-                    } else {
-                        enterNormalMode()
-                    }
+                    state.lastMoveBipped == false ? enterInsertMode() : enterNormalMode()
                 } else {
                     parseOperatorCommandForNormalModeUsingKeyboardStrategy()
                 }
