@@ -201,11 +201,11 @@ struct FailingAccessibilityStrategyNormalModeStub: AccessibilityStrategyNormalMo
         return nil
     }
     
-    func dj(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
+    func dj(on element: AccessibilityTextElement?, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement? {
         return nil
     }
     
-    func dk(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
+    func dk(on element: AccessibilityTextElement?, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement? {
         return nil
     }
     

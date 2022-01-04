@@ -6,7 +6,6 @@ import AppKit
 // AS Normal Mode
 extension KindaVimEngine {
  
-    // TODO: later we can remove all appMode once all the moves use &state
     // TODO: will have to test that we set the state.pgR correctly after
     func tryHandlingNormalModeUsingAccessibilityStrategyFirst(for keyCombination: KeyCombination) {         
         switch keyCombination.vimKey {
@@ -447,7 +446,6 @@ extension KindaVimEngine {
             }
         case [.c, .i]:
             ()
-            // TODO: same as ci{ etc
         case [.c, .i, .B]:
             var bipped = false
             
@@ -735,14 +733,14 @@ extension KindaVimEngine {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
         case [.d, .j]:
-            if let element = asNormalMode.dj(on: focusedTextElement, pgR: appMode == .pgR) {
+            if let element = asNormalMode.dj(on: focusedTextElement, &state) {
                 push(element: element)
                 enterNormalMode()
             } else {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
         case [.d, .k]:
-            if let element = asNormalMode.dk(on: focusedTextElement, pgR: appMode == .pgR) {
+            if let element = asNormalMode.dk(on: focusedTextElement, &state) {
                 push(element: element)
                 enterNormalMode()
             } else {
