@@ -377,9 +377,9 @@ extension KindaVimEngine {
         case [.c, .a]:
             ()
         case [.c, .a, .W]:
-            if let element = asNormalMode.caW(on: focusedTextElement, pgR: appMode == .pgR) {
+            if let element = asNormalMode.caW(on: focusedTextElement, &state) {
                 push(element: element)
-                (element.selectedLength == 0 && element.isNotEmpty) ? enterInsertMode() : enterNormalMode()
+                state.lastMoveBipped == false ? enterInsertMode() : enterNormalMode()
             } else {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
@@ -412,14 +412,14 @@ extension KindaVimEngine {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
         case [.c, .E]:
-            if let element = asNormalMode.cE(on: focusedTextElement, &state) {
+            if let element = asNormalMode.cE(times: count, on: focusedTextElement, &state) {
                 push(element: element)
                 enterInsertMode()
             } else {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
         case [.c, .e]:
-            if let element = asNormalMode.ce(on: focusedTextElement, &state) {
+            if let element = asNormalMode.ce(times: count, on: focusedTextElement, &state) {
                 push(element: element)
                 enterInsertMode()
             } else {
@@ -641,7 +641,7 @@ extension KindaVimEngine {
         case [.d, .a]:
             ()
         case [.d, .a, .W]:
-            if let element = asNormalMode.daW(on: focusedTextElement, pgR: appMode == .pgR) {
+            if let element = asNormalMode.daW(on: focusedTextElement, &state) {
                 push(element: element)
                 enterNormalMode()
             } else {
@@ -678,14 +678,14 @@ extension KindaVimEngine {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
         case [.d, .E]:
-            if let element = asNormalMode.dE(on: focusedTextElement, &state) {
+            if let element = asNormalMode.dE(times: count, on: focusedTextElement, &state) {
                 push(element: element)
                 enterNormalMode()
             } else {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
         case [.d, .e]:
-            if let element = asNormalMode.de(on: focusedTextElement, &state) {
+            if let element = asNormalMode.de(times: count, on: focusedTextElement, &state) {
                 push(element: element)
                 enterNormalMode()
             } else {

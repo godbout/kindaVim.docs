@@ -17,11 +17,11 @@ struct FailingAccessibilityStrategyNormalModeStub: AccessibilityStrategyNormalMo
         return nil
     }
     
-    func b(times count: Int?, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func b(times count: Int? = 1, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return nil
     }
     
-    func B(times count: Int?, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func B(times count: Int? = 1, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return nil
     }
     
@@ -29,7 +29,7 @@ struct FailingAccessibilityStrategyNormalModeStub: AccessibilityStrategyNormalMo
         return nil
     }
     
-    func caW(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
+    func caW(on element: AccessibilityTextElement?, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement? {
         return nil
     }
     
@@ -49,11 +49,11 @@ struct FailingAccessibilityStrategyNormalModeStub: AccessibilityStrategyNormalMo
         return nil
     }
     
-    func cE(on element: AccessibilityTextElement?, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement? {
+    func cE(times count: Int? = 1, on element: AccessibilityTextElement?, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement? {
         return nil
     }
     
-    func ce(on element: AccessibilityTextElement?, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement? {
+    func ce(times count: Int? = 1, on element: AccessibilityTextElement?, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement? {
         return nil
     }
     
@@ -145,7 +145,7 @@ struct FailingAccessibilityStrategyNormalModeStub: AccessibilityStrategyNormalMo
         return nil
     }
     
-    func daW(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
+    func daW(on element: AccessibilityTextElement?, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement? {
         return nil
     }
     
@@ -165,11 +165,11 @@ struct FailingAccessibilityStrategyNormalModeStub: AccessibilityStrategyNormalMo
         return nil
     }
     
-    func dE(on element: AccessibilityTextElement?, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement? {
+    func dE(times count: Int? = 1, on element: AccessibilityTextElement?, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement? {
         return nil
     }
     
-    func de(on element: AccessibilityTextElement?, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement? {
+    func de(times count: Int? = 1, on element: AccessibilityTextElement?, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement? {
         return nil
     }
     
@@ -373,11 +373,11 @@ struct FailingAccessibilityStrategyNormalModeStub: AccessibilityStrategyNormalMo
         return nil
     }
 
-    func w(times count: Int?, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func w(times count: Int? = 1, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return nil
     }
     
-    func W(times count: Int?, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func W(times count: Int? = 1, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
         return nil
     }
     
