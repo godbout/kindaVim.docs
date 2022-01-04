@@ -196,14 +196,14 @@ extension KindaVimEngine {
         case .leftChevron:
             enterOperatorPendingForNormalMode(with: KeyCombination(vimKey: .leftChevron))
         case .O:
-            if let element = asNormalMode.O(on: focusedTextElement, pgR: appMode == .pgR) {
+            if let element = asNormalMode.O(on: focusedTextElement, &state) {
                 push(element: element)
                 enterInsertMode()                
             } else {
                 handleNormalModeUsingKeyboardStrategy(for: keyCombination)
             }
         case .o:
-            if let element = asNormalMode.o(on: focusedTextElement, pgR: appMode == .pgR) {
+            if let element = asNormalMode.o(on: focusedTextElement, &state) {
                 push(element: element)
                 enterInsertMode()                
             } else {
@@ -420,8 +420,6 @@ extension KindaVimEngine {
         case [.c, .e]:
             if let element = asNormalMode.ce(on: focusedTextElement, &state) {
                 push(element: element)
-                    // TODO:
-//                state.lastYankStyle = .characterwise
                 enterInsertMode()
             } else {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()

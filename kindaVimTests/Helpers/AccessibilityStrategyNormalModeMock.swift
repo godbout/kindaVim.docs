@@ -502,16 +502,14 @@ class AccessibilityStrategyNormalModeMock: AccessibilityStrategyNormalModeProtoc
         return element
     }
     
-    func o(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
+    func O(on element: AccessibilityTextElement?, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement? {
         functionCalled = #function
-        pgRPassed = pgR
         
         return element
     }
     
-    func O(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
+    func o(on element: AccessibilityTextElement?, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement? {
         functionCalled = #function
-        pgRPassed = pgR
         
         return element
     }
