@@ -514,30 +514,26 @@ class AccessibilityStrategyNormalModeMock: AccessibilityStrategyNormalModeProtoc
         return element
     }
     
-    func PForLastYankStyleCharacterwise(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
+    func PForLastYankStyleCharacterwise(on element: AccessibilityTextElement?, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement? {
         functionCalled = #function
-        pgRPassed = pgR
         
         return element
     }
     
-    func PForLastYankStyleLinewise(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
+    func PForLastYankStyleLinewise(on element: AccessibilityTextElement?, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement? {
         functionCalled = #function
-        pgRPassed = pgR
         
         return element
     }
     
-    func pForLastYankStyleCharacterwise(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
+    func pForLastYankStyleCharacterwise(on element: AccessibilityTextElement?, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement? {
         functionCalled = #function
-        pgRPassed = pgR
         
         return element
     }
     
-    func pForLastYankStyleLinewise(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
+    func pForLastYankStyleLinewise(on element: AccessibilityTextElement?, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement? {
         functionCalled = #function
-        pgRPassed = pgR
         
         return element
     }

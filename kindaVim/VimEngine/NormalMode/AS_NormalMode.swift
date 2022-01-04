@@ -212,14 +212,14 @@ extension KindaVimEngine {
         case .P:
             switch state.lastYankStyle {
             case .characterwise:
-                if let element = asNormalMode.PForLastYankStyleCharacterwise(on: focusedTextElement, pgR: appMode == .pgR) {
+                if let element = asNormalMode.PForLastYankStyleCharacterwise(on: focusedTextElement, &state) {
                     push(element: element) 
                     endCurrentMove()
                 } else {
                     handleNormalModeUsingKeyboardStrategy(for: keyCombination)
                 }
             case .linewise:
-                if let element = asNormalMode.PForLastYankStyleLinewise(on: focusedTextElement, pgR: appMode == .pgR) {
+                if let element = asNormalMode.PForLastYankStyleLinewise(on: focusedTextElement, &state) {
                     push(element: element) 
                     endCurrentMove()
                 } else {
@@ -229,14 +229,14 @@ extension KindaVimEngine {
         case .p:
             switch state.lastYankStyle {
             case .characterwise:
-                if let element = asNormalMode.pForLastYankStyleCharacterwise(on: focusedTextElement, pgR: appMode == .pgR) {
+                if let element = asNormalMode.pForLastYankStyleCharacterwise(on: focusedTextElement, &state) {
                     push(element: element) 
                     endCurrentMove()
                 } else {
                     handleNormalModeUsingKeyboardStrategy(for: keyCombination)
                 }
             case .linewise:
-                if let element = asNormalMode.pForLastYankStyleLinewise(on: focusedTextElement, pgR: appMode == .pgR) {
+                if let element = asNormalMode.pForLastYankStyleLinewise(on: focusedTextElement, &state) {
                     push(element: element) 
                     endCurrentMove()
                 } else {
