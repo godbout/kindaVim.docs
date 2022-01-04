@@ -20,7 +20,7 @@ extension ASCL_x_Tests {
     func test_that_it_calles_the_correct_command() {
         applyKeyCombinationsBeingTested()
         
-        XCTAssertEqual(commandLineModeMock.functionCalled, "x()")
+        XCTAssertEqual(commandsMock.functionCalled, "x()")
     }
     
     func test_that_it_switches_Vim_to_InsertMode() {

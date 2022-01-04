@@ -6,11 +6,11 @@ import XCTest
 class Commands_BaseTests: XCTestCase {
     
     let kindaVimEngine = KindaVimEngine()
-    let commandLineModeMock = CommandLineModeMock()
+    let commandsMock = CommandsMock()
     let asNormalModeMock = AccessibilityStrategyNormalModeMock()
 
     override func setUp() {
-        kindaVimEngine.commandLineMode = commandLineModeMock
+        kindaVimEngine.commands = commandsMock
         kindaVimEngine.asNormalMode = asNormalModeMock
     }
 

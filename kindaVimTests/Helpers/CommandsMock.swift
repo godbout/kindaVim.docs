@@ -1,8 +1,9 @@
 @testable import kindaVim
+import Commands
 import KeyCombination
 
 
-class CommandLineModeMock: CommandLineModeProtocol {
+class CommandsMock: CommandsProtocol {
     
     var functionCalled = ""
         

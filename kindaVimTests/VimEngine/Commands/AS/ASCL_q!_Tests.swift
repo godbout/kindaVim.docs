@@ -21,7 +21,7 @@ extension ASCL_qExclamationMark_Tests {
     func test_that_it_calles_the_correct_command() {
         applyKeyCombinationsBeingTested()
         
-        XCTAssertEqual(commandLineModeMock.functionCalled, "qExclamationMark()")
+        XCTAssertEqual(commandsMock.functionCalled, "qExclamationMark()")
     }
     
     func test_that_it_switches_Vim_to_InsertMode() {

@@ -4,6 +4,7 @@ import KeyCombination
 import KeyboardStrategy
 import AccessibilityStrategy
 import AXEngine
+import Commands
 
 
 enum VimEngineMode {
@@ -93,7 +94,7 @@ class KindaVimEngine {
     var accessibilityStrategy: AccessibilityStrategyProtocol = AccessibilityStrategy()
     var asNormalMode: AccessibilityStrategyNormalModeProtocol = AccessibilityStrategyNormalMode()
     var asVisualMode: AccessibilityStrategyVisualModeProtocol = AccessibilityStrategyVisualMode()
-    var commandLineMode: CommandLineModeProtocol = CommandLineMode()
+    var commands: CommandsProtocol = Commands()
        
     init(axEngine: AXEngine = AXEngine(), inputFieldObserver: InputFieldObserver = InputFieldObserver()) {
         self.axEngine = axEngine

@@ -378,27 +378,27 @@ extension KindaVimEngine {
         case [.colon, .q]:
             ()
         case [.colon, .q, .return]:
-            post(commandLineMode.q())
+            post(commands.q())
             enterInsertMode()
         case [.colon, .q, .exclamationMark]:
             ()
         case [.colon, .q, .exclamationMark, .return]:
-            post(commandLineMode.qExclamationMark())
+            post(commands.qExclamationMark())
             enterInsertMode()
         case [.colon, .w]:
             ()
         case [.colon, .w, .return]:
-            post(commandLineMode.w())
+            post(commands.w())
             enterNormalMode()
         case [.colon, .w, .q]:
             ()
         case [.colon, .w, .q, .return]:
-            post(commandLineMode.wq())
+            post(commands.wq())
             enterInsertMode()
         case [.colon, .x]:
             ()
         case [.colon, .x, .return]:
-            post(commandLineMode.x())
+            post(commands.x())
             enterInsertMode()
         case [.d, .a]:
             ()

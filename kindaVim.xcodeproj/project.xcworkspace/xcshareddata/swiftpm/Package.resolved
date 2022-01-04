@@ -11,6 +11,15 @@
         }
       },
       {
+        "package": "Commands",
+        "repositoryURL": "git@github.com:godbout/Commands.git",
+        "state": {
+          "branch": "master",
+          "revision": "a1abfbf9aec512383efa87d3e4398827c28deeb2",
+          "version": null
+        }
+      },
+      {
         "package": "KeyboardShortcuts",
         "repositoryURL": "git@github.com:sindresorhus/KeyboardShortcuts.git",
         "state": {
@@ -51,7 +60,7 @@
         "repositoryURL": "https://github.com/sparkle-project/Sparkle",
         "state": {
           "branch": "2.x",
-          "revision": "23fc577184383d361ebfb3e409ca1b9e355d0aa9",
+          "revision": "71fc8d7b1182d24879edacefccb06151e99c34fe",
           "version": null
         }
       }
