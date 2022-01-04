@@ -21,7 +21,7 @@ extension SucceedingASNM_P__Tests {
         kindaVimEngine.state.lastYankStyle = .characterwise
         applyKeyCombinationsBeingTested()
         
-        XCTAssertEqual(asNormalModeMock.functionCalled, "PForLastYankStyleCharacterwise(on:pgR:)")
+        XCTAssertEqual(asNormalModeMock.functionCalled, "PForLastYankStyleCharacterwise(on:_:)")
     }
     
 }
@@ -34,7 +34,7 @@ extension SucceedingASNM_P__Tests {
         kindaVimEngine.state.lastYankStyle = .linewise
         applyKeyCombinationsBeingTested()
         
-        XCTAssertEqual(asNormalModeMock.functionCalled, "PForLastYankStyleLinewise(on:pgR:)")
+        XCTAssertEqual(asNormalModeMock.functionCalled, "PForLastYankStyleLinewise(on:_:)")
     }
     
 }

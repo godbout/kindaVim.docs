@@ -11,7 +11,7 @@ class SucceedingASNM_daW__Tests: SucceedingASNM_BaseTests {
         kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .eight))
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .d))
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .a))
-        kindaVimEngine.handle(keyCombination: KeyCombination(key: .w))
+        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .W))
     }
     
 }

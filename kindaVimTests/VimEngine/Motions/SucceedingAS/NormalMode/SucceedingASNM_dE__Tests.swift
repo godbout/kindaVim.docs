@@ -19,7 +19,7 @@ class SucceedingASNM_dE__Tests: SucceedingASNM_BaseTests {
 extension SucceedingASNM_dE__Tests {
     
     func test_that_it_calls_the_correct_function_on_the_AccessibilityStrategy() {
-        XCTAssertEqual(asNormalModeMock.functionCalled, "dE(on:_:)")
+        XCTAssertEqual(asNormalModeMock.functionCalled, "dE(times:on:_:)")
     }
     
     func test_that_it_keeps_Vim_in_NormalMode() {

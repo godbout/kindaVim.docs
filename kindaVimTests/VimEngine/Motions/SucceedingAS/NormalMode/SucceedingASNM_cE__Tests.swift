@@ -19,7 +19,7 @@ class SucceedingASNM_cE__Tests: SucceedingASNM_BaseTests {
 extension SucceedingASNM_cE__Tests {
     
     func test_that_it_calls_the_correct_function_on_the_AccessibilityStrategy() {
-        XCTAssertEqual(asNormalModeMock.functionCalled, "cE(on:_:)")
+        XCTAssertEqual(asNormalModeMock.functionCalled, "cE(times:on:_:)")
     }
     
     func test_that_it_switches_Vim_into_InsertMode() {

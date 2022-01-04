@@ -20,7 +20,7 @@ class SucceedingASNM_cb_Tests: SucceedingASNM_BaseTests {
 extension SucceedingASNM_cb_Tests {
     
     func  test_that_it_calls_the_correct_function_on_the_AccessibilityStrategy() {
-        XCTAssertEqual(asNormalModeMock.functionCalled, "cb(on:_:)")
+        XCTAssertEqual(asNormalModeMock.functionCalled, "cb(times:on:_:)")
     }
     
     func test_that_it_resets_the_count() {

@@ -23,8 +23,8 @@ extension SucceedingASNM_diw_Tests {
         XCTAssertEqual(asNormalModeMock.functionCalled, "diw(on:_:)")
     }
         
-    func test_that_it_switches_Vim_into_InsertMode() {
-        XCTAssertEqual(kindaVimEngine.currentMode, .insert)
+    func test_that_it_keeps_Vim_in_NormalMode() {
+        XCTAssertEqual(kindaVimEngine.currentMode, .normal)
     }
     
     func test_that_it_resets_the_count() {
