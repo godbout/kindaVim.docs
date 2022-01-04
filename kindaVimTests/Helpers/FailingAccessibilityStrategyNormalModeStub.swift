@@ -65,7 +65,7 @@ struct FailingAccessibilityStrategyNormalModeStub: AccessibilityStrategyNormalMo
         return nil
     }
     
-    func cG(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
+    func cG(on element: AccessibilityTextElement?, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement? {
         return nil
     }
     
