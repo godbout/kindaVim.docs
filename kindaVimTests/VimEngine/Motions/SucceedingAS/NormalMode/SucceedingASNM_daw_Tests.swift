@@ -20,7 +20,7 @@ class SucceedingASNM_daw_Tests: SucceedingASNM_BaseTests {
 extension SucceedingASNM_daw_Tests {
     
     func test_that_it_calls_the_correct_function_on_the_AccesssibilityStrategy() {
-        XCTAssertEqual(asNormalModeMock.functionCalled, "daw(on:pgR:_:)")
+        XCTAssertEqual(asNormalModeMock.functionCalled, "daw(on:_:)")
     }
     
     func test_that_it_keeps_Vim_in_NormalMode() {

@@ -21,7 +21,7 @@ class SucceedingASNM_caw_Tests: SucceedingASNM_BaseTests {
 extension SucceedingASNM_caw_Tests {
     
     func test_that_it_calls_the_correct_function_on_the_AccessibilityStrategy() {
-        XCTAssertEqual(asNormalModeMock.functionCalled, "caw(on:pgR:_:)")
+        XCTAssertEqual(asNormalModeMock.functionCalled, "caw(on:_:)")
     }
     
     func test_that_it_resets_the_count() {

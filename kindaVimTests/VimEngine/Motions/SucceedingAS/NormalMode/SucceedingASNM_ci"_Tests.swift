@@ -25,7 +25,7 @@ class SucceedingASNM_ciDoubleQuote_Tests: SucceedingASNM_BaseTests {
 extension SucceedingASNM_ciDoubleQuote_Tests {
     
     func test_that_it_calls_the_correction_function_on_the_AccessibilityStrategy() {
-        XCTAssertEqual(asNormalModeMock.functionCalled, "ciDoubleQuote(on:pgR:_:)")
+        XCTAssertEqual(asNormalModeMock.functionCalled, "ciDoubleQuote(on:_:)")
     }
     
     func test_that_it_resets_the_count() {

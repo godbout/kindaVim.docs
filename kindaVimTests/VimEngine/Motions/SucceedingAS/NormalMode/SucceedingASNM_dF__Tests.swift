@@ -20,7 +20,7 @@ class SucceedingASNM_dF__Tests: SucceedingASNM_BaseTests {
 extension SucceedingASNM_dF__Tests {
     
     func test_that_it_calls_the_correct_function_on_the_AccessibilityStrategy() {
-        XCTAssertEqual(asNormalModeMock.functionCalled, "dF(times:to:on:pgR:)")
+        XCTAssertEqual(asNormalModeMock.functionCalled, "dF(times:to:on:_:)")
     }
     
     func test_that_it_keeps_Vim_in_NormalMode() {
