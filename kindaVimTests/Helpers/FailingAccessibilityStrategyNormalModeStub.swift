@@ -221,11 +221,11 @@ struct FailingAccessibilityStrategyNormalModeStub: AccessibilityStrategyNormalMo
         return nil
     }
     
-    func dW(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
+    func dW(on element: AccessibilityTextElement?, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement? {
         return nil
     }
     
-    func dw(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
+    func dw(on element: AccessibilityTextElement?, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement? {
         return nil
     }
     
