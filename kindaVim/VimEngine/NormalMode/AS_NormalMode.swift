@@ -1067,7 +1067,7 @@ extension KindaVimEngine {
             }
             
             guard operatorPendingBuffer.first?.vimKey != .r else {
-                if let replacement = operatorPendingBuffer.last, let element = asNormalMode.r(times: count, with: replacement.character, on: focusedTextElement, pgR: appMode == .pgR) {
+                if let replacement = operatorPendingBuffer.last, let element = asNormalMode.r(times: count, with: replacement.character, on: focusedTextElement, &state) {
                     push(element: element)
                     enterNormalMode()
                 } else {

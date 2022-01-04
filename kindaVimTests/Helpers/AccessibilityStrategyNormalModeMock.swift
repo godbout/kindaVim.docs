@@ -538,9 +538,8 @@ class AccessibilityStrategyNormalModeMock: AccessibilityStrategyNormalModeProtoc
         return element
     }
     
-    func r(times count: Int? = 1, with replacement: Character, on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
+    func r(times count: Int? = 1, with replacement: Character, on element: AccessibilityTextElement?, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement? {
         functionCalled = #function
-        pgRPassed = pgR
         
         return element
     }
