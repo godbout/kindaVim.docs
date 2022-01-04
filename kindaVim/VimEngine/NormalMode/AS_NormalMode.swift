@@ -390,14 +390,14 @@ extension KindaVimEngine {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
         case [.c, .B]:
-            if let element = asNormalMode.cB(on: focusedTextElement, pgR: appMode == .pgR, &state) {
+            if let element = asNormalMode.cB(on: focusedTextElement, &state) {
                 push(element: element)
                 state.lastMoveBipped == false ? enterInsertMode() : enterNormalMode()
             } else {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
         case [.c, .b]:
-            if let element = asNormalMode.cb(on: focusedTextElement, pgR: appMode == .pgR, &state) {
+            if let element = asNormalMode.cb(on: focusedTextElement, &state) {
                 push(element: element)
                 state.lastMoveBipped == false ? enterInsertMode() : enterNormalMode()
             } else {
@@ -658,14 +658,14 @@ extension KindaVimEngine {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
         case [.d, .B]:
-            if let element = asNormalMode.dB(on: focusedTextElement, pgR: appMode == .pgR, &state) {
+            if let element = asNormalMode.dB(on: focusedTextElement, &state) {
                 push(element: element)
                 enterNormalMode()
             } else {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
         case [.d, .b]:
-            if let element = asNormalMode.db(on: focusedTextElement, pgR: appMode == .pgR, &state) {
+            if let element = asNormalMode.db(on: focusedTextElement, &state) {
                 push(element: element)
                 enterNormalMode()
             } else {

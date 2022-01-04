@@ -57,16 +57,14 @@ class AccessibilityStrategyNormalModeMock: AccessibilityStrategyNormalModeProtoc
         return element
     }
     
-    func cB(on element: AccessibilityTextElement?, pgR: Bool, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement? {
+    func cB(on element: AccessibilityTextElement?, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement? {
         functionCalled = #function
-        pgRPassed = pgR
         
         return element
     }
     
-    func cb(on element: AccessibilityTextElement?, pgR: Bool, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement? {
+    func cb(on element: AccessibilityTextElement?, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement? {
         functionCalled = #function
-        pgRPassed = pgR
         
         return element
     }
@@ -256,16 +254,14 @@ class AccessibilityStrategyNormalModeMock: AccessibilityStrategyNormalModeProtoc
         return element
     }
     
-    func dB(on element: AccessibilityTextElement?, pgR: Bool, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement? {
+    func dB(on element: AccessibilityTextElement?, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement? {
         functionCalled = #function
-        pgRPassed = pgR
         
         return element
     }
     
-    func db(on element: AccessibilityTextElement?, pgR: Bool, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement? {
+    func db(on element: AccessibilityTextElement?, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement? {
         functionCalled = #function
-        pgRPassed = pgR
         
         return element
     }

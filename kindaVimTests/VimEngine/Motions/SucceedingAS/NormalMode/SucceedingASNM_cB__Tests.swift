@@ -5,10 +5,12 @@ import XCTest
 
 class SucceedingASNM_cB__Tests: SucceedingASNM_BaseTests {
     
-    private func applyKeyCombinationsBeingTested(pgR: Bool = false) {
+    override func setUp() {
+        super.setUp()
+        
         kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .eight))
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .c))
-        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .B), appMode: pgR == true ? .pgR : .auto)
+        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .B))
     }
     
 }
@@ -19,23 +21,11 @@ class SucceedingASNM_cB__Tests: SucceedingASNM_BaseTests {
 // tested in UI.
 extension SucceedingASNM_cB__Tests {
     
-    func test_that_in_Auto_Mode_it_calls_the_correct_function_on_AS_with_PGR_off() {
-        applyKeyCombinationsBeingTested()
-                
+    func test_that_it_calls_the_correct_function_on_the_AccessibilityStrategy() {
         XCTAssertEqual(asNormalModeMock.functionCalled, "cB(on:pgR:_:)")
-        XCTAssertEqual(asNormalModeMock.pgRPassed, false)
-    }
-    
-    func test_that_in_PGR_Mode_it_calls_the_correct_function_on_AS_with_PGR_on() {
-        applyKeyCombinationsBeingTested(pgR: true)
-        
-        XCTAssertEqual(asNormalModeMock.functionCalled, "cB(on:pgR:_:)")
-        XCTAssertEqual(asNormalModeMock.pgRPassed, true)
     }
     
     func test_that_it_resets_the_count() {
-        applyKeyCombinationsBeingTested()
-                
         XCTAssertNil(kindaVimEngine.count)
     }
  
