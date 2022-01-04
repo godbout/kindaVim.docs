@@ -404,9 +404,10 @@ extension KindaVimEngine {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
         case [.c, .c]:
-            if let element = asNormalMode.cc(on: focusedTextElement, pgR: appMode == .pgR) {
+            if let element = asNormalMode.cc(on: focusedTextElement, &state) {
                 push(element: element)
-                state.lastYankStyle = .linewise
+//            TODO:
+//                state.lastYankStyle = .linewise
                 enterInsertMode()
             } else {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
