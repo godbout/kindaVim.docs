@@ -213,7 +213,7 @@ class KindaVimEngine {
     private func handleNormalMode(using strategy: VimEngineStrategy, for keyCombination: KeyCombination, appMode: AppMode = .auto) {
         switch strategy {
         case .accessibilityStrategy:
-            tryHandlingNormalModeUsingAccessibilityStrategyFirst(for: keyCombination, appMode: appMode)
+            tryHandlingNormalModeUsingAccessibilityStrategyFirst(for: keyCombination)
         case .keyboardStrategy:
             handleNormalModeUsingKeyboardStrategy(for: keyCombination)
         }        

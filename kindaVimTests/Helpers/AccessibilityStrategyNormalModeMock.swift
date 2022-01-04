@@ -187,16 +187,14 @@ class AccessibilityStrategyNormalModeMock: AccessibilityStrategyNormalModeProtoc
         return element
     }
     
-    func ciW(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
+    func ciW(on element: AccessibilityTextElement?, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement? {
         functionCalled = #function
-        pgRPassed = pgR
         
         return element
     }
     
-    func ciw(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
+    func ciw(on element: AccessibilityTextElement?, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement? {
         functionCalled = #function
-        pgRPassed = pgR
         
         return element
     }
@@ -310,16 +308,14 @@ class AccessibilityStrategyNormalModeMock: AccessibilityStrategyNormalModeProtoc
         return element
     }
     
-    func diW(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
+    func diW(on element: AccessibilityTextElement?, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement? {
         functionCalled = #function
-        pgRPassed = pgR
         
         return element
     }
     
-    func diw(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
+    func diw(on element: AccessibilityTextElement?, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement? {
         functionCalled = #function
-        pgRPassed = pgR
         
         return element
     }

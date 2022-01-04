@@ -7,7 +7,8 @@ import AppKit
 extension KindaVimEngine {
  
     // TODO: later we can remove all appMode once all the moves use &state
-    func tryHandlingNormalModeUsingAccessibilityStrategyFirst(for keyCombination: KeyCombination, appMode: AppMode) {         
+    // TODO: will have to test that we set the state.pgR correctly after
+    func tryHandlingNormalModeUsingAccessibilityStrategyFirst(for keyCombination: KeyCombination) {         
         switch keyCombination.vimKey {
         case .A:
             if let element = asNormalMode.A(on: focusedTextElement) {                
@@ -585,16 +586,15 @@ extension KindaVimEngine {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
         case [.c, .i, .W]:
-            if let element = asNormalMode.ciW(on: focusedTextElement, pgR: appMode == .pgR) {
+            if let element = asNormalMode.ciW(on: focusedTextElement, &state) {
                 push(element: element)
                 enterInsertMode()
             } else {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }           
         case [.c, .i, .w]:
-            if let element = asNormalMode.ciw(on: focusedTextElement, pgR: appMode == .pgR) {
+            if let element = asNormalMode.ciw(on: focusedTextElement, &state) {
                 push(element: element)
-                state.lastYankStyle = .characterwise
                 enterInsertMode()
             } else {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
@@ -722,14 +722,14 @@ extension KindaVimEngine {
         case [.d, .i]:
             ()
         case [.d, .i, .W]:
-            if let element = asNormalMode.diW(on: focusedTextElement, pgR: appMode == .pgR) {
+            if let element = asNormalMode.diW(on: focusedTextElement, &state) {
                 push(element: element)
                 enterNormalMode()
             } else {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
         case [.d, .i, .w]:
-            if let element = asNormalMode.diw(on: focusedTextElement, pgR: appMode == .pgR) {
+            if let element = asNormalMode.diw(on: focusedTextElement, &state) {
                 push(element: element)
                 enterNormalMode()
             } else {

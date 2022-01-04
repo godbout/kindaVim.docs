@@ -73,11 +73,11 @@ struct FailingAccessibilityStrategyNormalModeStub: AccessibilityStrategyNormalMo
         return nil
     }
     
-    func ciW(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
+    func ciW(on element: AccessibilityTextElement?, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement? {
         return nil
     }
     
-    func ciw(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
+    func ciw(on element: AccessibilityTextElement?, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement? {
         return nil
     }
     
@@ -193,11 +193,11 @@ struct FailingAccessibilityStrategyNormalModeStub: AccessibilityStrategyNormalMo
         return nil
     }
     
-    func diW(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
+    func diW(on element: AccessibilityTextElement?, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement? {
         return nil
     }
     
-    func diw(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
+    func diw(on element: AccessibilityTextElement?, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement? {
         return nil
     }
     
