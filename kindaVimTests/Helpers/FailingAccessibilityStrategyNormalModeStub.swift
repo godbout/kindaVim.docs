@@ -133,11 +133,11 @@ struct FailingAccessibilityStrategyNormalModeStub: AccessibilityStrategyNormalMo
         return nil
     }
     
-    func cW(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
+    func cW(on element: AccessibilityTextElement?, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement? {
         return nil
     }
     
-    func cw(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
+    func cw(on element: AccessibilityTextElement?, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement? {
         return nil
     }
     

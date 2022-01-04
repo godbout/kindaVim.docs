@@ -604,14 +604,14 @@ extension KindaVimEngine {
         case [.c, .T]:
             ()
         case [.c, .W]:
-            if let element = asNormalMode.cW(on: focusedTextElement, pgR: appMode == .pgR) {
+            if let element = asNormalMode.cW(on: focusedTextElement, &state) {
                 push(element: element)
                 enterInsertMode()
             } else {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
         case [.c, .w]:
-            if let element = asNormalMode.cw(on: focusedTextElement, pgR: appMode == .pgR) {
+            if let element = asNormalMode.cw(on: focusedTextElement, &state) {
                 push(element: element)
                 state.lastYankStyle = .characterwise
                 enterInsertMode()
