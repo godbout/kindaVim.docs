@@ -858,7 +858,7 @@ extension KindaVimEngine {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
         case [.leftChevron, .leftChevron]:
-            if let element = asNormalMode.leftChevronLeftChevron(on: focusedTextElement, pgR: appMode == .pgR) {
+            if let element = asNormalMode.leftChevronLeftChevron(on: focusedTextElement, &state) {
                 push(element: element)
                 enterNormalMode()
             } else {
@@ -879,7 +879,7 @@ extension KindaVimEngine {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
         case [.rightChevron, .rightChevron]:
-            if let element = asNormalMode.rightChevronRightChevron(on: focusedTextElement, pgR: appMode == .pgR) {
+            if let element = asNormalMode.rightChevronRightChevron(on: focusedTextElement, &state) {
                 push(element: element)
                 enterNormalMode()
             } else {

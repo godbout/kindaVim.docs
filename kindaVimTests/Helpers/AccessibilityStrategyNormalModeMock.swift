@@ -707,9 +707,8 @@ class AccessibilityStrategyNormalModeMock: AccessibilityStrategyNormalModeProtoc
         return element
     }
     
-    func leftChevronLeftChevron(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
+    func leftChevronLeftChevron(on element: AccessibilityTextElement?, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement? {
         functionCalled = #function
-        pgRPassed = pgR
         
         return element
     }
@@ -738,9 +737,8 @@ class AccessibilityStrategyNormalModeMock: AccessibilityStrategyNormalModeProtoc
         return element
     }
     
-    func rightChevronRightChevron(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
+    func rightChevronRightChevron(on element: AccessibilityTextElement?, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement? {
         functionCalled = #function
-        pgRPassed = pgR
         
         return element
     }
