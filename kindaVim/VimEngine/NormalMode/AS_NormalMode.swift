@@ -478,8 +478,15 @@ extension KindaVimEngine {
             } else {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
+        case [.c, .i, .backtick]:
+            if let element = asNormalMode.ciBacktick(on: focusedTextElement, &state) {
+                push(element: element)
+                state.lastMoveBipped == false ? enterInsertMode() : enterNormalMode()
+            } else {
+                parseOperatorCommandForNormalModeUsingKeyboardStrategy()
+            }
         case [.c, .i, .doubleQuote]:
-            if let element = asNormalMode.ciDoubleQuote(on: focusedTextElement, pgR: appMode == .pgR, &state) {
+            if let element = asNormalMode.ciDoubleQuote(on: focusedTextElement, &state) {
                 push(element: element)
                 state.lastMoveBipped == false ? enterInsertMode() : enterNormalMode()
             } else {
@@ -573,14 +580,7 @@ extension KindaVimEngine {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
         case [.c, .i, .singleQuote]:
-            if let element = asNormalMode.ciSingleQuote(on: focusedTextElement, pgR: appMode == .pgR, &state) {
-                push(element: element)
-                state.lastMoveBipped == false ? enterInsertMode() : enterNormalMode()
-            } else {
-                parseOperatorCommandForNormalModeUsingKeyboardStrategy()
-            }
-        case [.c, .i, .backtick]:
-            if let element = asNormalMode.ciBacktick(on: focusedTextElement, pgR: appMode == .pgR, &state) {
+            if let element = asNormalMode.ciSingleQuote(on: focusedTextElement, &state) {
                 push(element: element)
                 state.lastMoveBipped == false ? enterInsertMode() : enterNormalMode()
             } else {
