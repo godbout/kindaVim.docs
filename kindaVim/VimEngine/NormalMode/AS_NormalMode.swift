@@ -406,23 +406,22 @@ extension KindaVimEngine {
         case [.c, .c]:
             if let element = asNormalMode.cc(on: focusedTextElement, &state) {
                 push(element: element)
-//            TODO:
-//                state.lastYankStyle = .linewise
                 enterInsertMode()
             } else {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
         case [.c, .E]:
-            if let element = asNormalMode.cE(on: focusedTextElement, pgR: appMode == .pgR) {
+            if let element = asNormalMode.cE(on: focusedTextElement, &state) {
                 push(element: element)
                 enterInsertMode()
             } else {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
         case [.c, .e]:
-            if let element = asNormalMode.ce(on: focusedTextElement, pgR: appMode == .pgR) {
+            if let element = asNormalMode.ce(on: focusedTextElement, &state) {
                 push(element: element)
-                state.lastYankStyle = .characterwise
+                    // TODO:
+//                state.lastYankStyle = .characterwise
                 enterInsertMode()
             } else {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
@@ -681,14 +680,14 @@ extension KindaVimEngine {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
         case [.d, .E]:
-            if let element = asNormalMode.dE(on: focusedTextElement, pgR: appMode == .pgR) {
+            if let element = asNormalMode.dE(on: focusedTextElement, &state) {
                 push(element: element)
                 enterNormalMode()
             } else {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
         case [.d, .e]:
-            if let element = asNormalMode.de(on: focusedTextElement, pgR: appMode == .pgR) {
+            if let element = asNormalMode.de(on: focusedTextElement, &state) {
                 push(element: element)
                 enterNormalMode()
             } else {
