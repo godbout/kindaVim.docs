@@ -383,7 +383,7 @@ extension KindaVimEngine {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
         case [.c, .a, .w]:
-            if let element = asNormalMode.caw(on: focusedTextElement, pgR: appMode == .pgR, &state) {
+            if let element = asNormalMode.caw(on: focusedTextElement, &state) {
                 push(element: element)
                 state.lastMoveBipped == false ? enterInsertMode() : enterNormalMode()
             } else {
@@ -650,7 +650,7 @@ extension KindaVimEngine {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
         case [.d, .a, .w]:
-            if let element = asNormalMode.daw(on: focusedTextElement, pgR: appMode == .pgR, &state) {
+            if let element = asNormalMode.daw(on: focusedTextElement, &state) {
                 push(element: element)
                 state.lastMoveBipped == false ? state.lastYankStyle = .characterwise : ()
                 enterNormalMode()
