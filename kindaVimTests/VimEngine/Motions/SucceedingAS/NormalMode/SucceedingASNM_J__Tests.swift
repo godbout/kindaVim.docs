@@ -18,7 +18,7 @@ class SucceedingASNM_J__Tests: SucceedingASNM_BaseTests {
 extension SucceedingASNM_J__Tests {
     
     func test_that_it_calls_the_correct_function_on_accessibility_strategy() {
-        XCTAssertEqual(asNormalModeMock.functionCalled, "J(on:pgR:)")
+        XCTAssertEqual(asNormalModeMock.functionCalled, "J(on:_:)")
     }
     
     func test_that_it_keeps_Vim_in_normal_mode() {

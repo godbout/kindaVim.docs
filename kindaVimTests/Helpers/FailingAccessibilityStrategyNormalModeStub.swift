@@ -301,7 +301,7 @@ struct FailingAccessibilityStrategyNormalModeStub: AccessibilityStrategyNormalMo
         return nil
     }
     
-    func J(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
+    func J(on element: AccessibilityTextElement?, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement? {
         return nil
     }
     
