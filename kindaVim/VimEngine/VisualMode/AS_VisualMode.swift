@@ -235,7 +235,7 @@ extension KindaVimEngine {
         case .t:
             enterOperatorPendingForVisualMode(with: keyCombination)
         case .tilde:
-            if let element = asVisualMode.tilde(on: focusedTextElement, pgR: appMode == .pgR) {
+            if let element = asVisualMode.tilde(on: focusedTextElement, state) {
                 push(element: element)
                 enterNormalMode()
             } else {

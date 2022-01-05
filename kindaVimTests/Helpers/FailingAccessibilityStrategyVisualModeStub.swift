@@ -165,7 +165,7 @@ struct FailingAccessibilityStrategyVisualModeStub: AccessibilityStrategyVisualMo
         return nil
     }
     
-    func tilde(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
+    func tilde(on element: AccessibilityTextElement?, _ vimEngineState: VimEngineState) -> AccessibilityTextElement? {
         return nil
     }
     

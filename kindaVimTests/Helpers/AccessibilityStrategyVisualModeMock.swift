@@ -255,9 +255,8 @@ class AccessibilityStrategyVisualModeMock: AccessibilityStrategyVisualModeProtoc
         return element
     }
     
-    func tilde(on element: AccessibilityTextElement?, pgR: Bool) -> AccessibilityTextElement? {
+    func tilde(on element: AccessibilityTextElement?, _ vimEngineState: VimEngineState) -> AccessibilityTextElement? {
         functionCalled = #function
-        pgRPassed = pgR
         
         return element
     }
