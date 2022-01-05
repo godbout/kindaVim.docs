@@ -273,7 +273,7 @@ extension KindaVimEngine {
         case .t:
             enterOperatorPendingForNormalMode(with: keyCombination)
         case .tilde:
-            if let element = asNormalMode.tilde(times: count, on: focusedTextElement, &state) {
+            if let element = asNormalMode.tilde(times: count, on: focusedTextElement, state) {
                 push(element: element)
                 endCurrentMove()
             } else {
