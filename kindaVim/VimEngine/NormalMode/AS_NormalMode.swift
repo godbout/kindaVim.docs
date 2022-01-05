@@ -438,7 +438,7 @@ extension KindaVimEngine {
         case [.c, .g]:
             ()
         case [.c, .g, .g]:
-            if let element = asNormalMode.cgg(on: focusedTextElement, pgR: appMode == .pgR) {
+            if let element = asNormalMode.cgg(on: focusedTextElement, &state) {
                 push(element: element)
                 enterInsertMode()
             } else {
