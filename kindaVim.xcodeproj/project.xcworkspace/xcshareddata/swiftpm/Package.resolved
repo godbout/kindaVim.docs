@@ -2,6 +2,24 @@
   "object": {
     "pins": [
       {
+        "package": "AccessibilityStrategy",
+        "repositoryURL": "git@github.com:godbout/AccessibilityStrategy.git",
+        "state": {
+          "branch": "master",
+          "revision": "36aee3eb9796b56567218b739e085e0d84fbc76a",
+          "version": null
+        }
+      },
+      {
+        "package": "AXEngine",
+        "repositoryURL": "git@github.com:godbout/AXEngine.git",
+        "state": {
+          "branch": "master",
+          "revision": "a07cf5d617c2e2a12f03c3f17aa14ea5424d606e",
+          "version": null
+        }
+      },
+      {
         "package": "Commands",
         "repositoryURL": "git@github.com:godbout/Commands.git",
         "state": {
