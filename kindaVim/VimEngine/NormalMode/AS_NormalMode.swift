@@ -203,7 +203,6 @@ extension KindaVimEngine {
                 handleNormalModeUsingKeyboardStrategy(for: keyCombination)
             }
         case .o:
-            // TODO: don't pass inout when not necessary, also so for other moves.
             if let element = asNormalMode.o(on: focusedTextElement, state) {
                 push(element: element)
                 enterInsertMode()                
