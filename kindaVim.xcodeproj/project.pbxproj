@@ -70,6 +70,7 @@
 		91326E8B271EF6410091B912 /* SucceedingASVM___Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91326E8A271EF6410091B912 /* SucceedingASVM___Tests.swift */; };
 		91326E8E271EF6770091B912 /* FailingASVM___Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91326E8C271EF6770091B912 /* FailingASVM___Tests.swift */; };
 		91326E8F271EF6770091B912 /* FailingASVM_^_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91326E8D271EF6770091B912 /* FailingASVM_^_Tests.swift */; };
+		91351D672785B40C0035577C /* Commands in Frameworks */ = {isa = PBXBuildFile; productRef = 91351D662785B40C0035577C /* Commands */; };
 		913FC721277A236800D89166 /* InputFieldObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913FC720277A236800D89166 /* InputFieldObserver.swift */; };
 		91478EE427009B01001E6CE6 /* EnforcingKSNM_D__Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91478EE327009B01001E6CE6 /* EnforcingKSNM_D__Tests.swift */; };
 		91478EE727009C4B001E6CE6 /* FailingASNM_D__Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91478EE627009C4B001E6CE6 /* FailingASNM_D__Tests.swift */; };
@@ -1179,6 +1180,7 @@
 				91E7DFA92739589F007CC0D5 /* KeyboardShortcuts in Frameworks */,
 				91E7DFAB273958AC007CC0D5 /* AccessibilityStrategy in Frameworks */,
 				91E7DFA527395841007CC0D5 /* KeyCombination in Frameworks */,
+				91351D672785B40C0035577C /* Commands in Frameworks */,
 				91E7DFA327395834007CC0D5 /* LaunchAtLogin in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2112,6 +2114,7 @@
 				91E7DFA62739584E007CC0D5 /* KeyboardStrategy */,
 				91E7DFA82739589F007CC0D5 /* KeyboardShortcuts */,
 				91E7DFAA273958AC007CC0D5 /* AccessibilityStrategy */,
+				91351D662785B40C0035577C /* Commands */,
 			);
 			productName = kindaVimUITests;
 			productReference = 916ACFA826FE086C000E9757 /* kindaVimUITests.xctest */;
@@ -3495,6 +3498,11 @@
 
 /* Begin XCSwiftPackageProductDependency section */
 		910F64CD2784CBB700BFB67C /* Commands */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 910F64CC2784CBB700BFB67C /* XCRemoteSwiftPackageReference "Commands" */;
+			productName = Commands;
+		};
+		91351D662785B40C0035577C /* Commands */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 910F64CC2784CBB700BFB67C /* XCRemoteSwiftPackageReference "Commands" */;
 			productName = Commands;
