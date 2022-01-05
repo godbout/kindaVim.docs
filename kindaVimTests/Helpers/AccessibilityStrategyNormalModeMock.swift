@@ -487,13 +487,13 @@ class AccessibilityStrategyNormalModeMock: AccessibilityStrategyNormalModeProtoc
         return element
     }
     
-    func O(on element: AccessibilityTextElement?, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement? {
+    func O(on element: AccessibilityTextElement?, _ vimEngineState: VimEngineState) -> AccessibilityTextElement? {
         functionCalled = #function
         
         return element
     }
     
-    func o(on element: AccessibilityTextElement?, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement? {
+    func o(on element: AccessibilityTextElement?, _ vimEngineState: VimEngineState) -> AccessibilityTextElement? {
         functionCalled = #function
         
         return element

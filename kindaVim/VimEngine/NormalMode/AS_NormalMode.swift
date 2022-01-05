@@ -196,14 +196,15 @@ extension KindaVimEngine {
         case .leftChevron:
             enterOperatorPendingForNormalMode(with: KeyCombination(vimKey: .leftChevron))
         case .O:
-            if let element = asNormalMode.O(on: focusedTextElement, &state) {
+            if let element = asNormalMode.O(on: focusedTextElement, state) {
                 push(element: element)
                 enterInsertMode()                
             } else {
                 handleNormalModeUsingKeyboardStrategy(for: keyCombination)
             }
         case .o:
-            if let element = asNormalMode.o(on: focusedTextElement, &state) {
+            // TODO: don't pass inout when not necessary, also so for other moves.
+            if let element = asNormalMode.o(on: focusedTextElement, state) {
                 push(element: element)
                 enterInsertMode()                
             } else {

@@ -317,11 +317,11 @@ struct FailingAccessibilityStrategyNormalModeStub: AccessibilityStrategyNormalMo
         return nil        
     }
     
-    func O(on element: AccessibilityTextElement?, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement? {
+    func O(on element: AccessibilityTextElement?, _ vimEngineState: VimEngineState) -> AccessibilityTextElement? {
         return nil        
     }
     
-    func o(on element: AccessibilityTextElement?, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement? {
+    func o(on element: AccessibilityTextElement?, _ vimEngineState: VimEngineState) -> AccessibilityTextElement? {
         return nil        
     }
     
