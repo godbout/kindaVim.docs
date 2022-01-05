@@ -146,7 +146,7 @@ extension KindaVimEngine {
                 handleNormalModeUsingKeyboardStrategy(for: keyCombination)
             }
         case .J:
-            if let element = asNormalMode.J(on: focusedTextElement, &state) {
+            if let element = asNormalMode.J(on: focusedTextElement, state) {
                 push(element: element)
                 endCurrentMove()                
             } else {
