@@ -499,25 +499,25 @@ class AccessibilityStrategyNormalModeMock: AccessibilityStrategyNormalModeProtoc
         return element
     }
     
-    func PForLastYankStyleCharacterwise(on element: AccessibilityTextElement?, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement? {
+    func PForLastYankStyleCharacterwise(on element: AccessibilityTextElement?, _ vimEngineState: VimEngineState) -> AccessibilityTextElement? {
         functionCalled = #function
         
         return element
     }
     
-    func PForLastYankStyleLinewise(on element: AccessibilityTextElement?, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement? {
+    func PForLastYankStyleLinewise(on element: AccessibilityTextElement?, _ vimEngineState: VimEngineState) -> AccessibilityTextElement? {
         functionCalled = #function
         
         return element
     }
     
-    func pForLastYankStyleCharacterwise(on element: AccessibilityTextElement?, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement? {
+    func pForLastYankStyleCharacterwise(on element: AccessibilityTextElement?, _ vimEngineState: VimEngineState) -> AccessibilityTextElement? {
         functionCalled = #function
         
         return element
     }
     
-    func pForLastYankStyleLinewise(on element: AccessibilityTextElement?, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement? {
+    func pForLastYankStyleLinewise(on element: AccessibilityTextElement?, _ vimEngineState: VimEngineState) -> AccessibilityTextElement? {
         functionCalled = #function
         
         return element
@@ -529,7 +529,7 @@ class AccessibilityStrategyNormalModeMock: AccessibilityStrategyNormalModeProtoc
         return element
     }
     
-    func r(times count: Int? = 1, with replacement: Character, on element: AccessibilityTextElement?, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement? {
+    func r(times count: Int? = 1, with replacement: Character, on element: AccessibilityTextElement?, _ vimEngineState: VimEngineState) -> AccessibilityTextElement? {
         functionCalled = #function
         
         return element

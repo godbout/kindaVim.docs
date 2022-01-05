@@ -213,14 +213,14 @@ extension KindaVimEngine {
         case .P:
             switch state.lastYankStyle {
             case .characterwise:
-                if let element = asNormalMode.PForLastYankStyleCharacterwise(on: focusedTextElement, &state) {
+                if let element = asNormalMode.PForLastYankStyleCharacterwise(on: focusedTextElement, state) {
                     push(element: element) 
                     endCurrentMove()
                 } else {
                     handleNormalModeUsingKeyboardStrategy(for: keyCombination)
                 }
             case .linewise:
-                if let element = asNormalMode.PForLastYankStyleLinewise(on: focusedTextElement, &state) {
+                if let element = asNormalMode.PForLastYankStyleLinewise(on: focusedTextElement, state) {
                     push(element: element) 
                     endCurrentMove()
                 } else {
@@ -230,14 +230,14 @@ extension KindaVimEngine {
         case .p:
             switch state.lastYankStyle {
             case .characterwise:
-                if let element = asNormalMode.pForLastYankStyleCharacterwise(on: focusedTextElement, &state) {
+                if let element = asNormalMode.pForLastYankStyleCharacterwise(on: focusedTextElement, state) {
                     push(element: element) 
                     endCurrentMove()
                 } else {
                     handleNormalModeUsingKeyboardStrategy(for: keyCombination)
                 }
             case .linewise:
-                if let element = asNormalMode.pForLastYankStyleLinewise(on: focusedTextElement, &state) {
+                if let element = asNormalMode.pForLastYankStyleLinewise(on: focusedTextElement, state) {
                     push(element: element) 
                     endCurrentMove()
                 } else {
@@ -1065,7 +1065,7 @@ extension KindaVimEngine {
             }
             
             guard operatorPendingBuffer.first?.vimKey != .r else {
-                if let replacement = operatorPendingBuffer.last, let element = asNormalMode.r(times: count, with: replacement.character, on: focusedTextElement, &state) {
+                if let replacement = operatorPendingBuffer.last, let element = asNormalMode.r(times: count, with: replacement.character, on: focusedTextElement, state) {
                     push(element: element)
                     enterNormalMode()
                 } else {
