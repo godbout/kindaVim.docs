@@ -54,6 +54,8 @@ extension KindaVimEngine {
             }
             
             endCurrentMove()
+        case .colon:
+            enterOperatorPendingForNormalMode(with: keyCombination)
         case .controlB:
             post(ksNormalMode.controlB())
             endCurrentMove()
