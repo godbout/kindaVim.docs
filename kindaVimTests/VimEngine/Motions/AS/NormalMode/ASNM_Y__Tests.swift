@@ -3,7 +3,6 @@ import KeyCombination
 import XCTest
 
 
-// the Y move is just an alias to yy. so it just calls yy
 class SucceedingASNM_Y__Tests: ASNM_BaseTests {
     
     override func setUp() {
@@ -20,6 +19,7 @@ class SucceedingASNM_Y__Tests: ASNM_BaseTests {
 
 extension SucceedingASNM_Y__Tests {
     
+    // synonym
     func test_that_it_calls_the_correct_function_on_accessibility_strategy() {
         XCTAssertEqual(asNormalModeMock.functionCalled, "yy(on:)")
     }

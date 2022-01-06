@@ -465,7 +465,6 @@
 		916ACF9926FE086C000E9757 /* kindaVim.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = kindaVim.entitlements; sourceTree = "<group>"; };
 		916ACF9E26FE086C000E9757 /* kindaVimTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = kindaVimTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		916ACFA826FE086C000E9757 /* kindaVimUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = kindaVimUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		9171397627875B630008FE79 /* AccessibilityStrategy */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = AccessibilityStrategy; path = ../AccessibilityStrategy; sourceTree = "<group>"; };
 		91840B3F26FE092D00E6048E /* KeyboardStrategyVisualModeMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardStrategyVisualModeMock.swift; sourceTree = "<group>"; };
 		91840B4026FE092D00E6048E /* AccessibilityStrategyNormalModeMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessibilityStrategyNormalModeMock.swift; sourceTree = "<group>"; };
 		91840B4126FE092D00E6048E /* AccessibilityStrategyVisualModeMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessibilityStrategyVisualModeMock.swift; sourceTree = "<group>"; };
@@ -507,7 +506,6 @@
 		91840E0926FE09A300E6048E /* ASUI_NM_cf_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASUI_NM_cf_Tests.swift; sourceTree = "<group>"; };
 		918F0E872787132F001656A2 /* AccessibilityStrategySucceedingMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilityStrategySucceedingMock.swift; sourceTree = "<group>"; };
 		918F2E0C2787487500AD68DF /* StateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateTests.swift; sourceTree = "<group>"; };
-		918F2E0E27874C8800AD68DF /* KeyboardStrategy */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = KeyboardStrategy; path = ../KeyboardStrategy; sourceTree = "<group>"; };
 		918F2E0F27874E3200AD68DF /* FallbackTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FallbackTests.swift; sourceTree = "<group>"; };
 		918F2E1127874ED300AD68DF /* AccessibilityStrategyFailingMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessibilityStrategyFailingMock.swift; sourceTree = "<group>"; };
 		918F2E13278754C800AD68DF /* ASNM_dt_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASNM_dt_Tests.swift; sourceTree = "<group>"; };
@@ -810,6 +808,8 @@
 		918F303E2787559C00AD68DF /* KSVM_F__Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KSVM_F__Tests.swift; sourceTree = "<group>"; };
 		918F303F2787559C00AD68DF /* KSVM_c_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KSVM_c_Tests.swift; sourceTree = "<group>"; };
 		918F30692787569E00AD68DF /* ModesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModesTests.swift; sourceTree = "<group>"; };
+		9193F04B27877AC6003439EE /* KeyboardStrategy */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = KeyboardStrategy; path = ../KeyboardStrategy; sourceTree = "<group>"; };
+		9193F04C27879189003439EE /* AccessibilityStrategy */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = AccessibilityStrategy; path = ../AccessibilityStrategy; sourceTree = "<group>"; };
 		91A967412741447400E1CA7E /* Updater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Updater.swift; sourceTree = "<group>"; };
 		91BBC4DC278763F2008DE977 /* KSNM_c$_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSNM_c$_Tests.swift; sourceTree = "<group>"; };
 		91BBC4DE278763FD008DE977 /* KSNM_d$_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSNM_d$_Tests.swift; sourceTree = "<group>"; };
@@ -909,8 +909,8 @@
 		916ACF8426FE086A000E9757 = {
 			isa = PBXGroup;
 			children = (
-				9171397627875B630008FE79 /* AccessibilityStrategy */,
-				918F2E0E27874C8800AD68DF /* KeyboardStrategy */,
+				9193F04C27879189003439EE /* AccessibilityStrategy */,
+				9193F04B27877AC6003439EE /* KeyboardStrategy */,
 				916ACF8F26FE086B000E9757 /* kindaVim */,
 				916ACFA126FE086C000E9757 /* kindaVimTests */,
 				916ACFAB26FE086C000E9757 /* kindaVimUITests */,
@@ -1309,11 +1309,11 @@
 				918F2F982787557600AD68DF /* KSNM_l_Tests.swift */,
 				918F2FB12787557700AD68DF /* KSNM_NotImplementedOrDontExist_Tests.swift */,
 				918F2F692787557300AD68DF /* KSNM_O__Tests.swift */,
-				91BBC4E2278765A8008DE977 /* KSNM_S__Tests.swift */,
 				918F2F6A2787557300AD68DF /* KSNM_o_Tests.swift */,
 				918F2F742787557400AD68DF /* KSNM_P__Tests.swift */,
 				918F2F772787557400AD68DF /* KSNM_p_Tests.swift */,
 				918F2F952787557600AD68DF /* KSNM_r_Tests.swift */,
+				91BBC4E2278765A8008DE977 /* KSNM_S__Tests.swift */,
 				918F2F762787557400AD68DF /* KSNM_s_Tests.swift */,
 				918F2FB42787557700AD68DF /* KSNM_u_Tests.swift */,
 				918F2F8F2787557500AD68DF /* KSNM_W__Tests.swift */,

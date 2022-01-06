@@ -1,6 +1,7 @@
 @testable import kindaVim
 import Foundation
 import AccessibilityStrategy
+import VimEngineState
 
 
 class AccessibilityStrategyVisualModeMock: AccessibilityStrategyVisualModeProtocol {

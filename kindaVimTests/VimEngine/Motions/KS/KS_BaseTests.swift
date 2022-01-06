@@ -14,6 +14,8 @@ class KS_BaseTests: XCTestCase {
         kindaVimEngine.ksNormalMode = ksNormalModeMock
         kindaVimEngine.ksVisualMode = ksVisualModeMock
         // TODO: failing? keymapping?
+        // answer: failing. KeyMapping will ALWAYS reach. but failing may not, if we forgot to add
+        // it in AS. but we will have to add tests for the Modes. planned.
         kindaVimEngine.accessibilityStrategy = AccessibilityStrategyFailingMock()
         kindaVimEngine.asNormalMode = AccessibilityStrategyNormalModeMock()
         kindaVimEngine.asVisualMode = AccessibilityStrategyVisualModeMock()

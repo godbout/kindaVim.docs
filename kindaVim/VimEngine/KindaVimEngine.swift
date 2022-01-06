@@ -5,6 +5,7 @@ import KeyboardStrategy
 import AccessibilityStrategy
 import AXEngine
 import Commands
+import VimEngineState
 
 
 enum VimEngineMode {

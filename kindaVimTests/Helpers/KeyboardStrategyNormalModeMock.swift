@@ -2,6 +2,7 @@
 import KeyboardStrategy
 import KeyCombination
 import Foundation
+import VimEngineState
 
 
 class KeyboardStrategyNormalModeMock: KeyboardStrategyNormalModeProtocol {
@@ -75,7 +76,7 @@ class KeyboardStrategyNormalModeMock: KeyboardStrategyNormalModeProtocol {
         return []
     }
     
-    func ccForTextElement() -> [KeyCombination] {
+    func ccForTextElement(_ vimEngineState: inout VimEngineState) -> [KeyCombination] {
         functionCalled = #function
         
         return []

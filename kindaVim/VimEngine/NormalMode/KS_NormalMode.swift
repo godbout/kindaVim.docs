@@ -1,4 +1,5 @@
 import KeyCombination
+import VimEngineState
 
 
 // KS Normal Mode
@@ -72,7 +73,6 @@ extension KindaVimEngine {
             post(ksNormalMode.controlU())
             endCurrentMove()
         case .D:
-            // TODO: synonym
             switch focusedElementType {
             case .textElement:
                 post(ksNormalMode.dDollarSignForTextElement())            
@@ -193,16 +193,14 @@ extension KindaVimEngine {
         case .return:
             post(ksNormalMode.enter())
             enterInsertMode()
-        // TODO: add test
         case .S:
             switch focusedElementType {
             case .textElement:
-                post(ksNormalMode.ccForTextElement())
+                post(ksNormalMode.ccForTextElement(&state))
             default:
                 post(ksNormalMode.ccForNonTextElement())
             }
             
-            state.lastYankStyle = .linewise
             enterInsertMode()
         case .s:
             switch focusedElementType {
@@ -329,7 +327,7 @@ extension KindaVimEngine {
         case [.c, .c]:            
             switch focusedElementType {
             case .textElement:
-                post(ksNormalMode.ccForTextElement())
+                post(ksNormalMode.ccForTextElement(&state))
             default:
                 post(ksNormalMode.ccForNonTextElement())
             }

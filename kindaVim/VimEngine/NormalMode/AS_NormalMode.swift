@@ -1,6 +1,5 @@
 import KeyCombination
 import AccessibilityStrategy
-import AppKit
 
 
 // AS Normal Mode
@@ -116,6 +115,8 @@ extension KindaVimEngine {
                     }
                 }
             // TODO: testing if Alfred style or not will have to be done here, not in the move itself anymore
+                // IMPORTANT!!!
+                // maybe gj gk too
             case .k:
                 if currentElement.role == .textField {
                     handleNormalModeUsingKeyboardStrategy(for: keyCombination)
