@@ -17,8 +17,10 @@ class SucceedingASNM_D__Tests: ASNM_BaseTests {
 
 extension SucceedingASNM_D__Tests {
     
+    // synonym
+    // TODO: can remove those from AS now
     func test_that_it_calls_the_correct_function_on_the_AccessibilityStrategy() {
-        XCTAssertEqual(asNormalModeMock.functionCalled, "D(on:_:)")
+        XCTAssertEqual(asNormalModeMock.functionCalled, "dDollarSign(on:_:)")
     }
     
     func test_that_it_keeps_Vim_in_normal_mode() {

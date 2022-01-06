@@ -17,8 +17,9 @@ class SucceedingASNM_C__Tests: ASNM_BaseTests {
 
 extension SucceedingASNM_C__Tests {
     
+    // synonym
     func test_that_it_calls_the_correct_function_on_the_AccessibilityStrategy() {
-        XCTAssertEqual(asNormalModeMock.functionCalled, "C(on:_:)")
+        XCTAssertEqual(asNormalModeMock.functionCalled, "cDollarSign(on:_:)")
     }
     
     func test_that_it_switches_Vim_into_InsertMode() {

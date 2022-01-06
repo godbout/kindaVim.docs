@@ -26,7 +26,7 @@ extension KindaVimEngine {
                 push(element: newElement)
                 endCurrentMove()
             case .C:
-                let newElement = asNormalMode.C(on: currentElement, &state)
+                let newElement = asNormalMode.cDollarSign(on: currentElement, &state)
                 push(element: newElement)
                 enterInsertMode()
             case .c:
@@ -56,10 +56,7 @@ extension KindaVimEngine {
             case .controlU:
                 handleNormalModeUsingKeyboardStrategy(for: keyCombination)
             case .D:
-                // TODO: synonym. all the synonyms should call their, well, synonym, because
-                // the similarity is not from within the AS or KS, it is from the kVE
-                // will need to update the tests in AS, etc.
-                let newElement = asNormalMode.D(on: currentElement, &state)
+                let newElement = asNormalMode.dDollarSign(on: currentElement, &state)
                 push(element: newElement)
                 endCurrentMove()
             case .d:
@@ -216,15 +213,14 @@ extension KindaVimEngine {
                 push(element: newElement)
                 endCurrentMove()
             case .X:
-                let newElement = asNormalMode.X(on: currentElement, &state)
+                let newElement = asNormalMode.dh(on: currentElement, &state)
                 push(element: newElement)
                 endCurrentMove()
             case .x:
-                let newElement = asNormalMode.x(on: currentElement, &state)
+                let newElement = asNormalMode.dl(on: currentElement, &state)
                 push(element: newElement)
                 endCurrentMove()
             case .Y:
-                // TODO: this should call Y not yy. then in the AS we call yy
                 let newElement = asNormalMode.yy(on: currentElement)
                 push(element: newElement)
                 state.lastYankStyle = .linewise

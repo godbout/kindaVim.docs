@@ -38,15 +38,6 @@
         }
       },
       {
-        "package": "KeyboardStrategy",
-        "repositoryURL": "git@github.com:godbout/KeyboardStrategy.git",
-        "state": {
-          "branch": "master",
-          "revision": "ceff46eca3ed65babbdfc756f2c2dcb323d1abdf",
-          "version": null
-        }
-      },
-      {
         "package": "KeyCombination",
         "repositoryURL": "git@github.com:godbout/KeyCombination.git",
         "state": {

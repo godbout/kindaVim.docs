@@ -72,6 +72,7 @@ extension KindaVimEngine {
             post(ksNormalMode.controlU())
             endCurrentMove()
         case .D:
+            // TODO: synonym
             switch focusedElementType {
             case .textElement:
                 post(ksNormalMode.DForTextElement())
