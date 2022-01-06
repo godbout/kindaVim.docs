@@ -1,8 +1,16 @@
-//
-//  AccessibilityStrategyFailingMock.swift
-//  kindaVimTests
-//
-//  Created by Guillaume Leclerc on 06/01/2022.
-//
-
+@testable import kindaVim
 import Foundation
+import AccessibilityStrategy
+
+
+struct AccessibilityStrategyFailingMock: AccessibilityStrategyProtocol {
+
+    func focusedTextElement() -> AccessibilityTextElement? {
+        return nil
+    }
+    
+    func push(element: AccessibilityTextElement) -> Bool {
+        return false
+    }
+    
+}
