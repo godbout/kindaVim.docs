@@ -3,7 +3,6 @@ import KeyCombination
 import XCTest
 
 
-// TODO: we need a test that if AS fails then we use KS. but no need all the moves
 class EnforcingASNM_yT__Tests: KSNM_BaseTests {
     
     private func applyKeyCombinationsBeingTested() {

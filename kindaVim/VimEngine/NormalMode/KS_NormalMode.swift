@@ -469,6 +469,8 @@ extension KindaVimEngine {
             
             state.lastYankStyle = .characterwise
             enterNormalMode()
+        case [.d, .i]:
+            ()
         case [.d, .j]:
             switch focusedElementType {
             case .textElement:
