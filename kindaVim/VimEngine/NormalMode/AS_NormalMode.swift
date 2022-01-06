@@ -102,25 +102,33 @@ extension KindaVimEngine {
                 push(element: newElement)
                 endCurrentMove()
             case .j:
-                if jkMapping == true {
-                    let newElement = asNormalMode.gj(on: currentElement)
-                    push(element: newElement)
-                    endCurrentMove()
+                if currentElement.role == .textField {
+                    handleNormalModeUsingKeyboardStrategy(for: keyCombination)
                 } else {
-                    let newElement = asNormalMode.j(on: currentElement)
-                    push(element: newElement)
-                    endCurrentMove()
+                    if jkMapping == true {
+                        let newElement = asNormalMode.gj(on: currentElement)
+                        push(element: newElement)
+                        endCurrentMove()
+                    } else {
+                        let newElement = asNormalMode.j(on: currentElement)
+                        push(element: newElement)
+                        endCurrentMove()
+                    }
                 }
             // TODO: testing if Alfred style or not will have to be done here, not in the move itself anymore
             case .k:
-                if jkMapping == true {
-                    let newElement = asNormalMode.gk(on: currentElement)
-                    push(element: newElement)
-                    endCurrentMove()
+                if currentElement.role == .textField {
+                    handleNormalModeUsingKeyboardStrategy(for: keyCombination)
                 } else {
-                    let newElement = asNormalMode.k(on: currentElement)
-                    push(element: newElement)
-                    endCurrentMove()
+                    if jkMapping == true {
+                        let newElement = asNormalMode.gk(on: currentElement)
+                        push(element: newElement)
+                        endCurrentMove()
+                    } else {
+                        let newElement = asNormalMode.k(on: currentElement)
+                        push(element: newElement)
+                        endCurrentMove()
+                    }
                 }
             case .l:
                 let newElement = asNormalMode.l(times: count, on: currentElement)
