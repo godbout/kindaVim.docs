@@ -56,6 +56,9 @@ extension KindaVimEngine {
             case .controlU:
                 handleNormalModeUsingKeyboardStrategy(for: keyCombination)
             case .D:
+                // TODO: synonym. all the synonyms should call their, well, synonym, because
+                // the similarity is not from within the AS or KS, it is from the kVE
+                // will need to update the tests in AS, etc.
                 let newElement = asNormalMode.D(on: currentElement, &state)
                 push(element: newElement)
                 endCurrentMove()
