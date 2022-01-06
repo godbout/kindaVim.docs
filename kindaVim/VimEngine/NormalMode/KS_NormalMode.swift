@@ -332,6 +332,10 @@ extension KindaVimEngine {
             
             state.lastYankStyle = .characterwise
             enterInsertMode()
+        case [.c, .F]:
+            ()
+        case [.c, .f]:
+            ()
         case [.c, .g]:
             ()
         case [.c, .g, .g]:
@@ -569,6 +573,10 @@ extension KindaVimEngine {
             }
             
             enterNormalMode()
+        case [.y, .F]:
+            ()
+        case [.y, .f]:
+            ()
         case [.y, .i]:
             ()
         case [.y, .i, .w]:
@@ -581,6 +589,10 @@ extension KindaVimEngine {
             
             state.lastYankStyle = .characterwise
             enterNormalMode()
+        case [.y, .T]:
+            ()
+        case [.y, .t]:
+            ()
         case [.y, .y]:
             switch focusedElementType {
             case .textElement:

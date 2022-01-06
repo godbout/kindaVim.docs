@@ -115,6 +115,7 @@ extension KindaVimEngine {
                         endCurrentMove()
 
                 }
+                // TODO: testing if Alfred style or not will have to be done here, not in the move itself anymore
             case .k:
                 if jkMapping == true {
                         let newElement = asNormalMode.gk(on: currentElement)
