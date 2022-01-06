@@ -6,7 +6,6 @@ import AppKit
 // AS Normal Mode
 extension KindaVimEngine {
  
-    // TODO: will have to test that we set the state.pgR correctly after
     func tryHandlingNormalModeUsingAccessibilityStrategyFirst(for keyCombination: KeyCombination) {         
         if let currentElement = focusedTextElement {
             switch keyCombination.vimKey {
