@@ -3,17 +3,18 @@ import KeyCombination
 import XCTest
 
 
-class KS_C__Tests: KSNM_BaseTests {
+class KS_cDollarSign_Tests: KSNM_BaseTests {
     
     private func applyKeyCombinationsBeingTested() {
-        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .eight))
-        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .C), appMode: .keyMapping)
+        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .eight), appMode: .keyMapping)
+        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .c), appMode: .keyMapping)
+        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .dollarSign), appMode: .keyMapping)
     }
 
 }
 
 
-extension KS_C__Tests {
+extension KS_cDollarSign_Tests {
     
     func test_that_it_calls_the_correct_function_for_TextElements_on_KS() {
         kindaVimEngine.axEngine = AXEngineTextElementMock()
@@ -34,6 +35,7 @@ extension KS_C__Tests {
         XCTAssertEqual(kindaVimEngine.currentMode, .insert)
     }
     
+    // TODO: i think this will move within KS like we do for AS
     func test_that_it_sets_the_LastYankStyle_to_Characterwise() {
         kindaVimEngine.state.lastYankStyle = .linewise
         applyKeyCombinationsBeingTested()

@@ -45,18 +45,6 @@ class KeyboardStrategyNormalModeMock: KeyboardStrategyNormalModeProtocol {
         return []
     }
     
-    func CForNonTextElement() -> [KeyCombination] {
-        functionCalled = #function
-        
-        return []
-    }
-    
-    func CForTextElement() -> [KeyCombination] {
-        functionCalled = #function
-        
-        return []
-    }
-    
     func caretForNonTextElement() -> [KeyCombination] {
         functionCalled = #function
         
@@ -88,6 +76,18 @@ class KeyboardStrategyNormalModeMock: KeyboardStrategyNormalModeProtocol {
     }
     
     func ccForTextElement() -> [KeyCombination] {
+        functionCalled = #function
+        
+        return []
+    }
+    
+    func cDollarSignForNonTextElement() -> [KeyCombination] {
+        functionCalled = #function
+        
+        return []
+    }
+    
+    func cDollarSignForTextElement() -> [KeyCombination] {
         functionCalled = #function
         
         return []
@@ -141,6 +141,18 @@ class KeyboardStrategyNormalModeMock: KeyboardStrategyNormalModeProtocol {
         return []
     }
     
+    func clForNonTextElement() -> [KeyCombination] {
+        functionCalled = #function
+        
+        return []
+    }
+    
+    func clForTextElement() -> [KeyCombination] {
+        functionCalled = #function
+        
+        return []
+    }
+    
     func controlB() -> [KeyCombination] {
         functionCalled = #function
         
@@ -171,18 +183,6 @@ class KeyboardStrategyNormalModeMock: KeyboardStrategyNormalModeProtocol {
         return []
     }
     
-    func DForNonTextElement() -> [KeyCombination] {
-        functionCalled = #function
-        
-        return []
-    }
-    
-    func DForTextElement() -> [KeyCombination] {
-        functionCalled = #function
-        
-        return []
-    }
-    
     func dbForNonTextElement() -> [KeyCombination] {
         functionCalled = #function
         
@@ -190,6 +190,18 @@ class KeyboardStrategyNormalModeMock: KeyboardStrategyNormalModeProtocol {
     }
     
     func dbForTextElement() -> [KeyCombination] {
+        functionCalled = #function
+        
+        return []
+    }
+    
+    func dDollarSignForNonTextElement() -> [KeyCombination] {
+        functionCalled = #function
+        
+        return []
+    }
+    
+    func dDollarSignForTextElement() -> [KeyCombination] {
         functionCalled = #function
         
         return []
@@ -561,18 +573,6 @@ class KeyboardStrategyNormalModeMock: KeyboardStrategyNormalModeProtocol {
         return []
     }
     
-    func sForNonTextElement() -> [KeyCombination] {
-        functionCalled = #function
-        
-        return []
-    }
-    
-    func sForTextElement() -> [KeyCombination] {
-        functionCalled = #function
-        
-        return []
-    }
-    
     func u() -> [KeyCombination] {
         functionCalled = #function
         
@@ -610,30 +610,6 @@ class KeyboardStrategyNormalModeMock: KeyboardStrategyNormalModeProtocol {
     }
     
     func wForTextElement() -> [KeyCombination] {
-        functionCalled = #function
-        
-        return []
-    }
-    
-    func xForNonTextElement() -> [KeyCombination] {
-        functionCalled = #function
-        
-        return []
-    }
-    
-    func xForTextElement() -> [KeyCombination] {
-        functionCalled = #function
-        
-        return []
-    }
-    
-    func XForNonTextElement() -> [KeyCombination] {
-        functionCalled = #function
-        
-        return []
-    }
-    
-    func XForTextElement() -> [KeyCombination] {
         functionCalled = #function
         
         return []

@@ -184,6 +184,10 @@ extension KindaVimEngine {
                 enterOperatorPendingForNormalMode(with: KeyCombination(key: .rightBracket))
             case .rightChevron:
                 enterOperatorPendingForNormalMode(with: KeyCombination(vimKey: .rightChevron))
+            case .S:
+                let newElement = asNormalMode.cc(on: currentElement, &state)
+                push(element: newElement)
+                enterInsertMode()
             case .s:
                 handleNormalModeUsingKeyboardStrategy(for: keyCombination)
             case .T:

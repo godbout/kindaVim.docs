@@ -3,17 +3,18 @@ import KeyCombination
 import XCTest
 
 
-class EnforcingKS_D__Tests: KSNM_BaseTests {
-
+class KS_dDollarSign_Tests: KSNM_BaseTests {
+    
     private func applyKeyCombinationsBeingTested() {
-        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .eight), appMode: .keyMapping)
-        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .D), appMode: .keyMapping)
+        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .eight))
+        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .d))
+        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .dollarSign))
     }
 
 }
 
 
-extension EnforcingKS_D__Tests {
+extension KS_dDollarSign_Tests {
     
     func test_that_it_calls_the_correct_function_for_TextElements_on_KS() {
         kindaVimEngine.axEngine = AXEngineTextElementMock()
@@ -29,17 +30,22 @@ extension EnforcingKS_D__Tests {
         XCTAssertEqual(ksNormalModeMock.functionCalled, "dDollarSignForNonTextElement()")
     }
     
-    func test_that_it_keeps_Vim_in_normal_mode() {
+    func test_that_it_stays_in_NormalMode() {
         applyKeyCombinationsBeingTested()
-                
         XCTAssertEqual(kindaVimEngine.currentMode, .normal)
     }
-        
-    func test_that_it_resets_the_count() {
+    
+    // TODO: i think this will move within KS like we do for AS
+    func test_that_it_sets_the_LastYankStyle_to_Characterwise() {
+        kindaVimEngine.state.lastYankStyle = .linewise
         applyKeyCombinationsBeingTested()
                 
+        XCTAssertEqual(kindaVimEngine.state.lastYankStyle, .characterwise)
+    }
+    
+    func test_that_it_resets_the_count() {
+        applyKeyCombinationsBeingTested()
         XCTAssertNil(kindaVimEngine.count)
     }
-
+    
 }
-

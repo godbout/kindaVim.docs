@@ -19,14 +19,14 @@ extension EnforcingKS_X__Tests {
         kindaVimEngine.axEngine = AXEngineTextElementMock()
         applyKeyCombinationsBeingTested()
 
-        XCTAssertEqual(ksNormalModeMock.functionCalled, "XForTextElement()")
+        XCTAssertEqual(ksNormalModeMock.functionCalled, "dhForTextElement()")
     }
     
     func test_that_it_calls_the_correct_function_for_NonTextElements_on_KS() {
         kindaVimEngine.axEngine = AXEngineNonTextElementMock()
         applyKeyCombinationsBeingTested()
 
-        XCTAssertEqual(ksNormalModeMock.functionCalled, "XForNonTextElement()")
+        XCTAssertEqual(ksNormalModeMock.functionCalled, "dhForNonTextElement()")
     }
 
     func test_that_it_keeps_Vim_in_normal_mode() {
