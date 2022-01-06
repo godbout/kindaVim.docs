@@ -3,7 +3,7 @@ import KeyCombination
 import XCTest
 
 
-class EnforcingASVM_D__Tests: FailingASVM_BaseTests {
+class EnforcingASVM_D__Tests: EnforcingKSVM_BaseTests {
     
     private func applyKeyCombinationsBeingTested() {
         kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .eight))

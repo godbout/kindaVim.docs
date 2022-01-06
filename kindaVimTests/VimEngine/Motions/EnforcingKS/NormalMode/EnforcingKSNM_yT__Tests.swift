@@ -3,7 +3,8 @@ import KeyCombination
 import XCTest
 
 
-class EnforcingASNM_yT__Tests: FailingASNM_BaseTests {
+// TODO: we need a test that if AS fails then we use KS. but no need all the moves
+class EnforcingASNM_yT__Tests: EnforcingKSNM_BaseTests {
     
     private func applyKeyCombinationsBeingTested() {
         kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .eight))    

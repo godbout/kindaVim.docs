@@ -3,7 +3,7 @@ import KeyCombination
 import XCTest
 
 
-class EnforcingKSNM_Y__Tests: FailingASNM_BaseTests {
+class EnforcingKSNM_Y__Tests: EnforcingKSNM_BaseTests {
     
     private func applyKeyCombinationsBeingTested() {
         kindaVimEngine.state.lastYankStyle = .characterwise

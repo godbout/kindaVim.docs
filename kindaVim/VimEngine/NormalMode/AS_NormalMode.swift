@@ -221,6 +221,7 @@ extension KindaVimEngine {
                 push(element: newElement)
                 endCurrentMove()
             case .Y:
+                // TODO: this should call Y not yy. then in the AS we call yy
                 let newElement = asNormalMode.yy(on: currentElement)
                 push(element: newElement)
                 state.lastYankStyle = .linewise
