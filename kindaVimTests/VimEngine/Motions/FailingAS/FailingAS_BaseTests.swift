@@ -13,9 +13,9 @@ class FailingAS_BaseTests: XCTestCase {
     override func setUp() {
         kindaVimEngine.ksNormalMode = ksNormalModeMock
         kindaVimEngine.ksVisualMode = ksVisualModeMock
-        kindaVimEngine.accessibilityStrategy = AccessibilityStrategyMock()
-        kindaVimEngine.asNormalMode = FailingAccessibilityStrategyNormalModeStub()
-        kindaVimEngine.asVisualMode = FailingAccessibilityStrategyVisualModeStub()
+        kindaVimEngine.accessibilityStrategy = AccessibilityStrategyFailingMock()
+        kindaVimEngine.asNormalMode = AccessibilityStrategyNormalModeMock()
+        kindaVimEngine.asVisualMode = AccessibilityStrategyVisualModeMock()
         kindaVimEngine.enterNormalMode()        
         
         ksNormalModeMock.functionCalled = ""

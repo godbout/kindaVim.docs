@@ -309,15 +309,17 @@ extension KindaVimEngine {
                 handleNormalModeUsingKeyboardStrategy(for: keyCombination)
             }
         case .W:
-            if let element = asNormalMode.W(times: count, on: focusedTextElement) {
-                push(element: element)
+            if let currentElement = focusedTextElement {
+                let newElement = asNormalMode.W(times: count, on: currentElement)
+                push(element: newElement)
                 endCurrentMove()
             } else {
                 handleNormalModeUsingKeyboardStrategy(for: keyCombination)
             }            
         case .w:
-            if let element = asNormalMode.w(times: count, on: focusedTextElement) {
-                push(element: element)
+            if let currentElement = focusedTextElement {
+                let newElement = asNormalMode.w(times: count, on: currentElement)
+                push(element: newElement)
                 endCurrentMove()
             } else {
                 handleNormalModeUsingKeyboardStrategy(for: keyCombination)
@@ -433,7 +435,7 @@ extension KindaVimEngine {
             }
         case [.c, .F]:
             ()
-        
+        case [.c, .f]:
             ()
         case [.c, .G]:
             if let element = asNormalMode.cG(on: focusedTextElement, &state) {
@@ -624,7 +626,7 @@ extension KindaVimEngine {
         case [.d, .dollarSign]:
             if let element = asNormalMode.dDollarSign(on: focusedTextElement, &state) {
                 push(element: element)
-                enterInsertMode()
+                enterNormalMode()
             } else {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
@@ -712,15 +714,17 @@ extension KindaVimEngine {
         case [.d, .t]:
             ()
         case [.d, .W]:
-            if let element = asNormalMode.dW(times: count, on: focusedTextElement, &state) {
-                push(element: element)
-                enterNormalMode()
+            if let currentElement = focusedTextElement {
+                let newElement = asNormalMode.dW(times: count, on: currentElement, &state)
+                push(element: newElement)
+                enterNormalMode()    
             } else {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
         case [.d, .w]:
-            if let element = asNormalMode.dw(times: count, on: focusedTextElement, &state) {
-                push(element: element)
+            if let currentElement = focusedTextElement {
+                let newElement = asNormalMode.dw(times: count, on: currentElement, &state)
+                push(element: newElement)
                 enterNormalMode()
             } else {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()

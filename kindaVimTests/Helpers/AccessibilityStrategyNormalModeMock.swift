@@ -73,6 +73,18 @@ class AccessibilityStrategyNormalModeMock: AccessibilityStrategyNormalModeProtoc
         return element
     }
     
+    func cDollarSign(on element: AccessibilityTextElement?, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement? {
+        functionCalled = #function
+        
+        return element
+    }
+    
+    func dDollarSign(on element: AccessibilityTextElement?, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement? {
+        functionCalled = #function
+        
+        return element
+    }
+    
     func cE(times count: Int?, on element: AccessibilityTextElement?, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement? {
         functionCalled = #function
         
@@ -334,13 +346,13 @@ class AccessibilityStrategyNormalModeMock: AccessibilityStrategyNormalModeProtoc
         return element
     }
     
-    func dW(times count: Int? = 1, on element: AccessibilityTextElement?, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement? {
+    func dW(times count: Int? = 1, on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
         functionCalled = #function
         
         return element
     }
     
-    func dw(times count: Int? = 1, on element: AccessibilityTextElement?, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement? {
+    func dw(times count: Int? = 1, on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
         functionCalled = #function
         
         return element
@@ -550,13 +562,13 @@ class AccessibilityStrategyNormalModeMock: AccessibilityStrategyNormalModeProtoc
         return element
     }
 
-    func w(times count: Int?, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func w(times count: Int?, on element: AccessibilityTextElement) -> AccessibilityTextElement {
         functionCalled = #function
 
         return element
     }
     
-    func W(times count: Int?, on element: AccessibilityTextElement?) -> AccessibilityTextElement? {
+    func W(times count: Int?, on element: AccessibilityTextElement) -> AccessibilityTextElement {
         functionCalled = #function
         
         return element

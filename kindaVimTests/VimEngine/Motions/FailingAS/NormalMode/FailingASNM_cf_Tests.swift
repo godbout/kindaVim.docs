@@ -10,7 +10,7 @@ class FailingASNM_cf_Tests: FailingAS_BaseTests {
         
         kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .eight))
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .c))
-        kindaVimEngine.handle(keyCombination: KeyCombination(key: .f))
+        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .f))
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .k))
     }
     

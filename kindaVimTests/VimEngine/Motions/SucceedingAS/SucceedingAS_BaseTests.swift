@@ -13,6 +13,7 @@ class SucceedingAS_BaseTests: XCTestCase {
     override func setUp() {
         super.setUp()
         
+        kindaVimEngine.accessibilityStrategy = AccessibilityStrategySucceedingMock()
         kindaVimEngine.asNormalMode = asNormalModeMock
         kindaVimEngine.asVisualMode = asVisualModeMock
     }
