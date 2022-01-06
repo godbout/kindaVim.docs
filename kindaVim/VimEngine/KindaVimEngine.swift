@@ -306,12 +306,12 @@ class KindaVimEngine {
         case (.textElement, .keyMapping):
             post(ksNormalMode.h())
         case (.textElement, _):
-            ()
-//            if let element = asNormalMode.h(on: focusedTextElement) {
-//                _ = push(element: element)
-//            } else {
-//                post(ksNormalMode.h())
-//            }
+            if let currentElement = focusedTextElement {
+                let newElement = asNormalMode.h(on: currentElement)
+                push(element: newElement)
+            } else {
+                post(ksNormalMode.h())
+            }
         default:
             ()
         }
