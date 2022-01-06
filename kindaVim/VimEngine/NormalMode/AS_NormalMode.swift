@@ -481,9 +481,6 @@ extension KindaVimEngine {
             } else {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
-        // TODO: only the bipped has been managed here. we still need to handle the
-            // copy and the YLS
-        // no tests have been made for those as we will have to change this soon
         case [.c, .i, .leftBrace]:
             if let element = asNormalMode.ciLeftBrace(on: focusedTextElement, &state) {
                 push(element: element)
