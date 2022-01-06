@@ -410,6 +410,13 @@ extension KindaVimEngine {
             } else {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
+        case [.c, .dollarSign]:
+            if let element = asNormalMode.cDollarSign(on: focusedTextElement, &state) {
+                push(element: element)
+                enterInsertMode()
+            } else {
+                parseOperatorCommandForNormalModeUsingKeyboardStrategy()
+            }
         case [.c, .E]:
             if let element = asNormalMode.cE(times: count, on: focusedTextElement, &state) {
                 push(element: element)
@@ -426,7 +433,7 @@ extension KindaVimEngine {
             }
         case [.c, .F]:
             ()
-        case [.c, .f]:
+        
             ()
         case [.c, .G]:
             if let element = asNormalMode.cG(on: focusedTextElement, &state) {
@@ -614,6 +621,13 @@ extension KindaVimEngine {
                 push(element: element)
                 state.lastYankStyle = .linewise
                 enterNormalMode()
+            } else {
+                parseOperatorCommandForNormalModeUsingKeyboardStrategy()
+            }
+        case [.d, .dollarSign]:
+            if let element = asNormalMode.dDollarSign(on: focusedTextElement, &state) {
+                push(element: element)
+                enterInsertMode()
             } else {
                 parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             }
