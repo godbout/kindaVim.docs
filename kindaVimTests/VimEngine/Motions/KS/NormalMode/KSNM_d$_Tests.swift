@@ -16,18 +16,18 @@ class KS_dDollarSign_Tests: KSNM_BaseTests {
 
 extension KS_dDollarSign_Tests {
     
-    func test_that_it_calls_the_correct_function_for_TextElements_on_KS() {
-        kindaVimEngine.axEngine = AXEngineTextElementMock()
-        applyKeyCombinationsBeingTested()
-
-        XCTAssertEqual(ksNormalModeMock.functionCalled, "dDollarSignForTextElement(_:)")
-    }
-    
     func test_that_it_calls_the_correct_function_for_NonTextElements_on_KS() {
         kindaVimEngine.axEngine = AXEngineNonTextElementMock()
         applyKeyCombinationsBeingTested()
 
         XCTAssertEqual(ksNormalModeMock.functionCalled, "dDollarSignForNonTextElement()")
+    }
+    
+    func test_that_it_calls_the_correct_function_for_TextElements_on_KS() {
+        kindaVimEngine.axEngine = AXEngineTextElementMock()
+        applyKeyCombinationsBeingTested()
+
+        XCTAssertEqual(ksNormalModeMock.functionCalled, "dDollarSignForTextElement(_:)")
     }
     
     func test_that_it_stays_in_NormalMode() {

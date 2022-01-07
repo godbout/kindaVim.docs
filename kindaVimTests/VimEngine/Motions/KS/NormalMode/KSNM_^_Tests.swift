@@ -3,7 +3,7 @@ import KeyCombination
 import XCTest
 
 
-class EnforcingKS_caret_Tests: KSNM_BaseTests {
+class KSNM_caret_Tests: KSNM_BaseTests {
 
     private func applyKeyCombinationsBeingTested() {
         kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .eight), appMode: .keyMapping)
@@ -13,20 +13,20 @@ class EnforcingKS_caret_Tests: KSNM_BaseTests {
 }
 
 
-extension EnforcingKS_caret_Tests {
-    
-    func test_that_it_calls_the_correct_function_for_TextElements_on_KS() {
-        kindaVimEngine.axEngine = AXEngineTextElementMock()
-        applyKeyCombinationsBeingTested()
-
-        XCTAssertEqual(ksNormalModeMock.functionCalled, "caretForTextElement()")
-    }
+extension KSNM_caret_Tests {
     
     func test_that_it_calls_the_correct_function_for_NonTextElements_on_KS() {
         kindaVimEngine.axEngine = AXEngineNonTextElementMock()
         applyKeyCombinationsBeingTested()
 
         XCTAssertEqual(ksNormalModeMock.functionCalled, "caretForNonTextElement()")
+    }
+    
+    func test_that_it_calls_the_correct_function_for_TextElements_on_KS() {
+        kindaVimEngine.axEngine = AXEngineTextElementMock()
+        applyKeyCombinationsBeingTested()
+
+        XCTAssertEqual(ksNormalModeMock.functionCalled, "caretForTextElement()")
     }
     
     func test_that_it_keeps_Vim_in_normal_mode() {

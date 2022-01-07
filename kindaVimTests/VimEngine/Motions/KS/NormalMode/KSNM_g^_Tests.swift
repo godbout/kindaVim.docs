@@ -16,18 +16,18 @@ class EnforcingKS_gCaret_Tests: KSNM_BaseTests {
 
 extension EnforcingKS_gCaret_Tests {
     
-    func test_that_it_calls_the_correct_function_for_TextElements_on_KS() {
-        kindaVimEngine.axEngine = AXEngineTextElementMock()
-        applyKeyCombinationsBeingTested()
-
-        XCTAssertEqual(ksNormalModeMock.functionCalled, "gCaretForTextElement()")
-    }
-    
     func test_that_it_calls_the_correct_function_for_NonTextElements_on_KS() {
         kindaVimEngine.axEngine = AXEngineNonTextElementMock()
         applyKeyCombinationsBeingTested()
 
         XCTAssertEqual(ksNormalModeMock.functionCalled, "gCaretForNonTextElement()")
+    }
+    
+    func test_that_it_calls_the_correct_function_for_TextElements_on_KS() {
+        kindaVimEngine.axEngine = AXEngineTextElementMock()
+        applyKeyCombinationsBeingTested()
+
+        XCTAssertEqual(ksNormalModeMock.functionCalled, "gCaretForTextElement()")
     }
     
     func test_that_it_keeps_Vim_in_normal_mode() {

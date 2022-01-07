@@ -3,7 +3,7 @@ import KeyCombination
 import XCTest
 
 
-class EnforcingKS_cG_Tests: KSNM_BaseTests {
+class KSNM_cG_Tests: KSNM_BaseTests {
 
     private func applyKeyCombinationsBeingTested() {
         kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .eight), appMode: .keyMapping)
@@ -14,7 +14,7 @@ class EnforcingKS_cG_Tests: KSNM_BaseTests {
 }
 
 
-extension EnforcingKS_cG_Tests {
+extension KSNM_cG_Tests {
     
     func test_that_it_calls_the_correct_function_for_TextElements_on_KS() {
         kindaVimEngine.axEngine = AXEngineTextElementMock()
@@ -23,7 +23,6 @@ extension EnforcingKS_cG_Tests {
         XCTAssertEqual(ksNormalModeMock.functionCalled, "cGForTextElement(_:)")
     }
     
-    // TODO: put NTE above TE
     func test_that_it_calls_the_correct_function_for_NonTextElements_on_KS() {
         kindaVimEngine.axEngine = AXEngineNonTextElementMock()
         applyKeyCombinationsBeingTested()

@@ -16,18 +16,18 @@ class EnforcingKS_r_Tests: KSNM_BaseTests {
 
 extension EnforcingKS_r_Tests {
 
-    func test_that_the_move_calls_the_correct_function_for_TextElements_on_KS() {
-        kindaVimEngine.axEngine = AXEngineTextElementMock()
-        applyKeyCombinationsBeingTested()
-
-        XCTAssertEqual(ksNormalModeMock.functionCalled, "rForTextElement(with:)")
-    }
-    
     func test_that_the_move_calls_the_correct_function_for_NonTextElements_on_KS() {
         kindaVimEngine.axEngine = AXEngineNonTextElementMock()
         applyKeyCombinationsBeingTested()
 
         XCTAssertEqual(ksNormalModeMock.functionCalled, "rForNonTextElement(with:)")
+    }
+    
+    func test_that_the_move_calls_the_correct_function_for_TextElements_on_KS() {
+        kindaVimEngine.axEngine = AXEngineTextElementMock()
+        applyKeyCombinationsBeingTested()
+
+        XCTAssertEqual(ksNormalModeMock.functionCalled, "rForTextElement(with:)")
     }
     
     func test_that_dj_keeps_Vim_in_normal_mode() {
