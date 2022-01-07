@@ -3,19 +3,19 @@ import KeyCombination
 import XCTest
 
 
-class EnforcingKSVM_F__Tests: KSVM_BaseTests {
+class KSVM_F__Tests: KSVM_BaseTests {
     
     private func applyKeyCombinationsBeingTested() {
-        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .eight), appMode: .keyMapping)
-        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .F), appMode: .keyMapping)
-        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .O), appMode: .keyMapping)
+        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .eight))
+        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .F))
+        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .O))
     }
 
 }
 
 
 // VisualStyle Characterwise
-extension EnforcingKSVM_F__Tests {
+extension KSVM_F__Tests {
 
     func test_that_it_does_not_call_any_KS_function_because_this_move_is_not_doable_with_KS() {
         kindaVimEngine.visualStyle = .characterwise
@@ -42,7 +42,7 @@ extension EnforcingKSVM_F__Tests {
 
 
 // VisualStyle Linewise
-extension EnforcingKSVM_F__Tests {
+extension KSVM_F__Tests {
 
     func test_that_it_does_not_call_any_function_on_KS_because_this_move_does_not_exist_for_VisualStyle_Linewise() {
         kindaVimEngine.visualStyle = .linewise

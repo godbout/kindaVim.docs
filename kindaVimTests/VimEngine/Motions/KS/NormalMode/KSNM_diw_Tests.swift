@@ -3,21 +3,21 @@ import KeyCombination
 import XCTest
 
 
-class EnforcingKS_diw_Tests: KSNM_BaseTests {
+class KSNM_diw_Tests: KSNM_BaseTests {
 
     override func setUp() {
         super.setUp()
 
-        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .eight), appMode: .keyMapping)
-        kindaVimEngine.handle(keyCombination: KeyCombination(key: .d), appMode: .keyMapping)
-        kindaVimEngine.handle(keyCombination: KeyCombination(key: .i), appMode: .keyMapping)
-        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .w), appMode: .keyMapping)
+        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .eight))
+        kindaVimEngine.handle(keyCombination: KeyCombination(key: .d))
+        kindaVimEngine.handle(keyCombination: KeyCombination(key: .i))
+        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .w))
     }
 
 }
 
 
-extension EnforcingKS_diw_Tests {
+extension KSNM_diw_Tests {
     
     func test_that_it_does_not_call_any_KS_function_because_this_move_is_not_doable_with_KS() {
         XCTAssertEqual(ksNormalModeMock.functionCalled, "")

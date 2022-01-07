@@ -4,17 +4,17 @@ import XCTest
 
 
 // see AS VM for blah blah on why no .eight here
-class EnforcingKSVM_0_Tests: KSVM_BaseTests {
+class KSVM_0_Tests: KSVM_BaseTests {
     
     private func applyKeyCombinationsBeingTested() {
-        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .zero), appMode: .keyMapping)
+        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .zero))
     }
 
 }
 
 
 // VisualStyle Characterwise
-extension EnforcingKSVM_0_Tests {
+extension KSVM_0_Tests {
 
     func test_that_it_calls_the_correct_function_for_NonTextElements_on_KS_when_in_VisualStyle_Characterwise() {
         kindaVimEngine.axEngine = AXEngineNonTextElementMock()
@@ -50,7 +50,7 @@ extension EnforcingKSVM_0_Tests {
 
 
 // VisualStyle Linewise
-extension EnforcingKSVM_0_Tests {
+extension KSVM_0_Tests {
 
     func test_that_it_does_not_call_any_function_on_KS_because_this_move_does_not_exist_for_VisualStyle_Linewise() {
         kindaVimEngine.visualStyle = .linewise

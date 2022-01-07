@@ -3,19 +3,19 @@ import KeyCombination
 import XCTest
 
 
-class EnforcingKS_control_f_Tests: KSNM_BaseTests {
+class KSNM_control_f_Tests: KSNM_BaseTests {
 
     override func setUp() {
         super.setUp()
 
-        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .eight), appMode: .keyMapping)
-        kindaVimEngine.handle(keyCombination: KeyCombination(key: .f, control: true), appMode: .keyMapping)
+        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .eight))
+        kindaVimEngine.handle(keyCombination: KeyCombination(key: .f, control: true))
     }
 
 }
 
 
-extension EnforcingKS_control_f_Tests {
+extension KSNM_control_f_Tests {
     
     func test_that_control_d_calls_the_controlD_function_on_keyboard_strategy() {
         XCTAssertEqual(ksNormalModeMock.functionCalled, "controlF()")

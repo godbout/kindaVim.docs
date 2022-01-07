@@ -6,8 +6,8 @@ import XCTest
 class KSNM___Tests: KSNM_BaseTests {
 
     private func applyKeyCombinationsBeingTested() {
-        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .eight), appMode: .keyMapping)
-        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .underscore), appMode: .keyMapping)
+        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .eight))
+        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .underscore))
     }
 
 }

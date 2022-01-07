@@ -3,19 +3,19 @@ import KeyCombination
 import XCTest
 
 
-class EnforcingASNM_ciBacktickQuote_Tests: KSNM_BaseTests {
+class KSNM_ciBacktickQuote_Tests: KSNM_BaseTests {
     
     private func applyKeyCombinationsBeingTested() {
         kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .eight))
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .c))
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .i))
-        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .backtick), appMode: .keyMapping)
+        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .backtick))
     }
     
 }
 
 
-extension EnforcingASNM_ciBacktickQuote_Tests {
+extension KSNM_ciBacktickQuote_Tests {
     
     func test_that_it_does_not_calls_any_KS_function_because_this_move_is_not_implemented() {
         kindaVimEngine.state.lastYankStyle = .linewise

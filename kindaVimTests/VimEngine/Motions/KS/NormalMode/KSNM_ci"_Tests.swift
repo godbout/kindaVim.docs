@@ -3,19 +3,19 @@ import KeyCombination
 import XCTest
 
 
-class EnforcingASNM_ciDoubleQuote_Tests: KSNM_BaseTests {
+class KSNM_ciDoubleQuote_Tests: KSNM_BaseTests {
     
     private func applyKeyCombinationsBeingTested() {
         kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .eight))
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .c))
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .i))
-        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .doubleQuote), appMode: .keyMapping)
+        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .doubleQuote))
     }
     
 }
 
 
-extension EnforcingASNM_ciDoubleQuote_Tests {
+extension KSNM_ciDoubleQuote_Tests {
     
     func test_that_it_does_not_calls_any_KS_function_because_this_move_is_not_implemented() {
         kindaVimEngine.state.lastYankStyle = .linewise

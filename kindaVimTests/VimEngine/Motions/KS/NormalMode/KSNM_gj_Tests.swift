@@ -3,20 +3,20 @@ import KeyCombination
 import XCTest
 
 
-class EnforcingKS_gj_Tests: KSNM_BaseTests {
+class KSNM_gj_Tests: KSNM_BaseTests {
 
     override func setUp() {
         super.setUp()
 
-        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .eight), appMode: .keyMapping)
-        kindaVimEngine.handle(keyCombination: KeyCombination(key: .g), appMode: .keyMapping)
-        kindaVimEngine.handle(keyCombination: KeyCombination(key: .j), appMode: .keyMapping)
+        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .eight))
+        kindaVimEngine.handle(keyCombination: KeyCombination(key: .g))
+        kindaVimEngine.handle(keyCombination: KeyCombination(key: .j))
     }
 
 }
 
 
-extension EnforcingKS_gj_Tests {
+extension KSNM_gj_Tests {
     
     func test_that_it_calls_the_correct_function_on_KS() {
         XCTAssertEqual(ksNormalModeMock.functionCalled, "gj()")

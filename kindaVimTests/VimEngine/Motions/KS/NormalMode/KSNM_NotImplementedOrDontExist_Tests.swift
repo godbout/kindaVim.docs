@@ -3,7 +3,7 @@ import KeyCombination
 import XCTest
 
 
-class EnforcingKS_NotImplementedOrDontExist_Tests: KSNM_BaseTests {}
+class KSNM_NotImplementedOrDontExist_Tests: KSNM_BaseTests {}
 
 
 // this is for single key combination (not operators)
@@ -11,7 +11,7 @@ class EnforcingKS_NotImplementedOrDontExist_Tests: KSNM_BaseTests {}
 // this is not the case for operators as operators as arrays of Vim Keys
 // so the list below is non exhaustive but enough to test
 // for the operators (more more below), the list has to be exhaustive
-extension EnforcingKS_NotImplementedOrDontExist_Tests {
+extension KSNM_NotImplementedOrDontExist_Tests {
     
     func test_that_key_combinations_that_do_not_exist_do_not_call_any_function_on_keyboard_strategy() {
         let optionA = KeyCombination(key: .a, option: true)
@@ -55,7 +55,7 @@ extension EnforcingKS_NotImplementedOrDontExist_Tests {
 // this is harder to test and to make sure all operators command would be caught
 // we would have to test every single one of them
 // currently only testing the most common ones
-extension EnforcingKS_NotImplementedOrDontExist_Tests {
+extension KSNM_NotImplementedOrDontExist_Tests {
     
     func test_that_operators_that_do_not_exist_do_not_call_any_function_on_keyboard_strategy() {
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .c))

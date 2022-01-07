@@ -3,19 +3,19 @@ import KeyCombination
 import XCTest
 
 
-class EnforcingKS_control_u_Tests: KSNM_BaseTests {
+class KSNM_control_u_Tests: KSNM_BaseTests {
 
     override func setUp() {
         super.setUp()
 
-        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .eight), appMode: .keyMapping)
-        kindaVimEngine.handle(keyCombination: KeyCombination(key: .u, control: true), appMode: .keyMapping)
+        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .eight))
+        kindaVimEngine.handle(keyCombination: KeyCombination(key: .u, control: true))
     }
 
 }
 
 
-extension EnforcingKS_control_u_Tests {
+extension KSNM_control_u_Tests {
     
     func test_that_control_u_calls_the_controlU_function_on_keyboard_strategy() {
         XCTAssertEqual(ksNormalModeMock.functionCalled, "controlU()")

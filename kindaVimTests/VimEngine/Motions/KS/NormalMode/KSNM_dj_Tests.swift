@@ -3,18 +3,18 @@ import KeyCombination
 import XCTest
 
 
-class EnforcingKS_dj_Tests: KSNM_BaseTests {
+class KSNM_dj_Tests: KSNM_BaseTests {
 
     private func applyKeyCombinationsBeingTested() {
-        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .eight), appMode: .keyMapping)
-        kindaVimEngine.handle(keyCombination: KeyCombination(key: .d), appMode: .keyMapping)
-        kindaVimEngine.handle(keyCombination: KeyCombination(key: .j), appMode: .keyMapping)
+        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .eight))
+        kindaVimEngine.handle(keyCombination: KeyCombination(key: .d))
+        kindaVimEngine.handle(keyCombination: KeyCombination(key: .j))
     }
 
 }
 
 
-extension EnforcingKS_dj_Tests {
+extension KSNM_dj_Tests {
     
     func test_that_the_move_calls_the_correct_function_for_NonTextElements_on_KS() {
         kindaVimEngine.axEngine = AXEngineNonTextElementMock()

@@ -3,17 +3,17 @@ import KeyCombination
 import XCTest
 
 
-class EnforcingASVM_tilde_Tests: KSVM_BaseTests {
+class KSVM_tilde_Tests: KSVM_BaseTests {
     
     private func applyKeyCombinationsBeingTested() {
         kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .eight))
-        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .tilde), appMode: .keyMapping)
+        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .tilde))
     }
 
 }
 
 
-extension EnforcingASVM_tilde_Tests {
+extension KSVM_tilde_Tests {
     
     func test_that_it_does_not_call_any_KS_function_because_this_move_is_not_doable_with_KS() {
         applyKeyCombinationsBeingTested()

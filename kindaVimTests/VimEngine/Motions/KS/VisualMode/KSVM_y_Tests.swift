@@ -3,18 +3,18 @@ import KeyCombination
 import XCTest
 
 
-class EnforcingKSVM_y_Tests: KSVM_BaseTests {
+class KSVM_y_Tests: KSVM_BaseTests {
     
     private func applyKeyCombinationsBeingTested() {
-        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .eight), appMode: .keyMapping)
-        kindaVimEngine.handle(keyCombination: KeyCombination(key: .y), appMode: .keyMapping)
+        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .eight))
+        kindaVimEngine.handle(keyCombination: KeyCombination(key: .y))
     }
 
 }
 
 
 // VisualStyle Characterwise
-extension EnforcingKSVM_y_Tests {
+extension KSVM_y_Tests {
 
     func test_that_it_calls_the_correct_function_for_NonTextElements_on_KS_when_in_VisualStyle_Characterwise() {
         kindaVimEngine.axEngine = AXEngineNonTextElementMock()
@@ -50,7 +50,7 @@ extension EnforcingKSVM_y_Tests {
 
 
 // VisualStyle Linewise
-extension EnforcingKSVM_y_Tests {
+extension KSVM_y_Tests {
 
     func test_that_it_calls_the_correct_function_for_NonTextElements_on_KS_when_in_VisualStyle_Linewise() {
         kindaVimEngine.axEngine = AXEngineNonTextElementMock()

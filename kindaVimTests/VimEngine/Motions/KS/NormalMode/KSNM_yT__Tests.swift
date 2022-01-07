@@ -3,19 +3,19 @@ import KeyCombination
 import XCTest
 
 
-class EnforcingASNM_yT__Tests: KSNM_BaseTests {
+class KSNM_yT__Tests: KSNM_BaseTests {
     
     private func applyKeyCombinationsBeingTested() {
         kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .eight))    
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .y))
         kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .T))
-        kindaVimEngine.handle(keyCombination: KeyCombination(key: .equal), appMode: .keyMapping)
+        kindaVimEngine.handle(keyCombination: KeyCombination(key: .equal))
     }
     
 }
 
 
-extension EnforcingASNM_yT__Tests {
+extension KSNM_yT__Tests {
     
     func test_that_it_does_not_calls_any_KS_function_because_this_move_is_not_implemented() {
         applyKeyCombinationsBeingTested()

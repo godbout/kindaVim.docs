@@ -3,19 +3,19 @@ import KeyCombination
 import XCTest
 
 
-class EnforcingKS_l_Tests: KSNM_BaseTests {
+class KSNM_l_Tests: KSNM_BaseTests {
 
     override func setUp() {
         super.setUp()
         
-        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .eight), appMode: .keyMapping)
-        kindaVimEngine.handle(keyCombination: KeyCombination(key: .l), appMode: .keyMapping)
+        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .eight))
+        kindaVimEngine.handle(keyCombination: KeyCombination(key: .l))
     }
 
 }
 
 
-extension EnforcingKS_l_Tests {
+extension KSNM_l_Tests {
     
     func test_that_l_calls_the_l_function_on_keyboard_strategy() {
         XCTAssertEqual(ksNormalModeMock.functionCalled, "l(times:)")

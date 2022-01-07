@@ -3,19 +3,19 @@ import KeyCombination
 import XCTest
 
 
-class EnforcingKS_j_Tests: KSNM_BaseTests {
+class KSNM_j_Tests: KSNM_BaseTests {
 
     override func setUp() {
         super.setUp()
 
-        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .eight), appMode: .keyMapping)
-        kindaVimEngine.handle(keyCombination: KeyCombination(key: .j), appMode: .keyMapping)
+        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .eight))
+        kindaVimEngine.handle(keyCombination: KeyCombination(key: .j))
     }
 
 }
 
 
-extension EnforcingKS_j_Tests {
+extension KSNM_j_Tests {
     
     func test_that_it_calls_the_correct_function_on_KS() {
         XCTAssertEqual(ksNormalModeMock.functionCalled, "j()")

@@ -3,7 +3,7 @@ import KeyCombination
 import XCTest
 
 
-class KS_dDollarSign_Tests: KSNM_BaseTests {
+class KSNM_dDollarSign_Tests: KSNM_BaseTests {
     
     private func applyKeyCombinationsBeingTested() {
         kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .eight))
@@ -14,7 +14,7 @@ class KS_dDollarSign_Tests: KSNM_BaseTests {
 }
 
 
-extension KS_dDollarSign_Tests {
+extension KSNM_dDollarSign_Tests {
     
     func test_that_it_calls_the_correct_function_for_NonTextElements_on_KS() {
         kindaVimEngine.axEngine = AXEngineNonTextElementMock()

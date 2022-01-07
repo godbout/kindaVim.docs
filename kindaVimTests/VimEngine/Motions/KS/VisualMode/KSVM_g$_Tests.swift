@@ -3,19 +3,19 @@ import KeyCombination
 import XCTest
 
 
-class EnforcingKSVM_g$_Tests: KSVM_BaseTests {
+class KSVM_g$_Tests: KSVM_BaseTests {
     
     private func applyKeyCombinationsBeingTested() {
-        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .eight), appMode: .keyMapping)
-        kindaVimEngine.handle(keyCombination: KeyCombination(key: .g), appMode: .keyMapping)
-        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .dollarSign), appMode: .keyMapping)
+        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .eight))
+        kindaVimEngine.handle(keyCombination: KeyCombination(key: .g))
+        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .dollarSign))
     }
 
 }
 
 
 // VisualStyle Characterwise
-extension EnforcingKSVM_g$_Tests {
+extension KSVM_g$_Tests {
 
     func test_that_it_calls_the_correct_function_for_NonTextElements_on_KS_when_in_VisualStyle_Characterwise() {
         kindaVimEngine.axEngine = AXEngineNonTextElementMock()
@@ -51,7 +51,7 @@ extension EnforcingKSVM_g$_Tests {
 
 
 // VisualStyle Linewise
-extension EnforcingKSVM_g$_Tests {
+extension KSVM_g$_Tests {
 
     func test_that_it_does_not_call_any_function_on_KS_because_this_move_does_not_exist_for_VisualStyle_Linewise() {
         kindaVimEngine.visualStyle = .linewise

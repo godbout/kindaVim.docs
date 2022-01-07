@@ -3,20 +3,20 @@ import KeyCombination
 import XCTest
 
 
-class EnforcingKS_dE__Tests: KSNM_BaseTests {
+class KSNM_dE__Tests: KSNM_BaseTests {
 
     override func setUp() {
         super.setUp()
 
-        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .eight), appMode: .keyMapping)
-        kindaVimEngine.handle(keyCombination: KeyCombination(key: .d), appMode: .keyMapping)
-        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .E), appMode: .keyMapping)
+        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .eight))
+        kindaVimEngine.handle(keyCombination: KeyCombination(key: .d))
+        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .E))
     }
 
 }
 
 
-extension EnforcingKS_dE__Tests {
+extension KSNM_dE__Tests {
     
     func test_that_it_does_not_calls_any_KS_function_because_this_move_is_not_implemented() {
         XCTAssertEqual(ksNormalModeMock.functionCalled, "")

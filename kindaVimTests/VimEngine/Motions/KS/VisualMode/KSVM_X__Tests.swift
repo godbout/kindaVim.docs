@@ -3,17 +3,17 @@ import KeyCombination
 import XCTest
 
 
-class EnforcingASVM_X__Tests: KSVM_BaseTests {
+class KSVM_X__Tests: KSVM_BaseTests {
     
     private func applyKeyCombinationsBeingTested() {
         kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .eight))
-        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .X), appMode: .keyMapping)
+        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .X))
     }
 
 }
 
 
-extension EnforcingASVM_X__Tests {
+extension KSVM_X__Tests {
     
     func test_that_it_calls_the_relevant_KS_function_for_TextElements_as_a_fallback() {
         kindaVimEngine.axEngine = AXEngineTextElementMock()
