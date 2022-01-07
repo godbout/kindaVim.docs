@@ -15,7 +15,7 @@ class SucceedingASVM_V__Tests: ASVM_BaseTests {
 // visualStyle characterwise
 extension SucceedingASVM_V__Tests {    
 
-    func test_that_it_calls_the_correct_function_on_ASVM_when_visualStyle_is_characterwise() {
+    func test_that_it_calls_the_correct_function_on_the_AccessibilityStrategy() {
         kindaVimEngine.state.visualModeStyle = .characterwise
         applyKeyCombinationsBeingTested()
         

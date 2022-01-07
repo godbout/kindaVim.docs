@@ -7,16 +7,15 @@ import VimEngineState
 class AccessibilityStrategyVisualModeMock: AccessibilityStrategyVisualModeProtocol {
     
     var functionCalled = ""
-    var pgRPassed = false
     
     
-    func BForVisualStyleCharacterwise(on element: AccessibilityTextElement) -> AccessibilityTextElement {
+    func B(on element: AccessibilityTextElement, _ vimEngineState: VimEngineState) -> AccessibilityTextElement {
         functionCalled = #function
         
         return element
     }
     
-    func bForVisualStyleCharacterwise(on element: AccessibilityTextElement) -> AccessibilityTextElement {
+    func b(on element: AccessibilityTextElement, _ vimEngineState: VimEngineState) -> AccessibilityTextElement {
         functionCalled = #function
         
         return element
@@ -34,7 +33,7 @@ class AccessibilityStrategyVisualModeMock: AccessibilityStrategyVisualModeProtoc
         return element
     }
     
-    func caretForVisualStyleCharacterwise(on element: AccessibilityTextElement) -> AccessibilityTextElement {
+    func caret(on element: AccessibilityTextElement, _ vimEngineState: VimEngineState) -> AccessibilityTextElement {
         functionCalled = #function
         
         return element
@@ -52,19 +51,19 @@ class AccessibilityStrategyVisualModeMock: AccessibilityStrategyVisualModeProtoc
         return element
     }
     
-    func dollarSignForVisualStyleCharacterwise(on element: AccessibilityTextElement) -> AccessibilityTextElement {
+    func dollarSign(on element: AccessibilityTextElement, _ vimEngineState: VimEngineState) -> AccessibilityTextElement {
         functionCalled = #function
         
         return element
     }
     
-    func EForVisualStyleCharacterwise(on element: AccessibilityTextElement) -> AccessibilityTextElement {
+    func E(on element: AccessibilityTextElement, _ vimEngineState: VimEngineState) -> AccessibilityTextElement {
         functionCalled = #function
         
         return element
     }
     
-    func eForVisualStyleCharacterwise(on element: AccessibilityTextElement) -> AccessibilityTextElement {
+    func e(on element: AccessibilityTextElement, _ vimEngineState: VimEngineState) -> AccessibilityTextElement {
         functionCalled = #function
         
         return element
@@ -76,145 +75,109 @@ class AccessibilityStrategyVisualModeMock: AccessibilityStrategyVisualModeProtoc
         return element
     }
     
-    func FForVisualStyleCharacterwise(times count: Int?, to character: Character, on element: AccessibilityTextElement) -> AccessibilityTextElement {
+    func F(times count: Int?, to character: Character, on element: AccessibilityTextElement, _ vimEngineState: VimEngineState) -> AccessibilityTextElement {
         functionCalled = #function
         
         return element
     }
     
-    func fForVisualStyleCharacterwise(times count: Int?, to character: Character, on element: AccessibilityTextElement) -> AccessibilityTextElement {
+    func f(times count: Int?, to character: Character, on element: AccessibilityTextElement, _ vimEngineState: VimEngineState) -> AccessibilityTextElement {
         functionCalled = #function
         
         return element
     }
     
-    func gCaretForVisualStyleCharacterwise(on element: AccessibilityTextElement) -> AccessibilityTextElement {
+    func gCaret(on element: AccessibilityTextElement, _ vimEngineState: VimEngineState) -> AccessibilityTextElement {
         functionCalled = #function
         
         return element
     }
     
-    func gDollarSignForVisualStyleCharacterwise(on element: AccessibilityTextElement) -> AccessibilityTextElement {
+    func gDollarSign(on element: AccessibilityTextElement, _ vimEngineState: VimEngineState) -> AccessibilityTextElement {
         functionCalled = #function
         
         return element
     }
     
-    func ggForVisualStyleCharacterwise(on element: AccessibilityTextElement) -> AccessibilityTextElement {
+    func gg(on element: AccessibilityTextElement, _ vimEngineState: VimEngineState) -> AccessibilityTextElement {
         functionCalled = #function
         
         return element
     }
     
-    func ggForVisualStyleLinewise(on element: AccessibilityTextElement) -> AccessibilityTextElement {
+    func gI(on element: AccessibilityTextElement, _ vimEngineState: VimEngineState) -> AccessibilityTextElement {
         functionCalled = #function
         
         return element
     }
     
-    func gIForVisualStyleCharacterwise(on element: AccessibilityTextElement) -> AccessibilityTextElement {
+    func gj(on element: AccessibilityTextElement, _ vimEngineState: VimEngineState) -> AccessibilityTextElement {
         functionCalled = #function
         
         return element
     }
     
-    func gjForVisualStyleCharacterwise(on element: AccessibilityTextElement) -> AccessibilityTextElement {
+    func gk(on element: AccessibilityTextElement, _ vimEngineState: VimEngineState) -> AccessibilityTextElement {
         functionCalled = #function
         
         return element
     }
     
-    func gjForVisualStyleLinewise(on element: AccessibilityTextElement) -> AccessibilityTextElement {
+    func gZero(on element: AccessibilityTextElement, _ vimEngineState: VimEngineState) -> AccessibilityTextElement {
         functionCalled = #function
         
         return element
     }
     
-    func gkForVisualStyleCharacterwise(on element: AccessibilityTextElement) -> AccessibilityTextElement {
+    func G(on element: AccessibilityTextElement, _ vimEngineState: VimEngineState) -> AccessibilityTextElement {
         functionCalled = #function
         
         return element
     }
     
-    func gkForVisualStyleLinewise(on element: AccessibilityTextElement) -> AccessibilityTextElement {
+    func gE(on element: AccessibilityTextElement, _ vimEngineState: VimEngineState) -> AccessibilityTextElement {
         functionCalled = #function
         
         return element
     }
     
-    func gZeroForVisualStyleCharacterwise(on element: AccessibilityTextElement) -> AccessibilityTextElement {
+    func ge(on element: AccessibilityTextElement, _ vimEngineState: VimEngineState) -> AccessibilityTextElement {
         functionCalled = #function
         
         return element
     }
     
-    func GForVisualStyleCharacterwise(on element: AccessibilityTextElement) -> AccessibilityTextElement {
+    func h(on element: AccessibilityTextElement, _ vimEngineState: VimEngineState) -> AccessibilityTextElement {
         functionCalled = #function
         
         return element
     }
     
-    func GForVisualStyleLinewise(on element: AccessibilityTextElement) -> AccessibilityTextElement {
+    func iW(on element: AccessibilityTextElement, _ vimEngineState: VimEngineState) -> AccessibilityTextElement {
         functionCalled = #function
         
         return element
     }
     
-    func gEForVisualStyleCharacterwise(on element: AccessibilityTextElement) -> AccessibilityTextElement {
+    func iw(on element: AccessibilityTextElement, _ vimEngineState: VimEngineState) -> AccessibilityTextElement {
         functionCalled = #function
         
         return element
     }
     
-    func geForVisualStyleCharacterwise(on element: AccessibilityTextElement) -> AccessibilityTextElement {
+    func j(on element: AccessibilityTextElement, _ vimEngineState: VimEngineState) -> AccessibilityTextElement {
         functionCalled = #function
         
         return element
     }
     
-    func hForVisualStyleCharacterwise(on element: AccessibilityTextElement) -> AccessibilityTextElement {
+    func k(on element: AccessibilityTextElement, _ vimEngineState: VimEngineState) -> AccessibilityTextElement {
         functionCalled = #function
         
         return element
     }
     
-    func iWForVisualStyleCharacterwise(on element: AccessibilityTextElement) -> AccessibilityTextElement {
-        functionCalled = #function
-        
-        return element
-    }
-    
-    func iwForVisualStyleCharacterwise(on element: AccessibilityTextElement) -> AccessibilityTextElement {
-        functionCalled = #function
-        
-        return element
-    }
-    
-    func jForVisualStyleCharacterwise(on element: AccessibilityTextElement) -> AccessibilityTextElement {
-        functionCalled = #function
-        
-        return element
-    }
-    
-    func jForVisualStyleLinewise(on element: AccessibilityTextElement) -> AccessibilityTextElement {
-        functionCalled = #function
-        
-        return element
-    }
-    
-    func kForVisualStyleCharacterwise(on element: AccessibilityTextElement) -> AccessibilityTextElement {
-        functionCalled = #function
-        
-        return element
-    }
-    
-    func kForVisualStyleLinewise(on element: AccessibilityTextElement) -> AccessibilityTextElement {
-        functionCalled = #function
-        
-        return element
-    }
-    
-    func lForVisualStyleCharacterwise(on element: AccessibilityTextElement) -> AccessibilityTextElement {
+    func l(on element: AccessibilityTextElement, _ vimEngineState: VimEngineState) -> AccessibilityTextElement {
         functionCalled = #function
         
         return element
@@ -226,13 +189,13 @@ class AccessibilityStrategyVisualModeMock: AccessibilityStrategyVisualModeProtoc
         return element
     }
     
-    func TForVisualStyleCharacterwise(times count: Int?, to character: Character, on element: AccessibilityTextElement) -> AccessibilityTextElement {
+    func T(times count: Int?, to character: Character, on element: AccessibilityTextElement, _ vimEngineState: VimEngineState) -> AccessibilityTextElement {
         functionCalled = #function
         
         return element
     }
     
-    func tForVisualStyleCharacterwise(times count: Int?, to character: Character, on element: AccessibilityTextElement) -> AccessibilityTextElement {
+    func t(times count: Int?, to character: Character, on element: AccessibilityTextElement, _ vimEngineState: VimEngineState) -> AccessibilityTextElement {
         functionCalled = #function
         
         return element
@@ -244,7 +207,7 @@ class AccessibilityStrategyVisualModeMock: AccessibilityStrategyVisualModeProtoc
         return element
     }
     
-    func underscore(on element: AccessibilityTextElement) -> AccessibilityTextElement {
+    func underscore(on element: AccessibilityTextElement, _ vimEngineState: VimEngineState) -> AccessibilityTextElement {
         functionCalled = #function
         
         return element
@@ -286,13 +249,13 @@ class AccessibilityStrategyVisualModeMock: AccessibilityStrategyVisualModeProtoc
         return element
     }
     
-    func wForVisualStyleCharacterwise(on element: AccessibilityTextElement) -> AccessibilityTextElement {
+    func w(on element: AccessibilityTextElement, _ vimEngineState: VimEngineState) -> AccessibilityTextElement {
         functionCalled = #function
 
         return element
     }
     
-    func WForVisualStyleCharacterwise(on element: AccessibilityTextElement) -> AccessibilityTextElement {
+    func W(on element: AccessibilityTextElement, _ vimEngineState: VimEngineState) -> AccessibilityTextElement {
         functionCalled = #function
 
         return element
@@ -310,25 +273,19 @@ class AccessibilityStrategyVisualModeMock: AccessibilityStrategyVisualModeProtoc
         return element
     }
     
-    func Y(on element: AccessibilityTextElement) -> AccessibilityTextElement {
+    func Y(on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
         functionCalled = #function
         
         return element
     }
     
-    func yForVisualStyleCharacterwise(on element: AccessibilityTextElement) -> AccessibilityTextElement {
+    func y(on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
         functionCalled = #function
         
         return element
     }
     
-    func yForVisualStyleLinewise(on element: AccessibilityTextElement) -> AccessibilityTextElement {
-        functionCalled = #function
-        
-        return element
-    }
-    
-    func zeroForVisualStyleCharacterwise(on element: AccessibilityTextElement) -> AccessibilityTextElement {
+    func zero(on element: AccessibilityTextElement, _ vimEngineState: VimEngineState) -> AccessibilityTextElement {
         functionCalled = #function
         
         return element

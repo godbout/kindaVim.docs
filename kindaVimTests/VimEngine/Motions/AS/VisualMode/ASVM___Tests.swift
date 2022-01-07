@@ -18,7 +18,7 @@ class SucceedingASVM___Tests: ASVM_BaseTests {
 extension SucceedingASVM___Tests {    
     
     func test_that_it_calls_the_correct_function_on_the_AccessibilityStrategy() {
-        XCTAssertEqual(asVisualModeMock.functionCalled, "underscore(on:)")
+        XCTAssertEqual(asVisualModeMock.functionCalled, "underscore(on:_:)")
     }
     
     func test_that_it_keeps_Vim_in_VisualMode() {

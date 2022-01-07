@@ -30,7 +30,7 @@ extension KSVM_E__Tests {
         XCTAssertEqual(kindaVimEngine.currentMode, .visual)
     }
     
-    func test_that_it_resets_the_count_when_VisualStyle_is_Characterwise() {
+    func test_that_it_resets_the_count() {
         kindaVimEngine.state.visualModeStyle = .characterwise
         applyKeyCombinationsBeingTested()
         
