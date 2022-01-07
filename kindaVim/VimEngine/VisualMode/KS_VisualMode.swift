@@ -9,7 +9,7 @@ extension KindaVimEngine {
         case .a:
             enterOperatorPendingForVisualMode(with: keyCombination)
         case .b:
-            switch visualStyle {
+            switch state.visualModeStyle {
             case .characterwise:
                 if focusedElementType == .nonTextElement {
                     post(ksVisualMode.bForNonTextElementWhenInVisualStyleCharacterwise())
@@ -39,10 +39,10 @@ extension KindaVimEngine {
                 post(ksVisualMode.cForNonTextElement())
             }
             
-            state.lastYankStyle = visualStyle == .characterwise ? .characterwise : .linewise
+            state.lastYankStyle = state.visualModeStyle == .characterwise ? .characterwise : .linewise
             enterInsertMode()
         case .caret:
-            switch visualStyle {
+            switch state.visualModeStyle {
             case .characterwise:
                 if focusedElementType == .nonTextElement {
                     post(ksVisualMode.caretForNonTextElementWhenInVisualStyleCharacterwise())
@@ -72,10 +72,10 @@ extension KindaVimEngine {
                 post(ksVisualMode.dForNonTextElement())
             }
             
-            state.lastYankStyle = visualStyle == .characterwise ? .characterwise : .linewise
+            state.lastYankStyle = state.visualModeStyle == .characterwise ? .characterwise : .linewise
             enterNormalMode()
         case .dollarSign:
-            switch visualStyle {
+            switch state.visualModeStyle {
             case .characterwise:
                 if focusedElementType == .nonTextElement {
                     post(ksVisualMode.dollarSignForNonTextElementWhenInVisualStyleCharacterwise())
@@ -88,7 +88,7 @@ extension KindaVimEngine {
                 endCurrentMove()
             }
         case .e:
-            switch visualStyle {
+            switch state.visualModeStyle {
             case .characterwise:
                 if focusedElementType == .nonTextElement {
                     post(ksVisualMode.eForNonTextElementWhenInVisualStyleCharacterwise())
@@ -103,7 +103,7 @@ extension KindaVimEngine {
         case .escape:
             enterInsertMode()
         case .G:
-            switch visualStyle {
+            switch state.visualModeStyle {
             case .characterwise:
                 if focusedElementType == .nonTextElement {
                     post(ksVisualMode.GForNonTextElement())
@@ -124,7 +124,7 @@ extension KindaVimEngine {
         case .g:
             enterOperatorPendingForVisualMode(with: keyCombination)
         case .h:
-            switch visualStyle {
+            switch state.visualModeStyle {
             case .characterwise:
                 post(ksVisualMode.hForVisualStyleCharacterwise())
                 endCurrentMove()
@@ -134,7 +134,7 @@ extension KindaVimEngine {
         case .i:
             enterOperatorPendingForVisualMode(with: keyCombination)
         case .j:
-            switch visualStyle {
+            switch state.visualModeStyle {
             case .characterwise:
                 post(ksVisualMode.jForVisualStyleCharacterwise())
                 endCurrentMove()
@@ -143,7 +143,7 @@ extension KindaVimEngine {
                 endCurrentMove()
             }
         case .k:
-            switch visualStyle {
+            switch state.visualModeStyle {
             case .characterwise:
                 post(ksVisualMode.kForVisualStyleCharacterwise())
                 endCurrentMove()
@@ -152,7 +152,7 @@ extension KindaVimEngine {
                 endCurrentMove()
             }
         case .l:
-            switch visualStyle {
+            switch state.visualModeStyle {
             case .characterwise:
                 post(ksVisualMode.lForVisualStyleCharacterwise())
                 endCurrentMove()
@@ -160,7 +160,7 @@ extension KindaVimEngine {
                 endCurrentMove()
             }
         case .underscore:
-            switch visualStyle {
+            switch state.visualModeStyle {
             case .characterwise:
                 if focusedElementType == .nonTextElement {
                     post(ksVisualMode.underscoreForNonTextElementWhenInVisualStyleCharacterwise())
@@ -173,7 +173,7 @@ extension KindaVimEngine {
                 endCurrentMove()
             }
         case .V:
-            switch visualStyle {
+            switch state.visualModeStyle {
             case .characterwise:
                 if focusedElementType == .nonTextElement {
                     post(ksVisualMode.VForNonTextElement())
@@ -181,7 +181,7 @@ extension KindaVimEngine {
                     post(ksVisualMode.VForTextElementWhenInVisualStyleCharacterwise())
                 }
                                 
-                visualStyle = .linewise
+                state.visualModeStyle = .linewise
                 endCurrentMove()
             case .linewise:
                 if focusedElementType == .nonTextElement {
@@ -193,7 +193,7 @@ extension KindaVimEngine {
                 enterNormalMode()
             }
         case .v:
-            switch visualStyle {
+            switch state.visualModeStyle {
             case .characterwise:
                 if focusedElementType == .nonTextElement {
                     post(ksVisualMode.vForNonTextElement())
@@ -209,11 +209,11 @@ extension KindaVimEngine {
                     post(ksVisualMode.vForTextElementWhenInVisualStyleLinewise())
                 }
                 
-                visualStyle = .characterwise
+                state.visualModeStyle = .characterwise
                 endCurrentMove()
             }
         case .w:    
-            switch visualStyle {
+            switch state.visualModeStyle {
             case .characterwise:
                 if focusedElementType == .nonTextElement {
                     post(ksVisualMode.wForNonTextElementWhenInVisualStyleCharacterwise())
@@ -264,7 +264,7 @@ extension KindaVimEngine {
             
             enterNormalMode()
         case .zero:
-            switch visualStyle {
+            switch state.visualModeStyle {
             case .characterwise:
                 if focusedElementType == .nonTextElement {
                     post(ksVisualMode.zeroForNonTextElementWhenInVisualStyleCharacterwise())
@@ -290,7 +290,7 @@ extension KindaVimEngine {
     func parseOperatorCommandForVisualModeUsingKeyboardStrategy() {
         switch operatorPendingBuffer.map({ $0.vimKey }) {
         case [.g, .caret]:
-            switch visualStyle {
+            switch state.visualModeStyle {
             case .characterwise:
                 if focusedElementType == .nonTextElement {
                     post(ksVisualMode.gCaretForNonTextElementWhenInVisualStyleCharacterwise())
@@ -303,7 +303,7 @@ extension KindaVimEngine {
                 enterVisualMode()
             }
         case [.g, .dollarSign]:
-            switch visualStyle {
+            switch state.visualModeStyle {
             case .characterwise:
                 if focusedElementType == .nonTextElement {
                     post(ksVisualMode.gDollarSignForNonTextElementWhenInVisualStyleCharacterwise())
@@ -316,7 +316,7 @@ extension KindaVimEngine {
                 enterVisualMode()
             }
         case [.g, .e]:
-            switch visualStyle {
+            switch state.visualModeStyle {
             case .characterwise:
                 if focusedElementType == .nonTextElement {
                     post(ksVisualMode.geForNonTextElementWhenInVisualStyleCharacterwise())
@@ -329,7 +329,7 @@ extension KindaVimEngine {
                 enterVisualMode()
             }
         case [.g, .g]:
-            switch visualStyle {
+            switch state.visualModeStyle {
             case .characterwise:
                 if focusedElementType == .nonTextElement {
                     post(ksVisualMode.ggForNonTextElement())
@@ -348,7 +348,7 @@ extension KindaVimEngine {
                 enterVisualMode()
             }
         case [.g, .I]:
-            switch visualStyle {
+            switch state.visualModeStyle {
             case .characterwise:
                 if focusedElementType == .nonTextElement {
                     post(ksVisualMode.gIForNonTextElementWhenInVisualStyleCharacterwise())
@@ -361,7 +361,7 @@ extension KindaVimEngine {
                 enterVisualMode()
             }
         case [.g, .j]:
-            switch visualStyle {
+            switch state.visualModeStyle {
             case .characterwise:
                 post(ksVisualMode.gjForVisualStyleCharacterwise())
                 enterVisualMode()
@@ -370,7 +370,7 @@ extension KindaVimEngine {
                 enterVisualMode()
             }
         case [.g, .k]:
-            switch visualStyle {
+            switch state.visualModeStyle {
             case .characterwise:
                 post(ksVisualMode.gkForVisualStyleCharacterwise())
                 enterVisualMode()
@@ -379,7 +379,7 @@ extension KindaVimEngine {
                 enterVisualMode()
             }
         case [.g, .zero]:
-            switch visualStyle {
+            switch state.visualModeStyle {
             case .characterwise:
                 if focusedElementType == .nonTextElement {
                     post(ksVisualMode.gZeroForNonTextElementWhenInVisualStyleCharacterwise())

@@ -22,9 +22,14 @@ class AccessibilityStrategyVisualModeMock: AccessibilityStrategyVisualModeProtoc
         return element
     }
     
-    func C(on element: AccessibilityTextElement, pgR: Bool) -> AccessibilityTextElement {
+    func C(on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
         functionCalled = #function
-        pgRPassed = pgR
+        
+        return element
+    }
+    
+    func c(on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
+        functionCalled = #function
         
         return element
     }
@@ -35,37 +40,14 @@ class AccessibilityStrategyVisualModeMock: AccessibilityStrategyVisualModeProtoc
         return element
     }
     
-    func cForVisualStyleCharacterwise(on element: AccessibilityTextElement, pgR: Bool) -> AccessibilityTextElement {
+    func D(on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
         functionCalled = #function
-        pgRPassed = pgR
-        
-        return element
-    }
-    
-    func cForVisualStyleLinewise(on element: AccessibilityTextElement, pgR: Bool) -> AccessibilityTextElement {
-        functionCalled = #function
-        pgRPassed = pgR
-        
-        return element
-    }
-    
-    func D(on element: AccessibilityTextElement, pgR: Bool) -> AccessibilityTextElement {
-        functionCalled = #function
-        pgRPassed = pgR
         
         return element
     }    
     
-    func dForVisualStyleCharacterwise(on element: AccessibilityTextElement, pgR: Bool) -> AccessibilityTextElement {
+    func d(on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
         functionCalled = #function
-        pgRPassed = pgR
-        
-        return element
-    }
-    
-    func dForVisualStyleLinewise(on element: AccessibilityTextElement, pgR: Bool) -> AccessibilityTextElement {
-        functionCalled = #function
-        pgRPassed = pgR
         
         return element
     }
@@ -262,7 +244,7 @@ class AccessibilityStrategyVisualModeMock: AccessibilityStrategyVisualModeProtoc
         return element
     }
     
-    func underscoreForVisualStyleCharacterwise(on element: AccessibilityTextElement) -> AccessibilityTextElement {
+    func underscore(on element: AccessibilityTextElement) -> AccessibilityTextElement {
         functionCalled = #function
         
         return element
@@ -316,23 +298,14 @@ class AccessibilityStrategyVisualModeMock: AccessibilityStrategyVisualModeProtoc
         return element
     }
 
-    func X(on element: AccessibilityTextElement, pgR: Bool) -> AccessibilityTextElement {
+    func X(on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
         functionCalled = #function
-        pgRPassed = pgR
         
         return element
     }
     
-    func xForVisualStyleCharacterwise(on element: AccessibilityTextElement, pgR: Bool) -> AccessibilityTextElement {
+    func x(on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
         functionCalled = #function
-        pgRPassed = pgR
-        
-        return element
-    }
-    
-    func xForVisualStyleLinewise(on element: AccessibilityTextElement, pgR: Bool) -> AccessibilityTextElement {
-        functionCalled = #function
-        pgRPassed = pgR
         
         return element
     }

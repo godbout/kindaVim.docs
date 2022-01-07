@@ -17,21 +17,21 @@ class SucceedingASVM_y_Tests: ASVM_BaseTests {
 extension SucceedingASVM_y_Tests {    
     
     func test_that_it_calls_the_correct_function_on_ASVM_when_visualStyle_is_characterwise() {
-        kindaVimEngine.visualStyle = .characterwise
+        kindaVimEngine.state.visualModeStyle = .characterwise
         applyKeyCombinationsBeingTested()
         
         XCTAssertEqual(asVisualModeMock.functionCalled, "yForVisualStyleCharacterwise(on:)")
     }
     
     func test_that_it_switches_Vim_to_NormalMode_when_VisualStyle_is_Characterwise() {
-        kindaVimEngine.visualStyle = .characterwise
+        kindaVimEngine.state.visualModeStyle = .characterwise
         applyKeyCombinationsBeingTested()
         
         XCTAssertEqual(kindaVimEngine.currentMode, .normal)
     }     
         
     func test_that_it_resets_the_count_when_VisualStyle_is_Characterwise() {
-        kindaVimEngine.visualStyle = .characterwise
+        kindaVimEngine.state.visualModeStyle = .characterwise
         applyKeyCombinationsBeingTested()
         
         XCTAssertNil(kindaVimEngine.count)
@@ -44,21 +44,21 @@ extension SucceedingASVM_y_Tests {
 extension SucceedingASVM_y_Tests {
     
     func test_that_it_calls_the_correct_function_on_ASVM_when_visualStyle_is_linewise() {
-        kindaVimEngine.visualStyle = .linewise
+        kindaVimEngine.state.visualModeStyle = .linewise
         applyKeyCombinationsBeingTested()
         
         XCTAssertEqual(asVisualModeMock.functionCalled, "yForVisualStyleLinewise(on:)")
     }
        
     func test_that_it_switches_Vim_to_NormalMode_when_VisualStyle_is_Linewise() {
-        kindaVimEngine.visualStyle = .linewise
+        kindaVimEngine.state.visualModeStyle = .linewise
         applyKeyCombinationsBeingTested()
         
         XCTAssertEqual(kindaVimEngine.currentMode, .normal)
     }     
     
     func test_that_it_resets_the_count_when_VisualStyle_is_Linewise() {
-        kindaVimEngine.visualStyle = .linewise
+        kindaVimEngine.state.visualModeStyle = .linewise
         applyKeyCombinationsBeingTested()
         
         XCTAssertNil(kindaVimEngine.count)

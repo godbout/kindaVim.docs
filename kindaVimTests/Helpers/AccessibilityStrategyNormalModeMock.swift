@@ -7,7 +7,6 @@ import VimEngineState
 class AccessibilityStrategyNormalModeMock: AccessibilityStrategyNormalModeProtocol {
     
     var functionCalled = ""
-    var pgRPassed = false
     
     
     static func test(element: AccessibilityTextElement) -> AccessibilityTextElement {

@@ -4,13 +4,13 @@ import KeyCombination
 // AS Visual Mode
 extension KindaVimEngine {
     
-    func tryHandlingVisualModeUsingAccessibilityStrategyFirst(for keyCombination: KeyCombination, appMode: AppMode) {
+    func tryHandlingVisualModeUsingAccessibilityStrategyFirst(for keyCombination: KeyCombination) {
         if let currentElement = focusedTextElement {
             switch keyCombination.vimKey {
             case .a:
                 enterOperatorPendingForVisualMode(with: keyCombination)
             case .B:
-                switch visualStyle {
+                switch state.visualModeStyle {
                 case .characterwise:
                     let newElement = asVisualMode.BForVisualStyleCharacterwise(on: currentElement)
                     push(element: newElement)
@@ -19,7 +19,7 @@ extension KindaVimEngine {
                     endCurrentMove()
                 }
             case .b:
-                switch visualStyle {
+                switch state.visualModeStyle {
                 case .characterwise:
                     let newElement = asVisualMode.bForVisualStyleCharacterwise(on: currentElement)
                     push(element: newElement)
@@ -28,28 +28,19 @@ extension KindaVimEngine {
                     endCurrentMove()
                 }
             case .C:
-                let newElement = asVisualMode.C(on: currentElement, pgR: appMode == .pgR)
+                // TODO: synonym?
+                let newElement = asVisualMode.C(on: currentElement, &state)
                 push(element: newElement)
-                state.lastYankStyle = .linewise
                 enterInsertMode()
             case .c:
-                // TODO: push visualStyle into VimEngineState? then no need to separate like this. can separate within the AS
+                // TODO: push state.visualModeStyle into VimEngineState? then no need to separate like this. can separate within the AS
                 // itself.
                 // we are able to do that now because we're putting setting the state LYS within the moves themselves.
-                switch visualStyle {
-                case .characterwise:
-                    let newElement = asVisualMode.cForVisualStyleCharacterwise(on: currentElement, pgR: appMode == .pgR)
-                    push(element: newElement)
-                    state.lastYankStyle = .characterwise
-                    enterInsertMode()
-                case .linewise:
-                    let newElement = asVisualMode.cForVisualStyleLinewise(on: currentElement, pgR: appMode == .pgR)
-                    push(element: newElement)
-                    state.lastYankStyle = .linewise
-                    enterInsertMode()
-                }
+                let newElement = asVisualMode.c(on: currentElement, &state)
+                push(element: newElement)
+                enterInsertMode()
             case .caret:
-                switch visualStyle {
+                switch state.visualModeStyle {
                 case .characterwise:
                     let newElement = asVisualMode.caretForVisualStyleCharacterwise(on: currentElement)
                     push(element: newElement)
@@ -58,25 +49,15 @@ extension KindaVimEngine {
                     endCurrentMove()
                 }
             case .D:
-                let newElement = asVisualMode.D(on: currentElement, pgR: appMode == .pgR)
+                let newElement = asVisualMode.D(on: currentElement, &state)
                 push(element: newElement)
-                state.lastYankStyle = .linewise
                 enterNormalMode()
             case .d:
-                switch visualStyle {
-                case .characterwise:
-                    let newElement = asVisualMode.dForVisualStyleCharacterwise(on: currentElement, pgR: appMode == .pgR)
-                    push(element: newElement)
-                    state.lastYankStyle = .characterwise
-                    enterNormalMode()
-                case .linewise:
-                    let newElement = asVisualMode.dForVisualStyleLinewise(on: currentElement, pgR: appMode == .pgR)
-                    push(element: newElement)
-                    state.lastYankStyle = .linewise
-                    enterNormalMode()
-                }
+                let newElement = asVisualMode.d(on: currentElement, &state)
+                push(element: newElement)
+                enterNormalMode()
             case .dollarSign:
-                switch visualStyle {
+                switch state.visualModeStyle {
                 case .characterwise:
                     let newElement = asVisualMode.dollarSignForVisualStyleCharacterwise(on: currentElement)
                     push(element: newElement)
@@ -85,7 +66,7 @@ extension KindaVimEngine {
                     endCurrentMove()
                 }
             case .E:
-                switch visualStyle {
+                switch state.visualModeStyle {
                 case .characterwise:
                     let newElement = asVisualMode.EForVisualStyleCharacterwise(on: currentElement)
                     push(element: newElement)
@@ -94,7 +75,7 @@ extension KindaVimEngine {
                     endCurrentMove()
                 }
             case .e:
-                switch visualStyle {
+                switch state.visualModeStyle {
                 case .characterwise:
                     let newElement = asVisualMode.eForVisualStyleCharacterwise(on: currentElement)
                     push(element: newElement)
@@ -111,7 +92,7 @@ extension KindaVimEngine {
             case .f:
                 enterOperatorPendingForVisualMode(with: keyCombination)
             case .G:
-                switch visualStyle {
+                switch state.visualModeStyle {
                 case .characterwise:
                     let newElement = asVisualMode.GForVisualStyleCharacterwise(on: currentElement)
                     push(element: newElement)
@@ -124,7 +105,7 @@ extension KindaVimEngine {
             case .g:
                 enterOperatorPendingForVisualMode(with: keyCombination)
             case .h:
-                switch visualStyle {
+                switch state.visualModeStyle {
                 case .characterwise:
                     let newElement = asVisualMode.hForVisualStyleCharacterwise(on: currentElement)
                     push(element: newElement)
@@ -135,7 +116,7 @@ extension KindaVimEngine {
             case .i:
                 enterOperatorPendingForVisualMode(with: keyCombination)
             case .j:
-                switch visualStyle {
+                switch state.visualModeStyle {
                 case .characterwise:
                     let newElement = asVisualMode.jForVisualStyleCharacterwise(on: currentElement)
                     push(element: newElement)
@@ -146,7 +127,7 @@ extension KindaVimEngine {
                     endCurrentMove()
                 }
             case .k:
-                switch visualStyle {
+                switch state.visualModeStyle {
                 case .characterwise:
                     let newElement = asVisualMode.kForVisualStyleCharacterwise(on: currentElement)
                     push(element: newElement)
@@ -157,7 +138,7 @@ extension KindaVimEngine {
                     endCurrentMove()
                 }
             case .l:
-                switch visualStyle {
+                switch state.visualModeStyle {
                 case .characterwise:
                     let newElement = asVisualMode.lForVisualStyleCharacterwise(on: currentElement)
                     push(element: newElement)
@@ -178,20 +159,15 @@ extension KindaVimEngine {
                 push(element: newElement)
                 enterNormalMode()
             case .underscore:
-                switch visualStyle {
-                case .characterwise:
-                    let newElement = asVisualMode.underscoreForVisualStyleCharacterwise(on: currentElement)
-                    push(element: newElement)
-                    endCurrentMove()
-                case .linewise:
-                    endCurrentMove()
-                }
+                let newElement = asVisualMode.underscore(on: currentElement)
+                push(element: newElement)
+                endCurrentMove()
             case .V:
-                switch visualStyle {
+                switch state.visualModeStyle {
                 case .characterwise:
                     let newElement = asVisualMode.VForVisualStyleCharacterwise(on: currentElement)
                     push(element: newElement)
-                    visualStyle = .linewise
+                    state.visualModeStyle = .linewise
                     endCurrentMove()
                 case .linewise:
                     let newElement = asVisualMode.VForVisualStyleLinewise(on: currentElement)
@@ -199,7 +175,7 @@ extension KindaVimEngine {
                     enterNormalMode()
                 }
             case .v:
-                switch visualStyle {
+                switch state.visualModeStyle {
                 case .characterwise:
                     let newElement = asVisualMode.vForVisualStyleCharacterwise(on: currentElement)
                     push(element: newElement)
@@ -207,11 +183,11 @@ extension KindaVimEngine {
                 case .linewise:
                     let newElement = asVisualMode.vForVisualStyleLinewise(on: currentElement)
                     push(element: newElement)
-                    visualStyle = .characterwise
+                    state.visualModeStyle = .characterwise
                     endCurrentMove()
                 }
             case .W:
-                switch visualStyle {
+                switch state.visualModeStyle {
                 case .characterwise:
                     let newElement = asVisualMode.WForVisualStyleCharacterwise(on: currentElement)
                     push(element: newElement)
@@ -220,7 +196,7 @@ extension KindaVimEngine {
                     endCurrentMove()
                 }
             case .w:
-                switch visualStyle {
+                switch state.visualModeStyle {
                 case .characterwise:
                     let newElement = asVisualMode.wForVisualStyleCharacterwise(on: currentElement)
                     push(element: newElement)
@@ -229,30 +205,23 @@ extension KindaVimEngine {
                     endCurrentMove()
                 }
             case .X:
-                let newElement = asVisualMode.X(on: currentElement, pgR: appMode == .pgR)
+                // TODO: synonym?
+                let newElement = asVisualMode.X(on: currentElement, &state)
                 push(element: newElement)
                 state.lastYankStyle = .linewise
                 enterNormalMode()
             case .x:
-                switch visualStyle {
-                case .characterwise:
-                    let newElement = asVisualMode.xForVisualStyleCharacterwise(on: currentElement, pgR: appMode == .pgR)
-                    push(element: newElement)
-                    state.lastYankStyle = .characterwise
-                    enterNormalMode()
-                case .linewise:
-                    let newElement = asVisualMode.xForVisualStyleLinewise(on: currentElement, pgR: appMode == .pgR)
-                    push(element: newElement)
-                    state.lastYankStyle = .linewise
-                    enterNormalMode()
-                }
+                let newElement = asVisualMode.x(on: currentElement, &state)
+                push(element: newElement)
+                state.lastYankStyle = .characterwise
+                enterNormalMode()
             case .Y:
                 let newElement = asVisualMode.Y(on: currentElement)
                 push(element: newElement)
                 state.lastYankStyle = .linewise
                 enterNormalMode()
             case .y:
-                switch visualStyle {
+                switch state.visualModeStyle {
                 case .characterwise:
                     let newElement = asVisualMode.yForVisualStyleCharacterwise(on: currentElement)
                     push(element: newElement)
@@ -268,7 +237,7 @@ extension KindaVimEngine {
                 // endCurrentMove shouldn't be needed because we should reach 0 as
                 // a Vim move rather than part of the count only when the count is already nil
                 // but resetting below just as extra care and extra love.
-                switch visualStyle {
+                switch state.visualModeStyle {
                 case .characterwise:
                     let newElement = asVisualMode.zeroForVisualStyleCharacterwise(on: currentElement)
                     push(element: newElement)
@@ -294,7 +263,7 @@ extension KindaVimEngine {
         if let currentElement = focusedTextElement {
             switch operatorPendingBuffer.map({ $0.vimKey }) {
             case [.g, .caret]:
-                switch visualStyle {
+                switch state.visualModeStyle {
                 case .characterwise:
                     let newElement = asVisualMode.gCaretForVisualStyleCharacterwise(on: currentElement)
                     push(element: newElement)
@@ -303,7 +272,7 @@ extension KindaVimEngine {
                     enterVisualMode()
                 }
             case [.g, .dollarSign]:
-                switch visualStyle {
+                switch state.visualModeStyle {
                 case .characterwise:
                     let newElement = asVisualMode.gDollarSignForVisualStyleCharacterwise(on: currentElement)
                     push(element: newElement)
@@ -312,7 +281,7 @@ extension KindaVimEngine {
                     enterVisualMode()
                 }
             case [.g, .E]:
-                switch visualStyle {
+                switch state.visualModeStyle {
                 case .characterwise:
                     let newElement = asVisualMode.gEForVisualStyleCharacterwise(on: currentElement)
                     push(element: newElement)
@@ -321,7 +290,7 @@ extension KindaVimEngine {
                     enterVisualMode()
                 }
             case [.g, .e]:
-                switch visualStyle {
+                switch state.visualModeStyle {
                 case .characterwise:
                     let newElement = asVisualMode.geForVisualStyleCharacterwise(on: currentElement)
                     push(element: newElement)
@@ -330,7 +299,7 @@ extension KindaVimEngine {
                     enterVisualMode()
                 }
             case [.g, .g]:
-                switch visualStyle {
+                switch state.visualModeStyle {
                 case .characterwise:
                     let newElement = asVisualMode.ggForVisualStyleCharacterwise(on: currentElement)
                     push(element: newElement)
@@ -341,7 +310,7 @@ extension KindaVimEngine {
                     enterVisualMode()
                 }
             case [.g, .I]:
-                switch visualStyle {
+                switch state.visualModeStyle {
                 case .characterwise:
                     let newElement = asVisualMode.gIForVisualStyleCharacterwise(on: currentElement)
                     push(element: newElement)
@@ -350,7 +319,7 @@ extension KindaVimEngine {
                     enterVisualMode()
                 }
             case [.g, .j]:
-                switch visualStyle {
+                switch state.visualModeStyle {
                 case .characterwise:
                     let newElement = asVisualMode.gjForVisualStyleCharacterwise(on: currentElement)
                     push(element: newElement)
@@ -361,7 +330,7 @@ extension KindaVimEngine {
                     enterVisualMode()
                 }
             case [.g, .k]:
-                switch visualStyle {
+                switch state.visualModeStyle {
                 case .characterwise:
                     let newElement = asVisualMode.gkForVisualStyleCharacterwise(on: currentElement)
                     push(element: newElement)
@@ -372,7 +341,7 @@ extension KindaVimEngine {
                     enterVisualMode()
                 }
             case [.g, .zero]:
-                switch visualStyle {
+                switch state.visualModeStyle {
                 case .characterwise:
                     let newElement = asVisualMode.gZeroForVisualStyleCharacterwise(on: currentElement)
                     push(element: newElement)
@@ -381,7 +350,7 @@ extension KindaVimEngine {
                     enterVisualMode()
                 }
             case [.i, .W]:
-                switch visualStyle {
+                switch state.visualModeStyle {
                 case .characterwise:
                     let newElement = asVisualMode.iWForVisualStyleCharacterwise(on: currentElement)
                     push(element: newElement)
@@ -390,7 +359,7 @@ extension KindaVimEngine {
                     enterVisualMode()
                 }
             case [.i, .w]:
-                switch visualStyle {
+                switch state.visualModeStyle {
                 case .characterwise:
                     let newElement = asVisualMode.iwForVisualStyleCharacterwise(on: currentElement)
                     push(element: newElement)
@@ -399,7 +368,7 @@ extension KindaVimEngine {
                     enterVisualMode()
                 }
             default:
-                switch visualStyle {
+                switch state.visualModeStyle {
                 case .characterwise:
                     guard operatorPendingBuffer.first?.vimKey != .F else {
                         if let character = operatorPendingBuffer.last {

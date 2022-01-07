@@ -66,9 +66,7 @@ class KindaVimEngine {
     
     private(set) var operatorPendingBuffer = [KeyCombination]()
     
-    var state = VimEngineState(lastYankStyle: .characterwise, pgR: false, lastMoveBipped: false)
-    
-    var visualStyle: VimEngineMoveStyle = .characterwise
+    var state = VimEngineState(lastMoveBipped: false, pgR: false, lastYankStyle: .characterwise, visualModeStyle: .characterwise)
     
     var display = Display()
     var statusItem: NSStatusItem?
@@ -239,7 +237,7 @@ class KindaVimEngine {
     private func handleVisualMode(using strategy: VimEngineStrategy, for keyCombination: KeyCombination, appMode: AppMode = .auto) {
         switch strategy {
         case .accessibilityStrategy:
-            tryHandlingVisualModeUsingAccessibilityStrategyFirst(for: keyCombination, appMode: appMode)
+            tryHandlingVisualModeUsingAccessibilityStrategyFirst(for: keyCombination)
         case .keyboardStrategy:
             handleVisualModeUsingKeyboardStrategy(for: keyCombination)
         }

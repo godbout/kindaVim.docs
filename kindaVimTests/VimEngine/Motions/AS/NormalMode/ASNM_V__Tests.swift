@@ -26,7 +26,7 @@ extension SucceedingASNM_V__Tests {
     }
     
     func test_that_it_sets_the_visual_style_to_linewise() {
-        XCTAssertEqual(kindaVimEngine.visualStyle, .linewise)
+        XCTAssertEqual(kindaVimEngine.state.visualModeStyle, .linewise)
     }
     
     func test_that_it_resets_the_count() {

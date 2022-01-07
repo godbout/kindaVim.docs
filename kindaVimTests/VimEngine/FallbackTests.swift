@@ -22,7 +22,7 @@ class FallbackTests: XCTestCase {
         kindaVimEngine.asVisualMode = asVisualMode
         kindaVimEngine.ksNormalMode = ksNormalMode
         kindaVimEngine.ksVisualMode = ksVisualMode           
-        kindaVimEngine.visualStyle = .characterwise
+        kindaVimEngine.state.visualModeStyle = .characterwise
     }
     
 }
