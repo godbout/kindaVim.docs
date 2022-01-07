@@ -20,7 +20,7 @@ extension EnforcingKS_dj_Tests {
         kindaVimEngine.axEngine = AXEngineTextElementMock()
         applyKeyCombinationsBeingTested()
        
-        XCTAssertEqual(ksNormalModeMock.functionCalled, "djForTextElement()")
+        XCTAssertEqual(ksNormalModeMock.functionCalled, "djForTextElement(_:)")
     }
     
     func test_that_the_move_calls_the_correct_function_for_NonTextElements_on_KS() {

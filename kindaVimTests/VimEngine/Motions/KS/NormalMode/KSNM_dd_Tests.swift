@@ -20,7 +20,7 @@ extension EnforcingKS_dd_Tests {
         kindaVimEngine.axEngine = AXEngineTextElementMock()
         applyKeyCombinationsBeingTested()
 
-        XCTAssertEqual(ksNormalModeMock.functionCalled, "ddForTextElement()")
+        XCTAssertEqual(ksNormalModeMock.functionCalled, "ddForTextElement(_:)")
     }
     
     func test_that_the_move_calls_the_correct_function_for_NonTextElements_on_KS() {
@@ -30,19 +30,12 @@ extension EnforcingKS_dd_Tests {
         XCTAssertEqual(ksNormalModeMock.functionCalled, "ddForNonTextElement()")
     }
     
-    func test_that_dd_keeps_Vim_in_normal_mode() {
+    func test_that_dd_keeps_Vim_in_NormalMode() {
         applyKeyCombinationsBeingTested()
         
         XCTAssertEqual(kindaVimEngine.currentMode, .normal)
     }
     
-    func test_that_it_sets_the_LastYankStyle_to_Linewise() {
-        kindaVimEngine.state.lastYankStyle = .characterwise
-        applyKeyCombinationsBeingTested()
-                
-        XCTAssertEqual(kindaVimEngine.state.lastYankStyle, .linewise)
-    }
-        
     func test_that_it_resets_the_count() {
         applyKeyCombinationsBeingTested()
         

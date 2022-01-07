@@ -8,6 +8,7 @@ class EnforcingKS_caW__Tests: KSNM_BaseTests {
     override func setUp() {
         super.setUp()
 
+        // TODO: remove all the keyMapping
         kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .eight), appMode: .keyMapping)
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .c), appMode: .keyMapping)
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .a), appMode: .keyMapping)
@@ -23,7 +24,7 @@ extension EnforcingKS_caW__Tests {
         XCTAssertEqual(ksNormalModeMock.functionCalled, "")
     }
     
-    func test_that_it_keeps_Vim_in_normal_mode() {
+    func test_that_it_keeps_Vim_in_NormalMode() {
         XCTAssertEqual(kindaVimEngine.currentMode, .normal)
     }
     

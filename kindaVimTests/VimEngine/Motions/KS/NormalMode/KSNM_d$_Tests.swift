@@ -20,7 +20,7 @@ extension KS_dDollarSign_Tests {
         kindaVimEngine.axEngine = AXEngineTextElementMock()
         applyKeyCombinationsBeingTested()
 
-        XCTAssertEqual(ksNormalModeMock.functionCalled, "dDollarSignForTextElement()")
+        XCTAssertEqual(ksNormalModeMock.functionCalled, "dDollarSignForTextElement(_:)")
     }
     
     func test_that_it_calls_the_correct_function_for_NonTextElements_on_KS() {
@@ -33,14 +33,6 @@ extension KS_dDollarSign_Tests {
     func test_that_it_stays_in_NormalMode() {
         applyKeyCombinationsBeingTested()
         XCTAssertEqual(kindaVimEngine.currentMode, .normal)
-    }
-    
-    // TODO: i think this will move within KS like we do for AS
-    func test_that_it_sets_the_LastYankStyle_to_Characterwise() {
-        kindaVimEngine.state.lastYankStyle = .linewise
-        applyKeyCombinationsBeingTested()
-                
-        XCTAssertEqual(kindaVimEngine.state.lastYankStyle, .characterwise)
     }
     
     func test_that_it_resets_the_count() {

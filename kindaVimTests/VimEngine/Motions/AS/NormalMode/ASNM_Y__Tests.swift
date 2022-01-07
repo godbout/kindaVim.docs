@@ -21,16 +21,11 @@ extension SucceedingASNM_Y__Tests {
     
     // synonym
     func test_that_it_calls_the_correct_function_on_accessibility_strategy() {
-        XCTAssertEqual(asNormalModeMock.functionCalled, "yy(on:)")
+        XCTAssertEqual(asNormalModeMock.functionCalled, "yy(on:_:)")
     }
     
-    func test_that_it_keeps_Vim_in_normal_mode() {
+    func test_that_it_keeps_Vim_in_NormalMode() {
         XCTAssertEqual(kindaVimEngine.currentMode, .normal)
-    }
-    
-    // TODO: will have to be moved within AS
-    func test_that_it_sets_the_last_yank_style_to_linewise() {
-        XCTAssertEqual(kindaVimEngine.state.lastYankStyle, .linewise)
     }
     
     func test_that_it_resets_the_count() {

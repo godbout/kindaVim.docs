@@ -19,7 +19,7 @@ extension EnforcingKS_D__Tests {
         kindaVimEngine.axEngine = AXEngineTextElementMock()
         applyKeyCombinationsBeingTested()
 
-        XCTAssertEqual(ksNormalModeMock.functionCalled, "dDollarSignForTextElement()")
+        XCTAssertEqual(ksNormalModeMock.functionCalled, "dDollarSignForTextElement(_:)")
     }
     
     func test_that_it_calls_the_correct_function_for_NonTextElements_on_KS() {

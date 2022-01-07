@@ -234,9 +234,8 @@ extension KindaVimEngine {
                 push(element: newElement)
                 endCurrentMove()
             case .Y:
-                let newElement = asNormalMode.yy(on: currentElement)
+                let newElement = asNormalMode.yy(on: currentElement, &state)
                 push(element: newElement)
-                state.lastYankStyle = .linewise
                 endCurrentMove()
             case .y:
                 enterOperatorPendingForNormalMode(with: keyCombination)
@@ -408,6 +407,7 @@ extension KindaVimEngine {
             case [.d, .a, .w]:
                 let newElement = asNormalMode.daw(on: currentElement, &state)
                 push(element: newElement)
+                // TODO: remove lastYankStyle
                 state.lastMoveBipped == false ? state.lastYankStyle = .characterwise : ()
                 enterNormalMode()
             case [.d, .B]:
@@ -595,7 +595,7 @@ extension KindaVimEngine {
                 push(element: newElement)
                 enterNormalMode()
             case [.y, .i, .w]:
-                let newElement = asNormalMode.yiw(on: currentElement)
+                let newElement = asNormalMode.yiw(on: currentElement, &state)
                 push(element: newElement)
                 state.lastYankStyle = .characterwise
                 enterNormalMode()
@@ -604,7 +604,7 @@ extension KindaVimEngine {
             case [.y, .t]:
                 ()
             case [.y, .y]:
-                let newElement = asNormalMode.yy(on: currentElement)
+                let newElement = asNormalMode.yy(on: currentElement, &state)
                 push(element: newElement)
                 state.lastYankStyle = .linewise
                 enterNormalMode()

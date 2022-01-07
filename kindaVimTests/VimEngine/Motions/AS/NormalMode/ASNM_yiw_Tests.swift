@@ -22,7 +22,7 @@ class SucceedingASNM_yiw_Tests: ASNM_BaseTests {
 extension SucceedingASNM_yiw_Tests {
     
     func test_that_it_calls_the_correct_function_on_accessibility_strategy() {
-        XCTAssertEqual(asNormalModeMock.functionCalled, "yiw(on:)")
+        XCTAssertEqual(asNormalModeMock.functionCalled, "yiw(on:_:)")
     }
     
     func test_that_l_keeps_Vim_in_normal_mode() {

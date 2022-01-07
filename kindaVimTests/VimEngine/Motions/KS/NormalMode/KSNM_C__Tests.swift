@@ -19,7 +19,7 @@ extension KS_C__Tests {
         kindaVimEngine.axEngine = AXEngineTextElementMock()
         applyKeyCombinationsBeingTested()
 
-        XCTAssertEqual(ksNormalModeMock.functionCalled, "cDollarSignForTextElement()")
+        XCTAssertEqual(ksNormalModeMock.functionCalled, "cDollarSignForTextElement(_:)")
     }
     
     func test_that_it_calls_the_correct_function_for_NonTextElements_on_KS() {
@@ -32,13 +32,6 @@ extension KS_C__Tests {
     func test_that_it_switches_Vim_into_insert_mode() {
         applyKeyCombinationsBeingTested()
         XCTAssertEqual(kindaVimEngine.currentMode, .insert)
-    }
-    
-    func test_that_it_sets_the_LastYankStyle_to_Characterwise() {
-        kindaVimEngine.state.lastYankStyle = .linewise
-        applyKeyCombinationsBeingTested()
-                
-        XCTAssertEqual(kindaVimEngine.state.lastYankStyle, .characterwise)
     }
     
     func test_that_it_resets_the_count() {

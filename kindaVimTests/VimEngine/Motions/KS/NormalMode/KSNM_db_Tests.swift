@@ -20,7 +20,7 @@ extension EnforcingKS_db_Tests {
         kindaVimEngine.axEngine = AXEngineTextElementMock()
         applyKeyCombinationsBeingTested()
 
-        XCTAssertEqual(ksNormalModeMock.functionCalled, "dbForTextElement()")
+        XCTAssertEqual(ksNormalModeMock.functionCalled, "dbForTextElement(_:)")
     }
     
     func test_that_it_calls_the_correct_function_for_NonTextElements_on_KS() {
@@ -30,7 +30,7 @@ extension EnforcingKS_db_Tests {
         XCTAssertEqual(ksNormalModeMock.functionCalled, "dbForNonTextElement()")
     }
     
-    func test_that_it_keeps_Vim_in_normal_mode() {
+    func test_that_it_keeps_Vim_in_NormalMode() {
         applyKeyCombinationsBeingTested()
                 
         XCTAssertEqual(kindaVimEngine.currentMode, .normal)

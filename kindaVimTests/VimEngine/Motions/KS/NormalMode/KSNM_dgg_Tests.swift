@@ -21,7 +21,7 @@ extension EnforcingKS_dgg_Tests {
         kindaVimEngine.axEngine = AXEngineTextElementMock()
         applyKeyCombinationsBeingTested()
 
-        XCTAssertEqual(ksNormalModeMock.functionCalled, "dggForTextElement()")
+        XCTAssertEqual(ksNormalModeMock.functionCalled, "dggForTextElement(_:)")
     }
     
     func test_that_it_calls_the_correct_function_for_NonTextElements_on_KS() {
@@ -31,7 +31,7 @@ extension EnforcingKS_dgg_Tests {
         XCTAssertEqual(ksNormalModeMock.functionCalled, "dggForNonTextElement()")
     }
     
-    func test_that_dgg_keeps_Vim_in_normal_mode() {
+    func test_that_dgg_keeps_Vim_in_NormalMode() {
         applyKeyCombinationsBeingTested()
         XCTAssertEqual(kindaVimEngine.currentMode, .normal)
     }

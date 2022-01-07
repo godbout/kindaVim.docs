@@ -20,9 +20,10 @@ extension EnforcingKS_cG_Tests {
         kindaVimEngine.axEngine = AXEngineTextElementMock()
         applyKeyCombinationsBeingTested()
 
-        XCTAssertEqual(ksNormalModeMock.functionCalled, "cGForTextElement()")
+        XCTAssertEqual(ksNormalModeMock.functionCalled, "cGForTextElement(_:)")
     }
     
+    // TODO: put NTE above TE
     func test_that_it_calls_the_correct_function_for_NonTextElements_on_KS() {
         kindaVimEngine.axEngine = AXEngineNonTextElementMock()
         applyKeyCombinationsBeingTested()
@@ -30,16 +31,9 @@ extension EnforcingKS_cG_Tests {
         XCTAssertEqual(ksNormalModeMock.functionCalled, "cGForNonTextElement()")
     }
     
-    func test_that_cG_switches_Vim_to_insert_mode() {
+    func test_that_cG_switches_Vim_to_InsertMode() {
         applyKeyCombinationsBeingTested()
         XCTAssertEqual(kindaVimEngine.currentMode, .insert)
-    }
-    
-    func test_that_it_sets_the_LastYankStyle_to_Linewise() {
-        kindaVimEngine.state.lastYankStyle = .characterwise
-        applyKeyCombinationsBeingTested()
-                
-        XCTAssertEqual(kindaVimEngine.state.lastYankStyle, .linewise)
     }
     
     func test_that_it_resets_the_count() {

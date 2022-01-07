@@ -20,7 +20,7 @@ extension KSNM_cl_Tests {
         kindaVimEngine.axEngine = AXEngineTextElementMock()
         applyKeyCombinationsBeingTested()
 
-        XCTAssertEqual(ksNormalModeMock.functionCalled, "clForTextElement()")
+        XCTAssertEqual(ksNormalModeMock.functionCalled, "clForTextElement(_:)")
     }
     
     func test_that_it_calls_the_correct_function_for_NonTextElements_on_KS() {

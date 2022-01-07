@@ -30,7 +30,7 @@ extension KSNM_cc_Tests {
         XCTAssertEqual(ksNormalModeMock.functionCalled, "ccForNonTextElement()")
     }
     
-    func test_that_cc_switches_Vim_to_insert_mode() {
+    func test_that_cc_switches_Vim_to_InsertMode() {
         applyKeyCombinationsBeingTested()
         XCTAssertEqual(kindaVimEngine.currentMode, .insert)
     }

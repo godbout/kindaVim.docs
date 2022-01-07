@@ -37,12 +37,11 @@ extension KindaVimEngine {
         case .C:
             switch focusedElementType {
             case .textElement:
-                post(ksNormalMode.cDollarSignForTextElement())
+                post(ksNormalMode.cDollarSignForTextElement(&state))
             default:
                 post(ksNormalMode.cDollarSignForNonTextElement())
             }
             
-            state.lastYankStyle = .characterwise
             enterInsertMode()
         case .c:
             enterOperatorPendingForNormalMode(with: keyCombination)
@@ -75,7 +74,7 @@ extension KindaVimEngine {
         case .D:
             switch focusedElementType {
             case .textElement:
-                post(ksNormalMode.dDollarSignForTextElement())            
+                post(ksNormalMode.dDollarSignForTextElement(&state))
             default:
                 post(ksNormalMode.dDollarSignForNonTextElement())
             }
@@ -205,7 +204,7 @@ extension KindaVimEngine {
         case .s:
             switch focusedElementType {
             case .textElement:
-                post(ksNormalMode.clForTextElement())
+                post(ksNormalMode.clForTextElement(&state))
             default:
                 post(ksNormalMode.clForNonTextElement())
             }
@@ -259,32 +258,29 @@ extension KindaVimEngine {
         case .X:
             switch focusedElementType {
             case .textElement:
-                post(ksNormalMode.dhForTextElement())
+                post(ksNormalMode.dhForTextElement(&state))
             default:
                 post(ksNormalMode.dhForNonTextElement())
             }
             
-            state.lastYankStyle = .characterwise
             endCurrentMove()
         case .x:
             switch focusedElementType {
             case .textElement:
-                post(ksNormalMode.dlForTextElement())
+                post(ksNormalMode.dlForTextElement(&state))
             default:
                 post(ksNormalMode.dlForNonTextElement())
             }
             
-            state.lastYankStyle = .characterwise
             endCurrentMove()
         case .Y:
             switch focusedElementType {
             case .textElement:
-                post(ksNormalMode.yyForTextElement())
+                post(ksNormalMode.yyForTextElement(&state))
             default:
                 post(ksNormalMode.yyForNonTextElement())
             }
 
-            state.lastYankStyle = .linewise
             endCurrentMove()
         case .y:
             enterOperatorPendingForNormalMode(with: keyCombination)
@@ -317,12 +313,11 @@ extension KindaVimEngine {
         case [.c, .b]:
             switch focusedElementType {
             case .textElement:
-                post(ksNormalMode.cbForTextElement())
+                post(ksNormalMode.cbForTextElement(&state))
             default:
                 post(ksNormalMode.cbForNonTextElement())
             }
                         
-            state.lastYankStyle = .characterwise
             enterInsertMode()
         case [.c, .c]:            
             switch focusedElementType {
@@ -332,27 +327,24 @@ extension KindaVimEngine {
                 post(ksNormalMode.ccForNonTextElement())
             }
             
-            state.lastYankStyle = .linewise
             enterInsertMode()
         case [.c, .dollarSign]:
             switch focusedElementType {
             case .textElement:
-                post(ksNormalMode.cDollarSignForTextElement())
+                post(ksNormalMode.cDollarSignForTextElement(&state))
             default:
                 post(ksNormalMode.cDollarSignForNonTextElement())
             }
             
-            state.lastYankStyle = .characterwise
             enterInsertMode()
         case [.c, .e]:
             switch focusedElementType {
             case .textElement:
-                post(ksNormalMode.ceForTextElement())
+                post(ksNormalMode.ceForTextElement(&state))
             default:
                 post(ksNormalMode.ceForNonTextElement())
             }
             
-            state.lastYankStyle = .characterwise
             enterInsertMode()
         case [.c, .F]:
             ()
@@ -363,7 +355,7 @@ extension KindaVimEngine {
         case [.c, .g, .g]:
             switch focusedElementType {
             case .textElement:
-                post(ksNormalMode.cggForTextElement())
+                post(ksNormalMode.cggForTextElement(&state))
             default:
                 post(ksNormalMode.cggForNonTextElement())
             }
@@ -372,44 +364,40 @@ extension KindaVimEngine {
         case [.c, .G]:
             switch focusedElementType {
             case .textElement:
-                post(ksNormalMode.cGForTextElement())
+                post(ksNormalMode.cGForTextElement(&state))
             default:
                 post(ksNormalMode.cGForNonTextElement())
             }
             
-            state.lastYankStyle = .linewise
             enterInsertMode()
         case [.c, .i]:
             ()
         case [.c, .i, .w]:
             switch focusedElementType {
             case .textElement:
-                post(ksNormalMode.ciwForTextElement())
+                post(ksNormalMode.ciwForTextElement(&state))
             default:
                 post(ksNormalMode.ciwForNonTextElement())
             }
                         
-            state.lastYankStyle = .characterwise
             enterInsertMode()
         case [.c, .l]:
             switch focusedElementType {
             case .textElement:
-                post(ksNormalMode.clForTextElement())
+                post(ksNormalMode.clForTextElement(&state))
             default:
                 post(ksNormalMode.clForNonTextElement())
             }
             
-            state.lastYankStyle = .characterwise
             enterInsertMode()
         case [.c, .w]:
             switch focusedElementType {
             case .textElement:
-                post(ksNormalMode.cwForTextElement())
+                post(ksNormalMode.cwForTextElement(&state))
             default:
                 post(ksNormalMode.cwForNonTextElement())
             }
                     
-            state.lastYankStyle = .characterwise
             enterInsertMode()
         case [.colon, .q]:
             ()
@@ -443,7 +431,7 @@ extension KindaVimEngine {
         case [.d, .b]:
             switch focusedElementType {
             case .textElement:
-                post(ksNormalMode.dbForTextElement())
+                post(ksNormalMode.dbForTextElement(&state))
             default:
                 post(ksNormalMode.dbForNonTextElement())
             }
@@ -452,27 +440,25 @@ extension KindaVimEngine {
         case [.d, .d]:
             switch focusedElementType {
             case .textElement:
-                post(ksNormalMode.ddForTextElement())
+                post(ksNormalMode.ddForTextElement(&state))
             default:
                 post(ksNormalMode.ddForNonTextElement())
             }
             
-            state.lastYankStyle = .linewise
             enterNormalMode()
         case [.d, .dollarSign]:
             switch focusedElementType {
             case .textElement:
-                post(ksNormalMode.dDollarSignForTextElement())
+                post(ksNormalMode.dDollarSignForTextElement(&state))
             default:
                 post(ksNormalMode.dDollarSignForNonTextElement())
             }
             
-            state.lastYankStyle = .characterwise
             enterNormalMode()
         case [.d, .e]:
             switch focusedElementType {
             case .textElement:
-                post(ksNormalMode.deForTextElement())
+                post(ksNormalMode.deForTextElement(&state))
             default:
                 post(ksNormalMode.deForNonTextElement())
             }
@@ -483,7 +469,7 @@ extension KindaVimEngine {
         case [.d, .g, .g]:
             switch focusedElementType {
             case .textElement:
-                post(ksNormalMode.dggForTextElement())
+                post(ksNormalMode.dggForTextElement(&state))
             default:
                 post(ksNormalMode.dggForNonTextElement())
             }
@@ -492,29 +478,27 @@ extension KindaVimEngine {
         case [.d, .G]:            
             switch focusedElementType {
             case .textElement:
-                post(ksNormalMode.dGForTextElement())
+                post(ksNormalMode.dGForTextElement(&state))
             default:
                 post(ksNormalMode.dGForNonTextElement())
             }
             
-            state.lastYankStyle = .linewise
             enterNormalMode()
         case [.d, .h]:
             switch focusedElementType {
             case .textElement:
-                post(ksNormalMode.dhForTextElement())
+                post(ksNormalMode.dhForTextElement(&state))
             default:
                 post(ksNormalMode.dhForNonTextElement())
             }
             
-            state.lastYankStyle = .characterwise
             enterNormalMode()
         case [.d, .i]:
             ()
         case [.d, .j]:
             switch focusedElementType {
             case .textElement:
-                post(ksNormalMode.djForTextElement())
+                post(ksNormalMode.djForTextElement(&state))
             default:
                 post(ksNormalMode.djForNonTextElement())
             }
@@ -523,7 +507,7 @@ extension KindaVimEngine {
         case [.d, .k]:
             switch focusedElementType {
             case .textElement:
-                post(ksNormalMode.dkForTextElement())
+                post(ksNormalMode.dkForTextElement(&state))
             default:
                 post(ksNormalMode.dkForNonTextElement())
             }
@@ -532,17 +516,16 @@ extension KindaVimEngine {
         case [.d, .l]:
             switch focusedElementType {
             case .textElement:
-                post(ksNormalMode.dlForTextElement())
+                post(ksNormalMode.dlForTextElement(&state))
             default:
                 post(ksNormalMode.dlForNonTextElement())
             }
             
-            state.lastYankStyle = .characterwise
             enterNormalMode()
         case [.d, .w]:
             switch focusedElementType {
             case .textElement:
-                post(ksNormalMode.dwForTextElement())
+                post(ksNormalMode.dwForTextElement(&state))
             default:
                 post(ksNormalMode.dwForNonTextElement())
             }
@@ -626,12 +609,11 @@ extension KindaVimEngine {
         case [.y, .i, .w]:
             switch focusedElementType {
             case .textElement:
-                post(ksNormalMode.yiwForTextElement())
+                post(ksNormalMode.yiwForTextElement(&state))
             default:
                 post(ksNormalMode.yiwForNonTextElement())
             }
             
-            state.lastYankStyle = .characterwise
             enterNormalMode()
         case [.y, .T]:
             ()
@@ -640,12 +622,11 @@ extension KindaVimEngine {
         case [.y, .y]:
             switch focusedElementType {
             case .textElement:
-                post(ksNormalMode.yyForTextElement())
+                post(ksNormalMode.yyForTextElement(&state))
             default:
                 post(ksNormalMode.yyForNonTextElement())
             }
                         
-            state.lastYankStyle = .linewise
             enterNormalMode()
         default:
             if operatorPendingBuffer.first?.vimKey == .r, let replacement = operatorPendingBuffer.last {                

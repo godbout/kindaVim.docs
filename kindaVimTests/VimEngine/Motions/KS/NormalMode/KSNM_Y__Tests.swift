@@ -21,7 +21,7 @@ extension EnforcingKSNM_Y__Tests {
         kindaVimEngine.axEngine = AXEngineTextElementMock()
         applyKeyCombinationsBeingTested()
        
-        XCTAssertEqual(ksNormalModeMock.functionCalled, "yyForTextElement()")
+        XCTAssertEqual(ksNormalModeMock.functionCalled, "yyForTextElement(_:)")
     }
 
     func test_that_the_move_calls_the_correct_function_for_NonTextElements_on_KS() {
@@ -31,17 +31,10 @@ extension EnforcingKSNM_Y__Tests {
         XCTAssertEqual(ksNormalModeMock.functionCalled, "yyForNonTextElement()")
     }
     
-    func test_that_it_keeps_Vim_in_normal_mode() {
+    func test_that_it_keeps_Vim_in_NormalMode() {
         applyKeyCombinationsBeingTested()
                 
         XCTAssertEqual(kindaVimEngine.currentMode, .normal)
-    }
-    
-    func test_that_it_sets_the_LastYankStyle_to_Linewise() {
-        kindaVimEngine.state.lastYankStyle = .characterwise
-        applyKeyCombinationsBeingTested()
-                
-        XCTAssertEqual(kindaVimEngine.state.lastYankStyle, .linewise)
     }
     
     func test_that_it_resets_the_count() {

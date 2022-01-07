@@ -19,7 +19,7 @@ extension KSNM_S__Tests {
         kindaVimEngine.axEngine = AXEngineTextElementMock()
         applyKeyCombinationsBeingTested()
 
-        XCTAssertEqual(ksNormalModeMock.functionCalled, "ccForTextElement()")
+        XCTAssertEqual(ksNormalModeMock.functionCalled, "ccForTextElement(_:)")
     }
     
     func test_that_it_calls_the_correct_function_for_NonTextElements_on_KS() {
@@ -29,7 +29,7 @@ extension KSNM_S__Tests {
         XCTAssertEqual(ksNormalModeMock.functionCalled, "ccForNonTextElement()")
     }
     
-    func test_that_it_switches_Vim_into_insert_mode() {
+    func test_that_it_switches_Vim_into_InsertMode() {
         applyKeyCombinationsBeingTested()
         
         XCTAssertEqual(kindaVimEngine.currentMode, .insert)
