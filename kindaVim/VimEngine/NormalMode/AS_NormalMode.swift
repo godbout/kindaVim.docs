@@ -261,7 +261,7 @@ extension KindaVimEngine {
 // Operator Pending for AS Normal Mode
 extension KindaVimEngine {
 
-    func tryParsingOperatorCommandForNormalModeUsingAccessibilityStrategyFirst(appMode: AppMode) {
+    func tryParsingOperatorCommandForNormalModeUsingAccessibilityStrategyFirst() {
         if let currentElement = focusedTextElement {
             switch operatorPendingBuffer.map({ $0.vimKey }) {
             case [.c, .a]:
@@ -438,14 +438,14 @@ extension KindaVimEngine {
             case [.d, .F]:
                 ()
             case [.d, .G]:
-                let newElement = asNormalMode.dG(on: currentElement, pgR: appMode == .pgR)
+                let newElement = asNormalMode.dG(on: currentElement, &state)
                 push(element: newElement)
                 state.lastYankStyle = .linewise
                 enterNormalMode()
             case [.d, .g]:
                 ()
             case [.d, .g, .g]:
-                let newElement = asNormalMode.dgg(on: currentElement, pgR: appMode == .pgR)
+                let newElement = asNormalMode.dgg(on: currentElement, &state)
                 push(element: newElement)
                 enterNormalMode()
             case [.d, .h]:

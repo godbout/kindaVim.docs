@@ -8,7 +8,6 @@ class KSNM_caW__Tests: KSNM_BaseTests {
     override func setUp() {
         super.setUp()
 
-        // TODO: remove all the keyMapping
         kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .eight))
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .c))
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .a))

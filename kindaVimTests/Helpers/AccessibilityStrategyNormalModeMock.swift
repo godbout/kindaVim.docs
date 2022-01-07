@@ -272,16 +272,14 @@ class AccessibilityStrategyNormalModeMock: AccessibilityStrategyNormalModeProtoc
         return element
     }
     
-    func dG(on element: AccessibilityTextElement, pgR: Bool) -> AccessibilityTextElement {
+    func dG(on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
         functionCalled = #function
-        pgRPassed = pgR
         
         return element
     }
     
-    func dgg(on element: AccessibilityTextElement, pgR: Bool) -> AccessibilityTextElement {
+    func dgg(on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
         functionCalled = #function
-        pgRPassed = pgR
         
         return element
     }
