@@ -29,14 +29,6 @@ extension EnforcingASNM_ciSingleQuote_Tests {
         XCTAssertEqual(kindaVimEngine.currentMode, .normal)
     }
     
-    // TODO: do we need this still?
-    func test_that_it_does_not_change_the_LastYankingStyle() {
-        kindaVimEngine.state.lastYankStyle = .linewise
-        applyKeyCombinationsBeingTested()
-                
-        XCTAssertEqual(kindaVimEngine.state.lastYankStyle, .linewise)
-    }
-    
     func test_that_it_resets_the_count() {
         kindaVimEngine.state.lastYankStyle = .linewise
                 

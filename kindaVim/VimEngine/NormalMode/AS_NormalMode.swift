@@ -407,8 +407,6 @@ extension KindaVimEngine {
             case [.d, .a, .w]:
                 let newElement = asNormalMode.daw(on: currentElement, &state)
                 push(element: newElement)
-                // TODO: remove lastYankStyle
-                state.lastMoveBipped == false ? state.lastYankStyle = .characterwise : ()
                 enterNormalMode()
             case [.d, .B]:
                 let newElement = asNormalMode.dB(times: count, on: currentElement, &state)
