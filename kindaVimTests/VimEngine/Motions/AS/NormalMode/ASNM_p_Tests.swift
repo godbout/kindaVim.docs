@@ -5,7 +5,9 @@ import XCTest
 
 class SucceedingASNM_p_Tests: ASNM_BaseTests {
     
-    private func applyKeyCombinationsBeingTested(appMode: AppMode = .auto) {
+    override func setUp() {
+        super.setUp()
+        
         kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .eight))
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .p))
     }
@@ -13,45 +15,17 @@ class SucceedingASNM_p_Tests: ASNM_BaseTests {
 }
 
 
-// lastYankStyle characterwise
 extension SucceedingASNM_p_Tests {
     
-    
-    func test_that_it_calls_the_correct_function_on_the_AccessibilityStrategy_when_LastYankStyle_is_Characterwise() {
-        kindaVimEngine.state.lastYankStyle = .characterwise
-        applyKeyCombinationsBeingTested()
-        
-        XCTAssertEqual(asNormalModeMock.functionCalled, "pForLastYankStyleCharacterwise(on:_:)")
+    func test_that_it_calls_the_correct_function_on_the_AccessibilityStrategy() {
+        XCTAssertEqual(asNormalModeMock.functionCalled, "p(on:_:)")
     }
     
-}
-
-
-// lastYankStyle characterwise
-extension SucceedingASNM_p_Tests {
-    
-    func test_that_it_calls_the_correct_function_on_the_AccessibilityStrategy_when_LastYankStyle_is_Linewise() {
-        kindaVimEngine.state.lastYankStyle = .linewise
-        applyKeyCombinationsBeingTested()
-        
-        XCTAssertEqual(asNormalModeMock.functionCalled, "pForLastYankStyleLinewise(on:_:)")
-    }
-    
-}
-
-
-// both
-extension SucceedingASNM_p_Tests {
-    
-    func test_that_it_keeps_Vim_in_normal_mode() {
-        applyKeyCombinationsBeingTested()
-        
+    func test_that_it_keeps_Vim_in_NormalMode() {
         XCTAssertEqual(kindaVimEngine.currentMode, .normal)
     }
     
     func test_that_it_resets_the_count() {
-        applyKeyCombinationsBeingTested()
-        
         XCTAssertNil(kindaVimEngine.count)
     }
 
