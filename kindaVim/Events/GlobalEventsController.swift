@@ -20,10 +20,10 @@ struct GlobalEventsController {
         let appMode = appModeForCurrentApp()        
         guard appMode != .off else { return false }
         
-        guard let implementedKeyCombination = keyCombination else { return true }
-        
         switch AppCore.shared.vimEngine.currentMode {
         case .insert:
+            guard let implementedKeyCombination = keyCombination else { return false }
+            
             if globalVimEngineHotkeyIsPressed(implementedKeyCombination) {
                 #if DEBUG
                 if AppCore.shared.vimEngine.showCharactersTyped == true {
@@ -44,6 +44,8 @@ struct GlobalEventsController {
         // have to enter IM from here, not from within kVEngine. why not doing the same for `escape`? because as much as
         // we can, those things have to be handled by the kVEngine, not by the GEC.
         case .normal, .operatorPendingForNormalMode, .visual, .operatorPendingForVisualMode:
+            guard let implementedKeyCombination = keyCombination else { return true }
+                       
             #if DEBUG
             doTheKeystrokeSubscriptionShit()
             #endif
