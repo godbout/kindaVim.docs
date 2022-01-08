@@ -148,27 +148,13 @@ extension KindaVimEngine {
                 push(element: newElement)
                 enterInsertMode()
             case .P:
-                switch state.lastYankStyle {
-                case .characterwise:
-                    let newElement = asNormalMode.PForLastYankStyleCharacterwise(on: currentElement, state)
-                    push(element: newElement)
-                    endCurrentMove()
-                case .linewise:
-                    let newElement = asNormalMode.PForLastYankStyleLinewise(on: currentElement, state)
-                    push(element: newElement)
-                    endCurrentMove()
-                }
+                let newElement = asNormalMode.P(on: currentElement, state)
+                push(element: newElement)
+                endCurrentMove()
             case .p:
-                switch state.lastYankStyle {
-                case .characterwise:
-                    let newElement = asNormalMode.pForLastYankStyleCharacterwise(on: currentElement, state)
-                    push(element: newElement)
-                    endCurrentMove()
-                case .linewise:
-                    let newElement = asNormalMode.pForLastYankStyleLinewise(on: currentElement, state)
-                    push(element: newElement)
-                    endCurrentMove()
-                }
+                let newElement = asNormalMode.p(on: currentElement, state)
+                push(element: newElement)
+                endCurrentMove()
             case .percent:
                 let newElement = asNormalMode.percent(on: currentElement)
                 push(element: newElement)
