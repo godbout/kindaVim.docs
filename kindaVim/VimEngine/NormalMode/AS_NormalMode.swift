@@ -208,14 +208,14 @@ extension KindaVimEngine {
                 push(element: newElement)
                 endCurrentMove()
             case .V:
-                let newElement = asVisualMode.VForEnteringFromNormalMode(on: currentElement)
+                let newElement = asVisualMode.V(on: currentElement, state)
                 push(element: newElement)
-                state.visualModeStyle = .linewise
+                state.visualStyle = .linewise
                 enterVisualMode()
             case .v:
-                let newElement = asVisualMode.vForEnteringFromNormalMode(on: currentElement)
+                let newElement = asVisualMode.v(on: currentElement, state)
                 push(element: newElement)
-                state.visualModeStyle = .characterwise
+                state.visualStyle = .characterwise
                 enterVisualMode()
             case .W:
                 let newElement = asNormalMode.W(times: count, on: currentElement)
@@ -419,7 +419,6 @@ extension KindaVimEngine {
             case [.d, .d]:
                 let newElement = asNormalMode.dd(on: currentElement, &state)
                 push(element: newElement)
-                state.lastYankStyle = .linewise
                 enterNormalMode()
             case [.d, .dollarSign]:
                 let newElement = asNormalMode.dDollarSign(on: currentElement, &state)
@@ -440,7 +439,6 @@ extension KindaVimEngine {
             case [.d, .G]:
                 let newElement = asNormalMode.dG(on: currentElement, &state)
                 push(element: newElement)
-                state.lastYankStyle = .linewise
                 enterNormalMode()
             case [.d, .g]:
                 ()
@@ -595,7 +593,6 @@ extension KindaVimEngine {
             case [.y, .i, .w]:
                 let newElement = asNormalMode.yiw(on: currentElement, &state)
                 push(element: newElement)
-                state.lastYankStyle = .characterwise
                 enterNormalMode()
             case [.y, .T]:
                 ()
@@ -604,7 +601,6 @@ extension KindaVimEngine {
             case [.y, .y]:
                 let newElement = asNormalMode.yy(on: currentElement, &state)
                 push(element: newElement)
-                state.lastYankStyle = .linewise
                 enterNormalMode()
             default:
                 // cf, cF, ct, cT

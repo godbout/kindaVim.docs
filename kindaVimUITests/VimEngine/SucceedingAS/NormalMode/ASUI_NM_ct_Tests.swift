@@ -21,7 +21,7 @@ ct is pretty cool
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .t))
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .p))
 
-        XCTAssertEqual(kindaVimEngine.currentMode, .insert)
+        XCTAssertEqual(kindaVimEngine.state.currentMode, .insert)
     }
     
     func test_that_when_the_text_is_empty_it_stays_in_Normal_Mode() {
@@ -34,7 +34,7 @@ ct is pretty cool
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .t))
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .z))
 
-        XCTAssertEqual(kindaVimEngine.currentMode, .normal)
+        XCTAssertEqual(kindaVimEngine.state.currentMode, .normal)
     }
 
     func test_that_when_the_text_is_not_empty_and_it_does_not_find_what_it_is_looking_for_it_stays_in_Normal_Mode() {
@@ -50,7 +50,7 @@ hehe can't use ct here with the last letter of the alphabet!
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .t))
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .z))
 
-        XCTAssertEqual(kindaVimEngine.currentMode, .normal)
+        XCTAssertEqual(kindaVimEngine.state.currentMode, .normal)
     }
 
 }

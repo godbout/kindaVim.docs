@@ -31,7 +31,7 @@ extension KSNM_X__Tests {
     
     func test_that_it_keeps_Vim_in_NormalMode() {
         applyKeyCombinationsBeingTested()
-        XCTAssertEqual(kindaVimEngine.currentMode, .normal)
+        XCTAssertEqual(kindaVimEngine.state.currentMode, .normal)
     }
     
     func test_that_it_resets_the_count() {

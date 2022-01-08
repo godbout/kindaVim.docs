@@ -33,7 +33,7 @@ extension KSNM_ciw_Tests {
     
     func test_that_it_switches_Vim_into_InsertMode() {
         applyKeyCombinationsBeingTested()
-        XCTAssertEqual(kindaVimEngine.currentMode, .insert)
+        XCTAssertEqual(kindaVimEngine.state.currentMode, .insert)
     }
     
     func test_that_it_resets_the_count() {

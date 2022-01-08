@@ -18,7 +18,7 @@ extension KSVM_G__Tests {
     
     func test_that_it_calls_the_correct_function_for_NonTextElements_on_KS_when_in_VisualStyle_Characterwise() {
         kindaVimEngine.axEngine = AXEngineNonTextElementMock()
-        kindaVimEngine.state.visualModeStyle = .characterwise
+        kindaVimEngine.state.visualStyle = .characterwise
         applyKeyCombinationsBeingTested()
 
         XCTAssertEqual(ksVisualModeMock.functionCalled, "GForNonTextElement()")
@@ -26,21 +26,21 @@ extension KSVM_G__Tests {
 
     func test_that_it_calls_the_relevant_KS_function_for_TextElements_as_a_fallback_when_in_VisualStyle_Characterwise() {
         kindaVimEngine.axEngine = AXEngineTextElementMock()
-        kindaVimEngine.state.visualModeStyle = .characterwise
+        kindaVimEngine.state.visualStyle = .characterwise
         applyKeyCombinationsBeingTested()
         
         XCTAssertEqual(ksVisualModeMock.functionCalled, "GForTextElementWhenInVisualStyleCharacterwise()")
     }
     
     func test_that_it_keeps_Vim_in_visual_mode_when_in_VisualStyle_Characterwise() {
-        kindaVimEngine.state.visualModeStyle = .characterwise
+        kindaVimEngine.state.visualStyle = .characterwise
         applyKeyCombinationsBeingTested()
         
-        XCTAssertEqual(kindaVimEngine.currentMode, .visual)
+        XCTAssertEqual(kindaVimEngine.state.currentMode, .visual)
     }
     
     func test_that_it_resets_the_count() {
-        kindaVimEngine.state.visualModeStyle = .characterwise
+        kindaVimEngine.state.visualStyle = .characterwise
         applyKeyCombinationsBeingTested()
         
         XCTAssertNil(kindaVimEngine.count)
@@ -54,7 +54,7 @@ extension KSVM_G__Tests {
     
     func test_that_it_calls_the_correct_function_for_NonTextElements_on_KS_when_in_VisualStyle_Linewise() {
         kindaVimEngine.axEngine = AXEngineNonTextElementMock()
-        kindaVimEngine.state.visualModeStyle = .linewise
+        kindaVimEngine.state.visualStyle = .linewise
         applyKeyCombinationsBeingTested()
 
         XCTAssertEqual(ksVisualModeMock.functionCalled, "GForNonTextElement()")
@@ -62,21 +62,21 @@ extension KSVM_G__Tests {
 
     func test_that_it_calls_the_relevant_KS_function_for_TextElements_as_a_fallback_when_in_VisualStyle_Linewise() {
         kindaVimEngine.axEngine = AXEngineTextElementMock()
-        kindaVimEngine.state.visualModeStyle = .linewise
+        kindaVimEngine.state.visualStyle = .linewise
         applyKeyCombinationsBeingTested()
         
         XCTAssertEqual(ksVisualModeMock.functionCalled, "GForTextElementWhenInVisualStyleLinewise()")
     }
     
     func test_that_it_keeps_Vim_in_VisualMode_when_VisualStyle_is_Linewise() {
-        kindaVimEngine.state.visualModeStyle = .linewise
+        kindaVimEngine.state.visualStyle = .linewise
         applyKeyCombinationsBeingTested()
         
-        XCTAssertEqual(kindaVimEngine.currentMode, .visual)
+        XCTAssertEqual(kindaVimEngine.state.currentMode, .visual)
     }     
     
     func test_that_it_resets_the_count_when_VisualStyle_is_Linewise() {
-        kindaVimEngine.state.visualModeStyle = .linewise
+        kindaVimEngine.state.visualStyle = .linewise
         applyKeyCombinationsBeingTested()
         
         XCTAssertNil(kindaVimEngine.count)

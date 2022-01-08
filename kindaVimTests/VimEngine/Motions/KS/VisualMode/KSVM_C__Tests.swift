@@ -32,7 +32,7 @@ extension KSVM_C__Tests {
     func test_that_it_switches_Vim_to_InsertMode() {
         applyKeyCombinationsBeingTested()
         
-        XCTAssertEqual(kindaVimEngine.currentMode, .insert)
+        XCTAssertEqual(kindaVimEngine.state.currentMode, .insert)
     }
     
     func test_that_it_sets_the_LastYankStyle_to_Linewise() {

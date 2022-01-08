@@ -23,7 +23,7 @@ extension SucceedingASNM_cW__Tests {
     }
         
     func test_that_it_switches_Vim_into_InsertMode() {
-        XCTAssertEqual(kindaVimEngine.currentMode, .insert)
+        XCTAssertEqual(kindaVimEngine.state.currentMode, .insert)
     }
     
     func test_that_it_resets_the_count() {

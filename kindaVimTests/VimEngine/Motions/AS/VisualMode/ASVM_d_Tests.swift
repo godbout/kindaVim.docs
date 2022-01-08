@@ -22,7 +22,7 @@ extension SucceedingASVM_d_Tests {
     }
     
     func test_that_it_switches_Vim_to_NormalMode() {
-        XCTAssertEqual(kindaVimEngine.currentMode, .normal)
+        XCTAssertEqual(kindaVimEngine.state.currentMode, .normal)
     }
     
     func test_that_it_resets_the_count() {

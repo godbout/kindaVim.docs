@@ -234,7 +234,7 @@ extension KindaVimEngine {
                 post(ksVisualMode.VForNonTextElement())
             }
                         
-            state.visualModeStyle = .linewise
+            state.visualStyle = .linewise
             enterVisualMode()
         case .v:            
             switch focusedElementType {
@@ -244,7 +244,7 @@ extension KindaVimEngine {
                 post(ksVisualMode.vForNonTextElement())
             }
             
-            state.visualModeStyle = .characterwise
+            state.visualStyle = .characterwise
             enterVisualMode()
         case .w:
             switch focusedElementType {

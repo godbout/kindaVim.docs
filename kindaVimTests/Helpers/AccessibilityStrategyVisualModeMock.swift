@@ -213,37 +213,13 @@ class AccessibilityStrategyVisualModeMock: AccessibilityStrategyVisualModeProtoc
         return element
     }
     
-    func vForEnteringFromNormalMode(on element: AccessibilityTextElement) -> AccessibilityTextElement {
+    func V(on element: AccessibilityTextElement, _ vimEngineState: VimEngineState) -> AccessibilityTextElement {
         functionCalled = #function
         
         return element
     }
     
-    func vForVisualStyleCharacterwise(on element: AccessibilityTextElement) -> AccessibilityTextElement {
-        functionCalled = #function
-        
-        return element
-    }
-    
-    func vForVisualStyleLinewise(on element: AccessibilityTextElement) -> AccessibilityTextElement {
-        functionCalled = #function
-        
-        return element
-    }
-    
-    func VForEnteringFromNormalMode(on element: AccessibilityTextElement) -> AccessibilityTextElement {
-        functionCalled = #function
-        
-        return element
-    }
-    
-    func VForVisualStyleCharacterwise(on element: AccessibilityTextElement) -> AccessibilityTextElement {
-        functionCalled = #function
-        
-        return element
-    }
-    
-    func VForVisualStyleLinewise(on element: AccessibilityTextElement) -> AccessibilityTextElement {
+    func v(on element: AccessibilityTextElement, _ vimEngineState: VimEngineState) -> AccessibilityTextElement {
         functionCalled = #function
         
         return element

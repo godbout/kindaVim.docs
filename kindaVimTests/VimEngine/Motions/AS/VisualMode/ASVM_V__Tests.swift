@@ -16,22 +16,22 @@ class SucceedingASVM_V__Tests: ASVM_BaseTests {
 extension SucceedingASVM_V__Tests {    
 
     func test_that_it_calls_the_correct_function_on_the_AccessibilityStrategy() {
-        kindaVimEngine.state.visualModeStyle = .characterwise
+        kindaVimEngine.state.visualStyle = .characterwise
         applyKeyCombinationsBeingTested()
         
-        XCTAssertEqual(asVisualModeMock.functionCalled, "VForVisualStyleCharacterwise(on:)")
+        XCTAssertEqual(asVisualModeMock.functionCalled, "V(on:_:)")
     }
     
     func test_that_if_Vim_was_in_visual_mode_characterwise_it_switches_into_visual_mode_linewise() {
-        kindaVimEngine.state.visualModeStyle = .characterwise
+        kindaVimEngine.state.visualStyle = .characterwise
         applyKeyCombinationsBeingTested()
         
-        XCTAssertEqual(kindaVimEngine.currentMode, .visual)
-        XCTAssertEqual(kindaVimEngine.state.visualModeStyle, .linewise)
+        XCTAssertEqual(kindaVimEngine.state.currentMode, .visual)
+        XCTAssertEqual(kindaVimEngine.state.visualStyle, .linewise)
     }
     
     func test_that_it_Vim_as_in_VisualMode_Characterwise_it_resets_the_count() {
-        kindaVimEngine.state.visualModeStyle = .characterwise
+        kindaVimEngine.state.visualStyle = .characterwise
         applyKeyCombinationsBeingTested()
         
         XCTAssertNil(kindaVimEngine.count)
@@ -44,21 +44,21 @@ extension SucceedingASVM_V__Tests {
 extension SucceedingASVM_V__Tests {    
     
     func test_that_it_calls_the_correct_function_on_ASVM_when_visualStyle_is_linewise() {
-        kindaVimEngine.state.visualModeStyle = .linewise
+        kindaVimEngine.state.visualStyle = .linewise
         kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .V))
         
-        XCTAssertEqual(asVisualModeMock.functionCalled, "VForVisualStyleLinewise(on:)")
+        XCTAssertEqual(asVisualModeMock.functionCalled, "V(on:_:)")
     }
     
     func test_that_if_Vim_was_in_visual_mode_linewise_it_switches_into_normal_mode() {
-        kindaVimEngine.state.visualModeStyle = .linewise
+        kindaVimEngine.state.visualStyle = .linewise
         kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .V))
         
-        XCTAssertEqual(kindaVimEngine.currentMode, .normal)
+        XCTAssertEqual(kindaVimEngine.state.currentMode, .normal)
     }
     
     func test_that_it_Vim_as_in_VisualMode_Linewise_it_resets_the_count() {
-        kindaVimEngine.state.visualModeStyle = .linewise
+        kindaVimEngine.state.visualStyle = .linewise
         applyKeyCombinationsBeingTested()
         
         XCTAssertNil(kindaVimEngine.count)

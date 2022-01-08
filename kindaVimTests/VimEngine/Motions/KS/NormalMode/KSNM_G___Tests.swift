@@ -32,7 +32,7 @@ extension KSNM_G__Tests {
     func test_that_G__keeps_Vim_in_normal_mode() {
         applyKeyCombinationsBeingTested()
                 
-        XCTAssertEqual(kindaVimEngine.currentMode, .normal)
+        XCTAssertEqual(kindaVimEngine.state.currentMode, .normal)
     }
         
     func test_that_it_resets_the_count() {

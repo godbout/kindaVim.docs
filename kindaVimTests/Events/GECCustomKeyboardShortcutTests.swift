@@ -43,7 +43,7 @@ extension GCECustomKeyboardShortcutTests {
 
         _ = GlobalEventsController.handle(keyCombination: globalHotkeyCombination)        
 
-        XCTAssertEqual(AppCore.shared.vimEngine.currentMode, .normal)
+        XCTAssertEqual(AppCore.shared.vimEngine.state.currentMode, .normal)
     }
 
     func test_that_when_in_insert_mode_the_global_hotkey_press_is_captured_and_not_sent_back_to_macOS() {
@@ -65,7 +65,7 @@ extension GCECustomKeyboardShortcutTests {
 
         _ = GlobalEventsController.handle(keyCombination: globalHotkeyCombination)        
 
-        XCTAssertEqual(AppCore.shared.vimEngine.currentMode, .insert)
+        XCTAssertEqual(AppCore.shared.vimEngine.state.currentMode, .insert)
     }
 
     func test_that_when_in_normal_mode_the_global_hotkey_press_is_captured_and_not_sent_back_to_macOS() {
@@ -87,7 +87,7 @@ extension GCECustomKeyboardShortcutTests {
 
         _ = GlobalEventsController.handle(keyCombination: globalHotkeyCombination)        
 
-        XCTAssertEqual(AppCore.shared.vimEngine.currentMode, .insert)
+        XCTAssertEqual(AppCore.shared.vimEngine.state.currentMode, .insert)
     }
     
     func test_that_when_in_visual_mode_the_global_hotkey_press_is_captured_and_not_sent_back_to_macOS() {

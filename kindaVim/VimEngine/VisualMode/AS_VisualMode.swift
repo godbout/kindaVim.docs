@@ -98,29 +98,25 @@ extension KindaVimEngine {
                 push(element: newElement)
                 endCurrentMove()
             case .V:
-                // TODO: review those. v and V and enteringFromNormalMode.
-                // should we keep those like this or add the currentMode in the state?
-                switch state.visualModeStyle {
+                let newElement = asVisualMode.V(on: currentElement, state)
+                push(element: newElement)
+                
+                switch state.visualStyle {
                 case .characterwise:
-                    let newElement = asVisualMode.VForVisualStyleCharacterwise(on: currentElement)
-                    push(element: newElement)
-                    state.visualModeStyle = .linewise
+                    state.visualStyle = .linewise
                     endCurrentMove()
                 case .linewise:
-                    let newElement = asVisualMode.VForVisualStyleLinewise(on: currentElement)
-                    push(element: newElement)
                     enterNormalMode()
                 }
             case .v:
-                switch state.visualModeStyle {
+                let newElement = asVisualMode.v(on: currentElement, state)
+                push(element: newElement)
+                
+                switch state.visualStyle {
                 case .characterwise:
-                    let newElement = asVisualMode.vForVisualStyleCharacterwise(on: currentElement)
-                    push(element: newElement)
                     enterNormalMode()
                 case .linewise:
-                    let newElement = asVisualMode.vForVisualStyleLinewise(on: currentElement)
-                    push(element: newElement)
-                    state.visualModeStyle = .characterwise
+                    state.visualStyle = .characterwise
                     endCurrentMove()
                 }
             case .W:

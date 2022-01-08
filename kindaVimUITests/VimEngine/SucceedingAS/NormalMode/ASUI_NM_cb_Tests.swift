@@ -25,7 +25,7 @@ this is some fine-ass stuff
         
         applyKeyCombinationsBeingTested()
 
-        XCTAssertEqual(kindaVimEngine.currentMode, .insert)
+        XCTAssertEqual(kindaVimEngine.state.currentMode, .insert)
     }
     
     func test_that_when_the_text_is_empty_it_stays_in_Normal_Mode() {
@@ -36,7 +36,7 @@ this is some fine-ass stuff
                 
         applyKeyCombinationsBeingTested()
 
-        XCTAssertEqual(kindaVimEngine.currentMode, .normal)
+        XCTAssertEqual(kindaVimEngine.state.currentMode, .normal)
     }
 
     func test_that_when_the_text_is_not_empty_and_the_caret_is_at_the_first_character_of_the_text_it_stays_in_Normal_Mode() {
@@ -50,7 +50,7 @@ can't delete if we're on the first letter of a text hehe
                 
         applyKeyCombinationsBeingTested()
 
-        XCTAssertEqual(kindaVimEngine.currentMode, .normal)
+        XCTAssertEqual(kindaVimEngine.state.currentMode, .normal)
     }
 
 }

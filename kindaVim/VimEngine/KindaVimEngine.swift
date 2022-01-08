@@ -8,15 +8,7 @@ import Commands
 import VimEngineState
 
 
-enum VimEngineMode {
-    
-    case insert
-    case normal
-    case operatorPendingForNormalMode
-    case visual
-    case operatorPendingForVisualMode
-    
-}
+
 
 
 enum VimEngineStrategy {
@@ -44,8 +36,6 @@ class KindaVimEngine {
     var showCharactersTyped: Bool = false
     var jkMapping: Bool = true
     
-    private(set) var currentMode: VimEngineMode = .insert
-    
     private(set) var firstCountBuffer: String = ""
     private(set) var secondCountBuffer: String = ""
     var count: Int? {
@@ -66,7 +56,7 @@ class KindaVimEngine {
     
     private(set) var operatorPendingBuffer = [KeyCombination]()
     
-    var state = VimEngineState(lastMoveBipped: false, pgR: false, lastYankStyle: .characterwise, visualModeStyle: .characterwise)
+    var state = VimEngineState(lastMoveBipped: false, pgR: false, lastYankStyle: .characterwise, visualStyle: .characterwise)
     
     var display = Display()
     var statusItem: NSStatusItem?
@@ -115,7 +105,7 @@ class KindaVimEngine {
         // if it's a digit and if this digit will be used for counts. in that case the digit
         // is not used for a move so we don't send it. else it is (like for example `r5`) and we do.
         if grabDigitForCounts(keyCombination: keyCombination) == false {
-            switch currentMode {
+            switch state.currentMode {
             case .normal:
                 if appMode == .keyMapping {
                     handleNormalMode(using: .keyboardStrategy, for: keyCombination)
@@ -229,7 +219,7 @@ class KindaVimEngine {
             parseOperatorCommandForNormalModeUsingKeyboardStrategy()
         }
         
-        if currentMode != .operatorPendingForNormalMode {
+        if state.currentMode != .operatorPendingForNormalMode {
             resetOperatorPendingBuffer()
         }
     }
@@ -253,14 +243,14 @@ class KindaVimEngine {
             parseOperatorCommandForVisualModeUsingKeyboardStrategy()
         }
         
-        if currentMode != .operatorPendingForVisualMode {
+        if state.currentMode != .operatorPendingForVisualMode {
             resetOperatorPendingBuffer()
         }
     }
     
     func enterInsertMode() {
         endCurrentMove()
-        currentMode = .insert
+        state.currentMode = .insert
         
         if toggleHazeOverWindow == true {
             display.hazeOver(.off)
@@ -284,11 +274,11 @@ class KindaVimEngine {
     func enterNormalMode(appMode: AppMode = .auto) {
         endCurrentMove()
         
-        if currentMode == .insert {
+        if state.currentMode == .insert {
             goBackOneCharacterForTextElements(appMode: appMode)
         }
         
-        currentMode = .normal        
+        state.currentMode = .normal        
         
         if toggleHazeOverWindow == true {
             display.hazeOver(.on)
@@ -318,7 +308,7 @@ class KindaVimEngine {
     
     func enterVisualMode() {
         endCurrentMove()
-        currentMode = .visual
+        state.currentMode = .visual
     }
     
     func endCurrentMove() {        
@@ -328,12 +318,12 @@ class KindaVimEngine {
     }
     
     func enterOperatorPendingForNormalMode(with keyCombination: KeyCombination) {
-        currentMode = .operatorPendingForNormalMode
+        state.currentMode = .operatorPendingForNormalMode
         operatorPendingBuffer.append(keyCombination)
     }
     
     func enterOperatorPendingForVisualMode(with keyCombination: KeyCombination) {
-        currentMode = .operatorPendingForVisualMode
+        state.currentMode = .operatorPendingForVisualMode
         operatorPendingBuffer.append(keyCombination)
     }
     

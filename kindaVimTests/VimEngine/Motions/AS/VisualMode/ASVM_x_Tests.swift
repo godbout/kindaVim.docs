@@ -17,12 +17,13 @@ class SucceedingASVM_x_Tests: ASVM_BaseTests {
 
 extension SucceedingASVM_x_Tests {    
     
+    // synonym
     func test_that_it_calls_the_correct_function_on_the_AccessibilityStrategy() {
-        XCTAssertEqual(asVisualModeMock.functionCalled, "x(on:_:)")
+        XCTAssertEqual(asVisualModeMock.functionCalled, "d(on:_:)")
     }
     
     func test_that_it_switches_Vim_to_NormalMode() {
-        XCTAssertEqual(kindaVimEngine.currentMode, .normal)
+        XCTAssertEqual(kindaVimEngine.state.currentMode, .normal)
     }
     
     func test_that_it_resets_the_count() {

@@ -24,7 +24,7 @@ extension KSVM_tilde_Tests {
     func test_that_it_keeps_Vim_in_VisualMode() {
         applyKeyCombinationsBeingTested()
         
-        XCTAssertEqual(kindaVimEngine.currentMode, .visual)
+        XCTAssertEqual(kindaVimEngine.state.currentMode, .visual)
     }
     
     func test_that_it_resets_the_count() {
