@@ -3,7 +3,6 @@ import KeyCombination
 import XCTest
 
 
-// TODO: probably the Alfred stuff needs to be here
 class SucceedingASNM_k_Tests: ASNM_BaseTests {
     
     private func applyKeyCombinationsBeingTested() {
