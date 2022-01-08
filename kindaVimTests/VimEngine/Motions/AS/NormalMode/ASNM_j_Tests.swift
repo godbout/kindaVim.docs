@@ -15,6 +15,14 @@ class SucceedingASNM_j_Tests: ASNM_BaseTests {
 
 extension SucceedingASNM_j_Tests {
     
+    func test_that_if_we_are_on_a_TextField_it_does_not_use_the_AS_but_uses_the_KS_instead() {
+        kindaVimEngine.accessibilityStrategy = AccessibilityStrategySucceedingTextFieldMock()
+        applyKeyCombinationsBeingTested()
+        
+        XCTAssertEqual(asNormalModeMock.functionCalled, "")
+        XCTAssertEqual(ksNormalModeMock.functionCalled, "j()")
+    }
+    
     func test_that_if_it_is_not_remap_it_calls_j_on_AS() {
         kindaVimEngine.jkMapping = false
         applyKeyCombinationsBeingTested()

@@ -3,6 +3,7 @@ import KeyCombination
 import XCTest
 
 
+// TODO: probably the Alfred stuff needs to be here
 class SucceedingASNM_k_Tests: ASNM_BaseTests {
     
     private func applyKeyCombinationsBeingTested() {
@@ -14,6 +15,14 @@ class SucceedingASNM_k_Tests: ASNM_BaseTests {
 
 
 extension SucceedingASNM_k_Tests {
+    
+    func test_that_if_we_are_on_a_TextField_it_does_not_use_the_AS_but_uses_the_KS_instead() {
+        kindaVimEngine.accessibilityStrategy = AccessibilityStrategySucceedingTextFieldMock()
+        applyKeyCombinationsBeingTested()
+        
+        XCTAssertEqual(asNormalModeMock.functionCalled, "")
+        XCTAssertEqual(ksNormalModeMock.functionCalled, "k()")
+    }
     
     func test_that_if_it_is_not_remap_it_calls_k_on_AS() {
         kindaVimEngine.jkMapping = false

@@ -114,9 +114,6 @@ extension KindaVimEngine {
                         endCurrentMove()
                     }
                 }
-            // TODO: testing if Alfred style or not will have to be done here, not in the move itself anymore
-                // IMPORTANT!!!
-                // maybe gj gk too
             case .k:
                 if currentElement.role == .textField {
                     handleNormalModeUsingKeyboardStrategy(for: keyCombination)
@@ -495,13 +492,21 @@ extension KindaVimEngine {
                 push(element: newElement)
                 enterInsertMode()
             case [.g, .j]:
-                let newElement = asNormalMode.gj(on: currentElement)
-                push(element: newElement)
-                enterNormalMode()
+                if currentElement.role == .textField {
+                    parseOperatorCommandForNormalModeUsingKeyboardStrategy()
+                } else {
+                    let newElement = asNormalMode.gj(on: currentElement)
+                    push(element: newElement)
+                    enterNormalMode()
+                }
             case [.g, .k]:
-                let newElement = asNormalMode.gk(on: currentElement)
-                push(element: newElement)
-                enterNormalMode()
+                if currentElement.role == .textField {
+                    parseOperatorCommandForNormalModeUsingKeyboardStrategy()
+                } else {
+                    let newElement = asNormalMode.gk(on: currentElement)
+                    push(element: newElement)
+                    enterNormalMode()
+                }
             case [.g, .underscore]:
                 let newElement = asNormalMode.gUnderscore(on: currentElement)
                 push(element: newElement)

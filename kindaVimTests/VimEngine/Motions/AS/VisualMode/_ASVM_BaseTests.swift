@@ -9,6 +9,9 @@ class ASVM_BaseTests: AS_BaseTests {
         super.setUp()
         
         kindaVimEngine.enterVisualMode()
+        
+        asVisualModeMock.functionCalled = ""
+        ksVisualModeMock.functionCalled = ""
     }
     
 }

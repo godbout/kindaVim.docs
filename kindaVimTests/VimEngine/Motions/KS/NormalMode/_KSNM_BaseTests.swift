@@ -11,7 +11,6 @@ class KSNM_BaseTests: KS_BaseTests {
         kindaVimEngine.enterNormalMode()
         
         ksNormalModeMock.functionCalled = ""
-        ksVisualModeMock.functionCalled = ""
     }
 
 }

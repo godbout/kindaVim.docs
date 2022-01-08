@@ -9,6 +9,8 @@ class KSVM_BaseTests: KS_BaseTests {
         super.setUp()
         
         kindaVimEngine.enterVisualMode()
+        
+        ksVisualModeMock.functionCalled = ""
     }
 
 }

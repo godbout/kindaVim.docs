@@ -9,6 +9,8 @@ class AS_BaseTests: XCTestCase {
     
     let asNormalModeMock = AccessibilityStrategyNormalModeMock()
     let asVisualModeMock = AccessibilityStrategyVisualModeMock()
+    let ksNormalModeMock = KeyboardStrategyNormalModeMock()
+    let ksVisualModeMock = KeyboardStrategyVisualModeMock()
     
     override func setUp() {
         super.setUp()
@@ -16,6 +18,8 @@ class AS_BaseTests: XCTestCase {
         kindaVimEngine.accessibilityStrategy = AccessibilityStrategySucceedingMock()
         kindaVimEngine.asNormalMode = asNormalModeMock
         kindaVimEngine.asVisualMode = asVisualModeMock
+        kindaVimEngine.ksNormalMode = ksNormalModeMock
+        kindaVimEngine.ksVisualMode = ksVisualModeMock
     }
     
 }

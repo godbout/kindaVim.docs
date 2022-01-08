@@ -9,6 +9,9 @@ class ASNM_BaseTests: AS_BaseTests {
         super.setUp()
         
         kindaVimEngine.enterNormalMode()
+        
+        asNormalModeMock.functionCalled = ""
+        ksNormalModeMock.functionCalled = ""
     }
 
 }

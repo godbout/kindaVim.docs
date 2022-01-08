@@ -70,13 +70,21 @@ extension KindaVimEngine {
             case .i:
                 enterOperatorPendingForVisualMode(with: keyCombination)
             case .j:
-                let newElement = asVisualMode.j(on: currentElement, state)
-                push(element: newElement)
-                endCurrentMove()
+                if currentElement.role == .textField {
+                    handleVisualModeUsingKeyboardStrategy(for: keyCombination)
+                } else {
+                    let newElement = asVisualMode.j(on: currentElement, state)
+                    push(element: newElement)
+                    endCurrentMove()
+                }
             case .k:
-                let newElement = asVisualMode.k(on: currentElement, state)
-                push(element: newElement)
-                endCurrentMove()
+                if currentElement.role == .textField {
+                    handleVisualModeUsingKeyboardStrategy(for: keyCombination)
+                } else {
+                    let newElement = asVisualMode.k(on: currentElement, state)
+                    push(element: newElement)
+                    endCurrentMove()
+                }
             case .l:
                 let newElement = asVisualMode.l(on: currentElement, state)
                 push(element: newElement)
@@ -192,13 +200,21 @@ extension KindaVimEngine {
                 push(element: newElement)
                 enterVisualMode()
             case [.g, .j]:
-                let newElement = asVisualMode.gj(on: currentElement, state)
-                push(element: newElement)
-                enterVisualMode()
+                if currentElement.role == .textField {
+                    parseOperatorCommandForVisualModeUsingKeyboardStrategy()
+                } else {
+                    let newElement = asVisualMode.gj(on: currentElement, state)
+                    push(element: newElement)
+                    enterVisualMode()
+                }
             case [.g, .k]:
-                let newElement = asVisualMode.gk(on: currentElement, state)
-                push(element: newElement)
-                enterVisualMode()
+                if currentElement.role == .textField {
+                    parseOperatorCommandForVisualModeUsingKeyboardStrategy()
+                } else {
+                    let newElement = asVisualMode.gk(on: currentElement, state)
+                    push(element: newElement)
+                    enterVisualMode()
+                }
             case [.g, .zero]:
                 let newElement = asVisualMode.gZero(on: currentElement, state)
                 push(element: newElement)
