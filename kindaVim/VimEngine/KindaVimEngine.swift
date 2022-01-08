@@ -39,7 +39,8 @@ enum AppMode {
 
 class KindaVimEngine {
     
-    var toggleHazeOverWindow: Bool = true
+    // TODO: try a brand new install and see if the AppStorage to true works.
+    var toggleHazeOverWindow: Bool = false
     var toggleMenuBarIcon: Bool = false
     var showCharactersTyped: Bool = false
     var jkMapping: Bool = true

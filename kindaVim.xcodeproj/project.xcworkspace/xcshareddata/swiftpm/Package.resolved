@@ -72,15 +72,6 @@
           "revision": "f6396aecfbaacc3737e3cab83e0b219339fb98f7",
           "version": null
         }
-      },
-      {
-        "package": "VimEngineState",
-        "repositoryURL": "git@github.com:godbout/VimEngineState.git",
-        "state": {
-          "branch": "master",
-          "revision": "67cae38f2e1e3b16f404207622212c35910e17db",
-          "version": null
-        }
       }
     ]
   },
