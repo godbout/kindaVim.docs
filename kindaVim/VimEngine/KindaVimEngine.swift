@@ -8,7 +8,15 @@ import Commands
 import VimEngineState
 
 
-
+enum VimEngineMode {
+    
+    case insert
+    case normal
+    case operatorPendingForNormalMode
+    case visual
+    case operatorPendingForVisualMode
+    
+}
 
 
 enum VimEngineStrategy {
