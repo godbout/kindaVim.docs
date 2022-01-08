@@ -98,10 +98,14 @@ extension KindaVimEngine {
                 push(element: newElement)
                 enterNormalMode()
             case .underscore:
+                // TODO: explore here if it's ok to push the same element or if we better
+                // add extra caution and use again the switch state VMS here
                 let newElement = asVisualMode.underscore(on: currentElement, state)
                 push(element: newElement)
                 endCurrentMove()
             case .V:
+                // TODO: review those. v and V and enteringFromNormalMode.
+                // should we keep those like this or add the currentMode in the state?
                 switch state.visualModeStyle {
                 case .characterwise:
                     let newElement = asVisualMode.VForVisualStyleCharacterwise(on: currentElement)
