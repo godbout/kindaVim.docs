@@ -22,7 +22,7 @@ struct GlobalEventsController {
         
         guard let implementedKeyCombination = keyCombination else { return true }
         
-        switch AppCore.shared.vimEngine.state.currentMode {
+        switch AppCore.shared.vimEngine.currentMode {
         case .insert:
             if globalVimEngineHotkeyIsPressed(implementedKeyCombination) {
                 #if DEBUG
@@ -89,14 +89,14 @@ struct GlobalEventsController {
     }
     
     private static func inNormalModeOrOperatorPendingModeOrVisualMode() -> Bool {
-        return AppCore.shared.vimEngine.state.currentMode == .normal
-        || AppCore.shared.vimEngine.state.currentMode == .operatorPendingForNormalMode
-        || AppCore.shared.vimEngine.state.currentMode == .visual
-        || AppCore.shared.vimEngine.state.currentMode == .operatorPendingForVisualMode
+        return AppCore.shared.vimEngine.currentMode == .normal
+        || AppCore.shared.vimEngine.currentMode == .operatorPendingForNormalMode
+        || AppCore.shared.vimEngine.currentMode == .visual
+        || AppCore.shared.vimEngine.currentMode == .operatorPendingForVisualMode
     }
     
     private static func inInsertMode() -> Bool {
-        return AppCore.shared.vimEngine.state.currentMode == .insert
+        return AppCore.shared.vimEngine.currentMode == .insert
     }
     
     // if the user set up a custom KeyboardShortcut, use it

@@ -26,7 +26,7 @@ extension ASCL_x_Tests {
     func test_that_it_switches_Vim_to_InsertMode() {
         applyKeyCombinationsBeingTested()
         
-        XCTAssertEqual(kindaVimEngine.state.currentMode, .insert)
+        XCTAssertEqual(kindaVimEngine.currentMode, .insert)
     }
     
     func test_that_it_resets_the_count() {

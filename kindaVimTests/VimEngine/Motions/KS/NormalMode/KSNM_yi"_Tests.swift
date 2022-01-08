@@ -26,7 +26,7 @@ extension KSNM_yiDoubleQuote_Tests {
     func test_that_it_keeps_Vim_in_normal_mode() {
         kindaVimEngine.state.lastYankStyle = .linewise
                 
-        XCTAssertEqual(kindaVimEngine.state.currentMode, .normal)
+        XCTAssertEqual(kindaVimEngine.currentMode, .normal)
     }
     
     func test_that_it_does_not_change_the_LastYankingStyle() {

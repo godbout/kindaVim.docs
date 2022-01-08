@@ -26,7 +26,7 @@ extension SucceedingASVM_v_Tests {
         kindaVimEngine.state.visualStyle = .characterwise
         applyKeyCombinationsBeingTested()
         
-        XCTAssertEqual(kindaVimEngine.state.currentMode, .normal)
+        XCTAssertEqual(kindaVimEngine.currentMode, .normal)
     }
     
     func test_that_it_Vim_as_in_VisualMode_Characterwise_it_resets_the_count() {
@@ -53,7 +53,7 @@ extension SucceedingASVM_v_Tests {
         kindaVimEngine.state.visualStyle = .linewise
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .v))
         
-        XCTAssertEqual(kindaVimEngine.state.currentMode, .visual)
+        XCTAssertEqual(kindaVimEngine.currentMode, .visual)
         XCTAssertEqual(kindaVimEngine.state.visualStyle, .characterwise)
     }
     

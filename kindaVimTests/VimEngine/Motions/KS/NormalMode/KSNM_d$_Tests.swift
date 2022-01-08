@@ -32,7 +32,7 @@ extension KSNM_dDollarSign_Tests {
     
     func test_that_it_stays_in_NormalMode() {
         applyKeyCombinationsBeingTested()
-        XCTAssertEqual(kindaVimEngine.state.currentMode, .normal)
+        XCTAssertEqual(kindaVimEngine.currentMode, .normal)
     }
     
     func test_that_it_resets_the_count() {

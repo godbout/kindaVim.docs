@@ -37,7 +37,7 @@ extension KSVM_gZero_Tests {
         kindaVimEngine.state.visualStyle = .characterwise
         applyKeyCombinationsBeingTested()
         
-        XCTAssertEqual(kindaVimEngine.state.currentMode, .visual)
+        XCTAssertEqual(kindaVimEngine.currentMode, .visual)
     }
     
     func test_that_it_resets_the_count() {
@@ -64,7 +64,7 @@ extension KSVM_gZero_Tests {
         kindaVimEngine.state.visualStyle = .linewise
         applyKeyCombinationsBeingTested()
         
-        XCTAssertEqual(kindaVimEngine.state.currentMode, .visual)
+        XCTAssertEqual(kindaVimEngine.currentMode, .visual)
     }     
     
     func test_that_it_resets_the_count_when_VisualStyle_is_Linewise() {

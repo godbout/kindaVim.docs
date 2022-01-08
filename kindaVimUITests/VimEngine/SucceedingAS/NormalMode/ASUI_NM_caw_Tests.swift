@@ -26,7 +26,7 @@ extension ASUI_NM_caw_Tests {
         
         applyKeyCombinationsBeingTested()
 
-        XCTAssertEqual(kindaVimEngine.state.currentMode, .insert)
+        XCTAssertEqual(kindaVimEngine.currentMode, .insert)
     }
     
     func test_that_when_the_text_is_empty_it_stays_in_NormalMode() {
@@ -37,7 +37,7 @@ extension ASUI_NM_caw_Tests {
         
         applyKeyCombinationsBeingTested()
 
-        XCTAssertEqual(kindaVimEngine.state.currentMode, .normal)
+        XCTAssertEqual(kindaVimEngine.currentMode, .normal)
     }
 
     func test_that_when_the_text_is_not_empty_and_the_caret_is_on_a_space_and_all_the_rest_of_the_text_is_spaces_it_stays_in_Normal_Mode() {
@@ -49,7 +49,7 @@ extension ASUI_NM_caw_Tests {
 
         applyKeyCombinationsBeingTested()
 
-        XCTAssertEqual(kindaVimEngine.state.currentMode, .normal)
+        XCTAssertEqual(kindaVimEngine.currentMode, .normal)
     }
 
 }

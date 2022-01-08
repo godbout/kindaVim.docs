@@ -23,7 +23,7 @@ extension SucceedingASVM_iw_Tests {
     }
     
     func test_that_it_keeps_Vim_in_VisualMode() {
-        XCTAssertEqual(kindaVimEngine.state.currentMode, .visual)
+        XCTAssertEqual(kindaVimEngine.currentMode, .visual)
     }     
         
     func test_that_it_resets_the_count() {

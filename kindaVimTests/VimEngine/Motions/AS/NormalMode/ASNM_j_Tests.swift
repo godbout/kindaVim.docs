@@ -38,7 +38,7 @@ extension SucceedingASNM_j_Tests {
     func test_that_it_keeps_Vim_in_normal_mode() {
         applyKeyCombinationsBeingTested()
         
-        XCTAssertEqual(kindaVimEngine.state.currentMode, .normal)
+        XCTAssertEqual(kindaVimEngine.currentMode, .normal)
     }
     
     func test_that_it_resets_the_count() {

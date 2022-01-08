@@ -36,7 +36,7 @@ extension KSVM_d_Tests {
         kindaVimEngine.state.visualStyle = .characterwise
         applyKeyCombinationsBeingTested()
         
-        XCTAssertEqual(kindaVimEngine.state.currentMode, .normal)
+        XCTAssertEqual(kindaVimEngine.currentMode, .normal)
     }
     
     func test_that_it_sets_the_LastYankStyle_to_Characterwise_when_VisualStyle_is_Characterwise() {
@@ -79,7 +79,7 @@ extension KSVM_d_Tests {
         kindaVimEngine.state.visualStyle = .linewise
         applyKeyCombinationsBeingTested()
         
-        XCTAssertEqual(kindaVimEngine.state.currentMode, .normal)
+        XCTAssertEqual(kindaVimEngine.currentMode, .normal)
     }
     
     func test_that_it_sets_the_LastYankStyle_to_Linewise_when_VisualStyle_is_Linewise() {

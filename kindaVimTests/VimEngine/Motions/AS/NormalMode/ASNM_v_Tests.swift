@@ -21,7 +21,7 @@ extension SucceedingASNM_v_Tests {
     }
         
     func test_that_it_switches_Vim_to_visual_mode() {
-        XCTAssertEqual(kindaVimEngine.state.currentMode, .visual)
+        XCTAssertEqual(kindaVimEngine.currentMode, .visual)
     }
     
     func test_that_it_sets_the_visual_style_to_characterwise() {

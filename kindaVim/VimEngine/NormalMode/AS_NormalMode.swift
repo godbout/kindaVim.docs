@@ -208,12 +208,12 @@ extension KindaVimEngine {
                 push(element: newElement)
                 endCurrentMove()
             case .V:
-                let newElement = asVisualMode.V(on: currentElement, state)
+                let newElement = asVisualMode.VFromNormalMode(on: currentElement)
                 push(element: newElement)
                 state.visualStyle = .linewise
                 enterVisualMode()
             case .v:
-                let newElement = asVisualMode.v(on: currentElement, state)
+                let newElement = asVisualMode.vFromVisualMode(on: currentElement, state)
                 push(element: newElement)
                 state.visualStyle = .characterwise
                 enterVisualMode()

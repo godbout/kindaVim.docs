@@ -36,6 +36,8 @@ class KindaVimEngine {
     var showCharactersTyped: Bool = false
     var jkMapping: Bool = true
     
+    private(set) var currentMode: VimEngineMode = .insert
+    
     private(set) var firstCountBuffer: String = ""
     private(set) var secondCountBuffer: String = ""
     var count: Int? {
@@ -105,7 +107,7 @@ class KindaVimEngine {
         // if it's a digit and if this digit will be used for counts. in that case the digit
         // is not used for a move so we don't send it. else it is (like for example `r5`) and we do.
         if grabDigitForCounts(keyCombination: keyCombination) == false {
-            switch state.currentMode {
+            switch currentMode {
             case .normal:
                 if appMode == .keyMapping {
                     handleNormalMode(using: .keyboardStrategy, for: keyCombination)
@@ -219,7 +221,7 @@ class KindaVimEngine {
             parseOperatorCommandForNormalModeUsingKeyboardStrategy()
         }
         
-        if state.currentMode != .operatorPendingForNormalMode {
+        if currentMode != .operatorPendingForNormalMode {
             resetOperatorPendingBuffer()
         }
     }
@@ -243,14 +245,14 @@ class KindaVimEngine {
             parseOperatorCommandForVisualModeUsingKeyboardStrategy()
         }
         
-        if state.currentMode != .operatorPendingForVisualMode {
+        if currentMode != .operatorPendingForVisualMode {
             resetOperatorPendingBuffer()
         }
     }
     
     func enterInsertMode() {
         endCurrentMove()
-        state.currentMode = .insert
+        currentMode = .insert
         
         if toggleHazeOverWindow == true {
             display.hazeOver(.off)
@@ -274,11 +276,11 @@ class KindaVimEngine {
     func enterNormalMode(appMode: AppMode = .auto) {
         endCurrentMove()
         
-        if state.currentMode == .insert {
+        if currentMode == .insert {
             goBackOneCharacterForTextElements(appMode: appMode)
         }
         
-        state.currentMode = .normal        
+        currentMode = .normal        
         
         if toggleHazeOverWindow == true {
             display.hazeOver(.on)
@@ -308,7 +310,7 @@ class KindaVimEngine {
     
     func enterVisualMode() {
         endCurrentMove()
-        state.currentMode = .visual
+        currentMode = .visual
     }
     
     func endCurrentMove() {        
@@ -318,12 +320,12 @@ class KindaVimEngine {
     }
     
     func enterOperatorPendingForNormalMode(with keyCombination: KeyCombination) {
-        state.currentMode = .operatorPendingForNormalMode
+        currentMode = .operatorPendingForNormalMode
         operatorPendingBuffer.append(keyCombination)
     }
     
     func enterOperatorPendingForVisualMode(with keyCombination: KeyCombination) {
-        state.currentMode = .operatorPendingForVisualMode
+        currentMode = .operatorPendingForVisualMode
         operatorPendingBuffer.append(keyCombination)
     }
     

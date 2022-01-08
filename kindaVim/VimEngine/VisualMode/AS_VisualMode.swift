@@ -98,7 +98,7 @@ extension KindaVimEngine {
                 push(element: newElement)
                 endCurrentMove()
             case .V:
-                let newElement = asVisualMode.V(on: currentElement, state)
+                let newElement = asVisualMode.VFromVisualMode(on: currentElement, state)
                 push(element: newElement)
                 
                 switch state.visualStyle {
@@ -109,7 +109,7 @@ extension KindaVimEngine {
                     enterNormalMode()
                 }
             case .v:
-                let newElement = asVisualMode.v(on: currentElement, state)
+                let newElement = asVisualMode.vFromVisualMode(on: currentElement, state)
                 push(element: newElement)
                 
                 switch state.visualStyle {
