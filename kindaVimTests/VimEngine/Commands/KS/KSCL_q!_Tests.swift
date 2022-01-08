@@ -10,7 +10,7 @@ class KSCL_qExclamationMark_Tests: KSCL_BaseTests {
         kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .colon))
         kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .q))
         kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .exclamationMark))
-        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .return), appMode: .keyMapping)
+        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .return))
     }
 
 }

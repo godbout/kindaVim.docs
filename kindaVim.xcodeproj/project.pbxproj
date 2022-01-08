@@ -452,7 +452,6 @@
 		9103C599271C7B5300BDEBD7 /* KS_VisualMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KS_VisualMode.swift; sourceTree = "<group>"; };
 		9106475B276F400E00B1E0C0 /* GECDefaultKeyboardShortcutTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GECDefaultKeyboardShortcutTests.swift; sourceTree = "<group>"; };
 		9106475D276F402A00B1E0C0 /* GECCustomKeyboardShortcutTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GECCustomKeyboardShortcutTests.swift; sourceTree = "<group>"; };
-		910A960227885461001A9006 /* AccessibilityStrategy */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = AccessibilityStrategy; path = ../AccessibilityStrategy; sourceTree = "<group>"; };
 		9118CEA626FEF90A005F0907 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		912282302781C330006531CB /* ASCL_x_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASCL_x_Tests.swift; sourceTree = "<group>"; };
 		912282322781C33D006531CB /* KSCL_x_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSCL_x_Tests.swift; sourceTree = "<group>"; };
@@ -809,7 +808,6 @@
 		918F303E2787559C00AD68DF /* KSVM_F__Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KSVM_F__Tests.swift; sourceTree = "<group>"; };
 		918F303F2787559C00AD68DF /* KSVM_c_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KSVM_c_Tests.swift; sourceTree = "<group>"; };
 		918F30692787569E00AD68DF /* ModesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModesTests.swift; sourceTree = "<group>"; };
-		9197566B2789B30700B37AA7 /* VimEngineState */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = VimEngineState; path = ../VimEngineState; sourceTree = "<group>"; };
 		91A967412741447400E1CA7E /* Updater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Updater.swift; sourceTree = "<group>"; };
 		91BBC4DC278763F2008DE977 /* KSNM_c$_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSNM_c$_Tests.swift; sourceTree = "<group>"; };
 		91BBC4DE278763FD008DE977 /* KSNM_d$_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSNM_d$_Tests.swift; sourceTree = "<group>"; };
@@ -909,8 +907,6 @@
 		916ACF8426FE086A000E9757 = {
 			isa = PBXGroup;
 			children = (
-				9197566B2789B30700B37AA7 /* VimEngineState */,
-				910A960227885461001A9006 /* AccessibilityStrategy */,
 				916ACF8F26FE086B000E9757 /* kindaVim */,
 				916ACFA126FE086C000E9757 /* kindaVimTests */,
 				916ACFAB26FE086C000E9757 /* kindaVimUITests */,

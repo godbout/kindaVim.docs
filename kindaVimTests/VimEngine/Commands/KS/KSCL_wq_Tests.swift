@@ -11,7 +11,7 @@ class KSCL_wq_Tests: KSCL_BaseTests {
         kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .w))
         kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .q))
         // TODO: remove keyMapping here, make the KSCL AS fail?
-        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .return), appMode: .keyMapping)
+        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .return))
     }
 
 }

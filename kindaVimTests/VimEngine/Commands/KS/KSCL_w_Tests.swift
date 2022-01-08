@@ -9,7 +9,7 @@ class KSCL_w_Tests: KSCL_BaseTests {
         kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .eight))
         kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .colon))
         kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .w))
-        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .return), appMode: .keyMapping)
+        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .return))
     }
 
 }
