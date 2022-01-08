@@ -3,9 +3,9 @@ import XCTest
 import KeyCombination
 
 
-// here we test that if the Accessibility Strategy can't read the
-// text of the current input field, it falls back to the Keyboard Strategy
-class FallbackTests: XCTestCase {
+// here we test that in Auto Mode when it succeeds it calls the Accessibility Strategy.
+// failure is tested in FallbackTests.
+class AutoSucceedTests: XCTestCase {
 
     let kindaVimEngine = KindaVimEngine()    
     let asNormalMode = AccessibilityStrategyNormalModeMock()
@@ -17,7 +17,7 @@ class FallbackTests: XCTestCase {
         super.setUp()
         
         kindaVimEngine.axEngine = AXEngineNonTextElementMock()
-        kindaVimEngine.accessibilityStrategy = AccessibilityStrategyFailingMock()
+        kindaVimEngine.accessibilityStrategy = AccessibilityStrategySucceedingMock()
         kindaVimEngine.asNormalMode = asNormalMode
         kindaVimEngine.asVisualMode = asVisualMode
         kindaVimEngine.ksNormalMode = ksNormalMode
@@ -28,43 +28,43 @@ class FallbackTests: XCTestCase {
 }
 
 
-extension FallbackTests {
+extension AutoSucceedTests {
     
-    func test_that_in_NormalMode_it_falls_back_to_the_KeyboardStrategy() {
+    func test_that_in_NormalMode_it_ends_on_the_AccessibilityStrategy() {
         kindaVimEngine.enterNormalMode()
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .l))
         
-        XCTAssertEqual(asNormalMode.functionCalled, "")
-        XCTAssertEqual(ksNormalMode.functionCalled, "l(times:)")
+        XCTAssertEqual(asNormalMode.functionCalled, "l(times:on:)")
+        XCTAssertEqual(ksNormalMode.functionCalled, "")
     }
     
-    func test_that_in_OperatorPendingMode_for_NormalMode_it_falls_back_to_the_KeyboardStrategy() {
+    func test_that_in_OperatorPendingMode_for_NormalMode_it_ends_on_the_AccessibilityStrategy() {
         kindaVimEngine.enterNormalMode()
         
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .d))
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .d))
         
-        XCTAssertEqual(asNormalMode.functionCalled, "")
-        XCTAssertEqual(ksNormalMode.functionCalled, "ddForNonTextElement()")
+        XCTAssertEqual(asNormalMode.functionCalled, "dd(on:_:)")
+        XCTAssertEqual(ksNormalMode.functionCalled, "")
     }
     
-    func test_that_in_VisualMode_it_falls_back_to_the_KeyboardStrategy() {
+    func test_that_in_VisualMode_it_ends_on_the_AccessibilityStrategy() {
         kindaVimEngine.enterVisualMode()
         
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .l))
         
-        XCTAssertEqual(asVisualMode.functionCalled, "")
-        XCTAssertEqual(ksVisualMode.functionCalled, "lForVisualStyleCharacterwise()")
+        XCTAssertEqual(asVisualMode.functionCalled, "l(on:_:)")
+        XCTAssertEqual(ksVisualMode.functionCalled, "")
     }
     
-    func test_that_in_OperatorPendingMode_for_VisualMode_it_falls_back_to_the_KeyboardStrategy() {
+    func test_that_in_OperatorPendingMode_for_VisualMode_it_ends_on_the_AccessibilityStrategy() {
         kindaVimEngine.enterVisualMode()
         
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .g))
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .g))
         
-        XCTAssertEqual(asVisualMode.functionCalled, "")
-        XCTAssertEqual(ksVisualMode.functionCalled, "ggForNonTextElement()")
+        XCTAssertEqual(asVisualMode.functionCalled, "gg(on:_:)")
+        XCTAssertEqual(ksVisualMode.functionCalled, "")
     }
         
 }
