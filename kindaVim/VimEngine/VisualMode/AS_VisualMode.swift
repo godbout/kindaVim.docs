@@ -18,14 +18,10 @@ extension KindaVimEngine {
                 push(element: newElement)
                 endCurrentMove()
             case .C:
-                // TODO: synonym?
                 let newElement = asVisualMode.C(on: currentElement, &state)
                 push(element: newElement)
                 enterInsertMode()
             case .c:
-                // TODO: push state.visualModeStyle into VimEngineState? then no need to separate like this. can separate within the AS
-                // itself.
-                // we are able to do that now because we're putting setting the state LYS within the moves themselves.
                 let newElement = asVisualMode.c(on: currentElement, &state)
                 push(element: newElement)
                 enterInsertMode()
@@ -98,8 +94,6 @@ extension KindaVimEngine {
                 push(element: newElement)
                 enterNormalMode()
             case .underscore:
-                // TODO: explore here if it's ok to push the same element or if we better
-                // add extra caution and use again the switch state VMS here
                 let newElement = asVisualMode.underscore(on: currentElement, state)
                 push(element: newElement)
                 endCurrentMove()
@@ -138,25 +132,20 @@ extension KindaVimEngine {
                 push(element: newElement)
                 endCurrentMove()
             case .X:
-                // TODO: synonym?
-                let newElement = asVisualMode.X(on: currentElement, &state)
+                let newElement = asVisualMode.D(on: currentElement, &state)
                 push(element: newElement)
-                state.lastYankStyle = .linewise
                 enterNormalMode()
             case .x:
-                let newElement = asVisualMode.x(on: currentElement, &state)
+                let newElement = asVisualMode.d(on: currentElement, &state)
                 push(element: newElement)
-                state.lastYankStyle = .characterwise
                 enterNormalMode()
             case .Y:
                 let newElement = asVisualMode.Y(on: currentElement, &state)
                 push(element: newElement)
-                state.lastYankStyle = .linewise
                 enterNormalMode()
             case .y:
                 let newElement = asVisualMode.y(on: currentElement, &state)
                 push(element: newElement)
-                state.lastYankStyle = .characterwise
                 enterNormalMode()
             case .zero:
                 // endCurrentMove shouldn't be needed because we should reach 0 as
