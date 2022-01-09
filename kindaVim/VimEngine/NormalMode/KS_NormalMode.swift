@@ -8,13 +8,7 @@ extension KindaVimEngine {
     func handleNormalModeUsingKeyboardStrategy(for keyCombination: KeyCombination) {         
         switch keyCombination.vimKey {
         case .A:
-            switch focusedElementType {
-            case .textElement:
-                post(ksNormalMode.AForTextElement())
-            default:
-                post(ksNormalMode.AForNonTextElement())
-            }
-            
+            post(ksNormalMode.A())
             enterInsertMode()
         case .a:
             switch focusedElementType {

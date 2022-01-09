@@ -2,20 +2,17 @@
 import KeyboardStrategy
 import KeyCombination
 import Foundation
+import VimEngineState
+import AXEngine
 
 
 class KeyboardStrategyVisualModeMock: KeyboardStrategyVisualModeProtocol {
     
+    var axEngine = AXEngine()
     var functionCalled = ""
     
     
-    func bForNonTextElementWhenInVisualStyleCharacterwise() -> [KeyCombination] {
-        functionCalled = #function
-        
-        return []
-    }
-    
-    func bForTextElementWhenInVisualStyleCharacterwise() -> [KeyCombination] {
+    func b(_ vimEngineState: VimEngineState) -> [KeyCombination] {
         functionCalled = #function
         
         return []

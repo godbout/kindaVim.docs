@@ -9,18 +9,8 @@ extension KindaVimEngine {
         case .a:
             enterOperatorPendingForVisualMode(with: keyCombination)
         case .b:
-            switch state.visualStyle {
-            case .characterwise:
-                if focusedElementType == .nonTextElement {
-                    post(ksVisualMode.bForNonTextElementWhenInVisualStyleCharacterwise())
-                } else {
-                    post(ksVisualMode.bForTextElementWhenInVisualStyleCharacterwise())
-                }
-                                
-                endCurrentMove()
-            case .linewise:
-                endCurrentMove()
-            }
+            post(ksVisualMode.b(state))
+            endCurrentMove()
         case .C:
             switch focusedElementType {
             case .textElement:

@@ -3,20 +3,16 @@ import KeyboardStrategy
 import KeyCombination
 import Foundation
 import VimEngineState
+import AXEngine
 
 
 class KeyboardStrategyNormalModeMock: KeyboardStrategyNormalModeProtocol {
     
+    var axEngine = AXEngine()
     var functionCalled = ""
     
         
-    func AForNonTextElement() -> [KeyCombination] {
-        functionCalled = #function
-        
-        return []
-    }
-    
-    func AForTextElement() -> [KeyCombination] {
+    func A() -> [KeyCombination] {
         functionCalled = #function
         
         return []

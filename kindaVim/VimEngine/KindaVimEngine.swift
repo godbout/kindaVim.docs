@@ -89,8 +89,8 @@ class KindaVimEngine {
     }
         
     var keyboardStrategy: KeyboardStrategyProtocol = KeyboardStrategy()
-    var ksNormalMode: KeyboardStrategyNormalModeProtocol = KeyboardStrategyNormalMode()
-    var ksVisualMode: KeyboardStrategyVisualModeProtocol = KeyboardStrategyVisualMode()
+    var ksNormalMode: KeyboardStrategyNormalModeProtocol
+    var ksVisualMode: KeyboardStrategyVisualModeProtocol
     var accessibilityStrategy: AccessibilityStrategyProtocol = AccessibilityStrategy()
     var asNormalMode: AccessibilityStrategyNormalModeProtocol = AccessibilityStrategyNormalMode()
     var asVisualMode: AccessibilityStrategyVisualModeProtocol = AccessibilityStrategyVisualMode()
@@ -99,6 +99,8 @@ class KindaVimEngine {
     init(axEngine: AXEngine = AXEngine(), inputFieldObserver: InputFieldObserver = InputFieldObserver()) {
         self.axEngine = axEngine
         self.inputFieldObserver = inputFieldObserver
+        self.ksNormalMode = KeyboardStrategyNormalMode(axEngine: axEngine)
+        self.ksVisualMode = KeyboardStrategyVisualMode(axEngine: axEngine)
     }
     
 

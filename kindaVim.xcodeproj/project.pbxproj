@@ -40,9 +40,7 @@
 		91840B4826FE092D00E6048E /* KSVM_Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91840B3F26FE092D00E6048E /* KSVM_Mock.swift */; };
 		91840B4926FE092D00E6048E /* ASNM_Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91840B4026FE092D00E6048E /* ASNM_Mock.swift */; };
 		91840B4A26FE092D00E6048E /* ASVM_Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91840B4126FE092D00E6048E /* ASVM_Mock.swift */; };
-		91840B4B26FE092D00E6048E /* AXEngineNonTextElementMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91840B4226FE092D00E6048E /* AXEngineNonTextElementMock.swift */; };
 		91840B4C26FE092D00E6048E /* KSNM_Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91840B4326FE092D00E6048E /* KSNM_Mock.swift */; };
-		91840B4D26FE092D00E6048E /* AXEngineTextElementMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91840B4426FE092D00E6048E /* AXEngineTextElementMock.swift */; };
 		91840C9626FE094400E6048E /* GECTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91840B5226FE094200E6048E /* GECTests.swift */; };
 		91840D0D26FE094400E6048E /* AS_BaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91840BCE26FE094300E6048E /* AS_BaseTests.swift */; };
 		91840D2626FE094400E6048E /* ASNM_[(_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91840BE826FE094300E6048E /* ASNM_[(_Tests.swift */; };
@@ -459,7 +457,7 @@
 		912282322781C33D006531CB /* KSCL_x_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSCL_x_Tests.swift; sourceTree = "<group>"; };
 		912BC449278A136D000E999C /* AccessibilityStrategy */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = AccessibilityStrategy; path = ../AccessibilityStrategy; sourceTree = "<group>"; };
 		912BC44A278A1417000E999C /* ASSucceeding_TextField_Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASSucceeding_TextField_Mock.swift; sourceTree = "<group>"; };
-		912BC44E278A2317000E999C /* VimEngineState */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = VimEngineState; path = ../VimEngineState; sourceTree = "<group>"; };
+		912BC454278AD18C000E999C /* KeyboardStrategy */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = KeyboardStrategy; path = ../KeyboardStrategy; sourceTree = "<group>"; };
 		913FC720277A236800D89166 /* InputFieldObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputFieldObserver.swift; sourceTree = "<group>"; };
 		91497ECB2789F006006CA23C /* AutoSucceedTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoSucceedTests.swift; sourceTree = "<group>"; };
 		914D662027266467005B9D99 /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
@@ -474,9 +472,7 @@
 		91840B3F26FE092D00E6048E /* KSVM_Mock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KSVM_Mock.swift; sourceTree = "<group>"; };
 		91840B4026FE092D00E6048E /* ASNM_Mock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASNM_Mock.swift; sourceTree = "<group>"; };
 		91840B4126FE092D00E6048E /* ASVM_Mock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASVM_Mock.swift; sourceTree = "<group>"; };
-		91840B4226FE092D00E6048E /* AXEngineNonTextElementMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AXEngineNonTextElementMock.swift; sourceTree = "<group>"; };
 		91840B4326FE092D00E6048E /* KSNM_Mock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KSNM_Mock.swift; sourceTree = "<group>"; };
-		91840B4426FE092D00E6048E /* AXEngineTextElementMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AXEngineTextElementMock.swift; sourceTree = "<group>"; };
 		91840B5226FE094200E6048E /* GECTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GECTests.swift; sourceTree = "<group>"; };
 		91840BCE26FE094300E6048E /* AS_BaseTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AS_BaseTests.swift; sourceTree = "<group>"; };
 		91840BE826FE094300E6048E /* ASNM_[(_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ASNM_[(_Tests.swift"; sourceTree = "<group>"; };
@@ -928,15 +924,6 @@
 			path = Commands;
 			sourceTree = "<group>";
 		};
-		912BC448278A1001000E999C /* AXEngine */ = {
-			isa = PBXGroup;
-			children = (
-				91840B4226FE092D00E6048E /* AXEngineNonTextElementMock.swift */,
-				91840B4426FE092D00E6048E /* AXEngineTextElementMock.swift */,
-			);
-			path = AXEngine;
-			sourceTree = "<group>";
-		};
 		912BC44C278A141A000E999C /* AccessibilityStrategy */ = {
 			isa = PBXGroup;
 			children = (
@@ -977,7 +964,7 @@
 		916ACF8426FE086A000E9757 = {
 			isa = PBXGroup;
 			children = (
-				912BC44E278A2317000E999C /* VimEngineState */,
+				912BC454278AD18C000E999C /* KeyboardStrategy */,
 				912BC449278A136D000E999C /* AccessibilityStrategy */,
 				916ACF8F26FE086B000E9757 /* kindaVim */,
 				916ACFA126FE086C000E9757 /* kindaVimTests */,
@@ -1057,7 +1044,6 @@
 		91840B3E26FE092D00E6048E /* Mocks */ = {
 			isa = PBXGroup;
 			children = (
-				912BC448278A1001000E999C /* AXEngine */,
 				912BC447278A0FF4000E999C /* Commands */,
 				912BC446278A0FEA000E999C /* KeyboardStrategy */,
 				912BC445278A0FDD000E999C /* AccessibilityStrategy */,
@@ -1910,7 +1896,6 @@
 				91497ECC2789F006006CA23C /* AutoSucceedTests.swift in Sources */,
 				918F30142787557800AD68DF /* KSNM_yi`_Tests.swift in Sources */,
 				918F2FF02787557800AD68DF /* KSNM_X__Tests.swift in Sources */,
-				91840B4D26FE092D00E6048E /* AXEngineTextElementMock.swift in Sources */,
 				918F2EA8278754D100AD68DF /* ASNM_cF__Tests.swift in Sources */,
 				918F305C2787559C00AD68DF /* KSVM_t_Tests.swift in Sources */,
 				918F2FD52787557800AD68DF /* KSNM_Y__Tests.swift in Sources */,
@@ -1919,7 +1904,6 @@
 				91840B4826FE092D00E6048E /* KSVM_Mock.swift in Sources */,
 				918F2FFD2787557800AD68DF /* KSNM_cG_Tests.swift in Sources */,
 				918F2EAB278754D100AD68DF /* ASNM_c$_Tests.swift in Sources */,
-				91840B4B26FE092D00E6048E /* AXEngineNonTextElementMock.swift in Sources */,
 				918F30512787559C00AD68DF /* KSVM_iW__Tests.swift in Sources */,
 				918F30532787559C00AD68DF /* KSVM_v_Tests.swift in Sources */,
 				918F2EC6278754D100AD68DF /* ASNM_gk_Tests.swift in Sources */,
