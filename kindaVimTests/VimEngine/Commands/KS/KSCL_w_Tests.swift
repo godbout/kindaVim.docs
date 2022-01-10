@@ -23,7 +23,7 @@ extension KSCL_w_Tests {
         XCTAssertEqual(commandsMock.functionCalled, "w()")
     }
     
-    func test_that_it_keeps_Vim_in_normal_mode() {
+    func test_that_it_keeps_Vim_in_NormalMode() {
         applyKeyCombinationsBeingTested()
         
         XCTAssertEqual(kindaVimEngine.currentMode, .normal)

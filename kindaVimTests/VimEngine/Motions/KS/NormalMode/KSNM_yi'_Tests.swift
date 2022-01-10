@@ -5,7 +5,8 @@ import XCTest
 
 class KSNM_yiSingleQuote_Tests: KSNM_BaseTests {
     
-    private func applyKeyCombinationsBeingTested() {
+    override func setUp() {
+super.setUp()
         kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .eight))
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .y))
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .i))
@@ -23,7 +24,7 @@ extension KSNM_yiSingleQuote_Tests {
         XCTAssertEqual(ksNormalModeMock.functionCalled, "")
     }
     
-    func test_that_it_keeps_Vim_in_normal_mode() {
+    func test_that_it_keeps_Vim_in_NormalMode() {
         kindaVimEngine.state.lastYankStyle = .linewise
                 
         XCTAssertEqual(kindaVimEngine.currentMode, .normal)

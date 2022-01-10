@@ -6,7 +6,7 @@ import XCTest
 class KSNM_j_Tests: KSNM_BaseTests {
 
     override func setUp() {
-        super.setUp()
+super.setUp()
 
         kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .eight))
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .j))
@@ -21,7 +21,7 @@ extension KSNM_j_Tests {
         XCTAssertEqual(ksNormalModeMock.functionCalled, "j()")
     }
     
-    func test_that_it_keeps_Vim_in_normal_mode() {
+    func test_that_it_keeps_Vim_in_NormalMode() {
         XCTAssertEqual(kindaVimEngine.currentMode, .normal)
     }
     

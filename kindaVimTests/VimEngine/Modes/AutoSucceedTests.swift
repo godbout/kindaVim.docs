@@ -16,7 +16,8 @@ class AutoSucceedTests: XCTestCase {
     override func setUp() {
         super.setUp()
         
-        kindaVimEngine.axEngine = AXEngineNonTextElementMock()
+// TODO:
+//        kindaVimEngine.axEngine = AXEngineNonTextElementMock()
         kindaVimEngine.accessibilityStrategy = AccessibilityStrategySucceedingMock()
         kindaVimEngine.asNormalMode = asNormalMode
         kindaVimEngine.asVisualMode = asVisualMode

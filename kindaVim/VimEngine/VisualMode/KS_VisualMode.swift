@@ -12,216 +12,84 @@ extension KindaVimEngine {
             post(ksVisualMode.b(state))
             endCurrentMove()
         case .C:
-            switch focusedElementType {
-            case .textElement:
-                post(ksVisualMode.CForTextElement())
-            default:
-                post(ksVisualMode.CForNonTextElement())
-            }
-            
-            state.lastYankStyle = .linewise
+            post(ksVisualMode.C(&state))
             enterInsertMode()
         case .c:
-            switch focusedElementType {
-            case .textElement:
-                post(ksVisualMode.cForTextElement())
-            default:
-                post(ksVisualMode.cForNonTextElement())
-            }
-            
-            state.lastYankStyle = state.visualStyle == .characterwise ? .characterwise : .linewise
+            post(ksVisualMode.c(&state))
             enterInsertMode()
         case .caret:
             post(ksVisualMode.caret(state))
             endCurrentMove()
         case .D:
-            switch focusedElementType {
-            case .textElement:
-                post(ksVisualMode.DForTextElement())
-            default:
-                post(ksVisualMode.DForNonTextElement())
-            }
-            
-            state.lastYankStyle = .linewise
+            post(ksVisualMode.D(&state))
             enterNormalMode()
         case .d:
-            switch focusedElementType {
-            case .textElement:
-                post(ksVisualMode.dForTextElement())
-            default:
-                post(ksVisualMode.dForNonTextElement())
-            }
-            
-            state.lastYankStyle = state.visualStyle == .characterwise ? .characterwise : .linewise
+            post(ksVisualMode.d(&state))
             enterNormalMode()
         case .dollarSign:
             post(ksVisualMode.dollarSign(state))
             endCurrentMove()
         case .e:
-            switch state.visualStyle {
-            case .characterwise:
-                if focusedElementType == .nonTextElement {
-                    post(ksVisualMode.eForNonTextElementWhenInVisualStyleCharacterwise())
-                } else {
-                    post(ksVisualMode.eForTextElementWhenInVisualStyleCharacterwise())
-                }
-                                
-                endCurrentMove()
-            case .linewise:
-                endCurrentMove()
-            }
+            post(ksVisualMode.e(state))
+            endCurrentMove()
         case .escape:
             enterInsertMode()
         case .G:
-            switch state.visualStyle {
-            case .characterwise:
-                if focusedElementType == .nonTextElement {
-                    post(ksVisualMode.GForNonTextElement())
-                } else {
-                    post(ksVisualMode.GForTextElementWhenInVisualStyleCharacterwise())
-                }
-                
-                endCurrentMove()
-            case .linewise:
-                if focusedElementType == .nonTextElement {
-                    post(ksVisualMode.GForNonTextElement())
-                } else {
-                    post(ksVisualMode.GForTextElementWhenInVisualStyleLinewise())
-                }
-                
-                endCurrentMove()
-            }
+            post(ksVisualMode.G(state))
+            endCurrentMove()
         case .g:
             enterOperatorPendingForVisualMode(with: keyCombination)
         case .h:
-            switch state.visualStyle {
-            case .characterwise:
-                post(ksVisualMode.hForVisualStyleCharacterwise())
-                endCurrentMove()
-            case .linewise:
-                endCurrentMove()
-            }
+            post(ksVisualMode.h(state))
+            endCurrentMove()
         case .i:
             enterOperatorPendingForVisualMode(with: keyCombination)
         case .j:
-            switch state.visualStyle {
-            case .characterwise:
-                post(ksVisualMode.jForVisualStyleCharacterwise())
-                endCurrentMove()
-            case .linewise:
-                post(ksVisualMode.jForVisualStyleLinewise())
-                endCurrentMove()
-            }
+            post(ksVisualMode.j(state))
+            endCurrentMove()
         case .k:
-            switch state.visualStyle {
-            case .characterwise:
-                post(ksVisualMode.kForVisualStyleCharacterwise())
-                endCurrentMove()
-            case .linewise:
-                post(ksVisualMode.kForVisualStyleLinewise())
-                endCurrentMove()
-            }
+            post(ksVisualMode.k(state))
+            endCurrentMove()
         case .l:
-            switch state.visualStyle {
-            case .characterwise:
-                post(ksVisualMode.lForVisualStyleCharacterwise())
-                endCurrentMove()
-            case .linewise:
-                endCurrentMove()
-            }
+            post(ksVisualMode.l(state))
+            endCurrentMove()
         case .underscore:
             post(ksVisualMode.underscore(state))
             endCurrentMove()
         case .V:
+            post(ksVisualMode.VFromVisualMode(state))
+            
             switch state.visualStyle {
             case .characterwise:
-                if focusedElementType == .nonTextElement {
-                    post(ksVisualMode.VForNonTextElement())
-                } else {
-                    post(ksVisualMode.VForTextElementWhenInVisualStyleCharacterwise())
-                }
-                                
                 state.visualStyle = .linewise
                 endCurrentMove()
             case .linewise:
-                if focusedElementType == .nonTextElement {
-                    post(ksVisualMode.VForNonTextElement())
-                } else {
-                    post(ksVisualMode.VForTextElementWhenInVisualStyleLinewise())
-                }
-                                
                 enterNormalMode()
             }
         case .v:
+            post(ksVisualMode.vFromVisualMode(state))
+            
             switch state.visualStyle {
             case .characterwise:
-                if focusedElementType == .nonTextElement {
-                    post(ksVisualMode.vForNonTextElement())
-                } else {
-                    post(ksVisualMode.vForTextElementWhenInVisualStyleCharacterwise())
-                }
-                
                 enterNormalMode()
             case .linewise:
-                if focusedElementType == .nonTextElement {
-                    post(ksVisualMode.vForNonTextElement())
-                } else {
-                    post(ksVisualMode.vForTextElementWhenInVisualStyleLinewise())
-                }
-                
                 state.visualStyle = .characterwise
                 endCurrentMove()
             }
         case .w:    
-            switch state.visualStyle {
-            case .characterwise:
-                if focusedElementType == .nonTextElement {
-                    post(ksVisualMode.wForNonTextElementWhenInVisualStyleCharacterwise())
-                } else {
-                    post(ksVisualMode.wForTextElementWhenInVisualStyleCharacterwise())
-                }
-                                
-                endCurrentMove()
-            case .linewise:
-                endCurrentMove()
-            }
+            post(ksVisualMode.w(state))
+            endCurrentMove()
         case .X:
-            switch focusedElementType {
-            case .textElement:
-                post(ksVisualMode.XForTextElement())
-            default:
-                post(ksVisualMode.XForNonTextElement())
-            }
-            
-            state.lastYankStyle = .linewise
+            post(ksVisualMode.D(&state))
             enterNormalMode()
         case .x:
-            switch focusedElementType {
-            case .textElement:
-                post(ksVisualMode.xForTextElement())
-            default:
-                post(ksVisualMode.xForNonTextElement())
-            }
-            
+            post(ksVisualMode.d(&state))
             enterNormalMode()
         case .Y:
-            switch focusedElementType {
-            case .textElement:
-                post(ksVisualMode.YForTextElement())
-            default:
-                post(ksVisualMode.YForNonTextElement())
-            }
-            
-            state.lastYankStyle = .linewise
+            post(ksVisualMode.Y(&state))
             enterNormalMode()
         case .y:
-            switch focusedElementType {
-            case .textElement:
-                post(ksVisualMode.yForTextElement())
-            default:
-                post(ksVisualMode.yForNonTextElement())
-            }
-            
+            post(ksVisualMode.y(&state))
             enterNormalMode()
         case .zero:
             post(ksVisualMode.zero(state))
@@ -240,107 +108,29 @@ extension KindaVimEngine {
     func parseOperatorCommandForVisualModeUsingKeyboardStrategy() {
         switch operatorPendingBuffer.map({ $0.vimKey }) {
         case [.g, .caret]:
-            switch state.visualStyle {
-            case .characterwise:
-                if focusedElementType == .nonTextElement {
-                    post(ksVisualMode.gCaretForNonTextElementWhenInVisualStyleCharacterwise())
-                } else {
-                    post(ksVisualMode.gCaretForTextElementWhenInVisualStyleCharacterwise())
-                }
-                
-                enterVisualMode()
-            case .linewise:
-                enterVisualMode()
-            }
+            post(ksVisualMode.gCaret(state))
+            enterVisualMode()
         case [.g, .dollarSign]:
-            switch state.visualStyle {
-            case .characterwise:
-                if focusedElementType == .nonTextElement {
-                    post(ksVisualMode.gDollarSignForNonTextElementWhenInVisualStyleCharacterwise())
-                } else {
-                    post(ksVisualMode.gDollarSignForTextElementWhenInVisualStyleCharacterwise())
-                }
-                
-                enterVisualMode()
-            case .linewise:
-                enterVisualMode()
-            }
+            post(ksVisualMode.gDollarSign(state))
+            enterVisualMode()
         case [.g, .e]:
-            switch state.visualStyle {
-            case .characterwise:
-                if focusedElementType == .nonTextElement {
-                    post(ksVisualMode.geForNonTextElementWhenInVisualStyleCharacterwise())
-                } else {
-                    post(ksVisualMode.geForTextElementWhenInVisualStyleCharacterwise())
-                }
-                
-                enterVisualMode()
-            case .linewise:
-                enterVisualMode()
-            }
+            post(ksVisualMode.ge(state))
+            enterVisualMode()
         case [.g, .g]:
-            switch state.visualStyle {
-            case .characterwise:
-                if focusedElementType == .nonTextElement {
-                    post(ksVisualMode.ggForNonTextElement())
-                } else {
-                    post(ksVisualMode.ggForTextElementWhenInVisualStyleCharacterwise())
-                }
-                
-                enterVisualMode()
-            case .linewise:
-                if focusedElementType == .nonTextElement {
-                    post(ksVisualMode.ggForNonTextElement())
-                } else {
-                    post(ksVisualMode.ggForTextElementWhenInVisualStyleLinewise())
-                }
-                
-                enterVisualMode()
-            }
+            post(ksVisualMode.gg(state))
+            enterVisualMode()
         case [.g, .I]:
-            switch state.visualStyle {
-            case .characterwise:
-                if focusedElementType == .nonTextElement {
-                    post(ksVisualMode.gIForNonTextElementWhenInVisualStyleCharacterwise())
-                } else {
-                    post(ksVisualMode.gIForTextElementWhenInVisualStyleCharacterwise())
-                }
-                
-                enterVisualMode()
-            case .linewise:
-                enterVisualMode()
-            }
+            post(ksVisualMode.gI(state))
+            enterVisualMode()
         case [.g, .j]:
-            switch state.visualStyle {
-            case .characterwise:
-                post(ksVisualMode.gjForVisualStyleCharacterwise())
-                enterVisualMode()
-            case .linewise:
-                post(ksVisualMode.gjForVisualStyleLinewise())
-                enterVisualMode()
-            }
+            post(ksVisualMode.gj(state))
+            enterVisualMode()
         case [.g, .k]:
-            switch state.visualStyle {
-            case .characterwise:
-                post(ksVisualMode.gkForVisualStyleCharacterwise())
-                enterVisualMode()
-            case .linewise:
-                post(ksVisualMode.gkForVisualStyleLinewise())
-                enterVisualMode()
-            }
+            post(ksVisualMode.gk(state))
+            enterVisualMode()
         case [.g, .zero]:
-            switch state.visualStyle {
-            case .characterwise:
-                if focusedElementType == .nonTextElement {
-                    post(ksVisualMode.gZeroForNonTextElementWhenInVisualStyleCharacterwise())
-                } else {
-                    post(ksVisualMode.gZeroForTextElementWhenInVisualStyleCharacterwise())
-                }
-                
-                enterVisualMode()
-            case .linewise:
-                enterVisualMode()
-            }
+            post(ksVisualMode.gZero(state))
+            enterVisualMode()
         default:
             // if we don't recognize any operator move
             // go back to visual mode

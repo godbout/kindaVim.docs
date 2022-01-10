@@ -5,7 +5,9 @@ import XCTest
 
 class KSNM_cDollarSign_Tests: KSNM_BaseTests {
     
-    private func applyKeyCombinationsBeingTested() {
+    override func setUp() {
+        super.setUp()
+        
         kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .eight))
         kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .c))
         kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .dollarSign))
@@ -16,27 +18,15 @@ class KSNM_cDollarSign_Tests: KSNM_BaseTests {
 
 extension KSNM_cDollarSign_Tests {
     
-    func test_that_it_calls_the_correct_function_for_NonTextElements_on_KS() {
-        kindaVimEngine.axEngine = AXEngineNonTextElementMock()
-        applyKeyCombinationsBeingTested()
-
+    func test_that_it_calls_the_correct_function_on_KS() {
         XCTAssertEqual(ksNormalModeMock.functionCalled, "cDollarSignForNonTextElement()")
     }
     
-    func test_that_it_calls_the_correct_function_for_TextElements_on_KS() {
-        kindaVimEngine.axEngine = AXEngineTextElementMock()
-        applyKeyCombinationsBeingTested()
-
-        XCTAssertEqual(ksNormalModeMock.functionCalled, "cDollarSignForTextElement(_:)")
-    }
-    
     func test_that_it_switches_Vim_into_InsertMode() {
-        applyKeyCombinationsBeingTested()
         XCTAssertEqual(kindaVimEngine.currentMode, .insert)
     }
     
     func test_that_it_resets_the_count() {
-        applyKeyCombinationsBeingTested()
         XCTAssertNil(kindaVimEngine.count)
     }
     

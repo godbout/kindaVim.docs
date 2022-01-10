@@ -16,7 +16,8 @@ class AutoFallbackTests: XCTestCase {
     override func setUp() {
         super.setUp()
         
-        kindaVimEngine.axEngine = AXEngineNonTextElementMock()
+        // TODO:
+//        kindaVimEngine.axEngine = AXEngineNonTextElementMock()
         kindaVimEngine.accessibilityStrategy = AccessibilityStrategyFailingMock()
         kindaVimEngine.asNormalMode = asNormalMode
         kindaVimEngine.asVisualMode = asVisualMode

@@ -25,7 +25,7 @@ extension SucceedingASNM_yT__Tests {
         XCTAssertEqual(asNormalModeMock.functionCalled, "yT(times:to:on:_:)")
     }
     
-    func test_that_it_keeps_Vim_in_normal_mode() {
+    func test_that_it_keeps_Vim_in_NormalMode() {
         XCTAssertEqual(kindaVimEngine.currentMode, .normal)
     }
     

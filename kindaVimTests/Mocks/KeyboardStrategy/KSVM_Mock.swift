@@ -8,7 +8,7 @@ import AXEngine
 
 class KeyboardStrategyVisualModeMock: KeyboardStrategyVisualModeProtocol {
     
-    var axEngine = AXEngine()
+    var axEngine: AXEngineProtocol = AXEngine()
     var functionCalled = ""
     
     
@@ -18,373 +18,190 @@ class KeyboardStrategyVisualModeMock: KeyboardStrategyVisualModeProtocol {
         return []
     }
     
-    func CForNonTextElement() -> [KeyCombination] {
+    
+    func C(_ vimEngineState: inout VimEngineState) -> [KeyCombination] {
         functionCalled = #function
         
         return []
     }
     
-    func CForTextElement() -> [KeyCombination] {
+    
+    func c(_ vimEngineState: inout VimEngineState) -> [KeyCombination] {
         functionCalled = #function
         
         return []
     }
     
-    func cForNonTextElement() -> [KeyCombination] {
+    
+    func caret(_ vimEngineState: VimEngineState) -> [KeyCombination] {
         functionCalled = #function
         
         return []
     }
     
-    func cForTextElement() -> [KeyCombination] {
+    
+    func D(_ vimEngineState: inout VimEngineState) -> [KeyCombination] {
         functionCalled = #function
         
         return []
     }
     
-    func caretForNonTextElementWhenInVisualStyleCharacterwise() -> [KeyCombination] {
+    
+    func d(_ vimEngineState: inout VimEngineState) -> [KeyCombination] {
         functionCalled = #function
         
         return []
     }
     
-    func caretForTextElementWhenInVisualStyleCharacterwise() -> [KeyCombination] {
+    
+    func dollarSign(_ vimEngineState: VimEngineState) -> [KeyCombination] {
         functionCalled = #function
         
         return []
     }
     
-    func DForNonTextElement() -> [KeyCombination] {
+    
+    func e(_ vimEngineState: VimEngineState) -> [KeyCombination] {
+        functionCalled = #function
+        
+        return []
+    }
+        
+    
+    func gCaret(_ vimEngineState: VimEngineState) -> [KeyCombination] {
         functionCalled = #function
         
         return []
     }
     
-    func DForTextElement() -> [KeyCombination] {
+    
+    func gDollarSign(_ vimEngineState: VimEngineState) -> [KeyCombination] {
+        functionCalled = #function
+        
+        return []
+    }
+        
+    
+    func ge(_ vimEngineState: VimEngineState) -> [KeyCombination] {
         functionCalled = #function
         
         return []
     }
     
-    func dForNonTextElement() -> [KeyCombination] {
+    
+    func gg(_ vimEngineState: VimEngineState) -> [KeyCombination] {
         functionCalled = #function
         
         return []
     }
     
-    func dForTextElement() -> [KeyCombination] {
+    func gI(_ vimEngineState: VimEngineState) -> [KeyCombination] {
+        functionCalled = #function
+        
+        return []
+    }
+        
+    func gj(_ vimEngineState: VimEngineState) -> [KeyCombination] {
+        functionCalled = #function
+        
+        return []
+    }
+        
+    func gk(_ vimEngineState: VimEngineState) -> [KeyCombination] {
         functionCalled = #function
         
         return []
     }
     
-    func dollarSignForNonTextElementWhenInVisualStyleCharacterwise() -> [KeyCombination] {
+    func gZero(_ vimEngineState: VimEngineState) -> [KeyCombination] {
+        functionCalled = #function
+        
+        return []
+    }
+        
+    
+    func G(_ vimEngineState: VimEngineState) -> [KeyCombination] {
         functionCalled = #function
         
         return []
     }
     
-    func dollarSignForTextElementWhenInVisualStyleCharacterwise() -> [KeyCombination] {
+    func h(_ vimEngineState: VimEngineState) -> [KeyCombination] {
         functionCalled = #function
         
         return []
     }
     
-    func eForNonTextElementWhenInVisualStyleCharacterwise() -> [KeyCombination] {
-        functionCalled = #function
-        
-        return []
-    }
-        
-    func eForTextElementWhenInVisualStyleCharacterwise() -> [KeyCombination] {
-        functionCalled = #function
-        
-        return []
-    }
-        
-    func gCaretForNonTextElementWhenInVisualStyleCharacterwise() -> [KeyCombination] {
+    func j(_ vimEngineState: VimEngineState) -> [KeyCombination] {
         functionCalled = #function
         
         return []
     }
     
-    func gCaretForTextElementWhenInVisualStyleCharacterwise() -> [KeyCombination] {
-        functionCalled = #function
-        
-        return []
-    }
-    
-    func gDollarSignForNonTextElementWhenInVisualStyleCharacterwise() -> [KeyCombination] {
-        functionCalled = #function
-        
-        return []
-    }
-        
-    func gDollarSignForTextElementWhenInVisualStyleCharacterwise() -> [KeyCombination] {
-        functionCalled = #function
-        
-        return []
-    }
-        
-    func geForNonTextElementWhenInVisualStyleCharacterwise() -> [KeyCombination] {
-        functionCalled = #function
-        
-        return []
-    }
-    
-    func geForTextElementWhenInVisualStyleCharacterwise() -> [KeyCombination] {
-        functionCalled = #function
-        
-        return []
-    }
-    
-    func ggForNonTextElement() -> [KeyCombination] {
-        functionCalled = #function
-        
-        return []
-    }
-    
-    func ggForTextElementWhenInVisualStyleCharacterwise() -> [KeyCombination] {
-        functionCalled = #function
-        
-        return []
-    }
-    
-    func ggForTextElementWhenInVisualStyleLinewise() -> [KeyCombination] {
-        functionCalled = #function
-        
-        return []
-    }
-    
-    func gIForNonTextElementWhenInVisualStyleCharacterwise() -> [KeyCombination] {
-        functionCalled = #function
-        
-        return []
-    }
-        
-    func gIForTextElementWhenInVisualStyleCharacterwise() -> [KeyCombination] {
-        functionCalled = #function
-        
-        return []
-    }
-        
-    func gjForVisualStyleCharacterwise() -> [KeyCombination] {
-        functionCalled = #function
-        
-        return []
-    }
-        
-    func gjForVisualStyleLinewise() -> [KeyCombination] {
-        functionCalled = #function
-        
-        return []
-    }
-    
-    func gkForVisualStyleCharacterwise() -> [KeyCombination] {
-        functionCalled = #function
-        
-        return []
-    }
-    
-    func gkForVisualStyleLinewise() -> [KeyCombination] {
-        functionCalled = #function
-        
-        return []
-    }
-    
-    func gZeroForNonTextElementWhenInVisualStyleCharacterwise() -> [KeyCombination] {
-        functionCalled = #function
-        
-        return []
-    }
-        
-    func gZeroForTextElementWhenInVisualStyleCharacterwise() -> [KeyCombination] {
-        functionCalled = #function
-        
-        return []
-    }
-        
-    func GForNonTextElement() -> [KeyCombination] {
-        functionCalled = #function
-        
-        return []
-    }
-    
-    func GForTextElementWhenInVisualStyleCharacterwise() -> [KeyCombination] {
-        functionCalled = #function
-        
-        return []
-    }
-    
-    func GForTextElementWhenInVisualStyleLinewise() -> [KeyCombination] {
-        functionCalled = #function
-        
-        return []
-    }
-    
-    func hForVisualStyleCharacterwise() -> [KeyCombination] {
-        functionCalled = #function
-        
-        return []
-    }
-    
-    func jForVisualStyleCharacterwise() -> [KeyCombination] {
-        functionCalled = #function
-        
-        return []
-    }
-    
-    func jForVisualStyleLinewise() -> [KeyCombination] {
-        functionCalled = #function
-        
-        return []
-    }
-      
-    func kForVisualStyleCharacterwise() -> [KeyCombination] {
+    func k(_ vimEngineState: VimEngineState) -> [KeyCombination] {
         functionCalled = #function
         
         return []
     }
        
-    func kForVisualStyleLinewise() -> [KeyCombination] {
-        functionCalled = #function
-        
-        return []
-    }
-       
-    func lForVisualStyleCharacterwise() -> [KeyCombination] {
+    func l(_ vimEngineState: VimEngineState) -> [KeyCombination] {
         functionCalled = #function
         
         return []
     }
     
-    func underscoreForNonTextElementWhenInVisualStyleCharacterwise() -> [KeyCombination] {
+    
+    func underscore(_ vimEngineState: VimEngineState) -> [KeyCombination] {
         functionCalled = #function
         
         return []
     }
     
-    func underscoreForTextElementWhenInVisualStyleCharacterwise() -> [KeyCombination] {
+    func VFromNormalMode() -> [KeyCombination] {
+        functionCalled = #function
+        
+        return []
+    }
+        
+    func VFromVisualMode(_ vimEngineState: VimEngineState) -> [KeyCombination] {
+        functionCalled = #function
+        
+        return []
+    }
+        
+    func vFromNormalMode() -> [KeyCombination] {
+        functionCalled = #function
+        
+        return []
+    }
+        
+    func vFromVisualMode(_ vimEngineState: VimEngineState) -> [KeyCombination] {
         functionCalled = #function
         
         return []
     }
     
-    func VForNonTextElement() -> [KeyCombination] {
-        functionCalled = #function
-        
-        return []
-    }
-        
-    func VForTextElementWhenEnteringFromNormalMode() -> [KeyCombination] {
-        functionCalled = #function
-        
-        return []
-    }
-        
-    func VForTextElementWhenInVisualStyleCharacterwise() -> [KeyCombination] {
-        functionCalled = #function
-        
-        return []
-    }
-        
-    func VForTextElementWhenInVisualStyleLinewise() -> [KeyCombination] {
-        functionCalled = #function
-        
-        return []
-    }
-        
-    func vForNonTextElement() -> [KeyCombination] {
-        functionCalled = #function
-        
-        return []
-    }
-        
-    func vForTextElementWhenEnteringFromNormalMode() -> [KeyCombination] {
-        functionCalled = #function
-        
-        return []
-    }
-        
-    func vForTextElementWhenInVisualStyleCharacterwise() -> [KeyCombination] {
-        functionCalled = #function
-        
-        return []
-    }
-        
-    func vForTextElementWhenInVisualStyleLinewise() -> [KeyCombination] {
-        functionCalled = #function
-        
-        return []
-    }
-        
-    func wForNonTextElementWhenInVisualStyleCharacterwise() -> [KeyCombination] {
+    func w(_ vimEngineState: VimEngineState) -> [KeyCombination] {
         functionCalled = #function
         
         return []
     }
    
-    func wForTextElementWhenInVisualStyleCharacterwise() -> [KeyCombination] {
+    func Y(_ vimEngineState: inout VimEngineState) -> [KeyCombination] {
         functionCalled = #function
         
         return []
     }
-   
-    func XForNonTextElement() -> [KeyCombination] {
-        functionCalled = #function
         
-        return []
-    }
     
-    func XForTextElement() -> [KeyCombination] {
+    func y(_ vimEngineState: inout VimEngineState) -> [KeyCombination] {
         functionCalled = #function
         
         return []
     }
+        
     
-    func xForNonTextElement() -> [KeyCombination] {
-        functionCalled = #function
-        
-        return []
-    }
-    
-    func xForTextElement() -> [KeyCombination] {
-        functionCalled = #function
-        
-        return []
-    }
-    
-    func YForNonTextElement() -> [KeyCombination] {
-        functionCalled = #function
-        
-        return []
-    }
-        
-    func YForTextElement() -> [KeyCombination] {
-        functionCalled = #function
-        
-        return []
-    }
-        
-    func yForNonTextElement() -> [KeyCombination] {
-        functionCalled = #function
-        
-        return []
-    }
-        
-    func yForTextElement() -> [KeyCombination] {
-        functionCalled = #function
-        
-        return []
-    }
-        
-    func zeroForNonTextElementWhenInVisualStyleCharacterwise() -> [KeyCombination] {
-        functionCalled = #function
-        
-        return []
-    }
-    
-    func zeroForTextElementWhenInVisualStyleCharacterwise() -> [KeyCombination] {
+    func zero(_ vimEngineState: VimEngineState) -> [KeyCombination] {
         functionCalled = #function
         
         return []

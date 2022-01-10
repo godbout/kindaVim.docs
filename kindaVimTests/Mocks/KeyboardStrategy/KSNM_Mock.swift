@@ -8,7 +8,7 @@ import AXEngine
 
 class KeyboardStrategyNormalModeMock: KeyboardStrategyNormalModeProtocol {
     
-    var axEngine = AXEngine()
+    var axEngine: AXEngineProtocol = AXEngine()
     var functionCalled = ""
     
         
@@ -18,133 +18,67 @@ class KeyboardStrategyNormalModeMock: KeyboardStrategyNormalModeProtocol {
         return []
     }
     
-    func aForNonTextElement() -> [KeyCombination] {
+    func a() -> [KeyCombination] {
         functionCalled = #function
         
         return []
     }
     
-    func aForTextElement() -> [KeyCombination] {
+    func b() -> [KeyCombination] {
         functionCalled = #function
         
         return []
     }
     
-    func bForNonTextElement() -> [KeyCombination] {
+    func caret() -> [KeyCombination] {
         functionCalled = #function
         
         return []
     }
     
-    func bForTextElement() -> [KeyCombination] {
+    func cb(_ vimEngineState: inout VimEngineState) -> [KeyCombination] {
         functionCalled = #function
         
         return []
     }
     
-    func caretForNonTextElement() -> [KeyCombination] {
+    func cc(_ vimEngineState: inout VimEngineState) -> [KeyCombination] {
         functionCalled = #function
         
         return []
     }
     
-    func caretForTextElement() -> [KeyCombination] {
+    func cDollarSign(_ vimEngineState: inout VimEngineState) -> [KeyCombination] {
         functionCalled = #function
         
         return []
     }
     
-    func cbForNonTextElement() -> [KeyCombination] {
+    func ce(_ vimEngineState: inout VimEngineState) -> [KeyCombination] {
         functionCalled = #function
         
         return []
     }
     
-    func cbForTextElement(_ vimEngineState: inout VimEngineState) -> [KeyCombination] {
+    func cG(_ vimEngineState: inout VimEngineState) -> [KeyCombination] {
         functionCalled = #function
         
         return []
     }
     
-    func ccForNonTextElement() -> [KeyCombination] {
+    func cgg(_ vimEngineState: inout VimEngineState) -> [KeyCombination] {
         functionCalled = #function
         
         return []
     }
     
-    func ccForTextElement(_ vimEngineState: inout VimEngineState) -> [KeyCombination] {
+    func ciw(_ vimEngineState: inout VimEngineState) -> [KeyCombination] {
         functionCalled = #function
         
         return []
     }
     
-    func cDollarSignForNonTextElement() -> [KeyCombination] {
-        functionCalled = #function
-        
-        return []
-    }
-    
-    func cDollarSignForTextElement(_ vimEngineState: inout VimEngineState) -> [KeyCombination] {
-        functionCalled = #function
-        
-        return []
-    }
-    
-    func ceForNonTextElement() -> [KeyCombination] {
-        functionCalled = #function
-        
-        return []
-    }
-    
-    func ceForTextElement(_ vimEngineState: inout VimEngineState) -> [KeyCombination] {
-        functionCalled = #function
-        
-        return []
-    }
-    
-    func cggForNonTextElement() -> [KeyCombination] {
-        functionCalled = #function
-        
-        return []
-    }
-    
-    func cggForTextElement(_ vimEngineState: inout VimEngineState) -> [KeyCombination] {
-        functionCalled = #function
-        
-        return []
-    }
-    
-    func cGForNonTextElement() -> [KeyCombination] {
-        functionCalled = #function
-        
-        return []
-    }
-    
-    func cGForTextElement(_ vimEngineState: inout VimEngineState) -> [KeyCombination] {
-        functionCalled = #function
-        
-        return []
-    }
-    
-    func ciwForNonTextElement() -> [KeyCombination] {
-        functionCalled = #function
-        
-        return []
-    }
-    
-    func ciwForTextElement(_ vimEngineState: inout VimEngineState) -> [KeyCombination] {
-        functionCalled = #function
-        
-        return []
-    }
-    
-    func clForNonTextElement() -> [KeyCombination] {
-        functionCalled = #function
-        
-        return []
-    }
-    
-    func clForTextElement(_ vimEngineState: inout VimEngineState) -> [KeyCombination] {
+    func cl(_ vimEngineState: inout VimEngineState) -> [KeyCombination] {
         functionCalled = #function
         
         return []
@@ -168,241 +102,121 @@ class KeyboardStrategyNormalModeMock: KeyboardStrategyNormalModeProtocol {
         return []
     }
     
-    func cwForNonTextElement() -> [KeyCombination] {
+    func cw(_ vimEngineState: inout VimEngineState) -> [KeyCombination] {
         functionCalled = #function
         
         return []
     }
     
-    func cwForTextElement(_ vimEngineState: inout VimEngineState) -> [KeyCombination] {
+    func db(_ vimEngineState: inout VimEngineState) -> [KeyCombination] {
         functionCalled = #function
         
         return []
     }
     
-    func dbForNonTextElement() -> [KeyCombination] {
+    func dDollarSign(_ vimEngineState: inout VimEngineState) -> [KeyCombination] {
         functionCalled = #function
         
         return []
     }
     
-    func dbForTextElement(_ vimEngineState: inout VimEngineState) -> [KeyCombination] {
+    func dd(_ vimEngineState: inout VimEngineState) -> [KeyCombination] {
+        functionCalled = #function
+        
+        return []
+    }
+        
+    func de(_ vimEngineState: inout VimEngineState) -> [KeyCombination] {
         functionCalled = #function
         
         return []
     }
     
-    func dDollarSignForNonTextElement() -> [KeyCombination] {
+    func dG(_ vimEngineState: inout VimEngineState) -> [KeyCombination] {
         functionCalled = #function
         
         return []
     }
     
-    func dDollarSignForTextElement(_ vimEngineState: inout VimEngineState) -> [KeyCombination] {
+    func dgg(_ vimEngineState: inout VimEngineState) -> [KeyCombination] {
         functionCalled = #function
         
         return []
     }
     
-    func ddForNonTextElement() -> [KeyCombination] {
-        functionCalled = #function
-        
-        return []
-    }
-        
-    func ddForTextElement(_ vimEngineState: inout VimEngineState) -> [KeyCombination] {
-        functionCalled = #function
-        
-        return []
-    }
-
-    func deForNonTextElement() -> [KeyCombination] {
+    func dh(_ vimEngineState: inout VimEngineState) -> [KeyCombination] {
         functionCalled = #function
         
         return []
     }
     
-    func deForTextElement(_ vimEngineState: inout VimEngineState) -> [KeyCombination] {
+    func dj(_ vimEngineState: inout VimEngineState) -> [KeyCombination] {
         functionCalled = #function
         
         return []
     }
     
-    func dGForNonTextElement() -> [KeyCombination] {
+    func dk(_ vimEngineState: inout VimEngineState) -> [KeyCombination] {
         functionCalled = #function
         
         return []
     }
     
-    func dGForTextElement(_ vimEngineState: inout VimEngineState) -> [KeyCombination] {
+    func dl(_ vimEngineState: inout VimEngineState) -> [KeyCombination] {
         functionCalled = #function
         
         return []
     }
     
-    func dggForNonTextElement() -> [KeyCombination] {
+    func dollarSign() -> [KeyCombination] {
         functionCalled = #function
         
         return []
     }
     
-    func dggForTextElement(_ vimEngineState: inout VimEngineState) -> [KeyCombination] {
+    func dw(_ vimEngineState: inout VimEngineState) -> [KeyCombination] {
+        functionCalled = #function
+        
+        return []
+    }
+        
+    func e() -> [KeyCombination] {
+        functionCalled = #function
+        
+        return []
+    }
+        
+    func gCaret() -> [KeyCombination] {
         functionCalled = #function
         
         return []
     }
     
-    func dhForNonTextElement() -> [KeyCombination] {
+    func gDollarSign() -> [KeyCombination] {
         functionCalled = #function
         
         return []
     }
     
-    func dhForTextElement(_ vimEngineState: inout VimEngineState) -> [KeyCombination] {
+    func gUnderscore() -> [KeyCombination] {
         functionCalled = #function
         
         return []
     }
     
-    func djForNonTextElement() -> [KeyCombination] {
+    func gZero() -> [KeyCombination] {
         functionCalled = #function
         
         return []
     }
     
-    func djForTextElement(_ vimEngineState: inout VimEngineState) -> [KeyCombination] {
+    func ge() -> [KeyCombination] {
         functionCalled = #function
         
         return []
     }
     
-    func dkForNonTextElement() -> [KeyCombination] {
-        functionCalled = #function
-        
-        return []
-    }
-    
-    func dkForTextElement(_ vimEngineState: inout VimEngineState) -> [KeyCombination] {
-        functionCalled = #function
-        
-        return []
-    }
-    
-    func dlForNonTextElement() -> [KeyCombination] {
-        functionCalled = #function
-        
-        return []
-    }
-    
-    func dlForTextElement(_ vimEngineState: inout VimEngineState) -> [KeyCombination] {
-        functionCalled = #function
-        
-        return []
-    }
-    
-    func dollarSignForNonTextElement() -> [KeyCombination] {
-        functionCalled = #function
-        
-        return []
-    }
-    
-    func dollarSignForTextElement() -> [KeyCombination] {
-        functionCalled = #function
-        
-        return []
-    }
-    
-    func dwForNonTextElement() -> [KeyCombination] {
-        functionCalled = #function
-        
-        return []
-    }
-        
-    func dwForTextElement(_ vimEngineState: inout VimEngineState) -> [KeyCombination] {
-        functionCalled = #function
-        
-        return []
-    }
-        
-    func eForNonTextElement() -> [KeyCombination] {
-        functionCalled = #function
-        
-        return []
-    }
-        
-    func eForTextElement() -> [KeyCombination] {
-        functionCalled = #function
-        
-        return []
-    }
-        
-    func gCaretForNonTextElement() -> [KeyCombination] {
-        functionCalled = #function
-        
-        return []
-    }
-    
-    func gCaretForTextElement() -> [KeyCombination] {
-        functionCalled = #function
-        
-        return []
-    }
-    
-    func gDollarSignForNonTextElement() -> [KeyCombination] {
-        functionCalled = #function
-        
-        return []
-    }
-    
-    func gDollarSignForTextElement() -> [KeyCombination] {
-        functionCalled = #function
-        
-        return []
-    }
-    
-    func gUnderscoreForNonTextElement() -> [KeyCombination] {
-        functionCalled = #function
-        
-        return []
-    }
-    
-    func gUnderscoreForTextElement() -> [KeyCombination] {
-        functionCalled = #function
-        
-        return []
-    }
-    
-    func gZeroForNonTextElement() -> [KeyCombination] {
-        functionCalled = #function
-        
-        return []
-    }
-    
-    func gZeroForTextElement() -> [KeyCombination] {
-        functionCalled = #function
-        
-        return []
-    }
-    
-    func geForNonTextElement() -> [KeyCombination] {
-        functionCalled = #function
-        
-        return []
-    }
-    
-    func geForTextElement() -> [KeyCombination] {
-        functionCalled = #function
-        
-        return []
-    }
-    
-    func gIForNonTextElement() -> [KeyCombination] {
-        functionCalled = #function
-        
-        return []
-    }
-    
-    func gIForTextElement() -> [KeyCombination] {
+    func gI() -> [KeyCombination] {
         functionCalled = #function
         
         return []
@@ -420,25 +234,13 @@ class KeyboardStrategyNormalModeMock: KeyboardStrategyNormalModeProtocol {
         return []
     }
     
-    func GForNonTextElement() -> [KeyCombination] {
+    func G() -> [KeyCombination] {
         functionCalled = #function
         
         return []
     }
     
-    func GForTextElement() -> [KeyCombination] {
-        functionCalled = #function
-        
-        return []
-    }
-    
-    func ggForNonTextElement() -> [KeyCombination] {
-        functionCalled = #function
-        
-        return []
-    }
-    
-    func ggForTextElement() -> [KeyCombination] {
+    func gg() -> [KeyCombination] {
         functionCalled = #function
         
         return []
@@ -450,13 +252,7 @@ class KeyboardStrategyNormalModeMock: KeyboardStrategyNormalModeProtocol {
         return []
     }
     
-    func IForNonTextElement() -> [KeyCombination] {
-        functionCalled = #function
-        
-        return []
-    }
-    
-    func IForTextElement() -> [KeyCombination] {
+    func I() -> [KeyCombination] {
         functionCalled = #function
         
         return []
@@ -468,13 +264,7 @@ class KeyboardStrategyNormalModeMock: KeyboardStrategyNormalModeProtocol {
         return []
     }
     
-    func JForNonTextElement() -> [KeyCombination] {
-        functionCalled = #function
-        
-        return []
-    }
-    
-    func JForTextElement() -> [KeyCombination] {
+    func J() -> [KeyCombination] {
         functionCalled = #function
         
         return []
@@ -498,61 +288,31 @@ class KeyboardStrategyNormalModeMock: KeyboardStrategyNormalModeProtocol {
         return []
     }
     
-    func oForNonTextElement() -> [KeyCombination] {
+    func o() -> [KeyCombination] {
         functionCalled = #function
         
         return []
     }
     
-    func oForTextElement() -> [KeyCombination] {
+    func O() -> [KeyCombination] {
         functionCalled = #function
         
         return []
     }
     
-    func OForNonTextElement() -> [KeyCombination] {
+    func P() -> [KeyCombination] {
         functionCalled = #function
         
         return []
     }
     
-    func OForTextElement() -> [KeyCombination] {
+    func p() -> [KeyCombination] {
         functionCalled = #function
         
         return []
     }
     
-    func pForNonTextElement() -> [KeyCombination] {
-        functionCalled = #function
-        
-        return []
-    }
-    
-    func pForTextElement() -> [KeyCombination] {
-        functionCalled = #function
-        
-        return []
-    }
-    
-    func PForNonTextElement() -> [KeyCombination] {
-        functionCalled = #function
-        
-        return []
-    }
-    
-    func PForTextElement() -> [KeyCombination] {
-        functionCalled = #function
-        
-        return []
-    }
-    
-    func rForNonTextElement(with replacement: KeyCombination) -> [KeyCombination] {
-        functionCalled = #function
-        
-        return[]
-    }
-    
-    func rForTextElement(with replacement: KeyCombination) -> [KeyCombination] {
+    func r(with replacement: KeyCombination) -> [KeyCombination] {
         functionCalled = #function
         
         return[]
@@ -582,13 +342,7 @@ class KeyboardStrategyNormalModeMock: KeyboardStrategyNormalModeProtocol {
         return []
     }
     
-    func underscoreForNonTextElement() -> [KeyCombination] {
-        functionCalled = #function
-        
-        return []
-    }
-    
-    func underscoreForTextElement() -> [KeyCombination] {
+    func underscore() -> [KeyCombination] {
         functionCalled = #function
         
         return []
@@ -600,49 +354,25 @@ class KeyboardStrategyNormalModeMock: KeyboardStrategyNormalModeProtocol {
         return []
     }
     
-    func wForNonTextElement() -> [KeyCombination] {
+    func w() -> [KeyCombination] {
         functionCalled = #function
         
         return []
     }
     
-    func wForTextElement() -> [KeyCombination] {
+    func yy(_ vimEngineState: inout VimEngineState) -> [KeyCombination] {
         functionCalled = #function
         
         return []
     }
     
-    func yyForNonTextElement() -> [KeyCombination] {
+    func yiw(_ vimEngineState: inout VimEngineState) -> [KeyCombination] {
         functionCalled = #function
         
         return []
     }
     
-    func yyForTextElement(_ vimEngineState: inout VimEngineState) -> [KeyCombination] {
-        functionCalled = #function
-        
-        return []
-    }
-    
-    func yiwForNonTextElement() -> [KeyCombination] {
-        functionCalled = #function
-        
-        return []
-    }
-    
-    func yiwForTextElement(_ vimEngineState: inout VimEngineState) -> [KeyCombination] {
-        functionCalled = #function
-        
-        return []
-    }
-    
-    func zeroForNonTextElement() -> [KeyCombination] {
-        functionCalled = #function
-        
-        return []
-    }
-    
-    func zeroForTextElement() -> [KeyCombination] {
+    func zero() -> [KeyCombination] {
         functionCalled = #function
         
         return []

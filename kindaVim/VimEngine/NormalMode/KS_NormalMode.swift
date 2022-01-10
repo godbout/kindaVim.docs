@@ -119,23 +119,11 @@ extension KindaVimEngine {
             post(ksNormalMode.underscore())
             endCurrentMove()
         case .V:
-            switch focusedElementType {
-            case .textElement:
-                post(ksVisualMode.VForTextElementWhenEnteringFromNormalMode())
-            case .nonTextElement:
-                post(ksVisualMode.VForNonTextElement())
-            }
-                        
+            post(ksVisualMode.VFromNormalMode())
             state.visualStyle = .linewise
             enterVisualMode()
         case .v:            
-            switch focusedElementType {
-            case .textElement:
-                post(ksVisualMode.vForTextElementWhenEnteringFromNormalMode())
-            case .nonTextElement:
-                post(ksVisualMode.vForNonTextElement())
-            }
-            
+            post(ksVisualMode.vFromNormalMode())
             state.visualStyle = .characterwise
             enterVisualMode()
         case .w:

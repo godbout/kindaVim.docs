@@ -22,7 +22,7 @@ extension SucceedingASNM_dDollarSign_Tests {
         XCTAssertEqual(asNormalModeMock.functionCalled, "dDollarSign(on:_:)")
     }
     
-    func test_that_it_keeps_Vim_in_normal_mode() {
+    func test_that_it_keeps_Vim_in_NormalMode() {
         XCTAssertEqual(kindaVimEngine.currentMode, .normal)
     }
     

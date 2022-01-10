@@ -5,7 +5,8 @@ import XCTest
 
 class KSNM_gUnderscore_Tests: KSNM_BaseTests {
 
-    private func applyKeyCombinationsBeingTested() {
+    override func setUp() {
+super.setUp()
         kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .eight))
         kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .g))
         kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .underscore))
@@ -16,28 +17,25 @@ class KSNM_gUnderscore_Tests: KSNM_BaseTests {
 
 extension KSNM_gUnderscore_Tests {
     
-    func test_that_it_calls_the_correct_function_for_NonTextElements_on_KS() {
-        kindaVimEngine.axEngine = AXEngineNonTextElementMock()
-        applyKeyCombinationsBeingTested()
-
+    func test_that_it_calls_the_correct_function_on_KS() {
+        
         XCTAssertEqual(ksNormalModeMock.functionCalled, "gUnderscoreForNonTextElement()")
     }
     
     func test_that_it_calls_the_correct_function_for_TextElements_on_KS() {
-        kindaVimEngine.axEngine = AXEngineTextElementMock()
-        applyKeyCombinationsBeingTested()
+        
 
         XCTAssertEqual(ksNormalModeMock.functionCalled, "gUnderscoreForTextElement()")
     }
     
-    func test_that_it_keeps_Vim_in_normal_mode() {
-        applyKeyCombinationsBeingTested()
+    func test_that_it_keeps_Vim_in_NormalMode() {
+        
         
         XCTAssertEqual(kindaVimEngine.currentMode, .normal)
     }
     
     func test_that_it_resets_the_count() {
-        applyKeyCombinationsBeingTested()
+        
         
         XCTAssertNil(kindaVimEngine.count)
     }

@@ -31,7 +31,7 @@ extension SucceedingASNM_gk_Tests {
         XCTAssertEqual(asNormalModeMock.functionCalled, "gk(on:)")
     }
 
-    func test_that_it_keeps_Vim_in_normal_mode() {
+    func test_that_it_keeps_Vim_in_NormalMode() {
         applyKeyCombinationsBeingTested()
 
         XCTAssertEqual(kindaVimEngine.currentMode, .normal)
