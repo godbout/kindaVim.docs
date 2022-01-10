@@ -11,42 +11,18 @@ extension KindaVimEngine {
             post(ksNormalMode.A())
             enterInsertMode()
         case .a:
-            switch focusedElementType {
-            case .textElement:
-                post(ksNormalMode.aForTextElement())
-            default:
-                post(ksNormalMode.aForNonTextElement())
-            }
-            
+            post(ksNormalMode.a())
             enterInsertMode()
         case .b:
-            switch focusedElementType {
-            case .textElement:
-                post(ksNormalMode.bForTextElement())
-            case .nonTextElement:
-                post(ksNormalMode.bForNonTextElement())
-            }
-            
+            post(ksNormalMode.b())
             endCurrentMove()
         case .C:
-            switch focusedElementType {
-            case .textElement:
-                post(ksNormalMode.cDollarSignForTextElement(&state))
-            default:
-                post(ksNormalMode.cDollarSignForNonTextElement())
-            }
-            
+            post(ksNormalMode.cDollarSign(&state))
             enterInsertMode()
         case .c:
             enterOperatorPendingForNormalMode(with: keyCombination)
         case .caret:
-            switch focusedElementType {
-            case .textElement:
-                post(ksNormalMode.caretForTextElement())
-            case .nonTextElement:
-                post(ksNormalMode.caretForNonTextElement())
-            }
-            
+            post(ksNormalMode.caret())
             endCurrentMove()
         case .colon:
             enterOperatorPendingForNormalMode(with: keyCombination)
@@ -66,33 +42,15 @@ extension KindaVimEngine {
             post(ksNormalMode.controlU())
             endCurrentMove()
         case .D:
-            switch focusedElementType {
-            case .textElement:
-                post(ksNormalMode.dDollarSignForTextElement(&state))
-            default:
-                post(ksNormalMode.dDollarSignForNonTextElement())
-            }
-            
+            post(ksNormalMode.dDollarSign(&state))
             endCurrentMove()
         case .d:
             enterOperatorPendingForNormalMode(with: keyCombination)
         case .dollarSign:
-            switch focusedElementType {
-            case .textElement:
-                post(ksNormalMode.dollarSignForTextElement())
-            case .nonTextElement:
-                post(ksNormalMode.dollarSignForNonTextElement())
-            }
-            
+            post(ksNormalMode.dollarSign())
             endCurrentMove()
         case .e:
-            switch focusedElementType {
-            case .textElement:
-                post(ksNormalMode.eForTextElement())
-            case .nonTextElement:
-                post(ksNormalMode.eForNonTextElement())
-            }
-            
+            post(ksNormalMode.e())
             endCurrentMove()
         case .escape:
             post(ksNormalMode.escape())
@@ -102,13 +60,7 @@ extension KindaVimEngine {
         case .f:
             enterOperatorPendingForNormalMode(with: keyCombination)
         case .G:
-            switch focusedElementType {
-            case .textElement:
-                post(ksNormalMode.GForTextElement())
-            case .nonTextElement:
-                post(ksNormalMode.GForNonTextElement())
-            }
-            
+            post(ksNormalMode.G())
             endCurrentMove()
         case .g:
             enterOperatorPendingForNormalMode(with: keyCombination)
@@ -116,25 +68,13 @@ extension KindaVimEngine {
             post(ksNormalMode.h())
             endCurrentMove()
         case .I:
-            switch focusedElementType {
-            case .textElement:
-                post(ksNormalMode.IForTextElement())
-            default:
-                post(ksNormalMode.IForNonTextElement())
-            }
-                        
+            post(ksNormalMode.I())
             enterInsertMode()
         case .i:
             post(ksNormalMode.i())
             enterInsertMode()
         case .J:
-            switch focusedElementType {
-            case .nonTextElement:
-                post(ksNormalMode.JForNonTextElement())
-            case .textElement:
-                post(ksNormalMode.JForTextElement())
-            }
-            
+            post(ksNormalMode.J())
             endCurrentMove()
         case .j:
             post(ksNormalMode.j())
@@ -146,40 +86,16 @@ extension KindaVimEngine {
             post(ksNormalMode.l(times: count))
             endCurrentMove()
         case .O:
-            switch focusedElementType {
-            case .textElement:
-                post(ksNormalMode.OForTextElement())
-            default:
-                post(ksNormalMode.OForNonTextElement())
-            }
-                        
+            post(ksNormalMode.O())
             enterInsertMode()
         case .o:
-            switch focusedElementType {
-            case .textElement:
-                post(ksNormalMode.oForTextElement())
-            default:
-                post(ksNormalMode.oForNonTextElement())
-            }
-                        
+            post(ksNormalMode.o())
             enterInsertMode()
         case .P:
-            switch focusedElementType {
-            case .textElement:
-                post(ksNormalMode.PForTextElement())
-            case .nonTextElement:
-                post(ksNormalMode.PForNonTextElement())
-            }
-            
+            post(ksNormalMode.P())
             endCurrentMove()
         case .p:
-            switch focusedElementType {
-            case .textElement:
-                post(ksNormalMode.pForTextElement())
-            case .nonTextElement:
-                post(ksNormalMode.pForNonTextElement())
-            }
-            
+            post(ksNormalMode.p())
             endCurrentMove()
         case .r:
             enterOperatorPendingForNormalMode(with: keyCombination)
@@ -187,22 +103,10 @@ extension KindaVimEngine {
             post(ksNormalMode.enter())
             enterInsertMode()
         case .S:
-            switch focusedElementType {
-            case .textElement:
-                post(ksNormalMode.ccForTextElement(&state))
-            default:
-                post(ksNormalMode.ccForNonTextElement())
-            }
-            
+            post(ksNormalMode.cc(&state))
             enterInsertMode()
         case .s:
-            switch focusedElementType {
-            case .textElement:
-                post(ksNormalMode.clForTextElement(&state))
-            default:
-                post(ksNormalMode.clForNonTextElement())
-            }
-
+            post(ksNormalMode.cl(&state))
             enterInsertMode()
         case .T:
             enterOperatorPendingForNormalMode(with: keyCombination)
@@ -212,13 +116,7 @@ extension KindaVimEngine {
             post(ksNormalMode.u())
             endCurrentMove()
         case .underscore:
-            switch focusedElementType {
-            case .textElement:
-                post(ksNormalMode.underscoreForTextElement())
-            case .nonTextElement:
-                post(ksNormalMode.underscoreForNonTextElement())
-            }
-            
+            post(ksNormalMode.underscore())
             endCurrentMove()
         case .V:
             switch focusedElementType {
@@ -241,51 +139,21 @@ extension KindaVimEngine {
             state.visualStyle = .characterwise
             enterVisualMode()
         case .w:
-            switch focusedElementType {
-            case .textElement:
-                post(ksNormalMode.wForTextElement())
-            case .nonTextElement:
-                post(ksNormalMode.wForNonTextElement())
-            }
-            
+            post(ksNormalMode.w())
             endCurrentMove()
         case .X:
-            switch focusedElementType {
-            case .textElement:
-                post(ksNormalMode.dhForTextElement(&state))
-            default:
-                post(ksNormalMode.dhForNonTextElement())
-            }
-            
+            post(ksNormalMode.dh(&state))
             endCurrentMove()
         case .x:
-            switch focusedElementType {
-            case .textElement:
-                post(ksNormalMode.dlForTextElement(&state))
-            default:
-                post(ksNormalMode.dlForNonTextElement())
-            }
-            
+            post(ksNormalMode.dl(&state))
             endCurrentMove()
         case .Y:
-            switch focusedElementType {
-            case .textElement:
-                post(ksNormalMode.yyForTextElement(&state))
-            default:
-                post(ksNormalMode.yyForNonTextElement())
-            }
-
+            post(ksNormalMode.yy(&state))
             endCurrentMove()
         case .y:
             enterOperatorPendingForNormalMode(with: keyCombination)
         case .zero:
-            switch focusedElementType {
-            case .textElement:
-                post(ksNormalMode.zeroForTextElement())
-            case .nonTextElement:
-                post(ksNormalMode.zeroForNonTextElement())
-            }
-            
+            post(ksNormalMode.zero())
             endCurrentMove()
         default:
             endCurrentMove()
@@ -305,40 +173,16 @@ extension KindaVimEngine {
         case [.c, .a, .w]:
             enterNormalMode()
         case [.c, .b]:
-            switch focusedElementType {
-            case .textElement:
-                post(ksNormalMode.cbForTextElement(&state))
-            default:
-                post(ksNormalMode.cbForNonTextElement())
-            }
-                        
+            post(ksNormalMode.cb(&state))
             enterInsertMode()
         case [.c, .c]:            
-            switch focusedElementType {
-            case .textElement:
-                post(ksNormalMode.ccForTextElement(&state))
-            default:
-                post(ksNormalMode.ccForNonTextElement())
-            }
-            
+            post(ksNormalMode.cc(&state))
             enterInsertMode()
         case [.c, .dollarSign]:
-            switch focusedElementType {
-            case .textElement:
-                post(ksNormalMode.cDollarSignForTextElement(&state))
-            default:
-                post(ksNormalMode.cDollarSignForNonTextElement())
-            }
-            
+            post(ksNormalMode.cDollarSign(&state))
             enterInsertMode()
         case [.c, .e]:
-            switch focusedElementType {
-            case .textElement:
-                post(ksNormalMode.ceForTextElement(&state))
-            default:
-                post(ksNormalMode.ceForNonTextElement())
-            }
-            
+            post(ksNormalMode.ce(&state))
             enterInsertMode()
         case [.c, .F]:
             ()
@@ -347,51 +191,21 @@ extension KindaVimEngine {
         case [.c, .g]:
             ()
         case [.c, .g, .g]:
-            switch focusedElementType {
-            case .textElement:
-                post(ksNormalMode.cggForTextElement(&state))
-            default:
-                post(ksNormalMode.cggForNonTextElement())
-            }
-                        
+            post(ksNormalMode.cgg(&state))
             enterInsertMode()
         case [.c, .G]:
-            switch focusedElementType {
-            case .textElement:
-                post(ksNormalMode.cGForTextElement(&state))
-            default:
-                post(ksNormalMode.cGForNonTextElement())
-            }
-            
+            post(ksNormalMode.cG(&state))
             enterInsertMode()
         case [.c, .i]:
             ()
         case [.c, .i, .w]:
-            switch focusedElementType {
-            case .textElement:
-                post(ksNormalMode.ciwForTextElement(&state))
-            default:
-                post(ksNormalMode.ciwForNonTextElement())
-            }
-                        
+            post(ksNormalMode.ciw(&state))
             enterInsertMode()
         case [.c, .l]:
-            switch focusedElementType {
-            case .textElement:
-                post(ksNormalMode.clForTextElement(&state))
-            default:
-                post(ksNormalMode.clForNonTextElement())
-            }
-            
+            post(ksNormalMode.cl(&state))
             enterInsertMode()
         case [.c, .w]:
-            switch focusedElementType {
-            case .textElement:
-                post(ksNormalMode.cwForTextElement(&state))
-            default:
-                post(ksNormalMode.cwForNonTextElement())
-            }
-                    
+            post(ksNormalMode.cw(&state))
             enterInsertMode()
         case [.colon, .q]:
             ()
@@ -423,152 +237,56 @@ extension KindaVimEngine {
         case [.d, .a, .w]:
             enterNormalMode()
         case [.d, .b]:
-            switch focusedElementType {
-            case .textElement:
-                post(ksNormalMode.dbForTextElement(&state))
-            default:
-                post(ksNormalMode.dbForNonTextElement())
-            }
-            
+            post(ksNormalMode.db(&state))
             enterNormalMode()
         case [.d, .d]:
-            switch focusedElementType {
-            case .textElement:
-                post(ksNormalMode.ddForTextElement(&state))
-            default:
-                post(ksNormalMode.ddForNonTextElement())
-            }
-            
+            post(ksNormalMode.dd(&state))
             enterNormalMode()
         case [.d, .dollarSign]:
-            switch focusedElementType {
-            case .textElement:
-                post(ksNormalMode.dDollarSignForTextElement(&state))
-            default:
-                post(ksNormalMode.dDollarSignForNonTextElement())
-            }
-            
+            post(ksNormalMode.dDollarSign(&state))
             enterNormalMode()
         case [.d, .e]:
-            switch focusedElementType {
-            case .textElement:
-                post(ksNormalMode.deForTextElement(&state))
-            default:
-                post(ksNormalMode.deForNonTextElement())
-            }
-            
+            post(ksNormalMode.de(&state))
             enterNormalMode()
         case [.d, .g]:
             ()
         case [.d, .g, .g]:
-            switch focusedElementType {
-            case .textElement:
-                post(ksNormalMode.dggForTextElement(&state))
-            default:
-                post(ksNormalMode.dggForNonTextElement())
-            }
-
+            post(ksNormalMode.dgg(&state))
             enterNormalMode()            
         case [.d, .G]:            
-            switch focusedElementType {
-            case .textElement:
-                post(ksNormalMode.dGForTextElement(&state))
-            default:
-                post(ksNormalMode.dGForNonTextElement())
-            }
-            
+            post(ksNormalMode.dG(&state))
             enterNormalMode()
         case [.d, .h]:
-            switch focusedElementType {
-            case .textElement:
-                post(ksNormalMode.dhForTextElement(&state))
-            default:
-                post(ksNormalMode.dhForNonTextElement())
-            }
-            
+            post(ksNormalMode.dh(&state))
             enterNormalMode()
         case [.d, .i]:
             ()
         case [.d, .j]:
-            switch focusedElementType {
-            case .textElement:
-                post(ksNormalMode.djForTextElement(&state))
-            default:
-                post(ksNormalMode.djForNonTextElement())
-            }
-            
+            post(ksNormalMode.dj(&state))
             enterNormalMode()
         case [.d, .k]:
-            switch focusedElementType {
-            case .textElement:
-                post(ksNormalMode.dkForTextElement(&state))
-            default:
-                post(ksNormalMode.dkForNonTextElement())
-            }
-            
+            post(ksNormalMode.dk(&state))
             enterNormalMode()
         case [.d, .l]:
-            switch focusedElementType {
-            case .textElement:
-                post(ksNormalMode.dlForTextElement(&state))
-            default:
-                post(ksNormalMode.dlForNonTextElement())
-            }
-            
+            post(ksNormalMode.dl(&state))
             enterNormalMode()
         case [.d, .w]:
-            switch focusedElementType {
-            case .textElement:
-                post(ksNormalMode.dwForTextElement(&state))
-            default:
-                post(ksNormalMode.dwForNonTextElement())
-            }
-            
+            post(ksNormalMode.dw(&state))
             enterNormalMode()
         case [.g, .caret]:
-            switch focusedElementType {
-            case .textElement:
-                post(ksNormalMode.gCaretForTextElement())
-            default:
-                post(ksNormalMode.gCaretForNonTextElement())
-            }
-            
+            post(ksNormalMode.gCaret())
             enterNormalMode()
         case [.g, .dollarSign]:            
-            switch focusedElementType {
-            case .textElement:
-                post(ksNormalMode.gDollarSignForTextElement())
-            default:
-                post(ksNormalMode.gDollarSignForNonTextElement())
-            }
-            
+            post(ksNormalMode.gDollarSign())
             enterNormalMode()
         case [.g, .e]:            
-            switch focusedElementType {
-            case .textElement:
-                post(ksNormalMode.geForTextElement())
-            default:
-                post(ksNormalMode.geForNonTextElement())
-            }
-            
+            post(ksNormalMode.ge())
             enterNormalMode()
         case [.g, .g]:
-            switch focusedElementType {
-            case .textElement:
-                post(ksNormalMode.ggForTextElement())
-            default:
-                post(ksNormalMode.ggForNonTextElement())
-            }
-            
+            post(ksNormalMode.gg())
             enterNormalMode()
         case [.g, .I]:
-            switch focusedElementType {
-            case .textElement:
-                post(ksNormalMode.gIForTextElement())
-            default:
-                post(ksNormalMode.gIForNonTextElement())
-            }
-            
+            post(ksNormalMode.gI())
             enterInsertMode()
         case [.g, .j]:            
             post(ksNormalMode.gj())
@@ -577,22 +295,10 @@ extension KindaVimEngine {
             post(ksNormalMode.gk())
             enterNormalMode()
         case [.g, .underscore]:            
-            switch focusedElementType {
-            case .textElement:
-                post(ksNormalMode.gUnderscoreForTextElement())
-            default:
-                post(ksNormalMode.gUnderscoreForNonTextElement())
-            }
-            
+            post(ksNormalMode.gUnderscore())
             enterNormalMode()
         case [.g, .zero]:            
-            switch focusedElementType {
-            case .textElement:
-                post(ksNormalMode.gZeroForTextElement())
-            default:
-                post(ksNormalMode.gZeroForNonTextElement())
-            }
-            
+            post(ksNormalMode.gZero())
             enterNormalMode()
         case [.y, .F]:
             ()
@@ -601,35 +307,18 @@ extension KindaVimEngine {
         case [.y, .i]:
             ()
         case [.y, .i, .w]:
-            switch focusedElementType {
-            case .textElement:
-                post(ksNormalMode.yiwForTextElement(&state))
-            default:
-                post(ksNormalMode.yiwForNonTextElement())
-            }
-            
+            post(ksNormalMode.yiw(&state))
             enterNormalMode()
         case [.y, .T]:
             ()
         case [.y, .t]:
             ()
         case [.y, .y]:
-            switch focusedElementType {
-            case .textElement:
-                post(ksNormalMode.yyForTextElement(&state))
-            default:
-                post(ksNormalMode.yyForNonTextElement())
-            }
-                        
+            post(ksNormalMode.yy(&state))
             enterNormalMode()
         default:
             if operatorPendingBuffer.first?.vimKey == .r, let replacement = operatorPendingBuffer.last {                
-                switch focusedElementType {
-                case .textElement:
-                    post(ksNormalMode.rForTextElement(with: replacement))
-                default:
-                    post(ksNormalMode.rForNonTextElement(with: replacement))
-                }
+                post(ksNormalMode.r(with: replacement))
             }
             
             // if we don't recognize any operator move
