@@ -6,7 +6,7 @@ import XCTest
 class KSNM_e_Tests: KSNM_BaseTests {
     
     override func setUp() {
-super.setUp()
+        super.setUp()
         
         kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .eight))
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .e))
@@ -18,7 +18,7 @@ super.setUp()
 extension KSNM_e_Tests {
     
     func test_that_it_calls_the_correct_function_on_KS() {
-        XCTAssertEqual(ksNormalModeMock.functionCalled, "eForNonTextElement()")
+        XCTAssertEqual(ksNormalModeMock.functionCalled, "e()")
     }
     
     func test_that_it_keeps_Vim_in_NormalMode() {

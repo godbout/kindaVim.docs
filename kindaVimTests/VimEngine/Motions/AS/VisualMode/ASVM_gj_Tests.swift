@@ -21,7 +21,7 @@ extension SucceedingASVM_gj_Tests {
         applyKeyCombinationsBeingTested()
         
         XCTAssertEqual(asVisualModeMock.functionCalled, "")
-        XCTAssertEqual(ksVisualModeMock.functionCalled, "gjForVisualStyleCharacterwise()")
+        XCTAssertEqual(ksVisualModeMock.functionCalled, "gj(_:)")
     }
     
     func test_that_it_calls_the_correct_function_on_the_AccessibilityStrategy() {

@@ -6,7 +6,7 @@ import XCTest
 class KSNM_dgg_Tests: KSNM_BaseTests {
     
     override func setUp() {
-super.setUp()
+        super.setUp()
         
         kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .eight))
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .d))
@@ -20,23 +20,14 @@ super.setUp()
 extension KSNM_dgg_Tests {
 
     func test_that_it_calls_the_correct_function_on_KS() {
-        
-        XCTAssertEqual(ksNormalModeMock.functionCalled, "dggForNonTextElement()")
-    }
-    
-    func test_that_it_calls_the_correct_function_for_TextElements_on_KS() {
-        
-
-        XCTAssertEqual(ksNormalModeMock.functionCalled, "dggForTextElement(_:)")
+        XCTAssertEqual(ksNormalModeMock.functionCalled, "dgg(_:)")
     }
     
     func test_that_dgg_keeps_Vim_in_NormalMode() {
-        
         XCTAssertEqual(kindaVimEngine.currentMode, .normal)
     }
         
     func test_that_it_resets_the_count() {
-        
         XCTAssertNil(kindaVimEngine.count)
     }
 

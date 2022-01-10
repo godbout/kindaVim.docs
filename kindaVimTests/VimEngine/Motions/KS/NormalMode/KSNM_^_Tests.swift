@@ -18,7 +18,7 @@ class KSNM_caret_Tests: KSNM_BaseTests {
 extension KSNM_caret_Tests {
     
     func test_that_it_calls_the_correct_function_on_KS() {
-        XCTAssertEqual(ksNormalModeMock.functionCalled, "caretForNonTextElement()")
+        XCTAssertEqual(ksNormalModeMock.functionCalled, "caret()")
     }
     
     func test_that_it_keeps_Vim_in_NormalMode() {

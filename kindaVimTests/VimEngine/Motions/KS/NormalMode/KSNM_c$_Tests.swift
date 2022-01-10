@@ -19,7 +19,7 @@ class KSNM_cDollarSign_Tests: KSNM_BaseTests {
 extension KSNM_cDollarSign_Tests {
     
     func test_that_it_calls_the_correct_function_on_KS() {
-        XCTAssertEqual(ksNormalModeMock.functionCalled, "cDollarSignForNonTextElement()")
+        XCTAssertEqual(ksNormalModeMock.functionCalled, "cDollarSign(_:)")
     }
     
     func test_that_it_switches_Vim_into_InsertMode() {

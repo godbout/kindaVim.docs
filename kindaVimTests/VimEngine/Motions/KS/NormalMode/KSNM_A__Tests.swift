@@ -21,7 +21,7 @@ extension KSNM_A__Tests {
         XCTAssertEqual(ksNormalModeMock.functionCalled, "A()")
     }
     
-    func test_that_it_switches_Vim_into_insert_mode() {
+    func test_that_it_switches_Vim_into_InsertMode() {
         XCTAssertEqual(kindaVimEngine.currentMode, .insert)
     }
     

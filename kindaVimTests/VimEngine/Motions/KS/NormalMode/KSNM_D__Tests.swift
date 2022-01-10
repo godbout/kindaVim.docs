@@ -6,7 +6,7 @@ import XCTest
 class KSNM_D__Tests: KSNM_BaseTests {
 
     override func setUp() {
-super.setUp()
+        super.setUp()
         
         kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .eight))
         kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .D))
@@ -18,7 +18,7 @@ super.setUp()
 extension KSNM_D__Tests {
     
     func test_that_it_calls_the_correct_function_on_KS() {
-        XCTAssertEqual(ksNormalModeMock.functionCalled, "dDollarSign()")
+        XCTAssertEqual(ksNormalModeMock.functionCalled, "dDollarSign(_:)")
     }
     
     func test_that_it_keeps_Vim_in_NormalMode() {

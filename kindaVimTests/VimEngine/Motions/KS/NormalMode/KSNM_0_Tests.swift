@@ -18,7 +18,7 @@ class KSNM_0_Tests: KSNM_BaseTests {
 extension KSNM_0_Tests {
     
     func test_that_it_calls_the_correct_function_on_KS() {
-        XCTAssertEqual(ksNormalModeMock.functionCalled, "zeroForNonTextElement()")
+        XCTAssertEqual(ksNormalModeMock.functionCalled, "zero()")
     }
     
     func test_that_it_keeps_Vim_in_NormalMode() {

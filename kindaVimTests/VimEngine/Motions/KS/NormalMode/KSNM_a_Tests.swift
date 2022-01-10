@@ -18,10 +18,10 @@ class KSNM_a_Tests: KSNM_BaseTests {
 extension KSNM_a_Tests {
     
     func test_that_it_calls_the_correct_function_on_KS() {
-        XCTAssertEqual(ksNormalModeMock.functionCalled, "aForNonTextElement()")
+        XCTAssertEqual(ksNormalModeMock.functionCalled, "a()")
     }
     
-    func test_that_it_switches_Vim_into_insert_mode() {
+    func test_that_it_switches_Vim_into_InsertMode() {
         XCTAssertEqual(kindaVimEngine.currentMode, .insert)
     }
     

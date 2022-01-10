@@ -17,7 +17,7 @@ super.setUp()
 // VisualStyle Characterwise
 extension KSVM_l_Tests {
 
-    func test_that_it_calls_the_correct_function_on_KS_when_in_VisualStyle_Characterwise() {
+    func test_that_it_calls_the_correct_function_on_KS() {
         kindaVimEngine.state.visualStyle = .characterwise
         
         

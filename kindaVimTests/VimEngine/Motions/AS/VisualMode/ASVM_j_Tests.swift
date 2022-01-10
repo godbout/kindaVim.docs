@@ -22,7 +22,7 @@ extension SucceedingASVM_j_Tests {
         XCTAssertEqual(asVisualModeMock.functionCalled, "")
         // TODO: shouldn't we remove those "ForVisualStyleCharacterwise" like we did for AS?
         // TODO: also the NTE or TE type? passing in state?
-        XCTAssertEqual(ksVisualModeMock.functionCalled, "jForVisualStyleCharacterwise()")
+        XCTAssertEqual(ksVisualModeMock.functionCalled, "j(_:)")
     }
     
     func test_that_it_calls_the_correct_function_on_the_AccessibilityStrategy() {

@@ -6,7 +6,7 @@ import XCTest
 class KSNM_dE__Tests: KSNM_BaseTests {
 
     override func setUp() {
-super.setUp()
+        super.setUp()
 
         kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .eight))
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .d))

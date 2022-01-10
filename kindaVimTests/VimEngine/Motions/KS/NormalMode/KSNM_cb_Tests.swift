@@ -6,7 +6,7 @@ import XCTest
 class KSNM_cb_Tests: KSNM_BaseTests {
     
     override func setUp() {
-super.setUp()
+        super.setUp()
         
         kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .eight))
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .c))
@@ -19,7 +19,7 @@ super.setUp()
 extension KSNM_cb_Tests {
     
     func test_that_it_calls_the_correct_function_on_KS() {
-        XCTAssertEqual(ksNormalModeMock.functionCalled, "cbForNonTextElement()")
+        XCTAssertEqual(ksNormalModeMock.functionCalled, "cb(_:)")
     }
     
     func test_that_cc_switches_Vim_to_InsertMode() {

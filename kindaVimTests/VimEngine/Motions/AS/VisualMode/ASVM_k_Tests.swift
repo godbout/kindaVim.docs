@@ -20,7 +20,7 @@ extension SucceedingASVM_k_Tests {
         applyKeyCombinationsBeingTested()
         
         XCTAssertEqual(asVisualModeMock.functionCalled, "")
-        XCTAssertEqual(ksVisualModeMock.functionCalled, "kForVisualStyleCharacterwise()")
+        XCTAssertEqual(ksVisualModeMock.functionCalled, "k(_:)")
     }
     
     func test_that_it_calls_the_correct_function_on_the_AccessibilityStrategy() {
