@@ -20,8 +20,6 @@ extension SucceedingASVM_j_Tests {
         applyKeyCombinationsBeingTested()
         
         XCTAssertEqual(asVisualModeMock.functionCalled, "")
-        // TODO: shouldn't we remove those "ForVisualStyleCharacterwise" like we did for AS?
-        // TODO: also the NTE or TE type? passing in state?
         XCTAssertEqual(ksVisualModeMock.functionCalled, "j(_:)")
     }
     

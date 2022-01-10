@@ -16,8 +16,6 @@ class AutoFallbackTests: XCTestCase {
     override func setUp() {
         super.setUp()
         
-        // TODO:
-//        kindaVimEngine.axEngine = AXEngineNonTextElementMock()
         kindaVimEngine.accessibilityStrategy = AccessibilityStrategyFailingMock()
         kindaVimEngine.asNormalMode = asNormalMode
         kindaVimEngine.asVisualMode = asVisualMode
@@ -46,7 +44,7 @@ extension AutoFallbackTests {
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .d))
         
         XCTAssertEqual(asNormalMode.functionCalled, "")
-        XCTAssertEqual(ksNormalMode.functionCalled, "ddForNonTextElement()")
+        XCTAssertEqual(ksNormalMode.functionCalled, "dd(_:)")
     }
     
     func test_that_in_VisualMode_it_falls_back_to_the_KeyboardStrategy() {
@@ -55,7 +53,7 @@ extension AutoFallbackTests {
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .l))
         
         XCTAssertEqual(asVisualMode.functionCalled, "")
-        XCTAssertEqual(ksVisualMode.functionCalled, "lForVisualStyleCharacterwise()")
+        XCTAssertEqual(ksVisualMode.functionCalled, "l(_:)")
     }
     
     func test_that_in_OperatorPendingMode_for_VisualMode_it_falls_back_to_the_KeyboardStrategy() {
@@ -65,7 +63,7 @@ extension AutoFallbackTests {
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .g))
         
         XCTAssertEqual(asVisualMode.functionCalled, "")
-        XCTAssertEqual(ksVisualMode.functionCalled, "ggForNonTextElement()")
+        XCTAssertEqual(ksVisualMode.functionCalled, "gg(_:)")
     }
         
 }

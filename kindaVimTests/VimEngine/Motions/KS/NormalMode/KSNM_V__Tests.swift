@@ -3,28 +3,30 @@ import KeyCombination
 import XCTest
 
 
-class KSVM_g$_Tests: KSVM_BaseTests {
-    
+class KSNM_V__Tests: KSNM_BaseTests {
+
     override func setUp() {
         super.setUp()
         
         kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .eight))
-        kindaVimEngine.handle(keyCombination: KeyCombination(key: .g))
-        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .dollarSign))
+        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .V))
     }
 
 }
 
 
-// VisualStyle Characterwise
-extension KSVM_g$_Tests {
-
+extension KSNM_V__Tests {
+    
     func test_that_it_calls_the_correct_function_on_KS() {
-        XCTAssertEqual(ksVisualModeMock.functionCalled, "gDollarSign(_:)")
+        XCTAssertEqual(ksVisualModeMock.functionCalled, "VFromNormalMode()")
     }
     
-    func test_that_it_keeps_Vim_in_VisualMode() {
+    func test_that_it_switches_Vim_to_VisualMode() {
         XCTAssertEqual(kindaVimEngine.currentMode, .visual)
+    }
+    
+    func test_that_it_sets_the_VisualStyle_to_Linewise() {
+        XCTAssertEqual(kindaVimEngine.state.visualStyle, .linewise)
     }
     
     func test_that_it_resets_the_count() {

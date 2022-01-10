@@ -16,8 +16,6 @@ class KeyMappingTests: XCTestCase {
     override func setUp() {
         super.setUp()
         
-        // TODO:
-//        kindaVimEngine.axEngine = AXEngineNonTextElementMock()
         kindaVimEngine.accessibilityStrategy = AccessibilityStrategySucceedingMock()
         kindaVimEngine.asNormalMode = asNormalMode
         kindaVimEngine.asVisualMode = asVisualMode
@@ -32,7 +30,7 @@ class KeyMappingTests: XCTestCase {
 extension KeyMappingTests {
     
     func test_that_in_NormalMode_it_goes_straight_to_the_KeyboardStrategy() {
-        kindaVimEngine.enterNormalMode()
+        kindaVimEngine.enterNormalMode(appMode: .keyMapping)
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .l), appMode: .keyMapping)
         
         XCTAssertEqual(asNormalMode.functionCalled, "")
@@ -40,32 +38,32 @@ extension KeyMappingTests {
     }
     
     func test_that_in_OperatorPendingMode_for_NormalMode_it_goes_straight_to_the_KeyboardStrategy() {
-        kindaVimEngine.enterNormalMode()
+        kindaVimEngine.enterNormalMode(appMode: .keyMapping)
         
-            kindaVimEngine.handle(keyCombination: KeyCombination(key: .d), appMode: .keyMapping)
-                                  kindaVimEngine.handle(keyCombination: KeyCombination(key: .d), appMode: .keyMapping)
+        kindaVimEngine.handle(keyCombination: KeyCombination(key: .d), appMode: .keyMapping)
+        kindaVimEngine.handle(keyCombination: KeyCombination(key: .d), appMode: .keyMapping)
         
         XCTAssertEqual(asNormalMode.functionCalled, "")
-        XCTAssertEqual(ksNormalMode.functionCalled, "ddForNonTextElement()")
+        XCTAssertEqual(ksNormalMode.functionCalled, "dd(_:)")
     }
     
     func test_that_in_VisualMode_it_goes_straight_to_the_KeyboardStrategy() {
         kindaVimEngine.enterVisualMode()
         
-                kindaVimEngine.handle(keyCombination: KeyCombination(key: .l), appMode: .keyMapping)
+        kindaVimEngine.handle(keyCombination: KeyCombination(key: .l), appMode: .keyMapping)
         
         XCTAssertEqual(asVisualMode.functionCalled, "")
-        XCTAssertEqual(ksVisualMode.functionCalled, "lForVisualStyleCharacterwise()")
+        XCTAssertEqual(ksVisualMode.functionCalled, "l(_:)")
     }
     
     func test_that_in_OperatorPendingMode_for_VisualMode_it_goes_straight_to_the_KeyboardStrategy() {
         kindaVimEngine.enterVisualMode()
         
-                    kindaVimEngine.handle(keyCombination: KeyCombination(key: .g), appMode: .keyMapping)
-                                          kindaVimEngine.handle(keyCombination: KeyCombination(key: .g), appMode: .keyMapping)
+        kindaVimEngine.handle(keyCombination: KeyCombination(key: .g), appMode: .keyMapping)
+        kindaVimEngine.handle(keyCombination: KeyCombination(key: .g), appMode: .keyMapping)
         
         XCTAssertEqual(asVisualMode.functionCalled, "")
-        XCTAssertEqual(ksVisualMode.functionCalled, "ggForNonTextElement()")
+        XCTAssertEqual(ksVisualMode.functionCalled, "gg(_:)")
     }
         
 }

@@ -3,21 +3,22 @@ import KeyCombination
 import XCTest
 
 
-class SucceedingASNM_v_Tests: ASNM_BaseTests {
-    
+class KSNM_v_Tests: KSNM_BaseTests {
+
     override func setUp() {
         super.setUp()
         
-        kindaVimEngine.handle(keyCombination: KeyCombination(key: .v))
+        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .eight))
+        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .v))
     }
-    
+
 }
 
 
-extension SucceedingASNM_v_Tests {
+extension KSNM_v_Tests {
     
     func test_that_it_calls_the_correct_function_on_AS() {
-        XCTAssertEqual(asVisualModeMock.functionCalled, "vFromNormalMode(on:)")
+        XCTAssertEqual(ksVisualModeMock.functionCalled, "vFromNormalMode()")
     }
         
     func test_that_it_switches_Vim_to_VisualMode() {

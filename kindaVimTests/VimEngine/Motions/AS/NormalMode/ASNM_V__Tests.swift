@@ -17,15 +17,15 @@ class SucceedingASNM_V__Tests: ASNM_BaseTests {
 
 extension SucceedingASNM_V__Tests {
     
-    func test_that_it_calls_the_correct_function_on_accessibility_strategy() {
+    func test_that_it_calls_the_correct_function_on_AS() {
         XCTAssertEqual(asVisualModeMock.functionCalled, "VFromNormalMode(on:)")
     }
     
-    func test_that_it_switches_Vim_to_visual_mode() {
+    func test_that_it_switches_Vim_to_VisualMode() {
         XCTAssertEqual(kindaVimEngine.currentMode, .visual)
     }
     
-    func test_that_it_sets_the_visual_style_to_linewise() {
+    func test_that_it_sets_the_VisualStyle_to_Linewise() {
         XCTAssertEqual(kindaVimEngine.state.visualStyle, .linewise)
     }
     

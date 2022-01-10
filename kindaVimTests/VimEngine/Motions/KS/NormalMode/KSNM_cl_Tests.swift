@@ -19,7 +19,7 @@ class KSNM_cl_Tests: KSNM_BaseTests {
 extension KSNM_cl_Tests {
 
     func test_that_it_calls_the_correct_function_on_KS() {
-        XCTAssertEqual(ksNormalModeMock.functionCalled, "cl()")
+        XCTAssertEqual(ksNormalModeMock.functionCalled, "cl(_:)")
     }
     
     func test_that_it_switches_Vim_into_InsertMode() {

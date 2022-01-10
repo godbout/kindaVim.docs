@@ -18,48 +18,14 @@ class KSVM_caret_Tests: KSVM_BaseTests {
 extension KSVM_caret_Tests {
     
     func test_that_it_calls_the_correct_function_on_KS() {
-        XCTAssertEqual(ksVisualModeMock.functionCalled, "caretForNonTextElementWhenInVisualStyleCharacterwise()")
+        XCTAssertEqual(ksVisualModeMock.functionCalled, "caret(_:)")
     }
     
-    
-    func test_that_it_keeps_Vim_in_visual_mode_when_in_VisualStyle_Characterwise() {
-        kindaVimEngine.state.visualStyle = .characterwise
-        
-        
+    func test_that_it_keeps_Vim_in_VisualMode() {
         XCTAssertEqual(kindaVimEngine.currentMode, .visual)
     }
     
     func test_that_it_resets_the_count() {
-        kindaVimEngine.state.visualStyle = .characterwise
-        
-        
-        XCTAssertNil(kindaVimEngine.count)
-    }
-    
-}
-
-
-// VisualStyle Linewise
-extension KSVM_caret_Tests {
-    
-    func test_that_it_does_not_call_any_function_on_KS_because_this_move_does_not_exist_for_VisualStyle_Linewise() {
-        kindaVimEngine.state.visualStyle = .linewise
-        
-        
-        XCTAssertEqual(ksVisualModeMock.functionCalled, "")
-    }
-    
-    func test_that_it_keeps_Vim_in_visual_mode_when_in_VisualStyle_Linewise() {
-        kindaVimEngine.state.visualStyle = .linewise
-        
-        
-        XCTAssertEqual(kindaVimEngine.currentMode, .visual)
-    }
-    
-    func test_that_it_resets_the_count_when_VisualStyle_is_Linewise() {
-        kindaVimEngine.state.visualStyle = .linewise
-        
-        
         XCTAssertNil(kindaVimEngine.count)
     }
     

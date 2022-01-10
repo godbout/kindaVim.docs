@@ -20,7 +20,7 @@ class KSNM_ciw_Tests: KSNM_BaseTests {
 extension KSNM_ciw_Tests {
     
     func test_that_it_calls_the_correct_function_on_KS() {
-        XCTAssertEqual(ksNormalModeMock.functionCalled, "ciw()")
+        XCTAssertEqual(ksNormalModeMock.functionCalled, "ciw(_:)")
     }
     
     func test_that_it_switches_Vim_into_InsertMode() {

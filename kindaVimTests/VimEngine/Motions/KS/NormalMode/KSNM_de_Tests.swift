@@ -19,7 +19,7 @@ class KSNM_de_Tests: KSNM_BaseTests {
 extension KSNM_de_Tests {
     
     func test_that_the_move_calls_the_correct_function_on_KS() {        
-        XCTAssertEqual(ksNormalModeMock.functionCalled, "de()")
+        XCTAssertEqual(ksNormalModeMock.functionCalled, "de(_:)")
     }
     
     func test_that_dd_keeps_Vim_in_normal_mode() {

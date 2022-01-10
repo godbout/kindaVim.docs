@@ -20,7 +20,7 @@ class KSNM_cgg_Tests: KSNM_BaseTests {
 extension KSNM_cgg_Tests {
 
     func test_that_it_calls_the_correct_function_on_KS() {
-        XCTAssertEqual(ksNormalModeMock.functionCalled, "cgg()")
+        XCTAssertEqual(ksNormalModeMock.functionCalled, "cgg(_:)")
     }
 
     func test_that_cgg_switches_Vim_to_InsertMode() {
