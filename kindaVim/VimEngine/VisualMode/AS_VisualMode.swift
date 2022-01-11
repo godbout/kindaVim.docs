@@ -93,6 +93,14 @@ extension KindaVimEngine {
                 let newElement = asVisualMode.o(on: currentElement)
                 push(element: newElement)
                 endCurrentMove()
+            case .R:
+                let newElement = asVisualMode.R(on: currentElement, &state)
+                push(element: newElement)
+                enterInsertMode()  
+            case .S:
+                let newElement = asVisualMode.S(on: currentElement, &state)
+                push(element: newElement)
+                enterInsertMode()  
             case .s:
                 let newElement = asVisualMode.c(on: currentElement, &state)
                 push(element: newElement)

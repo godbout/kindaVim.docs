@@ -53,6 +53,12 @@ extension KindaVimEngine {
         case .l:
             post(ksVisualMode.l(state))
             endCurrentMove()
+        case .R:
+            post(ksVisualMode.R(&state))
+            enterInsertMode()
+        case .S:
+            post(ksVisualMode.S(&state))
+            enterInsertMode()
         case .s:
             post(ksVisualMode.c(&state))
             enterInsertMode()

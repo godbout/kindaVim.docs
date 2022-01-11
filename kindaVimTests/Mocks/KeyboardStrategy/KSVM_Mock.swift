@@ -18,13 +18,11 @@ class KeyboardStrategyVisualModeMock: KeyboardStrategyVisualModeProtocol {
         return []
     }
     
-    
     func C(_ vimEngineState: inout VimEngineState) -> [KeyCombination] {
         functionCalled = #function
         
         return []
     }
-    
     
     func c(_ vimEngineState: inout VimEngineState) -> [KeyCombination] {
         functionCalled = #function
@@ -32,13 +30,11 @@ class KeyboardStrategyVisualModeMock: KeyboardStrategyVisualModeProtocol {
         return []
     }
     
-    
     func caret(_ vimEngineState: VimEngineState) -> [KeyCombination] {
         functionCalled = #function
         
         return []
     }
-    
     
     func D(_ vimEngineState: inout VimEngineState) -> [KeyCombination] {
         functionCalled = #function
@@ -46,13 +42,11 @@ class KeyboardStrategyVisualModeMock: KeyboardStrategyVisualModeProtocol {
         return []
     }
     
-    
     func d(_ vimEngineState: inout VimEngineState) -> [KeyCombination] {
         functionCalled = #function
         
         return []
     }
-    
     
     func dollarSign(_ vimEngineState: VimEngineState) -> [KeyCombination] {
         functionCalled = #function
@@ -60,13 +54,11 @@ class KeyboardStrategyVisualModeMock: KeyboardStrategyVisualModeProtocol {
         return []
     }
     
-    
     func e(_ vimEngineState: VimEngineState) -> [KeyCombination] {
         functionCalled = #function
         
         return []
     }
-        
     
     func gCaret(_ vimEngineState: VimEngineState) -> [KeyCombination] {
         functionCalled = #function
@@ -74,20 +66,17 @@ class KeyboardStrategyVisualModeMock: KeyboardStrategyVisualModeProtocol {
         return []
     }
     
-    
     func gDollarSign(_ vimEngineState: VimEngineState) -> [KeyCombination] {
         functionCalled = #function
         
         return []
     }
-        
     
     func ge(_ vimEngineState: VimEngineState) -> [KeyCombination] {
         functionCalled = #function
         
         return []
     }
-    
     
     func gg(_ vimEngineState: VimEngineState) -> [KeyCombination] {
         functionCalled = #function
@@ -118,7 +107,6 @@ class KeyboardStrategyVisualModeMock: KeyboardStrategyVisualModeProtocol {
         
         return []
     }
-        
     
     func G(_ vimEngineState: VimEngineState) -> [KeyCombination] {
         functionCalled = #function
@@ -150,6 +138,17 @@ class KeyboardStrategyVisualModeMock: KeyboardStrategyVisualModeProtocol {
         return []
     }
     
+    func R(_ vimEngineState: inout VimEngineState) -> [KeyCombination] {
+        functionCalled = #function
+        
+        return []
+    }
+    
+    func S(_ vimEngineState: inout VimEngineState) -> [KeyCombination] {
+        functionCalled = #function
+        
+        return []
+    }
     
     func underscore(_ vimEngineState: VimEngineState) -> [KeyCombination] {
         functionCalled = #function
@@ -192,18 +191,17 @@ class KeyboardStrategyVisualModeMock: KeyboardStrategyVisualModeProtocol {
         
         return []
     }
-        
     
     func y(_ vimEngineState: inout VimEngineState) -> [KeyCombination] {
         functionCalled = #function
         
         return []
     }
-        
     
     func zero(_ vimEngineState: VimEngineState) -> [KeyCombination] {
         functionCalled = #function
         
         return []
     }
+       
 }
