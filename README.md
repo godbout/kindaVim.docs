@@ -70,7 +70,7 @@ kindaVim will be a subscription of one ☕️ (USD$3) a month. the beta is free 
 | `b`        | ✅️️              |                  |                                      | `g0`          |              |
 | `C`        | ❌️              | ✅️️               |                                      | `gE`          | ❌️             |
 | `c$`       | ❌️              | ✅️️               |                                      | `ge`          | ❌️             |
-| `caW`      | ❌️              |  ❌️              |                                      | `gg`          | ❌️             |
+| `caW`      | ❌️              |       ✅️️         |                                      | `gg`          | ❌️             |
 | `caw`      | ❌️              |        ✅️️        |                                      | `gI`          |               |
 | `cB`      | ✅️️              |        ✅️️         |                                      | `gj`          | ❌️              |
 | `cb`      | ✅️️              |        ✅️️         |                                      | `gk`          | ❌️              |
@@ -100,9 +100,9 @@ kindaVim will be a subscription of one ☕️ (USD$3) a month. the beta is free 
 | `ct`       | ✅️              | ✅️ 
 | `cW`       | ❌️              | ✅️️ 
 | `cw`       | ❌️              | ✅️️ 
-| `D`       | ❌️              | ❌
+| `D`       | ❌️              | ✅️️
 | `d$`      | ❌️               | ✅️️
-| `daW`     | ❌️               | ❌
+| `daW`     | ❌️               | ✅️️
 | `daw`     | ❌️               | ✅️️
 | `dB`     | ✅️️               | ✅️️
 | `db`     | ✅️️               | ✅️️
