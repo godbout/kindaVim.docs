@@ -186,7 +186,7 @@ kindaVim will be a subscription of one ☕️ (USD$3) a month. the beta is free 
 | `cc`        | ❌️              |      ✅️️          |                                     | `e`          | ❌️              |
 | `ce`        | ❌️              |      ✅️️          |                                     | `G`          | ❌️              |
 | `cG`        | ❌️              |      ✅️️          |                                     | `g^`          |                 |
-| `cgg`        | ❌️              |     ❌️          |                                     | `g$`          | ❌️              |
+| `cgg`        | ❌️              |     ✅️          |                                     | `g$`          | ❌️              |
 | `ciw`        | ❌️              |     ❌️          |                                     | `g0`          |                 |
 | `CTRL-B`     | ❌️               |                 |                                    | `ge`          | ❌️              |
 | `CTRL-D`    | ❌️              |                   |                                    | `gg`          | ❌️              |
@@ -199,7 +199,7 @@ kindaVim will be a subscription of one ☕️ (USD$3) a month. the beta is free 
 | `dd`        | ❌️              |      ✅️️           |                                    | `l`           | ❌️              |
 | `de`        | ❌️              |      ❌️           |                                    | `V`           | ❌️              |
 | `dG`        | ❌️              |      ✅️️           |                                    | `v`           | ❌️              |
-| `dgg`       | ❌️              |      ❌️           |                                    | `w`           | ❌️              |
+| `dgg`       | ❌️              |      ✅️           |                                    | `w`           | ❌️              |
 | `dh`       | ❌️              |       ✅️️           |                                    | `X`           |                 |  ✅️️
 | `dj`       | ❌️              |❌️                  |                                    | `x`           |                 |  ✅️️
 | `dk`       | ❌️              |❌️                  |                                    | `Y`           |                 |  
