@@ -392,6 +392,8 @@
 		91BBC4E3278765A8008DE977 /* KSNM_S__Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BBC4E2278765A8008DE977 /* KSNM_S__Tests.swift */; };
 		91BEE342278D67890037FD1A /* ASNM_cl_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BEE341278D67890037FD1A /* ASNM_cl_Tests.swift */; };
 		91BEE344278D68990037FD1A /* ASNM_s_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BEE343278D68990037FD1A /* ASNM_s_Tests.swift */; };
+		91BEE348278D81930037FD1A /* ASVM_s_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BEE347278D81930037FD1A /* ASVM_s_Tests.swift */; };
+		91BEE34A278D81EB0037FD1A /* KSVM_s_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BEE349278D81EB0037FD1A /* KSVM_s_Tests.swift */; };
 		91C26B34277B2E27002C3CED /* AppCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91840DDD26FE096C00E6048E /* AppCore.swift */; };
 		91C26B35277B2E34002C3CED /* StatusBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91840DD126FE096B00E6048E /* StatusBarController.swift */; };
 		91C26B36277B2E3B002C3CED /* EventTapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91840DDB26FE096C00E6048E /* EventTapController.swift */; };
@@ -822,6 +824,8 @@
 		91BEE33D278CCCBF0037FD1A /* AccessibilityStrategy */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = AccessibilityStrategy; path = ../AccessibilityStrategy; sourceTree = "<group>"; };
 		91BEE341278D67890037FD1A /* ASNM_cl_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASNM_cl_Tests.swift; sourceTree = "<group>"; };
 		91BEE343278D68990037FD1A /* ASNM_s_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASNM_s_Tests.swift; sourceTree = "<group>"; };
+		91BEE347278D81930037FD1A /* ASVM_s_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASVM_s_Tests.swift; sourceTree = "<group>"; };
+		91BEE349278D81EB0037FD1A /* KSVM_s_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSVM_s_Tests.swift; sourceTree = "<group>"; };
 		91D222F626FE0F2B00B9AF77 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		91D2230826FE112000B9AF77 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		91D475F826FF67A10007187B /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
@@ -1261,6 +1265,7 @@
 				918F2F092787551000AD68DF /* ASVM_k_Tests.swift */,
 				918F2F152787551100AD68DF /* ASVM_l_Tests.swift */,
 				918F2F2D2787551300AD68DF /* ASVM_o_Tests.swift */,
+				91BEE347278D81930037FD1A /* ASVM_s_Tests.swift */,
 				918F2F282787551200AD68DF /* ASVM_T__Tests.swift */,
 				918F2F122787551100AD68DF /* ASVM_t_Tests.swift */,
 				918F2F192787551100AD68DF /* ASVM_V__Tests.swift */,
@@ -1427,6 +1432,7 @@
 				918F30312787559B00AD68DF /* KSVM_j_Tests.swift */,
 				918F30292787559B00AD68DF /* KSVM_k_Tests.swift */,
 				918F30352787559B00AD68DF /* KSVM_l_Tests.swift */,
+				91BEE349278D81EB0037FD1A /* KSVM_s_Tests.swift */,
 				918F303B2787559C00AD68DF /* KSVM_T__Tests.swift */,
 				918F30332787559B00AD68DF /* KSVM_t_Tests.swift */,
 				918F30202787559A00AD68DF /* KSVM_V__Tests.swift */,
@@ -1875,6 +1881,7 @@
 				918F2FDD2787557800AD68DF /* KSNM_ce_Tests.swift in Sources */,
 				918F2F492787551300AD68DF /* ASVM_gj_Tests.swift in Sources */,
 				918F2EBC278754D100AD68DF /* ASNM_v_Tests.swift in Sources */,
+				91BEE34A278D81EB0037FD1A /* KSVM_s_Tests.swift in Sources */,
 				918F2EFD278754D100AD68DF /* ASNM_daw_Tests.swift in Sources */,
 				918F2F432787551300AD68DF /* ASVM_Y__Tests.swift in Sources */,
 				918F2EA4278754D100AD68DF /* ASNM_yi}_Tests.swift in Sources */,
@@ -2029,6 +2036,7 @@
 				918F2FE82787557800AD68DF /* KSNM_yF__Tests.swift in Sources */,
 				918F2EC2278754D100AD68DF /* ASNM_u_Tests.swift in Sources */,
 				918F2FFB2787557800AD68DF /* KSNM_control_b_Tests.swift in Sources */,
+				91BEE348278D81930037FD1A /* ASVM_s_Tests.swift in Sources */,
 				918F2F482787551300AD68DF /* ASVM_C__Tests.swift in Sources */,
 				918F2FFE2787557800AD68DF /* KSNM_$_Tests.swift in Sources */,
 				918F30612787559C00AD68DF /* KSVM_w_Tests.swift in Sources */,
