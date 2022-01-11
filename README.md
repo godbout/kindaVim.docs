@@ -188,7 +188,7 @@ kindaVim will be a subscription of one ☕️ (USD$3) a month. the beta is free 
 | `ce`        | ❌️              |      ✅️️          |                                     | `g^`          |                 |
 | `cG`        | ❌️              |      ✅️️          |                                     | `g$`          | ❌️              |
 | `cgg`        | ❌️              |     ✅️          |                                     | `g0`          |                 |
-| `ciw`        | ❌️              |     ❌️          |                                      | `ge`          | ❌️              |
+| `ciw`        | ❌️              |     ✅️️          |                                      | `ge`          | ❌️              |
 | `cl`         | ❌️               |   ✅️             |                                   | `gg`          | ❌️              |
 | `CTRL-B`     | ❌️               |                 |                                    | `gI`          |                | 
 | `CTRL-D`    | ❌️              |                   |                                    | `gj`          | ❌️              | 
@@ -196,7 +196,7 @@ kindaVim will be a subscription of one ☕️ (USD$3) a month. the beta is free 
 | `CTRL-R`    | ❌️              |                  |                                     | `h`           | ❌️              |                                    
 | `CTRL-U`    | ❌️              |                  |                                     | `j`           | ❌️              |                                    
 | `cw`        | ❌️              |      ✅️️           |                                    | `k`           | ❌️              |
-| `D`        | ❌️              |       ❌️           |                                    | `l`           | ❌️              |
+| `D`        | ❌️              |       ✅️️           |                                    | `l`           | ❌️              |
 | `d$`       | ❌️               |      ✅️            |                                   | `R`           | ❌️              | ✅️ 
 | `db`        | ❌️              |      ✅️           |                                    | `S`           | ❌️              | ✅️ 
 | `dd`        | ❌️              |      ✅️️           |                                    | `s`           | ❌️              | ✅️    
