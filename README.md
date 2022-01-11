@@ -182,7 +182,7 @@ kindaVim will be a subscription of one ☕️ (USD$3) a month. the beta is free 
 | `a`         | ❌️              |                  |                                     | `C`         |                 |  ✅️️
 | `b`         | ❌️              |                  |                                     | `c`         |                 |  ✅️️
 | `C`         | ❌️              |      ✅️️          |                                     | `D`         |                 |  ✅️️
-| `cb`        | ❌️              |      ❌️          |                                     | `d`         |                 |  ✅️️
+| `cb`        | ❌️              |      ✅️          |                                     | `d`         |                 |  ✅️️
 | `cc`        | ❌️              |      ✅️️          |                                     | `e`          | ❌️              |
 | `ce`        | ❌️              |      ✅️️          |                                     | `G`          | ❌️              |
 | `cG`        | ❌️              |      ✅️️          |                                     | `g^`          |                 |
@@ -195,7 +195,7 @@ kindaVim will be a subscription of one ☕️ (USD$3) a month. the beta is free 
 | `CTRL-U`    | ❌️              |                  |                                     | `gk`          | ❌️              |
 | `cw`        | ❌️              |      ✅️️           |                                    | `h`           | ❌️              |                                    
 | `D`        | ❌️              |       ❌️           |                                    | `j`           | ❌️              |                                    
-| `db`        | ❌️              |      ❌️           |                                    | `k`           | ❌️              |
+| `db`        | ❌️              |      ✅️           |                                    | `k`           | ❌️              |
 | `dd`        | ❌️              |      ✅️️           |                                    | `l`           | ❌️              |
 | `de`        | ❌️              |      ❌️           |                                    | `V`           | ❌️              |
 | `dG`        | ❌️              |      ✅️️           |                                    | `v`           | ❌️              |
