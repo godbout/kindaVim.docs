@@ -173,7 +173,9 @@ extension KindaVimEngine {
                 push(element: newElement)
                 enterInsertMode()
             case .s:
-                handleNormalModeUsingKeyboardStrategy(for: keyCombination)
+                let newElement = asNormalMode.cl(on: currentElement, &state)
+                push(element: newElement)
+                enterInsertMode()
             case .T:
                 enterOperatorPendingForNormalMode(with: keyCombination)
             case .t:
@@ -347,6 +349,10 @@ extension KindaVimEngine {
                 enterInsertMode()
             case [.c, .i, .w]:
                 let newElement = asNormalMode.ciw(on: currentElement, &state)
+                push(element: newElement)
+                enterInsertMode()
+            case [.c, .l]:
+                let newElement = asNormalMode.cl(on: currentElement, &state)
                 push(element: newElement)
                 enterInsertMode()
             case [.c, .t]:

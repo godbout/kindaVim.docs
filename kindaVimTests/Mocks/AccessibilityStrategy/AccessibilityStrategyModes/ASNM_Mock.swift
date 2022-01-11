@@ -193,6 +193,12 @@ class AccessibilityStrategyNormalModeMock: AccessibilityStrategyNormalModeProtoc
         return element
     }
     
+    func cl(on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
+        functionCalled = #function
+        
+        return element
+    }
+    
     func cT(times count: Int? = 1, to character: Character, on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
         functionCalled = #function
         

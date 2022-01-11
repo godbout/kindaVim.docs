@@ -3,22 +3,22 @@ import KeyCombination
 import XCTest
 
 
-class ASNM_S__Tests: ASNM_BaseTests {
+class ASNM_s_Tests: ASNM_BaseTests {
     
     override func setUp() {
         super.setUp()
         
         kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .eight))
-        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .S))
+        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .s))
     }
     
 }
 
 
-extension ASNM_S__Tests {
+extension ASNM_s_Tests {
     
     func test_that_it_calls_the_correct_function_on_the_AccessibilityStrategy() {
-        XCTAssertEqual(asNormalModeMock.functionCalled, "cc(on:_:)")
+        XCTAssertEqual(asNormalModeMock.functionCalled, "cl(on:_:)")
     }
     
     func test_that_it_switches_Vim_into_insert_mode() {
