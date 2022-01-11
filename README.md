@@ -109,7 +109,7 @@ kindaVim will be a subscription of one ☕️ (USD$3) a month. the beta is free 
 | `dF`     | ✅️               | ✅️
 | `df`     | ✅️               | ✅️
 | `dG`     | ❌️               | ✅️️
-| `dgg`     | ❌️               | ❌
+| `dgg`     | ❌️               | ✅️
 | `dh`     | ❌️               | ✅️️
 | `diW`     | ❌️               | ✅️️
 | `diw`     | ❌️               | ✅️️
