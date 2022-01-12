@@ -101,6 +101,7 @@ extension KindaVimEngine {
                 push(element: newElement)
                 endCurrentMove()
             case .j:
+                // TODO: also for combobox, so i have to do something here. and add tests.
                 if currentElement.role == .textField {
                     handleNormalModeUsingKeyboardStrategy(for: keyCombination)
                 } else {

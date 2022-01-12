@@ -58,12 +58,12 @@ extension GCEDefaultKeyboardShortcutTests {
 // visual mode
 extension GCEDefaultKeyboardShortcutTests {
     
-    func test_that_when_in_Visual_Mode_the_global_hotkey_press_switches_Vim_to_Insert_Mode() {
+    func test_that_when_in_Visual_Mode_the_global_hotkey_press_switches_Vim_to_NormalMode() {
         AppCore.shared.vimEngine.enterVisualMode()
 
         _ = GlobalEventsController.handle(keyCombination: globalHotkeyCombination)        
 
-        XCTAssertEqual(AppCore.shared.vimEngine.currentMode, .insert)
+        XCTAssertEqual(AppCore.shared.vimEngine.currentMode, .normal)
     }
     
     func test_that_when_in_visual_mode_the_global_hotkey_press_is_captured_and_not_sent_back_to_macOS() {

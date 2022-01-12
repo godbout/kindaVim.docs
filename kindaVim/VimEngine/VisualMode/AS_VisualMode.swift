@@ -50,9 +50,9 @@ extension KindaVimEngine {
                 push(element: newElement)
                 endCurrentMove()
             case .escape:
-                // currently a hack
-                // so that we can comment multiple lines by keeping the VM selection :D
-                enterInsertMode()
+                let newElement = asVisualMode.escape(on: currentElement)
+                push(element: newElement)
+                enterNormalMode()
             case .F:
                 enterOperatorPendingForVisualMode(with: keyCombination)
             case .f:

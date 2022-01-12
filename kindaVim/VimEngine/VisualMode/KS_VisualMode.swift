@@ -33,7 +33,8 @@ extension KindaVimEngine {
             post(ksVisualMode.e(state))
             endCurrentMove()
         case .escape:
-            enterInsertMode()
+            post(ksVisualMode.escape(state))
+            enterNormalMode()
         case .G:
             post(ksVisualMode.G(state))
             endCurrentMove()

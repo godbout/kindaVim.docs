@@ -82,6 +82,8 @@ extension GCECustomKeyboardShortcutTests {
 // visual mode
 extension GCECustomKeyboardShortcutTests {
     
+    // TODO: should it now?
+    // TODO: kill switch
     func test_that_when_in_Visual_Mode_the_global_hotkey_press_switches_Vim_to_Insert_Mode() {
         AppCore.shared.vimEngine.enterVisualMode()
 

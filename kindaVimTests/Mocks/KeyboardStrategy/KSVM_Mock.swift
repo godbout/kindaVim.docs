@@ -60,6 +60,12 @@ class KeyboardStrategyVisualModeMock: KeyboardStrategyVisualModeProtocol {
         return []
     }
     
+    func escape(_ vimEngineState: VimEngineState) -> [KeyCombination] {
+        functionCalled = #function
+        
+        return []
+    }
+    
     func gCaret(_ vimEngineState: VimEngineState) -> [KeyCombination] {
         functionCalled = #function
         
