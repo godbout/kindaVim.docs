@@ -16,7 +16,7 @@ class SucceedingASVM_gj_Tests: ASVM_BaseTests {
 
 extension SucceedingASVM_gj_Tests {    
 
-    func test_that_if_we_are_on_a_TextField_it_does_not_use_the_AS_but_uses_the_KS_instead() {
+    func test_that_if_we_are_on_something_different_than_a_TextArea_it_does_not_use_the_AS_but_uses_the_KS_instead() {
         kindaVimEngine.accessibilityStrategy = AccessibilityStrategySucceedingTextFieldMock()
         applyKeyCombinationsBeingTested()
         
@@ -24,7 +24,8 @@ extension SucceedingASVM_gj_Tests {
         XCTAssertEqual(ksVisualModeMock.functionCalled, "gj(_:)")
     }
     
-    func test_that_it_calls_the_correct_function_on_the_AccessibilityStrategy() {
+    func test_that_if_we_are_on_a_TextArea_it_calls_the_correct_function_on_the_AccessibilityStrategy() {
+        kindaVimEngine.accessibilityStrategy = AccessibilityStrategySucceedingTextAreaMock()
         applyKeyCombinationsBeingTested()
                 
         XCTAssertEqual(asVisualModeMock.functionCalled, "gj(on:_:)")

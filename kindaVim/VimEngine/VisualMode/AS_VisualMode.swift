@@ -70,20 +70,20 @@ extension KindaVimEngine {
             case .i:
                 enterOperatorPendingForVisualMode(with: keyCombination)
             case .j:
-                if currentElement.role == .textField {
-                    handleVisualModeUsingKeyboardStrategy(for: keyCombination)
-                } else {
+                if currentElement.role == .textArea {
                     let newElement = asVisualMode.j(on: currentElement, state)
                     push(element: newElement)
                     endCurrentMove()
+                } else {
+                    handleVisualModeUsingKeyboardStrategy(for: keyCombination)
                 }
             case .k:
-                if currentElement.role == .textField {
-                    handleVisualModeUsingKeyboardStrategy(for: keyCombination)
-                } else {
+                if currentElement.role == .textArea {
                     let newElement = asVisualMode.k(on: currentElement, state)
                     push(element: newElement)
                     endCurrentMove()
+                } else {
+                    handleVisualModeUsingKeyboardStrategy(for: keyCombination)
                 }
             case .l:
                 let newElement = asVisualMode.l(on: currentElement, state)
@@ -212,20 +212,20 @@ extension KindaVimEngine {
                 push(element: newElement)
                 enterVisualMode()
             case [.g, .j]:
-                if currentElement.role == .textField {
-                    parseOperatorCommandForVisualModeUsingKeyboardStrategy()
-                } else {
+                if currentElement.role == .textArea {
                     let newElement = asVisualMode.gj(on: currentElement, state)
                     push(element: newElement)
                     enterVisualMode()
+                } else {
+                    parseOperatorCommandForVisualModeUsingKeyboardStrategy()
                 }
             case [.g, .k]:
-                if currentElement.role == .textField {
-                    parseOperatorCommandForVisualModeUsingKeyboardStrategy()
-                } else {
+                if currentElement.role == .textArea {
                     let newElement = asVisualMode.gk(on: currentElement, state)
                     push(element: newElement)
                     enterVisualMode()
+                } else {
+                    parseOperatorCommandForVisualModeUsingKeyboardStrategy()
                 }
             case [.g, .zero]:
                 let newElement = asVisualMode.gZero(on: currentElement, state)
