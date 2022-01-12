@@ -96,7 +96,7 @@ struct ModesPane: View {
                     Text("PG-R")
                         .font(.title)
                         .padding(.bottom, 10)
-                    Text("drop apps where moving around works but modifying text doesn't in Auto Mode. for restricted apps. mostly browsers.")
+                    Text("drop apps where moving around works but modifying text doesn't. for restricted apps. mostly browsers and some Catalyst apps.")
                         .padding(.leading, 5)
                         .font(.footnote)
                         .foregroundColor(.gray)
