@@ -18,14 +18,15 @@ class SucceedingASNM_gk_Tests: ASNM_BaseTests {
 extension SucceedingASNM_gk_Tests {
     
     func test_that_if_we_are_on_a_TextField_it_does_not_use_the_AS_but_uses_the_KS_instead() {
-        kindaVimEngine.accessibilityStrategy = AccessibilityStrategySucceedingTextFieldMock()
+        kindaVimEngine.accessibilityStrategy = AccessibilityStrategySucceedingComboBoxMock()
         applyKeyCombinationsBeingTested()
         
         XCTAssertEqual(asNormalModeMock.functionCalled, "")
         XCTAssertEqual(ksNormalModeMock.functionCalled, "gk()")
     }
 
-    func test_that_it_calls_the_correct_function_on_accessibility_strategy() {
+    func test_that_if_we_are_on_a_TextArea_it_calls_the_correct_function_on_accessibility_strategy() {
+        kindaVimEngine.accessibilityStrategy = AccessibilityStrategySucceedingTextAreaMock()
         applyKeyCombinationsBeingTested()
                 
         XCTAssertEqual(asNormalModeMock.functionCalled, "gk(on:)")

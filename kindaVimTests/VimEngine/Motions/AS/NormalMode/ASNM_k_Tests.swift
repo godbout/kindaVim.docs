@@ -15,22 +15,24 @@ class SucceedingASNM_k_Tests: ASNM_BaseTests {
 
 extension SucceedingASNM_k_Tests {
     
-    func test_that_if_we_are_on_a_TextField_it_does_not_use_the_AS_but_uses_the_KS_instead() {
-        kindaVimEngine.accessibilityStrategy = AccessibilityStrategySucceedingTextFieldMock()
+    func test_that_if_we_are_on_something_different_than_a_TextArea_it_does_not_use_the_AS_but_uses_the_KS_instead() {
+        kindaVimEngine.accessibilityStrategy = AccessibilityStrategySucceedingComboBoxMock()
         applyKeyCombinationsBeingTested()
         
         XCTAssertEqual(asNormalModeMock.functionCalled, "")
         XCTAssertEqual(ksNormalModeMock.functionCalled, "k()")
     }
     
-    func test_that_if_it_is_not_remap_it_calls_k_on_AS() {
+    func test_that_on_a_TextArea_if_it_is_not_remap_it_calls_j_on_AS() {
+        kindaVimEngine.accessibilityStrategy = AccessibilityStrategySucceedingTextAreaMock()
         kindaVimEngine.jkMapping = false
         applyKeyCombinationsBeingTested()
         
         XCTAssertEqual(asNormalModeMock.functionCalled, "k(on:)")
     }
         
-    func test_that_if_it_is_remapped_it_calls_gk_on_AS() {
+    func test_that_on_a_TextArea_if_it_is_remapped_it_calls_gj_on_AS() {
+        kindaVimEngine.accessibilityStrategy = AccessibilityStrategySucceedingTextAreaMock()
         kindaVimEngine.jkMapping = true
         applyKeyCombinationsBeingTested()
         

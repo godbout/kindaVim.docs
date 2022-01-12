@@ -101,10 +101,7 @@ extension KindaVimEngine {
                 push(element: newElement)
                 endCurrentMove()
             case .j:
-                // TODO: also for combobox, so i have to do something here. and add tests.
-                if currentElement.role == .textField {
-                    handleNormalModeUsingKeyboardStrategy(for: keyCombination)
-                } else {
+                if currentElement.role == .textArea {
                     if jkMapping == true {
                         let newElement = asNormalMode.gj(on: currentElement)
                         push(element: newElement)
@@ -114,11 +111,11 @@ extension KindaVimEngine {
                         push(element: newElement)
                         endCurrentMove()
                     }
+                } else {
+                    handleNormalModeUsingKeyboardStrategy(for: keyCombination)
                 }
             case .k:
-                if currentElement.role == .textField {
-                    handleNormalModeUsingKeyboardStrategy(for: keyCombination)
-                } else {
+                if currentElement.role == .textArea {
                     if jkMapping == true {
                         let newElement = asNormalMode.gk(on: currentElement)
                         push(element: newElement)
@@ -128,6 +125,8 @@ extension KindaVimEngine {
                         push(element: newElement)
                         endCurrentMove()
                     }
+                } else {
+                    handleNormalModeUsingKeyboardStrategy(for: keyCombination)
                 }
             case .l:
                 let newElement = asNormalMode.l(times: count, on: currentElement)
@@ -499,20 +498,20 @@ extension KindaVimEngine {
                 push(element: newElement)
                 enterInsertMode()
             case [.g, .j]:
-                if currentElement.role == .textField {
-                    parseOperatorCommandForNormalModeUsingKeyboardStrategy()
-                } else {
+                if currentElement.role == .textArea {
                     let newElement = asNormalMode.gj(on: currentElement)
                     push(element: newElement)
                     enterNormalMode()
+                } else {
+                    parseOperatorCommandForNormalModeUsingKeyboardStrategy()
                 }
             case [.g, .k]:
-                if currentElement.role == .textField {
-                    parseOperatorCommandForNormalModeUsingKeyboardStrategy()
-                } else {
+                if currentElement.role == .textArea {
                     let newElement = asNormalMode.gk(on: currentElement)
                     push(element: newElement)
                     enterNormalMode()
+                } else {
+                    parseOperatorCommandForNormalModeUsingKeyboardStrategy()
                 }
             case [.g, .underscore]:
                 let newElement = asNormalMode.gUnderscore(on: currentElement)
