@@ -45,6 +45,14 @@ struct GlobalEventsController {
         // we can, those things have to be handled by the kVEngine, not by the GEC.
         case .normal, .operatorPendingForNormalMode, .visual, .operatorPendingForVisualMode:
             guard let implementedKeyCombination = keyCombination else { return true }
+            
+            // TODO: dirty kill switch for now
+            if implementedKeyCombination.key == .j, 
+                implementedKeyCombination.control == true,
+                implementedKeyCombination.option == true,
+                implementedKeyCombination.command == true {
+                AppCore.shared.vimEngine.enterInsertMode()
+            }
                        
             #if DEBUG
             doTheKeystrokeSubscriptionShit()
