@@ -79,7 +79,7 @@ extension GCECustomKeyboardShortcutTests {
 }
 
 
-// visual mode
+// Visual Mode
 extension GCECustomKeyboardShortcutTests {
     
     func test_that_when_in_VisualMode_the_global_hotkey_press_stays_in_VisualMode() {

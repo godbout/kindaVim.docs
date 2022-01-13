@@ -4,7 +4,7 @@ import XCTest
 import KeyboardShortcuts
 
 
-class GCEDefaultKeyboardShortcutTests: XCTestCase {
+class GCEEscapeKeyboardShortcutTests: XCTestCase {
 
     let globalHotkeyCombination = KeyCombination(key: .escape)
 
@@ -12,7 +12,7 @@ class GCEDefaultKeyboardShortcutTests: XCTestCase {
 
 
 // insert mode
-extension GCEDefaultKeyboardShortcutTests {
+extension GCEEscapeKeyboardShortcutTests {
     
     func test_that_when_in_InsertMode_the_global_hotkey_press_sets_Vim_in_normal_mode() {
         AppCore.shared.vimEngine.enterInsertMode()
@@ -33,8 +33,8 @@ extension GCEDefaultKeyboardShortcutTests {
 }
 
 
-// normal mode
-extension GCEDefaultKeyboardShortcutTests {
+// Normal Mode
+extension GCEEscapeKeyboardShortcutTests {
     
     func test_that_when_in_NormalMode_the_global_hotkey_press_switches_Vim_to_InsertMode() {
         AppCore.shared.vimEngine.enterNormalMode()
@@ -56,7 +56,7 @@ extension GCEDefaultKeyboardShortcutTests {
 
 
 // visual mode
-extension GCEDefaultKeyboardShortcutTests {
+extension GCEEscapeKeyboardShortcutTests {
     
     // this is normal `esc` behavior in Visual Mode. not the same as Custom Keyboard Shortcut
     func test_that_when_in_VisualMode_the_global_hotkey_press_switches_Vim_to_NormalMode() {

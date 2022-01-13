@@ -52,9 +52,6 @@ extension KindaVimEngine {
         case .e:
             post(ksNormalMode.e())
             endCurrentMove()
-        case .escape:
-            post(ksNormalMode.escape())
-            enterInsertMode()            
         case .F:
             enterOperatorPendingForNormalMode(with: keyCombination)
         case .f:

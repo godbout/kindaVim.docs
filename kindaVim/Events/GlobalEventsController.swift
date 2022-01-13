@@ -47,15 +47,29 @@ struct GlobalEventsController {
         case .normal, .operatorPendingForNormalMode, .visual, .operatorPendingForVisualMode:
             guard let implementedKeyCombination = keyCombination else { return true }
             
-            if killSwitchIsEnabled(), killSwitchHotkeyIsPressed(implementedKeyCombination) {
+            // this is especially for those who use `esc` to enter Normal Mode. because kV
+            // steals `esc` from macOS, we need another way to send `esc` to macOS. the current way
+            // is to press `esc` while in Normal Mode. that will go to Insert Mode, while sending
+            // `esc` to macOS.
+            guard escapeIsGlobalVimEngineHotkeyAndPressedWhileInNormalMode(implementedKeyCombination) == false else {
                 AppCore.shared.vimEngine.enterInsertMode()
-            } else {
-                #if DEBUG
-                doTheKeystrokeSubscriptionShit()
-                #endif
+                let escapeCGEvent = KeyCombinationAdaptor.toCGEvents(from: implementedKeyCombination)
+                escapeCGEvent.first?.post(tap: .cgAnnotatedSessionEventTap)
                 
-                AppCore.shared.vimEngine.handle(keyCombination: implementedKeyCombination, appMode: appMode)
+                return true
+            }           
+            
+            guard killSwitchIsEnabledAndKillSwitchHotkeyIsPressed(implementedKeyCombination) == false else {
+                AppCore.shared.vimEngine.enterInsertMode()
+                
+                return true
             }
+            
+            #if DEBUG
+            doTheKeystrokeSubscriptionShit()
+            #endif
+            
+            AppCore.shared.vimEngine.handle(keyCombination: implementedKeyCombination, appMode: appMode)
             
             return true       
         }
@@ -108,8 +122,14 @@ struct GlobalEventsController {
             && keyCombination.command == false
     }
     
-    private static func killSwitchIsEnabled() -> Bool {
-        return enableKillSwitch
+    private static func escapeIsGlobalVimEngineHotkeyAndPressedWhileInNormalMode(_ keyCombination: KeyCombination) -> Bool {
+        return AppCore.shared.vimEngine.currentMode == .normal
+            && useCustomShortcutToEnterNormalMode == false
+            && globalVimEngineHotkeyIsPressed(keyCombination)
+    }
+    
+    private static func killSwitchIsEnabledAndKillSwitchHotkeyIsPressed(_ keyCombination: KeyCombination) -> Bool {        
+        return enableKillSwitch == true && killSwitchHotkeyIsPressed(keyCombination)
     }
     
     private static func killSwitchHotkeyIsPressed(_ keyCombination: KeyCombination) -> Bool {
