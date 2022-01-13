@@ -19,7 +19,7 @@ struct GeneralPane: View {
                     .opacity(0)
                 
                 HStack(alignment: .center) {
-                    Toggle("Use custom shortcut to enter Normal Mode:", isOn: $useCustomShortcutToEnterNormalMode)
+                    Toggle("Enter Normal Mode with custom shortcut:", isOn: $useCustomShortcutToEnterNormalMode)
                     KeyboardShortcuts.Recorder(for: .enterNormalMode).disabled(!useCustomShortcutToEnterNormalMode)
                 }
                 .padding(.top, 23)
@@ -32,7 +32,7 @@ struct GeneralPane: View {
                     .padding(.horizontal)
                 
                 HStack(alignment: .center) {
-                    Toggle("enable Kill Switch:", isOn: $enableKillSwitch)
+                    Toggle("Activate Kill Switch with:", isOn: $enableKillSwitch)
                     KeyboardShortcuts.Recorder(for: .killSwitch).disabled(!enableKillSwitch)
                 }
                 Group {

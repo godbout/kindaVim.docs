@@ -35,7 +35,7 @@ class GCECustomKeyboardShortcutTests: XCTestCase {
 }
 
 
-// insert mode
+// Insert Mode
 extension GCECustomKeyboardShortcutTests {
     
     func test_that_when_in_InsertMode_the_global_hotkey_press_sets_Vim_in_NormalMode() {
@@ -57,7 +57,7 @@ extension GCECustomKeyboardShortcutTests {
 }
 
 
-// normal mode
+// Normal Mode
 extension GCECustomKeyboardShortcutTests {
     
     func test_that_when_in_NormalMode_the_global_hotkey_press_stays_in_NormalMode() {
