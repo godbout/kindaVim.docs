@@ -3,6 +3,7 @@ import SwiftUI
 import KeyboardShortcuts
 import KeyCombination
 import Sauce
+import KeyboardStrategy
 
 
 struct GlobalEventsController {
@@ -54,7 +55,7 @@ struct GlobalEventsController {
             guard escapeIsGlobalVimEngineHotkeyAndPressedWhileInNormalMode(implementedKeyCombination) == false else {
                 AppCore.shared.vimEngine.enterInsertMode()
                 let escapeCGEvent = KeyCombinationAdaptor.toCGEvents(from: implementedKeyCombination)
-                escapeCGEvent.first?.post(tap: .cgAnnotatedSessionEventTap)
+                escapeCGEvent.first?.tapPostEvent(KeyboardStrategy.proxy)
                 
                 return true
             }           
