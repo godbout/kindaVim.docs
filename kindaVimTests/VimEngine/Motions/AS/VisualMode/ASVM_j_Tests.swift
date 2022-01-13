@@ -15,7 +15,7 @@ class SucceedingASVM_j_Tests: ASVM_BaseTests {
 
 extension SucceedingASVM_j_Tests {   
     
-    func test_that_if_we_are_on_a_TextField_it_does_not_use_the_AS_but_uses_the_KS_instead() {
+    func test_that_if_we_are_on_something_different_than_a_TextArea_it_does_not_use_the_AS_but_uses_the_KS_instead() {
         kindaVimEngine.accessibilityStrategy = AccessibilityStrategySucceedingTextFieldMock()
         applyKeyCombinationsBeingTested()
         
