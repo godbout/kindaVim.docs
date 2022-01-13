@@ -4,6 +4,7 @@ import Foundation
 struct SettingsKeys {
     
     static let useCustomShortcutToEnterNormalMode = "useCustomShortcutToEnterNormalMode"
+    static let enableKillSwitch = "enableKillSwitch"
     
     static let toggleHazeOverWindow = "toggleHazeOverWindow"
     static let hazeOverWindowFullScreenOpacity = "hazeOverWindowFullScreenOpacity"

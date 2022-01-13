@@ -10,7 +10,7 @@ struct AppDropped: Hashable {
 }
 
 
-struct ModesPane: View {
+struct FamiliesPane: View {
 
     @AppStorage(SettingsKeys.jkMapping) private var jkMapping: Bool = true
     @AppStorage(SettingsKeys.appsToIgnore) private var appsToIgnore: Set<String> = []
@@ -58,7 +58,7 @@ struct ModesPane: View {
         Form {
             HStack {
                 Spacer()
-                Text("by default kindaVim will use Auto Mode and detect whether to use the macOS Accessibility or to remap keys in order to achieve a Vim move. that works well for most apps. still, you may need some tweaking for apps with restrictions, or apps that are just pure evil liars. see below.") 
+                Text("by default kV automatically detects whether it can use the macOS Accessibility (best) or needs to remap keys (subpar) in order to achieve a Vim move. that works well for most apps. still, you may need some tweaking for apps with restrictions, or apps that are just pure evil liars. see below.") 
                 Spacer()
             }
             .fixedSize(horizontal: false, vertical: true)
@@ -151,14 +151,14 @@ struct ModesPane: View {
             HStack {
                 Spacer()
 
-                Toggle("map jk to gj gk for Auto and PG-R Modes", isOn: $jkMapping)
+                Toggle("map jk to gj gk for Auto and PG-R Families", isOn: $jkMapping)
                     .onChange(of: jkMapping) {
                         AppCore.shared.vimEngine.jkMapping = $0
                     }
 
                 Spacer()
             }
-            .padding(.top, 7)
+            .padding(.top, 12)
         }
         .frame(width: 570, height: nil)
         .padding(10)
@@ -240,9 +240,9 @@ struct AppsDropDelegate: DropDelegate {
 }
 
 
-struct ModesPane_Previews: PreviewProvider {
+struct Families_Previews: PreviewProvider {
     
     static var previews: some View {
-        ModesPane()
+        FamiliesPane()
     }
 }
