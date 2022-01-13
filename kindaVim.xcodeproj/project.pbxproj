@@ -21,6 +21,7 @@
 		911547E2278F5A780063DB88 /* ASSucceeding_ComboBox_Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911547E1278F5A780063DB88 /* ASSucceeding_ComboBox_Mock.swift */; };
 		911547E4278F5CCE0063DB88 /* ASSucceeding_TextArea_Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911547E3278F5CCE0063DB88 /* ASSucceeding_TextArea_Mock.swift */; };
 		911547E6278FFB9A0063DB88 /* GECDefaultKillSwitchShortcutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911547E5278FFB9A0063DB88 /* GECDefaultKillSwitchShortcutTests.swift */; };
+		911547E8279033000063DB88 /* GECCustomKillSwitchShortcutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911547E7279033000063DB88 /* GECCustomKillSwitchShortcutTests.swift */; };
 		9118CEA726FEF90A005F0907 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9118CEA626FEF90A005F0907 /* SettingsView.swift */; };
 		912282312781C330006531CB /* ASCL_x_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912282302781C330006531CB /* ASCL_x_Tests.swift */; };
 		912282332781C33D006531CB /* KSCL_x_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912282322781C33D006531CB /* KSCL_x_Tests.swift */; };
@@ -470,6 +471,7 @@
 		911547E1278F5A780063DB88 /* ASSucceeding_ComboBox_Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASSucceeding_ComboBox_Mock.swift; sourceTree = "<group>"; };
 		911547E3278F5CCE0063DB88 /* ASSucceeding_TextArea_Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASSucceeding_TextArea_Mock.swift; sourceTree = "<group>"; };
 		911547E5278FFB9A0063DB88 /* GECDefaultKillSwitchShortcutTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GECDefaultKillSwitchShortcutTests.swift; sourceTree = "<group>"; };
+		911547E7279033000063DB88 /* GECCustomKillSwitchShortcutTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GECCustomKillSwitchShortcutTests.swift; sourceTree = "<group>"; };
 		9118CEA626FEF90A005F0907 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		912282302781C330006531CB /* ASCL_x_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASCL_x_Tests.swift; sourceTree = "<group>"; };
 		912282322781C33D006531CB /* KSCL_x_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSCL_x_Tests.swift; sourceTree = "<group>"; };
@@ -925,6 +927,24 @@
 			path = VisualMode;
 			sourceTree = "<group>";
 		};
+		911547E92790333B0063DB88 /* EnterNormalModeKeyboardShortcut */ = {
+			isa = PBXGroup;
+			children = (
+				9106475D276F402A00B1E0C0 /* GECCustomKeyboardShortcutTests.swift */,
+				9106475B276F400E00B1E0C0 /* GECDefaultKeyboardShortcutTests.swift */,
+			);
+			path = EnterNormalModeKeyboardShortcut;
+			sourceTree = "<group>";
+		};
+		911547EA279033520063DB88 /* KillSwitchKeyboardShortcut */ = {
+			isa = PBXGroup;
+			children = (
+				911547E7279033000063DB88 /* GECCustomKillSwitchShortcutTests.swift */,
+				911547E5278FFB9A0063DB88 /* GECDefaultKillSwitchShortcutTests.swift */,
+			);
+			path = KillSwitchKeyboardShortcut;
+			sourceTree = "<group>";
+		};
 		912BC445278A0FDD000E999C /* AccessibilityStrategy */ = {
 			isa = PBXGroup;
 			children = (
@@ -1083,9 +1103,8 @@
 			isa = PBXGroup;
 			children = (
 				91840B5226FE094200E6048E /* GECTests.swift */,
-				911547E5278FFB9A0063DB88 /* GECDefaultKillSwitchShortcutTests.swift */,
-				9106475B276F400E00B1E0C0 /* GECDefaultKeyboardShortcutTests.swift */,
-				9106475D276F402A00B1E0C0 /* GECCustomKeyboardShortcutTests.swift */,
+				911547E92790333B0063DB88 /* EnterNormalModeKeyboardShortcut */,
+				911547EA279033520063DB88 /* KillSwitchKeyboardShortcut */,
 			);
 			path = Events;
 			sourceTree = "<group>";
@@ -2099,6 +2118,7 @@
 				918F2EF4278754D100AD68DF /* ASNM_X__Tests.swift in Sources */,
 				918F2EBA278754D100AD68DF /* ASNM_yi`_Tests.swift in Sources */,
 				918F2F3E2787551300AD68DF /* ASVM_x_Tests.swift in Sources */,
+				911547E8279033000063DB88 /* GECCustomKillSwitchShortcutTests.swift in Sources */,
 				918F2EAF278754D100AD68DF /* ASNM_])_Tests.swift in Sources */,
 				918F2EE2278754D100AD68DF /* ASNM_g^_Tests.swift in Sources */,
 				918F2EAA278754D100AD68DF /* ASNM_j_Tests.swift in Sources */,

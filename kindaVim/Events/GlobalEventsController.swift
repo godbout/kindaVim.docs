@@ -11,6 +11,7 @@ struct GlobalEventsController {
     @AppStorage(SettingsKeys.appsToIgnore) private static var appsToIgnore: Set<String> = [] 
     @AppStorage(SettingsKeys.appsForWhichToUseHybridMode) private static var appsForWhichToUseHybridMode: Set<String> = []
     @AppStorage(SettingsKeys.appsForWhichToEnforceKeyboardStrategy) private static var appsForWhichToEnforceKeyboardStrategy: Set<String> = []
+    @AppStorage(SettingsKeys.enableKillSwitch) private static var enableKillSwitch: Bool = false
     
     // to start thinking about how to charge :D
     // the first idea is you can type 69 characters before kV start functioning LMAO
@@ -46,11 +47,7 @@ struct GlobalEventsController {
         case .normal, .operatorPendingForNormalMode, .visual, .operatorPendingForVisualMode:
             guard let implementedKeyCombination = keyCombination else { return true }
             
-            // TODO: dirty kill switch for now
-            if implementedKeyCombination.key == .j, 
-                implementedKeyCombination.control == true,
-                implementedKeyCombination.option == true,
-                implementedKeyCombination.command == true {
+            if killSwitchIsEnabled(), killSwitchHotkeyIsPressed(implementedKeyCombination) {
                 AppCore.shared.vimEngine.enterInsertMode()
             } else {
                 #if DEBUG
@@ -94,17 +91,6 @@ struct GlobalEventsController {
         return appsForWhichToEnforceKeyboardStrategy.contains(app.bundleIdentifier ?? "")
     }
     
-    private static func inNormalModeOrOperatorPendingModeOrVisualMode() -> Bool {
-        return AppCore.shared.vimEngine.currentMode == .normal
-        || AppCore.shared.vimEngine.currentMode == .operatorPendingForNormalMode
-        || AppCore.shared.vimEngine.currentMode == .visual
-        || AppCore.shared.vimEngine.currentMode == .operatorPendingForVisualMode
-    }
-    
-    private static func inInsertMode() -> Bool {
-        return AppCore.shared.vimEngine.currentMode == .insert
-    }
-    
     // if the user set up a custom KeyboardShortcut, use it
     // else we live for escape
     private static func globalVimEngineHotkeyIsPressed(_ keyCombination: KeyCombination) -> Bool {
@@ -121,6 +107,20 @@ struct GlobalEventsController {
             && keyCombination.option == false
             && keyCombination.shift == false
             && keyCombination.command == false
+    }
+    
+    private static func killSwitchIsEnabled() -> Bool {
+        return enableKillSwitch
+    }
+    
+    private static func killSwitchHotkeyIsPressed(_ keyCombination: KeyCombination) -> Bool {
+        guard let killSwitchKeyboardShortcut = KeyboardShortcuts.getShortcut(for: .killSwitch) else { return false }
+        
+        return Sauce.shared.keyCode(for: keyCombination.key) == killSwitchKeyboardShortcut.key!.rawValue
+            && keyCombination.control == killSwitchKeyboardShortcut.modifiers.contains(.control)
+            && keyCombination.option == killSwitchKeyboardShortcut.modifiers.contains(.option)
+            && keyCombination.shift == killSwitchKeyboardShortcut.modifiers.contains(.shift)
+            && keyCombination.command == killSwitchKeyboardShortcut.modifiers.contains(.command)
     }
     
     private static func doTheKeystrokeSubscriptionShit() {
