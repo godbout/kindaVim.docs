@@ -20,8 +20,8 @@
 		911547DF278F17160063DB88 /* KSVM_escape_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911547DE278F17160063DB88 /* KSVM_escape_Tests.swift */; };
 		911547E2278F5A780063DB88 /* ASSucceeding_ComboBox_Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911547E1278F5A780063DB88 /* ASSucceeding_ComboBox_Mock.swift */; };
 		911547E4278F5CCE0063DB88 /* ASSucceeding_TextArea_Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911547E3278F5CCE0063DB88 /* ASSucceeding_TextArea_Mock.swift */; };
-		911547E6278FFB9A0063DB88 /* GECDefaultKillSwitchShortcutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911547E5278FFB9A0063DB88 /* GECDefaultKillSwitchShortcutTests.swift */; };
-		911547E8279033000063DB88 /* GECCustomKillSwitchShortcutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911547E7279033000063DB88 /* GECCustomKillSwitchShortcutTests.swift */; };
+		911547E6278FFB9A0063DB88 /* GECEnableKillSwitchONTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911547E5278FFB9A0063DB88 /* GECEnableKillSwitchONTests.swift */; };
+		911547EE2790739F0063DB88 /* GECEnableKillSwitchOFFTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911547ED2790739F0063DB88 /* GECEnableKillSwitchOFFTests.swift */; };
 		9118CEA726FEF90A005F0907 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9118CEA626FEF90A005F0907 /* SettingsView.swift */; };
 		912282312781C330006531CB /* ASCL_x_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912282302781C330006531CB /* ASCL_x_Tests.swift */; };
 		912282332781C33D006531CB /* KSCL_x_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912282322781C33D006531CB /* KSCL_x_Tests.swift */; };
@@ -470,8 +470,8 @@
 		911547DE278F17160063DB88 /* KSVM_escape_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSVM_escape_Tests.swift; sourceTree = "<group>"; };
 		911547E1278F5A780063DB88 /* ASSucceeding_ComboBox_Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASSucceeding_ComboBox_Mock.swift; sourceTree = "<group>"; };
 		911547E3278F5CCE0063DB88 /* ASSucceeding_TextArea_Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASSucceeding_TextArea_Mock.swift; sourceTree = "<group>"; };
-		911547E5278FFB9A0063DB88 /* GECDefaultKillSwitchShortcutTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GECDefaultKillSwitchShortcutTests.swift; sourceTree = "<group>"; };
-		911547E7279033000063DB88 /* GECCustomKillSwitchShortcutTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GECCustomKillSwitchShortcutTests.swift; sourceTree = "<group>"; };
+		911547E5278FFB9A0063DB88 /* GECEnableKillSwitchONTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GECEnableKillSwitchONTests.swift; sourceTree = "<group>"; };
+		911547ED2790739F0063DB88 /* GECEnableKillSwitchOFFTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GECEnableKillSwitchOFFTests.swift; sourceTree = "<group>"; };
 		9118CEA626FEF90A005F0907 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		912282302781C330006531CB /* ASCL_x_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASCL_x_Tests.swift; sourceTree = "<group>"; };
 		912282322781C33D006531CB /* KSCL_x_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSCL_x_Tests.swift; sourceTree = "<group>"; };
@@ -927,20 +927,20 @@
 			path = VisualMode;
 			sourceTree = "<group>";
 		};
-		911547E92790333B0063DB88 /* EnterNormalModeKeyboardShortcut */ = {
+		911547EB2790735A0063DB88 /* EnterNormalModeKeyboardShortcut */ = {
 			isa = PBXGroup;
 			children = (
-				9106475D276F402A00B1E0C0 /* GECCustomKeyboardShortcutTests.swift */,
 				9106475B276F400E00B1E0C0 /* GECDefaultKeyboardShortcutTests.swift */,
+				9106475D276F402A00B1E0C0 /* GECCustomKeyboardShortcutTests.swift */,
 			);
 			path = EnterNormalModeKeyboardShortcut;
 			sourceTree = "<group>";
 		};
-		911547EA279033520063DB88 /* KillSwitchKeyboardShortcut */ = {
+		911547EC279073740063DB88 /* KillSwitchKeyboardShortcut */ = {
 			isa = PBXGroup;
 			children = (
-				911547E7279033000063DB88 /* GECCustomKillSwitchShortcutTests.swift */,
-				911547E5278FFB9A0063DB88 /* GECDefaultKillSwitchShortcutTests.swift */,
+				911547E5278FFB9A0063DB88 /* GECEnableKillSwitchONTests.swift */,
+				911547ED2790739F0063DB88 /* GECEnableKillSwitchOFFTests.swift */,
 			);
 			path = KillSwitchKeyboardShortcut;
 			sourceTree = "<group>";
@@ -1103,8 +1103,8 @@
 			isa = PBXGroup;
 			children = (
 				91840B5226FE094200E6048E /* GECTests.swift */,
-				911547E92790333B0063DB88 /* EnterNormalModeKeyboardShortcut */,
-				911547EA279033520063DB88 /* KillSwitchKeyboardShortcut */,
+				911547EB2790735A0063DB88 /* EnterNormalModeKeyboardShortcut */,
+				911547EC279073740063DB88 /* KillSwitchKeyboardShortcut */,
 			);
 			path = Events;
 			sourceTree = "<group>";
@@ -1964,7 +1964,7 @@
 				918F2EA8278754D100AD68DF /* ASNM_cF__Tests.swift in Sources */,
 				918F305C2787559C00AD68DF /* KSVM_t_Tests.swift in Sources */,
 				918F2FD52787557800AD68DF /* KSNM_Y__Tests.swift in Sources */,
-				911547E6278FFB9A0063DB88 /* GECDefaultKillSwitchShortcutTests.swift in Sources */,
+				911547E6278FFB9A0063DB88 /* GECEnableKillSwitchONTests.swift in Sources */,
 				918F2EB3278754D100AD68DF /* ASNM_g__Tests.swift in Sources */,
 				918F2EF2278754D100AD68DF /* ASNM_g0_Tests.swift in Sources */,
 				91840B4826FE092D00E6048E /* KSVM_Mock.swift in Sources */,
@@ -2103,6 +2103,7 @@
 				918F2E93278754D100AD68DF /* ASNM_w_Tests.swift in Sources */,
 				918F2E90278754D100AD68DF /* ASNM_control_r_Tests.swift in Sources */,
 				918F30642787559C00AD68DF /* KSVM_T__Tests.swift in Sources */,
+				911547EE2790739F0063DB88 /* GECEnableKillSwitchOFFTests.swift in Sources */,
 				918F2EE7278754D100AD68DF /* ASNM_yi[_Tests.swift in Sources */,
 				91F41816277B50F800E58117 /* ASCL_w_Tests.swift in Sources */,
 				918F2F3D2787551300AD68DF /* ASVM_t_Tests.swift in Sources */,
@@ -2118,7 +2119,6 @@
 				918F2EF4278754D100AD68DF /* ASNM_X__Tests.swift in Sources */,
 				918F2EBA278754D100AD68DF /* ASNM_yi`_Tests.swift in Sources */,
 				918F2F3E2787551300AD68DF /* ASVM_x_Tests.swift in Sources */,
-				911547E8279033000063DB88 /* GECCustomKillSwitchShortcutTests.swift in Sources */,
 				918F2EAF278754D100AD68DF /* ASNM_])_Tests.swift in Sources */,
 				918F2EE2278754D100AD68DF /* ASNM_g^_Tests.swift in Sources */,
 				918F2EAA278754D100AD68DF /* ASNM_j_Tests.swift in Sources */,

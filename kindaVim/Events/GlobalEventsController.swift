@@ -11,7 +11,7 @@ struct GlobalEventsController {
     @AppStorage(SettingsKeys.appsToIgnore) private static var appsToIgnore: Set<String> = [] 
     @AppStorage(SettingsKeys.appsForWhichToUseHybridMode) private static var appsForWhichToUseHybridMode: Set<String> = []
     @AppStorage(SettingsKeys.appsForWhichToEnforceKeyboardStrategy) private static var appsForWhichToEnforceKeyboardStrategy: Set<String> = []
-    @AppStorage(SettingsKeys.enableKillSwitch) private static var enableKillSwitch: Bool = false
+    @AppStorage(SettingsKeys.enableKillSwitch) static var enableKillSwitch: Bool = false
     
     // to start thinking about how to charge :D
     // the first idea is you can type 69 characters before kV start functioning LMAO
@@ -91,8 +91,7 @@ struct GlobalEventsController {
         return appsForWhichToEnforceKeyboardStrategy.contains(app.bundleIdentifier ?? "")
     }
     
-    // if the user set up a custom KeyboardShortcut, use it
-    // else we live for escape
+    // if the user set up a custom KeyboardShortcut, use it. else we live for `esc`
     private static func globalVimEngineHotkeyIsPressed(_ keyCombination: KeyCombination) -> Bool {
         if Self.useCustomShortcutToEnterNormalMode == true, let customKeyboardShortcut = KeyboardShortcuts.getShortcut(for: .enterNormalMode) {
             return Sauce.shared.keyCode(for: keyCombination.key) == customKeyboardShortcut.key!.rawValue
