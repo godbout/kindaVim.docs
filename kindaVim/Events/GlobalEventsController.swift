@@ -39,10 +39,10 @@ struct GlobalEventsController {
             } else {
                 return false
             }
-        // there's a difference here between the custom KeyboardShortcut and the default `escape` one because in
-        // the kindaVimEngine we can grab `escape`, but we can't grab a dynamic custom one. so for the custom one we
-        // have to enter IM from here, not from within kVEngine. why not doing the same for `escape`? because as much as
-        // we can, those things have to be handled by the kVEngine, not by the GEC.
+        // Global Keyboard Shortcuts have to be handled here rather than from within kVE
+        // because they're dynamic. i'm not sure how we could check whether a dynamic
+        // move is implemented or not within kVE.
+        // so they're handled by GEC. which makes sense, and separate concerns AWWW
         case .normal, .operatorPendingForNormalMode, .visual, .operatorPendingForVisualMode:
             guard let implementedKeyCombination = keyCombination else { return true }
             
@@ -52,17 +52,13 @@ struct GlobalEventsController {
                 implementedKeyCombination.option == true,
                 implementedKeyCombination.command == true {
                 AppCore.shared.vimEngine.enterInsertMode()
-            }
-                       
-            #if DEBUG
-            doTheKeystrokeSubscriptionShit()
-            #endif
-            
-            if globalVimEngineHotkeyIsPressed(implementedKeyCombination), implementedKeyCombination != KeyCombination(key: .escape) {
-                AppCore.shared.vimEngine.enterInsertMode()
             } else {
+                #if DEBUG
+                doTheKeystrokeSubscriptionShit()
+                #endif
+                
                 AppCore.shared.vimEngine.handle(keyCombination: implementedKeyCombination, appMode: appMode)
-            }            
+            }
             
             return true       
         }
