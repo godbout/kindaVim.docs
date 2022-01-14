@@ -8,6 +8,17 @@ import Commands
 import VimEngineState
 
 
+struct LastLeftRightSearch {
+    
+    // motion can't be of type (Int?, Character, AccessibilityTextElement) -> AccessibilityTextElement
+    // that would work very nicely for `;` to repeat the same move, but wouldn't be able to determine the
+    // motion to get its inverse for `,`. or i'm still too dumb with Swift and don't know how to do it.
+    var motion: Character
+    var character: Character
+    
+}
+
+
 enum VimEngineMode {
     
     case insert
@@ -47,6 +58,8 @@ class KindaVimEngine {
     
     private(set) var currentMode: VimEngineMode = .insert
     
+    var lastLeftRightSearch: LastLeftRightSearch?
+        
     private(set) var firstCountBuffer: String = ""
     private(set) var secondCountBuffer: String = ""
     var count: Int? {
@@ -66,7 +79,7 @@ class KindaVimEngine {
     }
     
     private(set) var operatorPendingBuffer = [KeyCombination]()
-    
+   
     var state = VimEngineState(lastMoveBipped: false, pgR: false, lastYankStyle: .characterwise, visualStyle: .characterwise)
     
     var display = Display()

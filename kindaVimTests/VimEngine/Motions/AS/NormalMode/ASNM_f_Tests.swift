@@ -18,6 +18,7 @@ class SucceedingASNM_f_Tests: ASNM_BaseTests {
 
 extension SucceedingASNM_f_Tests {
     
+    // TODO: should we test the parameters passed? probably we could do that with the Mocks.
     func test_that_it_calls_the_correct_function_on_accessibility_strategy() {
         XCTAssertEqual(asNormalModeMock.functionCalled, "f(times:to:on:)")
     }
