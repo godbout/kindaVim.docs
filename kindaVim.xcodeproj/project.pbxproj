@@ -491,7 +491,6 @@
 		916ACF9926FE086C000E9757 /* kindaVim.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = kindaVim.entitlements; sourceTree = "<group>"; };
 		916ACF9E26FE086C000E9757 /* kindaVimTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = kindaVimTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		916ACFA826FE086C000E9757 /* kindaVimUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = kindaVimUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		9183490C2791464700F71528 /* Commands */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Commands; path = ../Commands; sourceTree = "<group>"; };
 		9183490D2791492A00F71528 /* ASCL_ZZ__Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASCL_ZZ__Tests.swift; sourceTree = "<group>"; };
 		9183490F279149B100F71528 /* KSCL_ZZ__Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSCL_ZZ__Tests.swift; sourceTree = "<group>"; };
 		91840B3F26FE092D00E6048E /* KSVM_Mock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KSVM_Mock.swift; sourceTree = "<group>"; };
@@ -848,7 +847,6 @@
 		91BEE34D278D85430037FD1A /* KSVM_S__Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSVM_S__Tests.swift; sourceTree = "<group>"; };
 		91BEE350278D88360037FD1A /* KSVM_R__Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSVM_R__Tests.swift; sourceTree = "<group>"; };
 		91BEE352278D88530037FD1A /* ASVM_R__Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASVM_R__Tests.swift; sourceTree = "<group>"; };
-		91BEE35D278DE6AF0037FD1A /* AccessibilityStrategy */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = AccessibilityStrategy; path = ../AccessibilityStrategy; sourceTree = "<group>"; };
 		91D222F626FE0F2B00B9AF77 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		91D2230826FE112000B9AF77 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		91D475F826FF67A10007187B /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
@@ -1018,8 +1016,6 @@
 		916ACF8426FE086A000E9757 = {
 			isa = PBXGroup;
 			children = (
-				9183490C2791464700F71528 /* Commands */,
-				91BEE35D278DE6AF0037FD1A /* AccessibilityStrategy */,
 				916ACF8F26FE086B000E9757 /* kindaVim */,
 				916ACFA126FE086C000E9757 /* kindaVimTests */,
 				916ACFAB26FE086C000E9757 /* kindaVimUITests */,
@@ -2431,7 +2427,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 0.9.20;
+				CURRENT_PROJECT_VERSION = 0.9.21;
 				DEVELOPMENT_ASSET_PATHS = "\"kindaVim/Preview Content\"";
 				DEVELOPMENT_TEAM = ZX49WKA8QN;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -2445,7 +2441,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
-				MARKETING_VERSION = 1b20;
+				MARKETING_VERSION = 1b21;
 				PRODUCT_BUNDLE_IDENTIFIER = mo.com.sleeplessmind.kindaVim;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -2463,7 +2459,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 0.9.20;
+				CURRENT_PROJECT_VERSION = 0.9.21;
 				DEVELOPMENT_ASSET_PATHS = "\"kindaVim/Preview Content\"";
 				DEVELOPMENT_TEAM = ZX49WKA8QN;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -2477,7 +2473,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
-				MARKETING_VERSION = 1b20;
+				MARKETING_VERSION = 1b21;
 				PRODUCT_BUNDLE_IDENTIFIER = mo.com.sleeplessmind.kindaVim;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -2660,7 +2656,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 0.9.20;
+				CURRENT_PROJECT_VERSION = 0.9.21;
 				DEVELOPMENT_ASSET_PATHS = "\"kindaVim/Preview Content\"";
 				DEVELOPMENT_TEAM = ZX49WKA8QN;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -2674,7 +2670,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
-				MARKETING_VERSION = 1b20;
+				MARKETING_VERSION = 1b21;
 				PRODUCT_BUNDLE_IDENTIFIER = mo.com.sleeplessmind.kindaVim;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -2805,7 +2801,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 0.9.20;
+				CURRENT_PROJECT_VERSION = 0.9.21;
 				DEVELOPMENT_ASSET_PATHS = "\"kindaVim/Preview Content\"";
 				DEVELOPMENT_TEAM = ZX49WKA8QN;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -2819,7 +2815,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
-				MARKETING_VERSION = 1b20;
+				MARKETING_VERSION = 1b21;
 				PRODUCT_BUNDLE_IDENTIFIER = mo.com.sleeplessmind.kindaVim;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
