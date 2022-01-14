@@ -20,7 +20,7 @@ extension KSCL_w_Tests {
     func test_that_it_calles_the_correct_command() {
         applyKeyCombinationsBeingTested()
         
-        XCTAssertEqual(commandsMock.functionCalled, "w()")
+        XCTAssertEqual(commandsMock.functionCalled, "colonw()")
     }
     
     func test_that_it_keeps_Vim_in_NormalMode() {

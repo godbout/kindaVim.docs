@@ -228,6 +228,8 @@ extension KindaVimEngine {
                 let newElement = asNormalMode.leftBrace(on: currentElement)
                 push(element: newElement)
                 endCurrentMove()
+            case .Z:
+                enterOperatorPendingForNormalMode(with: keyCombination)
             case .zero:
                 let newElement = asNormalMode.zero(on: currentElement)
                 push(element: newElement)
@@ -599,6 +601,8 @@ extension KindaVimEngine {
                 let newElement = asNormalMode.yy(on: currentElement, &state)
                 push(element: newElement)
                 enterNormalMode()
+            case [.Z, .Z]:
+                parseOperatorCommandForNormalModeUsingKeyboardStrategy()
             default:
                 // cf, cF, ct, cT
                 guard operatorPendingBuffer.first?.vimKey != .c else {

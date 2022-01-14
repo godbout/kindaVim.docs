@@ -3,25 +3,23 @@ import KeyCombination
 import XCTest
 
 
-class KSCL_qExclamationMark_Tests: KSCL_BaseTests {
+class KSCL_ZZ__Tests: KSCL_BaseTests {
 
     private func applyKeyCombinationsBeingTested() {
         kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .eight))
-        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .colon))
-        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .q))
-        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .exclamationMark))
-        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .return))
+        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .Z))
+        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .Z))
     }
 
 }
 
 
-extension KSCL_qExclamationMark_Tests {
+extension KSCL_ZZ__Tests {
     
     func test_that_it_calles_the_correct_command() {
         applyKeyCombinationsBeingTested()
         
-        XCTAssertEqual(commandsMock.functionCalled, "colonqBang()")
+        XCTAssertEqual(commandsMock.functionCalled, "ZZ()")
     }
     
     func test_that_it_switches_Vim_to_InsertMode() {

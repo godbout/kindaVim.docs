@@ -137,6 +137,8 @@ extension KindaVimEngine {
             endCurrentMove()
         case .y:
             enterOperatorPendingForNormalMode(with: keyCombination)
+        case .Z:
+            enterOperatorPendingForNormalMode(with: keyCombination)
         case .zero:
             post(ksNormalMode.zero())
             endCurrentMove()
@@ -195,27 +197,27 @@ extension KindaVimEngine {
         case [.colon, .q]:
             ()
         case [.colon, .q, .return]:
-            post(commands.q())
+            post(commands.colonq())
             enterInsertMode()
         case [.colon, .q, .exclamationMark]:
             ()
         case [.colon, .q, .exclamationMark, .return]:
-            post(commands.qExclamationMark())
+            post(commands.colonqBang())
             enterInsertMode()
         case [.colon, .w]:
             ()
         case [.colon, .w, .return]:
-            post(commands.w())
+            post(commands.colonw())
             enterNormalMode()
         case [.colon, .w, .q]:
             ()
         case [.colon, .w, .q, .return]:
-            post(commands.wq())
+            post(commands.colonwq())
             enterInsertMode()
         case [.colon, .x]:
             ()
         case [.colon, .x, .return]:
-            post(commands.x())
+            post(commands.colonx())
             enterInsertMode()
         case [.d, .a]:
             ()
@@ -301,6 +303,9 @@ extension KindaVimEngine {
         case [.y, .y]:
             post(ksNormalMode.yy(&state))
             enterNormalMode()
+        case [.Z, .Z]:
+            post(commands.ZZ())
+            enterInsertMode()
         default:
             if operatorPendingBuffer.first?.vimKey == .r, let replacement = operatorPendingBuffer.last {                
                 post(ksNormalMode.r(with: replacement))

@@ -8,31 +8,37 @@ class CommandsMock: CommandsProtocol {
     var functionCalled = ""
         
     
-    func q() -> [KeyCombination] {
+    func colonq() -> [KeyCombination] {
         functionCalled = #function
         
         return []
     }
     
-    func qExclamationMark() -> [KeyCombination] {
+    func colonqBang() -> [KeyCombination] {
         functionCalled = #function
         
         return []
     }
     
-    func w() -> [KeyCombination] {
+    func colonw() -> [KeyCombination] {
         functionCalled = #function
         
         return []
     }
     
-    func wq() -> [KeyCombination] {
+    func colonwq() -> [KeyCombination] {
         functionCalled = #function
         
         return []
     }
     
-    func x() -> [KeyCombination] {
+    func colonx() -> [KeyCombination] {
+        functionCalled = #function
+        
+        return []
+    }
+    
+    func ZZ() -> [KeyCombination] {
         functionCalled = #function
         
         return []
