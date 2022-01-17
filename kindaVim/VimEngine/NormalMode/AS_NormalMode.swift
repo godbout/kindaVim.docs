@@ -371,6 +371,10 @@ extension KindaVimEngine {
                 let newElement = asNormalMode.ciLeftParenthesis(on: currentElement, &state)
                 push(element: newElement)
                 state.lastMoveBipped == false ? enterInsertMode() : enterNormalMode()
+            case [.c, .i, .p]:
+                let newElement = asNormalMode.cip(on: currentElement, &state)
+                push(element: newElement)
+                enterInsertMode()
             case [.c, .i, .rightBrace]:
                 let newElement = asNormalMode.ciRightBrace(on: currentElement, &state)
                 push(element: newElement)

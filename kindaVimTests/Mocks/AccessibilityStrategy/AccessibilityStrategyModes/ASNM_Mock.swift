@@ -157,6 +157,12 @@ class AccessibilityStrategyNormalModeMock: AccessibilityStrategyNormalModeProtoc
         return element
     }
     
+    func cip(on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
+        functionCalled = #function
+        
+        return element
+    }
+    
     func ciRightBrace(on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
         functionCalled = #function
         
