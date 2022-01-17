@@ -10,14 +10,27 @@ struct LicensePane: View {
             HStack {
                 Spacer()
                 VStack(alignment: .leading) {
-                    Text("One of These Days™ kV will be sleeping from 5am to 1pm (Winter schedule) every day. at this time you may get a subscription if you wish to torture kV 24 hours a day.")
+                    Text("One of These Days™ kV will be sleeping from 5am to 1pm (Winter schedule) every day. at this time you may get a No Bedtime™ subscription if you wish to torture kV 24 hours a day.")
                         .padding(.bottom)
-                    Text("currently kV is still young and can handle the pressure. so please abuse it for free.")
+                    Text("currently kV is still young and can handle the pressure. so please abuse it freely.")
                 }
                     .fixedSize(horizontal: false, vertical: true)
                     .padding(.bottom)
                 Spacer()
             }
+            
+            Divider()
+            
+            HStack(alignment: .top) {
+                Spacer()
+                Label("the awesome human: ", systemImage: "figure.walk")
+                Text(verbatim: "hair@craigfederighi.com")
+                Spacer()
+                Button("Manage your Subscription") {}
+            }
+            .padding(.top, 12)
+            .foregroundColor(.gray)
+            .disabled(true)
             
         }
         .frame(width: 570, height: nil)
