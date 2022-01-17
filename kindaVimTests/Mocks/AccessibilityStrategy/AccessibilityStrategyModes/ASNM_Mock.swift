@@ -295,6 +295,12 @@ class AccessibilityStrategyNormalModeMock: AccessibilityStrategyNormalModeProtoc
         return element
     }
     
+    func dip(on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
+        functionCalled = #function
+        
+        return element
+    }
+    
     func diW(on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
         functionCalled = #function
         

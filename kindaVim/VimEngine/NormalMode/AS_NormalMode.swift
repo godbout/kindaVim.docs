@@ -485,6 +485,10 @@ extension KindaVimEngine {
                 enterNormalMode()
             case [.d, .i]:
                 ()
+            case [.d, .i, .p]:
+                let newElement = asNormalMode.dip(on: currentElement, &state)
+                push(element: newElement)
+                enterNormalMode()
             case [.d, .i, .W]:
                 let newElement = asNormalMode.diW(on: currentElement, &state)
                 push(element: newElement)
