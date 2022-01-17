@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9103212227953B0F00584542 /* LicensePane.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9103212127953B0F00584542 /* LicensePane.swift */; };
 		9103C594271C7A3800BDEBD7 /* AS_NormalMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9103C593271C7A3800BDEBD7 /* AS_NormalMode.swift */; };
 		9103C596271C7ABA00BDEBD7 /* KS_NormalMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9103C595271C7ABA00BDEBD7 /* KS_NormalMode.swift */; };
 		9103C598271C7B4C00BDEBD7 /* AS_VisualMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9103C597271C7B4C00BDEBD7 /* AS_VisualMode.swift */; };
@@ -465,6 +466,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9103212127953B0F00584542 /* LicensePane.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicensePane.swift; sourceTree = "<group>"; };
 		9103C593271C7A3800BDEBD7 /* AS_NormalMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AS_NormalMode.swift; sourceTree = "<group>"; };
 		9103C595271C7ABA00BDEBD7 /* KS_NormalMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KS_NormalMode.swift; sourceTree = "<group>"; };
 		9103C597271C7B4C00BDEBD7 /* AS_VisualMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AS_VisualMode.swift; sourceTree = "<group>"; };
@@ -1568,6 +1570,7 @@
 				91840DE526FE096C00E6048E /* GeneralPane.swift */,
 				91840DE626FE096C00E6048E /* FamiliesPane.swift */,
 				91840DE726FE096C00E6048E /* VisualsPane.swift */,
+				9103212127953B0F00584542 /* LicensePane.swift */,
 			);
 			path = Panes;
 			sourceTree = "<group>";
@@ -1873,6 +1876,7 @@
 				91840DF126FE096C00E6048E /* Display.swift in Sources */,
 				91840DFA26FE096C00E6048E /* VisualsPane.swift in Sources */,
 				9103C596271C7ABA00BDEBD7 /* KS_NormalMode.swift in Sources */,
+				9103212227953B0F00584542 /* LicensePane.swift in Sources */,
 				91840DF426FE096C00E6048E /* AppCore.swift in Sources */,
 				91E7DFA12739578D007CC0D5 /* Settings.swift in Sources */,
 				91840DFD26FE096C00E6048E /* UITestView.swift in Sources */,

@@ -17,6 +17,10 @@ struct SettingsView: View {
                 .tabItem {
                     Label("Visuals", systemImage: "eyeglasses")
                 }
+            LicensePane()
+                .tabItem {
+                    Label("License", systemImage: "alarm")
+                }
         }
         .padding()
         .padding(.horizontal)
