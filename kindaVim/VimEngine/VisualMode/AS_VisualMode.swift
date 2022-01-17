@@ -231,6 +231,10 @@ extension KindaVimEngine {
                 let newElement = asVisualMode.gZero(on: currentElement, state)
                 push(element: newElement)
                 enterVisualMode()
+            case [.i, .p]:
+                let newElement = asVisualMode.ip(on: currentElement, state)
+                push(element: newElement)
+                enterVisualMode()
             case [.i, .W]:
                 let newElement = asVisualMode.iW(on: currentElement, state)
                 push(element: newElement)

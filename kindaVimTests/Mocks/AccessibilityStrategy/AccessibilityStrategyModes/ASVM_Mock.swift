@@ -153,6 +153,12 @@ class AccessibilityStrategyVisualModeMock: AccessibilityStrategyVisualModeProtoc
         return element
     }
     
+    func ip(on element: AccessibilityTextElement, _ vimEngineState: VimEngineState) -> AccessibilityTextElement {
+        functionCalled = #function
+        
+        return element
+    }
+    
     func iW(on element: AccessibilityTextElement, _ vimEngineState: VimEngineState) -> AccessibilityTextElement {
         functionCalled = #function
         
