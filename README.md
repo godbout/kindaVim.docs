@@ -33,13 +33,13 @@ in the `Preferences` you can also:
 
 # WAIT A MINUTE. WHAT DATA DO YOU STEAL???
 
-to do its magic kindaVim needs to read/write text, and capture/forward key presses. so technically yes, i could steal your girlfriend's (or boyfriend's) phone number. but the app is [notarized by Apple](https://developer.apple.com/documentation/security/notarizing_macos_software_before_distribution), which means they've checked and agreed i'm a good boy. and also they took 100 US dollars from me.
-
-also honestly i personally don't give a single flying fuck about data. that's noise to me. i don't even track the [kindaVim.app](https://kindavim.app) website. i want to use my time and energy to create great products, and i believe the rest will take care of itself. yes. i'm that dumb.
+see [DA FUQ](https://kindavim.app/da-fuq).
 
 # HOW 'BOUT THE $$$
 
 kindaVim will be a subscription of one ☕️ (USD$3) a month. the beta is free and contains the full set of features. i have no idea when i'll drop the beta. the beta may last 10 years. who knows. or maybe till 2049.
+
+also see [DA FUQ](https://kindavim.app/da-fuq) for why a sub.
 
 # CURRENT VIM IMPLEMENTATION
 
