@@ -234,6 +234,7 @@ extension KindaVimEngine {
             case [.i, .p]:
                 let newElement = asVisualMode.ip(on: currentElement, state)
                 push(element: newElement)
+                state.visualStyle = .linewise
                 enterVisualMode()
             case [.i, .W]:
                 let newElement = asVisualMode.iW(on: currentElement, state)

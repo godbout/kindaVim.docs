@@ -6,7 +6,7 @@
         "repositoryURL": "git@github.com:godbout/AccessibilityStrategy.git",
         "state": {
           "branch": "master",
-          "revision": "a8590d2ca181b53069aff51a33209c063a4fa57e",
+          "revision": "b75bd6d1f89c83d643d4d6139a64cbf2db7307d5",
           "version": null
         }
       },
@@ -78,7 +78,7 @@
         "repositoryURL": "https://github.com/sparkle-project/Sparkle",
         "state": {
           "branch": "2.x",
-          "revision": "1f538981c327802748f543699dcab788e6207c32",
+          "revision": "05abb2f7e440ee33e273786cfdb39d4aafb478ed",
           "version": null
         }
       },
