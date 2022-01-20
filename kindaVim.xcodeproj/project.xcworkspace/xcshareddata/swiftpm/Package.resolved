@@ -15,7 +15,7 @@
         "repositoryURL": "git@github.com:godbout/AXEngine.git",
         "state": {
           "branch": "master",
-          "revision": "790946d1b2b7eb6f26bbbabeb218943b3e20628c",
+          "revision": "4a9c7426df238976d0a930f764cc145dda822ffa",
           "version": null
         }
       },
@@ -42,7 +42,7 @@
         "repositoryURL": "git@github.com:godbout/KeyboardStrategy.git",
         "state": {
           "branch": "master",
-          "revision": "597dabd3e270c0b7b3e55b73ea0a74dbb4327a2a",
+          "revision": "589a5fd6e6cae7da4ce26583f84b93be4f96ebbf",
           "version": null
         }
       },
