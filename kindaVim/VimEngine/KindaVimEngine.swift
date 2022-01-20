@@ -87,16 +87,6 @@ class KindaVimEngine {
     var axEngine: AXEngineProtocol
     var inputFieldObserver: InputFieldObserver
     
-    var focusedElementType: ElementType {
-        // this is used only for KS to detect if it's TE or NTE
-        // hence we can't use focusedTextElement coz it's nil (no AS).
-        switch axEngine.axRole(of: axEngine.axFocusedElement()) {
-        case .comboBox, .textField, .textArea, .scrollArea, .webArea:
-            return .textElement
-        default:
-            return .nonTextElement
-        }
-    }
     var focusedTextElement: AccessibilityTextElement? {
         accessibilityStrategy.focusedTextElement()
     }
@@ -317,7 +307,7 @@ class KindaVimEngine {
     }
         
     private func goBackOneCharacterForTextElements(appMode: AppMode) {
-        switch (focusedElementType, appMode) {
+        switch (ksNormalMode.focusedElementType, appMode) {
         case (.textElement, .keyMapping):
             post(ksNormalMode.h())
         case (.textElement, _):
