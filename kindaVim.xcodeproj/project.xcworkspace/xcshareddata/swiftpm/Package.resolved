@@ -6,7 +6,7 @@
         "repositoryURL": "git@github.com:godbout/AccessibilityStrategy.git",
         "state": {
           "branch": "master",
-          "revision": "0ade42858f3ae74a3841dc190da7d34cdfe0296e",
+          "revision": "ad65d17416d059ec7df252c96ada059f2b2f113b",
           "version": null
         }
       },
@@ -42,7 +42,7 @@
         "repositoryURL": "git@github.com:godbout/KeyboardStrategy.git",
         "state": {
           "branch": "master",
-          "revision": "589a5fd6e6cae7da4ce26583f84b93be4f96ebbf",
+          "revision": "05b93d21977c0cb8da8c98e74bf34f4d4bc065f5",
           "version": null
         }
       },
@@ -87,7 +87,7 @@
         "repositoryURL": "git@github.com:godbout/VimEngineState.git",
         "state": {
           "branch": "master",
-          "revision": "449dc7940147a668b38790392164fbee1ced55e7",
+          "revision": "eaadfe24554d66f696e96318bd7f253e7ea93848",
           "version": null
         }
       }
