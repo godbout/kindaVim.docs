@@ -11,6 +11,14 @@ struct AppDropped: Hashable {
 }
 
 
+enum SimpleAdvancedTab {
+    
+    case simple
+    case advanced
+    
+}
+
+
 struct FamiliesPane: View {
 
     @AppStorage(SettingsKeys.jkMapping) private var jkMapping: Bool = true
@@ -45,8 +53,7 @@ struct FamiliesPane: View {
     @State private var appsForWhichToEnforceElectronSelection = Set<String>()
     @State private var appsForWhichToEnforceKeyMappingSelection = Set<String>()
     @State private var appsForWhichToEnforceNineOneOneSelection = Set<String>()
-    // TODO: find better name
-    @State private var tab = 0
+    @State private var tab: SimpleAdvancedTab = .simple
 
 
     func appsSortedByName(_ apps: Set<String>) -> [AppDropped] {
@@ -82,16 +89,16 @@ struct FamiliesPane: View {
             HStack(alignment: .center) {
                 Spacer()
                 Button("simple") {
-                    tab = 0
+                    tab = .simple
                 }
                 .buttonStyle(.borderless)
-                .foregroundColor(tab == 0 ? .primary : .secondary)
+                .foregroundColor(tab == .simple ? .primary : .secondary)
                 Spacer()
                 Button("advanced") {
-                    tab = 1
+                    tab = .advanced
                 }
                 .buttonStyle(.borderless)
-                .foregroundColor(tab == 1 ? .primary : .secondary)
+                .foregroundColor(tab == .advanced ? .primary : .secondary)
                 Spacer()
             }
             
@@ -99,7 +106,7 @@ struct FamiliesPane: View {
                 .padding(.bottom)
            
             HStack {
-                if tab == 0 {
+                if tab == .simple {
                     VStack(alignment: .center) {
                         Text("Off")
                             .font(.title)
@@ -176,7 +183,7 @@ struct FamiliesPane: View {
                         .listStyle(.bordered(alternatesRowBackgrounds: true))
                         .onDrop(of: [.fileURL], delegate: AppsDropDelegate(appFamily: .electron))
                     }
-                } else if tab == 1 {
+                } else if tab == .advanced {
                     HStack {
                         VStack(alignment: .center) {
                             Text("Key Mapping")
