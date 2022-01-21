@@ -138,6 +138,12 @@ class KeyboardStrategyVisualModeMock: KeyboardStrategyVisualModeProtocol {
         return []
     }
        
+    func iw(_ vimEngineState: VimEngineState) -> [KeyCombination] {
+        functionCalled = #function
+        
+        return []
+    }
+    
     func l(_ vimEngineState: VimEngineState) -> [KeyCombination] {
         functionCalled = #function
         

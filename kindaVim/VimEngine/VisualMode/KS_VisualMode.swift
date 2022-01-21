@@ -141,6 +141,9 @@ extension KindaVimEngine {
         case [.g, .zero]:
             post(ksVisualMode.gZero(state))
             enterVisualMode()
+        case [.i, .w]:
+            post(ksVisualMode.iw(state))
+            enterVisualMode()
         default:
             // if we don't recognize any operator move
             // go back to visual mode
