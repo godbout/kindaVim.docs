@@ -485,6 +485,7 @@
 		9118CEA626FEF90A005F0907 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		912282302781C330006531CB /* ASCL_x_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASCL_x_Tests.swift; sourceTree = "<group>"; };
 		912282322781C33D006531CB /* KSCL_x_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSCL_x_Tests.swift; sourceTree = "<group>"; };
+		91249477279AF8B500EDA6E5 /* VimEngineState */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = VimEngineState; path = ../VimEngineState; sourceTree = "<group>"; };
 		912BC44A278A1417000E999C /* ASSucceeding_TextField_Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASSucceeding_TextField_Mock.swift; sourceTree = "<group>"; };
 		912BC457278CB86B000E999C /* KSNM_V__Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSNM_V__Tests.swift; sourceTree = "<group>"; };
 		912BC459278CB875000E999C /* KSNM_v_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSNM_v_Tests.swift; sourceTree = "<group>"; };
@@ -1033,6 +1034,7 @@
 		916ACF8426FE086A000E9757 = {
 			isa = PBXGroup;
 			children = (
+				91249477279AF8B500EDA6E5 /* VimEngineState */,
 				916E66BC2799D5490044B201 /* AXEngine */,
 				916E66BB2799D5440044B201 /* AccessibilityStrategy */,
 				916E66BA2799D4E90044B201 /* KeyboardStrategy */,

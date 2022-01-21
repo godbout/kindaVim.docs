@@ -38,18 +38,6 @@ enum VimEngineStrategy {
 }
 
 
-enum AppMode {
-    
-    case auto
-    case off
-    case pgR
-    case electron
-    case keyMapping
-    case nineOneOne
-    
-}
-
-
 class KindaVimEngine {
     
     // TODO: try a brand new install and see if the AppStorage to true works.
@@ -82,7 +70,7 @@ class KindaVimEngine {
     
     private(set) var operatorPendingBuffer = [KeyCombination]()
    
-    var state = VimEngineState(lastMoveBipped: false, pgR: false, lastYankStyle: .characterwise, visualStyle: .characterwise)
+    var state = VimEngineState(lastMoveBipped: false, appFamily: .auto, lastYankStyle: .characterwise, visualStyle: .characterwise)
     
     var display = Display()
     var statusItem: NSStatusItem?
@@ -109,7 +97,7 @@ class KindaVimEngine {
     }
     
 
-    func handle(keyCombination: KeyCombination, appMode: AppMode = .auto) {
+    func handle(keyCombination: KeyCombination, appFamily: VimEngineAppFamily = .auto) {
         #if DEBUG
         if showCharactersTyped == true {
             display.ongoingMove(add: keyCombination)
@@ -117,7 +105,7 @@ class KindaVimEngine {
         }
         #endif
         
-        state.pgR = appMode == .pgR
+        state.appFamily = appFamily
         
         // before sending the key combination down the rabbit hole we need to check first
         // if it's a digit and if this digit will be used for counts. in that case the digit
@@ -125,25 +113,25 @@ class KindaVimEngine {
         if grabDigitForCounts(keyCombination: keyCombination) == false {
             switch currentMode {
             case .normal:
-                if appMode == .keyMapping {
+                if appFamily == .keyMapping {
                     handleNormalMode(using: .keyboardStrategy, for: keyCombination)
                 } else {
                     handleNormalMode(using: .accessibilityStrategy, for: keyCombination)
                 }
             case .operatorPendingForNormalMode:
-                if appMode == .keyMapping {
+                if appFamily == .keyMapping {
                     handleOperatorPendingForNormalMode(using: .keyboardStrategy, for: keyCombination)
                 } else {
-                    handleOperatorPendingForNormalMode(using: .accessibilityStrategy, for: keyCombination, appMode: appMode)
+                    handleOperatorPendingForNormalMode(using: .accessibilityStrategy, for: keyCombination, appFamily: appFamily)
                 }
             case .visual:
-                if appMode == .keyMapping {
+                if appFamily == .keyMapping {
                     handleVisualMode(using: .keyboardStrategy, for: keyCombination)
                 } else {
-                    handleVisualMode(using: .accessibilityStrategy, for: keyCombination, appMode: appMode)
+                    handleVisualMode(using: .accessibilityStrategy, for: keyCombination, appFamily: appFamily)
                 }
             case .operatorPendingForVisualMode:
-                if appMode == .keyMapping {
+                if appFamily == .keyMapping {
                     handleOperatorPendingForVisualMode(using: .keyboardStrategy, for: keyCombination)
                 } else {
                     handleOperatorPendingForVisualMode(using: .accessibilityStrategy, for: keyCombination)
@@ -227,7 +215,7 @@ class KindaVimEngine {
         }        
     }
     
-    private func handleOperatorPendingForNormalMode(using strategy: VimEngineStrategy, for keyCombination: KeyCombination, appMode: AppMode = .auto) {
+    private func handleOperatorPendingForNormalMode(using strategy: VimEngineStrategy, for keyCombination: KeyCombination, appFamily: VimEngineAppFamily = .auto) {
         operatorPendingBuffer.append(keyCombination)
         
         switch strategy {
@@ -242,7 +230,7 @@ class KindaVimEngine {
         }
     }
     
-    private func handleVisualMode(using strategy: VimEngineStrategy, for keyCombination: KeyCombination, appMode: AppMode = .auto) {
+    private func handleVisualMode(using strategy: VimEngineStrategy, for keyCombination: KeyCombination, appFamily: VimEngineAppFamily = .auto) {
         switch strategy {
         case .accessibilityStrategy:
             tryHandlingVisualModeUsingAccessibilityStrategyFirst(for: keyCombination)
@@ -289,11 +277,11 @@ class KindaVimEngine {
         #endif
     }
     
-    func enterNormalMode(appMode: AppMode = .auto) {
+    func enterNormalMode(appFamily: VimEngineAppFamily = .auto) {
         endCurrentMove()
         
         if currentMode == .insert {
-            goBackOneCharacterForTextElements(appMode: appMode)
+            goBackOneCharacterForTextElements(appFamily: appFamily)
         }
         
         currentMode = .normal        
@@ -308,8 +296,8 @@ class KindaVimEngine {
         }
     }
         
-    private func goBackOneCharacterForTextElements(appMode: AppMode) {
-        switch (ksNormalMode.focusedElementType, appMode) {
+    private func goBackOneCharacterForTextElements(appFamily: VimEngineAppFamily) {
+        switch (ksNormalMode.focusedElementType, appFamily) {
         case (.textElement, .keyMapping):
             post(ksNormalMode.h())
         case (.textElement, _):

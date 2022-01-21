@@ -4,6 +4,7 @@ import KeyboardShortcuts
 import KeyCombination
 import Sauce
 import KeyboardStrategy
+import VimEngineState
 
 
 struct GlobalEventsController {
@@ -21,8 +22,8 @@ struct GlobalEventsController {
     static var numberOfKeystrokes: Int = 0
     
     static func handle(keyCombination: KeyCombination?) -> Bool {
-        let appMode = appModeForCurrentApp()        
-        guard appMode != .off else { return false }
+        let appFamily = appFamilyForCurrentApp()        
+        guard appFamily != .off else { return false }
         
         switch AppCore.shared.vimEngine.currentMode {
         case .insert:
@@ -36,7 +37,7 @@ struct GlobalEventsController {
                 }
                 #endif
                
-                AppCore.shared.vimEngine.enterNormalMode(appMode: appMode)
+                AppCore.shared.vimEngine.enterNormalMode(appFamily: appFamily)
                 AppCore.shared.inputFieldObserver.startObserving()
                 
                 return true
@@ -72,13 +73,13 @@ struct GlobalEventsController {
             doTheKeystrokeSubscriptionShit()
             #endif
             
-            AppCore.shared.vimEngine.handle(keyCombination: implementedKeyCombination, appMode: appMode)
+            AppCore.shared.vimEngine.handle(keyCombination: implementedKeyCombination, appFamily: appFamily)
             
             return true       
         }
     }
     
-    private static func appModeForCurrentApp() -> AppMode {
+    private static func appFamilyForCurrentApp() -> VimEngineAppFamily {
         guard let pid = AppCore.shared.axEngine.axFrontmostApplicationPID(), let frontmostApp = NSRunningApplication(processIdentifier: pid) else { return .auto }
 
         if onAppToIgnore(appBeing: frontmostApp) {

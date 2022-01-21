@@ -1,4 +1,5 @@
 import SwiftUI
+import VimEngineState
 
 
 struct AppDropped: Hashable {
@@ -121,7 +122,7 @@ struct FamiliesPane: View {
                             }
                         }
                         .listStyle(.bordered(alternatesRowBackgrounds: true))
-                        .onDrop(of: [.fileURL], delegate: AppsDropDelegate(appMode: .off))
+                        .onDrop(of: [.fileURL], delegate: AppsDropDelegate(appFamily: .off))
                     }
                     
                     
@@ -147,7 +148,7 @@ struct FamiliesPane: View {
                             }
                         }
                         .listStyle(.bordered(alternatesRowBackgrounds: true))
-                        .onDrop(of: [.fileURL], delegate: AppsDropDelegate(appMode: .pgR))
+                        .onDrop(of: [.fileURL], delegate: AppsDropDelegate(appFamily: .pgR))
                     }
                     
 
@@ -173,7 +174,7 @@ struct FamiliesPane: View {
                             }
                         }
                         .listStyle(.bordered(alternatesRowBackgrounds: true))
-                        .onDrop(of: [.fileURL], delegate: AppsDropDelegate(appMode: .electron))
+                        .onDrop(of: [.fileURL], delegate: AppsDropDelegate(appFamily: .electron))
                     }
                 } else if tab == 1 {
                     HStack {
@@ -199,7 +200,7 @@ struct FamiliesPane: View {
                                 }
                             }
                             .listStyle(.bordered(alternatesRowBackgrounds: true))
-                            .onDrop(of: [.fileURL], delegate: AppsDropDelegate(appMode: .keyMapping))
+                            .onDrop(of: [.fileURL], delegate: AppsDropDelegate(appFamily: .keyMapping))
                         }
                         
 
@@ -225,7 +226,7 @@ struct FamiliesPane: View {
                                 }
                             }
                             .listStyle(.bordered(alternatesRowBackgrounds: true))
-                            .onDrop(of: [.fileURL], delegate: AppsDropDelegate(appMode: .nineOneOne))
+                            .onDrop(of: [.fileURL], delegate: AppsDropDelegate(appFamily: .nineOneOne))
                         }
                         
                     }
@@ -262,7 +263,7 @@ struct AppsDropDelegate: DropDelegate {
     @AppStorage(SettingsKeys.appsForWhichToEnforceKeyMapping) private var appsForWhichToEnforceKeyMapping: Set<String> = []
     @AppStorage(SettingsKeys.appsForWhichToEnforceNineOneOne) private var appsForWhichToEnforceNineOneOne: Set<String> = []
 
-    let appMode: AppMode
+    let appFamily: VimEngineAppFamily
 
 
     func validateDrop(info: DropInfo) -> Bool {
@@ -302,7 +303,7 @@ struct AppsDropDelegate: DropDelegate {
                     let itemIsAnApplicationBundle = (try? url?.resourceValues(forKeys: [.contentTypeKey]).contentType == .applicationBundle) ?? false
 
                     if itemIsAnApplicationBundle, let url = url, let app = Bundle(url: url), let bundleIdentifiter = app.bundleIdentifier {
-                        switch appMode {
+                        switch appFamily {
                         case .off:
                             appsToIgnore.insert(bundleIdentifiter)
                         case .pgR:
