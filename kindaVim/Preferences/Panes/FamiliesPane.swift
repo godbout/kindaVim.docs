@@ -14,24 +14,38 @@ struct FamiliesPane: View {
 
     @AppStorage(SettingsKeys.jkMapping) private var jkMapping: Bool = true
     @AppStorage(SettingsKeys.appsToIgnore) private var appsToIgnore: Set<String> = []
-    @AppStorage(SettingsKeys.appsForWhichToUseHybridMode) private var appsForWhichToUseHybridMode: Set<String> = []
-    @AppStorage(SettingsKeys.appsForWhichToEnforceKeyboardStrategy) private var appsForWhichToEnforceKeyboardStrategy: Set<String> = []
+    @AppStorage(SettingsKeys.appsForWhichToEnforcePGR) private var appsForWhichToEnforcePGR: Set<String> = []
+    @AppStorage(SettingsKeys.appsForWhichToEnforceElectron) private var appsForWhichToEnforceElectron: Set<String> = []
+    @AppStorage(SettingsKeys.appsForWhichToEnforceKeyMapping) private var appsForWhichToEnforceKeyMapping: Set<String> = []
+    @AppStorage(SettingsKeys.appsForWhichToEnforceNineOneOne) private var appsForWhichToEnforceNineOneOne: Set<String> = []
 
     private var appsToIgnoreSortedByName: [AppDropped] {
         appsSortedByName(appsToIgnore)
     }
 
-    private var appsForWhichToUseHybridModeSortedByName: [AppDropped] {
-        appsSortedByName(appsForWhichToUseHybridMode)
+    private var appsForWhichToEnforcePGRSortedByName: [AppDropped] {
+        appsSortedByName(appsForWhichToEnforcePGR)
     }
         
-    private var appsForWhichToEnforceKeyboardStrategySortedByName: [AppDropped] {
-        appsSortedByName(appsForWhichToEnforceKeyboardStrategy)
+    private var appsForWhichToEnforceElectronSortedByName: [AppDropped] {
+        appsSortedByName(appsForWhichToEnforceElectron)
+    }
+    
+    private var appsForWhichToEnforceKeyMappingSortedByName: [AppDropped] {
+        appsSortedByName(appsForWhichToEnforceKeyMapping)
+    }
+        
+    private var appsForWhichToEnforceNineOneOneSortedByName: [AppDropped] {
+        appsSortedByName(appsForWhichToEnforceNineOneOne)
     }
 
     @State private var appsToIgnoreSelection = Set<String>()
-    @State private var appsForWhichToUseHybridModeSelection = Set<String>()
-    @State private var appsForWhichToEnforceKeyboardStrategySelection = Set<String>()
+    @State private var appsForWhichToEnforcePGRSelection = Set<String>()
+    @State private var appsForWhichToEnforceElectronSelection = Set<String>()
+    @State private var appsForWhichToEnforceKeyMappingSelection = Set<String>()
+    @State private var appsForWhichToEnforceNineOneOneSelection = Set<String>()
+    // TODO: find better name
+    @State private var tab = 0
 
 
     func appsSortedByName(_ apps: Set<String>) -> [AppDropped] {
@@ -64,84 +78,157 @@ struct FamiliesPane: View {
             .fixedSize(horizontal: false, vertical: true)
             .padding(.bottom)
             
+            HStack(alignment: .center) {
+                Spacer()
+                Button("simple") {
+                    tab = 0
+                }
+                .buttonStyle(.borderless)
+                .foregroundColor(tab == 0 ? .primary : .secondary)
+                Spacer()
+                Button("advanced") {
+                    tab = 1
+                }
+                .buttonStyle(.borderless)
+                .foregroundColor(tab == 1 ? .primary : .secondary)
+                Spacer()
+            }
+            
+            Divider()
+                .padding(.bottom)
+           
             HStack {
-                VStack(alignment: .center) {
-                    Text("Off")
-                        .font(.title)
-                        .padding(.bottom, 10)
-                    Text("drop apps that you want kindaVim to ignore. useful for apps that have their own Vim mode. e.g. Sublime Text, iTerm2, VSCode.")
-                        .padding(.leading, 5)
-                        .font(.footnote)
-                        .foregroundColor(.gray)
-                    List(appsToIgnoreSortedByName, id: \.bundleIdentifier, selection: $appsToIgnoreSelection) { app in
-                        HStack {
-                            Image(nsImage: app.icon)
-                            Text(app.name)
-                        }
-                    }
-                    .contextMenu {
-                        Button("Delete") {
-                            for selection in appsToIgnoreSelection {
-                                appsToIgnore.remove(selection)
+                if tab == 0 {
+                    VStack(alignment: .center) {
+                        Text("Off")
+                            .font(.title)
+                            .padding(.bottom, 10)
+                        Text("drop apps that you want kindaVim to ignore. useful for apps that have their own Vim mode. e.g. Sublime Text, iTerm2, VSCode.")
+                            .padding(.leading, 5)
+                            .font(.footnote)
+                            .foregroundColor(.gray)
+                        List(appsToIgnoreSortedByName, id: \.bundleIdentifier, selection: $appsToIgnoreSelection) { app in
+                            HStack {
+                                Image(nsImage: app.icon)
+                                Text(app.name)
                             }
                         }
-                    }
-                    .listStyle(.bordered(alternatesRowBackgrounds: true))
-                    .onDrop(of: [.fileURL], delegate: AppsDropDelegate(appMode: .off))
-                }
-                
-                Spacer()
-                
-                VStack(alignment: .center) {
-                    Text("PG-R")
-                        .font(.title)
-                        .padding(.bottom, 10)
-                    Text("drop restricted apps where moving around works but modifying text doesn't. mostly browsers, Electron apps, and some Catalyst ones.")
-                        .padding(.leading, 5)
-                        .font(.footnote)
-                        .foregroundColor(.gray)
-                    List(appsForWhichToUseHybridModeSortedByName, id: \.bundleIdentifier, selection: $appsForWhichToUseHybridModeSelection) { app in
-                        HStack {
-                            Image(nsImage: app.icon)
-                            Text(app.name)
-                        }
-                    }
-                    .contextMenu {
-                        Button("Delete") {
-                            for selection in appsForWhichToUseHybridModeSelection {
-                                appsForWhichToUseHybridMode.remove(selection)
+                        .contextMenu {
+                            Button("Delete") {
+                                for selection in appsToIgnoreSelection {
+                                    appsToIgnore.remove(selection)
+                                }
                             }
                         }
+                        .listStyle(.bordered(alternatesRowBackgrounds: true))
+                        .onDrop(of: [.fileURL], delegate: AppsDropDelegate(appMode: .off))
                     }
-                    .listStyle(.bordered(alternatesRowBackgrounds: true))
-                    .onDrop(of: [.fileURL], delegate: AppsDropDelegate(appMode: .pgR))
-                }
-                
-                Spacer()
+                    
+                    
+                    VStack(alignment: .center) {
+                        Text("PG-R")
+                            .font(.title)
+                            .padding(.bottom, 10)
+                        Text("drop native apps where moving around works but modifying text doesn't. for restricted apps. mostly browsers and some Catalyst ones.")
+                            .padding(.leading, 5)
+                            .font(.footnote)
+                            .foregroundColor(.gray)
+                        List(appsForWhichToEnforcePGRSortedByName, id: \.bundleIdentifier, selection: $appsForWhichToEnforcePGRSelection) { app in
+                            HStack {
+                                Image(nsImage: app.icon)
+                                Text(app.name)
+                            }
+                        }
+                        .contextMenu {
+                            Button("Delete") {
+                                for selection in appsForWhichToEnforcePGRSelection {
+                                    appsForWhichToEnforcePGR.remove(selection)
+                                }
+                            }
+                        }
+                        .listStyle(.bordered(alternatesRowBackgrounds: true))
+                        .onDrop(of: [.fileURL], delegate: AppsDropDelegate(appMode: .pgR))
+                    }
+                    
 
-                VStack(alignment: .center) {
-                    Text("Key Mapping")
-                        .font(.title)
-                        .padding(.bottom, 10)
-                    Text("drop big fat liars that say they implement the macOS Accessibility but actually send you back a pile of rubbish data. for bad Electron apps.")
-                        .padding(.leading, 5)
-                        .font(.footnote)
-                        .foregroundColor(.gray)
-                    List(appsForWhichToEnforceKeyboardStrategySortedByName, id: \.bundleIdentifier, selection: $appsForWhichToEnforceKeyboardStrategySelection) { app in
-                        HStack {
-                            Image(nsImage: app.icon)
-                            Text(app.name)
-                        }
-                    }
-                    .contextMenu {
-                        Button("Delete") {
-                            for selection in appsForWhichToEnforceKeyboardStrategySelection {
-                                appsForWhichToEnforceKeyboardStrategy.remove(selection)
+                    VStack(alignment: .center) {
+                        Text("Electron")
+                            .font(.title)
+                            .padding(.bottom, 10)
+                        Text("drop apps that handle the macOS Accessibility according to the weather and that are also slow af with it. i.e. all Electron apps.")
+                            .padding(.leading, 5)
+                            .font(.footnote)
+                            .foregroundColor(.gray)
+                        List(appsForWhichToEnforceElectronSortedByName, id: \.bundleIdentifier, selection: $appsForWhichToEnforceElectronSelection) { app in
+                            HStack {
+                                Image(nsImage: app.icon)
+                                Text(app.name)
                             }
                         }
+                        .contextMenu {
+                            Button("Delete") {
+                                for selection in appsForWhichToEnforceElectronSelection {
+                                    appsForWhichToEnforceElectron.remove(selection)
+                                }
+                            }
+                        }
+                        .listStyle(.bordered(alternatesRowBackgrounds: true))
+                        .onDrop(of: [.fileURL], delegate: AppsDropDelegate(appMode: .electron))
                     }
-                    .listStyle(.bordered(alternatesRowBackgrounds: true))
-                    .onDrop(of: [.fileURL], delegate: AppsDropDelegate(appMode: .keyMapping))
+                } else if tab == 1 {
+                    HStack {
+                        VStack(alignment: .center) {
+                            Text("Key Mapping")
+                                .font(.title)
+                                .padding(.bottom, 10)
+                            Text("drop big fat liars apps that say they implement the macOS Accessibility but actually send you back a pile of rubbish data. tailor-made for badly-behaved Electron apps.")
+                                .padding(.leading, 5)
+                                .font(.footnote)
+                                .foregroundColor(.gray)
+                            List(appsForWhichToEnforceKeyMappingSortedByName, id: \.bundleIdentifier, selection: $appsForWhichToEnforceKeyMappingSelection) { app in
+                                HStack {
+                                    Image(nsImage: app.icon)
+                                    Text(app.name)
+                                }
+                            }
+                            .contextMenu {
+                                Button("Delete") {
+                                    for selection in appsForWhichToEnforceKeyMappingSelection {
+                                        appsForWhichToEnforceKeyMapping.remove(selection)
+                                    }
+                                }
+                            }
+                            .listStyle(.bordered(alternatesRowBackgrounds: true))
+                            .onDrop(of: [.fileURL], delegate: AppsDropDelegate(appMode: .keyMapping))
+                        }
+                        
+
+                        VStack(alignment: .center) {
+                            Text("911")
+                                .font(.title)
+                                .padding(.bottom, 10)
+                            Text("drop apps for which the developers read the Apple macOS guidelines and decided to do all the opposite. e.g. Microsoft Word. last resort to enforce Key Mapping for Text Elements.")
+                                .padding(.leading, 5)
+                                .font(.footnote)
+                                .foregroundColor(.gray)
+                            List(appsForWhichToEnforceNineOneOneSortedByName, id: \.bundleIdentifier, selection: $appsForWhichToEnforceNineOneOneSelection) { app in
+                                HStack {
+                                    Image(nsImage: app.icon)
+                                    Text(app.name)
+                                }
+                            }
+                            .contextMenu {
+                                Button("Delete") {
+                                    for selection in appsForWhichToEnforceNineOneOneSelection {
+                                        appsForWhichToEnforceNineOneOne.remove(selection)
+                                    }
+                                }
+                            }
+                            .listStyle(.bordered(alternatesRowBackgrounds: true))
+                            .onDrop(of: [.fileURL], delegate: AppsDropDelegate(appMode: .nineOneOne))
+                        }
+                        
+                    }
                 }
             }
             .frame(width: nil, height: 300)
@@ -170,8 +257,10 @@ struct FamiliesPane: View {
 struct AppsDropDelegate: DropDelegate {
 
     @AppStorage(SettingsKeys.appsToIgnore) private var appsToIgnore: Set<String> = []
-    @AppStorage(SettingsKeys.appsForWhichToUseHybridMode) private var appsForWhichToUseHybridMode: Set<String> = []
-    @AppStorage(SettingsKeys.appsForWhichToEnforceKeyboardStrategy) private var appsForWhichToEnforceKeyboardStrategy: Set<String> = []
+    @AppStorage(SettingsKeys.appsForWhichToEnforcePGR) private var appsForWhichToEnforcePGR: Set<String> = []
+    @AppStorage(SettingsKeys.appsForWhichToEnforceElectron) private var appsForWhichToEnforceElectron: Set<String> = []
+    @AppStorage(SettingsKeys.appsForWhichToEnforceKeyMapping) private var appsForWhichToEnforceKeyMapping: Set<String> = []
+    @AppStorage(SettingsKeys.appsForWhichToEnforceNineOneOne) private var appsForWhichToEnforceNineOneOne: Set<String> = []
 
     let appMode: AppMode
 
@@ -217,10 +306,14 @@ struct AppsDropDelegate: DropDelegate {
                         case .off:
                             appsToIgnore.insert(bundleIdentifiter)
                         case .pgR:
-                            appsForWhichToUseHybridMode.insert(bundleIdentifiter)
+                            appsForWhichToEnforcePGR.insert(bundleIdentifiter)
+                        case .electron:
+                            appsForWhichToEnforceElectron.insert(bundleIdentifiter)
                         case .keyMapping:
-                            appsForWhichToEnforceKeyboardStrategy.insert(bundleIdentifiter)
-                        default:
+                            appsForWhichToEnforceKeyMapping.insert(bundleIdentifiter)
+                        case .nineOneOne:
+                            appsForWhichToEnforceNineOneOne.insert(bundleIdentifiter)
+                        case .auto:
                             ()
                         }
 

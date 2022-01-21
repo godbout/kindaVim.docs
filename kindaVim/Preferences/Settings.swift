@@ -13,8 +13,10 @@ struct SettingsKeys {
     static let showCharactersTyped = "showCharactersTyped"
        
     static let appsToIgnore = "appsToIgnore"
-    static let appsForWhichToUseHybridMode = "appsForWhichToUseHybridMode"
-    static let appsForWhichToEnforceKeyboardStrategy = "appsForWhichToEnforceKeyboardStrategy"
+    static let appsForWhichToEnforcePGR = "appsForWhichToUseHybridMode"
+    static let appsForWhichToEnforceElectron = "appsForWhichToEnforceElectron"
+    static let appsForWhichToEnforceKeyMapping = "appsForWhichToEnforceKeyboardStrategy"
+    static let appsForWhichToEnforceNineOneOne = "appsForWhichToEnforceNineOneOne"
     
     static let jkMapping = "jkMapping"
     

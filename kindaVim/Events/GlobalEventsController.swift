@@ -10,8 +10,10 @@ struct GlobalEventsController {
     
     @AppStorage(SettingsKeys.useCustomShortcutToEnterNormalMode) static var useCustomShortcutToEnterNormalMode: Bool = false
     @AppStorage(SettingsKeys.appsToIgnore) private static var appsToIgnore: Set<String> = [] 
-    @AppStorage(SettingsKeys.appsForWhichToUseHybridMode) private static var appsForWhichToUseHybridMode: Set<String> = []
-    @AppStorage(SettingsKeys.appsForWhichToEnforceKeyboardStrategy) private static var appsForWhichToEnforceKeyboardStrategy: Set<String> = []
+    @AppStorage(SettingsKeys.appsForWhichToEnforcePGR) private static var appsForWhichToEnforcePGR: Set<String> = []
+    @AppStorage(SettingsKeys.appsForWhichToEnforceElectron) private static var appsForWhichToEnforceElectron: Set<String> = []
+    @AppStorage(SettingsKeys.appsForWhichToEnforceKeyMapping) private static var appsForWhichToEnforceKeyMapping: Set<String> = []
+    @AppStorage(SettingsKeys.appsForWhichToEnforceNineOneOne) private static var appsForWhichToEnforceNineOneOne: Set<String> = []
     @AppStorage(SettingsKeys.enableKillSwitch) static var enableKillSwitch: Bool = false
     
     // to start thinking about how to charge :D
@@ -83,12 +85,20 @@ struct GlobalEventsController {
             return .off
         }
         
-        if onAppForWhichToUseHybridMode(appBeing: frontmostApp) {
+        if onAppForWhichToEnforcePGR(appBeing: frontmostApp) {
             return .pgR
         }
+                    
+        if onAppForWhichToEnforceElectron(appBeing: frontmostApp) {
+            return .electron
+        }
         
-        if onAppForWhichToEnforceKeyboardStrategy(appBeing: frontmostApp) {
+        if onAppForWhichToEnforceKeyMapping(appBeing: frontmostApp) {
             return .keyMapping
+        }
+        
+        if onAppForWhichToEnforceNineOneOne(appBeing: frontmostApp) {
+            return .nineOneOne
         }
         
         return .auto
@@ -98,12 +108,20 @@ struct GlobalEventsController {
         return appsToIgnore.contains(app.bundleIdentifier ?? "")
     }
     
-    private static func onAppForWhichToUseHybridMode(appBeing app: NSRunningApplication) -> Bool {
-        return appsForWhichToUseHybridMode.contains(app.bundleIdentifier ?? "")
+    private static func onAppForWhichToEnforcePGR(appBeing app: NSRunningApplication) -> Bool {
+        return appsForWhichToEnforcePGR.contains(app.bundleIdentifier ?? "")
     }
     
-    private static func onAppForWhichToEnforceKeyboardStrategy(appBeing app: NSRunningApplication) -> Bool {
-        return appsForWhichToEnforceKeyboardStrategy.contains(app.bundleIdentifier ?? "")
+    private static func onAppForWhichToEnforceElectron(appBeing app: NSRunningApplication) -> Bool {
+        return appsForWhichToEnforceElectron.contains(app.bundleIdentifier ?? "")
+    }
+    
+    private static func onAppForWhichToEnforceKeyMapping(appBeing app: NSRunningApplication) -> Bool {
+        return appsForWhichToEnforceKeyMapping.contains(app.bundleIdentifier ?? "")
+    }
+    
+    private static func onAppForWhichToEnforceNineOneOne(appBeing app: NSRunningApplication) -> Bool {
+        return appsForWhichToEnforceNineOneOne.contains(app.bundleIdentifier ?? "")
     }
     
     // if the user set up a custom KeyboardShortcut, use it. else we live for `esc`

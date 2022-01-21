@@ -43,7 +43,9 @@ enum AppMode {
     case auto
     case off
     case pgR
+    case electron
     case keyMapping
+    case nineOneOne
     
 }
 
