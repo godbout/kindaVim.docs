@@ -246,7 +246,7 @@ struct FamiliesPane: View {
             HStack {
                 Spacer()
 
-                Toggle("map jk to gj gk for Auto and PG-R Families", isOn: $jkMapping)
+                Toggle("map jk to gj gk for Auto, PG-R and Electron Families", isOn: $jkMapping)
                     .onChange(of: jkMapping) {
                         AppCore.shared.vimEngine.jkMapping = $0
                     }
