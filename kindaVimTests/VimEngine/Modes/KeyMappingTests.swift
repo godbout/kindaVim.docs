@@ -30,18 +30,18 @@ class KeyMappingTests: XCTestCase {
 extension KeyMappingTests {
     
     func test_that_in_NormalMode_it_goes_straight_to_the_KeyboardStrategy() {
-        kindaVimEngine.enterNormalMode(appMode: .keyMapping)
-        kindaVimEngine.handle(keyCombination: KeyCombination(key: .l), appMode: .keyMapping)
+        kindaVimEngine.enterNormalMode(appFamily: .keyMapping)
+        kindaVimEngine.handle(keyCombination: KeyCombination(key: .l), appFamily: .keyMapping)
         
         XCTAssertEqual(asNormalMode.functionCalled, "")
         XCTAssertEqual(ksNormalMode.functionCalled, "l(times:)")
     }
     
     func test_that_in_OperatorPendingMode_for_NormalMode_it_goes_straight_to_the_KeyboardStrategy() {
-        kindaVimEngine.enterNormalMode(appMode: .keyMapping)
+        kindaVimEngine.enterNormalMode(appFamily: .keyMapping)
         
-        kindaVimEngine.handle(keyCombination: KeyCombination(key: .d), appMode: .keyMapping)
-        kindaVimEngine.handle(keyCombination: KeyCombination(key: .d), appMode: .keyMapping)
+        kindaVimEngine.handle(keyCombination: KeyCombination(key: .d), appFamily: .keyMapping)
+        kindaVimEngine.handle(keyCombination: KeyCombination(key: .d), appFamily: .keyMapping)
         
         XCTAssertEqual(asNormalMode.functionCalled, "")
         XCTAssertEqual(ksNormalMode.functionCalled, "dd(_:)")
@@ -50,7 +50,7 @@ extension KeyMappingTests {
     func test_that_in_VisualMode_it_goes_straight_to_the_KeyboardStrategy() {
         kindaVimEngine.enterVisualMode()
         
-        kindaVimEngine.handle(keyCombination: KeyCombination(key: .l), appMode: .keyMapping)
+        kindaVimEngine.handle(keyCombination: KeyCombination(key: .l), appFamily: .keyMapping)
         
         XCTAssertEqual(asVisualMode.functionCalled, "")
         XCTAssertEqual(ksVisualMode.functionCalled, "l(_:)")
@@ -59,8 +59,8 @@ extension KeyMappingTests {
     func test_that_in_OperatorPendingMode_for_VisualMode_it_goes_straight_to_the_KeyboardStrategy() {
         kindaVimEngine.enterVisualMode()
         
-        kindaVimEngine.handle(keyCombination: KeyCombination(key: .g), appMode: .keyMapping)
-        kindaVimEngine.handle(keyCombination: KeyCombination(key: .g), appMode: .keyMapping)
+        kindaVimEngine.handle(keyCombination: KeyCombination(key: .g), appFamily: .keyMapping)
+        kindaVimEngine.handle(keyCombination: KeyCombination(key: .g), appFamily: .keyMapping)
         
         XCTAssertEqual(asVisualMode.functionCalled, "")
         XCTAssertEqual(ksVisualMode.functionCalled, "gg(_:)")
