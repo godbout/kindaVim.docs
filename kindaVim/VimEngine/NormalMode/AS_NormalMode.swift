@@ -70,7 +70,7 @@ extension KindaVimEngine {
             case .controlF:
                 handleNormalModeUsingKeyboardStrategy(for: keyCombination)
             case .controlR:
-                let newElement = asNormalMode.controlR(on: currentElement)
+                let newElement = asNormalMode.controlR(on: currentElement, state)
                 push(element: newElement)
                 endCurrentMove()
             case .controlU:
@@ -227,7 +227,7 @@ extension KindaVimEngine {
                 push(element: newElement)
                 endCurrentMove()
             case .u:
-                let newElement = asNormalMode.u(on: currentElement)
+                let newElement = asNormalMode.u(on: currentElement, state)
                 push(element: newElement)
                 endCurrentMove()
             case .underscore:
