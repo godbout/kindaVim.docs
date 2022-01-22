@@ -22,9 +22,6 @@ struct GlobalEventsController {
     static var numberOfKeystrokes: Int = 0
     
     static func handle(keyCombination: KeyCombination?) -> Bool {
-        let appFamily = appFamilyForCurrentApp()        
-        guard appFamily != .off else { return false }
-        
         switch AppCore.shared.vimEngine.currentMode {
         case .insert:
             guard let implementedKeyCombination = keyCombination else { return false }
@@ -36,6 +33,9 @@ struct GlobalEventsController {
                     AppCore.shared.vimEngine.display.showOngoingMove()
                 }
                 #endif
+                
+                let appFamily = appFamilyForCurrentApp()        
+                guard appFamily != .off else { return false }
                
                 AppCore.shared.vimEngine.enterNormalMode(appFamily: appFamily)
                 AppCore.shared.inputFieldObserver.startObserving()
@@ -73,7 +73,7 @@ struct GlobalEventsController {
             doTheKeystrokeSubscriptionShit()
             #endif
             
-            AppCore.shared.vimEngine.handle(keyCombination: implementedKeyCombination, appFamily: appFamily)
+            AppCore.shared.vimEngine.handle(keyCombination: implementedKeyCombination, appFamily: appFamilyForCurrentApp())
             
             return true       
         }

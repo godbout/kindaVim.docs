@@ -78,7 +78,7 @@ class KindaVimEngine {
     var inputFieldObserver: InputFieldObserver
     
     var focusedTextElement: AccessibilityTextElement? {
-        accessibilityStrategy.focusedTextElement()
+        accessibilityStrategy.focusedTextElement(appFamily: state.appFamily)
     }
         
     var keyboardStrategy: KeyboardStrategyProtocol = KeyboardStrategy()
@@ -281,6 +281,7 @@ class KindaVimEngine {
         endCurrentMove()
         
         if currentMode == .insert {
+            state.appFamily = appFamily
             goBackOneCharacterForTextElements(appFamily: appFamily)
         }
         
@@ -297,10 +298,10 @@ class KindaVimEngine {
     }
         
     private func goBackOneCharacterForTextElements(appFamily: VimEngineAppFamily) {
-        switch (ksNormalMode.focusedElementType, appFamily) {
-        case (.textElement, .keyMapping):
+        switch (appFamily, ksNormalMode.focusedElementType) {
+        case (.keyMapping, .textElement):
             post(ksNormalMode.h())
-        case (.textElement, _):
+        case (.electron, _), (_, .textElement):
             if let currentElement = focusedTextElement {
                 let newElement = asNormalMode.h(on: currentElement)
                 push(element: newElement)
