@@ -1,5 +1,5 @@
 import KeyCombination
-import VimEngineState
+import Common
 
 
 // KS Normal Mode
