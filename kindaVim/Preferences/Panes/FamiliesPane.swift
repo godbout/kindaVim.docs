@@ -189,7 +189,7 @@ struct FamiliesPane: View {
                             Text("Key Mapping")
                                 .font(.title)
                                 .padding(.bottom, 10)
-                            Text("drop big fat liar apps that say they implement the macOS Accessibility but actually send you a pile of garbage information. tailor-made for badly-behaved Electron apps.")
+                            Text("drop big fat liar Electron apps that say they implement the macOS Accessibility but actually send you a pile of garbage information. tailor-made for the ill-behaved ones.")
                                 .padding(.leading, 5)
                                 .font(.footnote)
                                 .foregroundColor(.gray)
