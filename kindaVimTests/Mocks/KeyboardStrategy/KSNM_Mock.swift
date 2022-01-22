@@ -12,25 +12,25 @@ class KeyboardStrategyNormalModeMock: KeyboardStrategyNormalModeProtocol {
     var functionCalled = ""
     
         
-    func A() -> [KeyCombination] {
+    func A(_ vimEngineState: VimEngineState) -> [KeyCombination] {
         functionCalled = #function
         
         return []
     }
     
-    func a() -> [KeyCombination] {
+    func a(_ vimEngineState: VimEngineState) -> [KeyCombination] {
         functionCalled = #function
         
         return []
     }
     
-    func b() -> [KeyCombination] {
+    func b(_ vimEngineState: VimEngineState) -> [KeyCombination] {
         functionCalled = #function
         
         return []
     }
     
-    func caret() -> [KeyCombination] {
+    func caret(_ vimEngineState: VimEngineState) -> [KeyCombination] {
         functionCalled = #function
         
         return []
@@ -168,7 +168,7 @@ class KeyboardStrategyNormalModeMock: KeyboardStrategyNormalModeProtocol {
         return []
     }
     
-    func dollarSign() -> [KeyCombination] {
+    func dollarSign(_ vimEngineState: VimEngineState) -> [KeyCombination] {
         functionCalled = #function
         
         return []
@@ -180,43 +180,43 @@ class KeyboardStrategyNormalModeMock: KeyboardStrategyNormalModeProtocol {
         return []
     }
         
-    func e() -> [KeyCombination] {
+    func e(_ vimEngineState: VimEngineState) -> [KeyCombination] {
         functionCalled = #function
         
         return []
     }
         
-    func gCaret() -> [KeyCombination] {
-        functionCalled = #function
-        
-        return []
-    }
-    
-    func gDollarSign() -> [KeyCombination] {
+    func gCaret(_ vimEngineState: VimEngineState) -> [KeyCombination] {
         functionCalled = #function
         
         return []
     }
     
-    func gUnderscore() -> [KeyCombination] {
+    func gDollarSign(_ vimEngineState: VimEngineState) -> [KeyCombination] {
         functionCalled = #function
         
         return []
     }
     
-    func gZero() -> [KeyCombination] {
+    func gUnderscore(_ vimEngineState: VimEngineState) -> [KeyCombination] {
         functionCalled = #function
         
         return []
     }
     
-    func ge() -> [KeyCombination] {
+    func gZero(_ vimEngineState: VimEngineState) -> [KeyCombination] {
         functionCalled = #function
         
         return []
     }
     
-    func gI() -> [KeyCombination] {
+    func ge(_ vimEngineState: VimEngineState) -> [KeyCombination] {
+        functionCalled = #function
+        
+        return []
+    }
+    
+    func gI(_ vimEngineState: VimEngineState) -> [KeyCombination] {
         functionCalled = #function
         
         return []
@@ -234,13 +234,13 @@ class KeyboardStrategyNormalModeMock: KeyboardStrategyNormalModeProtocol {
         return []
     }
     
-    func G() -> [KeyCombination] {
+    func G(_ vimEngineState: VimEngineState) -> [KeyCombination] {
         functionCalled = #function
         
         return []
     }
     
-    func gg() -> [KeyCombination] {
+    func gg(_ vimEngineState: VimEngineState) -> [KeyCombination] {
         functionCalled = #function
         
         return []
@@ -252,7 +252,7 @@ class KeyboardStrategyNormalModeMock: KeyboardStrategyNormalModeProtocol {
         return []
     }
     
-    func I() -> [KeyCombination] {
+    func I(_ vimEngineState: VimEngineState) -> [KeyCombination] {
         functionCalled = #function
         
         return []
@@ -264,7 +264,7 @@ class KeyboardStrategyNormalModeMock: KeyboardStrategyNormalModeProtocol {
         return []
     }
     
-    func J() -> [KeyCombination] {
+    func J(_ vimEngineState: VimEngineState) -> [KeyCombination] {
         functionCalled = #function
         
         return []
@@ -288,31 +288,31 @@ class KeyboardStrategyNormalModeMock: KeyboardStrategyNormalModeProtocol {
         return []
     }
     
-    func o() -> [KeyCombination] {
+    func o(_ vimEngineState: VimEngineState) -> [KeyCombination] {
         functionCalled = #function
         
         return []
     }
     
-    func O() -> [KeyCombination] {
+    func O(_ vimEngineState: VimEngineState) -> [KeyCombination] {
         functionCalled = #function
         
         return []
     }
     
-    func P() -> [KeyCombination] {
+    func P(_ vimEngineState: VimEngineState) -> [KeyCombination] {
         functionCalled = #function
         
         return []
     }
     
-    func p() -> [KeyCombination] {
+    func p(_ vimEngineState: VimEngineState) -> [KeyCombination] {
         functionCalled = #function
         
         return []
     }
     
-    func r(with replacement: KeyCombination) -> [KeyCombination] {
+    func r(with replacement: KeyCombination, _ vimEngineState: VimEngineState) -> [KeyCombination] {
         functionCalled = #function
         
         return[]
@@ -342,7 +342,7 @@ class KeyboardStrategyNormalModeMock: KeyboardStrategyNormalModeProtocol {
         return []
     }
     
-    func underscore() -> [KeyCombination] {
+    func underscore(_ vimEngineState: VimEngineState) -> [KeyCombination] {
         functionCalled = #function
         
         return []
@@ -354,7 +354,7 @@ class KeyboardStrategyNormalModeMock: KeyboardStrategyNormalModeProtocol {
         return []
     }
     
-    func w() -> [KeyCombination] {
+    func w(_ vimEngineState: VimEngineState) -> [KeyCombination] {
         functionCalled = #function
         
         return []
@@ -372,7 +372,7 @@ class KeyboardStrategyNormalModeMock: KeyboardStrategyNormalModeProtocol {
         return []
     }
     
-    func zero() -> [KeyCombination] {
+    func zero(_ vimEngineState: VimEngineState) -> [KeyCombination] {
         functionCalled = #function
         
         return []

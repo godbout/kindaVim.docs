@@ -8,13 +8,13 @@ extension KindaVimEngine {
     func handleNormalModeUsingKeyboardStrategy(for keyCombination: KeyCombination) {         
         switch keyCombination.vimKey {
         case .A:
-            post(ksNormalMode.A())
+            post(ksNormalMode.A(state))
             enterInsertMode()
         case .a:
-            post(ksNormalMode.a())
+            post(ksNormalMode.a(state))
             enterInsertMode()
         case .b:
-            post(ksNormalMode.b())
+            post(ksNormalMode.b(state))
             endCurrentMove()
         case .C:
             post(ksNormalMode.cDollarSign(&state))
@@ -22,7 +22,7 @@ extension KindaVimEngine {
         case .c:
             enterOperatorPendingForNormalMode(with: keyCombination)
         case .caret:
-            post(ksNormalMode.caret())
+            post(ksNormalMode.caret(state))
             endCurrentMove()
         case .colon:
             enterOperatorPendingForNormalMode(with: keyCombination)
@@ -47,17 +47,17 @@ extension KindaVimEngine {
         case .d:
             enterOperatorPendingForNormalMode(with: keyCombination)
         case .dollarSign:
-            post(ksNormalMode.dollarSign())
+            post(ksNormalMode.dollarSign(state))
             endCurrentMove()
         case .e:
-            post(ksNormalMode.e())
+            post(ksNormalMode.e(state))
             endCurrentMove()
         case .F:
             enterOperatorPendingForNormalMode(with: keyCombination)
         case .f:
             enterOperatorPendingForNormalMode(with: keyCombination)
         case .G:
-            post(ksNormalMode.G())
+            post(ksNormalMode.G(state))
             endCurrentMove()
         case .g:
             enterOperatorPendingForNormalMode(with: keyCombination)
@@ -65,13 +65,13 @@ extension KindaVimEngine {
             post(ksNormalMode.h())
             endCurrentMove()
         case .I:
-            post(ksNormalMode.I())
+            post(ksNormalMode.I(state))
             enterInsertMode()
         case .i:
             post(ksNormalMode.i())
             enterInsertMode()
         case .J:
-            post(ksNormalMode.J())
+            post(ksNormalMode.J(state))
             endCurrentMove()
         case .j:
             post(ksNormalMode.j())
@@ -83,16 +83,16 @@ extension KindaVimEngine {
             post(ksNormalMode.l(times: count))
             endCurrentMove()
         case .O:
-            post(ksNormalMode.O())
+            post(ksNormalMode.O(state))
             enterInsertMode()
         case .o:
-            post(ksNormalMode.o())
+            post(ksNormalMode.o(state))
             enterInsertMode()
         case .P:
-            post(ksNormalMode.P())
+            post(ksNormalMode.P(state))
             endCurrentMove()
         case .p:
-            post(ksNormalMode.p())
+            post(ksNormalMode.p(state))
             endCurrentMove()
         case .r:
             enterOperatorPendingForNormalMode(with: keyCombination)
@@ -113,18 +113,18 @@ extension KindaVimEngine {
             post(ksNormalMode.u())
             endCurrentMove()
         case .underscore:
-            post(ksNormalMode.underscore())
+            post(ksNormalMode.underscore(state))
             endCurrentMove()
         case .V:
-            post(ksVisualMode.VFromNormalMode())
+            post(ksVisualMode.VFromNormalMode(state))
             state.visualStyle = .linewise
             enterVisualMode()
         case .v:            
-            post(ksVisualMode.vFromNormalMode())
+            post(ksVisualMode.vFromNormalMode(state))
             state.visualStyle = .characterwise
             enterVisualMode()
         case .w:
-            post(ksNormalMode.w())
+            post(ksNormalMode.w(state))
             endCurrentMove()
         case .X:
             post(ksNormalMode.dh(&state))
@@ -140,7 +140,7 @@ extension KindaVimEngine {
         case .Z:
             enterOperatorPendingForNormalMode(with: keyCombination)
         case .zero:
-            post(ksNormalMode.zero())
+            post(ksNormalMode.zero(state))
             endCurrentMove()
         default:
             endCurrentMove()
@@ -261,19 +261,19 @@ extension KindaVimEngine {
             post(ksNormalMode.dw(&state))
             enterNormalMode()
         case [.g, .caret]:
-            post(ksNormalMode.gCaret())
+            post(ksNormalMode.gCaret(state))
             enterNormalMode()
         case [.g, .dollarSign]:            
-            post(ksNormalMode.gDollarSign())
+            post(ksNormalMode.gDollarSign(state))
             enterNormalMode()
         case [.g, .e]:            
-            post(ksNormalMode.ge())
+            post(ksNormalMode.ge(state))
             enterNormalMode()
         case [.g, .g]:
-            post(ksNormalMode.gg())
+            post(ksNormalMode.gg(state))
             enterNormalMode()
         case [.g, .I]:
-            post(ksNormalMode.gI())
+            post(ksNormalMode.gI(state))
             enterInsertMode()
         case [.g, .j]:            
             post(ksNormalMode.gj())
@@ -282,10 +282,10 @@ extension KindaVimEngine {
             post(ksNormalMode.gk())
             enterNormalMode()
         case [.g, .underscore]:            
-            post(ksNormalMode.gUnderscore())
+            post(ksNormalMode.gUnderscore(state))
             enterNormalMode()
         case [.g, .zero]:            
-            post(ksNormalMode.gZero())
+            post(ksNormalMode.gZero(state))
             enterNormalMode()
         case [.y, .F]:
             ()
@@ -308,7 +308,7 @@ extension KindaVimEngine {
             enterInsertMode()
         default:
             if operatorPendingBuffer.first?.vimKey == .r, let replacement = operatorPendingBuffer.last {                
-                post(ksNormalMode.r(with: replacement))
+                post(ksNormalMode.r(with: replacement, state))
             }
             
             // if we don't recognize any operator move

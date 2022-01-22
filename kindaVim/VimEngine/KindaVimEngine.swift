@@ -298,7 +298,7 @@ class KindaVimEngine {
     }
         
     private func goBackOneCharacterForTextElements(appFamily: AppFamily) {
-        switch (appFamily, ksNormalMode.focusedElementType) {
+        switch (appFamily, ksNormalMode.focusedElementType(appFamily: appFamily)) {
         case (.keyMapping, .textElement):
             post(ksNormalMode.h())
         case (.electron, _), (_, .textElement):

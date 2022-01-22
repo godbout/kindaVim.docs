@@ -18,7 +18,7 @@ class KSNM_v_Tests: KSNM_BaseTests {
 extension KSNM_v_Tests {
     
     func test_that_it_calls_the_correct_function_on_AS() {
-        XCTAssertEqual(ksVisualModeMock.functionCalled, "vFromNormalMode()")
+        XCTAssertEqual(ksVisualModeMock.functionCalled, "vFromNormalMode(_:)")
     }
         
     func test_that_it_switches_Vim_to_VisualMode() {

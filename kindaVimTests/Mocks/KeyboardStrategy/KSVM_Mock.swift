@@ -168,7 +168,7 @@ class KeyboardStrategyVisualModeMock: KeyboardStrategyVisualModeProtocol {
         return []
     }
     
-    func VFromNormalMode() -> [KeyCombination] {
+    func VFromNormalMode(_ vimEngineState: VimEngineState) -> [KeyCombination] {
         functionCalled = #function
         
         return []
@@ -180,7 +180,7 @@ class KeyboardStrategyVisualModeMock: KeyboardStrategyVisualModeProtocol {
         return []
     }
         
-    func vFromNormalMode() -> [KeyCombination] {
+    func vFromNormalMode(_ vimEngineState: VimEngineState) -> [KeyCombination] {
         functionCalled = #function
         
         return []

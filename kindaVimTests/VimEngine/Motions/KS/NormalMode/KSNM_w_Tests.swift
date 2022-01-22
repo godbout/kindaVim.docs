@@ -19,7 +19,7 @@ extension KSNM_w_Tests {
     
     func test_that_it_calls_the_correct_function_on_KS() {
         
-        XCTAssertEqual(ksNormalModeMock.functionCalled, "w()")
+        XCTAssertEqual(ksNormalModeMock.functionCalled, "w(_:)")
     }
     
     func test_that_it_keeps_Vim_in_NormalMode() {

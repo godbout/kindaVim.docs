@@ -19,7 +19,7 @@ class KSNM_gCaret_Tests: KSNM_BaseTests {
 extension KSNM_gCaret_Tests {
     
     func test_that_it_calls_the_correct_function_on_KS() {
-        XCTAssertEqual(ksNormalModeMock.functionCalled, "gCaret()")
+        XCTAssertEqual(ksNormalModeMock.functionCalled, "gCaret(_:)")
     }
     
     func test_that_it_keeps_Vim_in_NormalMode() {
