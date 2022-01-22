@@ -857,10 +857,6 @@
 		91BEE34D278D85430037FD1A /* KSVM_S__Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSVM_S__Tests.swift; sourceTree = "<group>"; };
 		91BEE350278D88360037FD1A /* KSVM_R__Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSVM_R__Tests.swift; sourceTree = "<group>"; };
 		91BEE352278D88530037FD1A /* ASVM_R__Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASVM_R__Tests.swift; sourceTree = "<group>"; };
-		91C6DBD6279BE4DE0011D59D /* AXEngine */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = AXEngine; path = ../AXEngine; sourceTree = "<group>"; };
-		91C6DBD7279BE5340011D59D /* VimEngineState */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = VimEngineState; path = ../VimEngineState; sourceTree = "<group>"; };
-		91C6DBD8279BE5A70011D59D /* KeyboardStrategy */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = KeyboardStrategy; path = ../KeyboardStrategy; sourceTree = "<group>"; };
-		91C6DBD9279BE73D0011D59D /* AccessibilityStrategy */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = AccessibilityStrategy; path = ../AccessibilityStrategy; sourceTree = "<group>"; };
 		91D222F626FE0F2B00B9AF77 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		91D2230826FE112000B9AF77 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		91D2DB5E2795C5BD00CC7978 /* ASNM_dip_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASNM_dip_Tests.swift; sourceTree = "<group>"; };
@@ -1034,10 +1030,6 @@
 		916ACF8426FE086A000E9757 = {
 			isa = PBXGroup;
 			children = (
-				91C6DBD9279BE73D0011D59D /* AccessibilityStrategy */,
-				91C6DBD8279BE5A70011D59D /* KeyboardStrategy */,
-				91C6DBD7279BE5340011D59D /* VimEngineState */,
-				91C6DBD6279BE4DE0011D59D /* AXEngine */,
 				916ACF8F26FE086B000E9757 /* kindaVim */,
 				916ACFA126FE086C000E9757 /* kindaVimTests */,
 				916ACFAB26FE086C000E9757 /* kindaVimUITests */,

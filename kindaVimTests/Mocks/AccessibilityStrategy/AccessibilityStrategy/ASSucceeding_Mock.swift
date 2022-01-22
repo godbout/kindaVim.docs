@@ -1,11 +1,12 @@
 @testable import kindaVim
 import Foundation
 import AccessibilityStrategy
+import Common
 
 
 struct AccessibilityStrategySucceedingMock: AccessibilityStrategyProtocol {
 
-    func focusedTextElement() -> AccessibilityTextElement? {
+    func focusedTextElement(appFamily: AppFamily = .auto) -> AccessibilityTextElement? {
         return AccessibilityTextElement(
             role: .someOtherShit,
             value: "",

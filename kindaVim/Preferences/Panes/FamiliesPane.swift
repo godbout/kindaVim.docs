@@ -1,5 +1,5 @@
 import SwiftUI
-import VimEngineState
+import Common
 
 
 struct AppDropped: Hashable {
@@ -270,7 +270,7 @@ struct AppsDropDelegate: DropDelegate {
     @AppStorage(SettingsKeys.appsForWhichToEnforceKeyMapping) private var appsForWhichToEnforceKeyMapping: Set<String> = []
     @AppStorage(SettingsKeys.appsForWhichToEnforceNineOneOne) private var appsForWhichToEnforceNineOneOne: Set<String> = []
 
-    let appFamily: VimEngineAppFamily
+    let appFamily: AppFamily
 
 
     func validateDrop(info: DropInfo) -> Bool {

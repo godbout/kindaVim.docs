@@ -2,8 +2,8 @@
 import KeyboardStrategy
 import KeyCombination
 import Foundation
-import VimEngineState
 import AXEngine
+import Common
 
 
 class KeyboardStrategyNormalModeMock: KeyboardStrategyNormalModeProtocol {

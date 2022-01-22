@@ -4,7 +4,7 @@ import KeyboardShortcuts
 import KeyCombination
 import Sauce
 import KeyboardStrategy
-import VimEngineState
+import Common
 
 
 struct GlobalEventsController {
@@ -79,7 +79,7 @@ struct GlobalEventsController {
         }
     }
     
-    private static func appFamilyForCurrentApp() -> VimEngineAppFamily {
+    private static func appFamilyForCurrentApp() -> AppFamily {
         guard let pid = AppCore.shared.axEngine.axFrontmostApplicationPID(), let frontmostApp = NSRunningApplication(processIdentifier: pid) else { return .auto }
 
         if onAppToIgnore(appBeing: frontmostApp) {

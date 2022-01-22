@@ -5,7 +5,7 @@ import KeyboardStrategy
 import AccessibilityStrategy
 import AXEngine
 import Commands
-import VimEngineState
+import Common
 
 
 struct LastLeftRightSearch {
@@ -97,7 +97,7 @@ class KindaVimEngine {
     }
     
 
-    func handle(keyCombination: KeyCombination, appFamily: VimEngineAppFamily = .auto) {
+    func handle(keyCombination: KeyCombination, appFamily: AppFamily = .auto) {
         #if DEBUG
         if showCharactersTyped == true {
             display.ongoingMove(add: keyCombination)
@@ -215,7 +215,7 @@ class KindaVimEngine {
         }        
     }
     
-    private func handleOperatorPendingForNormalMode(using strategy: VimEngineStrategy, for keyCombination: KeyCombination, appFamily: VimEngineAppFamily = .auto) {
+    private func handleOperatorPendingForNormalMode(using strategy: VimEngineStrategy, for keyCombination: KeyCombination, appFamily: AppFamily = .auto) {
         operatorPendingBuffer.append(keyCombination)
         
         switch strategy {
@@ -230,7 +230,7 @@ class KindaVimEngine {
         }
     }
     
-    private func handleVisualMode(using strategy: VimEngineStrategy, for keyCombination: KeyCombination, appFamily: VimEngineAppFamily = .auto) {
+    private func handleVisualMode(using strategy: VimEngineStrategy, for keyCombination: KeyCombination, appFamily: AppFamily = .auto) {
         switch strategy {
         case .accessibilityStrategy:
             tryHandlingVisualModeUsingAccessibilityStrategyFirst(for: keyCombination)
@@ -277,7 +277,7 @@ class KindaVimEngine {
         #endif
     }
     
-    func enterNormalMode(appFamily: VimEngineAppFamily = .auto) {
+    func enterNormalMode(appFamily: AppFamily = .auto) {
         endCurrentMove()
         
         if currentMode == .insert {
@@ -297,7 +297,7 @@ class KindaVimEngine {
         }
     }
         
-    private func goBackOneCharacterForTextElements(appFamily: VimEngineAppFamily) {
+    private func goBackOneCharacterForTextElements(appFamily: AppFamily) {
         switch (appFamily, ksNormalMode.focusedElementType) {
         case (.keyMapping, .textElement):
             post(ksNormalMode.h())
