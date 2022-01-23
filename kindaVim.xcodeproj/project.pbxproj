@@ -395,6 +395,9 @@
 		918F30672787559C00AD68DF /* KSVM_F__Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918F303E2787559C00AD68DF /* KSVM_F__Tests.swift */; };
 		918F30682787559C00AD68DF /* KSVM_c_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918F303F2787559C00AD68DF /* KSVM_c_Tests.swift */; };
 		918F306A2787569E00AD68DF /* KeyMappingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 918F30692787569E00AD68DF /* KeyMappingTests.swift */; };
+		91943A31279D1558001C8393 /* Paddle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91943A30279D1558001C8393 /* Paddle.framework */; };
+		91943A32279D1579001C8393 /* Paddle.framework in Copy Paddle */ = {isa = PBXBuildFile; fileRef = 91943A30279D1558001C8393 /* Paddle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		91943A35279D15AD001C8393 /* Licensing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91943A34279D15AD001C8393 /* Licensing.swift */; };
 		91A967422741447400E1CA7E /* Updater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A967412741447400E1CA7E /* Updater.swift */; };
 		91BBC4DD278763F2008DE977 /* KSNM_c$_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BBC4DC278763F2008DE977 /* KSNM_c$_Tests.swift */; };
 		91BBC4DF278763FD008DE977 /* KSNM_d$_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BBC4DE278763FD008DE977 /* KSNM_d$_Tests.swift */; };
@@ -468,6 +471,20 @@
 			remoteInfo = kindaVim;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		91943A2D279D14E3001C8393 /* Copy Paddle */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				91943A32279D1579001C8393 /* Paddle.framework in Copy Paddle */,
+			);
+			name = "Copy Paddle";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		9103212127953B0F00584542 /* LicensePane.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicensePane.swift; sourceTree = "<group>"; };
@@ -846,6 +863,8 @@
 		918F303E2787559C00AD68DF /* KSVM_F__Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KSVM_F__Tests.swift; sourceTree = "<group>"; };
 		918F303F2787559C00AD68DF /* KSVM_c_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KSVM_c_Tests.swift; sourceTree = "<group>"; };
 		918F30692787569E00AD68DF /* KeyMappingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyMappingTests.swift; sourceTree = "<group>"; };
+		91943A30279D1558001C8393 /* Paddle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Paddle.framework; sourceTree = "<group>"; };
+		91943A34279D15AD001C8393 /* Licensing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Licensing.swift; sourceTree = "<group>"; };
 		91A967412741447400E1CA7E /* Updater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Updater.swift; sourceTree = "<group>"; };
 		91BBC4DC278763F2008DE977 /* KSNM_c$_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSNM_c$_Tests.swift; sourceTree = "<group>"; };
 		91BBC4DE278763FD008DE977 /* KSNM_d$_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSNM_d$_Tests.swift; sourceTree = "<group>"; };
@@ -901,6 +920,7 @@
 				91840E1826FE0A4F00E6048E /* KeyboardShortcuts in Frameworks */,
 				917A61EB27410F1100E3654E /* Sparkle in Frameworks */,
 				91840E2126FE0AA800E6048E /* KeyboardStrategy in Frameworks */,
+				91943A31279D1558001C8393 /* Paddle.framework in Frameworks */,
 				91840E1B26FE0A6A00E6048E /* KeyCombination in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1055,6 +1075,7 @@
 		916ACF8F26FE086B000E9757 /* kindaVim */ = {
 			isa = PBXGroup;
 			children = (
+				91943A33279D1596001C8393 /* Licensing */,
 				9176BF332742665700A8449A /* Updater */,
 				91840DD026FE096B00E6048E /* StatusBar */,
 				91840DD226FE096C00E6048E /* Display */,
@@ -1642,9 +1663,18 @@
 			path = NormalMode;
 			sourceTree = "<group>";
 		};
+		91943A33279D1596001C8393 /* Licensing */ = {
+			isa = PBXGroup;
+			children = (
+				91943A34279D15AD001C8393 /* Licensing.swift */,
+			);
+			path = Licensing;
+			sourceTree = "<group>";
+		};
 		91D222F826FE103800B9AF77 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				91943A30279D1558001C8393 /* Paddle.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1707,6 +1737,7 @@
 				916ACF8A26FE086B000E9757 /* Frameworks */,
 				916ACF8B26FE086B000E9757 /* Resources */,
 				91460B732700E4CB00A1FCB3 /* Copy "Launch at Login Helper" */,
+				91943A2D279D14E3001C8393 /* Copy Paddle */,
 			);
 			buildRules = (
 			);
@@ -1900,6 +1931,7 @@
 				91840DFC26FE096C00E6048E /* KindaVimEngine.swift in Sources */,
 				91840DED26FE096C00E6048E /* Window.swift in Sources */,
 				914D662127266467005B9D99 /* SplashScreenView.swift in Sources */,
+				91943A35279D15AD001C8393 /* Licensing.swift in Sources */,
 				913FC721277A236800D89166 /* InputFieldObserver.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2464,6 +2496,10 @@
 				DEVELOPMENT_TEAM = ZX49WKA8QN;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = kindaVim/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
@@ -2496,6 +2532,10 @@
 				DEVELOPMENT_TEAM = ZX49WKA8QN;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = kindaVim/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
@@ -2693,6 +2733,10 @@
 				DEVELOPMENT_TEAM = ZX49WKA8QN;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = kindaVim/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
@@ -2838,6 +2882,10 @@
 				DEVELOPMENT_TEAM = ZX49WKA8QN;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = kindaVim/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
