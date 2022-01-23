@@ -12,6 +12,7 @@ class AppCore {
     var axEngine: AXEngine!
     var inputFieldObserver: InputFieldObserver!
     var vimEngine: KindaVimEngine!
+    var licensing: Licensing!
 
     var accessibilityElementAdaptorTestingWindow: NSWindow!
     
@@ -26,6 +27,7 @@ class AppCore {
         setUpKeyboardLayoutsKeyCodes()
         setUpAXEngine()
         setUpInputFieldObserver()
+        setUpLicensing()
         setUpVimEngine()
         
         NSApplication.shared.hide(self)
@@ -88,6 +90,12 @@ class AppCore {
         
         inputFieldObserver = InputFieldObserver()
     }
+    
+    private func setUpLicensing() {
+        guard licensing == nil else { return }
+        
+        licensing = Licensing()
+    }
 
     private func setUpVimEngine() {
         guard vimEngine == nil else { return }
@@ -104,6 +112,6 @@ class AppCore {
         vimEngine.showCharactersTyped = showCharactersTyped
         vimEngine.jkMapping = jkMapping
     }
-
+    
 }
 

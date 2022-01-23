@@ -6,11 +6,13 @@ class StatusBarController {
 
     @AppStorage(SettingsKeys.toggleMenuBarIcon) private var toggleMenuBarIcon: Bool = false
     var statusItem: NSStatusItem!
+    var subscriptionPopover: NSPopover!
     var updater = Updater()    
     
     init() {
         setUpStatusItem()
         setUpStatusItemMenu()
+        setUpSubscriptionPopover()
     }
     
     
@@ -38,6 +40,14 @@ class StatusBarController {
 
         statusItem.menu = menu
     }
+    
+    private func setUpSubscriptionPopover() {
+        subscriptionPopover = NSPopover()
+        subscriptionPopover.behavior = .transient
+        subscriptionPopover.animates = true
+        subscriptionPopover.contentViewController = NSViewController()
+        subscriptionPopover.contentViewController?.view = NSHostingView(rootView: VisualsPane())        
+    }
 
     @objc func preferences() {
         NSApp.sendAction(Selector(("showPreferencesWindow:")), to: nil, from: nil)
@@ -50,6 +60,6 @@ class StatusBarController {
 
     @objc func quit() {
         NSApplication.shared.terminate(self)
-    }    
+    }
 
 }

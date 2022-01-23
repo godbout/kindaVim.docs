@@ -15,7 +15,7 @@
         "repositoryURL": "git@github.com:godbout/AXEngine.git",
         "state": {
           "branch": "master",
-          "revision": "f2892d91951be71dcac4e80a0de4345f49b360ec",
+          "revision": "6059250b82c6e8b78198cbf6e10bd6e06244a95d",
           "version": null
         }
       },
@@ -42,8 +42,8 @@
         "repositoryURL": "git@github.com:sindresorhus/KeyboardShortcuts.git",
         "state": {
           "branch": null,
-          "revision": "0d77aa6851615007a84c9ca77c420dbd13bbad8a",
-          "version": "1.3.0"
+          "revision": "9bc72c441c713362a137ecbb4104920655a9aa5e",
+          "version": "1.4.0"
         }
       },
       {
@@ -51,7 +51,7 @@
         "repositoryURL": "git@github.com:godbout/KeyboardStrategy.git",
         "state": {
           "branch": "master",
-          "revision": "f26cf6517200c2ecf349d8234104926578e4fff3",
+          "revision": "8d4bf7bce61da6e4ffe1daf90814d1258dd26f1a",
           "version": null
         }
       },
@@ -87,7 +87,7 @@
         "repositoryURL": "https://github.com/sparkle-project/Sparkle",
         "state": {
           "branch": "2.x",
-          "revision": "05abb2f7e440ee33e273786cfdb39d4aafb478ed",
+          "revision": "89e20a490d633dfd350fa908f0135bd683a7af7b",
           "version": null
         }
       }

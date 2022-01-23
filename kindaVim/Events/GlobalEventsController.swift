@@ -17,9 +17,6 @@ struct GlobalEventsController {
     @AppStorage(SettingsKeys.appsForWhichToEnforceNineOneOne) private static var appsForWhichToEnforceNineOneOne: Set<String> = []
     @AppStorage(SettingsKeys.enableKillSwitch) static var enableKillSwitch: Bool = false
     
-    // to start thinking about how to charge :D
-    // the first idea is you can type 69 characters before kV start functioning LMAO
-    static var numberOfKeystrokes: Int = 0
     
     static func handle(keyCombination: KeyCombination?) -> Bool {
         switch AppCore.shared.vimEngine.currentMode {
@@ -31,6 +28,21 @@ struct GlobalEventsController {
                 if AppCore.shared.vimEngine.showCharactersTyped == true {
                     AppCore.shared.vimEngine.display.ongoingMove(add: implementedKeyCombination)
                     AppCore.shared.vimEngine.display.showOngoingMove()
+                }
+                #endif
+                
+                #if DEBUG
+                if AppCore.shared.licensing.paddleProduct?.activated == false {
+                    let statusItemButton = AppCore.shared.statusBarController.statusItem.button
+                    let subscriptionPopover = AppCore.shared.statusBarController.subscriptionPopover
+                    
+                    subscriptionPopover?.animates = false
+                    subscriptionPopover?.close()
+                    subscriptionPopover?.animates = true
+                    subscriptionPopover?.show(relativeTo: statusItemButton!.bounds, of: statusItemButton!, preferredEdge: NSRectEdge.minY)
+                    
+                    
+                    return true
                 }
                 #endif
                 
@@ -68,11 +80,7 @@ struct GlobalEventsController {
                 
                 return true
             }
-            
-            #if DEBUG
-            doTheKeystrokeSubscriptionShit()
-            #endif
-            
+                        
             AppCore.shared.vimEngine.handle(keyCombination: implementedKeyCombination, appFamily: appFamilyForCurrentApp())
             
             return true       
@@ -161,20 +169,5 @@ struct GlobalEventsController {
             && keyCombination.shift == killSwitchKeyboardShortcut.modifiers.contains(.shift)
             && keyCombination.command == killSwitchKeyboardShortcut.modifiers.contains(.command)
     }
-    
-    private static func doTheKeystrokeSubscriptionShit() {
-        #if DEBUG
-        // you sleep for now. annoying LOL
-//        numberOfKeystrokes += 1
-//        
-//        if numberOfKeystrokes > 689 {
-//            let alert: NSAlert = NSAlert()
-//            alert.messageText = String(numberOfKeystrokes)
-//            numberOfKeystrokes = 0
-//            alert.addButton(withTitle: "OK")
-//            _ = alert.runModal()
-//        }
-        #endif
-    }
-    
+        
 }

@@ -500,8 +500,6 @@
 		911547E5278FFB9A0063DB88 /* GECEnableKillSwitchONTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GECEnableKillSwitchONTests.swift; sourceTree = "<group>"; };
 		911547ED2790739F0063DB88 /* GECEnableKillSwitchOFFTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GECEnableKillSwitchOFFTests.swift; sourceTree = "<group>"; };
 		9118CEA626FEF90A005F0907 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
-		91212B95279C0CE8008F66EC /* AXEngine */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = AXEngine; path = ../AXEngine; sourceTree = "<group>"; };
-		91212B96279C0D63008F66EC /* KeyboardStrategy */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = KeyboardStrategy; path = ../KeyboardStrategy; sourceTree = "<group>"; };
 		912282302781C330006531CB /* ASCL_x_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASCL_x_Tests.swift; sourceTree = "<group>"; };
 		912282322781C33D006531CB /* KSCL_x_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSCL_x_Tests.swift; sourceTree = "<group>"; };
 		912BC44A278A1417000E999C /* ASSucceeding_TextField_Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASSucceeding_TextField_Mock.swift; sourceTree = "<group>"; };
@@ -1052,8 +1050,6 @@
 		916ACF8426FE086A000E9757 = {
 			isa = PBXGroup;
 			children = (
-				91212B96279C0D63008F66EC /* KeyboardStrategy */,
-				91212B95279C0CE8008F66EC /* AXEngine */,
 				916ACF8F26FE086B000E9757 /* kindaVim */,
 				916ACFA126FE086C000E9757 /* kindaVimTests */,
 				916ACFAB26FE086C000E9757 /* kindaVimUITests */,
