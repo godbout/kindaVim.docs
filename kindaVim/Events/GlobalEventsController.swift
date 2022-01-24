@@ -73,6 +73,7 @@ struct GlobalEventsController {
                                                 
                 subscriptionPopover?.animates = false
                 subscriptionPopover?.close()
+                subscriptionPopover?.contentViewController?.view = NSHostingView(rootView: BedtimePopoverView(sentence: Licensing.bedtimeSentences.randomElement()!))
                 subscriptionPopover?.animates = true
                 
                 // even without a license you're allowed to go back to IM awww LOL how generous

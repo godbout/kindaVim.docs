@@ -46,7 +46,7 @@ class StatusBarController {
         subscriptionPopover.behavior = .transient
         subscriptionPopover.animates = true
         subscriptionPopover.contentViewController = NSViewController()
-        subscriptionPopover.contentViewController?.view = NSHostingView(rootView: VisualsPane())        
+        subscriptionPopover.contentViewController?.view = NSHostingView(rootView: BedtimePopoverView(sentence: Licensing.bedtimeSentences.randomElement()!))        
     }
 
     @objc func preferences() {
