@@ -25,9 +25,10 @@ struct BedtimePopoverView: View {
                         Button("yes, i wanna abuse kV so bad") {
                             openURL(URL(string: "https://kindavim.app")!)
                         }
-                        Button("no, let kV sleep till 1pm today") {
-                            
-                        }
+                        Text("or press any Vim motion that goes back to Insert Mode.")
+                            .foregroundColor(.gray)
+                            .font(.footnote)
+                            .padding(.top, 1)
                     }
                     .font(.callout)
                 }

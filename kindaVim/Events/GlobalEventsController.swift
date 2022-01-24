@@ -47,21 +47,24 @@ struct GlobalEventsController {
         // so they're handled by GEC. which makes sense, and separate concerns AWWW
         case .normal, .operatorPendingForNormalMode, .visual, .operatorPendingForVisualMode:
             guard let implementedKeyCombination = keyCombination else { return true }
+            let subscriptionPopover = AppCore.shared.statusBarController.subscriptionPopover
             
             // this is especially for those who use `esc` to enter Normal Mode. because kV
             // steals `esc` from macOS, we need another way to send `esc` to macOS. the current way
             // is to press `esc` while in Normal Mode. that will go to Insert Mode, while sending
             // `esc` to macOS.
             guard escapeIsGlobalVimEngineHotkeyAndPressedWhileInNormalMode(implementedKeyCombination) == false else {
-                AppCore.shared.vimEngine.enterInsertMode()
+                AppCore.shared.vimEngine.enterInsertMode()                
+                subscriptionPopover?.isShown == true ? subscriptionPopover?.close() : ()
                 let escapeCGEvent = KeyCombinationAdaptor.toCGEvents(from: implementedKeyCombination)
                 escapeCGEvent.first?.tapPostEvent(KeyboardStrategy.proxy)
                 
                 return true
             }           
-            
+          
             guard killSwitchIsEnabledAndKillSwitchHotkeyIsPressed(implementedKeyCombination) == false else {
                 AppCore.shared.vimEngine.enterInsertMode()
+                subscriptionPopover?.isShown == true ? subscriptionPopover?.close() : ()
                 
                 return true
             }
@@ -69,10 +72,10 @@ struct GlobalEventsController {
             #if DEBUG     
             guard AppCore.shared.licensing.userHasEarnedRightsToAbuse else {
                 let statusItemButton = AppCore.shared.statusBarController.statusItem.button
-                let subscriptionPopover = AppCore.shared.statusBarController.subscriptionPopover
                                                 
                 subscriptionPopover?.animates = false
                 subscriptionPopover?.close()
+                subscriptionPopover?.behavior = .transient
                 subscriptionPopover?.contentViewController?.view = NSHostingView(rootView: BedtimePopoverView(sentence: Licensing.bedtimeSentences.randomElement()!))
                 subscriptionPopover?.animates = true
                 

@@ -17,7 +17,7 @@ struct EventTapController {
         guard type == .keyDown else {
             if AppCore.shared.vimEngine.currentMode != .insert {
                 AppCore.shared.vimEngine.enterInsertMode()
-            }
+            }            
             
             return Unmanaged.passUnretained(event)
         }        
