@@ -46,6 +46,14 @@
 		916ACF9126FE086B000E9757 /* kindaVimApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916ACF9026FE086B000E9757 /* kindaVimApp.swift */; };
 		916ACF9526FE086C000E9757 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 916ACF9426FE086C000E9757 /* Assets.xcassets */; };
 		916ACF9826FE086C000E9757 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 916ACF9726FE086C000E9757 /* Preview Assets.xcassets */; };
+		91737498279E96AA003C563D /* LicensingBaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91737497279E96AA003C563D /* LicensingBaseTests.swift */; };
+		91737499279E985A003C563D /* Licensing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91943A34279D15AD001C8393 /* Licensing.swift */; };
+		9173749A279E988A003C563D /* Paddle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91943A30279D1558001C8393 /* Paddle.framework */; };
+		9173749D279EA012003C563D /* HasActivatedSubscriptionMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9173749C279EA012003C563D /* HasActivatedSubscriptionMock.swift */; };
+		9173749F279EA01C003C563D /* HasNotActivatedSubscriptionMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9173749E279EA01C003C563D /* HasNotActivatedSubscriptionMock.swift */; };
+		917374A1279EA26D003C563D /* HasActivatedSubscriptionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917374A0279EA26D003C563D /* HasActivatedSubscriptionTests.swift */; };
+		917374A3279EA278003C563D /* HasNotActivatedSubscriptionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917374A2279EA278003C563D /* HasNotActivatedSubscriptionTests.swift */; };
+		917374A7279EC345003C563D /* BedtimePopoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917374A6279EC345003C563D /* BedtimePopoverView.swift */; };
 		917A61EB27410F1100E3654E /* Sparkle in Frameworks */ = {isa = PBXBuildFile; productRef = 917A61EA27410F1100E3654E /* Sparkle */; };
 		9183490E2791492A00F71528 /* ASCL_ZZ__Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9183490D2791492A00F71528 /* ASCL_ZZ__Tests.swift */; };
 		91834910279149B100F71528 /* KSCL_ZZ__Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9183490F279149B100F71528 /* KSCL_ZZ__Tests.swift */; };
@@ -518,6 +526,12 @@
 		916ACF9926FE086C000E9757 /* kindaVim.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = kindaVim.entitlements; sourceTree = "<group>"; };
 		916ACF9E26FE086C000E9757 /* kindaVimTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = kindaVimTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		916ACFA826FE086C000E9757 /* kindaVimUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = kindaVimUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		91737497279E96AA003C563D /* LicensingBaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicensingBaseTests.swift; sourceTree = "<group>"; };
+		9173749C279EA012003C563D /* HasActivatedSubscriptionMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HasActivatedSubscriptionMock.swift; sourceTree = "<group>"; };
+		9173749E279EA01C003C563D /* HasNotActivatedSubscriptionMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HasNotActivatedSubscriptionMock.swift; sourceTree = "<group>"; };
+		917374A0279EA26D003C563D /* HasActivatedSubscriptionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HasActivatedSubscriptionTests.swift; sourceTree = "<group>"; };
+		917374A2279EA278003C563D /* HasNotActivatedSubscriptionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HasNotActivatedSubscriptionTests.swift; sourceTree = "<group>"; };
+		917374A6279EC345003C563D /* BedtimePopoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BedtimePopoverView.swift; sourceTree = "<group>"; };
 		9183490D2791492A00F71528 /* ASCL_ZZ__Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASCL_ZZ__Tests.swift; sourceTree = "<group>"; };
 		9183490F279149B100F71528 /* KSCL_ZZ__Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSCL_ZZ__Tests.swift; sourceTree = "<group>"; };
 		91840B3F26FE092D00E6048E /* KSVM_Mock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KSVM_Mock.swift; sourceTree = "<group>"; };
@@ -939,6 +953,7 @@
 				91E7DFAB273958AC007CC0D5 /* AccessibilityStrategy in Frameworks */,
 				91E7DFA527395841007CC0D5 /* KeyCombination in Frameworks */,
 				91351D672785B40C0035577C /* Commands in Frameworks */,
+				9173749A279E988A003C563D /* Paddle.framework in Frameworks */,
 				91E7DFA327395834007CC0D5 /* LaunchAtLogin in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1104,6 +1119,7 @@
 			isa = PBXGroup;
 			children = (
 				91840B3E26FE092D00E6048E /* Mocks */,
+				91737496279E9693003C563D /* Licensing */,
 				91840B5126FE094200E6048E /* Events */,
 				91840B5326FE094300E6048E /* VimEngine */,
 			);
@@ -1118,6 +1134,25 @@
 			path = kindaVimUITests;
 			sourceTree = "<group>";
 		};
+		91737496279E9693003C563D /* Licensing */ = {
+			isa = PBXGroup;
+			children = (
+				91737497279E96AA003C563D /* LicensingBaseTests.swift */,
+				917374A0279EA26D003C563D /* HasActivatedSubscriptionTests.swift */,
+				917374A2279EA278003C563D /* HasNotActivatedSubscriptionTests.swift */,
+			);
+			path = Licensing;
+			sourceTree = "<group>";
+		};
+		9173749B279E9FFC003C563D /* Licensing */ = {
+			isa = PBXGroup;
+			children = (
+				9173749C279EA012003C563D /* HasActivatedSubscriptionMock.swift */,
+				9173749E279EA01C003C563D /* HasNotActivatedSubscriptionMock.swift */,
+			);
+			path = Licensing;
+			sourceTree = "<group>";
+		};
 		9176BF332742665700A8449A /* Updater */ = {
 			isa = PBXGroup;
 			children = (
@@ -1129,6 +1164,7 @@
 		91840B3E26FE092D00E6048E /* Mocks */ = {
 			isa = PBXGroup;
 			children = (
+				9173749B279E9FFC003C563D /* Licensing */,
 				912BC447278A0FF4000E999C /* Commands */,
 				912BC446278A0FEA000E999C /* KeyboardStrategy */,
 				912BC445278A0FDD000E999C /* AccessibilityStrategy */,
@@ -1663,6 +1699,7 @@
 			isa = PBXGroup;
 			children = (
 				91943A34279D15AD001C8393 /* Licensing.swift */,
+				917374A6279EC345003C563D /* BedtimePopoverView.swift */,
 			);
 			path = Licensing;
 			sourceTree = "<group>";
@@ -1907,6 +1944,7 @@
 				9103C59A271C7B5300BDEBD7 /* KS_VisualMode.swift in Sources */,
 				91A967422741447400E1CA7E /* Updater.swift in Sources */,
 				91840DF026FE096C00E6048E /* HazeOverWindow.swift in Sources */,
+				917374A7279EC345003C563D /* BedtimePopoverView.swift in Sources */,
 				9118CEA726FEF90A005F0907 /* SettingsView.swift in Sources */,
 				91840DF226FE096C00E6048E /* EventTapController.swift in Sources */,
 				91840DEF26FE096C00E6048E /* CharactersView.swift in Sources */,
@@ -1952,6 +1990,7 @@
 				918F2ECE278754D100AD68DF /* ASNM_$_Tests.swift in Sources */,
 				918F30422787559C00AD68DF /* KSVM_B__Tests.swift in Sources */,
 				918F2E95278754D100AD68DF /* ASNM_ge_Tests.swift in Sources */,
+				917374A3279EA278003C563D /* HasNotActivatedSubscriptionTests.swift in Sources */,
 				91BEE344278D68990037FD1A /* ASNM_s_Tests.swift in Sources */,
 				918F2FCC2787557800AD68DF /* KSNM_caW__Tests.swift in Sources */,
 				918F30632787559C00AD68DF /* KSVM_gE__Tests.swift in Sources */,
@@ -1988,6 +2027,7 @@
 				91BEE34A278D81EB0037FD1A /* KSVM_s_Tests.swift in Sources */,
 				918F2EFD278754D100AD68DF /* ASNM_daw_Tests.swift in Sources */,
 				918F2F432787551300AD68DF /* ASVM_Y__Tests.swift in Sources */,
+				9173749F279EA01C003C563D /* HasNotActivatedSubscriptionMock.swift in Sources */,
 				918F2EA4278754D100AD68DF /* ASNM_yi}_Tests.swift in Sources */,
 				918F2F4A2787551300AD68DF /* ASVM_E__Tests.swift in Sources */,
 				918F2F542787551300AD68DF /* ASVM_G__Tests.swift in Sources */,
@@ -2094,6 +2134,7 @@
 				918F2EC4278754D100AD68DF /* ASNM_gj_Tests.swift in Sources */,
 				918F2F06278754D100AD68DF /* ASNM_r_Tests.swift in Sources */,
 				918F2EC7278754D100AD68DF /* ASNM_ci[_Tests.swift in Sources */,
+				917374A1279EA26D003C563D /* HasActivatedSubscriptionTests.swift in Sources */,
 				918F2E1227874ED300AD68DF /* ASFailing_Mock.swift in Sources */,
 				918F2EBB278754D100AD68DF /* ASNM_yt_Tests.swift in Sources */,
 				918F300A2787557800AD68DF /* KSNM_g$_Tests.swift in Sources */,
@@ -2179,6 +2220,7 @@
 				918F2EDA278754D100AD68DF /* ASNM_ci'_Tests.swift in Sources */,
 				918F30092787557800AD68DF /* KSNM_G___Tests.swift in Sources */,
 				918F2EA7278754D100AD68DF /* ASNM_dW__Tests.swift in Sources */,
+				91737498279E96AA003C563D /* LicensingBaseTests.swift in Sources */,
 				918F2EF4278754D100AD68DF /* ASNM_X__Tests.swift in Sources */,
 				918F2EBA278754D100AD68DF /* ASNM_yi`_Tests.swift in Sources */,
 				918F2F3E2787551300AD68DF /* ASVM_x_Tests.swift in Sources */,
@@ -2192,6 +2234,7 @@
 				918F2FC02787557800AD68DF /* KSNM_cw_Tests.swift in Sources */,
 				911547DF278F17160063DB88 /* KSVM_escape_Tests.swift in Sources */,
 				91840B4C26FE092D00E6048E /* KSNM_Mock.swift in Sources */,
+				9173749D279EA012003C563D /* HasActivatedSubscriptionMock.swift in Sources */,
 				918F2EE3278754D100AD68DF /* ASNM_yF__Tests.swift in Sources */,
 				918F2EE5278754D100AD68DF /* ASNM_cb_Tests.swift in Sources */,
 				918F2EE0278754D100AD68DF /* ASNM_G___Tests.swift in Sources */,
@@ -2337,6 +2380,7 @@
 				91840E0B26FE09A300E6048E /* _ASUI_NM_BaseTests.swift in Sources */,
 				91D72B5D275E25FE00CC46B4 /* ASUI_NM_ci{_Tests.swift in Sources */,
 				9103C59F271C7F1400BDEBD7 /* AS_VisualMode.swift in Sources */,
+				91737499279E985A003C563D /* Licensing.swift in Sources */,
 				91C26B34277B2E27002C3CED /* AppCore.swift in Sources */,
 				91EC8C6127675AB000E40F27 /* ASUI_NM_cb_Tests.swift in Sources */,
 				91840E0F26FE09A300E6048E /* ASUI_NM_caw_Tests.swift in Sources */,
@@ -2613,6 +2657,10 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = ZX49WKA8QN;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GENERATE_INFOPLIST_FILE = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2638,6 +2686,10 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = ZX49WKA8QN;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GENERATE_INFOPLIST_FILE = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2787,6 +2839,10 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = ZX49WKA8QN;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GENERATE_INFOPLIST_FILE = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2936,6 +2992,10 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = ZX49WKA8QN;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GENERATE_INFOPLIST_FILE = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

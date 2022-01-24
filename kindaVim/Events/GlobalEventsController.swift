@@ -87,6 +87,7 @@ struct GlobalEventsController {
                 }
                 
                 subscriptionPopover?.show(relativeTo: statusItemButton!.bounds, of: statusItemButton!, preferredEdge: NSRectEdge.minY)
+                subscriptionPopover?.contentViewController?.view.window?.makeKey()
               
                 return true
             }
