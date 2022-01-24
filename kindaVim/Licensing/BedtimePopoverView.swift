@@ -21,7 +21,7 @@ struct BedtimePopoverView: View {
                     Spacer()
                     VStack(alignment: .trailing) {
                         Text("kV is sleeping from 5am to 1pm every day.")
-                        Text("wanna torture it 24/7? checkout the sub!")
+                        Text("wanna torture it 24/7? check out the sub!")
                         Button("yes, i wanna abuse kV so bad") {
                             openURL(URL(string: "https://kindavim.app")!)
                         }
