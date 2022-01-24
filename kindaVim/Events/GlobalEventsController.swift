@@ -23,16 +23,16 @@ struct GlobalEventsController {
         case .insert:
             guard let implementedKeyCombination = keyCombination else { return false }
             
-            if globalVimEngineHotkeyIsPressed(implementedKeyCombination) {
+            if globalVimEngineHotkeyIsPressed(implementedKeyCombination) {                
+                let appFamily = appFamilyForCurrentApp()        
+                guard appFamily != .off else { return false }
+                
                 #if DEBUG
                 if AppCore.shared.vimEngine.showCharactersTyped == true {
                     AppCore.shared.vimEngine.display.ongoingMove(add: implementedKeyCombination)
                     AppCore.shared.vimEngine.display.showOngoingMove()
                 }
                 #endif
-                
-                let appFamily = appFamilyForCurrentApp()        
-                guard appFamily != .off else { return false }
                
                 AppCore.shared.vimEngine.enterNormalMode(appFamily: appFamily)
                 AppCore.shared.inputFieldObserver.startObserving()
