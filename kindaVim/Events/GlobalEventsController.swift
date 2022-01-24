@@ -31,21 +31,6 @@ struct GlobalEventsController {
                 }
                 #endif
                 
-                #if DEBUG
-                if AppCore.shared.licensing.paddleProduct?.activated == false {
-                    let statusItemButton = AppCore.shared.statusBarController.statusItem.button
-                    let subscriptionPopover = AppCore.shared.statusBarController.subscriptionPopover
-                    
-                    subscriptionPopover?.animates = false
-                    subscriptionPopover?.close()
-                    subscriptionPopover?.animates = true
-                    subscriptionPopover?.show(relativeTo: statusItemButton!.bounds, of: statusItemButton!, preferredEdge: NSRectEdge.minY)
-                    
-                    
-                    return true
-                }
-                #endif
-                
                 let appFamily = appFamilyForCurrentApp()        
                 guard appFamily != .off else { return false }
                
@@ -80,6 +65,28 @@ struct GlobalEventsController {
                 
                 return true
             }
+            
+            #if DEBUG     
+            guard AppCore.shared.licensing.userHasEarnedRightsToAbuse else {
+                let statusItemButton = AppCore.shared.statusBarController.statusItem.button
+                let subscriptionPopover = AppCore.shared.statusBarController.subscriptionPopover
+                                                
+                subscriptionPopover?.animates = false
+                subscriptionPopover?.close()
+                subscriptionPopover?.animates = true
+                
+                // even without a license you're allowed to go back to IM awww LOL how generous
+                guard [.A, .a, .C, .c, .I, .i, .O, .o, .S, .s].contains(implementedKeyCombination.vimKey) == false else {
+                    AppCore.shared.vimEngine.handle(keyCombination: implementedKeyCombination, appFamily: appFamilyForCurrentApp())                    
+                    
+                    return true
+                }
+                
+                subscriptionPopover?.show(relativeTo: statusItemButton!.bounds, of: statusItemButton!, preferredEdge: NSRectEdge.minY)
+              
+                return true
+            }
+            #endif
                         
             AppCore.shared.vimEngine.handle(keyCombination: implementedKeyCombination, appFamily: appFamilyForCurrentApp())
             
