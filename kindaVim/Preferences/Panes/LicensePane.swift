@@ -3,9 +3,13 @@ import SwiftUI
 
 struct LicensePane: View {
     
-    @State private var awesomeHumanEmail = ""
-    @State private var magicNumbers = ""
-
+    @AppStorage(SettingsKeys.awesomeHumanEmail) private var awesomeHumanEmail = ""
+    @AppStorage(SettingsKeys.magicNumbers) private var magicNumbers = ""
+    
+    @State private var isActivated = AppCore.shared.licensing.isActivated
+    @State private var activateSubscriptionButtonText = "activate subscription" 
+    @State private var removeLicenseButtoNText = "remove license" 
+    
     var body: some View {
         
         Form {
@@ -25,35 +29,91 @@ struct LicensePane: View {
                 Divider()
                 
                 VStack(alignment: .trailing) {
-                    HStack {
-                        Spacer()
-                        TextField(text: $awesomeHumanEmail, prompt: Text("guill@sleeplessmind.com.mo")) {
-                            Label("the Awesome Human's email:", systemImage: "figure.walk")
+                    VStack {
+                        HStack {
+                            Spacer()
+                            TextField(text: $awesomeHumanEmail, prompt: Text("guill@sleeplessmind.com.mo")) {
+                                Label("the Awesome Human's email:", systemImage: "figure.walk")
+                            }
+                            .onSubmit {
+                                tryActivatingLicense()
+                            }
+                            .multilineTextAlignment(.center)
+                            .frame(width: 512)
+                            .fixedSize()
                         }
-                        .multilineTextAlignment(.center)
-                        .frame(width: 512)
-                        .fixedSize()
-                    }
-                    HStack {
-                        Spacer()
-                        TextField(text: $magicNumbers, prompt: Text("PD-a1bcde2f-3ghi-4567-j8kl-m901234n6o9f")) {
-                            Label("the Magic Numbers™:", systemImage: "barcode")
+                        HStack {
+                            Spacer()
+                            TextField(text: $magicNumbers, prompt: Text("PD-a1bcde2f-3ghi-4567-j8kl-m901234n6o9f")) {
+                                Label("the Magic Numbers™:", systemImage: "barcode")
+                            }
+                            .onSubmit {
+                                tryActivatingLicense()
+                            }
+                            .multilineTextAlignment(.center)
+                            .frame(width: 470)
+                            .fixedSize()
                         }
-                        .multilineTextAlignment(.center)
-                        .frame(width: 470)
-                        .fixedSize()
                     }
-                    Button("activate subscription") {
-                        print("trying to activate")
+                    .foregroundColor(isActivated ? .gray : .primary)
+                    .disabled(isActivated)
+
+                    HStack {
+                        if isActivated {
+                            Button(removeLicenseButtoNText) {
+                                tryRemovingLicense()
+                            }
+                            .disabled(removeLicenseButtoNText == "removing...")
+                                                       
+                            Spacer()
+                            
+                            Button("manage subscription") {
+                            }
+                        } else {
+                            Spacer()
+                            Button(activateSubscriptionButtonText) {
+                                tryActivatingLicense()
+                            }
+                                                        
+                            .disabled(awesomeHumanEmail.isEmpty || magicNumbers.isEmpty || activateSubscriptionButtonText == "activating...")
+                            .alert("☕️☕️☕️", isPresented: $isActivated, presenting: awesomeHumanEmail) { detail in
+                                Button("OK") {}
+                            } message: { detail in
+                                Text("hmmm")
+                            }
+                        }
                     }
                 }
                 .padding(.top, 12)
-                .foregroundColor(.gray)
-                .disabled(true)
             }
         }
         .frame(width: 570, height: nil)
         .padding(10)
+    }
+    
+    private func tryActivatingLicense() {
+        guard awesomeHumanEmail.isEmpty == false, magicNumbers.isEmpty == false else { return }
+        
+        activateSubscriptionButtonText = "activating..."
+        
+        AppCore.shared.licensing.paddleProduct?.activateEmail(awesomeHumanEmail, license: magicNumbers) { success, _ in
+            if success {
+                isActivated = true
+            }
+            
+            activateSubscriptionButtonText = "activate subscription"
+        }
+    }
+        
+    private func tryRemovingLicense() {
+        removeLicenseButtoNText = "removing..."
+                
+        AppCore.shared.licensing.paddleProduct?.deactivate() { success, _ in
+            awesomeHumanEmail = ""
+            magicNumbers = ""
+            isActivated = false
+            removeLicenseButtoNText = "remove license"
+        }
     }
     
 }

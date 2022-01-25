@@ -20,6 +20,9 @@ struct SettingsKeys {
     
     static let jkMapping = "jkMapping"
     
+    static let awesomeHumanEmail = "awesomeHumanEmail"
+    static let magicNumbers = "magicNumbers"
+    
 }
 
 

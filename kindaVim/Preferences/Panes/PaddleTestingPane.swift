@@ -1,4 +1,4 @@
-
+import SwiftUI
 
 
 struct PaddleTestingPane: View {
@@ -8,7 +8,9 @@ struct PaddleTestingPane: View {
         Form {
             VStack {
                 Button("refresh") {
-                    AppCore.shared.licensing.paddleProduct?.refresh()
+                    AppCore.shared.licensing.paddleProduct?.refresh({ (delta: [AnyHashable : Any]?, error: Error?) in
+                        print(delta)
+                    })
                 }
                 Button("activate license") {
                     AppCore.shared.licensing.paddleProduct?.activateEmail("guill.bout@gmail.com",
