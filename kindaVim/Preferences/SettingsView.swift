@@ -21,13 +21,6 @@ struct SettingsView: View {
                 .tabItem {
                     Label("License", systemImage: "alarm")
                 }
-            #if DEBUG
-            PaddleTestingPane() 
-                .tabItem {
-                    Label("Paddle Testing", systemImage: "testtube.2")
-                    
-                }
-            #endif
         }
         .padding()
         .padding(.horizontal)
