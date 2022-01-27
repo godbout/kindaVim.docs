@@ -141,7 +141,7 @@ struct LicensePane: View {
     }
     
     private func tryActivatingLicense() {
-        guard awesomeHumanEmail.isEmpty == false, magicNumbers.isEmpty == false else { return }
+        guard awesomeHumanEmail.isNotEmpty, magicNumbers.isNotEmpty else { return }
         
         activateSubscriptionButtonText = "activating..."
         
@@ -174,7 +174,7 @@ struct LicensePane: View {
     }
     
     private func trySendingAwesomeHumanToSubscriptionManagementPage() {
-        guard orderNumber.isEmpty == false else { return }
+        guard orderNumber.isNotEmpty else { return }
         
         manageSubscriptionButtonText = "generating link..."
         
