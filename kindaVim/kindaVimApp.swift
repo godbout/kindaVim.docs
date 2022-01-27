@@ -10,8 +10,9 @@ struct kindaVimApp: App {
         // dumb but seems necessary to enable
         // copy paste in Preferences...
         WindowGroup {
-            VStack {
+            ZStack {
                 EmptyView()
+                    .hidden()
             }
             .hidden()
         }
