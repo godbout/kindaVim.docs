@@ -15,7 +15,7 @@ struct PaddleAPI: Codable {
         
         let subscription: Subscription
     }
-//        
+        
     let response: [Response]
     
 }
@@ -182,8 +182,8 @@ struct LicensePane: View {
             let headers = ["Content-Type": "application/json"]
             
             let auth: [String: Any] = [
-                "vendor_id": 138003,
-                "vendor_auth_code": "955e72991b8885fb930489d5bec94bc96b83d31cf2181585b8"
+                "vendor_id": 0,
+                "vendor_auth_code": ""
             ]
 
             let urlString = "https://vendors.paddle.com/api/2.0/order/" + orderNumber + "/transactions"
