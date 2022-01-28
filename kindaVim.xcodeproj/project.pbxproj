@@ -43,6 +43,8 @@
 		91497ECC2789F006006CA23C /* AutoSucceedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91497ECB2789F006006CA23C /* AutoSucceedTests.swift */; };
 		914D662127266467005B9D99 /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914D662027266467005B9D99 /* SplashScreenView.swift */; };
 		914DA4972743C20E005748F7 /* CountSystemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914DA4962743C20E005748F7 /* CountSystemTests.swift */; };
+		9166040F27A3FB9900B13C6D /* BedtimePopoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917374A6279EC345003C563D /* BedtimePopoverView.swift */; };
+		9166041127A3FC3C00B13C6D /* Paddle.framework in Copy Paddle */ = {isa = PBXBuildFile; fileRef = 91943A30279D1558001C8393 /* Paddle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		916ACF9126FE086B000E9757 /* kindaVimApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916ACF9026FE086B000E9757 /* kindaVimApp.swift */; };
 		916ACF9526FE086C000E9757 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 916ACF9426FE086C000E9757 /* Assets.xcassets */; };
 		916ACF9826FE086C000E9757 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 916ACF9726FE086C000E9757 /* Preview Assets.xcassets */; };
@@ -481,6 +483,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		9166041027A3FC2700B13C6D /* Copy Paddle */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				9166041127A3FC3C00B13C6D /* Paddle.framework in Copy Paddle */,
+			);
+			name = "Copy Paddle";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		91943A2D279D14E3001C8393 /* Copy Paddle */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1815,6 +1828,7 @@
 				916ACFA426FE086C000E9757 /* Sources */,
 				916ACFA526FE086C000E9757 /* Frameworks */,
 				916ACFA626FE086C000E9757 /* Resources */,
+				9166041027A3FC2700B13C6D /* Copy Paddle */,
 			);
 			buildRules = (
 			);
@@ -2357,6 +2371,7 @@
 				912A798B2739907C007CEF8C /* CharactersView.swift in Sources */,
 				91EC8C5F276759C800E40F27 /* ASUI_NM_cB__Tests.swift in Sources */,
 				91C26B3A277B2E7E002C3CED /* Settings.swift in Sources */,
+				9166040F27A3FB9900B13C6D /* BedtimePopoverView.swift in Sources */,
 				912A798C273990B2007CEF8C /* KS_VisualMode.swift in Sources */,
 				91840E0A26FE09A300E6048E /* ASUI_BaseTests.swift in Sources */,
 				91D72B63275E261900CC46B4 /* ASUI_NM_ci)_Tests.swift in Sources */,
