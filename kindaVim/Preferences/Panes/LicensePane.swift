@@ -88,8 +88,10 @@ struct LicensePane: View {
                     }
                 }
                 .padding(.vertical, 12)
-                .foregroundColor(isActivated ? .gray : .primary)
-                .disabled(isActivated)
+//                .foregroundColor(isActivated ? .gray : .primary)
+//                .disabled(isActivated)
+                .foregroundColor(.gray)
+                .disabled(true)
                 
                 Divider()
                 
@@ -134,6 +136,8 @@ struct LicensePane: View {
                     }
                     .padding(.top, 12)
                 }
+                .foregroundColor(.gray)
+                .disabled(true)
             }
         }
         .frame(width: 570, height: nil)
@@ -179,28 +183,28 @@ struct LicensePane: View {
         manageSubscriptionButtonText = "generating link..."
         
         Task  {
-            let headers = ["Content-Type": "application/json"]
-            
-            let auth: [String: Any] = [
-                "vendor_id": 0,
-                "vendor_auth_code": ""
-            ]
-
-            let urlString = "https://vendors.paddle.com/api/2.0/order/" + orderNumber + "/transactions"
-            print(urlString)
-            let url = URL(string: "https://vendors.paddle.com/api/2.0/order/" + orderNumber + "/transactions")
-            var request = URLRequest(url: url!)
-            request.httpMethod = "POST"
-            request.allHTTPHeaderFields = headers
-            request.httpBody = try! JSONSerialization.data(withJSONObject: auth, options: [])
-            
-            let (data, _) = try! await URLSession.shared.data(for: request)
-            let json = try! JSONDecoder().decode(PaddleAPI.self, from: data)
-            
-            print(json.response.first?.subscription.subscription_id)
-            
-            manageSubscriptionButtonText = "manage subscription"
-            orderNumber = ""
+//            let headers = ["Content-Type": "application/json"]
+//            
+//            let auth: [String: Any] = [
+//                "vendor_id": 0,
+//                "vendor_auth_code": ""
+//            ]
+//
+//            let urlString = "https://vendors.paddle.com/api/2.0/order/" + orderNumber + "/transactions"
+//            print(urlString)
+//            let url = URL(string: "https://vendors.paddle.com/api/2.0/order/" + orderNumber + "/transactions")
+//            var request = URLRequest(url: url!)
+//            request.httpMethod = "POST"
+//            request.allHTTPHeaderFields = headers
+//            request.httpBody = try! JSONSerialization.data(withJSONObject: auth, options: [])
+//            
+//            let (data, _) = try! await URLSession.shared.data(for: request)
+//            let json = try! JSONDecoder().decode(PaddleAPI.self, from: data)
+//            
+//            print(json.response.first?.subscription.subscription_id)
+//            
+//            manageSubscriptionButtonText = "manage subscription"
+//            orderNumber = ""
         }
     }
     
