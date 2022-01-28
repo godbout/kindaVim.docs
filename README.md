@@ -295,7 +295,3 @@ the [tests](https://github.com/godbout/AccessibilityStrategyTestApp) describing 
 * [Sindre Sorhus](https://github.com/sindresorhus) for [LaunchAtLogin](https://github.com/sindresorhus/LaunchAtLogin) and [KeyboardShortcuts](https://github.com/sindresorhus/KeyboardShortcuts), that saved me countless of hours of headaches
 * [Sparkle](https://sparkle-project.org) for the Sofware Updater. this is good shit
 * [Clipy](https://github.com/Clipy) for [Sauce](https://github.com/Clipy/Sauce), a magnificent Swift package to handle Keyboard Layouts headaches shits
- 
-# CAN YOU TONE DOWN THE LANGUAGE PLEASE?
-
-no.
