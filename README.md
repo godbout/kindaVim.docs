@@ -37,7 +37,9 @@ see [DA FUQ](https://kindavim.app/da-fuq).
 
 # HOW 'BOUT THE $$$
 
-kindaVim will be a subscription of one ☕️ (USD$3) a month. the beta is free and contains the full set of features. i have no idea when i'll drop the beta. the beta may last 10 years. who knows. or maybe till 2049.
+kindaVim will be a subscription of one ☕️ (USD$3.69) a month. the beta is free and contains the full set of features. ~i have no idea when i'll drop the beta. the beta may last 10 years. who knows. or maybe till 2049.~ the subscription is coming around February/March 2022.
+
+without the subscription you'll be able to abuse kV fully from 1pm to 5am but starting at dawn it'll need its 8 hours of sleep. the sub allows you to torture it 24/7. 
 
 also see [DA FUQ](https://kindavim.app/da-fuq) for why a sub.
 
