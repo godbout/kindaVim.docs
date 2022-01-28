@@ -19,17 +19,18 @@ maybe [watch the videos](https://www.youtube.com/channel/UC3ZP3QFMhNn3ivJgqoEW4U
 
 # HOW DOES IT WORK
 
-by default kindaVim runs in `Auto Mode` and tries to read the text of the app focused:
+by default kindaVim uses the `Auto Family` and tries to read the text of the app focused:
 
 1. if it can read and modify the text, it uses the [kV Accessibility Strategy](#user-content-kv-accessibility-strategy). it's text manipulation. theoritically you can have a full Vim experience. pragmatically some stuff will currently be missing so please [ask](https://github.com/godbout/kindaVim.theapp/issues/new) for what you need!
 2. if it can't read the text, it uses the [kV Keyboard Strategy](#user-content-kv-keyboard-strategy) and tries to impersonate Vim through keys remapping. it's a little more wonky than the kV Accessibility Strategy.
 3. if it's not text, it also uses the [kV Keyboard Strategy](#user-content-kv-keyboard-strategy), remap keys, and if the app uses the default macOS keyboard shortcuts you should just get what you expect (e.g. `G` scrolls to the end of a webpage, reaches the last email of a list, goes to the last item of a dropdown, etc.)
 
-
 in the `Preferences` you can also:
 * ask kindaVim to ignore any app completely
-* bypass macOS Accessibility restrictions with the `PG-R` Mode for apps where you can read the text but not modify it. you'll experience this mostly in browsers
-* enforce the [kV Keyboard Strategy](#user-content-kv-keyboard-strategy) for big fat liars apps that tell you they're implementing the macOS Accessibility but actually no no (all Electron apps)
+* bypass macOS Accessibility restrictions with the `PG-R` Mode for apps where you can read the text but not modify it. you'll experience this mostly in browsers and some Catalyst apps
+* make Electron apps behave
+* enforce the [kV Keyboard Strategy](#user-content-kv-keyboard-strategy) for the biggest fattest liar Electron apps that they say they're implementing the macOS Accessibility but send back wrong data
+* enforce the [kV Keyboard Strategy](#user-content-kv-keyboard-strategy) Text Elements for apps that are even worse than Electron's (not even kidding)
 
 # WAIT A MINUTE. WHAT DATA DO YOU STEAL???
 
