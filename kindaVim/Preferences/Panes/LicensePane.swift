@@ -71,6 +71,7 @@ struct LicensePane: View {
                         .onSubmit {
                             tryActivatingLicense()
                         }
+                        .disabled(isActivated)
                         .multilineTextAlignment(.center)
                         .frame(width: 512)
                         .fixedSize()
@@ -83,29 +84,21 @@ struct LicensePane: View {
                         .onSubmit {
                             tryActivatingLicense()
                         }
+                        .disabled(isActivated)
                         .multilineTextAlignment(.center)
                         .frame(width: 470)
                         .fixedSize()
                     }
-                }
-                .padding(.vertical, 12)
-                .foregroundColor(isActivated ? .gray : .primary)
-                .disabled(isActivated)
-                
-                Divider()
-                
-                HStack {
-                    Spacer()
-                    VStack(alignment: .trailing) {
+                    HStack {
+                        Spacer()
+                        
                         if isActivated {
-                            HStack(alignment: .top) {
-                                Spacer() 
-                                Button(action: { trySendingAwesomeHumanToSubscriptionManagementPage() }) {
-                                    Text(manageSubscriptionButtonText)
-                                        .frame(width: 128)
-                                }                                
-                                .disabled(manageSubscriptionButtonText == "generating link...")
-                            }
+                            Spacer() 
+                            Button(action: { sendAwesomeHumanToSubscriptionManagementPage() }) {
+                                Text(manageSubscriptionButtonText)
+                                    .frame(width: 128)
+                            }                                
+                            .disabled(manageSubscriptionButtonText == "generating link...")
                         } else {
                             Button(action: { tryActivatingLicense() }) {
                                 Text(activateSubscriptionButtonText)
@@ -113,20 +106,35 @@ struct LicensePane: View {
                             }
                             .disabled(awesomeHumanEmail.isEmpty || magicNumbers.isEmpty || activateSubscriptionButtonText == "activating...")
                         }
-                                           
+                    }
+                    VStack {
                         HStack(alignment: .bottom) {
-                            Text("click to receive an email with your Orders Information if you've lost them.")
-                                .fixedSize()
+                            Spacer()
+                            Text("to manage your sub you'll need your Order / Receipt #. get an email if you've lost them.")
                                 .font(.footnote)
                                 .foregroundColor(.gray)
+                            
                             Button(action: { tryRecoveringOrders() }) {
                                 Text(recoverOrdersButtonText)
+                                    .frame(width: 92)
                             }
-                            .disabled(awesomeHumanEmail.isEmpty || recoverOrdersButtonText == "sending email...")
                         }
+                        .disabled(awesomeHumanEmail.isEmpty || recoverOrdersButtonText == "sending email...")                        
+                        HStack(alignment: .bottom) {
+                            Spacer()
+                            Text("sending you to a secure page online. fill the form and get your license by email.")
+                                .font(.footnote)
+                                .foregroundColor(.gray)
+                            Button(action: { sendAwesomeHumanToLicenseCodeRecoveryPage() }) {
+                                Text("recover license")
+                                    .frame(width: 92)
+                            }
+                        }
+                        .disabled(awesomeHumanEmail.isEmpty || isActivated)
                     }
-                    .padding(.top, 12)
+                    .padding(.top, 15)                                     
                 }
+                .padding(.top, 12)                
             }
         }
         .frame(width: 570, height: nil)
@@ -166,8 +174,12 @@ struct LicensePane: View {
         }
     }
     
-    private func trySendingAwesomeHumanToSubscriptionManagementPage() {
+    private func sendAwesomeHumanToSubscriptionManagementPage() {
         openURL(URL(string: "https://kindavim.app/manage")!)
+    }
+    
+    private func sendAwesomeHumanToLicenseCodeRecoveryPage() {
+        openURL(URL(string: "https://kindavim.app/recover")!)
     }
     
 }
