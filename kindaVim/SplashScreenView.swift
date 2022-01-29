@@ -34,7 +34,7 @@ struct SplashScreenView: View {
                         Text("blah blah blah you know the drill.")
                             .font(.headline)
                             .padding(.top)
-                        Text("once you've granted Accessibility Privileges you can enter Normal Mode with Escape, or set your own Keyboard Shorcut in the Preferences.")
+                        Text("once you've granted Accessibility Privileges you can enter Normal Mode with Escape, or set your own Keyboard Shortcut in the Preferences.")
                             .font(.body)
                             .fixedSize(horizontal: false, vertical: true)
                             .padding(.top, 10)
