@@ -23,6 +23,8 @@ struct PaddleAPI: Codable {
 
 struct LicensePane: View {
     
+    @Environment(\.openURL) private var openURL
+    
     @State private var awesomeHumanEmail = AppCore.shared.licensing.paddleProduct?.activationEmail ?? ""
     @State private var magicNumbers = AppCore.shared.licensing.paddleProduct?.licenseCode ?? ""
     @State private var isActivated = AppCore.shared.licensing.isActivated
@@ -30,7 +32,6 @@ struct LicensePane: View {
     @State private var removeLicenseButtonText = "remove license" 
     @State private var recoverOrdersButtonText = "recover orders"
     @State private var manageSubscriptionButtonText = "manage subscription"
-    @State private var orderNumber = ""
     
     var body: some View {
         
@@ -88,10 +89,8 @@ struct LicensePane: View {
                     }
                 }
                 .padding(.vertical, 12)
-//                .foregroundColor(isActivated ? .gray : .primary)
-//                .disabled(isActivated)
-                .foregroundColor(.gray)
-                .disabled(true)
+                .foregroundColor(isActivated ? .gray : .primary)
+                .disabled(isActivated)
                 
                 Divider()
                 
@@ -101,19 +100,11 @@ struct LicensePane: View {
                         if isActivated {
                             HStack(alignment: .top) {
                                 Spacer() 
-                                TextField(text: $orderNumber, prompt: Text("12345678-87654321")) {
-                                    Label("your Order / Receipt #:", systemImage: "doc.text")
-                                }
-                                .onSubmit {
-                                    trySendingAwesomeHumanToSubscriptionManagementPage()
-                                }
-                                .multilineTextAlignment(.center)
-                                .frame(width: 315)
                                 Button(action: { trySendingAwesomeHumanToSubscriptionManagementPage() }) {
                                     Text(manageSubscriptionButtonText)
                                         .frame(width: 128)
                                 }                                
-                                .disabled(orderNumber.isEmpty || manageSubscriptionButtonText == "generating link...")
+                                .disabled(manageSubscriptionButtonText == "generating link...")
                             }
                         } else {
                             Button(action: { tryActivatingLicense() }) {
@@ -136,8 +127,6 @@ struct LicensePane: View {
                     }
                     .padding(.top, 12)
                 }
-                .foregroundColor(.gray)
-                .disabled(true)
             }
         }
         .frame(width: 570, height: nil)
@@ -178,34 +167,7 @@ struct LicensePane: View {
     }
     
     private func trySendingAwesomeHumanToSubscriptionManagementPage() {
-        guard orderNumber.isNotEmpty else { return }
-        
-        manageSubscriptionButtonText = "generating link..."
-        
-        Task  {
-//            let headers = ["Content-Type": "application/json"]
-//            
-//            let auth: [String: Any] = [
-//                "vendor_id": 0,
-//                "vendor_auth_code": ""
-//            ]
-//
-//            let urlString = "https://vendors.paddle.com/api/2.0/order/" + orderNumber + "/transactions"
-//            print(urlString)
-//            let url = URL(string: "https://vendors.paddle.com/api/2.0/order/" + orderNumber + "/transactions")
-//            var request = URLRequest(url: url!)
-//            request.httpMethod = "POST"
-//            request.allHTTPHeaderFields = headers
-//            request.httpBody = try! JSONSerialization.data(withJSONObject: auth, options: [])
-//            
-//            let (data, _) = try! await URLSession.shared.data(for: request)
-//            let json = try! JSONDecoder().decode(PaddleAPI.self, from: data)
-//            
-//            print(json.response.first?.subscription.subscription_id)
-//            
-//            manageSubscriptionButtonText = "manage subscription"
-//            orderNumber = ""
-        }
+        openURL(URL(string: "https://kindavim.app/manage")!)
     }
     
 }
