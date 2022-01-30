@@ -7,12 +7,18 @@ struct GeneralPane: View {
 
     @AppStorage(SettingsKeys.useCustomShortcutToEnterNormalMode) private var useCustomShortcutToEnterNormalMode: Bool = false
     @AppStorage(SettingsKeys.enableKillSwitch) private var enableKillSwitch: Bool = false
+    @AppStorage(SettingsKeys.automaticallyCheckForUpdates) private var automaticallyCheckForUpdates: Bool = true
     
     var body: some View {
         
         Form {
             VStack(alignment: .leading) {
                 LaunchAtLogin.Toggle()
+                Toggle("Automatically check for updates", isOn: $automaticallyCheckForUpdates)
+                Text("you may want to disable automatic check if you're updating through other tools like Homebrew.")
+                    .font(.footnote)
+                    .foregroundColor(.gray)
+                    .padding(.horizontal)
                     .padding(.bottom, 15)
                 // LOL
                 Divider()
@@ -22,7 +28,7 @@ struct GeneralPane: View {
                     Toggle("Enter Normal Mode with custom shortcut:", isOn: $useCustomShortcutToEnterNormalMode)
                     KeyboardShortcuts.Recorder(for: .enterNormalMode).disabled(!useCustomShortcutToEnterNormalMode)
                 }
-                .padding(.top, 23)
+                .padding(.top, 15)
                 Group {
                     Text("by default `esc` is used to enter Normal Mode. press `esc` again to send `esc` back to macOS.")
                     Text("e.g. in Insert Mode a Dialog shows up, double `esc` to discard it.")

@@ -7,7 +7,6 @@ class StatusBarController {
     @AppStorage(SettingsKeys.toggleMenuBarIcon) private var toggleMenuBarIcon: Bool = false
     var statusItem: NSStatusItem!
     var subscriptionPopover: NSPopover!
-    var updater = Updater()    
     
     init() {
         setUpStatusItem()
@@ -55,7 +54,7 @@ class StatusBarController {
     }
     
     @objc func checkForUpdates() {
-        updater.checkForUpdates()
+        AppCore.shared.updaterController.checkForUpdates()
     }
 
     @objc func quit() {

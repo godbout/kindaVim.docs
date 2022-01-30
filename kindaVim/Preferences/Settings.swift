@@ -19,9 +19,8 @@ struct SettingsKeys {
     static let appsForWhichToEnforceNineOneOne = "appsForWhichToEnforceNineOneOne"
     
     static let jkMapping = "jkMapping"
-    
-    static let awesomeHumanEmail = "awesomeHumanEmail"
-    static let magicNumbers = "magicNumbers"
+       
+    static let automaticallyCheckForUpdates = "SUEnableAutomaticChecks"
     
 }
 

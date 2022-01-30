@@ -2,10 +2,19 @@ import SwiftUI
 import Sparkle
 
 
-final class Updater: ObservableObject {
+final class UpdaterController: ObservableObject {
     
     private let updaterController: SPUStandardUpdaterController
     @Published var canCheckForUpdates = true
+    
+    var automaticallyChecksForUpdates: Bool {
+        get {
+            updaterController.updater.automaticallyChecksForUpdates
+        }
+        set {
+            updaterController.updater.automaticallyChecksForUpdates = newValue
+        }
+    }
     
     init() {
         updaterController = SPUStandardUpdaterController(startingUpdater: true, updaterDelegate: nil, userDriverDelegate: nil)        

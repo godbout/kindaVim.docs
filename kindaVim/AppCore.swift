@@ -7,6 +7,7 @@ class AppCore {
     
     static var shared = AppCore()
 
+    var updaterController: UpdaterController!
     var statusBarController: StatusBarController!
     var eventTapController: EventTapController!
     var axEngine: AXEngine!
@@ -20,6 +21,7 @@ class AppCore {
 
 
     func setUp() {
+        setUpUpdater()
         setUpStatusBar()
         #if !CITESTING
         setUpEventTap()
@@ -41,20 +43,10 @@ class AppCore {
         setUp()
     }
 
-    private func setUpUITestingWindow() {
-        NSApplication.shared.setActivationPolicy(.regular)
-        NSApplication.shared.activate(ignoringOtherApps: true)
+    private func setUpUpdater() {
+        guard updaterController == nil else { return }
         
-        let contentView = UITestView()
-
-        accessibilityElementAdaptorTestingWindow = NSWindow(
-            contentRect: NSRect(x: 0, y: 0, width: 680, height: 400),
-            styleMask: [.titled, .closable, .miniaturizable, .resizable, .fullSizeContentView],
-            backing: .buffered,
-            defer: false
-        )
-        accessibilityElementAdaptorTestingWindow.contentView = NSHostingView(rootView: contentView)
-        accessibilityElementAdaptorTestingWindow.makeKeyAndOrderFront(nil)
+        updaterController = UpdaterController()
     }
 
     private func setUpStatusBar() {
@@ -113,5 +105,20 @@ class AppCore {
         vimEngine.jkMapping = jkMapping
     }
     
-}
+    private func setUpUITestingWindow() {
+        NSApplication.shared.setActivationPolicy(.regular)
+        NSApplication.shared.activate(ignoringOtherApps: true)
+        
+        let contentView = UITestView()
 
+        accessibilityElementAdaptorTestingWindow = NSWindow(
+            contentRect: NSRect(x: 0, y: 0, width: 680, height: 400),
+            styleMask: [.titled, .closable, .miniaturizable, .resizable, .fullSizeContentView],
+            backing: .buffered,
+            defer: false
+        )
+        accessibilityElementAdaptorTestingWindow.contentView = NSHostingView(rootView: contentView)
+        accessibilityElementAdaptorTestingWindow.makeKeyAndOrderFront(nil)
+    }
+        
+}
