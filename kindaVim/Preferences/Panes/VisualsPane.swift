@@ -21,6 +21,7 @@ struct VisualsPane: View {
                     .onChange(of: toggleHazeOverWindow) { 
                         AppCore.shared.vimEngine.toggleHazeOverWindow = $0
                     }
+                    .padding(.top, 1)
                 HStack {
                     Group {
                         Slider(value: $hazeOverWindowNonFullScreenOpacity, in: 0.0...1) {
