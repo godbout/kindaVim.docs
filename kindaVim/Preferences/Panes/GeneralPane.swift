@@ -15,7 +15,7 @@ struct GeneralPane: View {
             VStack(alignment: .leading) {
                 LaunchAtLogin.Toggle()
                 Toggle("Automatically check for updates", isOn: $automaticallyCheckForUpdates)
-                Text("you may want to disable automatic check if you're updating through other tools like Homebrew.")
+                Text("you may want to disable automatic checks if you're updating through other tools like Homebrew.")
                     .font(.footnote)
                     .foregroundColor(.gray)
                     .padding(.horizontal)
