@@ -408,7 +408,7 @@
 		91943A31279D1558001C8393 /* Paddle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91943A30279D1558001C8393 /* Paddle.framework */; };
 		91943A32279D1579001C8393 /* Paddle.framework in Copy Paddle */ = {isa = PBXBuildFile; fileRef = 91943A30279D1558001C8393 /* Paddle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		91943A35279D15AD001C8393 /* Licensing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91943A34279D15AD001C8393 /* Licensing.swift */; };
-		91A967422741447400E1CA7E /* Updater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A967412741447400E1CA7E /* Updater.swift */; };
+		91A967422741447400E1CA7E /* UpdaterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A967412741447400E1CA7E /* UpdaterController.swift */; };
 		91BBC4DD278763F2008DE977 /* KSNM_c$_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BBC4DC278763F2008DE977 /* KSNM_c$_Tests.swift */; };
 		91BBC4DF278763FD008DE977 /* KSNM_d$_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BBC4DE278763FD008DE977 /* KSNM_d$_Tests.swift */; };
 		91BBC4E127876403008DE977 /* KSNM_cl_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BBC4E027876403008DE977 /* KSNM_cl_Tests.swift */; };
@@ -424,7 +424,7 @@
 		91C26B34277B2E27002C3CED /* AppCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91840DDD26FE096C00E6048E /* AppCore.swift */; };
 		91C26B35277B2E34002C3CED /* StatusBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91840DD126FE096B00E6048E /* StatusBarController.swift */; };
 		91C26B36277B2E3B002C3CED /* EventTapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91840DDB26FE096C00E6048E /* EventTapController.swift */; };
-		91C26B37277B2E58002C3CED /* Updater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A967412741447400E1CA7E /* Updater.swift */; };
+		91C26B37277B2E58002C3CED /* UpdaterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A967412741447400E1CA7E /* UpdaterController.swift */; };
 		91C26B38277B2E67002C3CED /* UITestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91840DEB26FE096C00E6048E /* UITestView.swift */; };
 		91C26B39277B2E71002C3CED /* GlobalEventsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91840DDC26FE096C00E6048E /* GlobalEventsController.swift */; };
 		91C26B3A277B2E7E002C3CED /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D475F826FF67A10007187B /* Settings.swift */; };
@@ -890,7 +890,7 @@
 		918F30692787569E00AD68DF /* KeyMappingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyMappingTests.swift; sourceTree = "<group>"; };
 		91943A30279D1558001C8393 /* Paddle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Paddle.framework; sourceTree = "<group>"; };
 		91943A34279D15AD001C8393 /* Licensing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Licensing.swift; sourceTree = "<group>"; };
-		91A967412741447400E1CA7E /* Updater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Updater.swift; sourceTree = "<group>"; };
+		91A967412741447400E1CA7E /* UpdaterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdaterController.swift; sourceTree = "<group>"; };
 		91BBC4DC278763F2008DE977 /* KSNM_c$_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSNM_c$_Tests.swift; sourceTree = "<group>"; };
 		91BBC4DE278763FD008DE977 /* KSNM_d$_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSNM_d$_Tests.swift; sourceTree = "<group>"; };
 		91BBC4E027876403008DE977 /* KSNM_cl_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSNM_cl_Tests.swift; sourceTree = "<group>"; };
@@ -1169,7 +1169,7 @@
 		9176BF332742665700A8449A /* Updater */ = {
 			isa = PBXGroup;
 			children = (
-				91A967412741447400E1CA7E /* Updater.swift */,
+				91A967412741447400E1CA7E /* UpdaterController.swift */,
 			);
 			path = Updater;
 			sourceTree = "<group>";
@@ -1956,7 +1956,7 @@
 				91D222F726FE0F2B00B9AF77 /* AppDelegate.swift in Sources */,
 				91840DEC26FE096C00E6048E /* StatusBarController.swift in Sources */,
 				9103C59A271C7B5300BDEBD7 /* KS_VisualMode.swift in Sources */,
-				91A967422741447400E1CA7E /* Updater.swift in Sources */,
+				91A967422741447400E1CA7E /* UpdaterController.swift in Sources */,
 				91840DF026FE096C00E6048E /* HazeOverWindow.swift in Sources */,
 				917374A7279EC345003C563D /* BedtimePopoverView.swift in Sources */,
 				9118CEA726FEF90A005F0907 /* SettingsView.swift in Sources */,
@@ -2386,7 +2386,7 @@
 				912A79882739905D007CEF8C /* HazeOverWindow.swift in Sources */,
 				91D72B65275E262300CC46B4 /* ASUI_NM_ci]_Tests.swift in Sources */,
 				91840E1126FE09A300E6048E /* ASUI_NM_ci(_Tests.swift in Sources */,
-				91C26B37277B2E58002C3CED /* Updater.swift in Sources */,
+				91C26B37277B2E58002C3CED /* UpdaterController.swift in Sources */,
 				912A798727399054007CEF8C /* Display.swift in Sources */,
 				9127330F277AFD85001749CD /* InputFieldObserver.swift in Sources */,
 				91840E1026FE09A300E6048E /* ASUI_NM_cT__Tests.swift in Sources */,
@@ -2546,7 +2546,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 0.9.24;
+				CURRENT_PROJECT_VERSION = 0.9.25;
 				DEVELOPMENT_ASSET_PATHS = "\"kindaVim/Preview Content\"";
 				DEVELOPMENT_TEAM = ZX49WKA8QN;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -2564,7 +2564,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
-				MARKETING_VERSION = 1b24;
+				MARKETING_VERSION = 1b25;
 				PRODUCT_BUNDLE_IDENTIFIER = mo.com.sleeplessmind.kindaVim;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -2582,7 +2582,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 0.9.24;
+				CURRENT_PROJECT_VERSION = 0.9.25;
 				DEVELOPMENT_ASSET_PATHS = "\"kindaVim/Preview Content\"";
 				DEVELOPMENT_TEAM = ZX49WKA8QN;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -2600,7 +2600,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
-				MARKETING_VERSION = 1b24;
+				MARKETING_VERSION = 1b25;
 				PRODUCT_BUNDLE_IDENTIFIER = mo.com.sleeplessmind.kindaVim;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -2791,7 +2791,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 0.9.24;
+				CURRENT_PROJECT_VERSION = 0.9.25;
 				DEVELOPMENT_ASSET_PATHS = "\"kindaVim/Preview Content\"";
 				DEVELOPMENT_TEAM = ZX49WKA8QN;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -2809,7 +2809,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
-				MARKETING_VERSION = 1b24;
+				MARKETING_VERSION = 1b25;
 				PRODUCT_BUNDLE_IDENTIFIER = mo.com.sleeplessmind.kindaVim;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -2944,7 +2944,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 0.9.24;
+				CURRENT_PROJECT_VERSION = 0.9.25;
 				DEVELOPMENT_ASSET_PATHS = "\"kindaVim/Preview Content\"";
 				DEVELOPMENT_TEAM = ZX49WKA8QN;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -2962,7 +2962,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.0;
-				MARKETING_VERSION = 1b24;
+				MARKETING_VERSION = 1b25;
 				PRODUCT_BUNDLE_IDENTIFIER = mo.com.sleeplessmind.kindaVim;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
