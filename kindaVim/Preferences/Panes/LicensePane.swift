@@ -179,7 +179,7 @@ struct LicensePane: View {
     }
     
     private func sendAwesomeHumanToLicenseCodeRecoveryPage() {
-        openURL(URL(string: "https://kindavim.app/recover" + awesomeHumanEmail)!)
+        openURL(URL(string: "https://kindavim.app/recover/" + awesomeHumanEmail)!)
     }
     
 }
