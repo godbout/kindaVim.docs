@@ -4,25 +4,17 @@ import Sparkle
 
 final class UpdaterController: ObservableObject {
     
-    private let updaterController: SPUStandardUpdaterController
+    private let sparkleUpdaterController: SPUStandardUpdaterController
     @Published var canCheckForUpdates = true
     
-    var automaticallyChecksForUpdates: Bool {
-        get {
-            updaterController.updater.automaticallyChecksForUpdates
-        }
-        set {
-            updaterController.updater.automaticallyChecksForUpdates = newValue
-        }
+    init() {
+        sparkleUpdaterController = SPUStandardUpdaterController(startingUpdater: true, updaterDelegate: nil, userDriverDelegate: nil)        
+        sparkleUpdaterController.updater.publisher(for: \.canCheckForUpdates).assign(to: &$canCheckForUpdates)
     }
     
-    init() {
-        updaterController = SPUStandardUpdaterController(startingUpdater: true, updaterDelegate: nil, userDriverDelegate: nil)        
-        updaterController.updater.publisher(for: \.canCheckForUpdates).assign(to: &$canCheckForUpdates)
-    }
     
     func checkForUpdates() {
-        updaterController.checkForUpdates(nil)
+        sparkleUpdaterController.checkForUpdates(nil)
     }
     
 }
