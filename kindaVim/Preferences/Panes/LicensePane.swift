@@ -39,10 +39,11 @@ struct LicensePane: View {
             VStack {
                 HStack(alignment: .top) {
                     VStack {
-                        Image(systemName: "checkmark.seal")
+                        Image(systemName: "alarm")
                             .font(.system(size: 64))
                             .foregroundColor(isActivated ? .primary : .gray)
                             .opacity(isActivated ? 1 : 0.1)
+                            .padding(.vertical, 7)
                         Button(action: { tryRemovingLicense()} ) {
                             Text(removeLicenseButtonText)
                                 .frame(width: 92)
