@@ -26,22 +26,29 @@ struct Display {
     }
     
     func ongoingMove(add keyCombination: KeyCombination) {
-        // ok for now we just have VimKeys with control so let's get lazy
         if keyCombination.control == true {
-            Self.ongoingMove = "control " + String(keyCombination.character)
-        } else {
-            switch keyCombination.key {
-            case .escape:
-                Self.ongoingMove = "esc"
-            case .return:
-                Self.ongoingMove = "return"
-            case .space:
-                Self.ongoingMove = "space"
-            case .tab:
-                Self.ongoingMove = "tab"
-            default:
-                Self.ongoingMove.append(keyCombination.character)
-            }
+            Self.ongoingMove = "⌃"
+        }
+                
+        if keyCombination.option == true {
+            Self.ongoingMove.append("⌥")
+        }
+        
+        if keyCombination.command == true {
+            Self.ongoingMove.append("⌘")
+        }
+               
+        switch keyCombination.key {
+        case .escape:
+            Self.ongoingMove.append("esc")
+        case .return:
+            Self.ongoingMove.append("return")
+        case .space:
+            Self.ongoingMove.append("space")
+        case .tab:
+            Self.ongoingMove.append("tab")
+        default:
+            Self.ongoingMove.append(keyCombination.character)
         }
     }
         
