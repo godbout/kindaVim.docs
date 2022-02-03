@@ -135,7 +135,9 @@ struct LicensePane: View {
                     }
                     .padding(.top, 15)                                     
                 }
-                .padding(.top, 12)                
+                .padding(.top, 12)          
+                .disabled(true)
+                .foregroundColor(.gray)
             }
         }
         .frame(width: 570, height: nil)
