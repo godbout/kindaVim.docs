@@ -4,7 +4,7 @@ import XCTest
 
 class HasActivatedSubscriptionTests: LicensingBaseTests {
     
-    func _test_that_a_user_with_a_subscription_can_use_kV_before_the_sleeping_time() {
+    func test_that_a_user_with_a_subscription_can_use_kV_before_the_sleeping_time() {
         let licensing = HasActivatedSubscriptionMock(currentDate: dateFormatter.date(from: String(Licensing.sleepingTime - 1)))
         
         XCTAssertTrue(licensing.userHasEarnedRightsToAbuse)
