@@ -25,8 +25,8 @@ struct LicensePane: View {
     
     @Environment(\.openURL) private var openURL
     
-    @State private var awesomeHumanEmail = AppCore.shared.licensing.paddleProduct?.activationEmail ?? ""
-    @State private var magicNumbers = AppCore.shared.licensing.paddleProduct?.licenseCode ?? ""
+    @State private var awesomeHumanEmail = AppCore.shared.licensing.awesomeHumanEmail ?? ""
+    @State private var magicNumbers = AppCore.shared.licensing.magicNumbers ?? ""
     @State private var isActivated = AppCore.shared.licensing.isActivated
     @State private var activateSubscriptionButtonText = "activate subscription" 
     @State private var removeLicenseButtonText = "remove license" 
@@ -168,7 +168,7 @@ struct LicensePane: View {
         
         activateSubscriptionButtonText = "activating..."
         
-        AppCore.shared.licensing.paddleProduct?.activateEmail(awesomeHumanEmail, license: magicNumbers) { success, _ in
+        AppCore.shared.licensing.activate(email: awesomeHumanEmail, license: magicNumbers) { success, _ in
             if success {
                 isActivated = true
             }
@@ -179,8 +179,8 @@ struct LicensePane: View {
         
     private func tryRemovingLicense() {
         removeLicenseButtonText = "removing..."
-                
-        AppCore.shared.licensing.paddleProduct?.deactivate() { success, _ in
+
+        AppCore.shared.licensing.deactivate() { success, _ in
             awesomeHumanEmail = ""
             magicNumbers = ""
             isActivated = false
@@ -191,7 +191,7 @@ struct LicensePane: View {
     private func tryRecoveringOrders() {
         recoverOrdersButtonText = "sending email..."
         
-        AppCore.shared.licensing.paddle?.recoverLicense(for: AppCore.shared.licensing.paddleProduct!, email: awesomeHumanEmail) { _, _ in
+        AppCore.shared.licensing.recoverOrders(email: awesomeHumanEmail) { success, _ in
             recoverOrdersButtonText = "recover orders"
         }
     }
