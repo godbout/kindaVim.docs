@@ -66,7 +66,17 @@ struct LicensePane: View {
                 VStack {
                     HStack {
                         Spacer()
-                        TextField(text: $awesomeHumanEmail, prompt: Text("guill@sleeplessmind.com.mo")) {
+                        
+                        TextField(
+                            text: Binding(
+                                get: { self.awesomeHumanEmail },
+                                set: { 
+                                    let trimmedEmail = $0.trimmingCharacters(in: .whitespacesAndNewlines)
+                                    self.awesomeHumanEmail = trimmedEmail
+                                }
+                            ),
+                            prompt: Text("guill@sleeplessmind.com.mo")
+                        ) {
                             Label("the Awesome Human's email:", systemImage: "figure.walk")
                         }
                         .onSubmit {
@@ -79,7 +89,16 @@ struct LicensePane: View {
                     }
                     HStack {
                         Spacer()
-                        TextField(text: $magicNumbers, prompt: Text("PD-a1bcde2f-3ghi-4567-j8kl-m901234n6o9f")) {
+                        TextField(
+                            text: Binding(
+                                get: { self.magicNumbers },
+                                set: {
+                                    let trimmedLicense = $0.trimmingCharacters(in: .whitespacesAndNewlines)
+                                    self.magicNumbers = trimmedLicense
+                                }
+                            ),
+                            prompt: Text("PD-a1bcde2f-3ghi-4567-j8kl-m901234n6o9f")
+                        ) {
                             Label("the Magic Numbers™:", systemImage: "barcode")
                         }
                         .onSubmit {
@@ -136,8 +155,8 @@ struct LicensePane: View {
                     .padding(.top, 15)                                     
                 }
                 .padding(.top, 12)          
-                .disabled(true)
-                .foregroundColor(.gray)
+//                .disabled(true)
+//                .foregroundColor(.gray)
             }
         }
         .frame(width: 570, height: nil)
