@@ -69,7 +69,6 @@ struct GlobalEventsController {
                 return true
             }
             
-            #if DEBUG     
             guard AppCore.shared.licensing.userHasEarnedRightsToAbuse else {
                 let statusItemButton = AppCore.shared.statusBarController.statusItem.button
                                                 
@@ -91,7 +90,6 @@ struct GlobalEventsController {
               
                 return true
             }
-            #endif
                         
             AppCore.shared.vimEngine.handle(keyCombination: implementedKeyCombination, appFamily: appFamilyForCurrentApp())
             
