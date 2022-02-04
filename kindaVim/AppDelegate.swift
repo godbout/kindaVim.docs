@@ -25,6 +25,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(_ notification: Notification) {
         DistributedNotificationCenter.default().addObserver(self, selector: #selector(self.accessibilityPrivilegesDidChange), name: NSNotification.Name("com.apple.accessibility.api"), object: nil)
         NSWorkspace.shared.notificationCenter.addObserver(self, selector: #selector(self.spaceDidChange), name: NSWorkspace.activeSpaceDidChangeNotification, object: nil)
+        NSWorkspace.shared.notificationCenter.addObserver(self, selector: #selector(self.dayDidChange), name: NSNotification.Name.NSCalendarDayChanged, object: nil)
         
         guard AXIsProcessTrusted() else {
             showSplashScreen()
@@ -66,6 +67,20 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         guard AppCore.shared.vimEngine != nil else { return }
         
         AppCore.shared.vimEngine.enterInsertMode()
+    }
+    
+    @objc func dayDidChange() {
+        guard AppCore.shared.licensing != nil else { return }
+        guard AppCore.shared.licensing.isActivated else { return }
+        
+//        let shouldCheck = (Int.random(in: 1...3) == 1)
+        let shouldCheck = true
+        
+        if shouldCheck == true {
+            AppCore.shared.licensing.verify()
+        }        
+        
+        print("day changed hehe")
     }
 
 }
