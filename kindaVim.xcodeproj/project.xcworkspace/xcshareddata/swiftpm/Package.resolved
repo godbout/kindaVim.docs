@@ -51,7 +51,7 @@
         "repositoryURL": "git@github.com:godbout/KeyboardStrategy.git",
         "state": {
           "branch": "master",
-          "revision": "14fd94320e95c62a1e7001bfe469bceebbd3cccf",
+          "revision": "8fda8277d9f11fae8ab43b1c6b68af945c9d9213",
           "version": null
         }
       },
@@ -87,7 +87,7 @@
         "repositoryURL": "https://github.com/sparkle-project/Sparkle",
         "state": {
           "branch": "2.x",
-          "revision": "452472ee3e6c3cd59898b3ee5914d26216f8485e",
+          "revision": "eb938ad15acc40efce1fc2b259f9dc162f8b5454",
           "version": null
         }
       }
