@@ -21,7 +21,7 @@ extension SucceedingASNM_j_Tests {
         applyKeyCombinationsBeingTested()
         
         XCTAssertEqual(asNormalModeMock.functionCalled, "")
-        XCTAssertEqual(ksNormalModeMock.functionCalled, "j()")
+        XCTAssertEqual(ksNormalModeMock.functionCalled, "j(times:)")
     }
     
     func test_that_on_a_TextArea_if_it_is_not_remap_it_calls_j_on_AS() {

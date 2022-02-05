@@ -270,13 +270,13 @@ class KeyboardStrategyNormalModeMock: KeyboardStrategyNormalModeProtocol {
         return []
     }
     
-    func j() -> [KeyCombination] {
+    func j(times count: Int? = 1) -> [KeyCombination] {
         functionCalled = #function
         
         return []
     }
     
-    func k() -> [KeyCombination] {
+    func k(times count: Int? = 1) -> [KeyCombination] {
         functionCalled = #function
         
         return []

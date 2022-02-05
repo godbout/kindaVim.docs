@@ -74,10 +74,10 @@ extension KindaVimEngine {
             post(ksNormalMode.J(state))
             endCurrentMove()
         case .j:
-            post(ksNormalMode.j())
+            post(ksNormalMode.j(times: count))
             endCurrentMove()
         case .k:
-            post(ksNormalMode.k())
+            post(ksNormalMode.k(times: count))
             endCurrentMove()
         case .l:
             post(ksNormalMode.l(times: count))
