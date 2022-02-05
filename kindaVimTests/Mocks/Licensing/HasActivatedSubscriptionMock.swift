@@ -4,11 +4,11 @@ import Foundation
 
 final class HasActivatedSubscriptionMock: LicensingProtocol {
 
-    var currentDate: Date!
+    var today: Date!
     var isActivated = true    
     
-    init(currentDate: Date?) {
-        self.currentDate = currentDate
+    init(today: Date?) {
+        self.today = today
     }
 
 } 
