@@ -70,12 +70,23 @@ struct GlobalEventsController {
             }
             
             guard AppCore.shared.licensing.userHasEarnedRightsToAbuse else {
+                var rootView: AnyView
+                
+                switch AppCore.shared.licensing.status {
+                case .expiredLicense:
+                    rootView = AnyView(ExpiredLicensePopoverView())
+                case .tooLongCantCheck:
+                    rootView = AnyView(TooLongCouldntCheckPopoverView())
+                default:
+                    rootView = AnyView(BedtimePopoverView(sentence: Licensing.bedtimeSentences.randomElement()!))
+                }
+                                                  
                 let statusItemButton = AppCore.shared.statusBarController.statusItem.button
                                                 
                 subscriptionPopover?.animates = false
                 subscriptionPopover?.close()
                 subscriptionPopover?.behavior = .transient
-                subscriptionPopover?.contentViewController?.view = NSHostingView(rootView: BedtimePopoverView(sentence: Licensing.bedtimeSentences.randomElement()!))
+                subscriptionPopover?.contentViewController?.view = NSHostingView(rootView: rootView)
                 subscriptionPopover?.animates = true
                 
                 // even without a license you're allowed to go back to IM awww LOL how generous
