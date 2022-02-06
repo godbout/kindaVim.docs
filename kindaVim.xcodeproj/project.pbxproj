@@ -48,6 +48,8 @@
 		916ACF9126FE086B000E9757 /* kindaVimApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916ACF9026FE086B000E9757 /* kindaVimApp.swift */; };
 		916ACF9526FE086C000E9757 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 916ACF9426FE086C000E9757 /* Assets.xcassets */; };
 		916ACF9826FE086C000E9757 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 916ACF9726FE086C000E9757 /* Preview Assets.xcassets */; };
+		916E36E427B054C30028F738 /* ExpiredLicensePopoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D0577F27B02A5A0011DC38 /* ExpiredLicensePopoverView.swift */; };
+		916E36E527B054C60028F738 /* TooLongCouldntCheckPopoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D0578127B02D7A0011DC38 /* TooLongCouldntCheckPopoverView.swift */; };
 		91737498279E96AA003C563D /* LicensingBaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91737497279E96AA003C563D /* LicensingBaseTests.swift */; };
 		91737499279E985A003C563D /* Licensing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91943A34279D15AD001C8393 /* Licensing.swift */; };
 		9173749A279E988A003C563D /* Paddle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91943A30279D1558001C8393 /* Paddle.framework */; };
@@ -2432,6 +2434,7 @@
 				91840E1026FE09A300E6048E /* ASUI_NM_cT__Tests.swift in Sources */,
 				91D72B61275E260F00CC46B4 /* ASUI_NM_ci}_Tests.swift in Sources */,
 				91C26B35277B2E34002C3CED /* StatusBarController.swift in Sources */,
+				916E36E427B054C30028F738 /* ExpiredLicensePopoverView.swift in Sources */,
 				91840E0B26FE09A300E6048E /* _ASUI_NM_BaseTests.swift in Sources */,
 				91D72B5D275E25FE00CC46B4 /* ASUI_NM_ci{_Tests.swift in Sources */,
 				9103C59F271C7F1400BDEBD7 /* AS_VisualMode.swift in Sources */,
@@ -2439,6 +2442,7 @@
 				91C26B34277B2E27002C3CED /* AppCore.swift in Sources */,
 				91EC8C6127675AB000E40F27 /* ASUI_NM_cb_Tests.swift in Sources */,
 				91840E0F26FE09A300E6048E /* ASUI_NM_caw_Tests.swift in Sources */,
+				916E36E527B054C60028F738 /* TooLongCouldntCheckPopoverView.swift in Sources */,
 				91840E0C26FE09A300E6048E /* ASUI_NM_ct_Tests.swift in Sources */,
 				91D72B59275E1F8400CC46B4 /* ASUI_NM_ci'_Tests.swift in Sources */,
 				91C26B36277B2E3B002C3CED /* EventTapController.swift in Sources */,
