@@ -2,7 +2,7 @@
 import Foundation
 
 
-final class HasNotActivatedSubscriptionMock: LicensingProtocol {
+final class HasNoSubscriptionMock: LicensingProtocol {
     
     var today: Date!
     var isActivated = false
