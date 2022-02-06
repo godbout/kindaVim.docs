@@ -52,10 +52,16 @@ struct LicensePane: View {
                         .opacity(isActivated ? 1 : 0)
                     }
                     .padding(.trailing, 41)
-                    VStack(alignment: .leading) {
-                        Text("One of These Days™ kV will be sleeping from 5am to 1pm (Winter schedule) every day. at this time you may get a No Bedtime™ subscription if you wish to torture kV 24 hours a day.")
-                            .padding(.bottom)
-                        Text("currently kV is still young and can handle the pressure. so please abuse it freely.")
+                    VStack(alignment: .center) {
+                        if isActivated {
+                            Text("awwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww. thank you. ❤️")
+                        } else {
+                            Text("kV sleeps from 5am to 1pm (Winter schedule) every day. that lazy bastard. if you can't wait to torture kV 24/7, you can do it with one cup of coffee a month. press below.")
+                                .padding(.bottom)
+                            Button("yes please lemme torture kV 24/7 for its own benefit") {
+                                openURL(URL(string: "https://subscribe.kindavim.app")!)
+                            }
+                        }
                     }
                     .fixedSize(horizontal: false, vertical: true)
                 }
