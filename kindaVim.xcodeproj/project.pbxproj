@@ -51,10 +51,7 @@
 		91737498279E96AA003C563D /* LicensingBaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91737497279E96AA003C563D /* LicensingBaseTests.swift */; };
 		91737499279E985A003C563D /* Licensing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91943A34279D15AD001C8393 /* Licensing.swift */; };
 		9173749A279E988A003C563D /* Paddle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91943A30279D1558001C8393 /* Paddle.framework */; };
-		9173749D279EA012003C563D /* HasActivatedSubscriptionMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9173749C279EA012003C563D /* HasActivatedSubscriptionMock.swift */; };
-		9173749F279EA01C003C563D /* HasNotActivatedSubscriptionMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9173749E279EA01C003C563D /* HasNotActivatedSubscriptionMock.swift */; };
-		917374A1279EA26D003C563D /* HasActivatedSubscriptionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917374A0279EA26D003C563D /* HasActivatedSubscriptionTests.swift */; };
-		917374A3279EA278003C563D /* HasNotActivatedSubscriptionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917374A2279EA278003C563D /* HasNotActivatedSubscriptionTests.swift */; };
+		9173749F279EA01C003C563D /* HasNoLicenseMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9173749E279EA01C003C563D /* HasNoLicenseMock.swift */; };
 		917374A7279EC345003C563D /* BedtimePopoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917374A6279EC345003C563D /* BedtimePopoverView.swift */; };
 		917A61EB27410F1100E3654E /* Sparkle in Frameworks */ = {isa = PBXBuildFile; productRef = 917A61EA27410F1100E3654E /* Sparkle */; };
 		9183490E2791492A00F71528 /* ASCL_ZZ__Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9183490D2791492A00F71528 /* ASCL_ZZ__Tests.swift */; };
@@ -408,6 +405,8 @@
 		91943A31279D1558001C8393 /* Paddle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91943A30279D1558001C8393 /* Paddle.framework */; };
 		91943A32279D1579001C8393 /* Paddle.framework in Copy Paddle */ = {isa = PBXBuildFile; fileRef = 91943A30279D1558001C8393 /* Paddle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		91943A35279D15AD001C8393 /* Licensing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91943A34279D15AD001C8393 /* Licensing.swift */; };
+		919A61D727AFD5370089B50F /* HasNoLicenseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919A61D627AFD5370089B50F /* HasNoLicenseTests.swift */; };
+		919A61D927AFD5600089B50F /* HasValidLicenseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919A61D827AFD5600089B50F /* HasValidLicenseTests.swift */; };
 		91A967422741447400E1CA7E /* UpdaterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A967412741447400E1CA7E /* UpdaterController.swift */; };
 		91BBC4DD278763F2008DE977 /* KSNM_c$_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BBC4DC278763F2008DE977 /* KSNM_c$_Tests.swift */; };
 		91BBC4DF278763FD008DE977 /* KSNM_d$_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BBC4DE278763FD008DE977 /* KSNM_d$_Tests.swift */; };
@@ -429,6 +428,15 @@
 		91C26B39277B2E71002C3CED /* GlobalEventsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91840DDC26FE096C00E6048E /* GlobalEventsController.swift */; };
 		91C26B3A277B2E7E002C3CED /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D475F826FF67A10007187B /* Settings.swift */; };
 		91C26B3B277B2E8D002C3CED /* KeyboardShortcuts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91840DE126FE096C00E6048E /* KeyboardShortcuts.swift */; };
+		91D0577227B007AB0011DC38 /* HasValidLicenseMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D0577127B007AB0011DC38 /* HasValidLicenseMock.swift */; };
+		91D0577427B0080C0011DC38 /* HasExpiredLicenseForSureMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D0577327B0080C0011DC38 /* HasExpiredLicenseForSureMock.swift */; };
+		91D0577627B00AD00011DC38 /* HasExpiredLicenseForSureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D0577527B00AD00011DC38 /* HasExpiredLicenseForSureTests.swift */; };
+		91D0577827B00BD20011DC38 /* HasExpiredLicenseButCantCheckTemporarilyMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D0577727B00BD20011DC38 /* HasExpiredLicenseButCantCheckTemporarilyMock.swift */; };
+		91D0577A27B00BE10011DC38 /* HasExpiredLicenseButCantCheckForTooLongMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D0577927B00BE10011DC38 /* HasExpiredLicenseButCantCheckForTooLongMock.swift */; };
+		91D0577C27B00C180011DC38 /* HasExpiredLicenseButCantCheckTemporarilyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D0577B27B00C180011DC38 /* HasExpiredLicenseButCantCheckTemporarilyTests.swift */; };
+		91D0577E27B00CC00011DC38 /* HasExpiredLicenseButCantCheckForTooLongTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D0577D27B00CC00011DC38 /* HasExpiredLicenseButCantCheckForTooLongTests.swift */; };
+		91D0578027B02A5A0011DC38 /* ExpiredLicensePopoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D0577F27B02A5A0011DC38 /* ExpiredLicensePopoverView.swift */; };
+		91D0578227B02D7A0011DC38 /* TooLongCouldntCheckPopoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D0578127B02D7A0011DC38 /* TooLongCouldntCheckPopoverView.swift */; };
 		91D222F726FE0F2B00B9AF77 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D222F626FE0F2B00B9AF77 /* AppDelegate.swift */; };
 		91D222FD26FE105800B9AF77 /* KindaVimEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91840DEA26FE096C00E6048E /* KindaVimEngine.swift */; };
 		91D2DB5F2795C5BD00CC7978 /* ASNM_dip_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D2DB5E2795C5BD00CC7978 /* ASNM_dip_Tests.swift */; };
@@ -540,10 +548,7 @@
 		916ACF9E26FE086C000E9757 /* kindaVimTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = kindaVimTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		916ACFA826FE086C000E9757 /* kindaVimUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = kindaVimUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		91737497279E96AA003C563D /* LicensingBaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicensingBaseTests.swift; sourceTree = "<group>"; };
-		9173749C279EA012003C563D /* HasActivatedSubscriptionMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HasActivatedSubscriptionMock.swift; sourceTree = "<group>"; };
-		9173749E279EA01C003C563D /* HasNotActivatedSubscriptionMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HasNotActivatedSubscriptionMock.swift; sourceTree = "<group>"; };
-		917374A0279EA26D003C563D /* HasActivatedSubscriptionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HasActivatedSubscriptionTests.swift; sourceTree = "<group>"; };
-		917374A2279EA278003C563D /* HasNotActivatedSubscriptionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HasNotActivatedSubscriptionTests.swift; sourceTree = "<group>"; };
+		9173749E279EA01C003C563D /* HasNoLicenseMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HasNoLicenseMock.swift; sourceTree = "<group>"; };
 		917374A6279EC345003C563D /* BedtimePopoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BedtimePopoverView.swift; sourceTree = "<group>"; };
 		9183490D2791492A00F71528 /* ASCL_ZZ__Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASCL_ZZ__Tests.swift; sourceTree = "<group>"; };
 		9183490F279149B100F71528 /* KSCL_ZZ__Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSCL_ZZ__Tests.swift; sourceTree = "<group>"; };
@@ -890,6 +895,8 @@
 		918F30692787569E00AD68DF /* KeyMappingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyMappingTests.swift; sourceTree = "<group>"; };
 		91943A30279D1558001C8393 /* Paddle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Paddle.framework; sourceTree = "<group>"; };
 		91943A34279D15AD001C8393 /* Licensing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Licensing.swift; sourceTree = "<group>"; };
+		919A61D627AFD5370089B50F /* HasNoLicenseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HasNoLicenseTests.swift; sourceTree = "<group>"; };
+		919A61D827AFD5600089B50F /* HasValidLicenseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HasValidLicenseTests.swift; sourceTree = "<group>"; };
 		91A967412741447400E1CA7E /* UpdaterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdaterController.swift; sourceTree = "<group>"; };
 		91BBC4DC278763F2008DE977 /* KSNM_c$_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSNM_c$_Tests.swift; sourceTree = "<group>"; };
 		91BBC4DE278763FD008DE977 /* KSNM_d$_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSNM_d$_Tests.swift; sourceTree = "<group>"; };
@@ -903,6 +910,15 @@
 		91BEE34D278D85430037FD1A /* KSVM_S__Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSVM_S__Tests.swift; sourceTree = "<group>"; };
 		91BEE350278D88360037FD1A /* KSVM_R__Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSVM_R__Tests.swift; sourceTree = "<group>"; };
 		91BEE352278D88530037FD1A /* ASVM_R__Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASVM_R__Tests.swift; sourceTree = "<group>"; };
+		91D0577127B007AB0011DC38 /* HasValidLicenseMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HasValidLicenseMock.swift; sourceTree = "<group>"; };
+		91D0577327B0080C0011DC38 /* HasExpiredLicenseForSureMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HasExpiredLicenseForSureMock.swift; sourceTree = "<group>"; };
+		91D0577527B00AD00011DC38 /* HasExpiredLicenseForSureTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HasExpiredLicenseForSureTests.swift; sourceTree = "<group>"; };
+		91D0577727B00BD20011DC38 /* HasExpiredLicenseButCantCheckTemporarilyMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HasExpiredLicenseButCantCheckTemporarilyMock.swift; sourceTree = "<group>"; };
+		91D0577927B00BE10011DC38 /* HasExpiredLicenseButCantCheckForTooLongMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HasExpiredLicenseButCantCheckForTooLongMock.swift; sourceTree = "<group>"; };
+		91D0577B27B00C180011DC38 /* HasExpiredLicenseButCantCheckTemporarilyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HasExpiredLicenseButCantCheckTemporarilyTests.swift; sourceTree = "<group>"; };
+		91D0577D27B00CC00011DC38 /* HasExpiredLicenseButCantCheckForTooLongTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HasExpiredLicenseButCantCheckForTooLongTests.swift; sourceTree = "<group>"; };
+		91D0577F27B02A5A0011DC38 /* ExpiredLicensePopoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpiredLicensePopoverView.swift; sourceTree = "<group>"; };
+		91D0578127B02D7A0011DC38 /* TooLongCouldntCheckPopoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TooLongCouldntCheckPopoverView.swift; sourceTree = "<group>"; };
 		91D222F626FE0F2B00B9AF77 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		91D2230826FE112000B9AF77 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		91D2DB5E2795C5BD00CC7978 /* ASNM_dip_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASNM_dip_Tests.swift; sourceTree = "<group>"; };
@@ -1150,9 +1166,8 @@
 		91737496279E9693003C563D /* Licensing */ = {
 			isa = PBXGroup;
 			children = (
+				919A61D527AFD4FE0089B50F /* UserHasEarnedRightsToAbuse */,
 				91737497279E96AA003C563D /* LicensingBaseTests.swift */,
-				917374A0279EA26D003C563D /* HasActivatedSubscriptionTests.swift */,
-				917374A2279EA278003C563D /* HasNotActivatedSubscriptionTests.swift */,
 			);
 			path = Licensing;
 			sourceTree = "<group>";
@@ -1160,8 +1175,11 @@
 		9173749B279E9FFC003C563D /* Licensing */ = {
 			isa = PBXGroup;
 			children = (
-				9173749C279EA012003C563D /* HasActivatedSubscriptionMock.swift */,
-				9173749E279EA01C003C563D /* HasNotActivatedSubscriptionMock.swift */,
+				9173749E279EA01C003C563D /* HasNoLicenseMock.swift */,
+				91D0577127B007AB0011DC38 /* HasValidLicenseMock.swift */,
+				91D0577327B0080C0011DC38 /* HasExpiredLicenseForSureMock.swift */,
+				91D0577727B00BD20011DC38 /* HasExpiredLicenseButCantCheckTemporarilyMock.swift */,
+				91D0577927B00BE10011DC38 /* HasExpiredLicenseButCantCheckForTooLongMock.swift */,
 			);
 			path = Licensing;
 			sourceTree = "<group>";
@@ -1713,8 +1731,22 @@
 			children = (
 				91943A34279D15AD001C8393 /* Licensing.swift */,
 				917374A6279EC345003C563D /* BedtimePopoverView.swift */,
+				91D0577F27B02A5A0011DC38 /* ExpiredLicensePopoverView.swift */,
+				91D0578127B02D7A0011DC38 /* TooLongCouldntCheckPopoverView.swift */,
 			);
 			path = Licensing;
+			sourceTree = "<group>";
+		};
+		919A61D527AFD4FE0089B50F /* UserHasEarnedRightsToAbuse */ = {
+			isa = PBXGroup;
+			children = (
+				919A61D627AFD5370089B50F /* HasNoLicenseTests.swift */,
+				919A61D827AFD5600089B50F /* HasValidLicenseTests.swift */,
+				91D0577527B00AD00011DC38 /* HasExpiredLicenseForSureTests.swift */,
+				91D0577B27B00C180011DC38 /* HasExpiredLicenseButCantCheckTemporarilyTests.swift */,
+				91D0577D27B00CC00011DC38 /* HasExpiredLicenseButCantCheckForTooLongTests.swift */,
+			);
+			path = UserHasEarnedRightsToAbuse;
 			sourceTree = "<group>";
 		};
 		91D222F826FE103800B9AF77 /* Frameworks */ = {
@@ -1966,10 +1998,12 @@
 				91840DF626FE096C00E6048E /* KeyboardShortcuts.swift in Sources */,
 				9103C594271C7A3800BDEBD7 /* AS_NormalMode.swift in Sources */,
 				91840DEE26FE096C00E6048E /* CharactersWindow.swift in Sources */,
+				91D0578227B02D7A0011DC38 /* TooLongCouldntCheckPopoverView.swift in Sources */,
 				91840DF826FE096C00E6048E /* GeneralPane.swift in Sources */,
 				9103C598271C7B4C00BDEBD7 /* AS_VisualMode.swift in Sources */,
 				91840DF126FE096C00E6048E /* Display.swift in Sources */,
 				91840DFA26FE096C00E6048E /* VisualsPane.swift in Sources */,
+				91D0578027B02A5A0011DC38 /* ExpiredLicensePopoverView.swift in Sources */,
 				9103C596271C7ABA00BDEBD7 /* KS_NormalMode.swift in Sources */,
 				9103212227953B0F00584542 /* LicensePane.swift in Sources */,
 				91840DF426FE096C00E6048E /* AppCore.swift in Sources */,
@@ -2004,7 +2038,6 @@
 				918F2ECE278754D100AD68DF /* ASNM_$_Tests.swift in Sources */,
 				918F30422787559C00AD68DF /* KSVM_B__Tests.swift in Sources */,
 				918F2E95278754D100AD68DF /* ASNM_ge_Tests.swift in Sources */,
-				917374A3279EA278003C563D /* HasNotActivatedSubscriptionTests.swift in Sources */,
 				91BEE344278D68990037FD1A /* ASNM_s_Tests.swift in Sources */,
 				918F2FCC2787557800AD68DF /* KSNM_caW__Tests.swift in Sources */,
 				918F30632787559C00AD68DF /* KSVM_gE__Tests.swift in Sources */,
@@ -2041,12 +2074,13 @@
 				91BEE34A278D81EB0037FD1A /* KSVM_s_Tests.swift in Sources */,
 				918F2EFD278754D100AD68DF /* ASNM_daw_Tests.swift in Sources */,
 				918F2F432787551300AD68DF /* ASVM_Y__Tests.swift in Sources */,
-				9173749F279EA01C003C563D /* HasNotActivatedSubscriptionMock.swift in Sources */,
+				9173749F279EA01C003C563D /* HasNoLicenseMock.swift in Sources */,
 				918F2EA4278754D100AD68DF /* ASNM_yi}_Tests.swift in Sources */,
 				918F2F4A2787551300AD68DF /* ASVM_E__Tests.swift in Sources */,
 				918F2F542787551300AD68DF /* ASVM_G__Tests.swift in Sources */,
 				912BC458278CB86B000E999C /* KSNM_V__Tests.swift in Sources */,
 				91F4181D277B576000E58117 /* CommandsMock.swift in Sources */,
+				91D0577627B00AD00011DC38 /* HasExpiredLicenseForSureTests.swift in Sources */,
 				918F2F562787551300AD68DF /* ASVM_y_Tests.swift in Sources */,
 				91F4182F277B5EF200E58117 /* ASCL_q!_Tests.swift in Sources */,
 				91840DCA26FE094500E6048E /* _KSVM_BaseTests.swift in Sources */,
@@ -2073,11 +2107,13 @@
 				918F2EC0278754D100AD68DF /* ASNM_caw_Tests.swift in Sources */,
 				91497ECC2789F006006CA23C /* AutoSucceedTests.swift in Sources */,
 				918F30142787557800AD68DF /* KSNM_yi`_Tests.swift in Sources */,
+				919A61D927AFD5600089B50F /* HasValidLicenseTests.swift in Sources */,
 				918F2FF02787557800AD68DF /* KSNM_X__Tests.swift in Sources */,
 				918F2EA8278754D100AD68DF /* ASNM_cF__Tests.swift in Sources */,
 				918F305C2787559C00AD68DF /* KSVM_t_Tests.swift in Sources */,
 				918F2FD52787557800AD68DF /* KSNM_Y__Tests.swift in Sources */,
 				911547E6278FFB9A0063DB88 /* GECEnableKillSwitchONTests.swift in Sources */,
+				91D0577C27B00C180011DC38 /* HasExpiredLicenseButCantCheckTemporarilyTests.swift in Sources */,
 				918F2EB3278754D100AD68DF /* ASNM_g__Tests.swift in Sources */,
 				918F2EF2278754D100AD68DF /* ASNM_g0_Tests.swift in Sources */,
 				91840B4826FE092D00E6048E /* KSVM_Mock.swift in Sources */,
@@ -2112,6 +2148,7 @@
 				918F2FF82787557800AD68DF /* KSNM_dl_Tests.swift in Sources */,
 				918F2EF6278754D100AD68DF /* ASNM_caW__Tests.swift in Sources */,
 				918F2FBA2787557800AD68DF /* KSNM___Tests.swift in Sources */,
+				91D0577E27B00CC00011DC38 /* HasExpiredLicenseButCantCheckForTooLongTests.swift in Sources */,
 				918F30552787559C00AD68DF /* KSVM_W__Tests.swift in Sources */,
 				91E30467278770980088E43C /* ASNM_S__Tests.swift in Sources */,
 				918F2EE9278754D100AD68DF /* ASNM_O__Tests.swift in Sources */,
@@ -2144,11 +2181,11 @@
 				918F2EBE278754D100AD68DF /* ASNM_%_Tests.swift in Sources */,
 				918F2FE12787557800AD68DF /* KSNM_C__Tests.swift in Sources */,
 				918F30602787559C00AD68DF /* KSVM_h_Tests.swift in Sources */,
+				91D0577A27B00BE10011DC38 /* HasExpiredLicenseButCantCheckForTooLongMock.swift in Sources */,
 				918F2FCD2787557800AD68DF /* KSNM_dh_Tests.swift in Sources */,
 				918F2EC4278754D100AD68DF /* ASNM_gj_Tests.swift in Sources */,
 				918F2F06278754D100AD68DF /* ASNM_r_Tests.swift in Sources */,
 				918F2EC7278754D100AD68DF /* ASNM_ci[_Tests.swift in Sources */,
-				917374A1279EA26D003C563D /* HasActivatedSubscriptionTests.swift in Sources */,
 				918F2E1227874ED300AD68DF /* ASFailing_Mock.swift in Sources */,
 				918F2EBB278754D100AD68DF /* ASNM_yt_Tests.swift in Sources */,
 				918F300A2787557800AD68DF /* KSNM_g$_Tests.swift in Sources */,
@@ -2234,6 +2271,7 @@
 				918F2EDA278754D100AD68DF /* ASNM_ci'_Tests.swift in Sources */,
 				918F30092787557800AD68DF /* KSNM_G___Tests.swift in Sources */,
 				918F2EA7278754D100AD68DF /* ASNM_dW__Tests.swift in Sources */,
+				91D0577427B0080C0011DC38 /* HasExpiredLicenseForSureMock.swift in Sources */,
 				91737498279E96AA003C563D /* LicensingBaseTests.swift in Sources */,
 				918F2EF4278754D100AD68DF /* ASNM_X__Tests.swift in Sources */,
 				918F2EBA278754D100AD68DF /* ASNM_yi`_Tests.swift in Sources */,
@@ -2248,7 +2286,6 @@
 				918F2FC02787557800AD68DF /* KSNM_cw_Tests.swift in Sources */,
 				911547DF278F17160063DB88 /* KSVM_escape_Tests.swift in Sources */,
 				91840B4C26FE092D00E6048E /* KSNM_Mock.swift in Sources */,
-				9173749D279EA012003C563D /* HasActivatedSubscriptionMock.swift in Sources */,
 				918F2EE3278754D100AD68DF /* ASNM_yF__Tests.swift in Sources */,
 				918F2EE5278754D100AD68DF /* ASNM_cb_Tests.swift in Sources */,
 				918F2EE0278754D100AD68DF /* ASNM_G___Tests.swift in Sources */,
@@ -2274,6 +2311,7 @@
 				918F2F3B2787551300AD68DF /* ASVM_g0_Tests.swift in Sources */,
 				918F2FFC2787557800AD68DF /* KSNM_g^_Tests.swift in Sources */,
 				918F30122787557800AD68DF /* KSNM_ci'_Tests.swift in Sources */,
+				919A61D727AFD5370089B50F /* HasNoLicenseTests.swift in Sources */,
 				91BEE353278D88530037FD1A /* ASVM_R__Tests.swift in Sources */,
 				918F2EDF278754D100AD68DF /* ASNM_ci(_Tests.swift in Sources */,
 				918F30012787557800AD68DF /* KSNM_control_r_Tests.swift in Sources */,
@@ -2310,6 +2348,7 @@
 				918F2ED9278754D100AD68DF /* ASNM_cE__Tests.swift in Sources */,
 				918F2EFA278754D100AD68DF /* ASNM_B__Tests.swift in Sources */,
 				918F2ECC278754D100AD68DF /* ASNM_cc_Tests.swift in Sources */,
+				91D0577227B007AB0011DC38 /* HasValidLicenseMock.swift in Sources */,
 				918F2EAC278754D100AD68DF /* ASNM_h_Tests.swift in Sources */,
 				918F2FFF2787557800AD68DF /* KSNM_diW__Tests.swift in Sources */,
 				912BC44B278A1417000E999C /* ASSucceeding_TextField_Mock.swift in Sources */,
@@ -2340,6 +2379,7 @@
 				918F2F03278754D100AD68DF /* ASNM_yi(_Tests.swift in Sources */,
 				918F2FD82787557800AD68DF /* KSNM_dE__Tests.swift in Sources */,
 				918F2ED7278754D100AD68DF /* ASNM_}_Tests.swift in Sources */,
+				91D0577827B00BD20011DC38 /* HasExpiredLicenseButCantCheckTemporarilyMock.swift in Sources */,
 				918F2FC42787557800AD68DF /* KSNM_h_Tests.swift in Sources */,
 				918F2F402787551300AD68DF /* ASVM_l_Tests.swift in Sources */,
 				918F2EE1278754D100AD68DF /* ASNM_T__Tests.swift in Sources */,
