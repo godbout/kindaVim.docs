@@ -87,6 +87,7 @@ class AppCore {
         guard licensing == nil else { return }
         
         licensing = Licensing()
+        licensing.verify()
     }
 
     private func setUpVimEngine() {

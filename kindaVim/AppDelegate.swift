@@ -72,15 +72,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @objc func dayDidChange() {
         guard AppCore.shared.licensing != nil else { return }
         guard AppCore.shared.licensing.isActivated else { return }
-        
-//        let shouldCheck = (Int.random(in: 1...3) == 1)
-        let shouldCheck = true
-        
-        if shouldCheck == true {
-            AppCore.shared.licensing.verify()
-        }        
-       
-        print("day changed hehe")
+
+        Int.random(in: 1...3) == 2 ? AppCore.shared.licensing.verify() : ()
     }
 
 }
