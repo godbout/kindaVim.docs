@@ -32,6 +32,8 @@ in the `Preferences` you can also:
 * enforce the [kV Keyboard Strategy](#user-content-kv-keyboard-strategy) for the biggest fattest liar Electron apps that they say they're implementing the macOS Accessibility but send back wrong data
 * enforce the [kV Keyboard Strategy](#user-content-kv-keyboard-strategy) Text Elements for apps that are even worse than Electron's (not even kidding)
 
+there's also a [video](https://www.youtube.com/watch?v=3dTNQ-XMDPI) about this.
+
 # WAIT A MINUTE. WHAT DATA DO YOU STEAL???
 
 see [DA FUQ](https://kindavim.app/da-fuq).
