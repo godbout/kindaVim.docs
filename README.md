@@ -44,6 +44,8 @@ you can use kindaVim fully for USD$0 a lifetime, but everyday from 5am to 1pm (W
 
 (also see [DA FUQ](https://kindavim.app/fuq) for why a sub.)
 
+P.S.: if you're happy with the state of the old betas you can always download them on GitHub. they don't need coffee. last one is [1b25](https://github.com/godbout/kindaVim.theapp/releases/tag/1b.25).
+
 # CURRENT VIM IMPLEMENTATION
 
 ## Motions
