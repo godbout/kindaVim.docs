@@ -36,15 +36,13 @@ there's also a [video](https://www.youtube.com/watch?v=3dTNQ-XMDPI) about this.
 
 # WAIT A MINUTE. WHAT DATA DO YOU STEAL???
 
-see [DA FUQ](https://kindavim.app/da-fuq).
+see [DA FUQ](https://kindavim.app/fuq).
 
 # HOW 'BOUT THE $$$
 
-kindaVim will be a subscription of one ☕️ (USD$3.69) a month. the beta is free and contains the full set of features. ~i have no idea when i'll drop the beta. the beta may last 10 years. who knows. or maybe till 2049.~ the subscription is coming around February/March 2022.
+you can use kindaVim fully for USD$0 a lifetime, but everyday from 5am to 1pm (Winter Schedule) it'll need its 8 hours of sleep. if you wanna torture kV 24/7, you'll need to get him a [good cup of ☕️ a month](https://subscribe.kindavim.app) (USD$3.69). 
 
-without the subscription you'll be able to abuse kV fully from 1pm to 5am but starting at dawn it'll need its 8 hours of sleep. the sub allows you to torture it 24/7. 
-
-also see [DA FUQ](https://kindavim.app/da-fuq) for why a sub.
+(also see [DA FUQ](https://kindavim.app/fuq) for why a sub.)
 
 # CURRENT VIM IMPLEMENTATION
 
