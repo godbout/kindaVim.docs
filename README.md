@@ -234,8 +234,8 @@ also see [DA FUQ](https://kindavim.app/da-fuq) for why a sub.
 | `l`         | ✅️              |
 | `i`         | ❌️              |
 | `J`         | ❌️              |
-| `j`         | ❌️              |
-| `k`         | ❌️              |
+| `j`         | ✅              |
+| `k`         | ✅              |
 | `l`         | ❌️              |
 | `O`         | ❌️              |
 | `o`         | ❌️              |
