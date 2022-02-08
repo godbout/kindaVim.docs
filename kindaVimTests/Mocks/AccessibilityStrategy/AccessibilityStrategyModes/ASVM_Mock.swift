@@ -7,6 +7,7 @@ import Common
 class AccessibilityStrategyVisualModeMock: AccessibilityStrategyVisualModeProtocol {
     
     var functionCalled = ""
+    var relevantParameter = ""
     
     
     func B(on element: AccessibilityTextElement, _ vimEngineState: VimEngineState) -> AccessibilityTextElement {
@@ -77,12 +78,14 @@ class AccessibilityStrategyVisualModeMock: AccessibilityStrategyVisualModeProtoc
     
     func F(times count: Int?, to character: Character, on element: AccessibilityTextElement, _ vimEngineState: VimEngineState) -> AccessibilityTextElement {
         functionCalled = #function
+        relevantParameter = String(character)
         
         return element
     }
     
     func f(times count: Int?, to character: Character, on element: AccessibilityTextElement, _ vimEngineState: VimEngineState) -> AccessibilityTextElement {
         functionCalled = #function
+        relevantParameter = String(character)
         
         return element
     }
@@ -209,12 +212,14 @@ class AccessibilityStrategyVisualModeMock: AccessibilityStrategyVisualModeProtoc
     
     func T(times count: Int?, to character: Character, on element: AccessibilityTextElement, _ vimEngineState: VimEngineState) -> AccessibilityTextElement {
         functionCalled = #function
+        relevantParameter = String(character)
         
         return element
     }
     
     func t(times count: Int?, to character: Character, on element: AccessibilityTextElement, _ vimEngineState: VimEngineState) -> AccessibilityTextElement {
         functionCalled = #function
+        relevantParameter = String(character)
         
         return element
     }

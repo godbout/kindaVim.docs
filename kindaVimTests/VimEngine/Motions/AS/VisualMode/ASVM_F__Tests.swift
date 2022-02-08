@@ -20,6 +20,7 @@ extension SucceedingASVM_F__Tests {
     
     func test_that_it_calls_the_correct_function_on_the_AccessibilityStrategy() {
         XCTAssertEqual(asVisualModeMock.functionCalled, "F(times:to:on:_:)")
+        XCTAssertEqual(asVisualModeMock.relevantParameter, "O")
     }
        
     func test_that_it_keeps_Vim_in_VisualMode() {
