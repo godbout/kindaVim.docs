@@ -22,6 +22,7 @@ extension SucceedingASNM_cf_Tests {
     
     func test_that_it_calls_the_correct_function_on_the_AccessibilityStrategy() {
         XCTAssertEqual(asNormalModeMock.functionCalled, "cf(times:to:on:_:)")
+        XCTAssertEqual(asNormalModeMock.relevantParameter, "k")
     }
     
     func test_that_it_resets_the_count() {

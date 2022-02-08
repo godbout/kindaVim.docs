@@ -23,6 +23,7 @@ extension SucceedingASNM_yF__Tests {
     
     func test_that_it_calls_the_correct_function_on_accessibility_strategy() {
         XCTAssertEqual(asNormalModeMock.functionCalled, "yF(times:to:on:_:)")
+        XCTAssertEqual(asNormalModeMock.relevantParameter, "b")
     }
     
     func test_that_it_keeps_Vim_in_NormalMode() {

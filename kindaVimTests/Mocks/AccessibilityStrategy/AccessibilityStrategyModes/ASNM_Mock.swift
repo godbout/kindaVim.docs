@@ -94,12 +94,14 @@ class AccessibilityStrategyNormalModeMock: AccessibilityStrategyNormalModeProtoc
     
     func cF(times count: Int? = 1, to character: Character, on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
         functionCalled = #function
+        relevantParameter = String(character)
         
         return element
     }
     
     func cf(times count: Int? = 1, to character: Character, on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
         functionCalled = #function
+        relevantParameter = String(character)
         
         return element
     }
@@ -208,12 +210,14 @@ class AccessibilityStrategyNormalModeMock: AccessibilityStrategyNormalModeProtoc
     
     func cT(times count: Int? = 1, to character: Character, on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
         functionCalled = #function
+        relevantParameter = String(character)
         
         return element
     }
     
     func ct(times count: Int? = 1, to character: Character, on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
         functionCalled = #function
+        relevantParameter = String(character)
         
         return element
     }
@@ -274,12 +278,14 @@ class AccessibilityStrategyNormalModeMock: AccessibilityStrategyNormalModeProtoc
     
     func dF(times count: Int? = 1, to character: Character, on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
         functionCalled = #function
+        relevantParameter = String(character)
         
         return element
     }
     
     func df(times count: Int? = 1, to character: Character, on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
         functionCalled = #function
+        relevantParameter = String(character)
         
         return element
     }
@@ -340,12 +346,15 @@ class AccessibilityStrategyNormalModeMock: AccessibilityStrategyNormalModeProtoc
     
     func dT(times count: Int? = 1, to character: Character, on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
         functionCalled = #function
+        relevantParameter = String(character)
+
         
         return element
     }
     
     func dt(times count: Int? = 1, to character: Character, on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
         functionCalled = #function
+        relevantParameter = String(character)
         
         return element
     }
@@ -572,12 +581,14 @@ class AccessibilityStrategyNormalModeMock: AccessibilityStrategyNormalModeProtoc
     
     func yF(times count: Int? = 1, to character: Character, on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
         functionCalled = #function
+        relevantParameter = String(character)
         
         return element
     }
     
     func yf(times count: Int? = 1, to character: Character, on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
         functionCalled = #function
+        relevantParameter = String(character)
         
         return element
     }
@@ -644,12 +655,14 @@ class AccessibilityStrategyNormalModeMock: AccessibilityStrategyNormalModeProtoc
     
     func yT(times count: Int? = 1, to character: Character, on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
         functionCalled = #function
+        relevantParameter = String(character)
         
         return element
     }
     
     func yt(times count: Int? = 1, to character: Character, on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
         functionCalled = #function
+        relevantParameter = String(character)
         
         return element
     }
