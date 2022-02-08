@@ -218,6 +218,8 @@ extension KindaVimEngine {
                 }
 
                 endCurrentMove()
+            case .slash:
+                enterOperatorPendingForNormalMode(with: keyCombination)
             case .T:
                 enterOperatorPendingForNormalMode(with: keyCombination)
             case .t:
@@ -751,6 +753,19 @@ extension KindaVimEngine {
                         enterNormalMode()
                     }
 
+                    return
+                }
+                
+                guard operatorPendingBuffer.first?.vimKey != .slash else {
+                    if operatorPendingBuffer.last?.vimKey == .return {
+                        let keyCombinationsPattern = operatorPendingBuffer.dropFirst().dropLast()
+                        let charactersPattern = keyCombinationsPattern.map { $0.character }
+                        
+                        let newElement = asNormalMode.slash(to: String(charactersPattern), on: currentElement)
+                        push(element: newElement)
+                        enterNormalMode()
+                    }
+                    
                     return
                 }
 

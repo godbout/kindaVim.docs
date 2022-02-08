@@ -537,6 +537,7 @@ class AccessibilityStrategyNormalModeMock: AccessibilityStrategyNormalModeProtoc
     
     func r(times count: Int? = 1, with replacement: Character, on element: AccessibilityTextElement, _ vimEngineState: VimEngineState) -> AccessibilityTextElement {
         functionCalled = #function
+        relevantParameter = String(replacement)
         
         return element
     }
@@ -741,6 +742,7 @@ class AccessibilityStrategyNormalModeMock: AccessibilityStrategyNormalModeProtoc
     
     func slash(to pattern: String, on element: AccessibilityTextElement) -> AccessibilityTextElement {
         functionCalled = #function
+        relevantParameter = pattern
         
         return element
     }
