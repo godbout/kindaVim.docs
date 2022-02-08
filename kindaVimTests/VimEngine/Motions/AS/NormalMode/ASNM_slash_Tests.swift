@@ -20,7 +20,6 @@ class SucceedingASNM_slash_Tests: ASNM_BaseTests {
 
 extension SucceedingASNM_slash_Tests {
     
-    // TODO: should we test the parameters passed? probably we could do that with the Mocks.
     func test_that_it_calls_the_correct_function_on_accessibility_strategy() {
         XCTAssertEqual(asNormalModeMock.functionCalled, "slash(to:on:)")
         XCTAssertEqual(asNormalModeMock.relevantParameter, "69")

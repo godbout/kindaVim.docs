@@ -10,6 +10,7 @@ class KeyboardStrategyNormalModeMock: KeyboardStrategyNormalModeProtocol {
     
     var axEngine: AXEngineProtocol = AXEngine()
     var functionCalled = ""
+    var relevantParameter: KeyCombination?
     
         
     func A(_ vimEngineState: VimEngineState) -> [KeyCombination] {
@@ -314,6 +315,7 @@ class KeyboardStrategyNormalModeMock: KeyboardStrategyNormalModeProtocol {
     
     func r(with replacement: KeyCombination, _ vimEngineState: VimEngineState) -> [KeyCombination] {
         functionCalled = #function
+        relevantParameter = replacement
         
         return[]
     }
