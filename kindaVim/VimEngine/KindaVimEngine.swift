@@ -98,12 +98,10 @@ class KindaVimEngine {
     
 
     func handle(keyCombination: KeyCombination, appFamily: AppFamily = .auto) {
-        #if DEBUG
         if showCharactersTyped == true {
             display.ongoingMove(add: keyCombination)
             display.showOngoingMove()
         }
-        #endif
         
         state.appFamily = appFamily
         
@@ -270,11 +268,9 @@ class KindaVimEngine {
                 
         inputFieldObserver.stopObserving()
         
-        #if DEBUG
         if showCharactersTyped == true {
             display.fadeOutOngoingMove()
         }
-        #endif
     }
     
     func enterNormalMode(appFamily: AppFamily = .auto) {

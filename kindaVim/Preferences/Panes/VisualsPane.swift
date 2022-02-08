@@ -68,12 +68,10 @@ struct VisualsPane: View {
                         AppCore.shared.vimEngine.toggleMenuBarIcon = $0
                     }
                     .padding(.top, 10)
-                #if DEBUG
                 Toggle("Show characters typed when Viming", isOn: $showCharactersTyped)
                     .onChange(of: showCharactersTyped) {
                         AppCore.shared.vimEngine.showCharactersTyped = $0
                     }
-                #endif
             }
             
         }
