@@ -36,13 +36,13 @@ there's now also a [video](https://www.youtube.com/watch?v=3dTNQ-XMDPI) about th
 
 # WAIT A MINUTE. WHAT DATA DO YOU STEAL???
 
-see [DA FUQ](https://kindavim.app/fuq).
+see [DA FUQ](https://kindavim.app/fuq#what-data-steal).
 
 # HOW 'BOUT THE $$$
 
 you can use kindaVim fully for USD$0 a lifetime, but everyday from 5am to 1pm (Winter Schedule) it'll need its 8 hours of sleep. if you wanna torture kV 24/7, you'll need to get him a [good cup of ☕️ a month](https://subscribe.kindavim.app) (USD$3.69). 
 
-(also see [DA FUQ](https://kindavim.app/fuq) for why a sub.)
+(also see [DA FUQ](https://kindavim.app/fuq#why-sub) for why a sub.)
 
 P.S.: if you're happy with the state of the old betas you can always download them on GitHub. they don't need coffee. last one is [1b25](https://github.com/godbout/kindaVim.theapp/releases/tag/1b.25).
 
