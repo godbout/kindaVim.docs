@@ -20,6 +20,7 @@ extension SucceedingASNM_r_Tests {
     
     func test_that_it_calls_the_correct_function_on_the_AccessibilityStrategy() {
         XCTAssertEqual(asNormalModeMock.functionCalled, "r(times:with:on:_:)")
+        XCTAssertEqual(asNormalModeMock.relevantParameter, "5")
     }
     
     func test_that_it_keeps_Vim_in_NormalMode() {
