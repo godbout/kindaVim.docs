@@ -3,7 +3,7 @@ import SwiftUI
 import KeyCombination
 
 
-struct CharactersWindow: WindowProtocol {
+final class CharactersWindow: WindowProtocol {
     
     private var window: NSWindow
     private var ongoingMove: String = ""
@@ -26,9 +26,16 @@ struct CharactersWindow: WindowProtocol {
         window.isRestorable = true
         window.level = .floating
         window.animationBehavior = .utilityWindow
-        window.collectionBehavior = [.canJoinAllSpaces, .transient]
+        window.collectionBehavior = [.transient]
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(didMove), name: NSWindow.didMoveNotification, object: window)        
     }
     
+    @objc private func didMove() {
+        Self.timer?.invalidate()
+        self.hide()
+    }
+        
     func show(_ ongoingMove: String) {
         Self.timer?.invalidate()
         
@@ -52,7 +59,7 @@ struct CharactersWindow: WindowProtocol {
         Self.timer = Timer.scheduledTimer(
             withTimeInterval: 1.28,
             repeats: false,
-            block: { _ in window.orderOut(self) }
+            block: { [unowned self] _ in self.window.orderOut(self) }
         )
     }
     
