@@ -7,6 +7,7 @@ import Common
 class AccessibilityStrategyNormalModeMock: AccessibilityStrategyNormalModeProtocol {
     
     var functionCalled = ""
+    var relevantParameter = ""
     
     
     static func test(element: AccessibilityTextElement) -> AccessibilityTextElement {
@@ -375,12 +376,14 @@ class AccessibilityStrategyNormalModeMock: AccessibilityStrategyNormalModeProtoc
     
     func f(times count: Int? = 1, to character: Character, on element: AccessibilityTextElement) -> AccessibilityTextElement {
         functionCalled = #function
+        relevantParameter = String(character)
         
         return element
     }
     
     func F(times count: Int? = 1, to character: Character, on element: AccessibilityTextElement) -> AccessibilityTextElement {
         functionCalled = #function
+        relevantParameter = String(character)
         
         return element
     }
@@ -531,12 +534,14 @@ class AccessibilityStrategyNormalModeMock: AccessibilityStrategyNormalModeProtoc
     
     func T(times count: Int? = 1, to character: Character, on element: AccessibilityTextElement) -> AccessibilityTextElement {
         functionCalled = #function
+        relevantParameter = String(character)
         
         return element
     }
     
     func t(times count: Int? = 1, to character: Character, on element: AccessibilityTextElement) -> AccessibilityTextElement {
         functionCalled = #function
+        relevantParameter = String(character)
         
         return element
     }
@@ -716,6 +721,12 @@ class AccessibilityStrategyNormalModeMock: AccessibilityStrategyNormalModeProtoc
     }
     
     func rightChevronRightChevron(on element: AccessibilityTextElement, _ vimEngineState: VimEngineState) -> AccessibilityTextElement {
+        functionCalled = #function
+        
+        return element
+    }
+    
+    func slash(to pattern: String, on element: AccessibilityTextElement) -> AccessibilityTextElement {
         functionCalled = #function
         
         return element
