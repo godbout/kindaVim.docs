@@ -40,13 +40,13 @@ struct Display {
                
         switch keyCombination.key {
         case .escape:
-            Self.ongoingMove.append("esc")
+            Self.ongoingMove.append("⎋")
         case .return:
-            Self.ongoingMove.append("return")
+            Self.ongoingMove.append("↵")
         case .space:
-            Self.ongoingMove.append("space")
+            Self.ongoingMove.append("␣")
         case .tab:
-            Self.ongoingMove.append("tab")
+            Self.ongoingMove.append("⇥")
         default:
             Self.ongoingMove.append(keyCombination.character)
         }
