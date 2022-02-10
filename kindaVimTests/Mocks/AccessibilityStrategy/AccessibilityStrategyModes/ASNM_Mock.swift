@@ -740,7 +740,7 @@ class AccessibilityStrategyNormalModeMock: AccessibilityStrategyNormalModeProtoc
         return element
     }
     
-    func slash(to pattern: String, on element: AccessibilityTextElement) -> AccessibilityTextElement {
+    func slash(times count: Int? = 1, to pattern: String, on element: AccessibilityTextElement) -> AccessibilityTextElement {
         functionCalled = #function
         relevantParameter = pattern
         

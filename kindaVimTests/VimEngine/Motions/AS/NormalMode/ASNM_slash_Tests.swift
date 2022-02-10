@@ -21,7 +21,7 @@ class SucceedingASNM_slash_Tests: ASNM_BaseTests {
 extension SucceedingASNM_slash_Tests {
     
     func test_that_it_calls_the_correct_function_on_accessibility_strategy() {
-        XCTAssertEqual(asNormalModeMock.functionCalled, "slash(to:on:)")
+        XCTAssertEqual(asNormalModeMock.functionCalled, "slash(times:to:on:)")
         XCTAssertEqual(asNormalModeMock.relevantParameter, "69")
     }
     

@@ -758,10 +758,10 @@ extension KindaVimEngine {
                 
                 guard operatorPendingBuffer.first?.vimKey != .slash else {
                     if operatorPendingBuffer.last?.vimKey == .return {
-                        let keyCombinationsPattern = operatorPendingBuffer.dropFirst().dropLast()
-                        let charactersPattern = keyCombinationsPattern.map { $0.character }
+                        let searchStringMadeOfKeyCombinations = operatorPendingBuffer.dropFirst().dropLast()
+                        let searchStringMadeOfCharacters = searchStringMadeOfKeyCombinations.map { $0.character }
                         
-                        let newElement = asNormalMode.slash(to: String(charactersPattern), on: currentElement)
+                        let newElement = asNormalMode.slash(times: count, to: String(searchStringMadeOfCharacters), on: currentElement)
                         push(element: newElement)
                         enterNormalMode()
                     }
