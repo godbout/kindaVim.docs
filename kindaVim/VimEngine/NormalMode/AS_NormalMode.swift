@@ -117,6 +117,8 @@ extension KindaVimEngine {
                 let newElement = asNormalMode.i(on: currentElement)
                 push(element: newElement)
                 enterInsertMode()
+            case .interrogationMark:
+                enterOperatorPendingForNormalMode(with: keyCombination)
             case .J:
                 let newElement = asNormalMode.J(on: currentElement, state)
                 push(element: newElement)
@@ -746,6 +748,19 @@ extension KindaVimEngine {
                     return
                 }
 
+                guard operatorPendingBuffer.first?.vimKey != .interrogationMark else {
+                    if operatorPendingBuffer.last?.vimKey == .return {
+                        let searchStringMadeOfKeyCombinations = operatorPendingBuffer.dropFirst().dropLast()
+                        let searchStringMadeOfCharacters = searchStringMadeOfKeyCombinations.map { $0.character }
+                        
+                        let newElement = asNormalMode.interrogationMark(times: count, to: String(searchStringMadeOfCharacters), on: currentElement)
+                        push(element: newElement)
+                        enterNormalMode()
+                    }
+                    
+                    return
+                }
+                
                 guard operatorPendingBuffer.first?.vimKey != .r else {
                     if let replacement = operatorPendingBuffer.last {
                         let newElement = asNormalMode.r(times: count, with: replacement.character, on: currentElement, state)

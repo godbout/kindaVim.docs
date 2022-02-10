@@ -469,14 +469,21 @@ class AccessibilityStrategyNormalModeMock: AccessibilityStrategyNormalModeProtoc
         return element
     }
     
+    func I(on element: AccessibilityTextElement) -> AccessibilityTextElement {
+        functionCalled = #function
+        
+        return element
+    }
+    
     func i(on element: AccessibilityTextElement) -> AccessibilityTextElement {
         functionCalled = #function
         
         return element
     }
     
-    func I(on element: AccessibilityTextElement) -> AccessibilityTextElement {
+    func interrogationMark(times count: Int? = 1, to searchString: String, on element: AccessibilityTextElement) -> AccessibilityTextElement {
         functionCalled = #function
+        relevantParameter = searchString
         
         return element
     }
@@ -740,9 +747,9 @@ class AccessibilityStrategyNormalModeMock: AccessibilityStrategyNormalModeProtoc
         return element
     }
     
-    func slash(times count: Int? = 1, to pattern: String, on element: AccessibilityTextElement) -> AccessibilityTextElement {
+    func slash(times count: Int? = 1, to searchString: String, on element: AccessibilityTextElement) -> AccessibilityTextElement {
         functionCalled = #function
-        relevantParameter = pattern
+        relevantParameter = searchString
         
         return element
     }
