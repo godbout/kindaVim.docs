@@ -37,16 +37,32 @@ struct Display {
         if keyCombination.command == true {
             Self.ongoingMove.append("⌘")
         }
-               
+
         switch keyCombination.key {
+        case .downArrow:
+            Self.ongoingMove.append("↓")
+        case .delete:
+            Self.ongoingMove.append("⌫")
         case .escape:
             Self.ongoingMove.append("⎋")
+        case .forwardDelete:
+            Self.ongoingMove.append("⌦")
+        case .leftArrow:
+            Self.ongoingMove.append("←")
         case .return:
             Self.ongoingMove.append("↵")
+        case .rightArrow:
+            Self.ongoingMove.append("→")
         case .space:
             Self.ongoingMove.append("␣")
         case .tab:
-            Self.ongoingMove.append("⇥")
+            if keyCombination.shift == false {
+                Self.ongoingMove.append("⇥")
+            } else {
+                Self.ongoingMove.append("⇤")
+            }
+        case .upArrow:
+            Self.ongoingMove.append("↑")
         default:
             Self.ongoingMove.append(keyCombination.character)
         }
