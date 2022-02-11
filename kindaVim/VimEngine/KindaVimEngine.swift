@@ -68,7 +68,7 @@ class KindaVimEngine {
         }
     }
     
-    private(set) var operatorPendingBuffer = [KeyCombination]()
+    var operatorPendingBuffer = [KeyCombination]()
    
     var state = VimEngineState(lastMoveBipped: false, appFamily: .auto, lastYankStyle: .characterwise, visualStyle: .characterwise)
     

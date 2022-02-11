@@ -776,15 +776,27 @@ extension KindaVimEngine {
                 // and escape should do like for other moves, which is go back
                 // to NM without doing anything
                 guard operatorPendingBuffer.first?.vimKey != .slash else {
-                    if operatorPendingBuffer.contains(KeyCombination(key: .escape)) {
+                    switch operatorPendingBuffer.last?.vimKey {
+                    case .escape:
                         enterNormalMode()
-                    } else if operatorPendingBuffer.last?.vimKey == .return {
+                    case .backspace:
+                        // remove current backspace
+                        operatorPendingBuffer.removeLast()
+                        display.removeLastAndShowOngoingMove()
+                        // remove keyCombination before backspace
+                        operatorPendingBuffer.removeLast()
+                        display.removeLastAndShowOngoingMove()
+                                            
+                        operatorPendingBuffer.isEmpty ? enterNormalMode() : ()
+                    case .return:
                         let searchStringMadeOfKeyCombinations = operatorPendingBuffer.dropFirst().dropLast()
                         let searchStringMadeOfCharacters = searchStringMadeOfKeyCombinations.map { $0.character }
                         
                         let newElement = asNormalMode.slash(times: count, to: String(searchStringMadeOfCharacters), on: currentElement)
                         push(element: newElement)
                         enterNormalMode()
+                    default:
+                        ()
                     }
                     
                     return

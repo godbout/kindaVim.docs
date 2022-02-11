@@ -13,7 +13,7 @@ struct Display {
     }
     
     private var charactersWindow = CharactersWindow()
-    private static var  ongoingMove: String = ""
+    private static var ongoingMove: String = ""
     
     
     func hazeOver(_ status: HazeOverStatus, fullScreenMode: HazeOverFullScreenMode = .auto) {
@@ -100,6 +100,15 @@ struct Display {
     }
     
     func showOngoingMove() {
+        charactersWindow.show(Self.ongoingMove)
+    }
+    
+    // for handling backspace in searchStrings when using / and ?
+    func removeLastAndShowOngoingMove() {
+        if Self.ongoingMove.isNotEmpty {
+            Self.ongoingMove.removeLast()
+        }
+        
         charactersWindow.show(Self.ongoingMove)
     }
     
