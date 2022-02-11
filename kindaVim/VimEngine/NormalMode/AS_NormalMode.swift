@@ -771,8 +771,14 @@ extension KindaVimEngine {
                     return
                 }
                 
+                // slash (and ?) are particular as we have to allow the user to type freely
+                // so delete should really delete the last character
+                // and escape should do like for other moves, which is go back
+                // to NM without doing anything
                 guard operatorPendingBuffer.first?.vimKey != .slash else {
-                    if operatorPendingBuffer.last?.vimKey == .return {
+                    if operatorPendingBuffer.contains(KeyCombination(key: .escape)) {
+                        enterNormalMode()
+                    } else if operatorPendingBuffer.last?.vimKey == .return {
                         let searchStringMadeOfKeyCombinations = operatorPendingBuffer.dropFirst().dropLast()
                         let searchStringMadeOfCharacters = searchStringMadeOfKeyCombinations.map { $0.character }
                         
