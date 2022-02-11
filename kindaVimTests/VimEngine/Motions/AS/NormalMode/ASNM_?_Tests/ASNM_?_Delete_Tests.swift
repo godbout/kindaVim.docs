@@ -3,11 +3,11 @@ import KeyCombination
 import XCTest
 
 
-class SucceedingASNM_slash_Delete_Tests: ASNM_BaseTests {
+class SucceedingASNM_interrogationMark_Delete_Tests: ASNM_BaseTests {
     
     private func deleteCharacterFromSearchString() {
         kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .eight))
-        kindaVimEngine.handle(keyCombination: KeyCombination(key: .slash))
+        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .interrogationMark))
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .six))
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .delete))
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .w))
@@ -16,7 +16,7 @@ class SucceedingASNM_slash_Delete_Tests: ASNM_BaseTests {
         
     private func deleteSlashItself() {
         kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .eight))
-        kindaVimEngine.handle(keyCombination: KeyCombination(key: .slash))
+        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .interrogationMark))
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .delete))
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .w))
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .return))
@@ -26,12 +26,12 @@ class SucceedingASNM_slash_Delete_Tests: ASNM_BaseTests {
 
 
 // deleteCharacterFromSearchString
-extension SucceedingASNM_slash_Delete_Tests {
+extension SucceedingASNM_interrogationMark_Delete_Tests {
     
     func test_that_for_deleteCharacterFromSearchString_it_calls_the_correct_function_on_accessibility_strategy() {
         deleteCharacterFromSearchString()
         
-        XCTAssertEqual(asNormalModeMock.functionCalled, "slash(times:to:on:)")
+        XCTAssertEqual(asNormalModeMock.functionCalled, "interrogationMark(times:to:on:)")
         XCTAssertEqual(asNormalModeMock.relevantParameter, "w")
 
     }
@@ -51,9 +51,11 @@ extension SucceedingASNM_slash_Delete_Tests {
 }
 
 
-// see ? for blah blah
 // deleteSlashItself
-extension SucceedingASNM_slash_Delete_Tests {
+// currently there is no `return` move in AS. it's sent to KS, which does a return and goes to IM.
+// this is to handle selecting stuff like dropdowns, for example in Alfred. maybe later we do an AS return
+// for TextViews. then these tests below will fail and will have to be changed.
+extension SucceedingASNM_interrogationMark_Delete_Tests {
     
     func test_that_for_deleteSlashItself_it_calls_the_correct_function_on_accessibility_strategy() {
         deleteSlashItself()
