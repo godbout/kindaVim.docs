@@ -17,6 +17,10 @@ extension KindaVimEngine {
                 let newElement = asVisualMode.b(on: currentElement, state)
                 push(element: newElement)
                 endCurrentMove()
+            case .backspace:
+                let newElement = asVisualMode.h(on: currentElement, state)
+                push(element: newElement)
+                endCurrentMove()
             case .C:
                 let newElement = asVisualMode.C(on: currentElement, &state)
                 push(element: newElement)
