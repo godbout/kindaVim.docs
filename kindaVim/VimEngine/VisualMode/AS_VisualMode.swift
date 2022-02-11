@@ -33,6 +33,10 @@ extension KindaVimEngine {
                 let newElement = asVisualMode.caret(on: currentElement, state)
                 push(element: newElement)
                 endCurrentMove()
+            case .controlH:
+                let newElement = asVisualMode.h(on: currentElement, state)
+                push(element: newElement)
+                endCurrentMove()
             case .D:
                 let newElement = asVisualMode.D(on: currentElement, &state)
                 push(element: newElement)

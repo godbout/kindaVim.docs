@@ -73,6 +73,10 @@ extension KindaVimEngine {
                 handleNormalModeUsingKeyboardStrategy(for: keyCombination)
             case .controlF:
                 handleNormalModeUsingKeyboardStrategy(for: keyCombination)
+            case .controlH:
+                let newElement = asNormalMode.h(on: currentElement)
+                push(element: newElement)
+                endCurrentMove()
             case .controlR:
                 let newElement = asNormalMode.controlR(on: currentElement, state)
                 push(element: newElement)
