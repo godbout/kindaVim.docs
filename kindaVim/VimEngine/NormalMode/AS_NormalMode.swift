@@ -24,6 +24,10 @@ extension KindaVimEngine {
                 let newElement = asNormalMode.b(times: count, on: currentElement)
                 push(element: newElement)
                 endCurrentMove()
+            case .backspace:
+                let newElement = asNormalMode.h(on: currentElement)
+                push(element: newElement)
+                endCurrentMove()
             case .C:
                 let newElement = asNormalMode.cDollarSign(on: currentElement, &state)
                 push(element: newElement)
