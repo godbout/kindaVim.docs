@@ -21,7 +21,9 @@ class AppCore {
 
 
     func setUp() {
+        #if !UITESTING
         setUpUpdater()
+        #endif
         setUpStatusBar()
         #if !CITESTING
         setUpEventTap()
