@@ -2,12 +2,25 @@
 import KeyCombination
 import XCTest
 import KeyboardShortcuts
+import Sauce
 
 
 class GCEEscapeKeyboardShortcutTests: XCTestCase {
-
-    let globalHotkeyCombination = KeyCombination(key: .escape)
-
+    
+    var useCustomShortcutToEnterNormalModeProductionValue: Bool!
+    var globalHotkeyCombination: KeyCombination!
+    
+    override func setUp() {
+        useCustomShortcutToEnterNormalModeProductionValue = GlobalEventsController.useCustomShortcutToEnterNormalMode
+        GlobalEventsController.useCustomShortcutToEnterNormalMode = false
+        
+        globalHotkeyCombination = KeyCombination(key: .escape)
+    }
+    
+    override func tearDown() {
+        GlobalEventsController.useCustomShortcutToEnterNormalMode = useCustomShortcutToEnterNormalModeProductionValue
+    }
+    
 }
 
 
