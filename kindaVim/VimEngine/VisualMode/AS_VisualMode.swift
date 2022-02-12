@@ -97,6 +97,10 @@ extension KindaVimEngine {
                 let newElement = asVisualMode.l(on: currentElement, state)
                 push(element: newElement)
                 endCurrentMove()
+            case .leftArrow:
+                let newElement = asVisualMode.h(on: currentElement, state)
+                push(element: newElement)
+                endCurrentMove()
             case .o:
                 let newElement = asVisualMode.o(on: currentElement)
                 push(element: newElement)

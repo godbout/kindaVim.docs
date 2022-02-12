@@ -163,6 +163,10 @@ extension KindaVimEngine {
                 let newElement = asNormalMode.l(times: count, on: currentElement)
                 push(element: newElement)
                 endCurrentMove()
+            case .leftArrow:
+                let newElement = asNormalMode.h(on: currentElement)
+                push(element: newElement)
+                endCurrentMove()
             case .leftBracket:
                 enterOperatorPendingForNormalMode(with: KeyCombination(key: .leftBracket))
             case .leftChevron:
