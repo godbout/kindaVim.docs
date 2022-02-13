@@ -299,7 +299,7 @@ class KindaVimEngine {
             post(ksNormalMode.h())
         case (.electron, _), (_, .textElement):
             if let currentElement = focusedTextElement {
-                let newElement = asNormalMode.h(on: currentElement)
+                let newElement = asNormalMode.h(times: 1, on: currentElement)
                 push(element: newElement)
             } else {
                 post(ksNormalMode.h())

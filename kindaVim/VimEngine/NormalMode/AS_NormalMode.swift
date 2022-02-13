@@ -25,7 +25,7 @@ extension KindaVimEngine {
                 push(element: newElement)
                 endCurrentMove()
             case .backspace:
-                let newElement = asNormalMode.h(on: currentElement)
+                let newElement = asNormalMode.h(times: count, on: currentElement)
                 push(element: newElement)
                 endCurrentMove()
             case .C:
@@ -74,7 +74,7 @@ extension KindaVimEngine {
             case .controlF:
                 handleNormalModeUsingKeyboardStrategy(for: keyCombination)
             case .controlH:
-                let newElement = asNormalMode.h(on: currentElement)
+                let newElement = asNormalMode.h(times: count, on: currentElement)
                 push(element: newElement)
                 endCurrentMove()
             case .controlR:
@@ -114,7 +114,7 @@ extension KindaVimEngine {
             case .g:
                 enterOperatorPendingForNormalMode(with: keyCombination)
             case .h:
-                let newElement = asNormalMode.h(on: currentElement)
+                let newElement = asNormalMode.h(times: count, on: currentElement)
                 push(element: newElement)
                 endCurrentMove()
             case .I:
@@ -164,7 +164,7 @@ extension KindaVimEngine {
                 push(element: newElement)
                 endCurrentMove()
             case .leftArrow:
-                let newElement = asNormalMode.h(on: currentElement)
+                let newElement = asNormalMode.h(times: count, on: currentElement)
                 push(element: newElement)
                 endCurrentMove()
             case .leftBracket:
