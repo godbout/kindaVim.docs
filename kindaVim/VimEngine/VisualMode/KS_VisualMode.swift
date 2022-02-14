@@ -58,7 +58,7 @@ extension KindaVimEngine {
             post(ksVisualMode.k(state))
             endCurrentMove()
         case .l:
-            post(ksVisualMode.l(state))
+            post(ksVisualMode.l(times: count, state))
             endCurrentMove()
         case .leftArrow:
             post(ksVisualMode.h(times: count, state))

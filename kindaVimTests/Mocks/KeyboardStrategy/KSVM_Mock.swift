@@ -144,7 +144,7 @@ class KeyboardStrategyVisualModeMock: KeyboardStrategyVisualModeProtocol {
         return []
     }
     
-    func l(_ vimEngineState: VimEngineState) -> [KeyCombination] {
+    func l(times count: Int? = 1, _ vimEngineState: VimEngineState) -> [KeyCombination] {
         functionCalled = #function
         
         return []

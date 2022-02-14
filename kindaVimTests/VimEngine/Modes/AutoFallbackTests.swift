@@ -53,7 +53,7 @@ extension AutoFallbackTests {
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .l))
         
         XCTAssertEqual(asVisualMode.functionCalled, "")
-        XCTAssertEqual(ksVisualMode.functionCalled, "l(_:)")
+        XCTAssertEqual(ksVisualMode.functionCalled, "l(times:_:)")
     }
     
     func test_that_in_OperatorPendingMode_for_VisualMode_it_falls_back_to_the_KeyboardStrategy() {

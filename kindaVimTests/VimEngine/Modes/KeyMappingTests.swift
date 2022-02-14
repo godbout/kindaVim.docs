@@ -53,7 +53,7 @@ extension KeyMappingTests {
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .l), appFamily: .keyMapping)
         
         XCTAssertEqual(asVisualMode.functionCalled, "")
-        XCTAssertEqual(ksVisualMode.functionCalled, "l(_:)")
+        XCTAssertEqual(ksVisualMode.functionCalled, "l(times:_:)")
     }
     
     func test_that_in_OperatorPendingMode_for_VisualMode_it_goes_straight_to_the_KeyboardStrategy() {
