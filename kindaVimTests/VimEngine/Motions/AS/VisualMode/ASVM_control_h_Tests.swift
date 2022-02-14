@@ -19,7 +19,7 @@ extension SucceedingASVM_control_h_Tests {
     
     // synonym
     func test_that_it_calls_the_correct_function_on_the_AccessibilityStrategy() {
-        XCTAssertEqual(asVisualModeMock.functionCalled, "h(on:_:)")
+        XCTAssertEqual(asVisualModeMock.functionCalled, "h(times:on:_:)")
     }
     
     func test_that_it_keeps_Vim_in_VisualMode() {

@@ -18,7 +18,7 @@ class SucceedingASVM_leftArrow_Tests: ASVM_BaseTests {
 extension SucceedingASVM_leftArrow_Tests {    
     
     func test_that_it_calls_the_correct_function_on_the_AccessibilityStrategy() {
-        XCTAssertEqual(asVisualModeMock.functionCalled, "h(on:_:)")
+        XCTAssertEqual(asVisualModeMock.functionCalled, "h(times:on:_:)")
     }
     
     func test_that_it_keeps_Vim_in_VisualMode() {
