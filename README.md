@@ -19,11 +19,11 @@ maybe [watch the videos](https://www.youtube.com/channel/UC3ZP3QFMhNn3ivJgqoEW4U
 
 # WHAT DOES KV SUPPORT
 
-* native apps with inputs that handle the macOS Accessibility, through its [Accessibility Engine](). it's text manipulation. so it's like Vim:
+* native apps with inputs that handle the macOS Accessibility, through its [Accessibility Engine](#user-content-kv-accessibility-strategy). it's text manipulation. so it's like Vim:
 
 XCODE GIF
 
-* native apps with inputs that don't handle the macOS Accessibility, through its [Keyboard Text Element Engine](). it's key remapping, less precise than the Accessibility Engine:
+* native apps with inputs that don't handle the macOS Accessibility, through its [Keyboard Text Element Engine](#user-content-kv-keyboard-strategy). it's key remapping, less precise than the Accessibility Engine:
 
 MAIL GIF
 
@@ -35,11 +35,11 @@ SAFARI GIF
 
 LOGSEC GIF
 
-* Electron apps that return wrong Accessibility data, through its [Keyboard Text Element Engine](). key remapping. less precise:
+* Electron apps that return wrong Accessibility data, through its [Keyboard Text Element Engine](#user-content-kv-keyboard-strategy). key remapping. less precise:
 
 CLICKUP GIF
 
-* all non-input fields, through its Keyboard Non Text Element Engine. that's another type of key remapping that allows to use the philosophy of Vim in the macOS UI:
+* all non-input fields, through its [Keyboard Non Text Element Engine](#user-content-kv-keyboard-strategy). that's another type of key remapping that allows to use the philosophy of Vim in the macOS UI:
 
 XCODE MENU1
 XCODE MENU2
