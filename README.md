@@ -277,13 +277,13 @@ other P.S.: the number of Awesome Humans currently subscribed is updated daily o
 # ROADMAP
 * add a plethora of missing Vim moves ([ask!](https://github.com/godbout/kindaVim.theapp/issues/new))
 * update all moves to support new global count system ([ask!](https://github.com/godbout/kindaVim.theapp/issues/new))
-* user requests
+* users' requests
 
 # REQUESTS
 
 * whether you need a missing move, want to report a bug or ask for a feature, just [open an issue](https://github.com/godbout/kindaVim.theapp/issues/new).
 
-# OPEN SOURCE
+# TESTS AND OPEN SOURCE
 
 the [tests](https://github.com/godbout/AccessibilityStrategyTestApp) describing the Vim moves are open source. you can use those to build your own implementation, or if you just want to learn more about Vim moves, or if you just can't get enough good self-induced migraines.
 
