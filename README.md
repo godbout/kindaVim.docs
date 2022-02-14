@@ -34,10 +34,6 @@ in the `Preferences` you can also:
 
 there's now also a [video](https://www.youtube.com/watch?v=3dTNQ-XMDPI) about this.
 
-# WAIT A MINUTE. WHAT DATA DO YOU STEAL???
-
-see [DA FUQ](https://kindavim.app/fuq#what-data-steal).
-
 # HOW 'BOUT THE $$$
 
 you can use kindaVim fully for USD$0 a lifetime, but everyday from 5am to 1pm (Winter Schedule) it'll need its 8 hours of sleep. if you wanna torture kV 24/7, you'll need to get him a [good cup of ☕️ a month](https://subscribe.kindavim.app) (USD$3.69). 
