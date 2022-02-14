@@ -17,28 +17,40 @@ and also it's fucking cool.
 
 maybe [watch the videos](https://www.youtube.com/channel/UC3ZP3QFMhNn3ivJgqoEW4Ug) first if you're not sure you wanna read further.
 
-# HOW DOES IT WORK
+# WHAT DOES KV SUPPORT
 
-by default kindaVim uses the `Auto Family` and tries to read the text of the app focused:
+* native apps with inputs that handle the macOS Accessibility, through its [Accessibility Engine](). it's text manipulation. so it's like Vim:
 
-1. if it can read and modify the text, it uses the [kV Accessibility Strategy](#user-content-kv-accessibility-strategy). it's text manipulation. theoritically you can have a full Vim experience. pragmatically some stuff will currently be missing so please [ask](https://github.com/godbout/kindaVim.theapp/issues/new) for what you need!
-2. if it can't read the text, it uses the [kV Keyboard Strategy](#user-content-kv-keyboard-strategy) and tries to impersonate Vim through keys remapping. it's a little more wonky than the kV Accessibility Strategy.
-3. if it's not text, it also uses the [kV Keyboard Strategy](#user-content-kv-keyboard-strategy), remap keys, and if the app uses the default macOS keyboard shortcuts you should just get what you expect (e.g. `G` scrolls to the end of a webpage, reaches the last email of a list, goes to the last item of a dropdown, etc.)
+XCODE GIF
 
-in the `Preferences` you can also:
-* ask kindaVim to ignore any app completely
-* bypass macOS Accessibility restrictions with the `PG-R` Mode for apps where you can read the text but not modify it. you'll experience this mostly in browsers and some Catalyst apps
-* make Electron apps behave
-* enforce the [kV Keyboard Strategy](#user-content-kv-keyboard-strategy) for the biggest fattest liar Electron apps that they say they're implementing the macOS Accessibility but send back wrong data
-* enforce the [kV Keyboard Strategy](#user-content-kv-keyboard-strategy) Text Elements for apps that are even worse than Electron's (not even kidding)
+* native apps with inputs that don't handle the macOS Accessibility, through its [Keyboard Text Element Engine](). it's key remapping, less precise than the Accessibility Engine:
 
-there's now also a [video](https://www.youtube.com/watch?v=3dTNQ-XMDPI) about this.
+MAIL GIF
+
+* restricted apps like browsers and some Catalyst apps, through its Hybrid Engine. it's a mix of text manipulation and key remapping. the end result is like Vim:
+
+SAFARI GIF
+
+* Electron apps that return valid Accessibility data, through its Accessibility Engine for Electron. Electron apps are pretty wild in their implementation of the macOS Accessibility. so results depend on the apps themselves:
+
+LOGSEC GIF
+
+* Electron apps that return wrong Accessibility data, through its [Keyboard Text Element Engine](). key remapping. less precise:
+
+CLICKUP GIF
+
+* all non-input fields, through its Keyboard Non Text Element Engine. that's another type of key remapping that allows to use the philosophy of Vim in the macOS UI:
+
+XCODE MENU1
+XCODE MENU2
+MAIL DROPDOWN
+AIRMAIL LISTS
+ALFRED
+HELP MENUS
 
 # HOW 'BOUT THE $$$
 
 you can use kindaVim fully for USD$0 a lifetime, but everyday from 5am to 1pm (Winter Schedule) it'll need its 8 hours of sleep. if you wanna torture kV 24/7, you'll need to get him a [good cup of ☕️ a month](https://subscribe.kindavim.app) (USD$3.69). 
-
-(also see [DA FUQ](https://kindavim.app/fuq#why-sub) for why a sub.)
 
 P.S.: if you're happy with the state of the old betas you can always download them on GitHub. they don't need coffee. last one is [1b25](https://github.com/godbout/kindaVim.theapp/releases/tag/1b.25).
 
