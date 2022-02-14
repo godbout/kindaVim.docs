@@ -15,7 +15,6 @@ class SucceedingASNM_semicolon_Tests: ASNM_BaseTests {
 
 extension SucceedingASNM_semicolon_Tests {
     
-    // TODO: yeah i think for those moves that have parameters we should check that the parameters are passed correctly
     func test_that_if_the_LastLeftRightMotion_called_was_F_then_it_calls_F_with_the_right_character_to_search_for() {
         kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .F))
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .z))

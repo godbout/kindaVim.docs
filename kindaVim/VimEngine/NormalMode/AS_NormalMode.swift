@@ -171,6 +171,40 @@ extension KindaVimEngine {
                 enterOperatorPendingForNormalMode(with: KeyCombination(key: .leftBracket))
             case .leftChevron:
                 enterOperatorPendingForNormalMode(with: KeyCombination(vimKey: .leftChevron))
+            case .N:
+                var newElement: AccessibilityTextElement?
+                
+                switch lastSearchCommand?.motion {
+                case "/":
+                    newElement = asNormalMode.interrogationMark(times: count, to: lastSearchCommand!.searchString, on: currentElement)
+                case "?":
+                    newElement = asNormalMode.slash(times: count, to: lastSearchCommand!.searchString, on: currentElement)
+                default:
+                    ()
+                }
+                
+                if let newElement = newElement {
+                    push(element: newElement)
+                }
+
+                endCurrentMove()
+            case .n:
+                var newElement: AccessibilityTextElement?
+                
+                switch lastSearchCommand?.motion {
+                case "/":
+                    newElement = asNormalMode.slash(times: count, to: lastSearchCommand!.searchString, on: currentElement)
+                case "?":
+                    newElement = asNormalMode.interrogationMark(times: count, to: lastSearchCommand!.searchString, on: currentElement)
+                default:
+                    ()
+                }
+                
+                if let newElement = newElement {
+                    push(element: newElement)
+                }
+
+                endCurrentMove()
             case .O:
                 let newElement = asNormalMode.O(on: currentElement, state)
                 push(element: newElement)
@@ -779,9 +813,10 @@ extension KindaVimEngine {
                         operatorPendingBuffer.isEmpty ? enterNormalMode() : ()
                     case .return:
                         let searchStringMadeOfKeyCombinations = operatorPendingBuffer.dropFirst().dropLast()
-                        let searchStringMadeOfCharacters = searchStringMadeOfKeyCombinations.map { $0.character }
+                        let searchString = String(searchStringMadeOfKeyCombinations.map { $0.character })
                         
-                        let newElement = asNormalMode.interrogationMark(times: count, to: String(searchStringMadeOfCharacters), on: currentElement)
+                        let newElement = asNormalMode.interrogationMark(times: count, to: searchString, on: currentElement)
+                        lastSearchCommand = LastSearchCommand(motion: "?", searchString: searchString)
                         push(element: newElement)
                         enterNormalMode()
                     default:
@@ -817,9 +852,10 @@ extension KindaVimEngine {
                         operatorPendingBuffer.isEmpty ? enterNormalMode() : ()
                     case .return:
                         let searchStringMadeOfKeyCombinations = operatorPendingBuffer.dropFirst().dropLast()
-                        let searchStringMadeOfCharacters = searchStringMadeOfKeyCombinations.map { $0.character }
+                        let searchString = String(searchStringMadeOfKeyCombinations.map { $0.character })
                         
-                        let newElement = asNormalMode.slash(times: count, to: String(searchStringMadeOfCharacters), on: currentElement)
+                        let newElement = asNormalMode.slash(times: count, to: searchString, on: currentElement)
+                        lastSearchCommand = LastSearchCommand(motion: "/", searchString: searchString)
                         push(element: newElement)
                         enterNormalMode()
                     default:

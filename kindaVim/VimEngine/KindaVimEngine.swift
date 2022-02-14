@@ -19,6 +19,14 @@ struct LastLeftRightSearch {
 }
 
 
+struct LastSearchCommand {
+    
+    var motion: Character
+    var searchString: String
+    
+}
+
+
 enum VimEngineMode {
     
     case insert
@@ -49,6 +57,7 @@ class KindaVimEngine {
     private(set) var currentMode: VimEngineMode = .insert
     
     var lastLeftRightSearch: LastLeftRightSearch?
+    var lastSearchCommand: LastSearchCommand?
         
     private(set) var firstCountBuffer: String = ""
     private(set) var secondCountBuffer: String = ""
