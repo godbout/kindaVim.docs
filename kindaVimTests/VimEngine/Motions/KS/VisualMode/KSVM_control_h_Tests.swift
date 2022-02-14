@@ -18,7 +18,7 @@ class KSVM_control_h_Tests: KSVM_BaseTests {
 extension KSVM_control_h_Tests {
 
     func test_that_it_calls_the_correct_function_on_KS() {
-        XCTAssertEqual(ksVisualModeMock.functionCalled, "h(_:)")
+        XCTAssertEqual(ksVisualModeMock.functionCalled, "h(times:_:)")
     }
     
     func test_that_it_keeps_Vim_in_VisualMode() {

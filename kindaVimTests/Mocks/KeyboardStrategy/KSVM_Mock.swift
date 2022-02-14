@@ -120,7 +120,7 @@ class KeyboardStrategyVisualModeMock: KeyboardStrategyVisualModeProtocol {
         return []
     }
     
-    func h(_ vimEngineState: VimEngineState) -> [KeyCombination] {
+    func h(times count: Int? = 1, _ vimEngineState: VimEngineState) -> [KeyCombination] {
         functionCalled = #function
         
         return []
