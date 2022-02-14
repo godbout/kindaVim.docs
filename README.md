@@ -277,22 +277,11 @@ other P.S.: the number of Awesome Humans currently subscribed is updated daily o
 # ROADMAP
 * add a plethora of missing Vim moves ([ask!](https://github.com/godbout/kindaVim.theapp/issues/new))
 * update all moves to support new global count system ([ask!](https://github.com/godbout/kindaVim.theapp/issues/new))
-* exploring the idea of letting non Vim moves pass through and go back to macOS (so that you can run your PH shortcut in Normal Mode)
-
-# KNOWN ISSUES
-
-* issues regarding End User Experience will be reported here: https://github.com/godbout/kindaVim.theapp/issues
-
-kindaVim uses the macOS Accessibility API extensively. it's an old and buggy API. unfortunately there's a lot that we don't control. the API sometimes sends back wrong data. it also requires macOS apps to implement the Accessibility in order to work. so even if i strive to make things consistent as much as possible, it is not always a success. all API bugs are reported to, and talked with Apple. please report if something does not seem to work properly, and i'll see what i can do.
-
-in native apps that implement the macOS Accessibility the experience is consistent and we could basically build a whole Vim. in browsers, Electron apps and other native apps that don't implement the macOS Accessibility results may, well, vary. 😬️
+* user requests
 
 # REQUESTS
 
-* to request a missing move, [open an issue](https://github.com/godbout/kindaVim.theapp/issues/new)
-* to request a feature, [open an issue](https://github.com/godbout/kindaVim.theapp/issues/new)
-* to report a bug, wait. yes, [open an issue](https://github.com/godbout/kindaVim.theapp/issues/new)
-* in case you just want to open an issue though, [open an issue](https://github.com/godbout/kindaVim.theapp/issues/new)
+* whether you need a missing move, want to report a bug or ask for a feature, just [open an issue](https://github.com/godbout/kindaVim.theapp/issues/new).
 
 # OPEN SOURCE
 
