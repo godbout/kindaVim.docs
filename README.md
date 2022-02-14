@@ -21,32 +21,31 @@ maybe [watch the videos](https://www.youtube.com/channel/UC3ZP3QFMhNn3ivJgqoEW4U
 
 * native apps with inputs that handle the macOS Accessibility, through its [Accessibility Engine](#user-content-kv-accessibility-strategy). it's text manipulation. so it's like Vim:
 
-XCODE GIF
+![Xcode input](https://raw.githubusercontent.com/godbout/kindaVim.theapp/master/assets/Xcode-input.gif "Xcode input")
 
 * native apps with inputs that don't handle the macOS Accessibility, through its [Keyboard Text Element Engine](#user-content-kv-keyboard-strategy). it's key remapping, less precise than the Accessibility Engine:
 
-MAIL GIF
+![Mail input](https://raw.githubusercontent.com/godbout/kindaVim.theapp/master/assets/Mail-input.gif "Mail input")
 
 * restricted apps like browsers and some Catalyst apps, through its Hybrid Engine. it's a mix of text manipulation and key remapping. the end result is like Vim:
 
-SAFARI GIF
+![Safari input](https://raw.githubusercontent.com/godbout/kindaVim.theapp/master/assets/Safari-input.gif "Safari input")
 
 * Electron apps that return valid Accessibility data, through its Accessibility Engine for Electron. Electron apps are pretty wild in their implementation of the macOS Accessibility. so results depend on the apps themselves:
 
-LOGSEC GIF
+![Logseq input](https://raw.githubusercontent.com/godbout/kindaVim.theapp/master/assets/Logseq-input.gif "Logseq input")
 
 * Electron apps that return wrong Accessibility data, through its [Keyboard Text Element Engine](#user-content-kv-keyboard-strategy). key remapping. less precise:
 
-CLICKUP GIF
+![ClickUp input](https://raw.githubusercontent.com/godbout/kindaVim.theapp/master/assets/ClickUp-input.gif "ClickUp input")
 
 * all non-input fields, through its [Keyboard Non Text Element Engine](#user-content-kv-keyboard-strategy). that's another type of key remapping that allows to use the philosophy of Vim in the macOS UI:
 
-XCODE MENU1
-XCODE MENU2
-MAIL DROPDOWN
-AIRMAIL LISTS
-ALFRED
-HELP MENUS
+![Xcode UI1](https://raw.githubusercontent.com/godbout/kindaVim.theapp/master/assets/Xcode-UI1.gif "Xcode UI1")
+![Xcode UI2](https://raw.githubusercontent.com/godbout/kindaVim.theapp/master/assets/Xcode-UI2.gif "Xcode UI2")
+![Mail UI](https://raw.githubusercontent.com/godbout/kindaVim.theapp/master/assets/Mail-UI.gif "Mail UI")
+![Alfred UI](https://raw.githubusercontent.com/godbout/kindaVim.theapp/master/assets/Alfred-UI.gif "Alfred UI")
+![Help Menu UI](https://raw.githubusercontent.com/godbout/kindaVim.theapp/master/assets/Help-Menu-UI.gif "Help Menu UI")
 
 # HOW 'BOUT THE $$$
 
