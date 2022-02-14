@@ -17,7 +17,7 @@ extension KindaVimEngine {
             post(ksNormalMode.b(state))
             endCurrentMove()
         case .backspace:
-            post(ksNormalMode.h())
+            post(ksNormalMode.h(times: count))
             endCurrentMove()
         case .C:
             post(ksNormalMode.cDollarSign(&state))
@@ -39,7 +39,7 @@ extension KindaVimEngine {
             post(ksNormalMode.controlF())
             endCurrentMove()
         case .controlH:
-            post(ksNormalMode.h())
+            post(ksNormalMode.h(times: count))
             endCurrentMove()
         case .controlR:
             post(ksNormalMode.controlR())
@@ -68,7 +68,7 @@ extension KindaVimEngine {
         case .g:
             enterOperatorPendingForNormalMode(with: keyCombination)
         case .h:
-            post(ksNormalMode.h())
+            post(ksNormalMode.h(times: count))
             endCurrentMove()
         case .I:
             post(ksNormalMode.I(state))
@@ -89,7 +89,7 @@ extension KindaVimEngine {
             post(ksNormalMode.l(times: count))
             endCurrentMove()
         case .leftArrow:
-            post(ksNormalMode.h())
+            post(ksNormalMode.h(times: count))
             endCurrentMove()
         case .O:
             post(ksNormalMode.O(state))

@@ -296,13 +296,13 @@ class KindaVimEngine {
     private func goBackOneCharacterForTextElements(appFamily: AppFamily) {
         switch (appFamily, ksNormalMode.focusedElementType(appFamily: appFamily)) {
         case (.keyMapping, .textElement):
-            post(ksNormalMode.h())
+            post(ksNormalMode.h(times: 1))
         case (.electron, _), (_, .textElement):
             if let currentElement = focusedTextElement {
                 let newElement = asNormalMode.h(times: 1, on: currentElement)
                 push(element: newElement)
             } else {
-                post(ksNormalMode.h())
+                post(ksNormalMode.h(times: 1))
             }
         default:
             ()

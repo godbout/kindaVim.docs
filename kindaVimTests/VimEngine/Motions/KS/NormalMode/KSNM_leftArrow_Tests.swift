@@ -18,7 +18,7 @@ class KSNM_leftArrow_Tests: KSNM_BaseTests {
 extension KSNM_leftArrow_Tests {
     
     func test_that_h_calls_the_h_function_on_keyboard_strategy() {
-        XCTAssertEqual(ksNormalModeMock.functionCalled, "h()")
+        XCTAssertEqual(ksNormalModeMock.functionCalled, "h(times:)")
     }
     
     func test_that_h_keeps_Vim_in_normal_mode() {
