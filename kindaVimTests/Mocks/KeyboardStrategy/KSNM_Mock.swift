@@ -314,14 +314,14 @@ class KeyboardStrategyNormalModeMock: KeyboardStrategyNormalModeProtocol {
         return []
     }
     
-    func N(lastSearchCommand: Character?, _ vimEngineState: VimEngineState) -> [KeyCombination] {
+    func N(lastSearchCommand: Character?) -> [KeyCombination] {
         functionCalled = #function
         relevantParameter = String(lastSearchCommand ?? Character(" "))
         
         return []
     }
     
-    func n(lastSearchCommand: Character?, _ vimEngineState: VimEngineState) -> [KeyCombination] {
+    func n(lastSearchCommand: Character?) -> [KeyCombination] {
         functionCalled = #function
         relevantParameter = String(lastSearchCommand ?? Character(" "))
         
