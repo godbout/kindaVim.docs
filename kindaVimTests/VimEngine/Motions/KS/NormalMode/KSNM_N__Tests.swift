@@ -5,7 +5,7 @@ import XCTest
 
 class KSNM_N__Tests: KSNM_BaseTests {
 
-    private func applyMoveBeingTested() {
+    private func applyKeyCombinationsBeingTested() {
         kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .eight))
         kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .N))
     }
@@ -25,7 +25,7 @@ extension KSNM_N__Tests {
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .a))
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .return))
         
-        applyMoveBeingTested()
+        applyKeyCombinationsBeingTested()
         
         XCTAssertEqual(kindaVimEngine.lastSearchCommand?.motion, "/")
         XCTAssertEqual(kindaVimEngine.lastSearchCommand?.searchString, "ama")
@@ -41,7 +41,7 @@ extension KSNM_N__Tests {
         kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .N))
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .return))
         
-        applyMoveBeingTested()
+        applyKeyCombinationsBeingTested()
         
         XCTAssertEqual(kindaVimEngine.lastSearchCommand?.motion, "?")
         XCTAssertEqual(kindaVimEngine.lastSearchCommand?.searchString, "6N")
@@ -50,13 +50,13 @@ extension KSNM_N__Tests {
     }
     
     func test_that_it_keeps_Vim_in_NormalMode() {
-        applyMoveBeingTested()
+        applyKeyCombinationsBeingTested()
                 
         XCTAssertEqual(kindaVimEngine.currentMode, .normal)
     }
     
     func test_that_it_resets_the_count() {
-        applyMoveBeingTested()
+        applyKeyCombinationsBeingTested()
                 
         XCTAssertNil(kindaVimEngine.count)
     }

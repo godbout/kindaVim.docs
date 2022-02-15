@@ -5,7 +5,7 @@ import XCTest
 
 class SucceedingASNM_semicolon_Tests: ASNM_BaseTests {
 
-    private func applyMoveBeingTested() {
+    private func applyKeyCombinationsBeingTested() {
         kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .eight))
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .semicolon))
     }
@@ -19,7 +19,7 @@ extension SucceedingASNM_semicolon_Tests {
         kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .F))
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .z))
         
-        applyMoveBeingTested()
+        applyKeyCombinationsBeingTested()
         
         XCTAssertEqual(kindaVimEngine.lastLeftRightSearch?.motion, "F")
         XCTAssertEqual(kindaVimEngine.lastLeftRightSearch?.character, "z")
@@ -31,7 +31,7 @@ extension SucceedingASNM_semicolon_Tests {
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .f))
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .six))
         
-        applyMoveBeingTested()
+        applyKeyCombinationsBeingTested()
         
         XCTAssertEqual(kindaVimEngine.lastLeftRightSearch?.motion, "f")
         XCTAssertEqual(kindaVimEngine.lastLeftRightSearch?.character, "6")
@@ -43,7 +43,7 @@ extension SucceedingASNM_semicolon_Tests {
         kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .T))
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .nine))
         
-        applyMoveBeingTested()
+        applyKeyCombinationsBeingTested()
         
         XCTAssertEqual(kindaVimEngine.lastLeftRightSearch?.motion, "T")
         XCTAssertEqual(kindaVimEngine.lastLeftRightSearch?.character, "9")
@@ -55,7 +55,7 @@ extension SucceedingASNM_semicolon_Tests {
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .t))
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .p))
         
-        applyMoveBeingTested()
+        applyKeyCombinationsBeingTested()
         
         XCTAssertEqual(kindaVimEngine.lastLeftRightSearch?.motion, "t")
         XCTAssertEqual(kindaVimEngine.lastLeftRightSearch?.character, "p")
@@ -64,13 +64,13 @@ extension SucceedingASNM_semicolon_Tests {
     }
     
     func test_that_it_keeps_Vim_in_NormalMode() {
-        applyMoveBeingTested()
+        applyKeyCombinationsBeingTested()
                 
         XCTAssertEqual(kindaVimEngine.currentMode, .normal)
     }
     
     func test_that_it_resets_the_count() {
-        applyMoveBeingTested()
+        applyKeyCombinationsBeingTested()
                 
         XCTAssertNil(kindaVimEngine.count)
     }

@@ -70,7 +70,7 @@ extension SucceedingASNM_interrogationMark_Delete_Tests {
     func test_that_for_deleteSlashItself_it_switches_Vim_into_InsertMode() {
         deleteSlashItself()
         
-        XCTAssertEqual(kindaVimEngine.currentMode, .insert)
+        XCTAssertEqual(kindaVimEngine.currentMode, .normal)
     }
     
     func test_that_for_deleteSlashItself_it_resets_the_count() {

@@ -228,7 +228,13 @@ extension KindaVimEngine {
             case .r:
                 enterOperatorPendingForNormalMode(with: keyCombination)
             case .return:
-                handleNormalModeUsingKeyboardStrategy(for: keyCombination)
+                if currentElement.role == .textArea {
+                    let newElement = asNormalMode.`return`(times: count, on: currentElement, state)
+                    push(element: newElement)
+                    endCurrentMove()
+                } else {
+                    handleNormalModeUsingKeyboardStrategy(for: keyCombination)
+                }
             case .rightBrace:
                 let newElement = asNormalMode.rightBrace(on: currentElement)
                 push(element: newElement)

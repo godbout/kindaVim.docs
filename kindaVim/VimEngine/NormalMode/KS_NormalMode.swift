@@ -114,8 +114,8 @@ extension KindaVimEngine {
         case .r:
             enterOperatorPendingForNormalMode(with: keyCombination)
         case .return:
-            post(ksNormalMode.return())
-            enterInsertMode()
+            post(ksNormalMode.`return`(times: count, &state))
+            state.lastMoveBipped ? enterInsertMode() : endCurrentMove()
         case .S:
             post(ksNormalMode.cc(&state))
             enterInsertMode()
