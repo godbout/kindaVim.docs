@@ -283,7 +283,7 @@ class KeyboardStrategyNormalModeMock: KeyboardStrategyNormalModeProtocol {
         return []
     }
     
-    func interrogationMark(to searchString: String, _ vimEngineState: VimEngineState) -> [KeyCombination] {
+    func interrogationMark(to searchString: String) -> [KeyCombination] {
         functionCalled = #function
         relevantParameter = searchString
         
@@ -365,7 +365,7 @@ class KeyboardStrategyNormalModeMock: KeyboardStrategyNormalModeProtocol {
         return []
     }
     
-    func slash(to searchString: String, _ vimEngineState: VimEngineState) -> [KeyCombination] {
+    func slash(to searchString: String) -> [KeyCombination] {
         functionCalled = #function
         relevantParameter = searchString
         

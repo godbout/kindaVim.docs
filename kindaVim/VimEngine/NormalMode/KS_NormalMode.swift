@@ -347,7 +347,7 @@ extension KindaVimEngine {
                     let searchStringMadeOfKeyCombinations = operatorPendingBuffer.dropFirst().dropLast()
                     let searchString = String(searchStringMadeOfKeyCombinations.map { $0.character })
 
-                    post(ksNormalMode.interrogationMark(to: searchString, state))
+                    post(ksNormalMode.interrogationMark(to: searchString))
                     lastSearchCommand = LastSearchCommand(motion: "?", searchString: searchString)
                     enterNormalMode()
                 default:
@@ -374,7 +374,7 @@ extension KindaVimEngine {
                     let searchStringMadeOfKeyCombinations = operatorPendingBuffer.dropFirst().dropLast()
                     let searchString = String(searchStringMadeOfKeyCombinations.map { $0.character })
 
-                    post(ksNormalMode.slash(to: searchString, state))
+                    post(ksNormalMode.slash(to: searchString))
                     lastSearchCommand = LastSearchCommand(motion: "/", searchString: searchString)
                     enterNormalMode()
                 default:

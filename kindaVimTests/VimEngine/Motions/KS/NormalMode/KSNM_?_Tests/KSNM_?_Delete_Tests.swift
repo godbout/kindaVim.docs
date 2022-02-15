@@ -31,7 +31,7 @@ extension KSNM_interrogationMark_Delete_Tests {
     func test_that_for_deleteCharacterFromSearchString_it_calls_the_correct_function_on_accessibility_strategy() {
         deleteCharacterFromSearchString()
         
-        XCTAssertEqual(ksNormalModeMock.functionCalled, "interrogationMark(to:_:)")
+        XCTAssertEqual(ksNormalModeMock.functionCalled, "interrogationMark(to:)")
         XCTAssertEqual(ksNormalModeMock.relevantParameter, "w")
 
     }
