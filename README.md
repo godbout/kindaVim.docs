@@ -17,7 +17,7 @@ and also it's fucking cool.
 
 maybe [watch the videos](https://www.youtube.com/channel/UC3ZP3QFMhNn3ivJgqoEW4Ug) first if you're not sure you wanna read further.
 
-# WHAT DOES KV SUPPORT
+# WITH WHAT APPS DOES THAT SHIT WORK
 
 * native apps with inputs that handle the macOS Accessibility, through its [Accessibility Engine](#user-content-kv-accessibility-strategy). it's text manipulation. so it's like Vim:
 
