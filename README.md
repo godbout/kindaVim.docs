@@ -19,11 +19,11 @@ maybe [watch the videos](https://www.youtube.com/channel/UC3ZP3QFMhNn3ivJgqoEW4U
 
 # WITH WHAT APPS DOES THAT SHIT WORK
 
-* native apps with inputs that handle the macOS Accessibility, through its [Accessibility Engine](#user-content-kv-accessibility-strategy). it's text manipulation. so it's like Vim:
+* native apps with inputs that support the macOS Accessibility, through its [Accessibility Engine](#user-content-kv-accessibility-strategy). it's text manipulation. so it's like Vim:
 
 ![Xcode input](https://raw.githubusercontent.com/godbout/kindaVim.theapp/master/assets/Xcode-input.gif "Xcode input")
 
-* native apps with inputs that don't handle the macOS Accessibility, through its [Keyboard Text Element Engine](#user-content-kv-keyboard-strategy). it's key remapping, less precise than the Accessibility Engine:
+* native apps with inputs that don't support the macOS Accessibility, through its [Keyboard Text Element Engine](#user-content-kv-keyboard-strategy). it's key remapping, less precise than the Accessibility Engine:
 
 ![Mail input](https://raw.githubusercontent.com/godbout/kindaVim.theapp/master/assets/Mail-input.gif "Mail input")
 
