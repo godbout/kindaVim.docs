@@ -39,7 +39,7 @@ maybe [watch the videos](https://www.youtube.com/channel/UC3ZP3QFMhNn3ivJgqoEW4U
 
 ![ClickUp input](https://raw.githubusercontent.com/godbout/kindaVim.theapp/master/assets/ClickUp-input.gif "ClickUp input")
 
-* all non-input fields, through its [Keyboard Non Text Element Engine](#user-content-kv-keyboard-strategy). that's another type of key remapping that allows to use the philosophy of Vim in the macOS UI:
+* all non-input fields, through its [Keyboard Non Text Element Engine](#user-content-kv-keyboard-strategy). that's another type of key remapping that brings Vim's philosophy to the macOS UI:
 
 ![Xcode UI1](https://raw.githubusercontent.com/godbout/kindaVim.theapp/master/assets/Xcode-UI1.gif "Xcode UI1")
 ![Xcode UI2](https://raw.githubusercontent.com/godbout/kindaVim.theapp/master/assets/Xcode-UI2.gif "Xcode UI2")
