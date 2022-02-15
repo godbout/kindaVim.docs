@@ -29,7 +29,7 @@ extension KSNM_N__Tests {
         
         XCTAssertEqual(kindaVimEngine.lastSearchCommand?.motion, "/")
         XCTAssertEqual(kindaVimEngine.lastSearchCommand?.searchString, "ama")
-        XCTAssertEqual(ksNormalModeMock.functionCalled, "N(lastSearchCommand:)")
+        XCTAssertEqual(ksNormalModeMock.functionCalled, "N(times:lastSearchCommand:)")
         XCTAssertEqual(ksNormalModeMock.relevantParameter, "/")
     }
     
@@ -45,7 +45,7 @@ extension KSNM_N__Tests {
         
         XCTAssertEqual(kindaVimEngine.lastSearchCommand?.motion, "?")
         XCTAssertEqual(kindaVimEngine.lastSearchCommand?.searchString, "6N")
-        XCTAssertEqual(ksNormalModeMock.functionCalled, "N(lastSearchCommand:)")
+        XCTAssertEqual(ksNormalModeMock.functionCalled, "N(times:lastSearchCommand:)")
         XCTAssertEqual(ksNormalModeMock.relevantParameter, "?")
     }
     

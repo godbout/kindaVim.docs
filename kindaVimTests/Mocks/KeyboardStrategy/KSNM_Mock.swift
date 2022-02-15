@@ -314,14 +314,14 @@ class KeyboardStrategyNormalModeMock: KeyboardStrategyNormalModeProtocol {
         return []
     }
     
-    func N(lastSearchCommand: Character?) -> [KeyCombination] {
+    func N(times count: Int?, lastSearchCommand: Character?) -> [KeyCombination] {
         functionCalled = #function
         relevantParameter = String(lastSearchCommand ?? Character(" "))
         
         return []
     }
     
-    func n(lastSearchCommand: Character?) -> [KeyCombination] {
+    func n(times count: Int?, lastSearchCommand: Character?) -> [KeyCombination] {
         functionCalled = #function
         relevantParameter = String(lastSearchCommand ?? Character(" "))
         
