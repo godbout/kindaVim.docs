@@ -106,7 +106,7 @@ extension KindaVimEngine {
         case .r:
             enterOperatorPendingForNormalMode(with: keyCombination)
         case .return:
-            post(ksNormalMode.enter())
+            post(ksNormalMode.return())
             enterInsertMode()
         case .S:
             post(ksNormalMode.cc(&state))
