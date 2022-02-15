@@ -290,7 +290,7 @@ other P.S.: the number of Awesome Humans currently subscribed is updated daily o
 * update all moves to support new global count system ([ask!](https://github.com/godbout/kindaVim.theapp/issues/new))
 * users' requests
 
-# REQUESTS
+# FEEDBACK
 
 * whether you need a missing move, want to report a bug or ask for a feature, just [open an issue](https://github.com/godbout/kindaVim.theapp/issues/new).
 
