@@ -76,6 +76,8 @@ extension KindaVimEngine {
         case .i:
             post(ksNormalMode.i())
             enterInsertMode()
+        case .interrogationMark:
+            enterOperatorPendingForNormalMode(with: keyCombination)
         case .J:
             post(ksNormalMode.J(state))
             endCurrentMove()
@@ -90,6 +92,12 @@ extension KindaVimEngine {
             endCurrentMove()
         case .leftArrow:
             post(ksNormalMode.h(times: count))
+            endCurrentMove()
+        case .N:
+            post(ksNormalMode.N(lastSearchCommand: lastSearchCommand?.motion, state))
+            endCurrentMove()
+        case .n:
+            post(ksNormalMode.n(lastSearchCommand: lastSearchCommand?.motion, state))
             endCurrentMove()
         case .O:
             post(ksNormalMode.O(state))
@@ -114,6 +122,8 @@ extension KindaVimEngine {
         case .s:
             post(ksNormalMode.cl(&state))
             enterInsertMode()
+        case .slash:
+            enterOperatorPendingForNormalMode(with: keyCombination)
         case .T:
             enterOperatorPendingForNormalMode(with: keyCombination)
         case .t:
@@ -320,6 +330,60 @@ extension KindaVimEngine {
                 post(ksNormalMode.r(with: replacement, state))
             }
             
+            guard operatorPendingBuffer.first?.vimKey != .interrogationMark else {
+                switch operatorPendingBuffer.last?.vimKey {
+                case .escape:
+                    enterNormalMode()
+                case .backspace:
+                    // remove current backspace
+                    operatorPendingBuffer.removeLast()
+                    display.removeLastAndShowOngoingMove()
+                    // remove keyCombination before backspace
+                    operatorPendingBuffer.removeLast()
+                    display.removeLastAndShowOngoingMove()
+
+                    operatorPendingBuffer.isEmpty ? enterNormalMode() : ()
+                case .return:
+                    let searchStringMadeOfKeyCombinations = operatorPendingBuffer.dropFirst().dropLast()
+                    let searchString = String(searchStringMadeOfKeyCombinations.map { $0.character })
+
+                    post(ksNormalMode.interrogationMark(to: searchString, state))
+                    lastSearchCommand = LastSearchCommand(motion: "?", searchString: searchString)
+                    enterNormalMode()
+                default:
+                    ()
+                }
+
+                return
+            }
+
+            guard operatorPendingBuffer.first?.vimKey != .slash else {
+                switch operatorPendingBuffer.last?.vimKey {
+                case .escape:
+                    enterNormalMode()
+                case .backspace:
+                    // remove current backspace
+                    operatorPendingBuffer.removeLast()
+                    display.removeLastAndShowOngoingMove()
+                    // remove keyCombination before backspace
+                    operatorPendingBuffer.removeLast()
+                    display.removeLastAndShowOngoingMove()
+
+                    operatorPendingBuffer.isEmpty ? enterNormalMode() : ()
+                case .return:
+                    let searchStringMadeOfKeyCombinations = operatorPendingBuffer.dropFirst().dropLast()
+                    let searchString = String(searchStringMadeOfKeyCombinations.map { $0.character })
+
+                    post(ksNormalMode.slash(to: searchString, state))
+                    lastSearchCommand = LastSearchCommand(motion: "/", searchString: searchString)
+                    enterNormalMode()
+                default:
+                    ()
+                }
+
+                return
+            }
+
             // if we don't recognize any operator move
             // then we go back to normal mode
             // and the operator pending buffer will be resetted

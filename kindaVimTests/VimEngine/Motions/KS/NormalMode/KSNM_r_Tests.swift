@@ -20,7 +20,7 @@ extension KSNM_r_Tests {
 
     func test_that_the_move_calls_the_correct_function_on_KS() {
         XCTAssertEqual(ksNormalModeMock.functionCalled, "r(with:_:)")
-        XCTAssertEqual(ksNormalModeMock.relevantParameter, KeyCombination(key: .g))
+        XCTAssertEqual(ksNormalModeMock.relevantParameter, "g")
     }
     
     func test_that_dj_keeps_Vim_in_normal_mode() {

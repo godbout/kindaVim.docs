@@ -10,7 +10,7 @@ class KeyboardStrategyNormalModeMock: KeyboardStrategyNormalModeProtocol {
     
     var axEngine: AXEngineProtocol = AXEngine()
     var functionCalled = ""
-    var relevantParameter: KeyCombination?
+    var relevantParameter = ""
     
         
     func A(_ vimEngineState: VimEngineState) -> [KeyCombination] {
@@ -103,6 +103,18 @@ class KeyboardStrategyNormalModeMock: KeyboardStrategyNormalModeProtocol {
         return []
     }
     
+    func controlR() -> [KeyCombination] {
+        functionCalled = #function
+        
+        return []
+    }
+    
+    func controlRForAXElement() -> [KeyCombination] {
+        functionCalled = #function
+        
+        return []
+    }
+    
     func cw(_ vimEngineState: inout VimEngineState) -> [KeyCombination] {
         functionCalled = #function
         
@@ -187,6 +199,12 @@ class KeyboardStrategyNormalModeMock: KeyboardStrategyNormalModeProtocol {
         return []
     }
         
+    func escape() -> [KeyCombination] {
+        functionCalled = #function
+        
+        return []
+    }
+    
     func gCaret(_ vimEngineState: VimEngineState) -> [KeyCombination] {
         functionCalled = #function
         
@@ -265,6 +283,13 @@ class KeyboardStrategyNormalModeMock: KeyboardStrategyNormalModeProtocol {
         return []
     }
     
+    func interrogationMark(to searchString: String, _ vimEngineState: VimEngineState) -> [KeyCombination] {
+        functionCalled = #function
+        relevantParameter = searchString
+        
+        return []
+    }
+    
     func J(_ vimEngineState: VimEngineState) -> [KeyCombination] {
         functionCalled = #function
         
@@ -289,13 +314,27 @@ class KeyboardStrategyNormalModeMock: KeyboardStrategyNormalModeProtocol {
         return []
     }
     
-    func o(_ vimEngineState: VimEngineState) -> [KeyCombination] {
+    func N(lastSearchCommand: Character?, _ vimEngineState: VimEngineState) -> [KeyCombination] {
         functionCalled = #function
+        relevantParameter = String(lastSearchCommand ?? Character(" "))
+        
+        return []
+    }
+    
+    func n(lastSearchCommand: Character?, _ vimEngineState: VimEngineState) -> [KeyCombination] {
+        functionCalled = #function
+        relevantParameter = String(lastSearchCommand ?? Character(" "))
         
         return []
     }
     
     func O(_ vimEngineState: VimEngineState) -> [KeyCombination] {
+        functionCalled = #function
+        
+        return []
+    }
+    
+    func o(_ vimEngineState: VimEngineState) -> [KeyCombination] {
         functionCalled = #function
         
         return []
@@ -315,19 +354,20 @@ class KeyboardStrategyNormalModeMock: KeyboardStrategyNormalModeProtocol {
     
     func r(with replacement: KeyCombination, _ vimEngineState: VimEngineState) -> [KeyCombination] {
         functionCalled = #function
-        relevantParameter = replacement
+        relevantParameter = String(replacement.character)
         
         return[]
     }
     
-    func controlR() -> [KeyCombination] {
+    func `return`() -> [KeyCombination] {
         functionCalled = #function
         
         return []
     }
     
-    func controlRForAXElement() -> [KeyCombination] {
+    func slash(to searchString: String, _ vimEngineState: VimEngineState) -> [KeyCombination] {
         functionCalled = #function
+        relevantParameter = searchString
         
         return []
     }
@@ -375,23 +415,6 @@ class KeyboardStrategyNormalModeMock: KeyboardStrategyNormalModeProtocol {
     }
     
     func zero(_ vimEngineState: VimEngineState) -> [KeyCombination] {
-        functionCalled = #function
-        
-        return []
-    }
-    
-    // temporary for escape to enter Command Mode
-    // and escape again to send escape key to macOS
-    func escape() -> [KeyCombination] {
-        functionCalled = #function
-        
-        return []
-    }
-    
-    // temporary for pressing enter in Command Mode
-    // to act like an enter in Insert Mode
-    // checking if it feels better (like in Alfred)
-    func enter() -> [KeyCombination] {
         functionCalled = #function
         
         return []
