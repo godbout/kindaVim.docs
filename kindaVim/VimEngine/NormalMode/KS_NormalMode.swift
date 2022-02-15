@@ -94,10 +94,10 @@ extension KindaVimEngine {
             post(ksNormalMode.h(times: count))
             endCurrentMove()
         case .N:
-            post(ksNormalMode.N(lastSearchCommand: lastSearchCommand?.motion))
+            post(ksNormalMode.N(times: count, lastSearchCommand: lastSearchCommand?.motion))
             endCurrentMove()
         case .n:
-            post(ksNormalMode.n(lastSearchCommand: lastSearchCommand?.motion))
+            post(ksNormalMode.n(times: count, lastSearchCommand: lastSearchCommand?.motion))
             endCurrentMove()
         case .O:
             post(ksNormalMode.O(state))
