@@ -549,7 +549,7 @@ class AccessibilityStrategyNormalModeMock: AccessibilityStrategyNormalModeProtoc
         return element
     }
     
-    func `return`(times count: Int? = 1, on element: AccessibilityTextElement, _ vimEngineState: VimEngineState) -> AccessibilityTextElement {
+    func `return`(times count: Int? = 1, on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
         functionCalled = #function
         
         return element
