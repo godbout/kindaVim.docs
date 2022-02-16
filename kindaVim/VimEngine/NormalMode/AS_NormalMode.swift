@@ -229,7 +229,7 @@ extension KindaVimEngine {
                 enterOperatorPendingForNormalMode(with: keyCombination)
             case .return:
                 if currentElement.role == .textArea {
-                    let newElement = asNormalMode.`return`(times: count, on: currentElement, state)
+                    let newElement = asNormalMode.`return`(times: count, on: currentElement, &state)
                     push(element: newElement)
                     endCurrentMove()
                 } else {
