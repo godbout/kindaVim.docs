@@ -7,7 +7,7 @@
 
 ---
 
-# WHY
+# WHY THAT SHIT
 
 brain space and energy are limited. why learning six hundred thousand new keyboard shortcuts when you can use Vim moves everywhere. also macOS is widely inconsistent like sometimes you can go up and down with ctrl+n/ctrl+p but also sometimes not. even in Apple's own apps. so jk FTW.
 
@@ -17,7 +17,7 @@ and also it's fucking cool.
 
 maybe [watch the videos](https://www.youtube.com/channel/UC3ZP3QFMhNn3ivJgqoEW4Ug) first if you're not sure you wanna read further.
 
-# WITH WHAT APPS DOES THAT SHIT WORK
+# WHAT APPS DOES THAT SHIT SUPPORT
 
 * native apps with inputs that support the macOS Accessibility, through its [Accessibility Engine](#user-content-kv-accessibility-strategy). it's text manipulation. so it's like Vim:
 
@@ -47,7 +47,7 @@ maybe [watch the videos](https://www.youtube.com/channel/UC3ZP3QFMhNn3ivJgqoEW4U
 ![Alfred UI](https://raw.githubusercontent.com/godbout/kindaVim.theapp/master/assets/Alfred-UI.gif "Alfred UI")
 ![Help Menu UI](https://raw.githubusercontent.com/godbout/kindaVim.theapp/master/assets/Help-Menu-UI.gif "Help Menu UI")
 
-# HOW 'BOUT THE $$$
+# HOW 'BOUT THE MONEY SHIT
 
 you can use kindaVim fully for USD$0 a lifetime, but everyday from 5am to 1pm (Winter Schedule) it'll need its 8 hours of sleep. if you wanna torture kV 24/7, you'll need to get him a [good cup of ☕️ a month](https://subscribe.kindavim.app) (USD$3.69). 
 
@@ -55,7 +55,7 @@ P.S.: if you're happy with the state of the old betas you can always download th
 
 other P.S.: the number of Awesome Humans currently subscribed is updated daily on [kindaVim.app](https://kindavim.app) 😀️
 
-# CURRENT VIM IMPLEMENTATION
+# CURRENT VIM IMPLEMENTATION SHIT
 
 ## Motions
 
@@ -281,24 +281,24 @@ other P.S.: the number of Awesome Humans currently subscribed is updated daily o
 | `:x`
 | `ZZ`
 
-# DID YOU KNOW?
+# SHIT, DID YOU KNOW?
 
 ![bye bye caps lock](https://raw.githubusercontent.com/godbout/kindaVim.theapp/master/assets/did-you-know.png "haha")
 
-# ROADMAP
+# ROADMAP SHIT
 * add a plethora of missing Vim moves ([ask!](https://github.com/godbout/kindaVim.theapp/issues/new))
 * update all moves to support new global count system ([ask!](https://github.com/godbout/kindaVim.theapp/issues/new))
 * users' requests
 
-# FEEDBACK
+# FEEDBACK SHIT
 
 * whether you need a missing move, want to report a bug or ask for a feature, just [open an issue](https://github.com/godbout/kindaVim.theapp/issues/new).
 
-# TESTS AND OPEN SOURCE
+# TESTS SHIT AND OPEN SOURCE SHIT
 
 the [tests](https://github.com/godbout/AccessibilityStrategyTestApp) describing the Vim moves are open source. you can use those to build your own implementation, or if you just want to learn more about Vim moves, or if you just can't get enough good self-induced migraines.
 
-# ACKNOWLEDGMENTS, THANKS, AND KISSES
+# SHIT ACKNOWLEDGMENTS, THANKS, AND KISSES
 
 * [Takayama Fumihiko](https://github.com/tekezo) for [Karabiner-Elements](https://karabiner-elements.pqrs.org), my first experience of Vim moves on macOS. great option if you need lots of customizations
 * [David Balatero](https://github.com/dbalatero) for [VimMode.spoon](https://github.com/dbalatero/VimMode.spoon), showing there's a way to make that shit work. great option if you're looking for free/open source
