@@ -19,27 +19,27 @@ maybe [watch the videos](https://www.youtube.com/channel/UC3ZP3QFMhNn3ivJgqoEW4U
 
 # WHAT APPS DOES THAT SHIT SUPPORT
 
-* native apps with inputs that support the macOS Accessibility, through its [Accessibility Engine](#user-content-kv-accessibility-strategy). it's text manipulation. so it's like Vim:
+## native apps with macOS Accessibility support
 
 ![Xcode input](https://raw.githubusercontent.com/godbout/kindaVim.theapp/master/assets/Xcode-input.gif "Xcode input")
 
-* native apps with inputs that don't support the macOS Accessibility, through its [Keyboard Text Element Engine](#user-content-kv-keyboard-strategy). it's key remapping, less precise than the Accessibility Engine:
+## native apps without macOS Accessibility support
 
 ![Mail input](https://raw.githubusercontent.com/godbout/kindaVim.theapp/master/assets/Mail-input.gif "Mail input")
 
-* restricted apps like browsers and some Catalyst apps, through its Hybrid Engine. it's a mix of text manipulation and key remapping. the end result is like Vim:
+## restricted apps with some macOS Accessibility support
 
 ![Safari input](https://raw.githubusercontent.com/godbout/kindaVim.theapp/master/assets/Safari-input.gif "Safari input")
 
-* Electron apps that return valid Accessibility data, through its Accessibility Engine for Electron. Electron apps are pretty wild in their implementation of the macOS Accessibility. so results depend on the apps themselves:
+## Electron apps with (kinda) proper macOS Accessibility support
 
 ![Logseq input](https://raw.githubusercontent.com/godbout/kindaVim.theapp/master/assets/Logseq-input.gif "Logseq input")
 
-* Electron apps that return wrong Accessibility data, through its [Keyboard Text Element Engine](#user-content-kv-keyboard-strategy). key remapping. less precise:
+## Electron apps with bad bad bad macOS Accessibility support
 
 ![ClickUp input](https://raw.githubusercontent.com/godbout/kindaVim.theapp/master/assets/ClickUp-input.gif "ClickUp input")
 
-* all non-input fields, through its [Keyboard Non Text Element Engine](#user-content-kv-keyboard-strategy). that's another type of key remapping that brings Vim's philosophy to the macOS UI:
+## UI Elements
 
 ![Xcode UI1](https://raw.githubusercontent.com/godbout/kindaVim.theapp/master/assets/Xcode-UI1.gif "Xcode UI1")
 ![Xcode UI2](https://raw.githubusercontent.com/godbout/kindaVim.theapp/master/assets/Xcode-UI2.gif "Xcode UI2")
