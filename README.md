@@ -47,6 +47,15 @@ maybe [watch the videos](https://www.youtube.com/channel/UC3ZP3QFMhNn3ivJgqoEW4U
 ![Alfred UI](https://raw.githubusercontent.com/godbout/kindaVim.theapp/master/assets/Alfred-UI.gif "Alfred UI")
 ![Help Menu UI](https://raw.githubusercontent.com/godbout/kindaVim.theapp/master/assets/Help-Menu-UI.gif "Help Menu UI")
 
+# HOW DOES THAT SHIT WORK
+
+because the goal of kV is to bring Vim moves in **any** situation under macOS, it cannot use an already-existing Vim backend (that would have been way easier 😅️😭️). hence, every single move is handcrafted to work in the following conditions:
+* text is programmatically [readable and writable](#user-content-native-apps-with-macos-accessibility-support). in this condition kV does [text manipulation](#user-content-kV-accessibility-strategy). in theory we can have a full Vim. in practice some moves will be currently missing. feel free to [request](#user-content-feedback-💩️) the ones missing.
+* text is programmatically [not readable nor writable][#user-content-native-apps-without-macOS-accessibility-support]. in this condition kV achieves a Vim move through [key remapping](#user-content-kv-keyboard-strategy). it's not as precise as text manipulation.
+* text is programmatically [readable but not writable](#user-content-restricted-apps-with-some-macOS-accessibility-support). in this condition kV uses a mix of text manipulation and key remapping. full Vim experience possible.
+* text is part of an Electron app that returns [correct text data](#user-content-electron-apps-with-(kinda)-proper-macOS-accessibility-support), or [not](#user-content-electron-apps-with-bad-bad-bad-macOS-accessibility-support). in these conditions kV uses altered versions of the text manipulation and key remapping engines.
+* [input is not text](#user-content-ui-elements). in this condition kV uses another type of key remapping, specific to UI Elements.
+
 # HOW 'BOUT THE MONEY SHIT
 
 you can use kindaVim fully for USD$0 a lifetime, but everyday from 5am to 1pm (Winter Schedule) it'll need its 8 hours of sleep. if you wanna torture kV 24/7, you'll need to get him a [good cup of ☕️ a month](https://subscribe.kindavim.app) (USD$3.69). 
@@ -55,7 +64,7 @@ P.S.: if you're happy with the state of the old betas you can always download th
 
 other P.S.: the number of Awesome Humans currently subscribed is updated daily on [kindaVim.app](https://kindavim.app) 😀️
 
-# CURRENT VIM IMPLEMENTATION SHIT
+# CURRENT VIM IMPLEMENTATION
 
 ## Motions
 
