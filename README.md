@@ -143,6 +143,7 @@ other P.S.: the number of Awesome Humans currently subscribed is updated daily o
 | `ciW`      |   ❌️            | ✅️️              |                                       
 | `ciw`      |  ❌️             | ✅️️              |                                       
 | `cl`       | ❌️              | ✅️️              |                                       
+| `<CR>`     | ✅️              |                 |
 | `cT`       | ✅️              | ✅️ 
 | `ct`       | ✅️              | ✅️ 
 | `cW`       | ❌️              | ✅️️ 
