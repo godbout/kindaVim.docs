@@ -51,10 +51,26 @@ maybe [watch the videos](https://www.youtube.com/channel/UC3ZP3QFMhNn3ivJgqoEW4U
 
 because the goal of kV is to bring Vim moves in **any** situation under macOS, it cannot use an already-existing Vim backend (that would have been way easier 😅️😭️). hence, every single move is handcrafted to work in the following conditions:
 * text is programmatically [readable and writable](#native-apps-with-macos-accessibility-support). in this condition kV does [text manipulation](#kV-accessibility-strategy). in theory we can have a full Vim. in practice some moves will be currently missing. feel free to [request](#feedback-%EF%B8%8F) the ones you need.
-* text is programmatically [not readable nor writable](#native-apps-without-macOS-accessibility-support). in this condition kV achieves a Vim move through [key remapping](#kv-keyboard-strategy). it's not as precise as text manipulation.
+* text is programmatically [not readable](#native-apps-without-macOS-accessibility-support). in this condition kV achieves a Vim move through [key remapping](#kv-keyboard-strategy). it's not as precise as text manipulation.
 * text is programmatically [readable but not writable](#restricted-apps-with-some-macOS-accessibility-support). in this condition kV uses a mix of text manipulation and key remapping. full Vim experience possible.
 * text is part of an Electron app that returns [correct text data](#electron-apps-with-kinda-proper-macOS-accessibility-support), or [not](#electron-apps-with-bad-bad-bad-macOS-accessibility-support). in these conditions kV uses altered versions of the text manipulation and key remapping engines.
 * [input is not text](#ui-elements). in this condition kV uses another type of key remapping, specific to UI Elements.
+
+this whole mess allows for that awesome UX:
+
+e.g. `/the`:
+
+* input is text readable
+
+![input text readable](https://raw.githubusercontent.com/godbout/kindaVim.theapp/master/assets/search-AS.gif "input text readable")
+
+* input is text not readable
+
+![input text not readable](https://raw.githubusercontent.com/godbout/kindaVim.theapp/master/assets/search-KSTE.gif "input text not readable")
+
+* input is not text
+
+![input not text](https://raw.githubusercontent.com/godbout/kindaVim.theapp/master/assets/search-KSNTE.gif "input not text")
 
 # HOW 'BOUT THE MONEY SHIT
 
