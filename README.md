@@ -72,6 +72,8 @@ e.g. `/the`:
 
 ![input not text](https://raw.githubusercontent.com/godbout/kindaVim.theapp/master/assets/search-KSNTE.gif "input not text")
 
+straight from your Vim brain to the underlying macOS. kV takes care of the mess in the middle.
+
 # HOW 'BOUT THE MONEY SHIT
 
 you can use kindaVim fully for USD$0 a lifetime, but everyday from 5am to 1pm (Winter Schedule) it'll need its 8 hours of sleep. if you wanna torture kV 24/7, you'll need to get him a [good cup of ☕️ a month](https://subscribe.kindavim.app) (USD$3.69). 
