@@ -42,6 +42,7 @@
 		912BC458278CB86B000E999C /* KSNM_V__Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912BC457278CB86B000E999C /* KSNM_V__Tests.swift */; };
 		912BC45A278CB875000E999C /* KSNM_v_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 912BC459278CB875000E999C /* KSNM_v_Tests.swift */; };
 		91351D672785B40C0035577C /* Commands in Frameworks */ = {isa = PBXBuildFile; productRef = 91351D662785B40C0035577C /* Commands */; };
+		9136D5EB27C10585008F9CFE /* LastLeftRightSearchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9136D5EA27C10585008F9CFE /* LastLeftRightSearchTests.swift */; };
 		913FC721277A236800D89166 /* InputFieldObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913FC720277A236800D89166 /* InputFieldObserver.swift */; };
 		9140F2D52791C62300583D09 /* ASNM_;_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9140F2D42791C62300583D09 /* ASNM_;_Tests.swift */; };
 		9140F2D72791C63600583D09 /* ASNM_,_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9140F2D62791C63600583D09 /* ASNM_,_Tests.swift */; };
@@ -571,6 +572,7 @@
 		912BC44A278A1417000E999C /* ASSucceeding_TextField_Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ASSucceeding_TextField_Mock.swift; sourceTree = "<group>"; };
 		912BC457278CB86B000E999C /* KSNM_V__Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSNM_V__Tests.swift; sourceTree = "<group>"; };
 		912BC459278CB875000E999C /* KSNM_v_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSNM_v_Tests.swift; sourceTree = "<group>"; };
+		9136D5EA27C10585008F9CFE /* LastLeftRightSearchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastLeftRightSearchTests.swift; sourceTree = "<group>"; };
 		913FC720277A236800D89166 /* InputFieldObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputFieldObserver.swift; sourceTree = "<group>"; };
 		9140F2D42791C62300583D09 /* ASNM_;_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ASNM_;_Tests.swift"; sourceTree = "<group>"; };
 		9140F2D62791C63600583D09 /* ASNM_,_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ASNM_,_Tests.swift"; sourceTree = "<group>"; };
@@ -1291,6 +1293,7 @@
 				91497ECA2789EF33006CA23C /* Modes */,
 				914DA4962743C20E005748F7 /* CountSystemTests.swift */,
 				918F2E0C2787487500AD68DF /* StateTests.swift */,
+				9136D5EA27C10585008F9CFE /* LastLeftRightSearchTests.swift */,
 				91F41811277B509B00E58117 /* Motions */,
 				91F41812277B50A900E58117 /* Commands */,
 			);
@@ -2441,6 +2444,7 @@
 				91F4182B277B5B9500E58117 /* KSCL_q_Tests.swift in Sources */,
 				91BBC4DF278763FD008DE977 /* KSNM_d$_Tests.swift in Sources */,
 				918F30582787559C00AD68DF /* KSVM_gj_Tests.swift in Sources */,
+				9136D5EB27C10585008F9CFE /* LastLeftRightSearchTests.swift in Sources */,
 				918F2FC82787557800AD68DF /* KSNM_x_Tests.swift in Sources */,
 				91A9D99427B6A26900FFDCBA /* ASNM_slash_Escape_Tests.swift in Sources */,
 				91840B4A26FE092D00E6048E /* ASVM_Mock.swift in Sources */,
