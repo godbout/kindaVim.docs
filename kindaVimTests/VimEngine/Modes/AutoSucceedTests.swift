@@ -4,7 +4,7 @@ import KeyCombination
 
 
 // here we test that in Auto Mode when it succeeds it calls the Accessibility Strategy.
-// failure is tested in FallbackTests.
+// failure is tested in AutoFallbackTests.
 class AutoSucceedTests: XCTestCase {
 
     let kindaVimEngine = KindaVimEngine()    
