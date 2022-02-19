@@ -1,5 +1,6 @@
 import KeyCombination
 import AccessibilityStrategy
+import Common
 
 
 // AS Normal Mode
@@ -40,28 +41,14 @@ extension KindaVimEngine {
                 endCurrentMove()
             case .colon:
                 enterOperatorPendingForNormalMode(with: keyCombination)
-            // to test (can dump info to console, send stuff to AX etc.)
             case .comma:
-                var newElement: AccessibilityTextElement?
-                
-                switch lastLeftRightSearch?.motion {
-                case "F":
-                    newElement = asNormalMode.f(times: count, to: lastLeftRightSearch!.character, on: currentElement)
-                case "f":
-                    newElement = asNormalMode.F(times: count, to: lastLeftRightSearch!.character, on: currentElement)
-                case "T":
-                    newElement = asNormalMode.t(times: count, to: lastLeftRightSearch!.character, on: currentElement)
-                case "t":
-                    newElement = asNormalMode.T(times: count, to: lastLeftRightSearch!.character, on: currentElement)
-                default:
-                    ()
-                }
-                
-                if let newElement = newElement {
+                if let lastLeftRightSearch = lastLeftRightSearch {
+                    let newElement = asNormalMode.comma(times: count, lastLeftRightSearch: lastLeftRightSearch, on: currentElement)
                     push(element: newElement)
                 }
 
                 endCurrentMove()
+            // to test (can dump info to console, send stuff to AX etc.)
             case .commandD:
                 let newElement = AccessibilityStrategyNormalMode.test(element: currentElement)
                 push(element: newElement)
@@ -252,25 +239,11 @@ extension KindaVimEngine {
                 push(element: newElement)
                 enterInsertMode()
             case .semicolon:
-                var newElement: AccessibilityTextElement?
-                
-                switch lastLeftRightSearch?.motion {
-                case "F":
-                    newElement = asNormalMode.F(times: count, to: lastLeftRightSearch!.character, on: currentElement)
-                case "f":
-                    newElement = asNormalMode.f(times: count, to: lastLeftRightSearch!.character, on: currentElement)
-                case "T":
-                    newElement = asNormalMode.T(times: count, to: lastLeftRightSearch!.character, on: currentElement)
-                case "t":
-                    newElement = asNormalMode.t(times: count, to: lastLeftRightSearch!.character, on: currentElement)
-                default:
-                    ()
-                }
-                
-                if let newElement = newElement {
+                if let lastLeftRightSearch = lastLeftRightSearch {
+                    let newElement = asNormalMode.semicolon(times: count, lastLeftRightSearch: lastLeftRightSearch, on: currentElement)
                     push(element: newElement)
                 }
-
+                
                 endCurrentMove()
             case .slash:
                 enterOperatorPendingForNormalMode(with: keyCombination)
@@ -781,7 +754,7 @@ extension KindaVimEngine {
                 guard operatorPendingBuffer.first?.vimKey != .F else {
                     if let character = operatorPendingBuffer.last {
                         let newElement = asNormalMode.F(times: count, to: character.character, on: currentElement)
-                        lastLeftRightSearch = LastLeftRightSearch(motion: "F", character: character.character)
+                        lastLeftRightSearch = LastLeftRightSearch(motion: .F, character: character.character)
                         push(element: newElement)
                         enterNormalMode()
                     }
@@ -792,7 +765,7 @@ extension KindaVimEngine {
                 guard operatorPendingBuffer.first?.vimKey != .f else {
                     if let character = operatorPendingBuffer.last {
                         let newElement = asNormalMode.f(times: count, to: character.character, on: currentElement)
-                        lastLeftRightSearch = LastLeftRightSearch(motion: "f", character: character.character)
+                        lastLeftRightSearch = LastLeftRightSearch(motion: .f, character: character.character)
                         push(element: newElement)
                         enterNormalMode()
                     }
@@ -874,7 +847,7 @@ extension KindaVimEngine {
                 guard operatorPendingBuffer.first?.vimKey != .T else {
                     if let character = operatorPendingBuffer.last {
                         let newElement = asNormalMode.T(times: count, to: character.character, on: currentElement)
-                        lastLeftRightSearch = LastLeftRightSearch(motion: "T", character: character.character)
+                        lastLeftRightSearch = LastLeftRightSearch(motion: .T, character: character.character)
                         push(element: newElement)
                         enterNormalMode()
                     }
@@ -885,7 +858,7 @@ extension KindaVimEngine {
                 guard operatorPendingBuffer.first?.vimKey != .t else {
                     if let character = operatorPendingBuffer.last {
                         let newElement = asNormalMode.t(times: count, to: character.character, on: currentElement)
-                        lastLeftRightSearch = LastLeftRightSearch(motion: "t", character: character.character)
+                        lastLeftRightSearch = LastLeftRightSearch(motion: .t, character: character.character)
                         push(element: newElement)
                         enterNormalMode()
                     }

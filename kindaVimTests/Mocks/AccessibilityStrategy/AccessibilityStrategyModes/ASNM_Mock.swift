@@ -8,6 +8,7 @@ class AccessibilityStrategyNormalModeMock: AccessibilityStrategyNormalModeProtoc
     
     var functionCalled = ""
     var relevantParameter = ""
+    var lastLeftRightSearchParameter: LastLeftRightSearch?
     
     
     static func test(element: AccessibilityTextElement) -> AccessibilityTextElement {
@@ -69,12 +70,6 @@ class AccessibilityStrategyNormalModeMock: AccessibilityStrategyNormalModeProtoc
     }
     
     func cDollarSign(on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
-        functionCalled = #function
-        
-        return element
-    }
-    
-    func dDollarSign(on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
         functionCalled = #function
         
         return element
@@ -207,6 +202,19 @@ class AccessibilityStrategyNormalModeMock: AccessibilityStrategyNormalModeProtoc
         
         return element
     }
+
+    func comma(times count: Int?, lastLeftRightSearch: LastLeftRightSearch, on element: AccessibilityTextElement) -> AccessibilityTextElement {
+        functionCalled = #function
+        lastLeftRightSearchParameter = lastLeftRightSearch
+
+        return element
+    }
+
+    func controlR(on element: AccessibilityTextElement, _ vimEngineState: VimEngineState) -> AccessibilityTextElement {
+        functionCalled = #function
+
+        return element
+    }
     
     func cT(times count: Int? = 1, to character: Character, on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
         functionCalled = #function
@@ -258,6 +266,12 @@ class AccessibilityStrategyNormalModeMock: AccessibilityStrategyNormalModeProtoc
         return element
     }
     
+    func dDollarSign(on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
+        functionCalled = #function
+
+        return element
+    }
+
     func dd(on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
         functionCalled = #function
         
@@ -343,7 +357,7 @@ class AccessibilityStrategyNormalModeMock: AccessibilityStrategyNormalModeProtoc
         
         return element
     }
-    
+
     func dT(times count: Int? = 1, to character: Character, on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
         functionCalled = #function
         relevantParameter = String(character)
@@ -531,12 +545,6 @@ class AccessibilityStrategyNormalModeMock: AccessibilityStrategyNormalModeProtoc
     }
     
     func p(on element: AccessibilityTextElement, _ vimEngineState: VimEngineState) -> AccessibilityTextElement {
-        functionCalled = #function
-        
-        return element
-    }
-    
-    func controlR(on element: AccessibilityTextElement, _ vimEngineState: VimEngineState) -> AccessibilityTextElement {
         functionCalled = #function
         
         return element
@@ -753,6 +761,13 @@ class AccessibilityStrategyNormalModeMock: AccessibilityStrategyNormalModeProtoc
         return element
     }
     
+    func semicolon(times count: Int?, lastLeftRightSearch: LastLeftRightSearch, on element: AccessibilityTextElement) -> AccessibilityTextElement {
+        functionCalled = #function
+        lastLeftRightSearchParameter = lastLeftRightSearch
+
+        return element
+    }
+
     func slash(times count: Int? = 1, to searchString: String, on element: AccessibilityTextElement) -> AccessibilityTextElement {
         functionCalled = #function
         relevantParameter = searchString

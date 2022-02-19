@@ -8,17 +8,6 @@ import Commands
 import Common
 
 
-struct LastLeftRightSearch {
-    
-    // motion can't be of type (Int?, Character, AccessibilityTextElement) -> AccessibilityTextElement
-    // that would work very nicely for `;` to repeat the same move, but wouldn't be able to determine the
-    // motion to get its inverse for `,`. or i'm still too dumb with Swift and don't know how to do it.
-    var motion: Character
-    var character: Character
-    
-}
-
-
 struct LastSearchCommand {
     
     var motion: Character
