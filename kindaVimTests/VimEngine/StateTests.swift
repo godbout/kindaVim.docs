@@ -10,7 +10,6 @@ import KeyCombination
 // - the appFamily to be read by the moves
 // - the lastYankStyle to be changed by the moves
 // - the visualStyle to be read by the moves
-
 class StateTests: XCTestCase {
 
     let kindaVimEngine = KindaVimEngine()
