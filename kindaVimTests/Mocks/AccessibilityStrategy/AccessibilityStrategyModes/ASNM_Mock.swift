@@ -51,13 +51,13 @@ class AccessibilityStrategyNormalModeMock: AccessibilityStrategyNormalModeProtoc
         return element
     }
     
-    func cB(times count: Int? = 1, on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
+    func cB(times count: Int?, on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
         functionCalled = #function
         
         return element
     }
     
-    func cb(times count: Int? = 1, on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
+    func cb(times count: Int?, on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
         functionCalled = #function
         
         return element
@@ -87,14 +87,14 @@ class AccessibilityStrategyNormalModeMock: AccessibilityStrategyNormalModeProtoc
         return element
     }
     
-    func cF(times count: Int? = 1, to character: Character, on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
+    func cF(times count: Int?, to character: Character, on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
         functionCalled = #function
         relevantParameter = String(character)
         
         return element
     }
     
-    func cf(times count: Int? = 1, to character: Character, on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
+    func cf(times count: Int?, to character: Character, on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
         functionCalled = #function
         relevantParameter = String(character)
         
@@ -216,14 +216,14 @@ class AccessibilityStrategyNormalModeMock: AccessibilityStrategyNormalModeProtoc
         return element
     }
     
-    func cT(times count: Int? = 1, to character: Character, on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
+    func cT(times count: Int?, to character: Character, on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
         functionCalled = #function
         relevantParameter = String(character)
         
         return element
     }
     
-    func ct(times count: Int? = 1, to character: Character, on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
+    func ct(times count: Int?, to character: Character, on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
         functionCalled = #function
         relevantParameter = String(character)
         
@@ -254,13 +254,13 @@ class AccessibilityStrategyNormalModeMock: AccessibilityStrategyNormalModeProtoc
         return element
     }
     
-    func dB(times count: Int? = 1, on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
+    func dB(times count: Int?, on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
         functionCalled = #function
         
         return element
     }
     
-    func db(times count: Int? = 1, on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
+    func db(times count: Int?, on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
         functionCalled = #function
         
         return element
@@ -290,14 +290,14 @@ class AccessibilityStrategyNormalModeMock: AccessibilityStrategyNormalModeProtoc
         return element
     }
     
-    func dF(times count: Int? = 1, to character: Character, on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
+    func dF(times count: Int?, to character: Character, on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
         functionCalled = #function
         relevantParameter = String(character)
         
         return element
     }
     
-    func df(times count: Int? = 1, to character: Character, on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
+    func df(times count: Int?, to character: Character, on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
         functionCalled = #function
         relevantParameter = String(character)
         
@@ -358,7 +358,7 @@ class AccessibilityStrategyNormalModeMock: AccessibilityStrategyNormalModeProtoc
         return element
     }
 
-    func dT(times count: Int? = 1, to character: Character, on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
+    func dT(times count: Int?, to character: Character, on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
         functionCalled = #function
         relevantParameter = String(character)
 
@@ -366,45 +366,45 @@ class AccessibilityStrategyNormalModeMock: AccessibilityStrategyNormalModeProtoc
         return element
     }
     
-    func dt(times count: Int? = 1, to character: Character, on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
+    func dt(times count: Int?, to character: Character, on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
         functionCalled = #function
         relevantParameter = String(character)
         
         return element
     }
     
-    func dW(times count: Int? = 1, on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
+    func dW(times count: Int?, on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
         functionCalled = #function
         
         return element
     }
     
-    func dw(times count: Int? = 1, on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
+    func dw(times count: Int?, on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
         functionCalled = #function
         
         return element
     }
     
-    func E(times count: Int? = 1, on element: AccessibilityTextElement) -> AccessibilityTextElement {
+    func E(times count: Int?, on element: AccessibilityTextElement) -> AccessibilityTextElement {
         functionCalled = #function
         
         return element
     }
     
-    func e(times count: Int? = 1, on element: AccessibilityTextElement) -> AccessibilityTextElement {
+    func e(times count: Int?, on element: AccessibilityTextElement) -> AccessibilityTextElement {
         functionCalled = #function
         
         return element
     }
     
-    func f(times count: Int? = 1, to character: Character, on element: AccessibilityTextElement) -> AccessibilityTextElement {
+    func f(times count: Int?, to character: Character, on element: AccessibilityTextElement) -> AccessibilityTextElement {
         functionCalled = #function
         relevantParameter = String(character)
         
         return element
     }
     
-    func F(times count: Int? = 1, to character: Character, on element: AccessibilityTextElement) -> AccessibilityTextElement {
+    func F(times count: Int?, to character: Character, on element: AccessibilityTextElement) -> AccessibilityTextElement {
         functionCalled = #function
         relevantParameter = String(character)
         
@@ -441,7 +441,7 @@ class AccessibilityStrategyNormalModeMock: AccessibilityStrategyNormalModeProtoc
         return element
     }
     
-    func ge(times count: Int? = 1, on element: AccessibilityTextElement) -> AccessibilityTextElement {
+    func ge(times count: Int?, on element: AccessibilityTextElement) -> AccessibilityTextElement {
         functionCalled = #function
         
         return element
@@ -453,7 +453,7 @@ class AccessibilityStrategyNormalModeMock: AccessibilityStrategyNormalModeProtoc
         return element
     }
     
-    func gE(times count: Int? = 1, on element: AccessibilityTextElement) -> AccessibilityTextElement {
+    func gE(times count: Int?, on element: AccessibilityTextElement) -> AccessibilityTextElement {
         functionCalled = #function
         
         return element
@@ -477,7 +477,7 @@ class AccessibilityStrategyNormalModeMock: AccessibilityStrategyNormalModeProtoc
         return element
     }
 
-    func h(times count: Int? = 1, on element: AccessibilityTextElement) -> AccessibilityTextElement {
+    func h(times count: Int?, on element: AccessibilityTextElement) -> AccessibilityTextElement {
         functionCalled = #function
 
         return element
@@ -495,7 +495,7 @@ class AccessibilityStrategyNormalModeMock: AccessibilityStrategyNormalModeProtoc
         return element
     }
     
-    func interrogationMark(times count: Int? = 1, to searchString: String, on element: AccessibilityTextElement) -> AccessibilityTextElement {
+    func interrogationMark(times count: Int?, to searchString: String, on element: AccessibilityTextElement) -> AccessibilityTextElement {
         functionCalled = #function
         relevantParameter = searchString
         
@@ -520,7 +520,7 @@ class AccessibilityStrategyNormalModeMock: AccessibilityStrategyNormalModeProtoc
         return element
     }
     
-    func l(times count: Int? = 1, on element: AccessibilityTextElement) -> AccessibilityTextElement {
+    func l(times count: Int?, on element: AccessibilityTextElement) -> AccessibilityTextElement {
         functionCalled = #function
 
         return element
@@ -550,34 +550,34 @@ class AccessibilityStrategyNormalModeMock: AccessibilityStrategyNormalModeProtoc
         return element
     }
     
-    func r(times count: Int? = 1, with replacement: Character, on element: AccessibilityTextElement, _ vimEngineState: VimEngineState) -> AccessibilityTextElement {
+    func r(times count: Int?, with replacement: Character, on element: AccessibilityTextElement, _ vimEngineState: VimEngineState) -> AccessibilityTextElement {
         functionCalled = #function
         relevantParameter = String(replacement)
         
         return element
     }
     
-    func `return`(times count: Int? = 1, on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
+    func `return`(times count: Int?, on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
         functionCalled = #function
         
         return element
     }
     
-    func T(times count: Int? = 1, to character: Character, on element: AccessibilityTextElement) -> AccessibilityTextElement {
-        functionCalled = #function
-        relevantParameter = String(character)
-        
-        return element
-    }
-    
-    func t(times count: Int? = 1, to character: Character, on element: AccessibilityTextElement) -> AccessibilityTextElement {
+    func T(times count: Int?, to character: Character, on element: AccessibilityTextElement) -> AccessibilityTextElement {
         functionCalled = #function
         relevantParameter = String(character)
         
         return element
     }
     
-    func tilde(times count: Int? = 1, on element: AccessibilityTextElement, _ vimEngineState: VimEngineState) -> AccessibilityTextElement {
+    func t(times count: Int?, to character: Character, on element: AccessibilityTextElement) -> AccessibilityTextElement {
+        functionCalled = #function
+        relevantParameter = String(character)
+        
+        return element
+    }
+    
+    func tilde(times count: Int?, on element: AccessibilityTextElement, _ vimEngineState: VimEngineState) -> AccessibilityTextElement {
         functionCalled = #function
         
         return element
@@ -601,14 +601,14 @@ class AccessibilityStrategyNormalModeMock: AccessibilityStrategyNormalModeProtoc
         return element
     }
     
-    func yF(times count: Int? = 1, to character: Character, on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
+    func yF(times count: Int?, to character: Character, on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
         functionCalled = #function
         relevantParameter = String(character)
         
         return element
     }
     
-    func yf(times count: Int? = 1, to character: Character, on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
+    func yf(times count: Int?, to character: Character, on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
         functionCalled = #function
         relevantParameter = String(character)
         
@@ -675,14 +675,14 @@ class AccessibilityStrategyNormalModeMock: AccessibilityStrategyNormalModeProtoc
         return element
     }
     
-    func yT(times count: Int? = 1, to character: Character, on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
+    func yT(times count: Int?, to character: Character, on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
         functionCalled = #function
         relevantParameter = String(character)
         
         return element
     }
     
-    func yt(times count: Int? = 1, to character: Character, on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
+    func yt(times count: Int?, to character: Character, on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
         functionCalled = #function
         relevantParameter = String(character)
         
@@ -768,7 +768,7 @@ class AccessibilityStrategyNormalModeMock: AccessibilityStrategyNormalModeProtoc
         return element
     }
 
-    func slash(times count: Int? = 1, to searchString: String, on element: AccessibilityTextElement) -> AccessibilityTextElement {
+    func slash(times count: Int?, to searchString: String, on element: AccessibilityTextElement) -> AccessibilityTextElement {
         functionCalled = #function
         relevantParameter = searchString
         
