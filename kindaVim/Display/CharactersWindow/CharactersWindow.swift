@@ -24,7 +24,7 @@ final class CharactersWindow: WindowProtocol {
         window.alphaValue = 0.7
         window.isMovableByWindowBackground = true
         window.isRestorable = true
-        window.level = .floating
+        window.level = .popUpMenu
         window.animationBehavior = .utilityWindow
         window.collectionBehavior = [.transient]
         
