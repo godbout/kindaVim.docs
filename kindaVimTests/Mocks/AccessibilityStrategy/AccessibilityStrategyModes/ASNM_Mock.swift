@@ -9,6 +9,7 @@ class AccessibilityStrategyNormalModeMock: AccessibilityStrategyNormalModeProtoc
     var functionCalled = ""
     var relevantParameter = ""
     var lastLeftRightSearchParameter: LastLeftRightSearch?
+    var lastSearchCommandParameter: LastSearchCommand?
     
     
     static func test(element: AccessibilityTextElement) -> AccessibilityTextElement {
@@ -528,15 +529,14 @@ class AccessibilityStrategyNormalModeMock: AccessibilityStrategyNormalModeProtoc
     
     func N(times count: Int?, lastSearchCommand: LastSearchCommand, on element: AccessibilityTextElement) -> AccessibilityTextElement {
         functionCalled = #function
-        relevantParameter = lastSearchCommand.searchString
+        lastSearchCommandParameter = lastSearchCommand
         
         return element
     }
     
     func n(times count: Int?, lastSearchCommand: LastSearchCommand, on element: AccessibilityTextElement) -> AccessibilityTextElement {
         functionCalled = #function
-        // TODO: should the relevant parameter be the whole lastSearchCommand
-        relevantParameter = lastSearchCommand.searchString
+        lastSearchCommandParameter = lastSearchCommand
         
         return element
     }
