@@ -526,6 +526,21 @@ class AccessibilityStrategyNormalModeMock: AccessibilityStrategyNormalModeProtoc
         return element
     }
     
+    func N(times count: Int?, lastSearchCommand: LastSearchCommand, on element: AccessibilityTextElement) -> AccessibilityTextElement {
+        functionCalled = #function
+        relevantParameter = lastSearchCommand.searchString
+        
+        return element
+    }
+    
+    func n(times count: Int?, lastSearchCommand: LastSearchCommand, on element: AccessibilityTextElement) -> AccessibilityTextElement {
+        functionCalled = #function
+        // TODO: should the relevant parameter be the whole lastSearchCommand
+        relevantParameter = lastSearchCommand.searchString
+        
+        return element
+    }
+    
     func O(on element: AccessibilityTextElement, _ vimEngineState: VimEngineState) -> AccessibilityTextElement {
         functionCalled = #function
         

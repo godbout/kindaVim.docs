@@ -9,8 +9,10 @@ import Common
 class KeyboardStrategyNormalModeMock: KeyboardStrategyNormalModeProtocol {
     
     var axEngine: AXEngineProtocol = AXEngine()
+    
     var functionCalled = ""
     var relevantParameter = ""
+    var lastSearchCommandParameter: LastSearchCommand?
     
         
     func A(_ vimEngineState: VimEngineState) -> [KeyCombination] {
@@ -314,16 +316,16 @@ class KeyboardStrategyNormalModeMock: KeyboardStrategyNormalModeProtocol {
         return []
     }
     
-    func N(times count: Int?, lastSearchCommand: Character?) -> [KeyCombination] {
+    func N(times count: Int?, lastSearchCommand: LastSearchCommand) -> [KeyCombination] {
         functionCalled = #function
-        relevantParameter = String(lastSearchCommand ?? Character(" "))
+        lastSearchCommandParameter = lastSearchCommand
         
         return []
     }
     
-    func n(times count: Int?, lastSearchCommand: Character?) -> [KeyCombination] {
+    func n(times count: Int?, lastSearchCommand: LastSearchCommand) -> [KeyCombination] {
         functionCalled = #function
-        relevantParameter = String(lastSearchCommand ?? Character(" "))
+        lastSearchCommandParameter = lastSearchCommand
         
         return []
     }
