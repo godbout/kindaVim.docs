@@ -8,6 +8,7 @@ class AccessibilityStrategyVisualModeMock: AccessibilityStrategyVisualModeProtoc
     
     var functionCalled = ""
     var relevantParameter = ""
+    var lastLeftRightSearchParameter: LastLeftRightSearch?
     
     
     func B(on element: AccessibilityTextElement, _ vimEngineState: VimEngineState) -> AccessibilityTextElement {

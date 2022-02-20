@@ -260,6 +260,7 @@ extension KindaVimEngine {
                 guard operatorPendingBuffer.first?.vimKey != .F else {
                     if let character = operatorPendingBuffer.last {
                         let newElement = asVisualMode.F(times: count, to: character.character, on: currentElement, state)
+                        lastLeftRightSearch = LastLeftRightSearch(motion: .F, character: character.character)
                         push(element: newElement)
                         enterVisualMode()
                     }
@@ -270,6 +271,7 @@ extension KindaVimEngine {
                 guard operatorPendingBuffer.first?.vimKey != .f else {
                     if let character = operatorPendingBuffer.last {
                         let newElement = asVisualMode.f(times: count, to: character.character, on: currentElement, state)
+                        lastLeftRightSearch = LastLeftRightSearch(motion: .f, character: character.character)
                         push(element: newElement)
                         enterVisualMode()
                     }
@@ -280,6 +282,7 @@ extension KindaVimEngine {
                 guard operatorPendingBuffer.first?.vimKey != .T else {
                     if let character = operatorPendingBuffer.last {
                         let newElement = asVisualMode.T(times: count, to: character.character, on: currentElement, state)
+                        lastLeftRightSearch = LastLeftRightSearch(motion: .T, character: character.character)
                         push(element: newElement)
                         enterVisualMode()
                     }
@@ -290,6 +293,7 @@ extension KindaVimEngine {
                 guard operatorPendingBuffer.first?.vimKey != .t else {
                     if let character = operatorPendingBuffer.last {
                         let newElement = asVisualMode.t(times: count, to: character.character, on: currentElement, state)
+                        lastLeftRightSearch = LastLeftRightSearch(motion: .t, character: character.character)
                         push(element: newElement)
                         enterVisualMode()
                     }
