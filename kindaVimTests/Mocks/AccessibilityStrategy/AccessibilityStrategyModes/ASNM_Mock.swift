@@ -785,7 +785,7 @@ class AccessibilityStrategyNormalModeMock: AccessibilityStrategyNormalModeProtoc
 
     func slash(times count: Int?, to searchString: String, on element: AccessibilityTextElement) -> AccessibilityTextElement {
         functionCalled = #function
-        relevantParameter = searchString
+        lastSearchCommandParameter = LastSearchCommand(motion: .slash, searchString: searchString)
         
         return element
     }
