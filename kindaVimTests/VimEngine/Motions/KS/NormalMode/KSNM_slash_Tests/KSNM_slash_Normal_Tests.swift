@@ -4,6 +4,7 @@ import XCTest
 import Common
 
 
+// see AS for blah blah
 class KSNM_slash_Normal_Tests: KSNM_BaseTests {
     
     private func applyKeyCombinationsBeingTested() {

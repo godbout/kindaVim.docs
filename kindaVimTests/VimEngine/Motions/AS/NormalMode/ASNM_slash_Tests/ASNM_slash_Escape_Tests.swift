@@ -3,6 +3,7 @@ import KeyCombination
 import XCTest
 
 
+// this is testing escaping while we're typing the searchString
 class SucceedingASNM_slash_Escape_Tests: ASNM_BaseTests {
     
     override func setUp() {

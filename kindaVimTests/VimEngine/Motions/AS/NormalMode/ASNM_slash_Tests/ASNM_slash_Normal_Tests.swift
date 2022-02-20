@@ -4,6 +4,7 @@ import XCTest
 import Common
 
 
+// this is testing the normal stuff, typing a searchString and returning
 class SucceedingASNM_slash_Normal_Tests: ASNM_BaseTests {
     
     private func applyKeyCombinationsBeingTested() {
@@ -27,11 +28,11 @@ extension SucceedingASNM_slash_Normal_Tests {
         XCTAssertEqual(kindaVimEngine.lastSearchCommand, LastSearchCommand(motion: .slash, searchString: "69"))
     }
     
-    func test_that_it_calls_the_correct_function_on_accessibility_strategy() {
+    func test_that_it_calls_the_correct_function_on_AS() {
         applyKeyCombinationsBeingTested()
                 
         XCTAssertEqual(asNormalModeMock.functionCalled, "slash(times:to:on:)")
-        XCTAssertEqual(asNormalModeMock.relevantParameter, "69")
+        XCTAssertEqual(asNormalModeMock.lastSearchCommandParameter, LastSearchCommand(motion: .slash, searchString: "69"))
     }
     
     func test_that_it_keeps_Vim_in_NormalMode() {

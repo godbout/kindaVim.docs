@@ -3,6 +3,7 @@ import KeyCombination
 import XCTest
 
 
+// see AS for blah blah
 class KSNM_slash_Delete_Tests: KSNM_BaseTests {
     
     private func deleteCharacterFromSearchString() {
