@@ -4,14 +4,14 @@ import Foundation
 
 final class HasExpiredLicenseButCantCheckForTooLongMock: LicensingProtocol {
     
-    var today: Date!
+    var now: Date
     var isActivated = true
     var status: LicensingStatus = .tooLongCantCheck
     var expiryDate: Date?
     
-    init(today: Date?) {
-        self.today = today
-        self.expiryDate = today! - 15
+    init(now: Date) {
+        self.now = now
+        self.expiryDate = Calendar.current.date(byAdding: .day, value: -15, to: now)
     }
     
 } 
