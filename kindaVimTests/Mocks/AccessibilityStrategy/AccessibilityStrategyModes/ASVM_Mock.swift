@@ -40,6 +40,13 @@ class AccessibilityStrategyVisualModeMock: AccessibilityStrategyVisualModeProtoc
         
         return element
     }
+        
+    func comma(times count: Int?, lastLeftRightSearch: LastLeftRightSearch, on element: AccessibilityTextElement, _ vimEngineState: VimEngineState) -> AccessibilityTextElement {
+        functionCalled = #function
+        lastLeftRightSearchParameter = lastLeftRightSearch
+        
+        return element
+    }
     
     func D(on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
         functionCalled = #function
@@ -207,6 +214,13 @@ class AccessibilityStrategyVisualModeMock: AccessibilityStrategyVisualModeProtoc
     
     func S(on element: AccessibilityTextElement, _ vimEngineState: inout VimEngineState) -> AccessibilityTextElement {
         functionCalled = #function
+        
+        return element
+    }
+        
+    func semicolon(times count: Int?, lastLeftRightSearch: LastLeftRightSearch, on element: AccessibilityTextElement, _ vimEngineState: VimEngineState) -> AccessibilityTextElement {
+        functionCalled = #function
+        lastLeftRightSearchParameter = lastLeftRightSearch
         
         return element
     }

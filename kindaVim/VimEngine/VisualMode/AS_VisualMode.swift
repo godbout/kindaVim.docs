@@ -1,4 +1,5 @@
 import KeyCombination
+import Common
 
 
 // AS Visual Mode
@@ -32,6 +33,13 @@ extension KindaVimEngine {
             case .caret:
                 let newElement = asVisualMode.caret(on: currentElement, state)
                 push(element: newElement)
+                endCurrentMove()
+            case .comma:
+                if let lastLeftRightSearch = lastLeftRightSearch {
+                    let newElement = asVisualMode.comma(times: count, lastLeftRightSearch: lastLeftRightSearch, on: currentElement, state)
+                    push(element: newElement)
+                }
+                
                 endCurrentMove()
             case .controlH:
                 let newElement = asVisualMode.h(times: count, on: currentElement, state)
@@ -117,6 +125,13 @@ extension KindaVimEngine {
                 let newElement = asVisualMode.c(on: currentElement, &state)
                 push(element: newElement)
                 enterInsertMode()    
+            case .semicolon:
+                if let lastLeftRightSearch = lastLeftRightSearch {
+                    let newElement = asVisualMode.semicolon(times: count, lastLeftRightSearch: lastLeftRightSearch, on: currentElement, state)
+                    push(element: newElement)
+                }
+                
+                endCurrentMove()
             case .T:
                 enterOperatorPendingForVisualMode(with: keyCombination)
             case .t:
