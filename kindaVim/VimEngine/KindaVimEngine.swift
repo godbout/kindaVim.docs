@@ -8,14 +8,6 @@ import Commands
 import Common
 
 
-struct LastSearchCommand {
-    
-    var motion: Character
-    var searchString: String
-    
-}
-
-
 enum VimEngineMode {
     
     case insert

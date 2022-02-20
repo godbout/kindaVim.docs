@@ -159,35 +159,15 @@ extension KindaVimEngine {
             case .leftChevron:
                 enterOperatorPendingForNormalMode(with: KeyCombination(vimKey: .leftChevron))
             case .N:
-                var newElement: AccessibilityTextElement?
-                
-                switch lastSearchCommand?.motion {
-                case "/":
-                    newElement = asNormalMode.interrogationMark(times: count, to: lastSearchCommand!.searchString, on: currentElement)
-                case "?":
-                    newElement = asNormalMode.slash(times: count, to: lastSearchCommand!.searchString, on: currentElement)
-                default:
-                    ()
-                }
-                
-                if let newElement = newElement {
+                if let lastSearchCommand = lastSearchCommand {
+                    let newElement = asNormalMode.N(times: count, lastSearchCommand: lastSearchCommand, on: currentElement)
                     push(element: newElement)
                 }
 
                 endCurrentMove()
             case .n:
-                var newElement: AccessibilityTextElement?
-                
-                switch lastSearchCommand?.motion {
-                case "/":
-                    newElement = asNormalMode.slash(times: count, to: lastSearchCommand!.searchString, on: currentElement)
-                case "?":
-                    newElement = asNormalMode.interrogationMark(times: count, to: lastSearchCommand!.searchString, on: currentElement)
-                default:
-                    ()
-                }
-                
-                if let newElement = newElement {
+                if let lastSearchCommand = lastSearchCommand {
+                    let newElement = asNormalMode.n(times: count, lastSearchCommand: lastSearchCommand, on: currentElement)
                     push(element: newElement)
                 }
 
@@ -795,7 +775,7 @@ extension KindaVimEngine {
                         let searchString = String(searchStringMadeOfKeyCombinations.map { $0.character })
                         
                         let newElement = asNormalMode.interrogationMark(times: count, to: searchString, on: currentElement)
-                        lastSearchCommand = LastSearchCommand(motion: "?", searchString: searchString)
+                        lastSearchCommand = LastSearchCommand(motion: .interrogationMark, searchString: searchString)
                         push(element: newElement)
                         enterNormalMode()
                     default:
@@ -834,7 +814,7 @@ extension KindaVimEngine {
                         let searchString = String(searchStringMadeOfKeyCombinations.map { $0.character })
                         
                         let newElement = asNormalMode.slash(times: count, to: searchString, on: currentElement)
-                        lastSearchCommand = LastSearchCommand(motion: "/", searchString: searchString)
+                        lastSearchCommand = LastSearchCommand(motion: .slash, searchString: searchString)
                         push(element: newElement)
                         enterNormalMode()
                     default:

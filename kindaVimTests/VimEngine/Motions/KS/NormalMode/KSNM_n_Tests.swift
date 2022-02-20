@@ -1,6 +1,7 @@
 @testable import kindaVim
 import KeyCombination
 import XCTest
+import Common
 
 
 class KSNM_n_Tests: KSNM_BaseTests {
@@ -15,35 +16,24 @@ class KSNM_n_Tests: KSNM_BaseTests {
 
 extension KSNM_n_Tests {
     
-    func test_that_if_the_LastSearchCommand_called_was_slash_then_it_calls_the_KS_func_with_the_correct_lastSearchCommand_parameter() {
-        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .slash))
-        kindaVimEngine.handle(keyCombination: KeyCombination(key: .a))
-        kindaVimEngine.handle(keyCombination: KeyCombination(key: .m))
-        kindaVimEngine.handle(keyCombination: KeyCombination(key: .a))
-        kindaVimEngine.handle(keyCombination: KeyCombination(key: .return))
-        
+    func test_that_if_there_is_no_lastSearchCommand_it_does_not_call_the_KS_move() {
         applyKeyCombinationsBeingTested()
-        
-        XCTAssertEqual(kindaVimEngine.lastSearchCommand?.motion, .slash)
-        XCTAssertEqual(kindaVimEngine.lastSearchCommand?.searchString, "ama")
-        XCTAssertEqual(ksNormalModeMock.functionCalled, "n(times:lastSearchCommand:)")
-        XCTAssertEqual(ksNormalModeMock.relevantParameter, "/")
+                
+        XCTAssertNil(kindaVimEngine.lastSearchCommand)
+        XCTAssertEqual(ksNormalModeMock.functionCalled, "")
     }
-    
-    func test_that_if_the_LastSearchCommand_called_was_interrogationMark_then_it_calls_the_KS_func_with_the_correct_lastSearchCommand_parameter() {
+        
+    func test_that_if_there_is_a_lastSearchCommand_then_it_is_forwarded_correctly_as_a_parameter_to_the_KS_move() {
         kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .interrogationMark))
-        kindaVimEngine.handle(keyCombination: KeyCombination(key: .six))
-        kindaVimEngine.handle(keyCombination: KeyCombination(key: .nine))
-        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .backspace))
-        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .N))
+        kindaVimEngine.handle(keyCombination: KeyCombination(key: .h))
+        kindaVimEngine.handle(keyCombination: KeyCombination(key: .o))
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .return))
         
         applyKeyCombinationsBeingTested()
         
-        XCTAssertEqual(kindaVimEngine.lastSearchCommand?.motion, .interrogationMark)
-        XCTAssertEqual(kindaVimEngine.lastSearchCommand?.searchString, "6N")
+        XCTAssertEqual(kindaVimEngine.lastSearchCommand, LastSearchCommand(motion: .interrogationMark, searchString: "ho"))
         XCTAssertEqual(ksNormalModeMock.functionCalled, "n(times:lastSearchCommand:)")
-        XCTAssertEqual(ksNormalModeMock.relevantParameter, "?")
+        XCTAssertEqual(ksNormalModeMock.lastSearchCommandParameter, LastSearchCommand(motion: .interrogationMark, searchString: "ho"))
     }
     
     func test_that_it_keeps_Vim_in_NormalMode() {

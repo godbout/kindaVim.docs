@@ -94,10 +94,16 @@ extension KindaVimEngine {
             post(ksNormalMode.h(times: count))
             endCurrentMove()
         case .N:
-            post(ksNormalMode.N(times: count, lastSearchCommand: lastSearchCommand?.motion))
+            if let lastSearchCommand = lastSearchCommand {
+                post(ksNormalMode.N(times: count, lastSearchCommand: lastSearchCommand))
+            }
+
             endCurrentMove()
         case .n:
-            post(ksNormalMode.n(times: count, lastSearchCommand: lastSearchCommand?.motion))
+            if let lastSearchCommand = lastSearchCommand {
+                post(ksNormalMode.n(times: count, lastSearchCommand: lastSearchCommand))
+            }
+
             endCurrentMove()
         case .O:
             post(ksNormalMode.O(state))
@@ -348,7 +354,7 @@ extension KindaVimEngine {
                     let searchString = String(searchStringMadeOfKeyCombinations.map { $0.character })
 
                     post(ksNormalMode.interrogationMark(to: searchString))
-                    lastSearchCommand = LastSearchCommand(motion: "?", searchString: searchString)
+                    lastSearchCommand = LastSearchCommand(motion: .interrogationMark, searchString: searchString)
                     enterNormalMode()
                 default:
                     ()
@@ -375,7 +381,7 @@ extension KindaVimEngine {
                     let searchString = String(searchStringMadeOfKeyCombinations.map { $0.character })
 
                     post(ksNormalMode.slash(to: searchString))
-                    lastSearchCommand = LastSearchCommand(motion: "/", searchString: searchString)
+                    lastSearchCommand = LastSearchCommand(motion: .slash, searchString: searchString)
                     enterNormalMode()
                 default:
                     ()
