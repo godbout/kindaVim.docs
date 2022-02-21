@@ -230,7 +230,7 @@ other P.S.: the number of Awesome Humans currently subscribed is updated daily o
 
 ### kV Keyboard Strategy
 
-| Normal Mode | including count | &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; | Visual Mode | including count | 
+| Normal Mode | including count | &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; | Visual Mode | including count | 
 | :---:       | :---:           | :---:                                | :---:       |     :---:       | 
 | `_`         | ❌️              |                                      | `_`         | ❌️              |
 | `?`         | ❌️              |                                      | `^`         |                 |
