@@ -4,7 +4,7 @@ import XCTest
 import Common
 
 
-// this is testing the normal stuff, typing a searchString and returning
+// see ? for blah blah
 class SucceedingASNM_slash_Normal_Tests: ASNM_BaseTests {
     
     private func applyKeyCombinationsBeingTested() {

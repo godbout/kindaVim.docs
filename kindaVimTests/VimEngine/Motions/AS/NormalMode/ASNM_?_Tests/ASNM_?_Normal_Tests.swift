@@ -4,6 +4,7 @@ import XCTest
 import Common
 
 
+// this is testing the normal stuff, typing a searchString and returning
 class SucceedingASNM_interrogationMark_Normal_Tests: ASNM_BaseTests {
     
     private func applyKeyCombinationsBeingTested() {
@@ -31,7 +32,7 @@ extension SucceedingASNM_interrogationMark_Normal_Tests {
         applyKeyCombinationsBeingTested()
                 
         XCTAssertEqual(asNormalModeMock.functionCalled, "interrogationMark(times:to:on:)")
-        XCTAssertEqual(asNormalModeMock.relevantParameter, "96")
+        XCTAssertEqual(asNormalModeMock.lastSearchCommandParameter, LastSearchCommand(motion: .interrogationMark, searchString: "96"))
     }
     
     func test_that_it_keeps_Vim_in_NormalMode() {

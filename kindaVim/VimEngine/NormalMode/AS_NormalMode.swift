@@ -771,12 +771,18 @@ extension KindaVimEngine {
                                             
                         operatorPendingBuffer.isEmpty ? enterNormalMode() : ()
                     case .return:
-                        let searchStringMadeOfKeyCombinations = operatorPendingBuffer.dropFirst().dropLast()
-                        let searchString = String(searchStringMadeOfKeyCombinations.map { $0.character })
+                        if operatorPendingBuffer.count == 2, let lastSearchCommand = lastSearchCommand {
+                            let newElement = asNormalMode.interrogationMark(times: count, to: lastSearchCommand.searchString, on: currentElement)
+                            push(element: newElement)
+                        } else if operatorPendingBuffer.count > 2 {
+                            let searchStringMadeOfKeyCombinations = operatorPendingBuffer.dropFirst().dropLast()
+                            let searchString = String(searchStringMadeOfKeyCombinations.map { $0.character })
+                            
+                            let newElement = asNormalMode.interrogationMark(times: count, to: searchString, on: currentElement)
+                            lastSearchCommand = LastSearchCommand(motion: .interrogationMark, searchString: searchString)
+                            push(element: newElement)
+                        }
                         
-                        let newElement = asNormalMode.interrogationMark(times: count, to: searchString, on: currentElement)
-                        lastSearchCommand = LastSearchCommand(motion: .interrogationMark, searchString: searchString)
-                        push(element: newElement)
                         enterNormalMode()
                     default:
                         ()

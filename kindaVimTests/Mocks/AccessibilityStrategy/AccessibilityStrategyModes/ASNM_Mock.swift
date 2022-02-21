@@ -498,7 +498,7 @@ class AccessibilityStrategyNormalModeMock: AccessibilityStrategyNormalModeProtoc
     
     func interrogationMark(times count: Int?, to searchString: String, on element: AccessibilityTextElement) -> AccessibilityTextElement {
         functionCalled = #function
-        relevantParameter = searchString
+        lastSearchCommandParameter = LastSearchCommand(motion: .interrogationMark, searchString: searchString)
         
         return element
     }

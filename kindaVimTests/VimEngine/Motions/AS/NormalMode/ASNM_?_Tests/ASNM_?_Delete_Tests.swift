@@ -3,6 +3,7 @@ import KeyCombination
 import XCTest
 
 
+// this is testing deleting characters while we're typing the searchString
 class SucceedingASNM_interrogationMark_Delete_Tests: ASNM_BaseTests {
     
     private func deleteCharacterFromSearchString() {
@@ -32,8 +33,6 @@ extension SucceedingASNM_interrogationMark_Delete_Tests {
         deleteCharacterFromSearchString()
         
         XCTAssertEqual(asNormalModeMock.functionCalled, "interrogationMark(times:to:on:)")
-        XCTAssertEqual(asNormalModeMock.relevantParameter, "w")
-
     }
     
     func test_that_for_deleteCharacterFromSearchString_it_keeps_Vim_in_NormalMode() {
@@ -52,22 +51,22 @@ extension SucceedingASNM_interrogationMark_Delete_Tests {
 
 
 // deleteSlashItself
-// currently there is no `return` move in AS. it's sent to KS, which does a return and goes to IM.
-// this is to handle selecting stuff like dropdowns, for example in Alfred. maybe later we do an AS return
-// for TextViews. then these tests below will fail and will have to be changed.
 extension SucceedingASNM_interrogationMark_Delete_Tests {
-    
+
+    // here we use the TextArea mock rather than the default one (someOtherShit) because return
+    // is only called on TextAreas. on TextFields and other shits it is sent to KS instead.
     func test_that_for_deleteSlashItself_it_calls_the_correct_function_on_accessibility_strategy() {
+        kindaVimEngine.accessibilityStrategy = AccessibilityStrategySucceedingTextAreaMock()
         deleteSlashItself()
         
-        // as explained above, w because there's is no AS return
-        XCTAssertEqual(asNormalModeMock.functionCalled, "w(times:on:)")
-        XCTAssertEqual(asNormalModeMock.relevantParameter, "")
-
+        XCTAssertEqual(asNormalModeMock.functionCalled, "return(times:on:_:)")
     }
     
-    // because no AS return. the KS one is doing like a dropdown select
+    // here we use again the TextArea mock so that it does the normal AS return
+    // which stays in Normal Mode. if the return is sent to KS it would depend. this is
+    // tested in KS itself.
     func test_that_for_deleteSlashItself_it_switches_Vim_into_InsertMode() {
+        kindaVimEngine.accessibilityStrategy = AccessibilityStrategySucceedingTextAreaMock()
         deleteSlashItself()
         
         XCTAssertEqual(kindaVimEngine.currentMode, .normal)
