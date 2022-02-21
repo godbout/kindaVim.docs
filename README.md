@@ -333,7 +333,7 @@ other P.S.: the number of Awesome Humans currently subscribed is updated daily o
 
 the [tests](https://github.com/godbout/AccessibilityStrategyTestApp) describing the Vim moves are open source. you can use those to build your own implementation, or if you just want to learn more about Vim moves, or if you just can't get enough good self-induced migraines.
 
-# SHIT ACKNOWLEDGMENTS, THANKS, AND KISSES
+# ACKNOWLEDGMENTS, THANKS, AND KISSES
 
 * [Takayama Fumihiko](https://github.com/tekezo) for [Karabiner-Elements](https://karabiner-elements.pqrs.org), my first experience of Vim moves on macOS. great option if you need lots of customizations
 * [David Balatero](https://github.com/dbalatero) for [VimMode.spoon](https://github.com/dbalatero/VimMode.spoon), showing there's a way to make that shit work. great option if you're looking for free/open source
