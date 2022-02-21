@@ -25,6 +25,18 @@ extension SucceedingASNM_interrogationMark_Return_Tests {
         XCTAssertEqual(asNormalModeMock.functionCalled, "")
     }
         
+    func test_that_if_there_is_a_lastSearchCommand_then_it_sets_the_new_lastSearchCommand_correctly() {
+        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .slash))
+        kindaVimEngine.handle(keyCombination: KeyCombination(key: .g))
+        kindaVimEngine.handle(keyCombination: KeyCombination(key: .o))
+        kindaVimEngine.handle(keyCombination: KeyCombination(key: .return))
+        XCTAssertEqual(kindaVimEngine.lastSearchCommand, LastSearchCommand(motion: .slash, searchString: "go"))
+        
+        applyKeyCombinationsBeingTested()
+        
+        XCTAssertEqual(kindaVimEngine.lastSearchCommand, LastSearchCommand(motion: .interrogationMark, searchString: "go"))
+    }
+        
     func test_that_if_there_is_a_lastSearchCommand_it_calls_the_correct_function_with_the_lastSearchCommand_searchString() {
         kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .interrogationMark))
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .p))

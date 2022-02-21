@@ -350,12 +350,16 @@ extension KindaVimEngine {
 
                     operatorPendingBuffer.isEmpty ? enterNormalMode() : ()
                 case .return:
+                    var searchString: String?
+                    
                     if operatorPendingBuffer.count == 2, let lastSearchCommand = lastSearchCommand {
-                        post(ksNormalMode.interrogationMark(to: lastSearchCommand.searchString))
+                        searchString = lastSearchCommand.searchString
                     } else if operatorPendingBuffer.count > 2 {
                         let searchStringMadeOfKeyCombinations = operatorPendingBuffer.dropFirst().dropLast()
-                        let searchString = String(searchStringMadeOfKeyCombinations.map { $0.character })
-
+                        searchString = String(searchStringMadeOfKeyCombinations.map { $0.character })
+                    }
+                                            
+                    if let searchString = searchString {
                         lastSearchCommand = LastSearchCommand(motion: .interrogationMark, searchString: searchString)
                         post(ksNormalMode.interrogationMark(to: searchString))
                     }
@@ -382,12 +386,16 @@ extension KindaVimEngine {
 
                     operatorPendingBuffer.isEmpty ? enterNormalMode() : ()
                 case .return:
+                    var searchString: String?
+                    
                     if operatorPendingBuffer.count == 2, let lastSearchCommand = lastSearchCommand {
-                        post(ksNormalMode.slash(to: lastSearchCommand.searchString))
+                        searchString = lastSearchCommand.searchString
                     } else if operatorPendingBuffer.count > 2 {
                         let searchStringMadeOfKeyCombinations = operatorPendingBuffer.dropFirst().dropLast()
-                        let searchString = String(searchStringMadeOfKeyCombinations.map { $0.character })
-
+                        searchString = String(searchStringMadeOfKeyCombinations.map { $0.character })
+                    }
+                                            
+                    if let searchString = searchString {
                         lastSearchCommand = LastSearchCommand(motion: .slash, searchString: searchString)
                         post(ksNormalMode.slash(to: searchString))
                     }

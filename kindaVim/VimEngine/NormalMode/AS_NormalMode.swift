@@ -771,13 +771,16 @@ extension KindaVimEngine {
                                             
                         operatorPendingBuffer.isEmpty ? enterNormalMode() : ()
                     case .return:
+                        var searchString: String?
+                        
                         if operatorPendingBuffer.count == 2, let lastSearchCommand = lastSearchCommand {
-                            let newElement = asNormalMode.interrogationMark(times: count, to: lastSearchCommand.searchString, on: currentElement)
-                            push(element: newElement)
+                            searchString = lastSearchCommand.searchString
                         } else if operatorPendingBuffer.count > 2 {
                             let searchStringMadeOfKeyCombinations = operatorPendingBuffer.dropFirst().dropLast()
-                            let searchString = String(searchStringMadeOfKeyCombinations.map { $0.character })
-                            
+                            searchString = String(searchStringMadeOfKeyCombinations.map { $0.character })
+                        }
+                                                
+                        if let searchString = searchString {
                             let newElement = asNormalMode.interrogationMark(times: count, to: searchString, on: currentElement)
                             lastSearchCommand = LastSearchCommand(motion: .interrogationMark, searchString: searchString)
                             push(element: newElement)
@@ -816,13 +819,16 @@ extension KindaVimEngine {
                                             
                         operatorPendingBuffer.isEmpty ? enterNormalMode() : ()
                     case .return:
+                        var searchString: String?
+                        
                         if operatorPendingBuffer.count == 2, let lastSearchCommand = lastSearchCommand {
-                            let newElement = asNormalMode.slash(times: count, to: lastSearchCommand.searchString, on: currentElement)
-                            push(element: newElement)
+                            searchString = lastSearchCommand.searchString
                         } else if operatorPendingBuffer.count > 2 {
                             let searchStringMadeOfKeyCombinations = operatorPendingBuffer.dropFirst().dropLast()
-                            let searchString = String(searchStringMadeOfKeyCombinations.map { $0.character })
-                            
+                            searchString = String(searchStringMadeOfKeyCombinations.map { $0.character })
+                        }
+                                                
+                        if let searchString = searchString {
                             let newElement = asNormalMode.slash(times: count, to: searchString, on: currentElement)
                             lastSearchCommand = LastSearchCommand(motion: .slash, searchString: searchString)
                             push(element: newElement)
