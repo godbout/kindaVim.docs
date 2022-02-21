@@ -4,29 +4,29 @@ import XCTest
 import Common
 
 
-// this is testing when there is no searchString, just ? and return
-class SucceedingASNM_interrogationMark_Return_Tests: ASNM_BaseTests {
+// see AS ? for blah blah
+class KSNM_slash_Return_Tests: KSNM_BaseTests {
     
     private func applyKeyCombinationsBeingTested() {
         kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .eight))
-        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .interrogationMark))
+        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .slash))
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .return))
     }
     
 }
 
 
-extension SucceedingASNM_interrogationMark_Return_Tests {
-
-    func test_that_if_there_is_no_lastSearchCommand_it_does_not_call_the_AS_move() {
+extension KSNM_slash_Return_Tests {
+    
+    func test_that_if_there_is_no_lastSearchCommand_it_does_not_call_the_KS_move() {
         applyKeyCombinationsBeingTested()
                 
         XCTAssertNil(kindaVimEngine.lastSearchCommand)
-        XCTAssertEqual(asNormalModeMock.functionCalled, "")
+        XCTAssertEqual(ksNormalModeMock.functionCalled, "")
     }
         
     func test_that_if_there_is_a_lastSearchCommand_it_calls_the_correct_function_with_the_lastSearchCommand_searchString() {
-        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .interrogationMark))
+        kindaVimEngine.handle(keyCombination: KeyCombination(vimKey: .slash))
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .p))
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .p))
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .p))
@@ -34,8 +34,8 @@ extension SucceedingASNM_interrogationMark_Return_Tests {
         
         applyKeyCombinationsBeingTested()
                 
-        XCTAssertEqual(asNormalModeMock.functionCalled, "interrogationMark(times:to:on:)")
-        XCTAssertEqual(asNormalModeMock.lastSearchCommandParameter, LastSearchCommand(motion: .interrogationMark, searchString: "ppp"))
+        XCTAssertEqual(ksNormalModeMock.functionCalled, "slash(to:)")
+        XCTAssertEqual(ksNormalModeMock.lastSearchCommandParameter, LastSearchCommand(motion: .slash, searchString: "ppp"))
     }
     
     func test_that_it_keeps_Vim_in_NormalMode() {
@@ -49,5 +49,5 @@ extension SucceedingASNM_interrogationMark_Return_Tests {
                 
         XCTAssertNil(kindaVimEngine.count)
     }
-
+        
 }

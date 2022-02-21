@@ -4,6 +4,7 @@ import XCTest
 import Common
 
 
+// see AS ? for blah blah
 class KSNM_interrogationMark_Normal_Tests: KSNM_BaseTests {
     
     private func applyKeyCombinationsBeingTested() {
@@ -31,7 +32,7 @@ extension KSNM_interrogationMark_Normal_Tests {
         applyKeyCombinationsBeingTested()
                 
         XCTAssertEqual(ksNormalModeMock.functionCalled, "interrogationMark(to:)")
-        XCTAssertEqual(ksNormalModeMock.relevantParameter, "96")
+        XCTAssertEqual(ksNormalModeMock.lastSearchCommandParameter, LastSearchCommand(motion: .interrogationMark, searchString: "96"))
     }
     
     func test_that_it_keeps_Vim_in_NormalMode() {

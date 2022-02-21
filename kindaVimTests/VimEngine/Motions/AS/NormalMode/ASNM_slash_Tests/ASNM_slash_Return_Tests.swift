@@ -25,7 +25,7 @@ extension SucceedingASNM_slash_Return_Tests {
         XCTAssertEqual(asNormalModeMock.functionCalled, "")
     }
         
-    func test_that_if_there_is_a_lastSearchCommand_it_calls_slash_with_the_lastSearchCommand_searchString() {
+    func test_that_if_there_is_a_lastSearchCommand_it_calls_the_correct_function_with_the_lastSearchCommand_searchString() {
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .slash))
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .h))
         kindaVimEngine.handle(keyCombination: KeyCombination(key: .e))

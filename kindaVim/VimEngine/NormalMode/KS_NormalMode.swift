@@ -350,11 +350,16 @@ extension KindaVimEngine {
 
                     operatorPendingBuffer.isEmpty ? enterNormalMode() : ()
                 case .return:
-                    let searchStringMadeOfKeyCombinations = operatorPendingBuffer.dropFirst().dropLast()
-                    let searchString = String(searchStringMadeOfKeyCombinations.map { $0.character })
+                    if operatorPendingBuffer.count == 2, let lastSearchCommand = lastSearchCommand {
+                        post(ksNormalMode.interrogationMark(to: lastSearchCommand.searchString))
+                    } else if operatorPendingBuffer.count > 2 {
+                        let searchStringMadeOfKeyCombinations = operatorPendingBuffer.dropFirst().dropLast()
+                        let searchString = String(searchStringMadeOfKeyCombinations.map { $0.character })
 
-                    post(ksNormalMode.interrogationMark(to: searchString))
-                    lastSearchCommand = LastSearchCommand(motion: .interrogationMark, searchString: searchString)
+                        lastSearchCommand = LastSearchCommand(motion: .interrogationMark, searchString: searchString)
+                        post(ksNormalMode.interrogationMark(to: searchString))
+                    }
+                    
                     enterNormalMode()
                 default:
                     ()
@@ -377,11 +382,16 @@ extension KindaVimEngine {
 
                     operatorPendingBuffer.isEmpty ? enterNormalMode() : ()
                 case .return:
-                    let searchStringMadeOfKeyCombinations = operatorPendingBuffer.dropFirst().dropLast()
-                    let searchString = String(searchStringMadeOfKeyCombinations.map { $0.character })
+                    if operatorPendingBuffer.count == 2, let lastSearchCommand = lastSearchCommand {
+                        post(ksNormalMode.slash(to: lastSearchCommand.searchString))
+                    } else if operatorPendingBuffer.count > 2 {
+                        let searchStringMadeOfKeyCombinations = operatorPendingBuffer.dropFirst().dropLast()
+                        let searchString = String(searchStringMadeOfKeyCombinations.map { $0.character })
 
-                    post(ksNormalMode.slash(to: searchString))
-                    lastSearchCommand = LastSearchCommand(motion: .slash, searchString: searchString)
+                        lastSearchCommand = LastSearchCommand(motion: .slash, searchString: searchString)
+                        post(ksNormalMode.slash(to: searchString))
+                    }
+                    
                     enterNormalMode()
                 default:
                     ()

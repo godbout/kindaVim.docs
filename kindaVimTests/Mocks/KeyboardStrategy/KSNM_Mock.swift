@@ -287,7 +287,7 @@ class KeyboardStrategyNormalModeMock: KeyboardStrategyNormalModeProtocol {
     
     func interrogationMark(to searchString: String) -> [KeyCombination] {
         functionCalled = #function
-        relevantParameter = searchString
+        lastSearchCommandParameter = LastSearchCommand(motion: .interrogationMark, searchString: searchString)
         
         return []
     }
@@ -369,7 +369,7 @@ class KeyboardStrategyNormalModeMock: KeyboardStrategyNormalModeProtocol {
     
     func slash(to searchString: String) -> [KeyCombination] {
         functionCalled = #function
-        relevantParameter = searchString
+        lastSearchCommandParameter = LastSearchCommand(motion: .slash, searchString: searchString)
         
         return []
     }

@@ -1,9 +1,10 @@
 @testable import kindaVim
 import KeyCombination
 import XCTest
+import Common
 
 
-// see AS for blah blah
+// see AS ? for blah blah
 class KSNM_slash_Delete_Tests: KSNM_BaseTests {
     
     private func deleteCharacterFromSearchString() {
@@ -33,7 +34,7 @@ extension KSNM_slash_Delete_Tests {
         deleteCharacterFromSearchString()
         
         XCTAssertEqual(ksNormalModeMock.functionCalled, "slash(to:)")
-        XCTAssertEqual(ksNormalModeMock.relevantParameter, "w")
+        XCTAssertEqual(ksNormalModeMock.lastSearchCommandParameter, LastSearchCommand(motion: .slash, searchString: "w"))
 
     }
     
@@ -59,8 +60,6 @@ extension KSNM_slash_Delete_Tests {
         deleteSlashItself()
         
         XCTAssertEqual(ksNormalModeMock.functionCalled, "return(times:_:)")
-        XCTAssertEqual(ksNormalModeMock.relevantParameter, "")
-
     }
     
     func test_that_for_deleteSlashItself_it_stays_in_NormalMode() {

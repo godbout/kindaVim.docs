@@ -4,7 +4,7 @@ import XCTest
 import Common
 
 
-// see AS for blah blah
+// see AS ? for blah blah
 class KSNM_slash_Normal_Tests: KSNM_BaseTests {
     
     private func applyKeyCombinationsBeingTested() {
@@ -32,7 +32,7 @@ extension KSNM_slash_Normal_Tests {
         applyKeyCombinationsBeingTested()
                 
         XCTAssertEqual(ksNormalModeMock.functionCalled, "slash(to:)")
-        XCTAssertEqual(ksNormalModeMock.relevantParameter, "69")
+        XCTAssertEqual(ksNormalModeMock.lastSearchCommandParameter, LastSearchCommand(motion: .slash, searchString: "69"))
     }
     
     func test_that_it_keeps_Vim_in_NormalMode() {
