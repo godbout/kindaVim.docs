@@ -286,13 +286,12 @@ other P.S.: the number of Awesome Humans currently subscribed is updated daily o
 | `gj`        | ❌️              |
 | `gk`        | ❌️              |
 | `h`         | ✅️              |
-| `l`         | ✅️              |
 | `i`         | ❌️              |
 | `J`         | ❌️              |
 | `j`         | ✅              |
 | `k`         | ✅              |
 | `<Left>`    | ✅              |
-| `l`         | ❌️              |
+| `l`         | ✅              |
 | `N`         | ✅️              |
 | `n`         | ✅️              |
 | `O`         | ❌️              |
