@@ -237,18 +237,18 @@ other P.S.: the number of Awesome Humans currently subscribed is updated daily o
 | `?<CR>`     | ❌️              |                                      | `$`         | ❌️              |
 | `/`         | ❌️              |                                      | `0`         |                 |
 | `/<CR>`     | ❌️              |                                      | `<BS>`      | ✅              |
-| `^`         |                 |                                      | `b`         | ❌️              |
+| `^`         |                 |                                      | `b`         | ✅️️              |
 | `$`         | ❌️              |                                      | `C`         |                 |
 | `0`         |                  |                                     | `CTRL-H`    | ✅              |
 | `A`         | ❌️               |                                     | `c`         |                 |
 | `a`         | ❌️               |                                     | `D`         |                 |
 | `<BS>`      | ✅️️               |                                     | `d`         |                 | 
-| `b`         | ✅️️               |                                     | `e`          | ❌️              |
+| `b`         | ✅️️               |                                     | `e`          | ✅️️              |
 | `C`         | ❌️                |                                     | `G`          | ❌️              |
 | `<CR>`      | ✅️               |                                     | `g^`          |                 |
 | `CTRL-B`    | ❌️               |                                     | `g$`          | ❌️              |
 | `CTRL-D`    | ❌️               |                                     | `g0`          |                 |
-| `CTRL-F`    | ❌️               |                                     | `ge`          | ❌️              |
+| `CTRL-F`    | ❌️               |                                     | `ge`          | ✅️️              |
 | `CTRL-H`    | ✅️️               |                                     | `gg`          | ❌️              |
 | `CTRL-R`    | ❌️               |                                     | `gI`          |                | 
 | `CTRL-U`    | ❌️               |                                     | `gj`          | ❌️              | 
@@ -264,7 +264,7 @@ other P.S.: the number of Awesome Humans currently subscribed is updated daily o
 | `cw`        | ✅️️                 |                                   | `s`           | ❌️              |     
 | `D`        | ❌️                 |                                   | `V`           | ❌️              |
 | `d$`       | ❌️                 |                                   | `v`           | ❌️              |
-| `db`        | ✅️️               |                                     | `w`           | ❌️              |
+| `db`        | ✅️️               |                                     | `w`           | ✅️️              |
 | `dd`        | ❌️                |                                   | `X`           |                 | 
 | `de`        | ✅️️               |                                     | `x`           |                 | 
 | `dG`        | ❌️                |                                   | `Y`           |                 |  
