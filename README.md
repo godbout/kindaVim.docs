@@ -243,7 +243,7 @@ other P.S.: the number of Awesome Humans currently subscribed is updated daily o
 | `A`         | ❌️               |                                     | `c`         |                 |
 | `a`         | ❌️               |                                     | `D`         |                 |
 | `<BS>`      | ✅️️               |                                     | `d`         |                 | 
-| `b`         | ❌️               |                                     | `e`          | ❌️              |
+| `b`         | ✅️️               |                                     | `e`          | ❌️              |
 | `C`         | ❌️                |                                     | `G`          | ❌️              |
 | `<CR>`      | ✅️               |                                     | `g^`          |                 |
 | `CTRL-B`    | ❌️               |                                     | `g$`          | ❌️              |
@@ -253,35 +253,35 @@ other P.S.: the number of Awesome Humans currently subscribed is updated daily o
 | `CTRL-R`    | ❌️               |                                     | `gI`          |                | 
 | `CTRL-U`    | ❌️               |                                     | `gj`          | ❌️              | 
 | `c$`        | ❌️                |                                     | `gk`          | ❌️              |
-| `cb`        | ❌️               |                                     | `h`           | ✅️              |                                    
+| `cb`        | ✅️️               |                                     | `h`           | ✅️              |                                    
 | `cc`        | ❌️                |                                     | `iw`          | ❌️
-| `ce`        | ❌️                |                                     | `j`           | ❌️              |                                    
+| `ce`        | ✅️️                |                                     | `j`           | ❌️              |                                    
 | `cG`        | ❌️                |                                     | `k`           | ❌️              |
 | `cgg`        | ❌️              |                                     | `<Left>`      | ✅              |
 | `ch`         | ✅️️               |                                    | `l`           | ✅️              |
 | `ciw`        | ❌️               |                                    | `R`           | ❌️              | 
-| `cl`         | ❌️                |                                    | `S`           | ❌️              |  
-| `cw`        | ❌️                 |                                   | `s`           | ❌️              |     
+| `cl`         | ✅️️                |                                    | `S`           | ❌️              |  
+| `cw`        | ✅️️                 |                                   | `s`           | ❌️              |     
 | `D`        | ❌️                 |                                   | `V`           | ❌️              |
 | `d$`       | ❌️                 |                                   | `v`           | ❌️              |
-| `db`        | ❌️               |                                     | `w`           | ❌️              |
+| `db`        | ✅️️               |                                     | `w`           | ❌️              |
 | `dd`        | ❌️                |                                   | `X`           |                 | 
-| `de`        | ❌️               |                                     | `x`           |                 | 
+| `de`        | ✅️️               |                                     | `x`           |                 | 
 | `dG`        | ❌️                |                                   | `Y`           |                 |  
 | `dgg`       | ❌️               |                                     | `y`           |                 |
-| `dh`       | ❌️                 |                                 
+| `dh`       | ✅️️                 |                                 
 | `diw`       | ❌️                |                                    
 | `dj`       | ❌️                |                                    
 | `dk`       | ❌️                |                                    
-| `dl`       | ❌️                 |                                    
+| `dl`       | ✅️️                 |                                    
 | `dw`       | ❌️                 |                                    
-| `e`        | ❌️                 |                                    
+| `e`        | ✅️️                 |                                    
 | `G`        | ❌️                 |                                    
 | `g_`        | ❌️              |
 | `g^`        |                 |
 | `g$`        | ❌️              |
 | `g0`        |                 |
-| `ge`        | ❌️              |
+| `ge`        | ✅️️              |
 | `gg`        | ❌️              |
 | `gI`        | ❌️              |
 | `gj`        | ❌️              |
@@ -301,11 +301,11 @@ other P.S.: the number of Awesome Humans currently subscribed is updated daily o
 | `p`         | ❌️              |
 | `r`         | ❌️              |
 | `S`         | ❌️              | ️
-| `s`         | ❌️              |
+| `s`         | ✅️️              |
 | `u`         | ❌️              |
-| `w`         | ❌️              |
-| `X`         | ❌️              |
-| `x`         | ❌️              |
+| `w`         | ✅️️              |
+| `X`         | ✅️️              |
+| `x`         | ✅️️              |
 | `yiw`       | ❌️              |
 | `yy`       | ❌️               |
 
