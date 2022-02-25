@@ -124,8 +124,8 @@ other P.S.: the number of Awesome Humans currently subscribed is updated daily o
 | `caW`      | ❌️              |                                      | `iw`          | ❌️              |
 | `caw`      | ❌️              |                                      | `j`          | ❌️              |
 | `cB`      | ✅️️               |                                      | `k`          | ❌️              |
-| `cb`      | ✅️️               |                                      | `l`          | ❌️              |
-| `cc`      | ❌️               |                                      | `<Left>`     | ❌️              |
+| `cb`      | ✅️️               |                                      | `<Left>`     | ❌️              |
+| `cc`      | ❌️               |                                      | `l`          | ❌️              |
 | `cE`      | ✅️️               |                                      | `o`          |                 |
 | `ce`      | ✅️️               |                                      | `R`          |                 |
 | `cF`      | ✅️               |                                      | `S`          |                 |
