@@ -182,6 +182,7 @@ other P.S.: the number of Awesome Humans currently subscribed is updated daily o
 | `g^`     | 
 | `g$`     | ❌️                 
 | `g0`     |                  
+| `g<Down>`| ✅️                 
 | `gE`     | ✅️️                 
 | `ge`     | ✅️️                 
 | `gg`     | ✅️                 
