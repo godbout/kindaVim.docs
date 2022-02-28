@@ -151,7 +151,8 @@ other P.S.: the number of Awesome Humans currently subscribed is updated daily o
 | `cW`       | ❌️                                                      | `X`          |                 |
 | `cw`       | ❌️                                                      | `x`          |                 |
 | `D`       | ❌️                                                       | `Y`          |                 |
-| `d$`      | ❌️                                                       | `y`          |                 |   
+| `<Down>`  | ✅️️                                                       | `y`          |                 |   
+| `d$`      | ❌️                                                       
 | `daW`     | ❌️            
 | `daw`     | ❌️            
 | `dB`     | ✅️️             
