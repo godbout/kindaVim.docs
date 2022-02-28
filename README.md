@@ -132,15 +132,15 @@ other P.S.: the number of Awesome Humans currently subscribed is updated daily o
 | `cf`      | ✅️               |                                      | `s`          |                 |
 | `cG`      | ❌️               |                                      | `T`          | ✅️              |
 | `cgg`      | ❌️              |                                      | `t`          | ✅️️              |
-| `ci'`      | ❌️              |                                      | `V`          | ❌️              |
-| `ci"`      | ❌️              |                                      | `v`          | ❌️              |
-| `ci(`      | ❌️              |                                      | `W`          | ❌️              |
-| `ci)`      | ❌️              |                                      | `w`          | ❌️              |
-| `ci[`      | ❌️              |                                      | `X`          |                 |
-| `ci]`      | ❌️              |                                      | `x`          |                 |
-| `ci{`      | ❌️              |                                       | `Y`          |                 |
-| `ci}`      | ❌️              |                                      | `y`          |                 |
-| <code>ci`</code> | ❌️       |                                       
+| `ci'`      | ❌️              |                                      | `<Up>`       | ✅️️              | 
+| `ci"`      | ❌️              |                                      | `V`          | ❌️              |
+| `ci(`      | ❌️              |                                      | `v`          | ❌️              |
+| `ci)`      | ❌️              |                                      | `W`          | ❌️              |
+| `ci[`      | ❌️              |                                      | `w`          | ❌️              |
+| `ci]`      | ❌️              |                                      | `X`          |                 |
+| `ci{`      | ❌️              |                                      | `x`          |                 |
+| `ci}`      | ❌️              |                                      | `Y`          |                 |
+| <code>ci`</code> | ❌️       |                                       | `y`          |                 |
 | `ciB`      |   ❌️           |                                       
 | `cib`      |   ❌️           |                                       
 | `ciW`      |   ❌️           |                                       
