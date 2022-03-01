@@ -11,7 +11,7 @@
 
 kindaVim is a paid app but you can check out the source, modify it, and compile it yourself if you like that. source is available here:
 
-* App Core and kindaVimEngine Core: https://github.com/godbout/kindaVim
+* App Core and kindaVim Engine Core: https://github.com/godbout/kindaVim
 * Accessibility Engine, to handle the macOS Accessibility: https://github.com/godbout/AXEngine
 * Accessibility Strategy, to handle Vim motions through text manipulation: https://github.com/godbout/AccessibilityStrategy
 * Keyboard Strategy, to handle Vim motions through key mapping: https://github.com/godbout/KeyboardStrategy
