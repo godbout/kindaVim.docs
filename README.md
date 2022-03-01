@@ -67,7 +67,7 @@ maybe [watch the videos](https://www.youtube.com/channel/UC3ZP3QFMhNn3ivJgqoEW4U
 
 # HOW DOES THAT SHIT WORK
 
-because the goal of kV is to bring Vim moves in **any** situation under macOS, it cannot use an already-existing Vim backend (that would have been way easier 😅️😭️). hence, every single move is handcrafted to work in the following conditions:
+because the goal of kV is to bring Vim moves in **any** situation under macOS, it cannot use an already-existing Vim backend. hence, every single move is handcrafted to work in the following conditions:
 * text is programmatically [readable and writable](#native-apps-with-macos-accessibility-support). in this condition kV does [text manipulation](#kV-accessibility-strategy). in theory we can have the full Vim experience. in practice there are MANY moves so some may currently be missing. feel free to [request](#feedback-%EF%B8%8F) the ones you need.
 * text is programmatically [not readable](#native-apps-without-macOS-accessibility-support). in this condition kV achieves a Vim move through [key remapping](#kv-keyboard-strategy). it's not as precise as text manipulation.
 * text is programmatically [readable but not writable](#restricted-apps-with-some-macOS-accessibility-support). in this condition kV uses a mix of text manipulation and key remapping. full Vim experience possible.
