@@ -7,7 +7,25 @@
 
 ---
 
-# WHY THAT SHIT
+# THIS IS A PAID APP BUT IT'S ALSO OPEN SOURCE. HUH?
+
+kindaVim is a paid app but you can check out the source, modify it, and compile it yourself if you like that. source is available here:
+
+* App Core and kindaVimEngine Core: https://github.com/godbout/kindaVim
+* Accessibility Engine, to handle the macOS Accessibility: https://github.com/godbout/AXEngine
+* Accessibility Strategy, to handle Vim motions through text manipulation: https://github.com/godbout/AccessibilityStrategy
+* Keyboard Strategy, to handle Vim motions through key mapping: https://github.com/godbout/KeyboardStrategy
+* Commands, to handle Vim commands through key mapping: https://github.com/godbout/Commands
+* KeyCombination, to wrap Apple keyboard events: https://github.com/godbout/KeyCombination
+* Common, for shared structs, enums etc.: https://github.com/godbout/Common
+
+# BUT I DONT WANNA COMPILE IT MYSELF #$@&%*!
+
+great! get a license, it's one ☕️ (USD$3.69) a month: https://subscribe.kindavim.app
+
+or use an old beta, they're free. last one is [1b25](https://github.com/godbout/kindaVim.theapp/releases/tag/1b.25).
+
+# WHY KINDAVIM
 
 brain space and energy are limited. why learning six hundred thousand new keyboard shortcuts when you can use Vim moves everywhere. also macOS is widely inconsistent like sometimes you can go up and down with ctrl+n/ctrl+p but also sometimes not. even in Apple's own apps. so jk FTW.
 
@@ -73,14 +91,6 @@ e.g. `/the`:
 ![input not text](https://raw.githubusercontent.com/godbout/kindaVim.theapp/master/assets/search-KSNTE.gif "input not text")
 
 straight from your Vim brain to the underlying macOS. kV takes care of the mess in the middle.
-
-# HOW 'BOUT THE MONEY SHIT
-
-you can use kindaVim fully for USD$0 a lifetime, but everyday from 5am to 1pm (Winter Schedule) it'll need its 8 hours of sleep. if you wanna torture kV 24/7, you'll need to get him a [good cup of ☕️ a month](https://subscribe.kindavim.app) (USD$3.69). 
-
-P.S.: if you're happy with the state of the old betas you can always download them on GitHub. they don't need coffee. last one is [1b25](https://github.com/godbout/kindaVim.theapp/releases/tag/1b.25).
-
-other P.S.: the number of Awesome Humans currently subscribed is updated daily on [kindaVim.app](https://kindavim.app) 😀️
 
 # CURRENT VIM IMPLEMENTATION
 
@@ -333,7 +343,6 @@ other P.S.: the number of Awesome Humans currently subscribed is updated daily o
 | `yy`       | ❌️               |
 
 ### Commands
-
 | Command |
 | :---:   |
 | `:q`       
@@ -343,22 +352,19 @@ other P.S.: the number of Awesome Humans currently subscribed is updated daily o
 | `:x`
 | `ZZ`
 
-# SHIT, DID YOU KNOW?
+# DID YOU KNOW?
 
 ![bye bye caps lock](https://raw.githubusercontent.com/godbout/kindaVim.theapp/master/assets/did-you-know.png "haha")
 
-# ROADMAP SHIT
+# ROADMAP
+
 * add a plethora of missing Vim moves ([ask!](https://github.com/godbout/kindaVim.theapp/issues/new))
 * update all moves to support new global count system ([ask!](https://github.com/godbout/kindaVim.theapp/issues/new))
 * users' requests
 
-# FEEDBACK 💩️
+# FEEDBACK
 
 * whether you need a missing move, want to report a bug or ask for a feature, just [open an issue](https://github.com/godbout/kindaVim.theapp/issues/new).
-
-# TESTS SHIT AND OPEN SOURCE SHIT
-
-the [tests](https://github.com/godbout/AccessibilityStrategyTestApp) describing the Vim moves are open source. you can use those to build your own implementation, or if you just want to learn more about Vim moves, or if you just can't get enough good self-induced migraines.
 
 # ACKNOWLEDGMENTS, THANKS, AND KISSES
 
