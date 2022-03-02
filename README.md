@@ -104,7 +104,7 @@ straight from your Vim brain to the underlying macOS. kV takes care of the mess 
 | `,`         |  ✅️             |                                      | `,`         | ✅️              |
 | `;`         |  ✅️             |                                      | `;`         | ✅️              |
 | `?`         |  ✅️             |                                      | `^`         |                 |
-| `?<CR>`     |  ✅️             |                                      | `+`         | ✅️️              |
+| `?<CR>`     |  ✅️             |                                      | `+`         | ❌️              |
 | `[(`        | ❌️              |                                      | `$`         | ❌️              |
 | `[(`        | ❌️              |                                      | `~`         |                 |
 | `[{`        | ❌️              |                                      | `0`         |                 |
@@ -112,15 +112,15 @@ straight from your Vim brain to the underlying macOS. kV takes care of the mess 
 | `]}`        | ❌️              |                                      | `<BS>`       | ❌️             |
 | `{`        | ❌️               |                                      | `b`          | ❌️             |
 | `}`        | ❌️               |                                      | `C`          |                |
-| `/`        | ✅️               |                                      | `<CR>`       | ✅️️             |
+| `/`        | ✅️               |                                      | `<CR>`       | ❌️             |
 | `/<CR>`    | ✅️               |                                      | `CTRL-H`     | ❌️             |
-| `%`        |                  |                                      | `CTRL-J`     | ✅️️             |
-| `^`        |                  |                                      | `CTRL-M`     | ✅️️             |
-| `+`        | ✅️️               |                                      | `CTRL-N`     | ✅️️             |
-| `<<`        | ❌️              |                                      | `CTRL-P`     | ✅️️             |
+| `%`        |                  |                                      | `CTRL-J`     | ❌️             |
+| `^`        |                  |                                      | `CTRL-M`     | ❌️             |
+| `+`        | ✅️️               |                                      | `CTRL-N`     | ❌️             |
+| `<<`        | ❌️              |                                      | `CTRL-P`     | ❌️             |
 | `>>`        | ❌️              |                                      | `c`          |                |
 | `~`        | ✅️               |                                      | `D`          |                |
-| `$`        | ❌️               |                                      | `<Down>`     | ✅️️             | 
+| `$`        | ❌️               |                                      | `<Down>`     | ❌️             | 
 | `0`        |                  |                                      | `d`          |                |
 | `A`        | ️❌️               |                                      | `E`          | ❌️             |
 | `a`        | ❌️               |                                      | `e`          | ❌️             |
@@ -129,7 +129,7 @@ straight from your Vim brain to the underlying macOS. kV takes care of the mess 
 | `b`        | ✅️️               |                                      | `G`          | ❌️             |
 | `C`        | ❌️              |                                       | `g^`          |               | 
 | `<CR>`     | ✅️               |                                      | `g$`          | ❌️            | 
-| `CTRL-H`   | ✅️️               |                                      | `g<Down>`     | ✅️️            | 
+| `CTRL-H`   | ✅️️               |                                      | `g<Down>`     | ❌️            | 
 | `CTRL-J`   | ✅️️               |                                      | `g0`          |               |
 | `CTRL-M`   | ✅️️               |                                      | `gE`          | ❌️            |
 | `CTRL-N`   | ✅️️               |                                      | `ge`          | ❌️            |
@@ -137,7 +137,7 @@ straight from your Vim brain to the underlying macOS. kV takes care of the mess 
 | `CTRL-R`   | ❌️               |                                      | `gI`          |               |
 | `c$`       | ❌️              |                                       | `gj`          | ❌️            |
 | `caW`      | ❌️              |                                       | `gk`          | ❌️            |
-| `caw`      | ❌️              |                                       | `g<Up>`      | ✅️️             |
+| `caw`      | ❌️              |                                       | `g<Up>`      | ❌️             |
 | `cB`      | ✅️️               |                                       | `h`          | ❌️              |
 | `cb`      | ✅️️               |                                       | `iW`          | ❌️              |
 | `cc`      | ❌️               |                                       | `iw`          | ❌️              |
@@ -147,13 +147,13 @@ straight from your Vim brain to the underlying macOS. kV takes care of the mess 
 | `cf`      | ✅️               |                                       | `l`          | ❌️              |
 | `ch`      | ❌️               |                                       | `o`          |                 |
 | `cG`      | ❌️               |                                       | `R`          |                 |
-| `cgg`      | ❌️              |                                       | `<Right>`    | ✅️️              |
+| `cgg`      | ❌️              |                                       | `<Right>`    | ❌️              |
 | `ci'`      | ❌️              |                                       | `S`          |                 |
-| `ci"`      | ❌️              |                                       | `<Space>`    | ✅️️              |
+| `ci"`      | ❌️              |                                       | `<Space>`    | ❌️              |
 | `ci(`      | ❌️              |                                       | `s`          |                 |
 | `ci)`      | ❌️              |                                       | `T`          | ✅️              |
 | `ci[`      | ❌️              |                                       | `t`          | ✅️️              |
-| `ci]`      | ❌️              |                                       | `<Up>`       | ✅️️              | 
+| `ci]`      | ❌️              |                                       | `<Up>`       | ❌️              | 
 | `ci{`      | ❌️              |                                       | `V`          | ❌️              |
 | `ci}`      | ❌️              |                                       | `v`          | ❌️              |
 | <code>ci`</code> | ❌️       |                                        | `W`          | ❌️              |
