@@ -145,7 +145,7 @@ straight from your Vim brain to the underlying macOS. kV takes care of the mess 
 | `ce`      | ✅️️               |                                       | `k`          | ❌️              |
 | `cF`      | ✅️               |                                       | `<Left>`     | ❌️              |
 | `cf`      | ✅️               |                                       | `l`          | ❌️              |
-| `ch`      | ❌️               |                                       | `o`          |                 |
+| `ch`      | ✅️               |                                       | `o`          |                 |
 | `cG`      | ❌️               |                                       | `R`          |                 |
 | `cgg`      | ❌️              |                                       | `<Right>`    | ❌️              |
 | `ci'`      | ❌️              |                                       | `S`          |                 |
