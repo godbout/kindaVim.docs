@@ -336,7 +336,7 @@ straight from your Vim brain to the underlying macOS. kV takes care of the mess 
 | `<Space>`   | ✅️️              |
 | `s`         | ✅️️              |
 | `<Up>`      | ✅️️              |
-| `u`         | ❌️              |
+| `u`         | ✅️️              |
 | `w`         | ✅️️              |
 | `X`         | ✅️️              |
 | `x`         | ✅️️              |
