@@ -318,6 +318,7 @@ straight from your Vim brain to the underlying macOS. kV takes care of the mess 
 | `g0`        |                 |                                      
 | `g<Down>`   | ✅️              |
 | `ge`        | ✅️️              |
+| `g<End>`    | ❌️              |
 | `gg`        | ❌️              |
 | `gI`        | ❌️              |
 | `gj`        | ✅️              |
