@@ -120,7 +120,7 @@ straight from your Vim brain to the underlying macOS. kV takes care of the mess 
 | `<<`        | ❌️              |                                      | `CTRL-P`     | ❌️             |
 | `>>`        | ❌️              |                                      | `c`          |                |
 | `~`        | ✅️               |                                      | `D`          |                |
-| `$`        | ❌️               |                                      | `<Down>`     | ❌️             | 
+| `$`        | ✅️               |                                      | `<Down>`     | ❌️             | 
 | `0`        |                  |                                      | `d`          |                |
 | `A`        | ️❌️               |                                      | `E`          | ❌️             |
 | `a`        | ❌️               |                                      | `e`          | ❌️             |
