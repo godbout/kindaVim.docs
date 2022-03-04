@@ -278,7 +278,7 @@ straight from your Vim brain to the underlying macOS. kV takes care of the mess 
 | `CTRL-M`    | ✅️️              |                                      | `g^`          |                 |
 | `CTRL-N`    | ✅️️              |                                      | `g$`          | ❌️              |
 | `CTRL-P`    | ✅️️              |                                      | `g0`          |                 |
-| `CTRL-R`    | ❌️              |                                      | `g<Down>`     | ✅️              |
+| `CTRL-R`    | ✅️️              |                                      | `g<Down>`     | ✅️              |
 | `CTRL-U`    | ❌️              |                                      | `ge`          | ✅️️              |
 | `c$`        | ❌️              |                                      | `gg`          | ❌️              |
 | `cb`        | ✅️️              |                                      | `gI`          |                | 
