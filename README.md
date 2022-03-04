@@ -203,6 +203,7 @@ straight from your Vim brain to the underlying macOS. kV takes care of the mess 
 | `g0`     |                  
 | `g<Down>`| ✅️                 
 | `gE`     | ✅️️                 
+| `g<End>` | ✅️️                 
 | `ge`     | ✅️️                 
 | `gg`     | ✅️                 
 | `gI`     | ❌️              
