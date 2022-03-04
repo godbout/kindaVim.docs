@@ -185,7 +185,7 @@ straight from your Vim brain to the underlying macOS. kV takes care of the mess 
 | `diw`     | ❌️            
 | `dj`     | ❌️             
 | `dk`     | ❌️             
-| `dl`     | ❌️             
+| `dl`     | ✅️             
 | `dT`     | ✅️             
 | `dt`     | ✅️             
 | `dW`     | ✅️             
