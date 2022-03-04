@@ -225,7 +225,7 @@ straight from your Vim brain to the underlying macOS. kV takes care of the mess 
 | `r`      | ✅️                 
 | `S`      | ❌️                  
 | `<Space>`| ✅️                 
-| `s`      | ❌️                  
+| `s`      | ✅️                  
 | `T`      | ✅️                 
 | `t`      | ✅️                 
 | `<Up>`   | ✅️                 
