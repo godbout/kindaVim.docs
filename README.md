@@ -320,6 +320,7 @@ straight from your Vim brain to the underlying macOS. kV takes care of the mess 
 | `ge`        | ✅️️              |
 | `g<End>`    | ❌️              |
 | `gg`        | ❌️              |
+| `g<Home>`   | ❌️              |
 | `gI`        | ❌️              |
 | `gj`        | ✅️              |
 | `gk`        | ✅️              |
