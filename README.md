@@ -197,7 +197,7 @@ straight from your Vim brain to the underlying macOS. kV takes care of the mess 
 | `G`     | ✅️                 
 | `g_`     | ✅️     
 | `g^`     | 
-| `g$`     | ❌️                 
+| `g$`     | ✅️                 
 | `g0`     |                  
 | `g<Down>`| ✅️                 
 | `gE`     | ✅️️                 
