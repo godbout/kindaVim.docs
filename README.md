@@ -134,7 +134,7 @@ straight from your Vim brain to the underlying macOS. kV takes care of the mess 
 | `CTRL-M`   | ✅️️               |                                      | `gE`          | ❌️            |
 | `CTRL-N`   | ✅️️               |                                      | `ge`          | ❌️            |
 | `CTRL-P`   | ✅️️               |                                      | `gg`          | ❌️            |
-| `CTRL-R`   | ❌️               |                                      | `gI`          |               |
+| `CTRL-R`   | ✅️               |                                      | `gI`          |               |
 | `c$`       | ❌️              |                                       | `gj`          | ❌️            |
 | `caW`      | ❌️              |                                       | `gk`          | ❌️            |
 | `caw`      | ❌️              |                                       | `g<Up>`      | ❌️             |
