@@ -100,7 +100,7 @@ straight from your Vim brain to the underlying macOS. kV takes care of the mess 
 
 | Normal Mode | including count | &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; | Visual Mode | including count |
 | :---:       | :---:           | :---:                                | :---:       | :---:           |
-| `_`         | ❌️              |                                      | `_`         | ❌️              |
+| `_`         |  ✅️             |                                      | `_`         | ❌️              |
 | `,`         |  ✅️             |                                      | `,`         | ✅️              |
 | `;`         |  ✅️             |                                      | `;`         | ✅️              |
 | `?`         |  ✅️             |                                      | `^`         |                 |
