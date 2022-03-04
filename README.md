@@ -360,6 +360,7 @@ straight from your Vim brain to the underlying macOS. kV takes care of the mess 
 
 * add a plethora of missing Vim moves ([ask!](https://github.com/godbout/kindaVim.theapp/issues/new))
 * update all moves to support new global count system ([ask!](https://github.com/godbout/kindaVim.theapp/issues/new))
+* some kind of config file system (.kVrc? read .vimrc? UI key remapping?)
 * users' requests
 
 # FEEDBACK
