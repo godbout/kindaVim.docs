@@ -309,6 +309,7 @@ straight from your Vim brain to the underlying macOS. kV takes care of the mess 
 | `dk`       | ❌️               |                                      | `Y`           |                 |  
 | `dl`       | ✅️️               |                                      | `y`           |                 |
 | `dw`       | ❌️               |                                      
+| `<End>`    | ❌️               |
 | `e`        | ✅️️               |                                      
 | `G`        | ❌️               |                                      
 | `g_`        | ❌️              |                                      
