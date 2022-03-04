@@ -232,7 +232,7 @@ straight from your Vim brain to the underlying macOS. kV takes care of the mess 
 | `u`      | ✅️                 
 | `W`      | ✅️️                 
 | `w`      | ✅️️                 
-| `X`      | ❌️                 
+| `X`      | ✅️                 
 | `x`      | ❌️                  
 | `yF`     | ✅️                 
 | `yf`     | ✅️                 
