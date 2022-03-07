@@ -162,10 +162,11 @@ straight from your Vim brain to the underlying macOS. kV takes care of the mess 
 | `cib`                | ❌️              |                                      | `v`             | ❌️          
 | `ciW`                | ❌️              |                                      | `W`             | ✅️          
 | `ciw`                | ❌️              |                                      | `w`             | ✅️          
-| `cl`                 | ✅️              |                                      | `X`             |             
-| `cT`                 | ✅️              |                                      | `x`             |             
-| `ct`                 | ✅️              |                                      | `Y`             |             
-| `cW`                 | ❌️              |                                      | `y`             |             
+| `cj`                 | ❌️              |                                      | `X`             |             
+| `cl`                 | ✅️              |                                      | `x`             |             
+| `cT`                 | ✅️              |                                      | `Y`             |             
+| `ct`                 | ✅️              |                                      | `y`             |             
+| `cW`                 | ❌️              |                                      
 | `cw`                 | ❌️              |                                      
 | `D`                  | ❌️                                                       
 | `<Del>`              | ✅️️
