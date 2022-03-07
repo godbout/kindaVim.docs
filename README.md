@@ -123,7 +123,7 @@ straight from your Vim brain to the underlying macOS. kV takes care of the mess 
 | `$`                  | ✅️              |                                      | `<Del>`         |             
 | `0`                  |                 |                                      | `<Down>`        | ❌️          
 | `A`                  |  ❌️             |                                      | `d`             |             
-| `a`                  | ❌️              |                                      | `E`             | ❌️          
+| `a`                  | ❌️              |                                      | `E`             | ✅️          
 | `B`                  | ✅️️              |                                      | `<End>`         | ❌️          
 | `<BS>`               | ✅️️              |                                      | `e`             | ❌️          
 | `b`                  | ✅️️              |                                      | `F`             | ✅️          
