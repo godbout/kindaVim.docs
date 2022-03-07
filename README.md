@@ -125,7 +125,7 @@ straight from your Vim brain to the underlying macOS. kV takes care of the mess 
 | `A`                  |  ❌️             |                                      | `d`             |             
 | `a`                  | ❌️              |                                      | `E`             | ✅️          
 | `B`                  | ✅️️              |                                      | `<End>`         | ❌️          
-| `<BS>`               | ✅️️              |                                      | `e`             | ❌️          
+| `<BS>`               | ✅️️              |                                      | `e`             | ✅️          
 | `b`                  | ✅️️              |                                      | `F`             | ✅️          
 | `C`                  | ❌️              |                                      | `f`             | ✅️          
 | `<CR>`               | ✅️              |                                      | `G`             | ❌️          
