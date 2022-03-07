@@ -108,8 +108,8 @@ straight from your Vim brain to the underlying macOS. kV takes care of the mess 
 | `[(`                 | ❌️              |                                      | `$`             | ❌️          
 | `[(`                 | ❌️              |                                      | `~`             |             
 | `[{`                 | ❌️              |                                      | `0`             |             
-| `])`                 | ❌️              |                                      | `B`             | ❌️          
-| `]}`                 | ❌️              |                                      | `<BS>`          | ❌️          
+| `])`                 | ❌️              |                                      | `B`             | ✅️          
+| `]}`                 | ❌️              |                                      | `<BS>`          | ❌          
 | `{`                  | ❌️              |                                      | `b`             | ❌️          
 | `}`                  | ❌️              |                                      | `C`             |             
 | `/`                  | ✅️              |                                      | `<CR>`          | ❌️          
