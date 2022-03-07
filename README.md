@@ -110,7 +110,7 @@ straight from your Vim brain to the underlying macOS. kV takes care of the mess 
 | `[{`                 | ❌️              |                                      | `0`             |             
 | `])`                 | ❌️              |                                      | `B`             | ✅️          
 | `]}`                 | ❌️              |                                      | `<BS>`          | ❌          
-| `{`                  | ❌️              |                                      | `b`             | ❌️          
+| `{`                  | ❌️              |                                      | `b`             | ✅️          
 | `}`                  | ❌️              |                                      | `C`             |             
 | `/`                  | ✅️              |                                      | `<CR>`          | ❌️          
 | `/<CR>`              | ✅️              |                                      | `CTRL-H`        | ❌️          
