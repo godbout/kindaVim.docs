@@ -309,14 +309,14 @@ straight from your Vim brain to the underlying macOS. kV takes care of the mess 
 | `db`            | ✅️️              |                                      | `<Space>`       | ✅️              
 | `dd`            | ❌️              |                                      | `s`             | ❌️              
 | `de`            | ✅️️              |                                      | `<Up>`          | ✅️              
-| `dG`            | ❌️              |                                      | `V`             | ❌️              
-| `dgg`           | ❌️              |                                      | `v`             | ❌️              
-| `dh`            | ✅️️              |                                      | `w`             | ✅️️              
-| `diw`           | ❌️              |                                      | `X`             |                 
-| `dj`            | ❌️              |                                      | `x`             |                 
-| `dk`            | ❌️              |                                      | `Y`             |                 
-| `dl`            | ✅️️              |                                      | `y`             |                 
-| `dw`            | ❌️              |                                      
+| `dG`            | ❌️              |                                      | `u`             |         
+| `dgg`           | ❌️              |                                      | `V`             | ❌️              
+| `dh`            | ✅️️              |                                      | `v`             | ❌️              
+| `diw`           | ❌️              |                                      | `w`             | ✅️️              
+| `dj`            | ❌️              |                                      | `X`             |                 
+| `dk`            | ❌️              |                                      | `x`             |                 
+| `dl`            | ✅️️              |                                      | `Y`             |                 
+| `dw`            | ❌️              |                                      | `y`             |                 
 | `<End>`         | ❌️              |                                      
 | `e`             | ✅️️              |                                      
 | `G`             | ❌️              |                                      
