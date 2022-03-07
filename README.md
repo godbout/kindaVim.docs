@@ -122,7 +122,7 @@ straight from your Vim brain to the underlying macOS. kV takes care of the mess 
 | `~`                  | ✅️              |                                      | `D`             |             
 | `$`                  | ✅️              |                                      | `<Del>`         |             
 | `0`                  |                 |                                      | `<Down>`        | ❌️          
-| `A`                  |  ❌️             |                                      | `d`             |             
+| `A`                  | ❌️              |                                      | `d`             |             
 | `a`                  | ❌️              |                                      | `E`             | ✅️          
 | `B`                  | ✅️️              |                                      | `<End>`         | ❌️          
 | `<BS>`               | ✅️️              |                                      | `e`             | ✅️          
@@ -158,15 +158,15 @@ straight from your Vim brain to the underlying macOS. kV takes care of the mess 
 | `ci{`                | ❌️              |                                      | `T`             | ✅️          
 | `ci}`                | ❌️              |                                      | `t`             | ✅️️          
 | <code>ci`</code>     | ❌️              |                                      | `<Up>`          | ❌️          
-| `ciB`                | ❌️              |                                      | `V`             | ❌️          
-| `cib`                | ❌️              |                                      | `v`             | ❌️          
-| `ciW`                | ❌️              |                                      | `W`             | ✅️          
-| `ciw`                | ❌️              |                                      | `w`             | ✅️          
-| `cj`                 | ❌️              |                                      | `X`             |             
-| `ck`                 | ❌️              |                                      | `x`             |             
-| `cl`                 | ✅️              |                                      | `Y`             |             
-| `cT`                 | ✅️              |                                      | `y`             |             
-| `ct`                 | ✅️              |                                      
+| `ciB`                | ❌️              |                                      | `u`             | 
+| `cib`                | ❌️              |                                      | `V`             | ❌️          
+| `ciW`                | ❌️              |                                      | `v`             | ❌️          
+| `ciw`                | ❌️              |                                      | `W`             | ✅️          
+| `cj`                 | ❌️              |                                      | `w`             | ✅️          
+| `ck`                 | ❌️              |                                      | `X`             |             
+| `cl`                 | ✅️              |                                      | `x`             |             
+| `cT`                 | ✅️              |                                      | `Y`             |             
+| `ct`                 | ✅️              |                                      | `y`             |             
 | `cW`                 | ❌️              |                                      
 | `cw`                 | ❌️              |                                      
 | `D`                  | ❌️                                                       
