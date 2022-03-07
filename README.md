@@ -109,11 +109,11 @@ straight from your Vim brain to the underlying macOS. kV takes care of the mess 
 | `[(`                 | ❌️              |                                      | `~`             |             
 | `[{`                 | ❌️              |                                      | `0`             |             
 | `])`                 | ❌️              |                                      | `B`             | ✅️          
-| `]}`                 | ❌️              |                                      | `<BS>`          | ❌          
+| `]}`                 | ❌️              |                                      | `<BS>`          | ✅️          
 | `{`                  | ❌️              |                                      | `b`             | ✅️          
 | `}`                  | ❌️              |                                      | `C`             |             
 | `/`                  | ✅️              |                                      | `<CR>`          | ❌️          
-| `/<CR>`              | ✅️              |                                      | `CTRL-H`        | ❌️          
+| `/<CR>`              | ✅️              |                                      | `CTRL-H`        | ✅️          
 | `%`                  |                 |                                      | `CTRL-J`        | ❌️          
 | `^`                  |                 |                                      | `CTRL-M`        | ❌️          
 | `+`                  | ✅️️              |                                      | `CTRL-N`        | ❌️          
@@ -142,7 +142,7 @@ straight from your Vim brain to the underlying macOS. kV takes care of the mess 
 | `cb`                 | ✅️️              |                                      | `gj`            | ❌️          
 | `cc`                 | ❌️              |                                      | `gk`            | ❌️          
 | `cE`                 | ✅️️              |                                      | `g<Up>`         | ❌️          
-| `ce`                 | ✅️️              |                                      | `h`             | ❌️          
+| `ce`                 | ✅️️              |                                      | `h`             | ✅️          
 | `cF`                 | ✅️              |                                      | `iW`            | ❌️          
 | `cf`                 | ✅️              |                                      | `iw`            | ❌️          
 | `ch`                 | ✅️              |                                      | `j`             | ❌️          
