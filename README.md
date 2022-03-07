@@ -148,12 +148,12 @@ straight from your Vim brain to the underlying macOS. kV takes care of the mess 
 | `ch`                 | ✅️              |                                      | `j`             | ❌️          
 | `cG`                 | ❌️              |                                      | `k`             | ❌️          
 | `cgg`                | ❌️              |                                      | `<Left>`        | ❌️          
-| `ci'`                | ❌️              |                                      | `l`             | ❌️          
+| `ci'`                | ❌️              |                                      | `l`             | ✅️          
 | `ci"`                | ❌️              |                                      | `o`             |             
 | `ci(`                | ❌️              |                                      | `R`             |             
-| `ci)`                | ❌️              |                                      | `<Right>`       | ❌️          
+| `ci)`                | ❌️              |                                      | `<Right>`       | ✅️          
 | `ci[`                | ❌️              |                                      | `S`             |             
-| `ci]`                | ❌️              |                                      | `<Space>`       | ❌️          
+| `ci]`                | ❌️              |                                      | `<Space>`       | ✅️          
 | `ci{`                | ❌️              |                                      | `s`             |             
 | `ci}`                | ❌️              |                                      | `T`             | ✅️          
 | <code>ci`</code>     | ❌️              |                                      | `t`             | ✅️️          
