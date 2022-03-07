@@ -160,7 +160,7 @@ straight from your Vim brain to the underlying macOS. kV takes care of the mess 
 | `ciB`                | ❌️              |                                      | `<Up>`          | ❌️          
 | `cib`                | ❌️              |                                      | `V`             | ❌️          
 | `ciW`                | ❌️              |                                      | `v`             | ❌️          
-| `ciw`                | ❌️              |                                      | `W`             | ❌️          
+| `ciw`                | ❌️              |                                      | `W`             | ✅️          
 | `cl`                 | ✅️              |                                      | `w`             | ❌️          
 | `cT`                 | ✅️              |                                      | `X`             |             
 | `ct`                 | ✅️              |                                      | `x`             |             
