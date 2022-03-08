@@ -120,7 +120,7 @@ straight from your Vim brain to the underlying macOS. kV takes care of the mess 
 | `<<`                 | ❌️              |                                      | `CTRL-P`        | ❌️          
 | `>>`                 | ❌️              |                                      | `c`             |             
 | `~`                  | ✅️              |                                      | `D`             |             
-| `$`                  | ✅️              |                                      | `<Del>`         |             
+| `$`, `<End>`         | ✅️              |                                      | `<Del>`         |             
 | `0`                  |                 |                                      | `<Down>`        | ❌️          
 | `A`                  | ❌️              |                                      | `d`             |             
 | `a`                  | ❌️              |                                      | `E`             | ✅️          
@@ -184,7 +184,6 @@ straight from your Vim brain to the underlying macOS. kV takes care of the mess 
 | `dW`                 | ✅️             
 | `dw`                 | ✅️             
 | `E`                  | ✅️️                 
-| `<End>`              | ✅️️                 
 | `e`                  | ✅️️                 
 | `F`                  | ✅️                 
 | `f`                  | ✅️                 
