@@ -98,7 +98,7 @@ straight from your Vim brain to the underlying macOS. kV takes care of the mess 
 
 ### kV Accessibility Strategy
 
-| Normal Mode          | including count | &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; | Visual Mode | including count |
+| Normal Mode          | including count | &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; | Visual Mode | including count |
 | :---:                | :---:           | :---:                                | :---:           | :---:       
 | `_`                  | ✅️              |                                      | `_`             | ❌️          
 | `,`                  | ✅️              |                                      | `,`             | ✅️          
