@@ -215,17 +215,15 @@ straight from your Vim brain to the underlying macOS. kV takes care of the mess 
 | `J`                  | ❌                 
 | `j`, `CTRL-J`, `CTRL-N`, `<Down>`                  | ✅️                 
 | `k`, `CTRL-P`, `<Up>`                  | ✅️                 
-| `l`                  | ✅️
+| `l`, `<Right>`, `<Space>`                 | ✅️
 | `N`                  | ✅️               
 | `n`                  | ✅️               
 | `O`                  | ❌️                 
 | `o`                  | ❌️                 
 | `P`                  | ❌️                 
 | `p`                  | ❌️                 
-| `<Right>`            | ✅️                 
 | `r`                  | ✅️                 
 | `S`                  | ❌️                  
-| `<Space>`            | ✅️                 
 | `s`                  | ✅️                  
 | `T`                  | ✅️                 
 | `t`                  | ✅️                 
