@@ -176,7 +176,6 @@ straight from your Vim brain to the underlying macOS. kV takes care of the mess 
 | `df`                 | ✅️             
 | `dG`                 | ❌️             
 | `dgg`                | ❌️            
-| `dh`                 | ✅️             
 | `diW`                | ❌️            
 | `diw`                | ❌️            
 | `dj`                 | ❌️             
@@ -226,7 +225,7 @@ straight from your Vim brain to the underlying macOS. kV takes care of the mess 
 | `u`                  | ✅️                 
 | `W`                  | ✅️️                 
 | `w`                  | ✅️️                 
-| `X`                  | ✅️                 
+| `X`, `dh`            | ✅️                 
 | `x`, `<Del>`, `dl`   | ✅️                  
 | `Y`                  | ✅️                  
 | `yF`                 | ✅️                 
