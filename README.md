@@ -164,10 +164,9 @@ straight from your Vim brain to the underlying macOS. kV takes care of the mess 
 | `cW`                 | ❌️              |                                      | `W`             | ✅️          
 | `cw`                 | ❌️              |                                      | `w`             | ✅️          
 | `D`, `d$`            | ❌️              |                                      | `X`             |             
-| `<Del>`              | ✅️️              |                                      | `x`             |             
-| `d0`                 |                 |                                      | `Y`             |             
-| `daW`                | ❌️              |                                      | `y`             |                 
-| `daw`                | ❌️              |
+| `d0`                 |                 |                                      | `x`             |             
+| `daW`                | ❌️              |                                      | `Y`             |             
+| `daw`                | ❌️              |                                      | `y`             |                 
 | `dB`                 | ✅️️              |
 | `db`                 | ✅️️              |
 | `dd`                 | ❌️              |
@@ -182,7 +181,6 @@ straight from your Vim brain to the underlying macOS. kV takes care of the mess 
 | `diw`                | ❌️            
 | `dj`                 | ❌️             
 | `dk`                 | ❌️             
-| `dl`                 | ✅️             
 | `dT`                 | ✅️             
 | `dt`                 | ✅️             
 | `dW`                 | ✅️             
@@ -229,7 +227,7 @@ straight from your Vim brain to the underlying macOS. kV takes care of the mess 
 | `W`                  | ✅️️                 
 | `w`                  | ✅️️                 
 | `X`                  | ✅️                 
-| `x`                  | ✅️                  
+| `x`, `<Del>`, `dl`   | ✅️                  
 | `Y`                  | ✅️                  
 | `yF`                 | ✅️                 
 | `yf`                 | ✅️                 
