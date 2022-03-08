@@ -164,9 +164,9 @@ straight from your Vim brain to the underlying macOS. kV takes care of the mess 
 | `ct`                 | ✅️              |                                      | `W`             | ✅️          
 | `cW`                 | ❌️              |                                      | `w`             | ✅️          
 | `cw`                 | ❌️              |                                      | `X`             |             
-| `D`                  | ❌️                                                     | `x`             |             
-| `<Del>`              | ✅️️                                                     | `Y`             |             
-| `d$`                 | ❌️                                                     | `y`             |                 
+| `D`                  | ❌️              |                                      | `x`             |             
+| `<Del>`              | ✅️️              |                                      | `Y`             |             
+| `d$`                 | ❌️              |                                      | `y`             |                 
 | `d0`                 |                                                       
 | `daW`                | ❌️            
 | `daw`                | ❌️            
