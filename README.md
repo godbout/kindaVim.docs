@@ -199,8 +199,7 @@ straight from your Vim brain to the underlying macOS. kV takes care of the mess 
 | `g<Home>`            | ✅️                 
 | `gI`                 | ❌️              
 | `gj`, `g<Down>`      | ✅️               
-| `gk`                 | ✅️                 
-| `g<Up>`              | ✅️                 
+| `gk`, `g<Up>`        | ✅️                 
 | `h`, `<BS>`, `CTRL-H`, `<Left>`                  | ✅️                 
 | `I`                  | ❌️                 
 | `i`                  | ❌️               
