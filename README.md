@@ -190,11 +190,10 @@ straight from your Vim brain to the underlying macOS. kV takes care of the mess 
 | `g_`                 | ✅️     
 | `g^`                 | 
 | `g$` , `g<End>`      | ✅️                 
-| `g0`                 |                  
+| `g0`, `g<Home>`      |                  
 | `gE`                 | ✅️️                 
 | `ge`                 | ✅️️                 
 | `gg`                 | ✅️                 
-| `g<Home>`            | ✅️                 
 | `gI`                 | ❌️              
 | `gj`, `g<Down>`      | ✅️               
 | `gk`, `g<Up>`        | ✅️                 
