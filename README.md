@@ -163,15 +163,14 @@ straight from your Vim brain to the underlying macOS. kV takes care of the mess 
 | `ct`                 | ✅️              |                                      | `v`             | ❌️          
 | `cW`                 | ❌️              |                                      | `W`             | ✅️          
 | `cw`                 | ❌️              |                                      | `w`             | ✅️          
-| `D`                  | ❌️              |                                      | `X`             |             
+| `D`, `d$`            | ❌️              |                                      | `X`             |             
 | `<Del>`              | ✅️️              |                                      | `x`             |             
-| `d$`                 | ❌️              |                                      | `Y`             |             
-| `d0`                 |                 |                                      | `y`             |                 
-| `daW`                | ❌️            
-| `daw`                | ❌️            
-| `dB`                 | ✅️️             
-| `db`                 | ✅️️             
-| `dd`                 | ❌️             
+| `d0`                 |                 |                                      | `Y`             |             
+| `daW`                | ❌️              |                                      | `y`             |                 
+| `daw`                | ❌️              |
+| `dB`                 | ✅️️              |
+| `db`                 | ✅️️              |
+| `dd`                 | ❌️              |
 | `dE`                 | ✅️️             
 | `de`                 | ✅️️             
 | `dF`                 | ✅️             
