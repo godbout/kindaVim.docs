@@ -129,45 +129,44 @@ straight from your Vim brain to the underlying macOS. kV takes care of the mess 
 | `C`                  | ❌️              |                                      | `F`             | ✅️          
 | `<CR>`               | ✅️              |                                      | `f`             | ✅️          
 | `CTRL-M`             | ✅️️              |                                      | `G`             | ❌️          
-| `CTRL-P`             | ✅️️              |                                      | `g^`            |             
-| `CTRL-R`             | ✅️              |                                      | `g$`            | ❌️          
-| `c$`                 | ❌️              |                                      | `g<Down>`       | ❌️          
-| `c0`                 |                 |                                      | `g0`            |             
-| `caW`                | ❌️              |                                      | `gE`            | ✅️          
-| `caw`                | ❌️              |                                      | `g<End>`        | ❌️          
-| `cB`                 | ✅️️              |                                      | `ge`            | ✅️          
-| `cb`                 | ✅️️              |                                      | `gg`            | ❌️          
-| `cc`                 | ❌️              |                                      | `g<Home>`       | ❌️          
-| `cE`                 | ✅️️              |                                      | `gI`            |             
-| `ce`                 | ✅️️              |                                      | `gj`            | ❌️          
-| `cF`                 | ✅️              |                                      | `gk`            | ❌️          
-| `cf`                 | ✅️              |                                      | `g<Up>`         | ❌️          
-| `ch`                 | ✅️              |                                      | `h`             | ✅️          
-| `cG`                 | ❌️              |                                      | `iW`            | ❌️          
-| `cgg`                | ❌️              |                                      | `iw`            | ❌️          
-| `ci'`                | ❌️              |                                      | `j`             | ❌️          
-| `ci"`                | ❌️              |                                      | `k`             | ❌️          
-| `ci(`                | ❌️              |                                      | `<Left>`        | ❌️          
-| `ci)`                | ❌️              |                                      | `l`             | ✅️          
-| `ci[`                | ❌️              |                                      | `o`             |             
-| `ci]`                | ❌️              |                                      | `R`             |             
-| `ci{`                | ❌️              |                                      | `<Right>`       | ✅️          
-| `ci}`                | ❌️              |                                      | `S`             |             
-| <code>ci`</code>     | ❌️              |                                      | `<Space>`       | ✅️          
-| `ciB`                | ❌️              |                                      | `s`             |             
-| `cib`                | ❌️              |                                      | `T`             | ✅️          
-| `ciW`                | ❌️              |                                      | `t`             | ✅️️          
-| `ciw`                | ❌️              |                                      | `<Up>`          | ❌️          
-| `cj`                 | ❌️              |                                      | `u`             | 
-| `ck`                 | ❌️              |                                      | `V`             | ❌️          
-| `cl`                 | ✅️              |                                      | `v`             | ❌️          
-| `cT`                 | ✅️              |                                      | `W`             | ✅️          
-| `ct`                 | ✅️              |                                      | `w`             | ✅️          
-| `cW`                 | ❌️              |                                      | `X`             |             
-| `cw`                 | ❌️              |                                      | `x`             |             
-| `D`                  | ❌️                                                     | `Y`             |             
-| `<Del>`              | ✅️️                                                     | `y`             |               
-| `d$`                 | ❌️                                                       
+| `CTRL-R`             | ✅️              |                                      | `g^`            |             
+| `c$`                 | ❌️              |                                      | `g$`            | ❌️          
+| `c0`                 |                 |                                      | `g<Down>`       | ❌️          
+| `caW`                | ❌️              |                                      | `g0`            |             
+| `caw`                | ❌️              |                                      | `gE`            | ✅️          
+| `cB`                 | ✅️️              |                                      | `g<End>`        | ❌️          
+| `cb`                 | ✅️️              |                                      | `ge`            | ✅️          
+| `cc`                 | ❌️              |                                      | `gg`            | ❌️          
+| `cE`                 | ✅️️              |                                      | `g<Home>`       | ❌️          
+| `ce`                 | ✅️️              |                                      | `gI`            |             
+| `cF`                 | ✅️              |                                      | `gj`            | ❌️          
+| `cf`                 | ✅️              |                                      | `gk`            | ❌️          
+| `ch`                 | ✅️              |                                      | `g<Up>`         | ❌️          
+| `cG`                 | ❌️              |                                      | `h`             | ✅️          
+| `cgg`                | ❌️              |                                      | `iW`            | ❌️          
+| `ci'`                | ❌️              |                                      | `iw`            | ❌️          
+| `ci"`                | ❌️              |                                      | `j`             | ❌️          
+| `ci(`                | ❌️              |                                      | `k`             | ❌️          
+| `ci)`                | ❌️              |                                      | `<Left>`        | ❌️          
+| `ci[`                | ❌️              |                                      | `l`             | ✅️          
+| `ci]`                | ❌️              |                                      | `o`             |             
+| `ci{`                | ❌️              |                                      | `R`             |             
+| `ci}`                | ❌️              |                                      | `<Right>`       | ✅️          
+| <code>ci`</code>     | ❌️              |                                      | `S`             |             
+| `ciB`                | ❌️              |                                      | `<Space>`       | ✅️          
+| `cib`                | ❌️              |                                      | `s`             |             
+| `ciW`                | ❌️              |                                      | `T`             | ✅️          
+| `ciw`                | ❌️              |                                      | `t`             | ✅️️          
+| `cj`                 | ❌️              |                                      | `<Up>`          | ❌️          
+| `ck`                 | ❌️              |                                      | `u`             | 
+| `cl`                 | ✅️              |                                      | `V`             | ❌️          
+| `cT`                 | ✅️              |                                      | `v`             | ❌️          
+| `ct`                 | ✅️              |                                      | `W`             | ✅️          
+| `cW`                 | ❌️              |                                      | `w`             | ✅️          
+| `cw`                 | ❌️              |                                      | `X`             |             
+| `D`                  | ❌️                                                     | `x`             |             
+| `<Del>`              | ✅️️                                                     | `Y`             |             
+| `d$`                 | ❌️                                                     | `y`             |                 
 | `d0`                 |                                                       
 | `daW`                | ❌️            
 | `daw`                | ❌️            
@@ -215,7 +214,7 @@ straight from your Vim brain to the underlying macOS. kV takes care of the mess 
 | `i`                  | ❌️               
 | `J`                  | ❌                 
 | `j`, `CTRL-J`, `CTRL-N`, `<Down>`                  | ✅️                 
-| `k`                  | ✅️                 
+| `k`, `CTRL-P`, `<Up>`                  | ✅️                 
 | `l`                  | ✅️
 | `N`                  | ✅️               
 | `n`                  | ✅️               
@@ -230,7 +229,6 @@ straight from your Vim brain to the underlying macOS. kV takes care of the mess 
 | `s`                  | ✅️                  
 | `T`                  | ✅️                 
 | `t`                  | ✅️                 
-| `<Up>`               | ✅️                 
 | `u`                  | ✅️                 
 | `W`                  | ✅️️                 
 | `w`                  | ✅️️                 
