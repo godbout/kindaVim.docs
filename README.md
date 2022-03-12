@@ -132,8 +132,8 @@ straight from your Vim brain to the underlying macOS. kV takes care of the mess 
 | `c0`                                   |                 |                                      | `h`, `<BS>`, `CTRL-H`, `<Left>`             | ✅️          
 | `caW`                                  | ❌️              |                                      | `iW`                                        | ❌️          
 | `caw`                                  | ❌️              |                                      | `iw`                                        | ❌️          
-| `cB`                                   | ✅️️              |                                      | `j`, `CTRL-J`, `CTRL-N`, `<Down>`           | ❌️          
-| `cb`                                   | ✅️️              |                                      | `k`, `CTRL-P`, `<Up>`                       | ❌️          
+| `cB`                                   | ✅️️              |                                      | `j`, `CTRL-J`, `CTRL-N`, `<Down>`           | ✅️          
+| `cb`                                   | ✅️️              |                                      | `k`, `CTRL-P`, `<Up>`                       | ✅️          
 | `cc`                                   | ❌️              |                                      | `l`, `<Right>`, `<Space>`                   | ✅️          
 | `cE`                                   | ✅️️              |                                      | `o`                                         |             
 | `ce`                                   | ✅️️              |                                      | `R`                                         |             
