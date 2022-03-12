@@ -108,8 +108,8 @@ straight from your Vim brain to the underlying macOS. kV takes care of the mess 
 | `[(`                                   | ❌️              |                                      | `$`, `<End>`                                | ❌️          
 | `[(`                                   | ❌️              |                                      | `~`                                         |             
 | `[{`                                   | ❌️              |                                      | `0`                                         |             
-| `])`                                   | ❌️              |                                      | `B`                                         | ✅️          
-| `]}`                                   | ❌️              |                                      | `b`                                         | ✅️          
+| `])`                                   | ❌️              |                                      | `B`, `<C-Left>`                             | ✅️          
+| `]}`                                   | ❌️              |                                      | `b`, `<S-Left>`                             | ✅️          
 | `{`                                    | ❌️              |                                      | `C`                                         |             
 | `}`                                    | ❌️              |                                      | `<CR>`, `CTRL-M`                            | ✅️          
 | `/`                                    | ✅️              |                                      | `c`, `s`                                    |             
@@ -143,8 +143,8 @@ straight from your Vim brain to the underlying macOS. kV takes care of the mess 
 | `cG`                                   | ❌️              |                                      | `u`                                         | 
 | `cgg`                                  | ❌️              |                                      | `V`                                         | ❌️          
 | `ci'`                                  | ❌️              |                                      | `v`                                         | ❌️          
-| `ci"`                                  | ❌️              |                                      | `W`                                         | ✅️          
-| `ci(`                                  | ❌️              |                                      | `w`                                         | ✅️          
+| `ci"`                                  | ❌️              |                                      | `W`, `<C-Right>`                            | ✅️          
+| `ci(`                                  | ❌️              |                                      | `w`, `<S-Right>`                            | ✅️          
 | `ci)`                                  | ❌️              |                                      | `X`                                         |             
 | `ci[`                                  | ❌️              |                                      | `Y`                                         |             
 | `ci]`                                  | ❌️              |                                      | `y`                                         |                 
