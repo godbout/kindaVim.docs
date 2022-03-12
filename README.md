@@ -217,7 +217,7 @@ straight from your Vim brain to the underlying macOS. kV takes care of the mess 
 | `t`                                    | ✅️                 
 | `u`                                    | ✅️                 
 | `W`, `<C-Right>`                       | ✅️️                 
-| `w`                                    | ✅️️                 
+| `w`, `<S-Right>`                       | ✅️️                 
 | `X`, `dh`                              | ✅️                 
 | `x`, `<Del>`, `dl`                     | ✅️                  
 | `Y`                                    | ✅️                  
