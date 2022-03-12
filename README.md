@@ -119,7 +119,7 @@ straight from your Vim brain to the underlying macOS. kV takes care of the mess 
 | `+`                                    | ✅️️              |                                      | `e`                                         | ✅️          
 | `<<`                                   | ❌️              |                                      | `F`                                         | ✅️          
 | `>>`                                   | ❌️              |                                      | `f`                                         | ✅️          
-| `~`                                    | ✅️              |                                      | `G`                                         | ❌️          
+| `~`                                    | ✅️              |                                      | `G`                                         | ✅️          
 | `$`, `<End>`                           | ✅️              |                                      | `g^`                                        |             
 | `0`                                    |                 |                                      | `g$`, `g<End>`                              | ❌️          
 | `A`                                    | ❌️              |                                      | `g0`, `g<Home>`                             |             
