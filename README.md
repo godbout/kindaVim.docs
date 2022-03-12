@@ -111,7 +111,7 @@ straight from your Vim brain to the underlying macOS. kV takes care of the mess 
 | `])`                                   | ❌️              |                                      | `B`                                         | ✅️          
 | `]}`                                   | ❌️              |                                      | `b`                                         | ✅️          
 | `{`                                    | ❌️              |                                      | `C`                                         |             
-| `}`                                    | ❌️              |                                      | `<CR>`, `CTRL-M`                            | ❌️          
+| `}`                                    | ❌️              |                                      | `<CR>`, `CTRL-M`                            | ✅️          
 | `/`                                    | ✅️              |                                      | `c`, `s`                                    |             
 | `/<CR>`                                | ✅️              |                                      | `D`                                         |             
 | `%`                                    |                 |                                      | `d`, `<Del>`, `x`                           |             
