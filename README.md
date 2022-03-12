@@ -246,13 +246,13 @@ straight from your Vim brain to the underlying macOS. kV takes care of the mess 
 | `?<CR>`                                     | ❌️    |                                      | `+`                                        | ✅️              
 | `/`                                         | ❌️    |                                      | `$`, `<End>`                               | ❌️              
 | `/<CR>`                                     | ❌️    |                                      | `0`                                        |                 
-| `^`                                         |       |                                      | `b`                                        | ✅️️              
+| `^`                                         |       |                                      | `b`, `<S-Left>`                            | ✅️️              
 | `+`                                         | ✅️️    |                                      | `C`                                        |                 
 | `$`, `<End>`                                | ❌️    |                                      | `<CR>`, `CTRL-M`                           | ✅️              
 | `0`                                         |       |                                      | `c`, `s`                                   |                 
 | `A`                                         | ❌️    |                                      | `D`                                        |                 
 | `a`                                         | ❌️    |                                      | `d`, `<Del>`, `x`                          |                 
-| `b`                                         | ✅️️    |                                      | `e`                                        | ✅️️              
+| `b`, `<S-Left>`                             | ✅️️    |                                      | `e`                                        | ✅️️              
 | `C`, `c$`                                   | ❌️    |                                      | `G`                                        | ❌️              
 | `<CR>`, `CTRL-M`                            | ✅️    |                                      | `g^`                                       |                 
 | `CTRL-B`                                    | ❌️    |                                      | `g$`, `g<End>`                             | ❌️              
@@ -272,7 +272,7 @@ straight from your Vim brain to the underlying macOS. kV takes care of the mess 
 | `ck`                                        | ❌️    |                                      | `u`                                        |         
 | `cw`                                        | ✅️️    |                                      | `V`                                        | ❌️              
 | `D`, `d$`                                   | ❌️    |                                      | `v`                                        | ❌️              
-| `d0`                                        |       |                                      | `w`                                        | ✅️️              
+| `d0`                                        |       |                                      | `w`, `<S-Right>`                           | ✅️️              
 | `db`                                        | ✅️️    |                                      | `X`                                        |                 
 | `dd`                                        | ❌️    |                                      | `Y`                                        |                                        
 | `de`                                        | ✅️️    |                                      | `y`                                        |                  
@@ -309,7 +309,7 @@ straight from your Vim brain to the underlying macOS. kV takes care of the mess 
 | `S`                                         | ❌️    | ️
 | `s`, `cl`                                   | ✅️️    |
 | `u`                                         | ✅️️    |
-| `w`                                         | ✅️️    |
+| `w`, `<S-Right>`                            | ✅️️    |
 | `X`, `dh`                                   | ✅️️    |
 | `x`, `<Del>`, `dl`                          | ✅️️    |
 | `Y`                                         | ❌️    |
