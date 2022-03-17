@@ -100,12 +100,12 @@ straight from your Vim brain to the underlying macOS. kV takes care of the mess 
 
 | Normal Mode                            | count | &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; | Visual Mode | count |
 | ---:                                   | :---:           | :---:                                | ---:                                        | :---:       
-| `_`                                    | ✅️              |                                      | `_`                                         | ❌️          
+| `_`                                    | ✅️              |                                      | `_`                                         | ✅️️          
 | `,`                                    | ✅️              |                                      | `,`                                         | ✅️          
 | `;`                                    | ✅️              |                                      | `;`                                         | ✅️          
 | `?`                                    | ✅️              |                                      | `^`                                         |             
 | `?<CR>`                                | ✅️              |                                      | `+`, `<CR>`, `CTRL-M`                       | ✅️
-| `[(`                                   | ❌️              |                                      | `$`, `<End>`                                | ❌️          
+| `[(`                                   | ❌️              |                                      | `$`, `<End>`                                | ✅️️          
 | `[(`                                   | ❌️              |                                      | `~`                                         |             
 | `[{`                                   | ❌️              |                                      | `0`                                         |             
 | `])`                                   | ❌️              |                                      | `B`, `<C-Left>`                             | ✅️          
@@ -117,10 +117,10 @@ straight from your Vim brain to the underlying macOS. kV takes care of the mess 
 | `%`                                    |                 |                                      | `E`                                         | ✅️          
 | `^`                                    |                 |                                      | `e`                                         | ✅️          
 | `+`, `<CR>`, `<CTRL-M>`                | ✅️️              |                                      | `F`                                         | ✅️          
-| `<<`                                   | ❌️              |                                      | `f`                                         | ✅️          
-| `>>`                                   | ❌️              |                                      | `G`                                         | ✅️          
+| `<<`                                   | ✅️️              |                                      | `f`                                         | ✅️          
+| `>>`                                   | ✅️️              |                                      | `G`                                         | ✅️          
 | `~`                                    | ✅️              |                                      | `g^`                                        |             
-| `$`, `<End>`                           | ✅️              |                                      | `g$`, `g<End>`                              | ❌️          
+| `$`, `<End>`                           | ✅️              |                                      | `g$`, `g<End>`                              | ✅️️          
 | `0`                                    |                 |                                      | `g0`, `g<Home>`                             |             
 | `A`                                    | ❌️              |                                      | `gE`                                        | ✅️          
 | `a`                                    | ❌️              |                                      | `ge`                                        | ✅️          
