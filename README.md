@@ -317,14 +317,16 @@ straight from your Vim brain to the underlying macOS. kV takes care of the mess 
 | `yy`                                        | ❌️    |
 
 ### Commands
-| Command |
-| :---:   |
-| `:q`       
-| `:q!`
-| `:w`         
-| `:wq`        
-| `:x`
-| `ZZ`
+| Command | count |
+| :---:   | :---: |
+| `gT`    | ✅️️
+| `gt`    | ❌️
+| `:q`    |
+| `:q!`   |
+| `:w`    |            
+| `:wq`   |            
+| `:x`    |
+| `ZZ`    |
 
 # DID YOU KNOW?
 
