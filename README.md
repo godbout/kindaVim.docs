@@ -319,13 +319,13 @@ straight from your Vim brain to the underlying macOS. kV takes care of the mess 
 ### Commands
 | Command | count |
 | :---:   | :---: |
-| `gT`    | ✅️️
-| `gt`    | ❌️
 | `:q`    |
 | `:q!`   |
 | `:w`    |            
 | `:wq`   |            
 | `:x`    |
+| `gT`    | ✅️️
+| `gt`    | ❌️
 | `ZZ`    |
 
 # DID YOU KNOW?
