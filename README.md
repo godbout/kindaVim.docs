@@ -253,28 +253,28 @@ straight from your Vim brain to the underlying macOS. kV takes care of the mess 
 | `0`                                         |       |                                      | `e`                                        | ✅️️              
 | `A`                                         | ❌️    |                                      | `G`                                        | ❌️              
 | `a`                                         | ❌️    |                                      | `g^`                                       |                 
-| `b`, `<S-Left>`                             | ✅️️    |                                      | `g$`, `g<End>`                             | ❌️              
-| `C`, `c$`                                   | ❌️    |                                      | `g0`, `g<Home>`                            |                 
-| `CTRL-B`                                    | ❌️    |                                      | `ge`                                       | ✅️️              
-| `CTRL-D`                                    | ❌️    |                                      | `gg`                                       | ❌️              
-| `CTRL-F`                                    | ❌️    |                                      | `gI`                                       |                 
-| `CTRL-R`                                    | ✅️️    |                                      | `gj`, `g<Down>`                            | ✅️              
-| `CTRL-U`                                    | ❌️    |                                      | `gk`, `g<Up>`                              | ✅️              
-| `c0`                                        |       |                                      | `h`, `<BS>`, `CTRL-H`, `<Left>`            | ✅️              
-| `cb`                                        | ✅️️    |                                      | `iw`                                       | ❌️              
-| `cc`                                        | ❌️    |                                      | `j`, `CTRL-J`, `CTRL-N`, `<Down>`          | ✅️              
-| `ce`                                        | ✅️️    |                                      | `k`, `CTRL-P`, `<Up>`                      | ✅️              
-| `cG`                                        | ❌️    |                                      | `l`, `<Right>`, `<Space>`                  | ✅️              
-| `cgg`                                       | ❌️    |                                      | `R`                                        | ❌️              
-| `ch`                                        | ✅️️    |                                      | `S`                                        | ❌️              
-| `ciw`                                       | ❌️    |                                      | `u`                                        |         
-| `cj`                                        | ❌️    |                                      | `V`                                        | ❌️              
-| `ck`                                        | ❌️    |                                      | `v`                                        | ❌️              
-| `cw`                                        | ✅️️    |                                      | `w`, `<S-Right>`                           | ✅️️              
-| `D`, `d$`                                   | ❌️    |                                      | `X`                                        |                 
-| `d0`                                        |       |                                      | `Y`                                        |                                        
-| `db`                                        | ✅️️    |                                      | `y`                                        |                  
-| `dd`                                        | ❌️    |                                      
+| `b`, `<S-Left>`                             | ✅️️    |                                      | `g_`                                       | ❌️
+| `C`, `c$`                                   | ❌️    |                                      | `g$`, `g<End>`                             | ❌️              
+| `CTRL-B`                                    | ❌️    |                                      | `g0`, `g<Home>`                            |                 
+| `CTRL-D`                                    | ❌️    |                                      | `ge`                                       | ✅️️              
+| `CTRL-F`                                    | ❌️    |                                      | `gg`                                       | ❌️              
+| `CTRL-R`                                    | ✅️️    |                                      | `gI`                                       |                 
+| `CTRL-U`                                    | ❌️    |                                      | `gj`, `g<Down>`                            | ✅️              
+| `c0`                                        |       |                                      | `gk`, `g<Up>`                              | ✅️              
+| `cb`                                        | ✅️️    |                                      | `h`, `<BS>`, `CTRL-H`, `<Left>`            | ✅️              
+| `cc`                                        | ❌️    |                                      | `iw`                                       | ❌️              
+| `ce`                                        | ✅️️    |                                      | `j`, `CTRL-J`, `CTRL-N`, `<Down>`          | ✅️              
+| `cG`                                        | ❌️    |                                      | `k`, `CTRL-P`, `<Up>`                      | ✅️              
+| `cgg`                                       | ❌️    |                                      | `l`, `<Right>`, `<Space>`                  | ✅️              
+| `ch`                                        | ✅️️    |                                      | `R`                                        | ❌️              
+| `ciw`                                       | ❌️    |                                      | `S`                                        | ❌️              
+| `cj`                                        | ❌️    |                                      | `u`                                        |         
+| `ck`                                        | ❌️    |                                      | `V`                                        | ❌️              
+| `cw`                                        | ✅️️    |                                      | `v`                                        | ❌️              
+| `D`, `d$`                                   | ❌️    |                                      | `w`, `<S-Right>`                           | ✅️️              
+| `d0`                                        |       |                                      | `X`                                        |                 
+| `db`                                        | ✅️️    |                                      | `Y`                                        |                                        
+| `dd`                                        | ❌️    |                                      | `y`                                        |                  
 | `de`                                        | ✅️️    |                                      
 | `dG`                                        | ❌️    |                                      
 | `dgg`                                       | ❌️    |                                      
