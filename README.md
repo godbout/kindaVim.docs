@@ -205,7 +205,7 @@ straight from your Vim brain to the underlying macOS. kV takes care of the mess 
 | `k`, `CTRL-P`, `<Up>`                  | ✅️                 
 | `L`                                    | ✅️
 | `l`, `<Right>`, `<Space>`              | ✅️
-| `M`                                    | ✅️
+| `M`                                    |
 | `N`                                    | ✅️               
 | `n`                                    | ✅️               
 | `O`                                    | ❌️                 
