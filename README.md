@@ -196,13 +196,16 @@ straight from your Vim brain to the underlying macOS. kV takes care of the mess 
 | `gI`                                   | ❌️              
 | `gj`, `g<Down>`                        | ✅️               
 | `gk`, `g<Up>`                          | ✅️                 
+| `H`                                    | ✅️
 | `h`, `<BS>`, `CTRL-H`, `<Left>`        | ✅️                 
 | `I`                                    | ❌️                 
 | `i`                                    | ❌️               
 | `J`                                    | ❌                 
 | `j`, `CTRL-J`, `CTRL-N`, `<Down>`      | ✅️                 
 | `k`, `CTRL-P`, `<Up>`                  | ✅️                 
+| `L`                                    | ✅️
 | `l`, `<Right>`, `<Space>`              | ✅️
+| `M`                                    | ✅️
 | `N`                                    | ✅️               
 | `n`                                    | ✅️               
 | `O`                                    | ❌️                 
