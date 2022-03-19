@@ -272,13 +272,6 @@ And also it's fucking cool.
 | `gt`    | ❌️
 | `ZZ`    |
 
-# Roadmap
-
-* add a plethora of missing Vim moves ([ask!](https://github.com/godbout/kindaVim.theapp/issues/new))
-* update all moves to support new global count system ([ask!](https://github.com/godbout/kindaVim.theapp/issues/new))
-* some kind of config file system (.kVrc? read .vimrc? UI key remapping?)
-* users' requests
-
 # Feedback
 
 * whether you need a missing move, want to report a bug or ask for a feature, just [open an issue](https://github.com/godbout/kindaVim.theapp/issues/new).
