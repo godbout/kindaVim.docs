@@ -37,7 +37,7 @@ And also it's fucking cool.
 
 ## Motions
 
-### kV Accessibility Strategy
+### kV Accessibility Strategy: text manipulation; accurate.
 
 | Normal Mode                            | count | &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; | Visual Mode | count |
 | ---:                                   | :---:           | :---:                                | ---:                                        | :---:       
@@ -184,7 +184,10 @@ And also it's fucking cool.
 | `yt`                                   | ✅️ 
 | `yy`                                   | ✅️ 
 
-### kV Keyboard Strategy
+### kV Keyboard Strategy: keyboard remapping; less accurate.
+
+kV detects automatically which Strategy to use, but sometimes you may wish to enforce the Keyboard Strategy.
+You can do so by pressing `fn` while doing a move. This is useful when you're in a text input but want to scroll through the UI (scrollbars) rather than the text/caret, or to move from one input to another in apps with custom UI.
 
 | Normal Mode                                 | count | &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; | Visual Mode  | count | 
 | ---:                                        | :---: | :---:                                | ---:                                       | :---:
@@ -264,7 +267,7 @@ And also it's fucking cool.
 | `yiw`                                       | ❌️    |
 | `yy`                                        | ❌️    |
 
-### Commands
+## Commands
 | Command | count |
 | :---:   | :---: |
 | `:q`    |
