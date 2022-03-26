@@ -186,7 +186,7 @@ And also it's fucking cool.
 
 ### kV Keyboard Strategy
 
-| Normal Mode                                 | count | &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; | Visual Mode  | count | 
+| Normal Mode                                 | count | &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; | Visual Mode  | count | 
 | ---:                                        | :---: | :---:                                | ---:                                       | :---:
 | `_`                                         | ❌️    |                                      | `_`                                        | ❌️              
 | `?`                                         | ❌️    |                                      | `^`                                        |                 
