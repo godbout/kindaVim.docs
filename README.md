@@ -39,7 +39,7 @@ And also it's fucking cool.
 
 ### kV Accessibility Strategy
 
-| Normal Mode                            | count | &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; | Visual Mode | count |
+| Normal Mode                            | count | &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; | Visual Mode | count |
 | ---:                                   | :---:           | :---:                                | ---:                                        | :---:       
 | `_`                                    | ✅️              |                                      | `_`                                         | ✅️️          
 | `,`                                    | ✅️              |                                      | `,`                                         | ✅️          
