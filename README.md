@@ -205,7 +205,7 @@ And also it's fucking cool.
 | `C`, `c$`                                   | ❌️    |                                      | `g$`, `g<End>`                             | ❌️              
 | `CTRL-B`                                    | ❌️    |                                      | `g0`, `g<Home>`                            |                 
 | `CTRL-D`                                    | ❌️    |                                      | `ge`                                       | ✅️️              
-| `CTRL-F`                                    | ❌️    |                                      | `gg`                                       | ❌️              
+| `CTRL-F`, `<PageDown>`, `<S-Down>`          | ❌️    |                                      | `gg`                                       | ❌️              
 | `CTRL-R`                                    | ✅️️    |                                      | `gI`                                       |                 
 | `CTRL-U`                                    | ❌️    |                                      | `gj`, `g<Down>`                            | ✅️              
 | `c0`                                        |       |                                      | `gk`, `g<Up>`                              | ✅️              
