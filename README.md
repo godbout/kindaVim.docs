@@ -203,7 +203,7 @@ And also it's fucking cool.
 | `a`                                         | ❌️    |                                      | `g^`                                       |                 
 | `b`, `<S-Left>`                             | ✅️️    |                                      | `g_`                                       | ❌️
 | `C`, `c$`                                   | ❌️    |                                      | `g$`, `g<End>`                             | ❌️              
-| `CTRL-B`                                    | ❌️    |                                      | `g0`, `g<Home>`                            |                 
+| `CTRL-B`, `<PageUp>`, `<S-Up>`              | ❌️    |                                      | `g0`, `g<Home>`                            |                 
 | `CTRL-D`                                    | ❌️    |                                      | `ge`                                       | ✅️️              
 | `CTRL-F`, `<PageDown>`, `<S-Down>`          | ❌️    |                                      | `gg`                                       | ❌️              
 | `CTRL-R`                                    | ✅️️    |                                      | `gI`                                       |                 
