@@ -83,7 +83,7 @@ And also it's fucking cool.
 | `ce`                                   | ✅️️              |                                      | `S`                                         |             
 | `cF`                                   | ✅️              |                                      | `T`                                         | ✅️          
 | `cf`                                   | ✅️              |                                      | `t`                                         | ✅️️          
-| `ch`                                   | ✅️              |                                      | `u`                                         | 
+| `ch`, `c<BS>`, `c<CTRL-H>`, `c<Left>`  | ✅️              |                                      | `u`                                         | 
 | `cG`                                   | ❌️              |                                      | `V`                                         | ❌️          
 | `cgg`                                  | ❌️              |                                      | `v`                                         | ❌️          
 | `ci'`                                  | ❌️              |                                      | `W`, `<C-Right>`                            | ✅️          
