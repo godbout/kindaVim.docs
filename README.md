@@ -159,7 +159,7 @@ And also it's fucking cool.
 | `p`                                    | ❌️                 
 | `r`                                    | ✅️                 
 | `S`                                    | ❌️                  
-| `s`, `cl`                              | ✅️                  
+| `s`, `cl`, `c<Right>`, `c<Space>`      | ✅️                  
 | `T`                                    | ✅️                 
 | `t`                                    | ✅️                 
 | `u`                                    | ✅️                 
