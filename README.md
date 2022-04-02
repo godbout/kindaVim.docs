@@ -258,7 +258,7 @@ You can do so by pressing `fn` while doing a move. This is useful when you're in
 | `p`                                         | ❌️    |
 | `r`                                         | ❌️    |
 | `S`                                         | ❌️    | ️
-| `s`, `cl`                                   | ✅️️    |
+| `s`, `cl`, `c<Right>`, `c<Space>`           | ✅️️    |
 | `u`                                         | ✅️️    |
 | `w`, `<S-Right>`                            | ✅️️    |
 | `X`, `dh`                                   | ✅️️    |
