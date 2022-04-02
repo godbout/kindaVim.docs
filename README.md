@@ -217,7 +217,7 @@ You can do so by pressing `fn` while doing a move. This is useful when you're in
 | `ce`                                        | ✅️️    |                                      | `j`, `CTRL-J`, `CTRL-N`, `<Down>`          | ✅️              
 | `cG`                                        | ❌️    |                                      | `k`, `CTRL-P`, `<Up>`                      | ✅️              
 | `cgg`                                       | ❌️    |                                      | `l`, `<Right>`, `<Space>`                  | ✅️              
-| `ch`                                        | ✅️️    |                                      | `R`                                        | ❌️              
+| `ch`, `c<BS>`, `cCTRL-H`, `c<Left>`         | ✅️️    |                                      | `R`                                        | ❌️              
 | `ciw`                                       | ❌️    |                                      | `S`                                        | ❌️              
 | `cj`                                        | ❌️    |                                      | `u`                                        |         
 | `ck`                                        | ❌️    |                                      | `V`                                        | ❌️              
