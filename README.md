@@ -262,7 +262,7 @@ You can do so by pressing `fn` while doing a move. This is useful when you're in
 | `u`                                         | ✅️️    |
 | `w`, `<S-Right>`                            | ✅️️    |
 | `X`, `dh`, `d<BS>`, `dCTRL-H`, `d<Left>`    | ✅️️    |
-| `x`, `<Del>`, `dl`                          | ✅️️    |
+| `x`, `<Del>`, `dl`, `d<Right>`, `d<Space>`  | ✅️️    |
 | `Y`                                         | ❌️    |
 | `yiw`                                       | ❌️    |
 | `yy`                                        | ❌️    |
