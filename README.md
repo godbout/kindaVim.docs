@@ -100,7 +100,7 @@ And also it's fucking cool.
 | `ciW`                                  | ❌️              |                                      
 | `ciw`                                  | ❌️              |                                      
 | `cj`, `cCTRL-J`, `cCTRL-N`, `c<Down>`  | ❌️              |                                      
-| `ck`                                   | ❌️              |                                      
+| `ck`, `cCTRL-P`, `c<Up>`               | ❌️              |                                      
 | `cT`                                   | ✅️              |                                      
 | `ct`                                   | ✅️              |                                      
 | `cW`                                   | ❌️              |                                      
