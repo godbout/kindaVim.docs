@@ -121,7 +121,7 @@ And also it's fucking cool.
 | `diW`                                  | ❌️            
 | `diw`                                  | ❌️            
 | `dj`, `dCTRL-J`, `dCTRL-N`, `d<Down>`  | ❌️             
-| `dk`                                   | ❌️             
+| `dk`, `dCTRL-P`, `d<Up>`               | ❌️             
 | `dT`                                   | ✅️             
 | `dt`                                   | ✅️             
 | `dW`                                   | ✅️             
