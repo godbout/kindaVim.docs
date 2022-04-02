@@ -120,7 +120,7 @@ And also it's fucking cool.
 | `dgg`                                  | ❌️            
 | `diW`                                  | ❌️            
 | `diw`                                  | ❌️            
-| `dj`                                   | ❌️             
+| `dj`, `dCTRL-J`, `dCTRL-N`, `d<Down>`  | ❌️             
 | `dk`                                   | ❌️             
 | `dT`                                   | ✅️             
 | `dt`                                   | ✅️             
