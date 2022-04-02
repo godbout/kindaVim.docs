@@ -219,7 +219,7 @@ You can do so by pressing `fn` while doing a move. This is useful when you're in
 | `cgg`                                       | ❌️    |                                      | `l`, `<Right>`, `<Space>`                  | ✅️              
 | `ch`, `c<BS>`, `cCTRL-H`, `c<Left>`         | ✅️️    |                                      | `R`                                        | ❌️              
 | `ciw`                                       | ❌️    |                                      | `S`                                        | ❌️              
-| `cj`                                        | ❌️    |                                      | `u`                                        |         
+| `cj`, `cCTRL-J`, `cCTRL-N`, `c<Down>`       | ❌️    |                                      | `u`                                        |         
 | `ck`                                        | ❌️    |                                      | `V`                                        | ❌️              
 | `cw`                                        | ✅️️    |                                      | `v`                                        | ❌️              
 | `D`, `d$`                                   | ❌️    |                                      | `w`, `<S-Right>`                           | ✅️️              
