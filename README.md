@@ -166,7 +166,7 @@ And also it's fucking cool.
 | `W`, `<C-Right>`                            | ✅️️                 
 | `w`, `<S-Right>`                            | ✅️️                 
 | `X`, `dh`, `d<BS>`, `dCTRL-H`, `d<Left>`    | ✅️                 
-| `x`, `<Del>`, `dl`                          | ✅️                  
+| `x`, `<Del>`, `dl`, `d<Right>`, `d<Space>`  | ✅️                  
 | `Y`                                         | ✅️                  
 | `yF`                                        | ✅️                 
 | `yf`                                        | ✅️                 
