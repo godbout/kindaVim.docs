@@ -220,7 +220,7 @@ You can do so by pressing `fn` while doing a move. This is useful when you're in
 | `ch`, `c<BS>`, `cCTRL-H`, `c<Left>`         | ✅️️    |                                      | `R`                                        | ❌️              
 | `ciw`                                       | ❌️    |                                      | `S`                                        | ❌️              
 | `cj`, `cCTRL-J`, `cCTRL-N`, `c<Down>`       | ❌️    |                                      | `u`                                        |         
-| `ck`                                        | ❌️    |                                      | `V`                                        | ❌️              
+| `ck`, `cCTRL-P`, `c<Up>`                    | ❌️    |                                      | `V`                                        | ❌️              
 | `cw`                                        | ✅️️    |                                      | `v`                                        | ❌️              
 | `D`, `d$`                                   | ❌️    |                                      | `w`, `<S-Right>`                           | ✅️️              
 | `d0`                                        |       |                                      | `X`                                        |                 
