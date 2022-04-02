@@ -99,7 +99,7 @@ And also it's fucking cool.
 | `cib`                                  | ❌️              |                                      
 | `ciW`                                  | ❌️              |                                      
 | `ciw`                                  | ❌️              |                                      
-| `cj`                                   | ❌️              |                                      
+| `cj`, `cCTRL-J`, `cCTRL-N`, `c<Down>`  | ❌️              |                                      
 | `ck`                                   | ❌️              |                                      
 | `cT`                                   | ✅️              |                                      
 | `ct`                                   | ✅️              |                                      
