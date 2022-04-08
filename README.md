@@ -188,6 +188,7 @@ And also it's fucking cool.
 | `zb`                                        | ❌️                 
 | `z<CR>`                                     | ❌️                 
 | `zt`                                        | ❌️                 
+| `zz`                                        | ❌️                 
 
 
 ### kV Keyboard Strategy: keyboard remapping; less accurate.
