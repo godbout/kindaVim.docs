@@ -273,6 +273,7 @@ You can do so by pressing `fn` while doing a move. This is useful when you're in
 | `Y`                                         | ❌️    |
 | `yiw`                                       | ❌️    |
 | `yy`                                        | ❌️    |
+| `zz`                                        | ❌️    |
 
 ## Commands
 | Command | count |
