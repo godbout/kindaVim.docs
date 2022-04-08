@@ -183,6 +183,8 @@ And also it's fucking cool.
 | `yT`                                        | ✅️ 
 | `yt`                                        | ✅️ 
 | `yy`                                        | ✅️ 
+| `z-`                                        | ❌️                 
+
 
 ### kV Keyboard Strategy: keyboard remapping; less accurate.
 
