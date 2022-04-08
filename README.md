@@ -185,6 +185,7 @@ And also it's fucking cool.
 | `yy`                                        | ✅️ 
 | `z-`                                        | ❌️                 
 | `z.`                                        | ❌️                 
+| `zb`                                        | ❌️                 
 
 
 ### kV Keyboard Strategy: keyboard remapping; less accurate.
