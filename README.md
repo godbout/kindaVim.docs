@@ -7,31 +7,23 @@
 
 ---
 
-# Source Code
+# The Site
 
-kindaVim is a paid app but you can check out the source, remove the licensing, and compile it yourself. Source is available here:
-
-* App Core and kindaVim Engine Core: https://github.com/godbout/kindaVim
-* Accessibility Engine, to handle the macOS Accessibility: https://github.com/godbout/AXEngine
-* Accessibility Strategy, to handle Vim motions through text manipulation: https://github.com/godbout/AccessibilityStrategy
-* Keyboard Strategy, to handle Vim motions through key mapping: https://github.com/godbout/KeyboardStrategy
-* Commands, to handle Vim commands through key mapping: https://github.com/godbout/Commands
-* KeyCombination, to wrap Apple keyboard events: https://github.com/godbout/KeyCombination
-* Common, for shared structs, enums etc.: https://github.com/godbout/Common
-
-# License
-
-If you don't want to bother compiling from scratch, you can get a license at https://subscribe.kindavim.app. It costs one ☕️ (or 🍺) a month. 
-Or use an old beta, they're free. The last one is [1b25](https://github.com/godbout/kindaVim.theapp/releases/tag/1b.25).
+[kindavim.app](https://kindavim.app) for all the fancy stuff.
 
 # Why kindaVim
 
 Brain space and energy are limited.
 Why learning six hundred thousand new keyboard shortcuts when you can use Vim moves everywhere.
-Also macOS is widely inconsistent like sometimes you can go up and down with ctrl+n/ctrl+p but also sometimes not.
+Also macOS is widely inconsistent like sometimes you can go down and up with ctrl+n/ctrl+p but also sometimes not.
 Even in Apple's own apps. So jk FTW.
 
 And also it's fucking cool.
+
+# License
+
+kV only requires a license if you use it in the mornings. Yes, it's lazy.
+Without a coffee a month (USD$3.28 excl. tax) it'll work hard for you on any afternoon and night, but will fall asleep at dawn. 🌄️ 
 
 # Current Vim Implementation
 
@@ -290,6 +282,10 @@ You can do so by pressing `fn` while doing a move. This is useful when you're in
 # Feedback
 
 * whether you need a missing move, want to report a bug or ask for a feature, just [open an issue](https://github.com/godbout/kindaVim.theapp/issues/new).
+
+# AccessibilityStrategyTestApp
+
+Testing the Vim moves when using the macOS Accessibility requires building an external app. This app, as well as the tests of each move in the context of the Accessibility Strategy, are open source and available here: [AccessibilityStrategyTestApp](https://github.com/godbout/AccessibilityStrategyTestApp)
 
 # Acknowledgments
 
