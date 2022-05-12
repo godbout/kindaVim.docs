@@ -133,6 +133,7 @@ Without a coffee a month (USD$3.28 excl. tax) it'll work hard for you on any aft
 | `gI`                                        | ❌️              
 | `gj`, `g<Down>`                             | ✅️               
 | `gk`, `g<Up>`                               | ✅️                 
+| `gx`                                        |
 | `H`                                         | ✅️
 | `h`, `<BS>`, `CTRL-H`, `<Left>`             | ✅️                 
 | `I`                                         | ❌️                 
