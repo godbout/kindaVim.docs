@@ -1,5 +1,8 @@
 # Accessibility Strategy
 
+kV detects automatically which Strategy to use, but sometimes you may wish to enforce the Keyboard Strategy even when the text is Accessible.
+You can do so by pressing `fn` while doing a move. This is useful when you're in a text input but want to scroll through the UI (scrollbars) rather than the text/caret, or to move from one input to another in some apps with custom UI.
+
 | Normal Mode                                 | count | &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; | Visual Mode | count |
 | ---:                                        | :---:           | :---:                                | ---:                                        | :---:       
 | `_`                                         | ✅️              |                                      | `_`                                         | ✅️️          
