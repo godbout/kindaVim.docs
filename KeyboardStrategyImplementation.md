@@ -28,17 +28,17 @@
 | `ce`                                        | ✅️️    |                                      | `j`, `CTRL-J`, `CTRL-N`, `<Down>`          | ✅️              
 | `cG`                                        | ❌️    |                                      | `k`, `CTRL-P`, `<Up>`                      | ✅️              
 | `cgg`                                       | ❌️    |                                      | `l`, `<Right>`, `<Space>`                  | ✅️              
-| `ch`, `c<BS>`, `cCTRL-H`, `c<Left>`         | ✅️️    |                                      | `R`                                        | ❌️              
-| `ciw`                                       | ❌️    |                                      | `S`                                        | ❌️              
-| `cj`, `cCTRL-J`, `cCTRL-N`, `c<Down>`       | ❌️    |                                      | `u`                                        |         
-| `ck`, `cCTRL-P`, `c<Up>`                    | ❌️    |                                      | `V`                                        | ❌️              
-| `cw`                                        | ✅️️    |                                      | `v`                                        | ❌️              
-| `D`, `d$`                                   | ❌️    |                                      | `w`, `<S-Right>`                           | ✅️️              
-| `d0`                                        |       |                                      | `X`                                        |                 
-| `db`                                        | ✅️️    |                                      | `Y`                                        |                                        
-| `dd`                                        | ❌️    |                                      | `y`                                        |                  
-| `de`                                        | ✅️️    |                                      
-| `dG`                                        | ❌️    |                                      
+| `ch`, `c<BS>`, `cCTRL-H`, `c<Left>`         | ✅️️    |                                      | `P`                                        | ❌️              
+| `ciw`                                       | ❌️    |                                      | `p`                                        | ❌️              
+| `cj`, `cCTRL-J`, `cCTRL-N`, `c<Down>`       | ❌️    |                                      | `R`                                        | ❌️              
+| `ck`, `cCTRL-P`, `c<Up>`                    | ❌️    |                                      | `S`                                        | ❌️              
+| `cw`                                        | ✅️️    |                                      | `u`                                        |         
+| `D`, `d$`                                   | ❌️    |                                      | `V`                                        | ❌️              
+| `d0`                                        |       |                                      | `v`                                        | ❌️              
+| `db`                                        | ✅️️    |                                      | `w`, `<S-Right>`                           | ✅️️              
+| `dd`                                        | ❌️    |                                      | `X`                                        |                 
+| `de`                                        | ✅️️    |                                      | `Y`                                        |                                        
+| `dG`                                        | ❌️    |                                      | `y`                                        |                  
 | `dgg`                                       | ❌️    |                                      
 | `diw`                                       | ❌️    |                                      
 | `dj`, `dCTRL-J`, `dCTRL-N`, `d<Down>`       | ❌️    |                                      
