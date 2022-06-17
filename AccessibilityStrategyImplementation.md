@@ -57,6 +57,7 @@ You can do so by pressing `fn` while doing a move. This is useful when you're in
 | `ci'`                                       | ❌️              |                                      | `Y`                                         |             
 | `ci"`                                       | ❌️              |                                      | `y`                                         |                 
 | `ci[`, `ci]`                                | ❌️              |                                      
+| `ci<`, `ci>`                                | ❌️              |                                      
 | <code>ci`</code>                            | ❌️              |                                      
 | `ciB`, `ci{`, `ci}`                         | ❌️              |                                      
 | `cib`, `ci(`, `ci)`                         | ❌️              |                                      
