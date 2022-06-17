@@ -144,6 +144,7 @@ You can do so by pressing `fn` while doing a move. This is useful when you're in
 | `X`, `dh`, `d<BS>`, `dCTRL-H`, `d<Left>`    | ✅️                 
 | `x`, `<Del>`, `dl`, `d<Right>`, `d<Space>`  | ✅️                  
 | `Y`                                         | ✅️                  
+| `ya[`, `ya]`                                | ❌️                 
 | `yaB`, `ya{`, `ya}`                         | ❌️                 
 | `yab`, `ya(`, `ya)`                         | ❌️                 
 | `yF`                                        | ✅️                 
