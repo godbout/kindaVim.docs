@@ -85,6 +85,7 @@ You can do so by pressing `fn` while doing a move. This is useful when you're in
 | `dG`                                        | ❌️             
 | `dgg`                                       | ❌️            
 | `di'`                                       | ❌️            
+| `di"`                                       | ❌️            
 | `diW`                                       | ❌️            
 | `diw`                                       | ❌️            
 | `dj`, `dCTRL-J`, `dCTRL-N`, `d<Down>`       | ❌️             
