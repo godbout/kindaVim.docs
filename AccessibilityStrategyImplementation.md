@@ -89,6 +89,7 @@ You can do so by pressing `fn` while doing a move. This is useful when you're in
 | `di'`                                       | ❌️            
 | `di"`                                       | ❌️            
 | `di[`, `di]`                                | ❌️              |                                      
+| `di<`, `di>`                                | ❌️              |                                      
 | <code>di`</code>                            | ❌️              |                                      
 | `diB`, `di{`, `di}`                         | ❌️              |                                      
 | `dib`, `di(`, `di)`                         | ❌️              |                                      
