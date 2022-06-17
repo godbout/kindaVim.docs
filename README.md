@@ -34,15 +34,15 @@ Without a coffee a month (USD$3.28 excl. tax) it'll work hard for you on any aft
 kV detects automatically which Strategy to use, but sometimes you may wish to enforce the Keyboard Strategy even when the text is Accessible.
 You can do so by pressing `fn` while doing a move. This is useful when you're in a text input but want to scroll through the UI (scrollbars) rather than the text/caret, or to move from one input to another in some apps with custom UI.
 
-[To the dedicated page.](https://github.com/godbout/kindaVim.theapp/blob/master/AccessibilityStrategyImplementation.md#accessibility-strategy)
+[See the current implementation.](https://github.com/godbout/kindaVim.theapp/blob/master/AccessibilityStrategyImplementation.md#accessibility-strategy)
 
 ### kV Keyboard Strategy: keyboard remapping; less accurate.
 
-[To the dedicated page.](https://github.com/godbout/kindaVim.theapp/blob/master/KeyboardStrategyImplementation.md#keyboard-strategy)
+[See the current implementation.](https://github.com/godbout/kindaVim.theapp/blob/master/KeyboardStrategyImplementation.md#keyboard-strategy)
 
 ## Commands
 
-[To the dedicated page.](https://github.com/godbout/kindaVim.theapp/blob/master/CommandsImplementation.md#commands)
+[See the current implementation.](https://github.com/godbout/kindaVim.theapp/blob/master/CommandsImplementation.md#commands)
 
 # Feedback
 
