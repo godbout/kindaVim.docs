@@ -52,13 +52,11 @@ You can do so by pressing `fn` while doing a move. This is useful when you're in
 | `cgg`                                       | ❌️              |                                      | `V`                                         | ❌️          
 | `ci'`                                       | ❌️              |                                      | `v`                                         | ❌️          
 | `ci"`                                       | ❌️              |                                      | `W`, `<C-Right>`                            | ✅️          
-| `ci(`                                       | ❌️              |                                      | `w`, `<S-Right>`                            | ✅️          
-| `ci)`                                       | ❌️              |                                      | `X`                                         |             
-| `ci[`                                       | ❌️              |                                      | `Y`                                         |             
-| `ci]`                                       | ❌️              |                                      | `y`                                         |                 
-| <code>ci`</code>                            | ❌️              |                                      
-| `ciB`, `ci{`, `ci}`                         | ❌️              |                                      
-| `cib`                                       | ❌️              |                                      
+| `ci[`                                       | ❌️              |                                      | `w`, `<S-Right>`                            | ✅️          
+| `ci]`                                       | ❌️              |                                      | `X`                                         |             
+| <code>ci`</code>                            | ❌️              |                                      | `Y`                                         |             
+| `ciB`, `ci{`, `ci}`                         | ❌️              |                                      | `y`                                         |                 
+| `cib`, `ci(`, `ci)`                         | ❌️              |                                      
 | `ciW`                                       | ❌️              |                                      
 | `ciw`                                       | ❌️              |                                      
 | `cj`, `cCTRL-J`, `cCTRL-N`, `c<Down>`       | ❌️              |                                      
