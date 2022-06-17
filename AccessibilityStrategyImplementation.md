@@ -56,10 +56,8 @@ You can do so by pressing `fn` while doing a move. This is useful when you're in
 | `ci)`                                       | ❌️              |                                      | `X`                                         |             
 | `ci[`                                       | ❌️              |                                      | `Y`                                         |             
 | `ci]`                                       | ❌️              |                                      | `y`                                         |                 
-| `ci{`                                       | ❌️              |                                      
-| `ci}`                                       | ❌️              |                                      
 | <code>ci`</code>                            | ❌️              |                                      
-| `ciB`                                       | ❌️              |                                      
+| `ciB`, `ci{`, `ci}`                         | ❌️              |                                      
 | `cib`                                       | ❌️              |                                      
 | `ciW`                                       | ❌️              |                                      
 | `ciw`                                       | ❌️              |                                      
