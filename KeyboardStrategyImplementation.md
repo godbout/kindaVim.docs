@@ -27,18 +27,19 @@
 | `cc`                                        | ❌️    |                                      | `iw`                                       | ❌️              
 | `ce`                                        | ✅️️    |                                      | `j`, `CTRL-J`, `CTRL-N`, `<Down>`          | ✅️              
 | `cG`                                        | ❌️    |                                      | `k`, `CTRL-P`, `<Up>`                      | ✅️              
-| `cgg`                                       | ❌️    |                                      | `l`, `<Right>`, `<Space>`                  | ✅️              
-| `ch`, `c<BS>`, `cCTRL-H`, `c<Left>`         | ✅️️    |                                      | `P`                                        | ❌️              
-| `ciw`                                       | ❌️    |                                      | `p`                                        | ❌️              
-| `cj`, `cCTRL-J`, `cCTRL-N`, `c<Down>`       | ❌️    |                                      | `R`                                        | ❌️              
-| `ck`, `cCTRL-P`, `c<Up>`                    | ❌️    |                                      | `S`                                        | ❌️              
-| `cw`                                        | ✅️️    |                                      | `u`                                        |         
-| `D`, `d$`                                   | ❌️    |                                      | `V`                                        | ❌️              
-| `d0`                                        |       |                                      | `v`                                        | ❌️              
-| `db`                                        | ✅️️    |                                      | `w`, `<S-Right>`                           | ✅️️              
-| `dd`                                        | ❌️    |                                      | `X`                                        |                 
-| `de`                                        | ✅️️    |                                      | `Y`                                        |                                        
-| `dG`                                        | ❌️    |                                      | `y`                                        |                  
+| `cg$`, `cgEnd`                              | ❌️    |                                      | `l`, `<Right>`, `<Space>`                  | ✅️              
+| `cgg`                                       | ❌️    |                                      | `P`                                        | ❌️              
+| `ch`, `c<BS>`, `cCTRL-H`, `c<Left>`         | ✅️️    |                                      | `p`                                        | ❌️              
+| `ciw`                                       | ❌️    |                                      | `R`                                        | ❌️              
+| `cj`, `cCTRL-J`, `cCTRL-N`, `c<Down>`       | ❌️    |                                      | `S`                                        | ❌️              
+| `ck`, `cCTRL-P`, `c<Up>`                    | ❌️    |                                      | `u`                                        |         
+| `cw`                                        | ✅️️    |                                      | `V`                                        | ❌️              
+| `D`, `d$`                                   | ❌️    |                                      | `v`                                        | ❌️              
+| `d0`                                        |       |                                      | `w`, `<S-Right>`                           | ✅️️              
+| `db`                                        | ✅️️    |                                      | `X`                                        |                 
+| `dd`                                        | ❌️    |                                      | `Y`                                        |                                        
+| `de`                                        | ✅️️    |                                      | `y`                                        |                  
+| `dG`                                        | ❌️    |                                      
 | `dgg`                                       | ❌️    |                                      
 | `diw`                                       | ❌️    |                                      
 | `dj`, `dCTRL-J`, `dCTRL-N`, `d<Down>`       | ❌️    |                                      
