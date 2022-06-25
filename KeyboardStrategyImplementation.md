@@ -41,6 +41,7 @@
 | `dd`                                        | ❌️    |                                      | `y`                                        |                  
 | `de`                                        | ✅️️    |                                      
 | `dG`                                        | ❌️    |                                      
+| `dg$`, `dgEnd`                              | ❌️    |
 | `dgg`                                       | ❌️    |                                      
 | `diw`                                       | ❌️    |                                      
 | `dj`, `dCTRL-J`, `dCTRL-N`, `d<Down>`       | ❌️    |                                      
