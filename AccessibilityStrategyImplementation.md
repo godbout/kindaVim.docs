@@ -71,7 +71,7 @@ You can do so by pressing `fn` while doing a move. This is useful when you're in
 | `ct`                                        | ✅️              |                                      
 | `cW`                                        | ❌️              |                                      
 | `cw`                                        | ❌️              |                                      
-| `D`, `d$`                                   | ❌️              |                                      
+| `D`, `d$`, `dEnd`                           | ❌️              |                                      
 | `d0`                                        |                 |                                      
 | `da[`, `da]`                                | ❌️              |
 | `da<`, `da>`                                | ❌️              |
