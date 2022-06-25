@@ -83,6 +83,7 @@
 | `y0`                                        |       |
 | `yg$`, `ygEnd`                              | ❌️    |
 | `yg0`, `ygHome`                             |   ️    |
+| `yh`, `y<BS>`, `y<Left>`, `yCTRL-H`         | ❌️    |
 | `yiw`                                       | ❌️    |
 | `yy`                                        | ❌️    |
 | `zz`                                        | ❌️    |
