@@ -158,6 +158,7 @@ You can do so by pressing `fn` while doing a move. This is useful when you're in
 | `yf`                                        | ✅️                 
 | `yg$`, `ygEnd`                              | ️️❌️
 | `yg0`, `ygHome`                             | ️️
+| `yh`, `y<BS>`, `y<Left>`, `yCTRL-H`         | ❌️
 | `yi'`                                       | ❌️
 | `yi"`                                       | ❌️                 
 | `yi[`, `yi]`                                | ❌️                 
