@@ -42,6 +42,7 @@
 | `de`                                        | ✅️️    |                                      
 | `dG`                                        | ❌️    |                                      
 | `dg$`, `dgEnd`                              | ❌️    |
+| `dg0`, `dgHome`                             |       |
 | `dgg`                                       | ❌️    |                                      
 | `diw`                                       | ❌️    |                                      
 | `dj`, `dCTRL-J`, `dCTRL-N`, `d<Down>`       | ❌️    |                                      
