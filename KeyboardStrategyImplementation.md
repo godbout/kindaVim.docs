@@ -79,6 +79,7 @@
 | `X`, `dh`, `d<BS>`, `dCTRL-H`, `d<Left>`    | ✅️️    |
 | `x`, `<Del>`, `dl`, `d<Right>`, `d<Space>`  | ✅️️    |
 | `Y`                                         | ❌️    |
+| `y$`, `yEnd`                                | ❌️    |
 | `yiw`                                       | ❌️    |
 | `yy`                                        | ❌️    |
 | `zz`                                        | ❌️    |
