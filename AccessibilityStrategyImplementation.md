@@ -54,10 +54,11 @@ You can do so by pressing `fn` while doing a move. This is useful when you're in
 | `ch`, `c<BS>`, `cCTRL-H`, `c<Left>`         | ✅️              |                                      | `V`                                         | ❌️          
 | `cG`                                        | ❌️              |                                      | `v`                                         | ❌️          
 | `cg$`, `cgEnd`                              | ❌️              |                                      | `W`, `<C-Right>`                            | ✅️          
-| `cgg`                                       | ❌️              |                                      | `w`, `<S-Right>`                            | ✅️          
-| `ci'`                                       | ❌️              |                                      | `X`                                         |             
-| `ci"`                                       | ❌️              |                                      | `Y`                                         |             
-| `ci[`, `ci]`                                | ❌️              |                                      | `y`                                         |                 
+| `cg0`, `cgHome`                             | ❌️              |                                      | `w`, `<S-Right>`                            | ✅️          
+| `cgg`                                       | ❌️              |                                      | `X`                                         |             
+| `ci'`                                       | ❌️              |                                      | `Y`                                         |             
+| `ci"`                                       | ❌️              |                                      | `y`                                         |                 
+| `ci[`, `ci]`                                | ❌️              |                                      
 | `ci<`, `ci>`                                | ❌️              |                                      
 | <code>ci`</code>                            | ❌️              |                                      
 | `ciB`, `ci{`, `ci}`                         | ❌️              |                                      
