@@ -85,5 +85,6 @@
 | `yg0`, `ygHome`                             |   ️    |
 | `yh`, `y<BS>`, `y<Left>`, `yCTRL-H`         | ❌️    |
 | `yiw`                                       | ❌️    |
+| `yl`, `y<Right>`, `y<Space>`                | ❌️    |
 | `yy`                                        | ❌️    |
 | `zz`                                        | ❌️    |
