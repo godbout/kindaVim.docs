@@ -54,7 +54,7 @@ You can do so by pressing `fn` while doing a move. This is useful when you're in
 | `ch`, `c<BS>`, `cCTRL-H`, `c<Left>`         | ✅️              |                                      | `V`                                         | ❌️          
 | `cG`                                        | ❌️              |                                      | `v`                                         | ❌️          
 | `cg$`, `cgEnd`                              | ❌️              |                                      | `W`, `<C-Right>`                            | ✅️          
-| `cg0`, `cgHome`                             | ❌️              |                                      | `w`, `<S-Right>`                            | ✅️          
+| `cg0`, `cgHome`                             |   ️              |                                      | `w`, `<S-Right>`                            | ✅️          
 | `cgg`                                       | ❌️              |                                      | `X`                                         |             
 | `ci'`                                       | ❌️              |                                      | `Y`                                         |             
 | `ci"`                                       | ❌️              |                                      | `y`                                         |                 
@@ -88,7 +88,7 @@ You can do so by pressing `fn` while doing a move. This is useful when you're in
 | `df`                                        | ✅️             
 | `dG`                                        | ❌️             
 | `dg$`, `dgEnd`                              | ❌️            
-| `dg0`, `dgHome`                             | ❌️            
+| `dg0`, `dgHome`                             |             
 | `dgg`                                       | ❌️            
 | `di'`                                       | ❌️            
 | `di"`                                       | ❌️            
@@ -148,6 +148,7 @@ You can do so by pressing `fn` while doing a move. This is useful when you're in
 | `X`, `dh`, `d<BS>`, `dCTRL-H`, `d<Left>`    | ✅️                 
 | `x`, `<Del>`, `dl`, `d<Right>`, `d<Space>`  | ✅️                  
 | `Y`                                         | ✅️                  
+| `y0`                                        | ️
 | `ya[`, `ya]`                                | ❌️                 
 | `ya<`, `ya>`                                | ❌️                 
 | `yaB`, `ya{`, `ya}`                         | ❌️                 
