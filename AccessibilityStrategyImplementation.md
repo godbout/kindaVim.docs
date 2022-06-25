@@ -31,7 +31,7 @@ You can do so by pressing `fn` while doing a move. This is useful when you're in
 | `a`                                         | ❌️              |                                      | `g$`, `g<End>`                              | ✅️️          
 | `B`, `<C-Left>`                             | ✅️️              |                                      | `g0`, `g<Home>`                             |             
 | `b`, `<S-Left>`                             | ✅️️              |                                      | `gE`                                        | ✅️          
-| `C`, `c$`                                   | ❌️              |                                      | `ge`                                        | ✅️          
+| `C`, `c$`, `cEnd`                           | ❌️              |                                      | `ge`                                        | ✅️          
 | `CTRL-B`, `<PageUp>`, `<S-Up>`              |                 |                                      | `gg`                                        | ✅️          
 | `CTRL-D`                                    |                 |                                      | `gI`                                        |             
 | `CTRL-F`, `<PageDown>`, `<S-Down>`          |                 |                                      | `gj`, `g<Down>`                             | ✅️          
