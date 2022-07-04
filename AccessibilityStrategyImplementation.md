@@ -157,6 +157,7 @@ You can do so by pressing `fn` while doing a move. This is useful when you're in
 | `y$`, `yEnd`                                | ️❌️
 | `y0`                                        | ️
 | `ya'`                                       | ❌️ 
+| `ya"`                                       | ❌️ 
 | `ya[`, `ya]`                                | ❌️ 
 | `ya<`, `ya>`                                | ❌️                 
 | `yaB`, `ya{`, `ya}`                         | ❌️                 
