@@ -13,17 +13,13 @@
 
 # Why kindaVim
 
-Brain space and energy are limited.
-Why learning six hundred thousand new keyboard shortcuts when you can use Vim moves everywhere.
-Also macOS is widely inconsistent like sometimes you can go down and up with ctrl+n/ctrl+p but also sometimes not.
-Even in Apple's own apps. So jk FTW.
-
-And also it's fucking cool.
+Vim moves anywhere? That's fucking cool.
 
 # License
 
-kV only requires a license if you use it in the mornings. Yes, it's lazy.
-Without a coffee a month (USD$3.28 excl. tax) it'll work hard for you on any afternoon and night, but will fall asleep at dawn. 🌄️ 
+Unlimited trial.
+The trial is: without a coffee a month kindaVim sleeps in the mornings. You're still able to use it fully featured the afternoons. (Until 5am. Those are long afternoons, yes.)
+So if you're like me and you spend your mornings reading, swimming in the open sea or climbing rocks, then kV is basically free.
 
 # Current Vim Implementation
 
