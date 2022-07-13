@@ -14,13 +14,14 @@
 # Why kindaVim
 
 Vim moves anywhere? That's fucking cool.
-Also kV makes keyboard shortcuts more consistent on the whole macOS, where sometimes CTRL-P/CTRL-N works to go up/down lists, and sometimes doesn't.
+Also kV makes moves more consistent on the whole macOS, where sometimes CTRL-P/CTRL-N works to go up/down lists, and sometimes doesn't.
 Very annoying.
 
 # License
 
 Unlimited trial.
-The trial is: without a coffee a month kindaVim sleeps in the mornings. You're still able to use it fully featured the afternoons. (Until 5am. Those are long afternoons, yes.)
+The trial is: without a coffee a month kindaVim sleeps in the mornings. (It will scold you from the Menu Bar when you'll try to use it.)
+You're still able to use it fully-featured the afternoons. (Until 5am the next day. Those are long afternoons, yes.)
 So if you're like me and you spend your mornings reading, swimming in the open sea or climbing rocks, then kV is basically free.
 
 # Current Vim Implementation
