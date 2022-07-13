@@ -14,6 +14,8 @@
 # Why kindaVim
 
 Vim moves anywhere? That's fucking cool.
+Also kV makes keyboard shortcuts more consistent on the whole macOS, where sometimes CTRL-P/CTRL-N works to go up/down lists, and sometimes doesn't.
+Very annoying.
 
 # License
 
@@ -39,6 +41,11 @@ You can do so by pressing `fn` while doing a move. This is useful when you're in
 ## Commands
 
 [See the current implementation.](https://github.com/godbout/kindaVim.theapp/blob/master/CommandsImplementation.md#commands)
+
+# Sync your Preferences
+
+Currently the Preferences are a plist file located at `~/Library/Preferences/mo.com.sleeplessmind.kindaVim.plist`.
+You can add this to your [dotfiles](https://dotfiles.github.io), or use a tool like [Mackup](https://github.com/lra/mackup). (Mackup explicitely supports kindaVim.) 
 
 # Feedback
 
