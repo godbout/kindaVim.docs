@@ -14,7 +14,7 @@
 # Why kindaVim
 
 Vim moves anywhere? That's fucking cool.
-Also kV makes moves more consistent on the whole macOS, where sometimes CTRL-P/CTRL-N works to go up/down lists, and sometimes doesn't.
+Also kV makes using the keyboard more consistent on the whole macOS, where sometimes CTRL-P/CTRL-N works to go up/down lists, and sometimes doesn't.
 Very annoying.
 
 # License
