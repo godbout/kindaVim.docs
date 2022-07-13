@@ -46,7 +46,7 @@ You can do so by pressing `fn` while doing a move. This is useful when you're in
 # Sync your Preferences
 
 Currently the Preferences are a plist file located at `~/Library/Preferences/mo.com.sleeplessmind.kindaVim.plist`.
-You can add this to your [dotfiles](https://dotfiles.github.io), or use a tool like [Mackup](https://github.com/lra/mackup). (Mackup explicitely supports kindaVim.) 
+You can add it to your [dotfiles](https://dotfiles.github.io), or use a tool like [Mackup](https://github.com/lra/mackup) to keep the Preferences in sync between your computers. (Mackup explicitely supports kindaVim.) 
 
 # Feedback
 
