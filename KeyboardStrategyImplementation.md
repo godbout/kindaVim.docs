@@ -1,7 +1,7 @@
 # Keyboard Strategy
 
 This is the fallback mode.
-If the app you're on doesn't handle the macOS Accessibility properly, then kV will use different sets of key remapping (one for Text Elements, one for Non Text Elements) to impersonate a Vim move.
+If the app you're on doesn't handle the macOS Accessibility properly, then kV will use different sets of key remapping (depending on whether you're on a Text Element, Non Text Element, TextField Element, TextArea Element, etc.) to impersonate a Vim move.
 Most of the time the fallback happens automatically, but some apps (usually Electron) falsely advertise their support of the macOS Accessibility, and need the Keyboard Strategy to be manually enforced through the Preferences, Families Pane.
 
 | Normal Mode                                 | count | &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; | Visual Mode  | count | 
