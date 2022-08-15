@@ -43,28 +43,28 @@ You can do so by pressing `fn` while doing a move. This is useful when you're in
 | `ca'`                                       | ❌️              |                                      | `h`, `<BS>`, `CTRL-H`, `<Left>`             | ✅️          
 | `ca"`                                       | ❌️              |                                      | `i[`, `i]`                                  | ❌️
 | `ca[`, `ca]`                                | ❌️              |                                      | `iB`, `i{`, `i}`                            | ❌️ 
-| `ca<`, `ca>`                                | ❌️              |                                      | `ip`                                        | ❌️
-| <code>ca`</code>                            | ❌️              |                                      | `iW`                                        | ❌️          
-| `caB`, `ca{`, `ca}`                         | ❌️              |                                      | `iw`                                        | ❌️          
-| `cab`, `ca(`, `ca)`                         | ❌️              |                                      | `j`, `CTRL-J`, `CTRL-N`, `<Down>`           | ✅️          
-| `caW`                                       | ❌️              |                                      | `k`, `CTRL-P`, `<Up>`                       | ✅️          
-| `caw`                                       | ❌️              |                                      | `l`, `<Right>`, `<Space>`                   | ✅️          
-| `cB`                                        | ✅️️              |                                      | `o`                                         |             
-| `cb`                                        | ✅️️              |                                      | `P`                                         | ❌️          
-| `cc`                                        | ❌️              |                                      | `p`                                         | ❌️          
-| `cE`                                        | ✅️️              |                                      | `R`                                         |             
-| `ce`                                        | ✅️️              |                                      | `S`                                         |             
-| `cF`                                        | ✅️              |                                      | `T`                                         | ✅️          
-| `cf`                                        | ✅️              |                                      | `t`                                         | ✅️️          
-| `ch`, `c<BS>`, `cCTRL-H`, `c<Left>`         | ✅️              |                                      | `u`                                         | 
-| `cG`                                        | ❌️              |                                      | `V`                                         | ❌️          
-| `cg$`, `cgEnd`                              | ❌️              |                                      | `v`                                         | ❌️          
-| `cg0`, `cgHome`                             |   ️              |                                      | `W`, `<C-Right>`                            | ✅️          
-| `cgg`                                       | ❌️              |                                      | `w`, `<S-Right>`                            | ✅️          
-| `ci'`                                       | ❌️              |                                      | `X`                                         |             
-| `ci"`                                       | ❌️              |                                      | `Y`                                         |             
-| `ci[`, `ci]`                                | ❌️              |                                      | `y`                                         |                 
-| `ci<`, `ci>`                                | ❌️              |                                      
+| `ca<`, `ca>`                                | ❌️              |                                      | `ib`, `i(`, `i)`                            | ❌️ 
+| <code>ca`</code>                            | ❌️              |                                      | `ip`                                        | ❌️
+| `caB`, `ca{`, `ca}`                         | ❌️              |                                      | `iW`                                        | ❌️          
+| `cab`, `ca(`, `ca)`                         | ❌️              |                                      | `iw`                                        | ❌️          
+| `caW`                                       | ❌️              |                                      | `j`, `CTRL-J`, `CTRL-N`, `<Down>`           | ✅️          
+| `caw`                                       | ❌️              |                                      | `k`, `CTRL-P`, `<Up>`                       | ✅️          
+| `cB`                                        | ✅️️              |                                      | `l`, `<Right>`, `<Space>`                   | ✅️          
+| `cb`                                        | ✅️️              |                                      | `o`                                         |             
+| `cc`                                        | ❌️              |                                      | `P`                                         | ❌️          
+| `cE`                                        | ✅️️              |                                      | `p`                                         | ❌️          
+| `ce`                                        | ✅️️              |                                      | `R`                                         |             
+| `cF`                                        | ✅️              |                                      | `S`                                         |             
+| `cf`                                        | ✅️              |                                      | `T`                                         | ✅️          
+| `ch`, `c<BS>`, `cCTRL-H`, `c<Left>`         | ✅️              |                                      | `t`                                         | ✅️️          
+| `cG`                                        | ❌️              |                                      | `u`                                         | 
+| `cg$`, `cgEnd`                              | ❌️              |                                      | `V`                                         | ❌️          
+| `cg0`, `cgHome`                             |   ️              |                                      | `v`                                         | ❌️          
+| `cgg`                                       | ❌️              |                                      | `W`, `<C-Right>`                            | ✅️          
+| `ci'`                                       | ❌️              |                                      | `w`, `<S-Right>`                            | ✅️          
+| `ci"`                                       | ❌️              |                                      | `X`                                         |             
+| `ci[`, `ci]`                                | ❌️              |                                      | `Y`                                         |             
+| `ci<`, `ci>`                                | ❌️              |                                      | `y`                                         |                 
 | <code>ci`</code>                            | ❌️              |                                      
 | `ciB`, `ci{`, `ci}`                         | ❌️              |                                      
 | `cib`, `ci(`, `ci)`                         | ❌️              |                                      
