@@ -43,6 +43,19 @@ You can do so by pressing `fn` while doing a move. This is useful when you're in
 
 [See the current implementation.](https://github.com/godbout/kindaVim.theapp/blob/master/CommandsImplementation.md#commands)
 
+# APIs
+
+kindaVim sends [Distributed Notifications](https://developer.apple.com/documentation/foundation/distributednotificationcenter) to macOS when the Vim Mode changes, so that you can hook an external tool like [BetterTouchTool](https://www.google.com/search?q=bettertouchtool) or [Hammerspoon](https://www.hammerspoon.org) and respond to those changes.
+The Notifications Names should be self-explanatory:
+* kindaVimDidEnterInsertMode
+* kindaVimDidExitInsertMode
+* kindaVimDidEnterNormalMode
+* kindaVimDidExitNormalMode
+* kindaVimDidEnterVisualMode
+* kindaVimDidExitVisualMode
+* kindaVimDidEnterOperatorPendingMode
+* kindaVimDidExitOperatorPendingMode
+
 # Sync your Preferences
 
 Currently the Preferences are a plist file located at `~/Library/Preferences/mo.com.sleeplessmind.kindaVim.plist`.
