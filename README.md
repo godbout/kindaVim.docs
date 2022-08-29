@@ -53,8 +53,6 @@ The Notifications Names should be self-explanatory:
 * kindaVimDidExitNormalMode
 * kindaVimDidEnterVisualMode
 * kindaVimDidExitVisualMode
-* kindaVimDidEnterOperatorPendingMode
-* kindaVimDidExitOperatorPendingMode
 
 # Sync your Preferences
 
