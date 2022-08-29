@@ -68,13 +68,14 @@ You can do so by pressing `fn` while doing a move. This is useful when you're in
 | <code>ci`</code>                            | ❌️              |                                      | `T`                                         | ✅️          
 | `ciB`, `ci{`, `ci}`                         | ❌️              |                                      | `t`                                         | ✅️️          
 | `cib`, `ci(`, `ci)`                         | ❌️              |                                      | `u`                                         | 
-| `ciW`                                       | ❌️              |                                      | `V`                                         | ❌️          
-| `ciw`                                       | ❌️              |                                      | `v`                                         | ❌️          
-| `cj`, `cCTRL-J`, `cCTRL-N`, `c<Down>`       | ❌️              |                                      | `W`, `<C-Right>`                            | ✅️          
-| `ck`, `cCTRL-P`, `c<Up>`                    | ❌️              |                                      | `w`, `<S-Right>`                            | ✅️          
-| `cT`                                        | ✅️              |                                      | `X`                                         |             
-| `ct`                                        | ✅️              |                                      | `Y`                                         |             
-| `cW`                                        | ❌️              |                                      | `y`                                         |                 
+| `cip`                                       | ❌️              |                                      | `V`                                         | ❌️          
+| `ciW`                                       | ❌️              |                                      | `v`                                         | ❌️          
+| `ciw`                                       | ❌️              |                                      | `W`, `<C-Right>`                            | ✅️          
+| `cj`, `cCTRL-J`, `cCTRL-N`, `c<Down>`       | ❌️              |                                      | `w`, `<S-Right>`                            | ✅️          
+| `ck`, `cCTRL-P`, `c<Up>`                    | ❌️              |                                      | `X`                                         |             
+| `cT`                                        | ✅️              |                                      | `Y`                                         |             
+| `ct`                                        | ✅️              |                                      | `y`                                         |                 
+| `cW`                                        | ❌️              |                                      
 | `cw`                                        | ❌️              |                                      
 | `D`, `d$`, `dEnd`                           | ❌️              |                                      
 | `d0`                                        |                 |                                      
