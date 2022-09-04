@@ -87,6 +87,7 @@ You can do so by pressing `fn` while doing a move. This is useful when you're in
 | <code>da`<code>                             | ❌️              |
 | `daB`, `da{`, `da}`                         | ❌️              |                                      
 | `dab`, `da(`, `da)`                         | ❌️              |                                      
+| `dap`                                       | ❌️              |
 | `daW`                                       | ❌️              |                                      
 | `daw`                                       | ❌️              |                                      
 | `dB`                                        | ✅️️              |                                      
