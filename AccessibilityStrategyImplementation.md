@@ -185,6 +185,7 @@ You can do so by pressing `fn` while doing a move. This is useful when you're in
 | `yiB`, `yi{`, `yi}`                         | ❌️                 
 | `yib`, `yi(`, `yi)`                         | ❌️                 
 | `yip`                                       | ❌️ 
+| `yiW`                                       | ❌️ 
 | `yiw`                                       | ❌️ 
 | `yl`, `y<Right>`, `y<Space>`                | ❌️
 | `yT`                                        | ✅️ 
