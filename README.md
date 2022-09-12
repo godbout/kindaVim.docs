@@ -28,20 +28,20 @@ So if you're like me and spend your mornings reading, swimming in the open sea o
 
 ## Motions
 
+> **Note**  
+> For motions that accept regexes, kV uses the [ICU Regular Expressions](https://unicode-org.github.io/icu/userguide/strings/regexp.html) (Perl) rather than Vim's own flavor ones.
+
 ### kV Accessibility Strategy: text manipulation; accurate.
 
-kV detects automatically which Strategy to use, but sometimes you may wish to enforce the Keyboard Strategy even when the text is Accessible.
-You can do so by pressing `fn` while doing a move. This is useful when you're in a text input but want to scroll through the UI (scrollbars) rather than the text/caret, or to move from one input to another in some apps with custom UI.
-
-[See the current implementation.](https://github.com/godbout/kindaVim.theapp/blob/master/AccessibilityStrategyImplementation.md#accessibility-strategy)
+[See the motions implemented.](https://github.com/godbout/kindaVim.theapp/blob/master/AccessibilityStrategyImplementation.md#accessibility-strategy)
 
 ### kV Keyboard Strategy: keyboard remapping; less accurate.
 
-[See the current implementation.](https://github.com/godbout/kindaVim.theapp/blob/master/KeyboardStrategyImplementation.md#keyboard-strategy)
+[See the motions implemented.](https://github.com/godbout/kindaVim.theapp/blob/master/KeyboardStrategyImplementation.md#keyboard-strategy)
 
 ## Commands
 
-[See the current implementation.](https://github.com/godbout/kindaVim.theapp/blob/master/CommandsImplementation.md#commands)
+[See the commands implementation.](https://github.com/godbout/kindaVim.theapp/blob/master/CommandsImplementation.md#commands)
 
 # APIs
 
