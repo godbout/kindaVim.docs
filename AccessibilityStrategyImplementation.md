@@ -24,8 +24,8 @@ You can do so by pressing `fn` while doing a move. This is useful when you're in
 | `%`                                         |       |        |                                                  | `a[`, `a]`                                  | ❌️    |
 | `^`                                         |       |        |                                                  | `a<`, `a>`                                  | ❌️    |
 | `+`, `<CR>`, `<CTRL-M>`, `<Enter>`          | ✅️️    |        |                                                  | <code>a`</code>                             | ❌️    |
-| `<<`                                        | ✅️️    |        |                                                  | `aB`, `a{`, `a}`                            | ❌️    |
-| `>>`                                        | ✅️️    |        |                                                  | `ab`, `a(`, `a)`                            | ❌️    |
+| `<<`                                        | ✅️️    | ✅️️     |                                                  | `aB`, `a{`, `a}`                            | ❌️    |
+| `>>`                                        | ✅️️    | ✅️️     |                                                  | `ab`, `a(`, `a)`                            | ❌️    |
 | `~`                                         | ✅️    |        |                                                  | `ap`                                        | ❌️    |
 | `$`, `<End>`                                | ✅️    |        |                                                  | `B`, `<C-Left>`                             | ✅️    |
 | `0`                                         |       |        |                                                  | `b`, `<S-Left>`                             | ✅️    |
