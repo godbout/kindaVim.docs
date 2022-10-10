@@ -98,8 +98,8 @@ You can do so by pressing `fn` while doing a move. This is useful when you're in
 | `dF`                                        | ✅️    |        |
 | `df`                                        | ✅️    |        |
 | `dG`                                        | ❌️    | ✅️     |
-| `dg$`, `dgEnd`                              | ❌️    |        |
-| `dg0`, `dgHome`                             |       |        |
+| `dg$`, `dgEnd`                              | ❌️    | ✅️     |
+| `dg0`, `dgHome`                             |       | ✅️     |
 | `dgg`                                       | ❌️    | ✅️     |
 | `di'`                                       | ❌️    |        |
 | `di"`                                       | ❌️    |        |
