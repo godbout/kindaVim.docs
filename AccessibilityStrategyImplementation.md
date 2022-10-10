@@ -97,10 +97,10 @@ You can do so by pressing `fn` while doing a move. This is useful when you're in
 | `de`                                        | ✅️️    | ✅️     |
 | `dF`                                        | ✅️    |        |
 | `df`                                        | ✅️    |        |
-| `dG`                                        | ❌️    |        |
+| `dG`                                        | ❌️    | ✅️     |
 | `dg$`, `dgEnd`                              | ❌️    |        |
 | `dg0`, `dgHome`                             |       |        |
-| `dgg`                                       | ❌️    |        |
+| `dgg`                                       | ❌️    | ✅️     |
 | `di'`                                       | ❌️    |        |
 | `di"`                                       | ❌️    |        |
 | `di[`, `di]`                                | ❌️    |        |                                      
