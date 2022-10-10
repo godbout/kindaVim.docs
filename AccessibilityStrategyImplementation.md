@@ -108,7 +108,7 @@ You can do so by pressing `fn` while doing a move. This is useful when you're in
 | <code>di`</code>                            | ❌️    |        |                                      
 | `diB`, `di{`, `di}`                         | ❌️    |        |                                      
 | `dib`, `di(`, `di)`                         | ❌️    |        |                                      
-| `dip`                                       | ❌️    |        |
+| `dip`                                       | ❌️    | ✅️     |
 | `diW`                                       | ❌️    | ✅️     |       
 | `diw`                                       | ❌️    | ✅️     |       
 | `dj`, `dCTRL-J`, `dCTRL-N`, `d<Down>`       | ❌️    | ✅     |        
