@@ -78,8 +78,8 @@ You can do so by pressing `fn` while doing a move. This is useful when you're in
 | `ct`                                        | ✅️    |        |                                                  | `X`                                         |       |     
 | `cW`                                        | ❌️    |        |                                                  | `Y`                                         |       |     
 | `cw`                                        | ❌️    |        |                                                  | `y`                                         |       |         
-| `D`, `d$`, `dEnd`                           | ❌️    |        |                              
-| `d0`                                        |       |        |                              
+| `D`, `d$`, `dEnd`                           | ❌️    | ✅️️     |                              
+| `d0`                                        |       | ✅️️     |                              
 | `da'`                                       | ❌️    |        |
 | `da"`                                       | ❌️    |        |
 | `da[`, `da]`                                | ❌️    |        |
@@ -87,14 +87,14 @@ You can do so by pressing `fn` while doing a move. This is useful when you're in
 | <code>da`<code>                             | ❌️    |        |
 | `daB`, `da{`, `da}`                         | ❌️    |        |                                      
 | `dab`, `da(`, `da)`                         | ❌️    |        |                              
-| `dap`                                       | ❌️    |        |
-| `daW`                                       | ❌️    |        |                              
-| `daw`                                       | ❌️    |        |                              
-| `dB`                                        | ✅️️    |        |                              
-| `db`                                        | ✅️️    |        |                              
+| `dap`                                       | ❌️    | ✅️️     |
+| `daW`                                       | ❌️    | ✅️️     |                              
+| `daw`                                       | ❌️    | ✅️️     |                              
+| `dB`                                        | ✅️️    | ✅️️     |                              
+| `db`                                        | ✅️️    | ✅️️     |                              
 | `dd`                                        | ❌️    | ✅️     |
-| `dE`                                        | ✅️️    |        |
-| `de`                                        | ✅️️    |        |
+| `dE`                                        | ✅️️    | ✅️     |
+| `de`                                        | ✅️️    | ✅️     |
 | `dF`                                        | ✅️    |        |
 | `df`                                        | ✅️    |        |
 | `dG`                                        | ❌️    |        |
@@ -111,8 +111,8 @@ You can do so by pressing `fn` while doing a move. This is useful when you're in
 | `dip`                                       | ❌️    |        |
 | `diW`                                       | ❌️    | ✅️     |       
 | `diw`                                       | ❌️    | ✅️     |       
-| `dj`, `dCTRL-J`, `dCTRL-N`, `d<Down>`       | ❌️    |        |        
-| `dk`, `dCTRL-P`, `d<Up>`                    | ❌️    |        |        
+| `dj`, `dCTRL-J`, `dCTRL-N`, `d<Down>`       | ❌️    | ✅     |        
+| `dk`, `dCTRL-P`, `d<Up>`                    | ❌️    | ✅     |        
 | `dT`                                        | ✅️    |        |        
 | `dt`                                        | ✅️    |        |        
 | `dW`                                        | ✅️    | ✅️     |        
