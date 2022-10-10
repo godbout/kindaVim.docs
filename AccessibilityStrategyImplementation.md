@@ -80,11 +80,11 @@ You can do so by pressing `fn` while doing a move. This is useful when you're in
 | `cw`                                        | ❌️    |        |                                                  | `y`                                         |       |         
 | `D`, `d$`, `dEnd`                           | ❌️    | ✅️️     |                              
 | `d0`                                        |       | ✅️️     |                              
-| `da'`                                       | ❌️    |        |
-| `da"`                                       | ❌️    |        |
+| `da'`                                       | ❌️    | ✅️️     |
+| `da"`                                       | ❌️    | ✅️️     |
 | `da[`, `da]`                                | ❌️    |        |
 | `da<`, `da>`                                | ❌️    |        |
-| <code>da`<code>                             | ❌️    |        |
+| <code>da`<code>                             | ❌️    | ✅️️     |
 | `daB`, `da{`, `da}`                         | ❌️    |        |                                      
 | `dab`, `da(`, `da)`                         | ❌️    |        |                              
 | `dap`                                       | ❌️    | ✅️️     |
