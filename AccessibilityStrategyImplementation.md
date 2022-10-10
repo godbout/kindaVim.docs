@@ -82,11 +82,11 @@ You can do so by pressing `fn` while doing a move. This is useful when you're in
 | `d0`                                        |       | ✅️️     |                              
 | `da'`                                       | ❌️    | ✅️️     |
 | `da"`                                       | ❌️    | ✅️️     |
-| `da[`, `da]`                                | ❌️    |        |
-| `da<`, `da>`                                | ❌️    |        |
+| `da[`, `da]`                                | ❌️    | ✅     |
+| `da<`, `da>`                                | ❌️    | ✅     |
 | <code>da`<code>                             | ❌️    | ✅️️     |
-| `daB`, `da{`, `da}`                         | ❌️    |        |                                      
-| `dab`, `da(`, `da)`                         | ❌️    |        |                              
+| `daB`, `da{`, `da}`                         | ❌️    | ✅     |                                      
+| `dab`, `da(`, `da)`                         | ❌️    | ✅     |                              
 | `dap`                                       | ❌️    | ✅️️     |
 | `daW`                                       | ❌️    | ✅️️     |                              
 | `daw`                                       | ❌️    | ✅️️     |                              
