@@ -95,8 +95,8 @@ You can do so by pressing `fn` while doing a move. This is useful when you're in
 | `dd`                                        | ❌️    | ✅️     |
 | `dE`                                        | ✅️️    | ✅️     |
 | `de`                                        | ✅️️    | ✅️     |
-| `dF`                                        | ✅️    |        |
-| `df`                                        | ✅️    |        |
+| `dF`                                        | ✅️    | ✅     |
+| `df`                                        | ✅️    | ✅     |
 | `dG`                                        | ❌️    | ✅️     |
 | `dg$`, `dgEnd`                              | ❌️    | ✅️     |
 | `dg0`, `dgHome`                             |       | ✅️     |
@@ -113,8 +113,8 @@ You can do so by pressing `fn` while doing a move. This is useful when you're in
 | `diw`                                       | ❌️    | ✅️     |       
 | `dj`, `dCTRL-J`, `dCTRL-N`, `d<Down>`       | ❌️    | ✅     |        
 | `dk`, `dCTRL-P`, `d<Up>`                    | ❌️    | ✅     |        
-| `dT`                                        | ✅️    |        |        
-| `dt`                                        | ✅️    |        |        
+| `dT`                                        | ✅️    | ✅     |        
+| `dt`                                        | ✅️    | ✅     |        
 | `dW`                                        | ✅️    | ✅️     |        
 | `dw`                                        | ✅️    | ✅️     |                 
 | `E`                                         | ✅️️    |        |                     
