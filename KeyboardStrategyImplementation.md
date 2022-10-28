@@ -13,8 +13,8 @@ Most of the time the fallback happens automatically, but some apps (usually Elec
 | `/<CR>`                                     | ❌️    |        |                                                  | `0`                                        |       |          
 | `^`                                         |       |        |                                                  | `b`, `<S-Left>`                            | ✅️️    |          
 | `+`, `<CR>`, `CTRL-M`, `<Enter>`            | ✅️️    |        |                                                  | `C`                                        |       |  ❌️
-| `<<`                                        | ✅️️    | ❌️     |                                                  | `c`, `s`                                   |       |  ❌️      
-| `>>`                                        | ✅️️    | ❌️     |                                                  | `D`                                        |       |  ❌️      
+| `<<`                                        | ✅️️    | ✅     |                                                  | `c`, `s`                                   |       |  ❌️      
+| `>>`                                        | ✅️️    | ✅     |                                                  | `D`                                        |       |  ❌️      
 | `$`, `<End>`                                | ❌️    |        |                                                  | `d`, `<Del>`, `x`                          |       |  ❌️      
 | `0`                                         |       |        |                                                  | `e`                                        | ✅️️    |          
 | `A`                                         | ❌️    | ❌️     |                                                  | `G`                                        | ❌️    |         
@@ -39,19 +39,19 @@ Most of the time the fallback happens automatically, but some apps (usually Elec
 | `cj`, `cCTRL-J`, `cCTRL-N`, `c<Down>`       | ❌️    | ❌️     |                                                  | `V`                                        | ❌️    |         
 | `ck`, `cCTRL-P`, `c<Up>`                    | ❌️    | ❌️     |                                                  | `v`                                        | ❌️    |         
 | `cw`                                        | ✅️️    | ❌️     |                                                  | `w`, `<S-Right>`                           | ✅️️    |         
-| `D`, `d$`, `dEnd`                           | ❌️    | ❌️     |                                                  | `X`                                        |       | ❌️      
-| `d0`                                        |       | ❌️     |                                                  | `Y`                                        |       |                                
-| `db`                                        | ✅️️    | ❌️     |                                                  | `y`                                        |       |          
-| `dd`                                        | ❌️    | ❌️     |                                                  
-| `de`                                        | ✅️️    | ❌️     |                                      
-| `dG`                                        | ❌️    | ❌️     |                                      
-| `dg$`, `dgEnd`                              | ❌️    | ❌️     |
-| `dg0`, `dgHome`                             |       | ❌️     |
-| `dgg`                                       | ❌️    | ❌️     |                                      
-| `diw`                                       | ❌️    | ❌️     |                                      
-| `dj`, `dCTRL-J`, `dCTRL-N`, `d<Down>`       | ❌️    | ❌️     |                                      
-| `dk`, `dCTRL-P`, `d<Up>`                    | ❌️    | ❌️     |                                      
-| `dw`                                        | ❌️    | ❌️     |                                     
+| `D`, `d$`, `dEnd`                           | ❌️    | ✅     |                                                  | `X`                                        |       | ❌️      
+| `d0`                                        |       | ✅     |                                                  | `Y`                                        |       |                                
+| `db`                                        | ✅️️    | ✅     |                                                  | `y`                                        |       |          
+| `dd`                                        | ❌️    | ✅     |                                                  
+| `de`                                        | ✅️️    | ✅     |                                      
+| `dG`                                        | ❌️    | ✅     |                                      
+| `dg$`, `dgEnd`                              | ❌️    | ✅     |
+| `dg0`, `dgHome`                             |       | ✅     |
+| `dgg`                                       | ❌️    | ✅     |                                      
+| `diw`                                       | ❌️    | ✅     |                                      
+| `dj`, `dCTRL-J`, `dCTRL-N`, `d<Down>`       | ❌️    | ✅     |                                      
+| `dk`, `dCTRL-P`, `d<Up>`                    | ❌️    | ✅     |                                      
+| `dw`                                        | ❌️    | ✅     |                                     
 | `e`                                         | ✅️️    |        |                                      
 | `G`                                         | ❌️    |        |                                      
 | `g_`                                        | ❌️    |        |                                        
@@ -81,8 +81,8 @@ Most of the time the fallback happens automatically, but some apps (usually Elec
 | `s`, `cl`, `c<Right>`, `c<Space>`           | ✅️️    | ❌️     |
 | `u`                                         | ✅️️    | ❌️     |
 | `w`, `<S-Right>`                            | ✅️️    |        |
-| `X`, `dh`, `d<BS>`, `dCTRL-H`, `d<Left>`    | ✅️️    | ❌️     |
-| `x`, `<Del>`, `dl`, `d<Right>`, `d<Space>`  | ✅️️    | ❌️     |
+| `X`, `dh`, `d<BS>`, `dCTRL-H`, `d<Left>`    | ✅️️    | ✅     |
+| `x`, `<Del>`, `dl`, `d<Right>`, `d<Space>`  | ✅️️    | ✅     |
 | `Y`                                         | ❌️    |        |
 | `y$`, `yEnd`                                | ❌️    |        |
 | `y0`                                        |       |        |
