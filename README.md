@@ -71,7 +71,7 @@ Testing the Vim moves when using the macOS Accessibility requires building an ex
 
 * [Karabiner-Elements](https://karabiner-elements.pqrs.org) (open source, free)
 * [VimMode.spoon](https://github.com/dbalatero/VimMode.spoon) (open source, free)
-* [SketchyVim]() (open source, free)
+* [SketchyVim](https://github.com/FelixKratz/SketchyVim) (open source, free)
 * [ti-vim](https://vim.tonisives.com) (closed source, one time purchase)
 
 # Acknowledgments
