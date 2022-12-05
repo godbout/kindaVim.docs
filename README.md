@@ -13,7 +13,7 @@
 
 # Why kindaVim
 
-Because Vim moves anywhere? That's fucking cool.
+Because Vim moves anywhere is fucking cool.
 And also kV makes using the keyboard more consistent on the whole macOS, where sometimes CTRL-P/CTRL-N go up/down lists, but sometimes it doesn't.
 Thanks Apple.
 
