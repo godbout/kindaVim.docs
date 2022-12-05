@@ -74,6 +74,11 @@ Testing the Vim moves when using the macOS Accessibility requires building an ex
 * [SketchyVim](https://github.com/FelixKratz/SketchyVim) (open source, free)
 * [ti-vim](https://vim.tonisives.com) (closed source, one time purchase)
 
+# Roadmap
+
+* adding new motions
+* adding new apps to The Wizard
+
 # Acknowledgments
 
 * [Sindre Sorhus](https://github.com/sindresorhus) for [LaunchAtLogin](https://github.com/sindresorhus/LaunchAtLogin) and [KeyboardShortcuts](https://github.com/sindresorhus/KeyboardShortcuts), that saved me countless of hours of headaches
