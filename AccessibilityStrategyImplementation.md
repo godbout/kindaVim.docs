@@ -33,7 +33,7 @@ You can do so by pressing `fn` while doing a move. This is useful when you're in
 | `a`                                         | ❌️    | ❌     |                                                  | `c`, `s`                                    |       | ❌
 | `B`, `<C-Left>`                             | ✅️️    |        |                                                  | `D`                                         |       | ❌
 | `b`, `<S-Left>`                             | ✅️️    |        |                                                  | `d`, `<Del>`, `x`                           |       | ❌
-| `C`, `c$`, `cEnd`                           | ❌️    | ❌️     |                                                  | `E`                                         | ✅️    |
+| `C`, `c$`, `c<End>`                           | ❌️    | ❌️     |                                                  | `E`                                         | ✅️    |
 | `CTRL-B`, `<PageUp>`, `<S-Up>`              |       |        |                                                  | `e`                                         | ✅️    |
 | `CTRL-D`                                    |       |        |                                                  | `F`                                         | ✅️    |
 | `CTRL-F`, `<PageDown>`, `<S-Down>`          |       |        |                                                  | `f`                                         | ✅️    |
@@ -59,8 +59,8 @@ You can do so by pressing `fn` while doing a move. This is useful when you're in
 | `cf`                                        | ✅️    | ❌️     |                                                  | `ib`, `i(`, `i)`                            | ❌️    |
 | `ch`, `c<BS>`, `cCTRL-H`, `c<Left>`         | ✅️    | ❌️     |                                                  | `ip`                                        | ❌️    |
 | `cG`                                        | ❌️    | ❌️     |                                                  | `iW`                                        | ❌️    |
-| `cg$`, `cgEnd`                              | ❌️    | ❌️     |                                                  | `iw`                                        | ❌️    |
-| `cg0`, `cgHome`                             |   ️    | ❌️     |                                                  | `j`, `CTRL-J`, `CTRL-N`, `<Down>`           | ✅️    |
+| `cg$`, `cg<End>`                              | ❌️    | ❌️     |                                                  | `iw`                                        | ❌️    |
+| `cg0`, `cg<Home>`                             |   ️    | ❌️     |                                                  | `j`, `CTRL-J`, `CTRL-N`, `<Down>`           | ✅️    |
 | `cgg`                                       | ❌️    | ❌️     |                                                  | `k`, `CTRL-P`, `<Up>`                       | ✅️    |
 | `ci'`                                       | ❌️    | ❌️     |                                                  | `l`, `<Right>`, `<Space>`                   | ✅️    |
 | `ci"`                                       | ❌️    | ❌️     |                                                  | `o`                                         |       |  
@@ -78,7 +78,7 @@ You can do so by pressing `fn` while doing a move. This is useful when you're in
 | `ct`                                        | ✅️    | ❌️     |                                                  | `w`, `<S-Right>`                            | ✅️    |
 | `cW`                                        | ❌️    | ❌️     |                                                  | `X`                                         |       | ❌    
 | `cw`                                        | ❌️    | ❌️     |                                                  | `Y`                                         |       |     
-| `D`, `d$`, `dEnd`                           | ❌️    | ✅️️     |                                                  | `y`                                         |       |         
+| `D`, `d$`, `d<End>`                           | ❌️    | ✅️️     |                                                  | `y`                                         |       |         
 | `d0`                                        |       | ✅️️     |                              
 | `da'`                                       | ❌️    | ✅️️     |
 | `da"`                                       | ❌️    | ✅️️     |
@@ -98,8 +98,8 @@ You can do so by pressing `fn` while doing a move. This is useful when you're in
 | `dF`                                        | ✅️    | ✅     |
 | `df`                                        | ✅️    | ✅     |
 | `dG`                                        | ❌️    | ✅️     |
-| `dg$`, `dgEnd`                              | ❌️    | ✅️     |
-| `dg0`, `dgHome`                             |       | ✅️     |
+| `dg$`, `dg<End>`                              | ❌️    | ✅️     |
+| `dg0`, `dg<Home>`                             |       | ✅️     |
 | `dgg`                                       | ❌️    | ✅️     |
 | `di'`                                       | ❌️    | ✅️     |
 | `di"`                                       | ❌️    | ✅️     |
@@ -160,7 +160,7 @@ You can do so by pressing `fn` while doing a move. This is useful when you're in
 | `X`, `dh`, `d<BS>`, `dCTRL-H`, `d<Left>`    | ✅️    | ✅️     |                 
 | `x`, `<Del>`, `dl`, `d<Right>`, `d<Space>`  | ✅️    | ✅️     |                  
 | `Y`                                         | ✅️    |        |                  
-| `y$`, `yEnd`                                | ️❌️    |        |
+| `y$`, `y<End>`                                | ️❌️    |        |
 | `y0`                                        | ️      |        |
 | `ya'`                                       | ❌️    |        | 
 | `ya"`                                       | ❌️    |        | 
@@ -174,8 +174,8 @@ You can do so by pressing `fn` while doing a move. This is useful when you're in
 | `yaw`                                       | ❌️    |        |                 
 | `yF`                                        | ✅️    |        |                 
 | `yf`                                        | ✅️    |        |                 
-| `yg$`, `ygEnd`                              | ️️❌️    |        |
-| `yg0`, `ygHome`                             | ️️      |        |
+| `yg$`, `yg<End>`                              | ️️❌️    |        |
+| `yg0`, `yg<Home>`                             | ️️      |        |
 | `yh`, `y<BS>`, `y<Left>`, `yCTRL-H`         | ❌️    |        |
 | `yi'`                                       | ❌️    |        |
 | `yi"`                                       | ❌️    |        |            
