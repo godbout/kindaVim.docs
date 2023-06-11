@@ -142,24 +142,24 @@ You can do so by pressing `fn` while doing a move. This is useful when you're in
 | `k`, `CTRL-P`, `<Up>`                                              | ✅️    |        |            
 | `L`                                                                | ✅    |        |
 | `l`, `<Right>`, `<Space>`                                          | ✅️    |        |
-| `M`                                                                |       |        |
-| `N`                                                                | ✅️    |        |               
-| `n`                                                                | ✅️    |        |               
-| `O`                                                                | ❌️    | ❌     |                 
-| `o`                                                                | ❌️    | ❌     |                 
-| `P`                                                                | ❌️    | ❌     |                 
-| `p`                                                                | ❌️    | ❌     |                 
-| `r`                                                                | ✅️    | ❌     |                 
-| `S`                                                                | ❌️    | ❌     |                  
+| [`M`](https://vimdoc.sourceforge.net/htmldoc/motion.html#M)                                                          |       |        |
+| [`N`](https://vimdoc.sourceforge.net/htmldoc/pattern.html#N)                                                          | ✅️    |        |               
+| [`n`](https://vimdoc.sourceforge.net/htmldoc/pattern.html#n)                                                          | ✅️    |        |               
+| [`O`](https://vimdoc.sourceforge.net/htmldoc/insert.html#O)                                                          | ❌️    | ❌     |                 
+| [`o`](https://vimdoc.sourceforge.net/htmldoc/insert.html#o)                                                          | ❌️    | ❌     |                 
+| [`P`](https://vimdoc.sourceforge.net/htmldoc/change.html#P)                                                          | ❌️    | ❌     |                 
+| [`p`](https://vimdoc.sourceforge.net/htmldoc/change.html#p)                                                          | ❌️    | ❌     |                 
+| [`r`](https://vimdoc.sourceforge.net/htmldoc/change.html#r)                                                          | ✅️    | ❌     |                 
+| [`S`](http://vimdoc.sourceforge.net/htmldoc/change.html#S)                                                          | ❌️    | ❌     |                  
 | `s`, `cl`, `c<Right>`, `c<Space>`                                  | ✅️    | ❌     |                  
-| `T`                                                                | ✅️    |        |                 
-| `t`                                                                | ✅️    |        |                 
-| `u`                                                                | ✅️    | ❌     |                 
+| [`T`](https://vimdoc.sourceforge.net/htmldoc/motion.html#T)                                                          | ✅️    |        |                 
+| [`t`](https://vimdoc.sourceforge.net/htmldoc/motion.html#t)                                                          | ✅️    |        |                 
+| [`u`](https://vimdoc.sourceforge.net/htmldoc/undo.html#u)                                                          | ✅️    | ❌     |                 
 | `W`, `<C-Right>`                                                   | ✅️️    |        |                 
 | `w`, `<S-Right>`                                                   | ✅️️    |        |                 
 | `X`, `dh`, `d<BS>`, `dCTRL-H`, `d<Left>`                           | ✅️    | ✅️     |                 
 | `x`, `<Del>`, `dl`, `d<Right>`, `d<Space>`                         | ✅️    | ✅️     |                  
-| `Y`                                                                | ✅️    |        |                  
+| [`Y`](https://vimdoc.sourceforge.net/htmldoc/change.html#Y)                                                          | ✅️    |        |                  
 | `y$`, `y<End>`                                                     | ️❌️    |        |
 | `y0`                                                               | ️      |        |
 | `ya'`                                                              | ❌️    |        | 
@@ -190,11 +190,11 @@ You can do so by pressing `fn` while doing a move. This is useful when you're in
 | `yl`, `y<Right>`, `y<Space>`                                       | ❌️    |        |
 | `yT`                                                               | ✅️    |        | 
 | `yt`                                                               | ✅️    |        |
-| `yy`                                                               | ✅️    |        |
-| `z-`                                                               | ❌️    |        |                
-| `z.`                                                               | ❌️    |        |                
-| `zb`                                                               | ❌️    |        |                
-| `z<CR>`                                                            | ❌️    |        |                
-| `zt`                                                               | ❌️    |        |                
-| `zz`                                                               | ❌️    |        |                
+| [`yy`](https://vimdoc.sourceforge.net/htmldoc/change.html#yy)                                                         | ✅️    |        |
+| [`z-`](https://vimdoc.sourceforge.net/htmldoc/scroll.html#z-)                                                         | ❌️    |        |                
+| [`z.`](https://vimdoc.sourceforge.net/htmldoc/scroll.html#z.)                                                         | ❌️    |        |                
+| [`zb`](https://vimdoc.sourceforge.net/htmldoc/scroll.html#zb)                                                         | ❌️    |        |                
+| [`z<CR>`](https://vimdoc.sourceforge.net/htmldoc/scroll.html#z%3CCR%3E)                                                      | ❌️    |        |                
+| [`zt`](https://vimdoc.sourceforge.net/htmldoc/scroll.html#zt)                                                         | ❌️    |        |                
+| [`zz`](https://vimdoc.sourceforge.net/htmldoc/scroll.html#zz)                                                         | ❌️    |        |                
                  
