@@ -78,7 +78,7 @@ You can do so by pressing `fn` while doing a move. This is useful when you're in
 | `ct`                                                               | ✅️    | ❌️     |                                                  | `W`, `<C-Right>`                            | ✅️    |
 | `cW`                                                               | ❌️    | ❌️     |                                                  | `w`, `<S-Right>`                            | ✅️    |
 | `cw`                                                               | ❌️    | ❌️     |                                                  | `X`                                         |       | ❌    
-| `D`, `d$`, `d<End>`                                                | ❌️    | ✅️️     |                                                  | `Y`                                         |       |     
+| [`D`](https://vimdoc.sourceforge.net/htmldoc/change.html#D), [`d$`](https://vimdoc.sourceforge.net/htmldoc/change.html#D), [`d<End>`](https://vimdoc.sourceforge.net/htmldoc/change.html#D)                              | ❌️    | ✅️️     |                                                  | `Y`                                         |       |     
 | `d0`                                                               |       | ✅️️     |                                                  | `y`                                         |       |         
 | `da'`                                                              | ❌️    | ✅️️     |
 | `da"`                                                              | ❌️    | ✅️️     |
@@ -117,31 +117,31 @@ You can do so by pressing `fn` while doing a move. This is useful when you're in
 | `dt`                                                               | ✅️    | ✅     |        
 | `dW`                                                               | ✅️    | ✅️     |        
 | `dw`                                                               | ✅️    | ✅️     |                 
-| `E`                                                                | ✅️️    |        |                     
-| `e`                                                                | ✅️️    |        |                     
-| `F`                                                                | ✅️    |        |                     
-| `f`                                                                | ✅️    |        |                     
-| `G`                                                                | ✅️    |        |             
-| `g_`                                                               | ✅️    |        |
-| `g^`                                                               |       |        |
-| `g$` , `g<End>`                                                    | ✅️    |        |            
-| `g0`, `g<Home>`                                                    |       |        |          
-| `gE`                                                               | ✅️️    |        |            
-| `ge`                                                               | ✅️️    |        |            
-| `gg`                                                               | ✅️    |        |            
-| `gI`                                                               | ❌️    |        |         
-| `gj`, `g<Down>`                                                    | ✅️    |        |          
-| `gk`, `g<Up>`                                                      | ✅️    |        |            
+| [`E`](https://vimdoc.sourceforge.net/htmldoc/motion.html#E)                                                          | ✅️️    |        |                     
+| [`e`](https://vimdoc.sourceforge.net/htmldoc/motion.html#e)                                                          | ✅️️    |        |                     
+| [`F`](https://vimdoc.sourceforge.net/htmldoc/motion.html#F)                                                          | ✅️    |        |                     
+| [`f`](https://vimdoc.sourceforge.net/htmldoc/motion.html#f)                                                          | ✅️    |        |                     
+| [`G`](https://vimdoc.sourceforge.net/htmldoc/motion.html#G)                                                          | ✅️    |        |             
+| [`g_`](https://vimdoc.sourceforge.net/htmldoc/motion.html#g_)                                                         | ✅️    |        |
+| [`g^`](https://vimdoc.sourceforge.net/htmldoc/motion.html#g%5E)                                                         |       |        |
+| [`g$`](https://vimdoc.sourceforge.net/htmldoc/motion.html#g$), [`g<End>`](https://vimdoc.sourceforge.net/htmldoc/motion.html#g%3CEnd%3E)                                         | ✅️    |        |            
+| [`g0`](https://vimdoc.sourceforge.net/htmldoc/motion.html#g0), [`g<Home>`](https://vimdoc.sourceforge.net/htmldoc/motion.html#g%3CHome%3E)                                        |       |        |          
+| [`gE`](https://vimdoc.sourceforge.net/htmldoc/motion.html#gE)                                                         | ✅️️    |        |            
+| [`ge`](https://vimdoc.sourceforge.net/htmldoc/motion.html#ge)                                                         | ✅️️    |        |            
+| [`gg`](https://vimdoc.sourceforge.net/htmldoc/motion.html#gg)                                                         | ✅️    |        |            
+| [`gI`](https://vimdoc.sourceforge.net/htmldoc/insert.html#gI)                                                         | ❌️    |        |         
+| [`gj`](https://vimdoc.sourceforge.net/htmldoc/motion.html#gj), [`g<Down>`](https://vimdoc.sourceforge.net/htmldoc/motion.html#g%3CDown%3E)                                        | ✅️    |        |          
+| [`gk`](https://vimdoc.sourceforge.net/htmldoc/motion.html#gk), [`g<Up>`](https://vimdoc.sourceforge.net/htmldoc/motion.html#g%3CUp%3E)                                          | ✅️    |        |            
 | `gx`                                                               |       |        |
-| `H`                                                                | ✅️    |        |
-| `h`, `<BS>`, `CTRL-H`, `<Left>`                                    | ✅️    |        |            
-| `I`                                                                | ❌️    | ❌     |    
-| `i`                                                                | ❌️    | ❌     |          
-| `J`                                                                | ❌    |        |            
-| `j`, `CTRL-J`, `CTRL-N`, `<Down>`                                  | ✅️    |        |            
-| `k`, `CTRL-P`, `<Up>`                                              | ✅️    |        |            
-| `L`                                                                | ✅    |        |
-| `l`, `<Right>`, `<Space>`                                          | ✅️    |        |
+| [`H`](https://vimdoc.sourceforge.net/htmldoc/motion.html#H)                                                          | ✅️    |        |
+| [`h`](https://vimdoc.sourceforge.net/htmldoc/motion.html#h), [`<BS>`](https://vimdoc.sourceforge.net/htmldoc/motion.html#%3CBS%3E), [`CTRL-H`](https://vimdoc.sourceforge.net/htmldoc/motion.html#CTRL-H), [`<Left>`](https://vimdoc.sourceforge.net/htmldoc/motion.html#%3CLeft%3E)           | ✅️    |        |            
+| [`I`](https://vimdoc.sourceforge.net/htmldoc/insert.html#I)                                                          | ❌️    | ❌     |    
+| [`i`](https://vimdoc.sourceforge.net/htmldoc/insert.html#i)                                                          | ❌️    | ❌     |          
+| [`J`](https://vimdoc.sourceforge.net/htmldoc/change.html#J)                                                          | ❌    |        |            
+| [`j`](https://vimdoc.sourceforge.net/htmldoc/motion.html#j), [`CTRL-J`](https://vimdoc.sourceforge.net/htmldoc/motion.html#CTRL-J), [`CTRL-N`](https://vimdoc.sourceforge.net/htmldoc/motion.html#CTRL-N), [`<Down>`](https://vimdoc.sourceforge.net/htmldoc/motion.html#%3CDown%3E)         | ✅️    |        |            
+| [`k`](https://vimdoc.sourceforge.net/htmldoc/motion.html#k), [`CTRL-P`](https://vimdoc.sourceforge.net/htmldoc/motion.html#CTRL-P), [`<Up>`](https://vimdoc.sourceforge.net/htmldoc/motion.html#%3CUp%3E)                           | ✅️    |        |            
+| [`L`](https://vimdoc.sourceforge.net/htmldoc/motion.html#L)                                                          | ✅    |        |
+| [`l`](https://vimdoc.sourceforge.net/htmldoc/motion.html#l), [`<Right>`](https://vimdoc.sourceforge.net/htmldoc/motion.html#%3CRight%3E), [`<Space>`](https://vimdoc.sourceforge.net/htmldoc/motion.html#%3CSpace%3E)                        | ✅️    |        |
 | [`M`](https://vimdoc.sourceforge.net/htmldoc/motion.html#M)                                                          |       |        |
 | [`N`](https://vimdoc.sourceforge.net/htmldoc/pattern.html#N)                                                          | ✅️    |        |               
 | [`n`](https://vimdoc.sourceforge.net/htmldoc/pattern.html#n)                                                          | ✅️    |        |               
@@ -151,14 +151,14 @@ You can do so by pressing `fn` while doing a move. This is useful when you're in
 | [`p`](https://vimdoc.sourceforge.net/htmldoc/change.html#p)                                                          | ❌️    | ❌     |                 
 | [`r`](https://vimdoc.sourceforge.net/htmldoc/change.html#r)                                                          | ✅️    | ❌     |                 
 | [`S`](http://vimdoc.sourceforge.net/htmldoc/change.html#S)                                                          | ❌️    | ❌     |                  
-| `s`, `cl`, `c<Right>`, `c<Space>`                                  | ✅️    | ❌     |                  
+| [`s`](https://vimdoc.sourceforge.net/htmldoc/change.html#s), [`cl`](https://vimdoc.sourceforge.net/htmldoc/change.html#s), `c<Right>`, `c<Space>`                      | ✅️    | ❌     |                  
 | [`T`](https://vimdoc.sourceforge.net/htmldoc/motion.html#T)                                                          | ✅️    |        |                 
 | [`t`](https://vimdoc.sourceforge.net/htmldoc/motion.html#t)                                                          | ✅️    |        |                 
 | [`u`](https://vimdoc.sourceforge.net/htmldoc/undo.html#u)                                                          | ✅️    | ❌     |                 
-| `W`, `<C-Right>`                                                   | ✅️️    |        |                 
-| `w`, `<S-Right>`                                                   | ✅️️    |        |                 
-| `X`, `dh`, `d<BS>`, `dCTRL-H`, `d<Left>`                           | ✅️    | ✅️     |                 
-| `x`, `<Del>`, `dl`, `d<Right>`, `d<Space>`                         | ✅️    | ✅️     |                  
+| [`W`](http://vimdoc.sourceforge.net/htmldoc/motion.html#W), [`<C-Right>`](https://vimdoc.sourceforge.net/htmldoc/motion.html#%3CC-Right%3E)                                       | ✅️️    |        |                 
+| [`w`](https://vimdoc.sourceforge.net/htmldoc/motion.html#w), [`<S-Right>`](https://vimdoc.sourceforge.net/htmldoc/motion.html#%3CS-Right%3E)                                       | ✅️️    |        |                 
+| [`X`](https://vimdoc.sourceforge.net/htmldoc/change.html#X), [`dh`](https://vimdoc.sourceforge.net/htmldoc/change.html#dh), `d<BS>`, `dCTRL-H`, `d<Left>`               | ✅️    | ✅️     |                 
+| [`x`](https://vimdoc.sourceforge.net/htmldoc/change.html#x), [`<Del>`](https://vimdoc.sourceforge.net/htmldoc/change.html#%3CDel%3E), [`dl`](https://vimdoc.sourceforge.net/htmldoc/change.html#dl), `d<Right>`, `d<Space>`       | ✅️    | ✅️     |                  
 | [`Y`](https://vimdoc.sourceforge.net/htmldoc/change.html#Y)                                                          | ✅️    |        |                  
 | `y$`, `y<End>`                                                     | ️❌️    |        |
 | `y0`                                                               | ️      |        |
