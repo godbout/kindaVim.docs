@@ -132,7 +132,7 @@ You can do so by pressing `fn` while doing a move. This is useful when you're in
 | [`gI`](https://vimdoc.sourceforge.net/htmldoc/insert.html#gI)                                                         | ❌️    |        |         
 | [`gj`](https://vimdoc.sourceforge.net/htmldoc/motion.html#gj), [`g<Down>`](https://vimdoc.sourceforge.net/htmldoc/motion.html#g%3CDown%3E)                                        | ✅️    |        |          
 | [`gk`](https://vimdoc.sourceforge.net/htmldoc/motion.html#gk), [`g<Up>`](https://vimdoc.sourceforge.net/htmldoc/motion.html#g%3CUp%3E)                                          | ✅️    |        |            
-| `gx`                                                               |       |        |
+| [`gx`](https://vimdoc.sourceforge.net/htmldoc/pi_netrw.html#netrw-gx)                                                         |       |        |
 | [`H`](https://vimdoc.sourceforge.net/htmldoc/motion.html#H)                                                          | ✅️    |        |
 | [`h`](https://vimdoc.sourceforge.net/htmldoc/motion.html#h), [`<BS>`](https://vimdoc.sourceforge.net/htmldoc/motion.html#%3CBS%3E), [`CTRL-H`](https://vimdoc.sourceforge.net/htmldoc/motion.html#CTRL-H), [`<Left>`](https://vimdoc.sourceforge.net/htmldoc/motion.html#%3CLeft%3E)           | ✅️    |        |            
 | [`I`](https://vimdoc.sourceforge.net/htmldoc/insert.html#I)                                                          | ❌️    | ❌     |    
