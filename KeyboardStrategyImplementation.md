@@ -8,8 +8,8 @@ Most of the time the fallback happens automatically, but some apps (usually Elec
 | ---:                                              | :---: | :---:  | :---:                                            | ---:                                       | :---: | :---:
 | [`_`](https://vimdoc.sourceforge.net/htmldoc/motion.html#_)                                         | ❌️    |        |                                                  | `_`                                        | ❌️    |          
 | [`-`](https://vimdoc.sourceforge.net/htmldoc/motion.html#-)                                         | ✅️️    |        |                                                  | `^`                                        |       |          
-| `?`                                               | ❌️    |        |                                                  | `+`, `<CR>`, `CTRL-M`, `<Enter>`           | ✅️    |          
-| `?<CR>`                                           | ❌️    |        |                                                  | `$`, `<End>`                               | ❌️    |          
+| [`?`](https://vimdoc.sourceforge.net/htmldoc/pattern.html#?)                                         | ❌️    |        |                                                  | `+`, `<CR>`, `CTRL-M`, `<Enter>`           | ✅️    |          
+| [`?<CR>`](https://vimdoc.sourceforge.net/htmldoc/pattern.html#?%3CCR%3E)                                     | ❌️    |        |                                                  | `$`, `<End>`                               | ❌️    |          
 | `/`                                               | ❌️    |        |                                                  | `0`                                        |       |          
 | `/<CR>`                                           | ❌️    |        |                                                  | `b`, `<S-Left>`                            | ✅️️    |          
 | `^`                                               |       |        |                                                  | `C`                                        |       |  ❌️
