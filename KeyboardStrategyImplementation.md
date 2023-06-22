@@ -4,93 +4,93 @@ This is the fallback mode.
 If the app you're on doesn't handle the macOS Accessibility properly, then kV will use different sets of key remapping (depending on whether you're on a Text Element, Non Text Element, TextField Element, TextArea Element, etc.) to impersonate a Vim move.
 Most of the time the fallback happens automatically, but some apps (usually Electron) falsely advertise their support of the macOS Accessibility, and need the Keyboard Strategy to be manually enforced through the Preferences, Families Pane.
 
-| Normal Mode                                       | count | repeat | &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; | Visual Mode                                | count | repeat | 
-| ---:                                              | :---: | :---:  | :---:                                            | ---:                                       | :---: | :---:
-| [`_`](https://vimdoc.sourceforge.net/htmldoc/motion.html#_)                                         | ❌️    |        |                                                  | `_`                                        | ❌️    |          
-| [`-`](https://vimdoc.sourceforge.net/htmldoc/motion.html#-)                                         | ✅️️    |        |                                                  | `^`                                        |       |          
-| [`?`](https://vimdoc.sourceforge.net/htmldoc/pattern.html#?)                                         | ❌️    |        |                                                  | `+`, `<CR>`, `CTRL-M`, `<Enter>`           | ✅️    |          
-| [`?<CR>`](https://vimdoc.sourceforge.net/htmldoc/pattern.html#?%3CCR%3E)                                     | ❌️    |        |                                                  | `$`, `<End>`                               | ❌️    |          
-| `/`                                               | ❌️    |        |                                                  | `0`                                        |       |          
-| `/<CR>`                                           | ❌️    |        |                                                  | `b`, `<S-Left>`                            | ✅️️    |          
-| `^`                                               |       |        |                                                  | `C`                                        |       |  ❌️
-| `+`, `<CR>`, `CTRL-M`, `<Enter>`                  | ✅️️    |        |                                                  | `CTRL-[`, `<Esc>`                          |       |
-| `<<`                                              | ✅️️    | ✅     |                                                  | `c`, `s`                                   |       |  ❌️      
-| `>>`                                              | ✅️️    | ✅     |                                                  | `D`                                        |       |  ❌️      
-| `$`, `<End>`                                      | ❌️    |        |                                                  | `d`, `<Del>`, `x`                          |       |  ❌️      
-| `0`                                               |       |        |                                                  | `e`                                        | ✅️️    |          
-| `A`                                               | ❌️    | ❌️     |                                                  | `G`                                        | ❌️    |         
-| `a`                                               | ❌️    | ❌️     |                                                  | `g^`                                       |       |         
-| `b`, `<S-Left>`                                   | ✅️️    |        |                                                  | `g_`                                       | ❌️    |
-| `C`, `c$`, `c<End>`                               | ❌️    | ❌️     |                                                  | `g$`, `g<End>`                             | ❌️    |         
-| `CTRL-B`, `<PageUp>`, `<S-Up>`                    | ❌️    |        |                                                  | `g0`, `g<Home>`                            |       |         
-| `CTRL-D`                                          | ❌️    |        |                                                  | `ge`                                       | ✅️️    |         
-| `CTRL-F`, `<PageDown>`, `<S-Down>`                | ❌️    |        |                                                  | `gg`                                       | ❌️    |         
-| `CTRL-R`                                          | ✅️️    |        |                                                  | `gI`                                       |       | ️
-| `CTRL-U`                                          | ❌️    |        |                                                  | `gj`, `g<Down>`                            | ✅️    |         
-| `c0`                                              |       | ❌️     |                                                  | `gk`, `g<Up>`                              | ✅️    |         
-| `cb`                                              | ✅️️    | ❌️     |                                                  | `h`, `<BS>`, `CTRL-H`, `<Left>`            | ✅️    |
-| `cc`                                              | ❌️    | ❌️     |                                                  | `iw`                                       | ❌️    |         
-| `ce`                                              | ✅️️    | ❌️     |                                                  | `j`, `CTRL-J`, `CTRL-N`, `<Down>`          | ✅️    |         
-| `cG`                                              | ❌️    | ❌️     |                                                  | `k`, `CTRL-P`, `<Up>`                      | ✅️    |         
-| `cg$`, `cg<End>`                                  | ❌️    | ❌️     |                                                  | `l`, `<Right>`, `<Space>`                  | ✅️    |         
-| `cg0`, `cg<Home>`                                 |       | ❌️     |                                                  | `P`                                        | ❌️    |         
-| `cgg`                                             | ❌️    | ❌️     |                                                  | `p`                                        | ❌️    |         
-| `ch`, `c<BS>`, `cCTRL-H`, `c<Left>`               | ✅️️    | ❌️     |                                                  | `R`                                        | ❌️    | ❌️        
-| `ciw`                                             | ❌️    | ❌️     |                                                  | `S`                                        | ❌️    | ❌️       
-| `cj`, `cCTRL-J`, `cCTRL-N`, `c<Down>`             | ❌️    | ❌️     |                                                  | `V`                                        | ❌️    |         
-| `ck`, `cCTRL-P`, `c<Up>`                          | ❌️    | ❌️     |                                                  | `v`                                        | ❌️    |         
-| `cw`                                              | ✅️️    | ❌️     |                                                  | `w`, `<S-Right>`                           | ✅️️    |         
-| `D`, `d$`, `d<End>`                               | ❌️    | ✅     |                                                  | `X`                                        |       | ❌️      
-| `d0`                                              |       | ✅     |                                                  | `Y`                                        |       |                                
-| `db`                                              | ✅️️    | ✅     |                                                  | `y`                                        |       |          
-| `dd`                                              | ❌️    | ✅     |                                                  
-| `de`                                              | ✅️️    | ✅     |                                      
-| `dG`                                              | ❌️    | ✅     |                                      
-| `dg$`, `dg<End>`                                  | ❌️    | ✅     |
-| `dg0`, `dg<Home>`                                 |       | ✅     |
-| `dgg`                                             | ❌️    | ✅     |                                      
-| `diw`                                             | ❌️    | ✅     |                                      
-| `dj`, `dCTRL-J`, `dCTRL-N`, `d<Down>`             | ❌️    | ✅     |                                      
-| `dk`, `dCTRL-P`, `d<Up>`                          | ❌️    | ✅     |                                      
-| `dw`                                              | ❌️    | ✅     |                                     
-| `e`                                               | ✅️️    |        |                                      
-| `G`                                               | ❌️    |        |                                      
-| `g_`                                              | ❌️    |        |                                        
-| `g^`                                              |       |        |                                      
-| `g$`, `g<End>`                                    | ❌️    |        |                                      
-| `g0`, `g<Home>`                                   |       |        |                                      
-| `ge`                                              | ✅️️    |        |
-| `gg`                                              | ❌️    |        |
-| `gI`                                              | ❌️    | ❌️     |
-| `gj`, `g<Down>`                                   | ✅️    |        |
-| `gk`, `g<Up>`                                     | ✅️    |        |
-| `h`, `<BS>`, `CTRL-H`, `<Left>`                   | ✅️    |        |
-| `I`                                               | ❌️    | ❌️     |    
-| `i`                                               | ❌️    | ❌️     |
-| `J`                                               | ❌️    |        |
-| `j`, `CTRL-J`, `CTRL-N`, `<Down>`                 | ✅    |        |
-| `k`, `CTRL-P`, `<Up>`                             | ✅    |        |
-| `l`, `<Right>`, `<Space>`                         | ✅    |        |
-| `N`                                               | ✅️    |        |
-| `n`                                               | ✅️    |        |
-| `O`                                               | ❌️    | ❌️     |
-| `o`                                               | ❌️    | ❌️     |
-| `P`                                               | ❌️    | ❌️     |
-| `p`                                               | ❌️    | ❌️     |
-| `r`                                               | ❌️    | ❌️     |
-| `S`                                               | ❌️    | ❌️     | ️
-| `s`, `cl`, `c<Right>`, `c<Space>`                 | ✅️️    | ❌️     |
-| `u`                                               | ✅️️    | ❌️     |
-| `w`, `<S-Right>`                                  | ✅️️    |        |
-| `X`, `dh`, `d<BS>`, `dCTRL-H`, `d<Left>`          | ✅️️    | ✅     |
-| `x`, `<Del>`, `dl`, `d<Right>`, `d<Space>`        | ✅️️    | ✅     |
-| `Y`                                               | ❌️    |        |
-| `y$`, `y<End>`                                    | ❌️    |        |
-| `y0`                                              |       |        |
-| `yg$`, `yg<End>`                                  | ❌️    |        |
-| `yg0`, `yg<Home>`                                 |   ️    |        |
-| `yh`, `y<BS>`, `y<Left>`, `yCTRL-H`               | ❌️    |        |
-| `yiw`                                             | ❌️    |        |
-| `yl`, `y<Right>`, `y<Space>`                      | ❌️    |        |
-| `yy`                                              | ❌️    |        |
-| `zz`                                              | ❌️    |        |
+| Normal Mode                                                    | count | repeat | &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; | Visual Mode                                | count | repeat | 
+| ---:                                                           | :---: | :---:  | :---:                                            | ---:                                       | :---: | :---:
+| [`_`](https://vimdoc.sourceforge.net/htmldoc/motion.html#_)                                                      | ❌️    |        |                                                  | `_`                                        | ❌️    |          
+| [`-`](https://vimdoc.sourceforge.net/htmldoc/motion.html#-)                                                      | ✅️️    |        |                                                  | `^`                                        |       |          
+| [`?`](https://vimdoc.sourceforge.net/htmldoc/pattern.html#?)                                                      | ❌️    |        |                                                  | `+`, `<CR>`, `CTRL-M`, `<Enter>`           | ✅️    |          
+| [`?<CR>`](https://vimdoc.sourceforge.net/htmldoc/pattern.html#?%3CCR%3E)                                                  | ❌️    |        |                                                  | `$`, `<End>`                               | ❌️    |          
+| [`/`](https://vimdoc.sourceforge.net/htmldoc/pattern.html#/)                                                      | ❌️    |        |                                                  | `0`                                        |       |          
+| [`/<CR>`](https://vimdoc.sourceforge.net/htmldoc/pattern.html#/%3CCR%3E)                                                  | ❌️    |        |                                                  | `b`, `<S-Left>`                            | ✅️️    |          
+| [`^`](https://vimdoc.sourceforge.net/htmldoc/motion.html#%5E)                                                      |       |        |                                                  | `C`                                        |       |  ❌️
+| [`+`](https://vimdoc.sourceforge.net/htmldoc/motion.html#+), [`<CR>`](https://vimdoc.sourceforge.net/htmldoc/motion.html#%3CCR%3E), [`CTRL-M`](https://vimdoc.sourceforge.net/htmldoc/motion.html#CTRL-M), [`<Enter>`](https://vimdoc.sourceforge.net/htmldoc/intro.html#%3CEnter%3E)       | ✅️️    |        |                                                  | `CTRL-[`, `<Esc>`                          |       |
+| [`<<`](https://vimdoc.sourceforge.net/htmldoc/change.html#%3C%3C)                                                     | ✅️️    | ✅     |                                                  | `c`, `s`                                   |       |  ❌️      
+| [`>>`](https://vimdoc.sourceforge.net/htmldoc/change.html#%3E%3E)                                                     | ✅️️    | ✅     |                                                  | `D`                                        |       |  ❌️      
+| [`$`](https://vimdoc.sourceforge.net/htmldoc/motion.html#$), [`<End>`](https://vimdoc.sourceforge.net/htmldoc/motion.html#%3CEnd%3E)                                       | ❌️    |        |                                                  | `d`, `<Del>`, `x`                          |       |  ❌️      
+| [`0`](https://vimdoc.sourceforge.net/htmldoc/motion.html#0)                                                      |       |        |                                                  | `e`                                        | ✅️️    |          
+| [`A`](https://vimdoc.sourceforge.net/htmldoc/insert.html#A)                                                      | ❌️    | ❌️     |                                                  | `G`                                        | ❌️    |         
+| [`a`](https://vimdoc.sourceforge.net/htmldoc/insert.html#a)                                                      | ❌️    | ❌️     |                                                  | `g^`                                       |       |         
+| [`b`](https://vimdoc.sourceforge.net/htmldoc/motion.html#b), [`<S-Left>`](https://vimdoc.sourceforge.net/htmldoc/motion.html#%3CS-Left%3E)                                    | ✅️️    |        |                                                  | `g_`                                       | ❌️    |
+| [`C`](https://vimdoc.sourceforge.net/htmldoc/change.html#C), [`c$`](https://vimdoc.sourceforge.net/htmldoc/change.html#C), `c<End>`                                | ❌️    | ❌️     |                                                  | `g$`, `g<End>`                             | ❌️    |         
+| [`CTRL-B`](https://vimdoc.sourceforge.net/htmldoc/scroll.html#CTRL-B), [`<PageUp>`](https://vimdoc.sourceforge.net/htmldoc/scroll.html#%3CPageUp%3E), [`<S-Up>`](https://vimdoc.sourceforge.net/htmldoc/scroll.html#%3CS-Up%3E)               | ❌️    |        |                                                  | `g0`, `g<Home>`                            |       |         
+| [`CTRL-D`](https://vimdoc.sourceforge.net/htmldoc/scroll.html#CTRL-D)                                                 | ❌️    |        |                                                  | `ge`                                       | ✅️️    |         
+| [`CTRL-F`](https://vimdoc.sourceforge.net/htmldoc/scroll.html#CTRL-F), [`<PageDown>`](https://vimdoc.sourceforge.net/htmldoc/scroll.html#%3CPageDown%3E), [`<S-Down>`](https://vimdoc.sourceforge.net/htmldoc/scroll.html#%3CS-Down%3E)           | ❌️    |        |                                                  | `gg`                                       | ❌️    |         
+| [`CTRL-R`](https://vimdoc.sourceforge.net/htmldoc/undo.html#CTRL-R)                                                 | ✅️️    |        |                                                  | `gI`                                       |       | ️
+| [`CTRL-U`](https://vimdoc.sourceforge.net/htmldoc/scroll.html#CTRL-U)                                                 | ❌️    |        |                                                  | `gj`, `g<Down>`                            | ✅️    |         
+| `c0`                                                           |       | ❌️     |                                                  | `gk`, `g<Up>`                              | ✅️    |         
+| `cb`                                                           | ✅️️    | ❌️     |                                                  | `h`, `<BS>`, `CTRL-H`, `<Left>`            | ✅️    |
+| [`cc`](https://vimdoc.sourceforge.net/htmldoc/change.html#cc)                                                     | ❌️    | ❌️     |                                                  | `iw`                                       | ❌️    |         
+| `ce`                                                           | ✅️️    | ❌️     |                                                  | `j`, `CTRL-J`, `CTRL-N`, `<Down>`          | ✅️    |         
+| `cG`                                                           | ❌️    | ❌️     |                                                  | `k`, `CTRL-P`, `<Up>`                      | ✅️    |         
+| `cg$`, `cg<End>`                                               | ❌️    | ❌️     |                                                  | `l`, `<Right>`, `<Space>`                  | ✅️    |         
+| `cg0`, `cg<Home>`                                              |       | ❌️     |                                                  | `P`                                        | ❌️    |         
+| `cgg`                                                          | ❌️    | ❌️     |                                                  | `p`                                        | ❌️    |         
+| `ch`, `c<BS>`, `cCTRL-H`, `c<Left>`                            | ✅️️    | ❌️     |                                                  | `R`                                        | ❌️    | ❌️        
+| `ciw`                                                          | ❌️    | ❌️     |                                                  | `S`                                        | ❌️    | ❌️       
+| `cj`, `cCTRL-J`, `cCTRL-N`, `c<Down>`                          | ❌️    | ❌️     |                                                  | `V`                                        | ❌️    |         
+| `ck`, `cCTRL-P`, `c<Up>`                                       | ❌️    | ❌️     |                                                  | `v`                                        | ❌️    |         
+| `cw`                                                           | ✅️️    | ❌️     |                                                  | `w`, `<S-Right>`                           | ✅️️    |         
+| [`D`](https://vimdoc.sourceforge.net/htmldoc/change.html#D), [`d$`](https://vimdoc.sourceforge.net/htmldoc/change.html#D), `d<End>`                                | ❌️    | ✅     |                                                  | `X`                                        |       | ❌️      
+| `d0`                                                           |       | ✅     |                                                  | `Y`                                        |       |                                
+| `db`                                                           | ✅️️    | ✅     |                                                  | `y`                                        |       |          
+| [`dd`](https://vimdoc.sourceforge.net/htmldoc/change.html#dd)                                                     | ❌️    | ✅     |                                                  
+| `de`                                                           | ✅️️    | ✅     |                                      
+| `dG`                                                           | ❌️    | ✅     |                                      
+| `dg$`, `dg<End>`                                               | ❌️    | ✅     |
+| `dg0`, `dg<Home>`                                              |       | ✅     |
+| `dgg`                                                          | ❌️    | ✅     |                                      
+| `diw`                                                          | ❌️    | ✅     |                                      
+| `dj`, `dCTRL-J`, `dCTRL-N`, `d<Down>`                          | ❌️    | ✅     |                                      
+| `dk`, `dCTRL-P`, `d<Up>`                                       | ❌️    | ✅     |                                      
+| `dw`                                                           | ❌️    | ✅     |                                     
+| [`e`](https://vimdoc.sourceforge.net/htmldoc/motion.html#e)                                                      | ✅️️    |        |                                      
+| [`G`](https://vimdoc.sourceforge.net/htmldoc/motion.html#G)                                                      | ❌️    |        |                                      
+| [`g_`](https://vimdoc.sourceforge.net/htmldoc/motion.html#g_)                                                     | ❌️    |        |                                        
+| [`g^`](https://vimdoc.sourceforge.net/htmldoc/motion.html#g%5E)                                                     |       |        |                                      
+| [`g$`](https://vimdoc.sourceforge.net/htmldoc/motion.html#g$), [`g<End>`](https://vimdoc.sourceforge.net/htmldoc/motion.html#g%3CEnd%3E)                                     | ❌️    |        |                                      
+| [`g0`](https://vimdoc.sourceforge.net/htmldoc/motion.html#g0), [`g<Home>`](https://vimdoc.sourceforge.net/htmldoc/motion.html#g%3CHome%3E)                                    |       |        |                                      
+| [`ge`](https://vimdoc.sourceforge.net/htmldoc/motion.html#ge)                                                     | ✅️️    |        |
+| [`gg`](https://vimdoc.sourceforge.net/htmldoc/motion.html#gg)                                                     | ❌️    |        |
+| [`gI`](https://vimdoc.sourceforge.net/htmldoc/insert.html#gI)                                                     | ❌️    | ❌️     |
+| [`gj`](https://vimdoc.sourceforge.net/htmldoc/motion.html#gj), [`g<Down>`](https://vimdoc.sourceforge.net/htmldoc/motion.html#g%3CDown%3E)                                    | ✅️    |        |
+| [`gk`](https://vimdoc.sourceforge.net/htmldoc/motion.html#gk), [`g<Up>`](https://vimdoc.sourceforge.net/htmldoc/motion.html#g%3CUp%3E)                                      | ✅️    |        |
+| [`h`](https://vimdoc.sourceforge.net/htmldoc/motion.html#h), [`<BS>`](https://vimdoc.sourceforge.net/htmldoc/motion.html#%3CBS%3E), [`CTRL-H`](https://vimdoc.sourceforge.net/htmldoc/motion.html#CTRL-H), [`<Left>`](https://vimdoc.sourceforge.net/htmldoc/motion.html#%3CLeft%3E)        | ✅️    |        |
+| [`I`](https://vimdoc.sourceforge.net/htmldoc/insert.html#I)                                                      | ❌️    | ❌️     |    
+| [`i`](https://vimdoc.sourceforge.net/htmldoc/insert.html#i)                                                      | ❌️    | ❌️     |
+| [`J`](https://vimdoc.sourceforge.net/htmldoc/change.html#J)                                                      | ❌️    |        |
+| [`j`](https://vimdoc.sourceforge.net/htmldoc/motion.html#j), [`CTRL-J`](https://vimdoc.sourceforge.net/htmldoc/motion.html#CTRL-J), [`CTRL-N`](https://vimdoc.sourceforge.net/htmldoc/motion.html#CTRL-N), [`<Down>`](https://vimdoc.sourceforge.net/htmldoc/motion.html#%3CDown%3E)     | ✅    |        |
+| [`k`](https://vimdoc.sourceforge.net/htmldoc/motion.html#k), [`CTRL-P`](https://vimdoc.sourceforge.net/htmldoc/motion.html#CTRL-P), [`<Up>`](https://vimdoc.sourceforge.net/htmldoc/motion.html#%3CUp%3E)                       | ✅    |        |
+| [`l`](https://vimdoc.sourceforge.net/htmldoc/motion.html#l), [`<Right>`](https://vimdoc.sourceforge.net/htmldoc/motion.html#%3CRight%3E), [`<Space>`](https://vimdoc.sourceforge.net/htmldoc/motion.html#%3CSpace%3E)                    | ✅    |        |
+| [`N`](https://vimdoc.sourceforge.net/htmldoc/pattern.html#N)                                                      | ✅️    |        |
+| [`n`](https://vimdoc.sourceforge.net/htmldoc/pattern.html#n)                                                      | ✅️    |        |
+| [`O`](https://vimdoc.sourceforge.net/htmldoc/insert.html#O)                                                      | ❌️    | ❌️     |
+| [`o`](https://vimdoc.sourceforge.net/htmldoc/insert.html#o)                                                      | ❌️    | ❌️     |
+| [`P`](https://vimdoc.sourceforge.net/htmldoc/change.html#P)                                                      | ❌️    | ❌️     |
+| [`p`](https://vimdoc.sourceforge.net/htmldoc/change.html#p)                                                      | ❌️    | ❌️     |
+| [`r`](https://vimdoc.sourceforge.net/htmldoc/change.html#r)                                                      | ❌️    | ❌️     |
+| [`S`](https://vimdoc.sourceforge.net/htmldoc/change.html#S)                                                      | ❌️    | ❌️     | ️
+| [`s`](https://vimdoc.sourceforge.net/htmldoc/change.html#s), [`cl`](https://vimdoc.sourceforge.net/htmldoc/change.html#s), `c<Right>`, `c<Space>`                  | ✅️️    | ❌️     |
+| [`u`](https://vimdoc.sourceforge.net/htmldoc/undo.html#u)                                                      | ✅️️    | ❌️     |
+| [`w`](https://vimdoc.sourceforge.net/htmldoc/motion.html#w), [`<S-Right>`](https://vimdoc.sourceforge.net/htmldoc/motion.html#%3CS-Right%3E)                                   | ✅️️    |        |
+| [`X`](https://vimdoc.sourceforge.net/htmldoc/change.html#X), [`dh`](https://vimdoc.sourceforge.net/htmldoc/change.html#dh), `d<BS>`, `dCTRL-H`, `d<Left>`           | ✅️️    | ✅     |
+| [`x`](https://vimdoc.sourceforge.net/htmldoc/change.html#x), [`<Del>`](https://vimdoc.sourceforge.net/htmldoc/change.html#%3CDel%3E), [`dl`](https://vimdoc.sourceforge.net/htmldoc/change.html#dl), `d<Right>`, `d<Space>`   | ✅️️    | ✅     |
+| [`Y`](https://vimdoc.sourceforge.net/htmldoc/change.html#Y)                                                      | ❌️    |        |
+| `y$`, `y<End>`                                                 | ❌️    |        |
+| `y0`                                                           |       |        |
+| `yg$`, `yg<End>`                                               | ❌️    |        |
+| `yg0`, `yg<Home>`                                              |   ️    |        |
+| `yh`, `y<BS>`, `y<Left>`, `yCTRL-H`                            | ❌️    |        |
+| `yiw`                                                          | ❌️    |        |
+| `yl`, `y<Right>`, `y<Space>`                                   | ❌️    |        |
+| [`yy`](https://vimdoc.sourceforge.net/htmldoc/change.html#yy)                                                     | ❌️    |        |
+| [`zz`](https://vimdoc.sourceforge.net/htmldoc/scroll.html#zz)                                                     | ❌️    |        |
