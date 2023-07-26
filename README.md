@@ -73,6 +73,7 @@ Testing the Vim moves when using the macOS Accessibility requires building an ex
 * [VimMode.spoon](https://github.com/dbalatero/VimMode.spoon) (open source, free)
 * [SketchyVim](https://github.com/FelixKratz/SketchyVim) (open source, free)
 * [ti-vim](https://vim.tonisives.com) (closed source, one time purchase)
+* [ShadowVim](https://github.com/mickael-menu/ShadowVim) (open source, free, for Xcode)
 
 # Roadmap
 
