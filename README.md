@@ -26,7 +26,8 @@ So if you're like me and spend your mornings reading, swimming in the open sea o
 
 # Current Vim Implementation
 
-Note: if you find that you're missing a motion, command, a count support, or a repeat, just make a [request](https://github.com/godbout/kindaVim.docs/issues/139).
+> **Note**  
+> If you find that you're missing a motion, command, a count support, or a repeat, just make a [request](https://github.com/godbout/kindaVim.docs/issues/139).
 
 ## Motions
 
