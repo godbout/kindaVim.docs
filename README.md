@@ -52,14 +52,10 @@ Make a [request](https://github.com/godbout/kindaVim.docs/issues/139).
 
 # APIs
 
-kindaVim sends [Distributed Notifications](https://developer.apple.com/documentation/foundation/distributednotificationcenter) to macOS when the Vim Mode changes, so that you can hook an external tool like [BetterTouchTool](https://www.google.com/search?q=bettertouchtool) or [Hammerspoon](https://www.hammerspoon.org) and respond to those changes.
-The Notifications Names should be self-explanatory:
-* kindaVimDidEnterInsertMode
-* kindaVimDidExitInsertMode
-* kindaVimDidEnterNormalMode
-* kindaVimDidExitNormalMode
-* kindaVimDidEnterVisualMode
-* kindaVimDidExitVisualMode
+kindaVim writes the current environment information in a `json` file at `~/Library/Application\ Support/kindaVim/environment.json`.
+
+You can be notified of changes in the file with tools like [watchman](https://github.com/facebook/watchman) and directly read the environment state with tools like [jq](https://github.com/jqlang/jq).
+With that information you could for example remap keys differently depending on kindaVim's Mode with tools like [Hammerspoon](https://github.com/Hammerspoon/hammerspoon) or [BetterTouchTool](https://folivora.ai).
 
 # Sync your Preferences
 
