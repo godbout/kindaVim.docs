@@ -60,7 +60,9 @@ With that information you could for example remap keys differently depending on 
 # Sync your Preferences
 
 Currently the Preferences are a plist file located at `~/Library/Preferences/mo.com.sleeplessmind.kindaVim.plist`.
-You can add it to your [dotfiles](https://dotfiles.github.io), or use a tool like [Mackup](https://github.com/lra/mackup) to keep the Preferences in sync between your computers. (Mackup explicitely supports kindaVim.) 
+You can add it to your [dotfiles](https://dotfiles.github.io), or simply copy paste the file to your new computers.
+
+P.S.: for security reasons Apple is now blocking the use of symlinks for App Preferences since macOS Ventura, so you cannot use anymore tools like [Mackup](https://github.com/lra/mackup) to keep your Preferences synced. You can currently only paste and replace files manually.
 
 # Feedback
 
