@@ -1,6 +1,6 @@
 <div align="center">
     <img src="https://github.com/user-attachments/assets/1ac9c862-52cc-48dc-8e10-1891410a4a0c">
-    <h1>kindaVim brings Vim moves to macOS Input Fields and UI Elements.</h1>
+    <h1>kindaVim brings Vim motions to macOS Text Fields, Text Areas, Dropdowns, Lists, Menus... 🥱️</h1>
 </div>
 
 ![awesome stuff happening in there](https://raw.githubusercontent.com/godbout/kindaVim.theapp/master/assets/gif.gif "hehe")
