@@ -371,6 +371,11 @@ P.S.: for security reasons Apple is now blocking the use of symlinks for App Pre
 
 Testing the Vim moves when using the macOS Accessibility requires building an external app. This app, as well as the tests of each move in the context of the Accessibility Strategy, are open source and available here: [AccessibilityStrategyTestApp](https://github.com/godbout/AccessibilityStrategyTestApp)
 
+# Roadmap
+
+* adding new motions
+* adding new apps to The Wizard
+
 # Alternatives
 
 * [Karabiner-Elements](https://karabiner-elements.pqrs.org) (open source, free)
@@ -378,11 +383,6 @@ Testing the Vim moves when using the macOS Accessibility requires building an ex
 * [SketchyVim](https://github.com/FelixKratz/SketchyVim) (open source, free)
 * [ti-vim](https://vim.tonisives.com) (closed source, one time purchase)
 * [ShadowVim](https://github.com/mickael-menu/ShadowVim) (open source, free, for Xcode)
-
-# Roadmap
-
-* adding new motions
-* adding new apps to The Wizard
 
 # Acknowledgments
 
