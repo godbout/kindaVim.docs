@@ -1,5 +1,5 @@
 <div align="center">
-    <img src="https://github.com/godbout/kindaVim.theapp/blob/master/assets/icon.png">
+    <img src="https://github.com/user-attachments/assets/1ac9c862-52cc-48dc-8e10-1891410a4a0c">
     <h1>kindaVim brings Vim moves to macOS Input Fields and UI Elements.</h1>
 </div>
 
