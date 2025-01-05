@@ -368,12 +368,6 @@ Testing the Vim moves when using the macOS Accessibility requires building an ex
 * adding new motions
 * adding new apps to The Wizard
 
-# Acknowledgments
-
-* [Sindre Sorhus](https://github.com/sindresorhus) for [LaunchAtLogin](https://github.com/sindresorhus/LaunchAtLogin) and [KeyboardShortcuts](https://github.com/sindresorhus/KeyboardShortcuts), that saved me countless of hours of headaches
-* [Sparkle](https://sparkle-project.org) for the Sofware Updater. this is great shit.
-* [Clipy](https://github.com/Clipy) for [Sauce](https://github.com/Clipy/Sauce), a magnificent Swift package to handle Keyboard Layouts headaches
-
 # Alternatives
 
 * [Karabiner-Elements](https://karabiner-elements.pqrs.org) (open source, free)
