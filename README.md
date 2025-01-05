@@ -359,10 +359,6 @@ You can add it to your [dotfiles](https://dotfiles.github.io), or simply copy pa
 
 P.S.: for security reasons Apple is now blocking the use of symlinks for App Preferences since macOS Ventura, so you cannot use anymore tools like [Mackup](https://github.com/lra/mackup) to keep your Preferences synced. You can currently only paste and replace files manually.
 
-# Feedback
-
-* whether you need a missing move, want to report a bug or ask for a feature, just [open an issue](https://github.com/godbout/kindaVim.theapp/issues/new).
-
 # AccessibilityStrategyTestApp
 
 Testing the Vim moves when using the macOS Accessibility requires building an external app. This app, as well as the tests of each move in the context of the Accessibility Strategy, are open source and available here: [AccessibilityStrategyTestApp](https://github.com/godbout/AccessibilityStrategyTestApp)
