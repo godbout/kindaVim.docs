@@ -19,8 +19,7 @@ Thanks Apple.
 
 # License
 
-Unlimited trial.
-The trial is: without a coffee a month kindaVim sleeps in the mornings. (It will scold you from the Menu Bar when you'll try to use it.)
+Without a coffee a month kindaVim sleeps in the mornings. (It will scold you from the Menu Bar when you'll try to use it.)
 You're still able to use it fully-featured the afternoons. (Until 5am the next day. Those are long afternoons, yes.)
 So if you're like me and spend your mornings reading, swimming in the open sea or climbing rocks, then kV is basically free.
 
