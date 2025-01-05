@@ -343,7 +343,7 @@ Most of the time the fallback happens automatically, but some apps (usually Elec
 
 ## Missing something?
 
-Make a [request](https://github.com/godbout/kindaVim.docs/issues/139).
+Support for an app? a motion? a dot or a repeat? Make a [request](https://github.com/godbout/kindaVim.docs/issues/139).
 
 # APIs
 
