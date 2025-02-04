@@ -341,10 +341,6 @@ Most of the time the fallback happens automatically, but some apps (usually Elec
 | [`gt`](https://vimdoc.sourceforge.net/htmldoc/tabpage.html#gt)       | ❌️
 | [`ZZ`](https://vimdoc.sourceforge.net/htmldoc/editing.html#ZZ)       |
 
-## Missing something?
-
-Support for an app? a motion? a dot or a repeat? Make a [request](https://github.com/godbout/kindaVim.docs/issues/139).
-
 # APIs
 
 kindaVim writes the current environment information in a `json` file at `~/Library/Application\ Support/kindaVim/environment.json`.
