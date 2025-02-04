@@ -17,7 +17,7 @@ Because Vim moves anywhere is fucking cool.
 And also kV makes using the keyboard more consistent on the whole macOS, where sometimes CTRL-P/CTRL-N go up/down lists, but sometimes it doesn't.
 Thanks Apple.
 
-# License
+# The License
 
 Without a coffee a month kindaVim sleeps in the mornings. (It will scold you from the Menu Bar when you'll try to use it.)
 You're still able to use it fully-featured the afternoons. (Until 5am the next day. Those are long afternoons, yes.)
@@ -359,16 +359,16 @@ You can add it to your [dotfiles](https://dotfiles.github.io), or simply copy pa
 
 P.S.: for security reasons Apple is now blocking the use of symlinks for App Preferences since macOS Ventura, so you cannot use anymore tools like [Mackup](https://github.com/lra/mackup) to keep your Preferences synced. You can currently only paste and replace files manually.
 
-# AccessibilityStrategyTestApp
+# The AccessibilityStrategyTestApp
 
 Testing the Vim moves when using the macOS Accessibility requires building an external app. This app, as well as the tests of each move in the context of the Accessibility Strategy, are open source and available here: [AccessibilityStrategyTestApp](https://github.com/godbout/AccessibilityStrategyTestApp)
 
-# Roadmap
+# The Roadmap
 
 * adding new motions
 * adding new apps to The Wizard
 
-# Alternatives
+# The Alternatives
 
 * [Karabiner-Elements](https://karabiner-elements.pqrs.org) (open source, free)
 * [VimMode.spoon](https://github.com/dbalatero/VimMode.spoon) (open source, free)
